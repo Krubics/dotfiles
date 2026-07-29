@@ -1,0 +1,54 @@
+adjust-cell-height = 10%
+background-blur-radius = 60
+background-opacity = 0.75
+background-blur-radius = 20
+bold-is-bright = false
+cursor-style = bar
+confirm-close-surface = false
+font-family = JetBrainsMono Nerd Font
+font-size = 12
+gtk-single-instance = true
+mouse-hide-while-typing = true
+quick-terminal-position = center
+shell-integration = zsh
+shell-integration-features = cursor,sudo
+term = xterm-256color
+title = GhosTTY
+unfocused-split-opacity = 0.5
+wait-after-command = false
+window-height = 32
+window-save-state = always
+window-theme = dark
+window-width = 110
+
+theme=matugen
+
+# new_split/close_surface/goto_split/toggle_maximize intentionally dropped -
+# all superseded by herdr's own pane split/close/focus/zoom.
+keybind = super+shift+O=toggle_command_palette
+
+keybind = alt+/=jump_to_prompt:1
+keybind = alt+shift+/=jump_to_prompt:-1
+keybind = ctrl+shift+c=copy_to_clipboard
+keybind = ctrl+shift+v=paste_from_clipboard
+
+# Freed for herdr's close-pane/close-tab chords:
+# ghostty defaults claim ctrl+shift+w (close_tab) and ctrl+shift+e (new_split).
+keybind = ctrl+shift+w=unbind
+keybind = ctrl+shift+e=unbind
+
+# Freed for herdr's previous_workspace: ghostty default binds this
+# to toggle_command_palette (super+shift+O above covers that already).
+keybind = ctrl+shift+p=unbind
+
+# Freed for herdr's close_pane: ghostty default binds this to quit,
+# which would close the whole terminal instead of just a pane.
+keybind = ctrl+shift+q=unbind
+
+# Freed for herdr's tab/workspace nav (shift+up/down/left/right below) -
+# these default to adjust_selection, which no-ops without an active
+# selection but still claims the chord instead of forwarding it.
+keybind = shift+arrow_up=unbind
+keybind = shift+arrow_down=unbind
+keybind = shift+arrow_left=unbind
+keybind = shift+arrow_right=unbind

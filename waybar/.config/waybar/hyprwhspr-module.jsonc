@@ -1,0 +1,12 @@
+{
+  "custom/hyprwhspr": {
+    "format": "{}",
+    "exec": "/home/krubics/.local/share/hyprwhspr/src/config/hyprland/hyprwhspr-tray.sh status",
+    "interval": 1,
+    "return-type": "json",
+    "exec-on-event": true,
+    "on-click": "/home/krubics/.local/share/hyprwhspr/src/config/hyprland/hyprwhspr-tray.sh record",
+    "on-click-right": "/home/krubics/.local/share/hyprwhspr/src/config/hyprland/hyprwhspr-tray.sh restart",
+    "tooltip": true
+  }
+}

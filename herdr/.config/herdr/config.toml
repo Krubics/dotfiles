@@ -1,0 +1,46 @@
+onboarding = false
+
+[ui]
+agent_panel_sort = "spaces"
+prompt_new_workspace_name = true
+
+[keys]
+split_vertical   = "ctrl+q"          # new pane
+new_tab          = "ctrl+w"
+new_workspace    = "ctrl+e"
+
+close_pane       = "ctrl+shift+q"
+close_tab        = "ctrl+shift+w"
+close_workspace  = "ctrl+shift+e"
+
+previous_workspace = "ctrl+shift+p"
+next_workspace      = "ctrl+shift+;"
+previous_tab        = "ctrl+shift+l"
+next_tab            = "ctrl+shift+'"
+
+zoom             = "alt+shift+f"
+settings         = "alt+shift+o"
+goto             = ["prefix+g", "ctrl+f"]
+
+focus_pane_up    = "ctrl+p"
+focus_pane_down  = "ctrl+;"
+focus_pane_left  = "ctrl+l"
+focus_pane_right = "ctrl+'"
+
+copy_mode        = "ctrl+shift+c"
+toggle_sidebar   = "ctrl+shift+["
+
+rename_tab       = "ctrl+r"
+rename_workspace = "ctrl+shift+r"
+
+[ui.toast]
+delivery = "herdr"
+delay_seconds = 1
+
+[ui.toast.herdr]
+position = "bottom-right"
+
+[ui.sidebar.agents.rows_by_agent]
+claude = [["state_icon", "agent", "state_text"], ["terminal_title_stripped"]]
+opencode = [["state_icon", "agent", "state_text"], ["terminal_title_stripped"]]
+omp = [["state_icon", "agent", "state_text"], ["terminal_title_stripped"]]

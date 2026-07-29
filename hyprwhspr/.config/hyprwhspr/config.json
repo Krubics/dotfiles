@@ -1,0 +1,12 @@
+{
+  "$schema": "https://raw.githubusercontent.com/goodroot/hyprwhspr/main/share/config.schema.json",
+  "keyboard_device_names": [
+    "AT Translated Set 2 keyboard",
+    "MX Keys Mini B Keyboard",
+    "xremap"
+  ],
+  "use_hypr_bindings": true,
+  "transcription_backend": "faster-whisper",
+  "faster_whisper_model": "large-v3-turbo",
+  "audio_ducking": true
+}

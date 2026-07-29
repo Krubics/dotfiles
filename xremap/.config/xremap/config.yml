@@ -1,0 +1,14 @@
+modmap:
+  - remap:
+      Alt_R: Super_R
+      Alt_L: Super_L
+      Super_L: Alt_L
+      Capslock: Ctrl_L
+      Ctrl_R: Alt_R
+keymap:
+  - remap:
+      Alt-P: Up
+      Alt-semicolon: Down
+      Alt-L: Left
+      Alt-apostrophe: Right
+

@@ -1,0 +1,7 @@
+{
+  "blink.cmp": { "branch": "main", "commit": "78336bc89ee5365633bcf754d93df01678b5c08f" },
+  "catppuccin": { "branch": "main", "commit": "058e83dc009e4dd62f30807054de9cc849699e27" },
+  "cyberdream.nvim": { "branch": "main", "commit": "b9cc88378b776f33d3ea77164716f37c3f13ef72" },
+  "friendly-snippets": { "branch": "main", "commit": "6cd7280adead7f586db6fccbd15d2cac7e2188b9" },
+  "lazy.nvim": { "branch": "main", "commit": "85c7ff3711b730b4030d03144f6db6375044ae82" }
+}

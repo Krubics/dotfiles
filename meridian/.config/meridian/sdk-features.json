@@ -1,0 +1,26 @@
+{
+  "opencode": {
+    "clientSystemPrompt": false
+  },
+  "openai": {
+    "clientSystemPrompt": false
+  },
+  "crush": {
+    "clientSystemPrompt": false
+  },
+  "forgecode": {
+    "clientSystemPrompt": false
+  },
+  "pi": {
+    "clientSystemPrompt": true,
+    "thinking": "enabled",
+    "thinkingPassthrough": true,
+    "codeSystemPrompt": true
+  },
+  "droid": {
+    "clientSystemPrompt": false
+  },
+  "passthrough": {
+    "clientSystemPrompt": false
+  }
+}
