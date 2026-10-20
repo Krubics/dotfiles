@@ -1,0 +1,39 @@
+# Session: 2026-07-24
+**Date:** 2026-07-24
+**Started:** 23:12
+**Last Updated:** 23:38
+**Project:** gtk-4.0
+**Branch:** unknown
+**Worktree:** /usr/share/gtk-4.0
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Where are my GTK4.0 theme files?
+- So I should change the gtk-4.0 css file to make changes right?
+- What colors names does gtk4-widget-factory use?
+- What css file does the gtk.css override?
+- How did you get this priority ladder?
+- How do you know my GTK-4 active theme?
+- I want to adw-gtk3 as a theme but it doesn't have a gtk4 folder within the theme
+- How to see accent color in the gtk inspector
+
+### Files Modified
+- /home/krubics/.config/gtk-4.0/settings.ini
+
+### Tools Used
+Bash, Read, Edit
+
+### Stats
+- Total user messages: 8
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

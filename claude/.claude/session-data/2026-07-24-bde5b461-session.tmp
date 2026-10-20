@@ -1,0 +1,29 @@
+# Session: 2026-07-24
+**Date:** 2026-07-24
+**Started:** 23:53
+**Last Updated:** 23:59
+**Project:** krubics
+**Branch:** unknown
+**Worktree:** /home/krubics
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Human: <system-reminder> As you answer the user's questions, you can use the following context: # claudeMd Codebase and user instructions are shown below. Be sure to adhere to these instructions. IMPO
+- Assistant: Yes, partially. Ghostty on Linux uses GTK4 as its windowing backend, so:  **What Ghostty inherits from GTK:** - Window chrome/decorations (title bar, borders) — styled by your active GTK4 t
+- Assistant: Good catch — you're right and I was too quick to dismiss it. Ghostty does inherit the terminal background color from GTK when you haven't explicitly set \`background\` in your Ghostty config.
+- Assistant: Don't set \`background\` to a color — use \`background-opacity\` instead:  \`\`\` background-opacity = 0.8 \`\`\`  Values range from \`0.0\` (fully transparent) to \`1.0\` (fully opaque). You'll need a c
+
+### Stats
+- Total user messages: 4
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

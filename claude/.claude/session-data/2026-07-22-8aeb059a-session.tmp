@@ -1,0 +1,37 @@
+# Session: 2026-07-22
+**Date:** 2026-07-22
+**Started:** 20:13
+**Last Updated:** 23:34
+**Project:** chrome
+**Branch:** unknown
+**Worktree:** /home/krubics/.config/zen/DefaultProfile/chrome
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Figure out why whenever I hover on my scrollbar on the right the scroll bar background turns black.
+- Can we make the color of the scrollbar more obvious and also lets add a left border for the sidebar when it expands
+- Yea I don't want the scrollbar to have a different background when I hover on it.
+- The left side border of the side bar is still white not grey
+- Can we make it darker?
+
+### Files Modified
+- /home/krubics/.config/zen/DefaultProfile/chrome/userContent.css
+- /home/krubics/.config/zen/DefaultProfile/chrome/userChrome.css
+
+### Tools Used
+Bash, Read, Write, Grep, Edit
+
+### Stats
+- Total user messages: 5
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

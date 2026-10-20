@@ -1,0 +1,35 @@
+#include "daemon/Daemon.hpp"
+#include <cstdio>
+#include <cstdlib>
+#include <filesystem>
+#include <stdexcept>
+#include <string>
+#include <string_view>
+
+int main(int argc, char **argv) {
+  // Redirect stdout and stderr to a log file so wallpaper events are
+  // visible without a wrapper process.
+  const char *state = std::getenv("XDG_STATE_HOME");
+  std::filesystem::path log_dir =
+      state ? std::filesystem::path(state)
+            : std::filesystem::path(std::getenv("HOME")) / ".local" / "state";
+  log_dir /= "hypr";
+  std::filesystem::create_directories(log_dir);
+  std::string log_path = (log_dir / "yin.log").string();
+  if (std::freopen(log_path.c_str(), "a", stdout) == nullptr ||
+      std::freopen(log_path.c_str(), "a", stderr) == nullptr) {
+    // Non-fatal: fall back to inheriting parent's stdout/stderr.
+  }
+
+  HardwareAccelerationBackend backend = Vaapi;
+  if (argc > 1) {
+    if (std::string_view(argv[1]) == "--use-cuda-copy") {
+      backend = CudaCopy;
+#ifndef ENABLE_CUDA
+      throw std::runtime_error("CUDA support has not been compiled in!");
+#endif
+    }
+  }
+  auto daemon = Daemon(backend);
+  daemon.run();
+}

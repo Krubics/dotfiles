@@ -1,0 +1,45 @@
+# Session: 2026-07-24
+**Date:** 2026-07-24
+**Started:** 14:30
+**Last Updated:** 15:29
+**Project:** krubics
+**Branch:** unknown
+**Worktree:** /home/krubics
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- **Diagnostics of notification system** — Identified that the "recording" notification the user saw was actually the OSD pill showing "Recording..." text, not a separate desktop notification
+- **Microphone disconnect debugging** — Found the root cause: ALSA stream on ALC274 analog input hangs on close, causing a 3-second thread hang followed by device disconnect
+- **Recording thread hang investigation** — Traced `[WARN] Recording thread did not exit cleanly after 3 seconds` to the raw hardware device not closing cleanly
+
+### Decisions Made
+- **Switch to PulseAudio layer** — Recommendation to change `audio_device_name` from raw `hw:X,Y` to `"pulse"` for more robust stream open/close handling that won't hang
+
+### Files Modified
+- `/home/krubics/.local/share/hyprwhspr/src/lib/src/desktop_notify.py` — Debug instrumentation added in prior session with `[NOTIFY-DEBUG]` trace logging
+- `/home/krubics/.config/hyprwhspr/config.json` — Needs update: change `audio_device_name` setting to use `"pulse"` instead of raw hardware device
+
+### Unresolved Issues
+- **Config change not yet applied** — Need to update config.json to set `audio_device_name` to `"pulse"` and test that:
+  - Recording no longer hangs on stop
+  - Auto-switching to Razer mic still works through PulseAudio layer
+  - No more microphone disconnect warnings during or after recording
+
+### Next Session Context
+- The real issue is at the ALSA/driver level, not the Python notification code
+- User has an ALC274 analog microphone with known stream-close hang behavior
+- PipeWire's PulseAudio compatibility layer (`pulse`) handles this more gracefully than direct hw device access
+- Prior debug instrumentation (`[NOTIFY-DEBUG]`) remains in desktop_notify.py and can be left or cleaned up
+<!-- LLM_SUMMARY:pre-compact:16:00 -->
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

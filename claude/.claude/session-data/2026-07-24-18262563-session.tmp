@@ -1,0 +1,41 @@
+# Session: 2026-07-24
+**Date:** 2026-07-24
+**Started:** 14:22
+**Last Updated:** 14:28
+**Project:** krubics
+**Branch:** unknown
+**Worktree:** /home/krubics
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Assistant: Good to know — the syntax will be different. Can you share a snippet of your \`hyprland.lua\` showing how you currently have any \`exec-once\` entries (or any other keyword directives)? The Lua
+- Assistant: Let me read the file first so I know the syntax before touching it. Facts for the gate:  1. **The current user request:** Add an \`exec-once\` autostart entry to \`hyprland.lua\` to start the u
+- Human: Why the hell am I getting the error: Import error: No module named 'pywhispercpp when I'm not even using it
+- Human: Yea it does
+- Assistant: The smoking gun is \`backends/__init__.py:14\`:  \`\`\`python from .pywhispercpp_backend import PywhispercppBackend \`\`\`  That's an unconditional top-level import — every time the \`backends\` pack
+- Assistant: Confirmed — no top-level pywhispercpp import in that file, so the module load isn't the issue.  Still need the full traceback to pinpoint it. Can you run whichever command triggers the erro
+- Human: Its the recording command SUPER + ALT + D
+- Assistant: That means the error is in the live daemon's transcription path, not a CLI command. Let me check the service journal for the full traceback when you press the hotkey: Wait — pywhispercpp IS
+- Assistant: You're right, sorry — I got sidetracked. The ImportError was from midnight's old crash; that's resolved.  The real problem is your mic disconnecting during recording. Let me check your audi
+- Assistant: Which mic do you actually want to use for dictation — the Razer headset or the internal laptop mic?  Human: [SUGGESTION MODE: Suggest what the user might naturally type next into Claude Cod
+
+### Files Modified
+- /home/krubics/.config/hypr/hyprland.lua
+
+### Tools Used
+Bash, Read, Edit, mcp__opencode__grep
+
+### Stats
+- Total user messages: 13
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

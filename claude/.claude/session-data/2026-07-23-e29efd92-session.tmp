@@ -1,0 +1,30 @@
+# Session: 2026-07-23
+**Date:** 2026-07-23
+**Started:** 12:16
+**Last Updated:** 12:16
+**Project:** krubics
+**Branch:** unknown
+**Worktree:** /home/krubics
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Human: <session> Why is not my GTK4-widget-factory not changing when I change the wallpaper which changes the matugen template for gtk? </session>  Write the title in the predominant language of the s
+- [structured-output-enforce] You MUST call the StructuredOutput tool to complete this request. Call this tool now.
+
+### Tools Used
+Bash, StructuredOutput
+
+### Stats
+- Total user messages: 2
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

@@ -1,0 +1,38 @@
+# Session: 2026-07-25
+**Date:** 2026-07-25
+**Started:** 01:06
+**Last Updated:** 01:23
+**Project:** matugen
+**Branch:** unknown
+**Worktree:** /home/krubics/.config/matugen
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Figure out why my Ghostty background is no longer transparent
+- Simplify what you changed
+- Now that makes the opacity of the entire window change I still want my text to be clear so you gotta find another way
+- [Request interrupted by user]
+- There is no field noopaqueregion in hyprland
+
+### Files Modified
+- /home/krubics/.config/hypr/hyprland.lua
+- /home/krubics/.config/hypr/scripts/ghostty-transparency.sh
+- /home/krubics/.config/gtk-4.0/gtk.css
+
+### Tools Used
+Bash, Read, Edit, Write
+
+### Stats
+- Total user messages: 5
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

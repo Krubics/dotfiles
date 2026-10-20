@@ -1,0 +1,11 @@
+drwxrwxr-x   9 krubics krubics  4096 Jul 30 20:59 hypr
+lrwxrwxrwx   1 krubics krubics    39 Jul 29 15:30 hyprwhspr -> ../dotfiles/hyprwhspr/.config/hyprwhspr
+drwxrwxr-x   4 krubics krubics  4096 Jul  7 20:56 swaync
+---
+/home/krubics/.config/swaync
+/home/krubics/.config/hyprwhspr
+/home/krubics/.config/hypr
+/home/krubics/.config/hypr/hyprland.lua
+/home/krubics/.config/hypr/hyprpaper.conf
+/home/krubics/.config/hypr/hyprlock.conf
+/home/krubics/.config/hypr/hyprland-gui.lua

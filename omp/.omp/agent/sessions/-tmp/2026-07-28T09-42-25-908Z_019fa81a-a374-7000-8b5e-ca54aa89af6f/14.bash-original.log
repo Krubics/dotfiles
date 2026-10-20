@@ -1,0 +1,274 @@
+--- claude learned ---
+total 8
+drwxrwxr-x 2 krubics krubics 4096 Jul  4 00:14 .
+drwxrwxr-x 4 krubics krubics 4096 Jul 25 23:08 ..
+--- claude skills top level ---
+total 16
+drwxrwxr-x   4 krubics krubics 4096 Jul 25 23:08 .
+drwx------  28 krubics krubics 4096 Jul 28 17:41 ..
+drwxrwxr-x 140 krubics krubics 4096 Jul 25 23:08 ecc
+drwxrwxr-x   2 krubics krubics 4096 Jul  4 00:14 learned
+--- agents dir ---
+total 24
+drwxrwxr-x   3 krubics krubics  4096 Jul 28 21:16 .
+drwxr-x--- 104 krubics krubics  4096 Jul 28 21:19 ..
+-rw-rw-r--   1 krubics krubics 10844 Jul 28 21:18 .skill-lock.json
+drwxrwxr-x  27 krubics krubics  4096 Jul 28 21:18 skills
+total 108
+drwxrwxr-x 27 krubics krubics 4096 Jul 28 21:18 .
+drwxrwxr-x  3 krubics krubics 4096 Jul 28 21:16 ..
+drwxrwxr-x  3 krubics krubics 4096 Jul 28 21:16 ask-matt
+drwxrwxr-x  3 krubics krubics 4096 Jul 28 21:16 batch-grill-me
+drwxrwxr-x  3 krubics krubics 4096 Jul 28 21:16 code-review
+drwxrwxr-x  3 krubics krubics 4096 Jul 28 21:16 codebase-design
+drwxrwxr-x  4 krubics krubics 4096 Jul 28 21:16 diagnosing-bugs
+drwxrwxr-x  3 krubics krubics 4096 Jul 28 21:16 domain-modeling
+drwxrwxr-x  2 krubics krubics 4096 Jul 28 21:16 find-skills
+drwxrwxr-x  3 krubics krubics 4096 Jul 28 21:16 grill-me
+drwxrwxr-x  3 krubics krubics 4096 Jul 28 21:16 grill-with-docs
+drwxrwxr-x  3 krubics krubics 4096 Jul 28 21:16 grilling
+drwxrwxr-x  3 krubics krubics 4096 Jul 28 21:16 handoff
+drwxrwxr-x 17 krubics krubics 4096 Jul 28 21:18 herdr
+drwxrwxr-x  3 krubics krubics 4096 Jul 28 21:16 implement
+drwxrwxr-x  3 krubics krubics 4096 Jul 28 21:16 improve-codebase-architecture
+drwxrwxr-x  3 krubics krubics 4096 Jul 28 21:16 prototype
+drwxrwxr-x  3 krubics krubics 4096 Jul 28 21:16 research
+drwxrwxr-x  3 krubics krubics 4096 Jul 28 21:16 resolving-merge-conflicts
+drwxrwxr-x  3 krubics krubics 4096 Jul 28 21:16 setup-matt-pocock-skills
+drwxrwxr-x  3 krubics krubics 4096 Jul 28 21:16 tdd
+drwxrwxr-x  3 krubics krubics 4096 Jul 28 21:16 teach
+drwxrwxr-x  3 krubics krubics 4096 Jul 28 21:16 to-spec
+drwxrwxr-x  3 krubics krubics 4096 Jul 28 21:16 to-tickets
+drwxrwxr-x  3 krubics krubics 4096 Jul 28 21:16 triage
+drwxrwxr-x  3 krubics krubics 4096 Jul 28 21:16 wayfinder
+drwxrwxr-x  3 krubics krubics 4096 Jul 28 21:16 writing-great-skills
+--- omp agent tree ---
+/home/krubics/.omp/agent
+/home/krubics/.omp/agent/commands
+/home/krubics/.omp/agent/models.db-shm
+/home/krubics/.omp/agent/agent.db
+/home/krubics/.omp/agent/models.db-wal
+/home/krubics/.omp/agent/skills
+/home/krubics/.omp/agent/last-changelog-version
+/home/krubics/.omp/agent/models.yml
+/home/krubics/.omp/agent/terminal-sessions
+/home/krubics/.omp/agent/terminal-sessions/pts-3
+/home/krubics/.omp/agent/terminal-sessions/pts-0
+/home/krubics/.omp/agent/terminal-sessions/pts-7
+/home/krubics/.omp/agent/terminal-sessions/pts-1
+/home/krubics/.omp/agent/terminal-sessions/pts-9
+/home/krubics/.omp/agent/terminal-sessions/pts-5
+/home/krubics/.omp/agent/terminal-sessions/pts-2
+/home/krubics/.omp/agent/terminal-sessions/pts-10
+/home/krubics/.omp/agent/terminal-sessions/pts-8
+/home/krubics/.omp/agent/terminal-sessions/pts-6
+/home/krubics/.omp/agent/terminal-sessions/pts-4
+/home/krubics/.omp/agent/models.db
+/home/krubics/.omp/agent/RULES.md
+/home/krubics/.omp/agent/AGENTS.md
+/home/krubics/.omp/agent/config.yml
+/home/krubics/.omp/agent/blobs
+/home/krubics/.omp/agent/blobs/4e71ae778f3be23991345ec534e24c333fcbd7e320ac8b9c523edc3e007c62ae.webp
+/home/krubics/.omp/agent/blobs/3bb1a3a8d64885eec4282d1de7d68ec24028de3a0b8c5ac636fb3141c024b443.webp
+/home/krubics/.omp/agent/blobs/aedb72d6b1d862d3344ee6f8776239630512454f839ced9c9a590ee152a30bdf.webp
+/home/krubics/.omp/agent/blobs/80d7c56cd54a359acbc92edce7435bdcb131b7901a97406587d085aa3b845e17
+/home/krubics/.omp/agent/blobs/25e1671355ab83235d36c242219f94998f7bab0405847317ce7e3d5312967ec4
+/home/krubics/.omp/agent/blobs/5372c6f806a752dbe5fe2f61a69f2d305c031e982bd8a0eaf5f63a1639e11dbd
+/home/krubics/.omp/agent/blobs/25e1671355ab83235d36c242219f94998f7bab0405847317ce7e3d5312967ec4.webp
+/home/krubics/.omp/agent/blobs/bc3958cde3dade3ef4959fb67e7b942a227f1cad1596b05beb8d9d4e5a8369bc
+/home/krubics/.omp/agent/blobs/d3bc5acdd566e627c5d59d87ea671abce23d4c4434e55338645b11f8aaddef89
+/home/krubics/.omp/agent/blobs/d9546589ce1230407061324ae1cdcba21fd5c26e0f195b09d72403f675045ded
+/home/krubics/.omp/agent/blobs/4bbaaa3822ff04aae5217c2f7853ea84797e41f9cf5e425ce510b45b28e9f533
+/home/krubics/.omp/agent/blobs/95bffc07b8bf88b6fcb8b818072b488eaa60096b8fe7f82b6e151f0c151561f2
+/home/krubics/.omp/agent/blobs/4a0d56fe1ad23ebb38a16291f585347f95f319e61de1aa2c97bf0bf3698e852a.webp
+/home/krubics/.omp/agent/blobs/32018ba8486b6b95e6816669db8e56eeb88d5430b2dcd8c023ebab2c8822a9e0.webp
+/home/krubics/.omp/agent/blobs/086583f05664d5d41f936ffd280cdcb5b2afe0cb69d863565eafde1114de1544.webp
+/home/krubics/.omp/agent/blobs/7e2f0ab2917476d68a2f348e1051b27b49f0352dea49419db9213e3f71dc71e2.webp
+/home/krubics/.omp/agent/blobs/95bffc07b8bf88b6fcb8b818072b488eaa60096b8fe7f82b6e151f0c151561f2.webp
+/home/krubics/.omp/agent/blobs/1438a2e89c327ae44379250f8e726b4f0fa560ec30f88aad77118608bef700c9
+/home/krubics/.omp/agent/blobs/32aab9fb0f87453f158f9f910c073c0145550165479cfc8896ab6509ffbe60dc
+/home/krubics/.omp/agent/blobs/dacdfb7b7539d82f46c6306c06502f8b3f7145d96a54c00f2efc9dbe02be7998.webp
+/home/krubics/.omp/agent/blobs/8727609b266d2d587d04a653c45f36897b45702228013a74d2493ee25f170c42.webp
+/home/krubics/.omp/agent/blobs/cefa40887476a83b621fb53d5919829747b3c378d8d2981a9cb3b15cdcc2e398.webp
+/home/krubics/.omp/agent/blobs/5513a93c2cfd7c09455ac32639656b211a64d6730a411eb7fddffafcdb2f0720
+/home/krubics/.omp/agent/blobs/a1b4f2920a0d53574dcf5e0acf47ebc9ecfd0f3851935ec5e7fe2264b81eac33
+/home/krubics/.omp/agent/blobs/278a9a1dcbdd99eec79e1df1e40586a8774a1d6116e7961df7f539e0950a00cb
+/home/krubics/.omp/agent/blobs/31c92a6ab8020eb040ea1cf7adf1a588a83ac17c5b00ee80652247b9443cb6dc
+/home/krubics/.omp/agent/blobs/2e47e7603ddbd6fe49c095282e8e762abed036036fd05d9a8f054bdff0190e11.webp
+/home/krubics/.omp/agent/blobs/bc3958cde3dade3ef4959fb67e7b942a227f1cad1596b05beb8d9d4e5a8369bc.webp
+/home/krubics/.omp/agent/blobs/77bf56f482101ddcf52e67ad2d1186de164cd1ce8e8899305ffe34c3754290f5
+/home/krubics/.omp/agent/blobs/1438a2e89c327ae44379250f8e726b4f0fa560ec30f88aad77118608bef700c9.webp
+/home/krubics/.omp/agent/blobs/4a0d56fe1ad23ebb38a16291f585347f95f319e61de1aa2c97bf0bf3698e852a
+/home/krubics/.omp/agent/blobs/4e71ae778f3be23991345ec534e24c333fcbd7e320ac8b9c523edc3e007c62ae
+/home/krubics/.omp/agent/blobs/dcfa4a35afde875e7d436e022952856f0732cedd9a06ceff55bb8571b0cc278a.webp
+/home/krubics/.omp/agent/blobs/6caef2410aabc9ada8fd930f94881473f2e9bc57668497d198883c0691ff8b44.webp
+/home/krubics/.omp/agent/blobs/a1b4f2920a0d53574dcf5e0acf47ebc9ecfd0f3851935ec5e7fe2264b81eac33.webp
+/home/krubics/.omp/agent/blobs/d3bc5acdd566e627c5d59d87ea671abce23d4c4434e55338645b11f8aaddef89.webp
+/home/krubics/.omp/agent/blobs/e69f154281d416480e050825724e72fe51d51004e7a3cf41da19072e4e184689
+/home/krubics/.omp/agent/blobs/9eb105aeece3ce6bd422d80ecf44e489154ca96f59ff2529dbcdb583f64f2367.webp
+/home/krubics/.omp/agent/blobs/d9546589ce1230407061324ae1cdcba21fd5c26e0f195b09d72403f675045ded.webp
+/home/krubics/.omp/agent/blobs/e882a9b6782ffca900c98638e64cbbebe36f63368536b0e5ca62e944724e9673
+/home/krubics/.omp/agent/blobs/4fe2dd54578c479cd1f04ad6d60db060d48f7350cb57625c390152e8acb1f585.webp
+/home/krubics/.omp/agent/blobs/54f60eee31e4574cd2bfe8103baddf27f81f176fc23fd0493686619020fbaad3.webp
+/home/krubics/.omp/agent/blobs/32aab9fb0f87453f158f9f910c073c0145550165479cfc8896ab6509ffbe60dc.webp
+/home/krubics/.omp/agent/blobs/487a5076131e5e05f14844a1b98b97ad017f106ecbf025029867d7a2aae1c4ea.webp
+/home/krubics/.omp/agent/blobs/2713d7953210459ee1cfc83c31177bedeef4f45c09a7fb2d8148e8acf6432a79
+/home/krubics/.omp/agent/blobs/e882a9b6782ffca900c98638e64cbbebe36f63368536b0e5ca62e944724e9673.webp
+/home/krubics/.omp/agent/blobs/4bbaaa3822ff04aae5217c2f7853ea84797e41f9cf5e425ce510b45b28e9f533.webp
+/home/krubics/.omp/agent/blobs/086583f05664d5d41f936ffd280cdcb5b2afe0cb69d863565eafde1114de1544
+/home/krubics/.omp/agent/blobs/aa83255e1991631529d9d0ceecfc820fe34d88b31ad4b86c78d408846c570f33
+/home/krubics/.omp/agent/blobs/fdb963161792af8e61c41c91b8e7e1dab88ce9faf45b0b61c9e9deae3e0b85df.webp
+/home/krubics/.omp/agent/blobs/ad9486b554ee6cd4b5263ec751437c5aa6a854e9b974e4e2578020b2fd35b207.webp
+/home/krubics/.omp/agent/blobs/061a2f0c4ca75b92871ef786fce816f4bb2d80eaf01d9e6d1c49775930ef6a85.webp
+/home/krubics/.omp/agent/blobs/593878b8d209231ea80d7c56485fd07a361a8c0c7169865665747a76d8c8dbdd
+/home/krubics/.omp/agent/blobs/f25d9271bc2bccd81002caee00a5c87ff72a3787256e113582e1bff7ea233834.webp
+/home/krubics/.omp/agent/blobs/31c92a6ab8020eb040ea1cf7adf1a588a83ac17c5b00ee80652247b9443cb6dc.webp
+/home/krubics/.omp/agent/blobs/550b29c1e13920bc8b43ae2db07beabdf788c186c3f7c98dd387ae05104730c3
+/home/krubics/.omp/agent/blobs/f25d9271bc2bccd81002caee00a5c87ff72a3787256e113582e1bff7ea233834
+/home/krubics/.omp/agent/blobs/05f6bcdff4921ef01c7e3fd6cdb578a6d2a52e8355a2f539cbe68db20cc9871b
+/home/krubics/.omp/agent/blobs/60196e0e6d18a30c5f6a7599a395a6d9a0dbc600fea8bb7bdce7f8b66af8f731
+/home/krubics/.omp/agent/blobs/05f6bcdff4921ef01c7e3fd6cdb578a6d2a52e8355a2f539cbe68db20cc9871b.webp
+/home/krubics/.omp/agent/blobs/ef9a46cfd69052af14b795dbe1768c176bb7f8c3ebdbe405d2a9f822ec2916b4
+/home/krubics/.omp/agent/blobs/487a5076131e5e05f14844a1b98b97ad017f106ecbf025029867d7a2aae1c4ea
+/home/krubics/.omp/agent/blobs/2713d7953210459ee1cfc83c31177bedeef4f45c09a7fb2d8148e8acf6432a79.webp
+/home/krubics/.omp/agent/blobs/ef9a46cfd69052af14b795dbe1768c176bb7f8c3ebdbe405d2a9f822ec2916b4.webp
+/home/krubics/.omp/agent/blobs/e69f154281d416480e050825724e72fe51d51004e7a3cf41da19072e4e184689.webp
+/home/krubics/.omp/agent/blobs/8727609b266d2d587d04a653c45f36897b45702228013a74d2493ee25f170c42
+/home/krubics/.omp/agent/blobs/7ce6acc488da3f2bb7504236cc1133d89e6d4103a825b3d98201962c7766a65c
+/home/krubics/.omp/agent/blobs/7e2f0ab2917476d68a2f348e1051b27b49f0352dea49419db9213e3f71dc71e2
+/home/krubics/.omp/agent/blobs/dcfa4a35afde875e7d436e022952856f0732cedd9a06ceff55bb8571b0cc278a
+/home/krubics/.omp/agent/blobs/5372c6f806a752dbe5fe2f61a69f2d305c031e982bd8a0eaf5f63a1639e11dbd.webp
+/home/krubics/.omp/agent/blobs/6caef2410aabc9ada8fd930f94881473f2e9bc57668497d198883c0691ff8b44
+/home/krubics/.omp/agent/blobs/ad9486b554ee6cd4b5263ec751437c5aa6a854e9b974e4e2578020b2fd35b207
+/home/krubics/.omp/agent/blobs/3bb1a3a8d64885eec4282d1de7d68ec24028de3a0b8c5ac636fb3141c024b443
+/home/krubics/.omp/agent/blobs/593878b8d209231ea80d7c56485fd07a361a8c0c7169865665747a76d8c8dbdd.webp
+/home/krubics/.omp/agent/blobs/5513a93c2cfd7c09455ac32639656b211a64d6730a411eb7fddffafcdb2f0720.webp
+/home/krubics/.omp/agent/blobs/9eb105aeece3ce6bd422d80ecf44e489154ca96f59ff2529dbcdb583f64f2367
+/home/krubics/.omp/agent/blobs/061a2f0c4ca75b92871ef786fce816f4bb2d80eaf01d9e6d1c49775930ef6a85
+/home/krubics/.omp/agent/blobs/32018ba8486b6b95e6816669db8e56eeb88d5430b2dcd8c023ebab2c8822a9e0
+/home/krubics/.omp/agent/blobs/33feae7361e17c52f13c7b86ed4fb9aa514d6cfb7f9cc770defeb13f1b659770.webp
+/home/krubics/.omp/agent/blobs/aa83255e1991631529d9d0ceecfc820fe34d88b31ad4b86c78d408846c570f33.webp
+/home/krubics/.omp/agent/blobs/2e47e7603ddbd6fe49c095282e8e762abed036036fd05d9a8f054bdff0190e11
+/home/krubics/.omp/agent/blobs/60196e0e6d18a30c5f6a7599a395a6d9a0dbc600fea8bb7bdce7f8b66af8f731.webp
+/home/krubics/.omp/agent/blobs/278a9a1dcbdd99eec79e1df1e40586a8774a1d6116e7961df7f539e0950a00cb.webp
+/home/krubics/.omp/agent/blobs/80d7c56cd54a359acbc92edce7435bdcb131b7901a97406587d085aa3b845e17.webp
+/home/krubics/.omp/agent/blobs/aedb72d6b1d862d3344ee6f8776239630512454f839ced9c9a590ee152a30bdf
+/home/krubics/.omp/agent/blobs/54f60eee31e4574cd2bfe8103baddf27f81f176fc23fd0493686619020fbaad3
+/home/krubics/.omp/agent/blobs/fa71cf1ebee983ee7b2aef823877b99e2787107c76677ddecc4e8a9d3137bdd4.webp
+/home/krubics/.omp/agent/blobs/550b29c1e13920bc8b43ae2db07beabdf788c186c3f7c98dd387ae05104730c3.webp
+/home/krubics/.omp/agent/blobs/dacdfb7b7539d82f46c6306c06502f8b3f7145d96a54c00f2efc9dbe02be7998
+/home/krubics/.omp/agent/blobs/33feae7361e17c52f13c7b86ed4fb9aa514d6cfb7f9cc770defeb13f1b659770
+/home/krubics/.omp/agent/blobs/fdb963161792af8e61c41c91b8e7e1dab88ce9faf45b0b61c9e9deae3e0b85df
+/home/krubics/.omp/agent/blobs/4fe2dd54578c479cd1f04ad6d60db060d48f7350cb57625c390152e8acb1f585
+/home/krubics/.omp/agent/blobs/77bf56f482101ddcf52e67ad2d1186de164cd1ce8e8899305ffe34c3754290f5.webp
+/home/krubics/.omp/agent/blobs/fa71cf1ebee983ee7b2aef823877b99e2787107c76677ddecc4e8a9d3137bdd4
+/home/krubics/.omp/agent/blobs/0018abd9959869b1a8650338a559a4caaec378ea60ee5b2ad3617713df6505e5.webp
+/home/krubics/.omp/agent/blobs/0018abd9959869b1a8650338a559a4caaec378ea60ee5b2ad3617713df6505e5
+/home/krubics/.omp/agent/blobs/cefa40887476a83b621fb53d5919829747b3c378d8d2981a9cb3b15cdcc2e398
+/home/krubics/.omp/agent/blobs/7ce6acc488da3f2bb7504236cc1133d89e6d4103a825b3d98201962c7766a65c.webp
+/home/krubics/.omp/agent/agents
+/home/krubics/.omp/agent/themes
+/home/krubics/.omp/agent/themes/slop.json
+/home/krubics/.omp/agent/agent.db-shm
+/home/krubics/.omp/agent/history.db
+/home/krubics/.omp/agent/history.db-wal
+/home/krubics/.omp/agent/sessions
+/home/krubics/.omp/agent/sessions/-.omp-agent-skills
+/home/krubics/.omp/agent/sessions/-.pi-agent-skills
+/home/krubics/.omp/agent/sessions/-.pi-agent-skills/2026-07-28T10-02-43-456Z_019fa82d-3780-7000-a591-c7f800c053c6.jsonl
+/home/krubics/.omp/agent/sessions/-PicksBT
+/home/krubics/.omp/agent/sessions/-PicksBT/2026-07-26T09-18-55-724Z_019f9db8-66ec-7000-983a-ce8111802234.jsonl
+/home/krubics/.omp/agent/sessions/-.omp-agent
+/home/krubics/.omp/agent/sessions/-.omp-agent/2026-07-25T15-23-28-877Z_019f99df-cced-7000-b3c7-c64078c6fa48.jsonl
+/home/krubics/.omp/agent/sessions/-.omp-agent/2026-07-19T16-04-46-718Z_019f7b1f-73fe-7000-bfca-70323f6fa82e.jsonl
+/home/krubics/.omp/agent/sessions/-.omp-agent/2026-07-19T16-05-34-211Z_019f7b20-2d83-7000-9c69-482daca03811.jsonl
+/home/krubics/.omp/agent/sessions/-.omp-agent/2026-07-26T06-53-47-918Z_019f9d33-880e-7000-84e5-2e27d1149717
+/home/krubics/.omp/agent/sessions/-.omp-agent/2026-07-26T06-53-47-918Z_019f9d33-880e-7000-84e5-2e27d1149717.jsonl
+/home/krubics/.omp/agent/sessions/-.omp-agent/2026-07-26T06-49-15-333Z_019f9d2f-5f45-7000-959f-e9cb1638d831.jsonl
+/home/krubics/.omp/agent/sessions/-.omp-agent/2026-07-19T15-55-43-766Z_019f7b17-2b16-7000-8da7-250b15c6d281.jsonl
+/home/krubics/.omp/agent/sessions/-.omp-agent-extensions
+/home/krubics/.omp/agent/sessions/-.omp-agent-extensions/2026-07-26T07-20-41-904Z_019f9d4c-28b0-7000-8b67-99370fa48761
+/home/krubics/.omp/agent/sessions/-.omp-agent-extensions/2026-07-26T07-20-41-904Z_019f9d4c-28b0-7000-8b67-99370fa48761.jsonl
+/home/krubics/.omp/agent/sessions/-.omp-ecc-schema
+/home/krubics/.omp/agent/sessions/-.omp-ecc-schema/2026-07-25T11-46-15-386Z_019f9918-ecda-7000-8dd5-e86ed7e1ed70.jsonl
+/home/krubics/.omp/agent/sessions/-.omp-plugins-node_modules
+/home/krubics/.omp/agent/sessions/-.omp-plugins-node_modules/2026-07-25T00-23-57-380Z_019f96a8-42c4-7000-ab5f-bd644dc149b8.jsonl
+/home/krubics/.omp/agent/sessions/----
+/home/krubics/.omp/agent/sessions/----/2026-07-26T13-14-51-232Z_019f9e90-65e0-7000-9880-cbc2aa921c77.jsonl
+/home/krubics/.omp/agent/sessions/----/2026-07-26T13-14-51-232Z_019f9e90-65e0-7000-9880-cbc2aa921c77
+/home/krubics/.omp/agent/sessions/-pikit-agent-extensions
+/home/krubics/.omp/agent/sessions/-.config-zen-DefaultProfile-chrome
+/home/krubics/.omp/agent/sessions/-.omp
+/home/krubics/.omp/agent/sessions/-.omp/2026-07-28T10-10-26-735Z_019fa834-492f-7000-93ed-54013287db1d.jsonl
+/home/krubics/.omp/agent/sessions/-tmp
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-28T06-04-02-106Z_019fa752-b0ba-7000-9731-cbf8c9220f58
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-26T10-39-16-928Z_019f9e01-f7c0-7000-b6f4-3b0be119a40a.jsonl
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-26T16-41-20-071Z_019f9f4d-6fc7-7000-aded-8d8734c710c8.jsonl
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-28T05-19-08-377Z_019fa729-9659-7000-ad46-b35a84f71e90.jsonl
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-25T06-39-53-987Z_019f9800-7283-7000-a2fb-29d328adcf9b
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-19T15-39-19-819Z_019f7b08-278b-7000-87b5-303ce7bffc66.jsonl
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-26T17-10-27-362Z_019f9f68-1922-7000-b0a5-bc6c4abb88ad.jsonl
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-27T01-04-18-665Z_019fa119-ece9-7000-9e06-9b587acb7e38
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-28T05-41-11-512Z_019fa73d-c6d8-7000-b8cb-5a2cfa98b5a2.jsonl
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-28T05-53-57-675Z_019fa749-77ab-7000-9cb3-9c28efb21666
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-28T05-48-38-235Z_019fa744-97db-7000-a645-326e0df4900b.jsonl
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-28T09-42-25-908Z_019fa81a-a374-7000-8b5e-ca54aa89af6f.jsonl
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-28T04-39-54-702Z_019fa705-ac4e-7000-947d-3f8103e7a959.jsonl
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-26T16-40-03-175Z_019f9f4c-4367-7000-95cb-d619ef44723e.jsonl
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-28T05-59-59-531Z_019fa74e-fd2b-7000-9361-211a87f8983b.jsonl
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-26T20-26-29-767Z_019fa01b-9407-7000-9b54-104efc14ad1a.jsonl
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-28T05-51-20-960Z_019fa747-1380-7000-81d5-d43e9305fce9.jsonl
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-28T09-42-25-908Z_019fa81a-a374-7000-8b5e-ca54aa89af6f
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-28T08-57-27-860Z_019fa7f1-7834-7000-939c-c7c6b8cb65f0
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-26T20-44-06-467Z_019fa02b-b3c3-7000-b66d-25ff0dae8a1d
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-28T06-05-33-264Z_019fa754-14d0-7000-9886-0edc63e1f3d8.jsonl
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-28T05-43-53-676Z_019fa740-404c-7000-b163-578406ab37bf.jsonl
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-26T21-00-13-613Z_019fa03a-75ad-7000-93a0-8d21c1c96ac3.jsonl
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-28T06-05-33-264Z_019fa754-14d0-7000-9886-0edc63e1f3d8
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-28T03-55-29-787Z_019fa6dd-027b-7000-8999-2b204be96e1b.jsonl
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-26T20-26-29-767Z_019fa01b-9407-7000-9b54-104efc14ad1a
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-26T17-50-23-752Z_019f9f8c-aa08-7000-b2b8-0f5e14c266ee.jsonl
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-26T16-41-20-071Z_019f9f4d-6fc7-7000-aded-8d8734c710c8
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-26T21-00-13-613Z_019fa03a-75ad-7000-93a0-8d21c1c96ac3
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-26T17-10-27-362Z_019f9f68-1922-7000-b0a5-bc6c4abb88ad
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-28T05-19-08-377Z_019fa729-9659-7000-ad46-b35a84f71e90
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-28T05-03-20-734Z_019fa71b-209e-7000-b2c3-449fea12aceb
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-26T17-50-23-752Z_019f9f8c-aa08-7000-b2b8-0f5e14c266ee
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-26T09-35-53-998Z_019f9dc7-f08e-7000-92a1-0db1545d24d8.jsonl
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-24T23-44-41-320Z_019f9684-4f68-7000-bca3-467e0078d5e4
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-24T23-36-43-632Z_019f967d-0570-7000-b624-f61c051cd9d8.jsonl
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-28T05-43-53-676Z_019fa740-404c-7000-b163-578406ab37bf
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-26T14-39-38-967Z_019f9ede-07d7-7000-a63c-082c9e8c5702.jsonl
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-26T15-15-07-387Z_019f9efe-81fb-7000-b520-43cc13f1bc76
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-28T05-53-57-675Z_019fa749-77ab-7000-9cb3-9c28efb21666.jsonl
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-27T01-12-04-219Z_019fa121-077b-7000-9496-a9981be29be8.jsonl
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-27T01-04-18-665Z_019fa119-ece9-7000-9e06-9b587acb7e38.jsonl
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-28T05-03-20-734Z_019fa71b-209e-7000-b2c3-449fea12aceb.jsonl
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-26T20-44-06-467Z_019fa02b-b3c3-7000-b66d-25ff0dae8a1d.jsonl
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-24T23-44-41-320Z_019f9684-4f68-7000-bca3-467e0078d5e4.jsonl
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-28T05-18-28-258Z_019fa728-f9a2-7000-815c-d8d18bebd6b3.jsonl
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-26T16-15-52-110Z_019f9f36-1f2e-7000-a88a-0095ee18731e.jsonl
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-27T01-12-04-219Z_019fa121-077b-7000-9496-a9981be29be8
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-28T09-49-17-875Z_019fa820-ecb3-7000-83dc-1fa9ef85efa2.jsonl
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-28T04-39-54-702Z_019fa705-ac4e-7000-947d-3f8103e7a959
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-26T10-24-45-252Z_019f9df4-aac4-7000-96ac-b8b46ca8727d
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-28T08-57-27-860Z_019fa7f1-7834-7000-939c-c7c6b8cb65f0.jsonl
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-26T15-15-07-387Z_019f9efe-81fb-7000-b520-43cc13f1bc76.jsonl
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-26T10-24-45-252Z_019f9df4-aac4-7000-96ac-b8b46ca8727d.jsonl
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-26T14-39-38-967Z_019f9ede-07d7-7000-a63c-082c9e8c5702
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-26T16-15-52-110Z_019f9f36-1f2e-7000-a88a-0095ee18731e
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-25T06-39-53-987Z_019f9800-7283-7000-a2fb-29d328adcf9b.jsonl
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-27T08-42-16-344Z_019fa2bd-3398-7000-b28e-f6541b34a678.jsonl
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-28T05-16-58-663Z_019fa727-9ba7-7000-b50a-bb50fea3c839.jsonl
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-26T10-39-16-928Z_019f9e01-f7c0-7000-b6f4-3b0be119a40a
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-28T09-49-17-875Z_019fa820-ecb3-7000-83dc-1fa9ef85efa2
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-28T03-55-29-787Z_019fa6dd-027b-7000-8999-2b204be96e1b
+/home/krubics/.omp/agent/sessions/-tmp/2026-07-28T06-04-02-106Z_019fa752-b0ba-7000-9731-cbf8c9220f58.jsonl
+/home/krubics/.omp/agent/history.db-shm
+/home/krubics/.omp/agent/agent.db-wal
+--- managed-skills content ---
+Error: /home/krubics/.omp/agent/managed-skills: No such file or directory (os error 2)
+--- codex skills ---
+Error: /home/krubics/.codex: No such file or directory (os error 2)
+--- omp config ---
+cat: /home/krubics/.omp/config.json: No such file or directory

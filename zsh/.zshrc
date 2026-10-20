@@ -86,6 +86,14 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# gtk4-layer-shell is installed to /usr/local (multiarch), off the default
+# GObject-introspection typelib search path. GI_TYPELIB_PATH is safe to set
+# globally (only affects gi typelib lookups). LD_PRELOAD/LD_LIBRARY_PATH are
+# NOT set here — they're injected only by the systemd override for the
+# hyprwhspr service daemon, so they don't pollute every shell-launched binary
+# (which broke iris and other non-GTK programs).
+export GI_TYPELIB_PATH="/usr/local/lib/x86_64-linux-gnu/girepository-1.0${GI_TYPELIB_PATH:+:$GI_TYPELIB_PATH}"
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -149,7 +157,6 @@ fi
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-alias ln='ln -T'
 
 # Iris Autocomplete
 eval "$(iris init zsh)"

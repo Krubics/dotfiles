@@ -1,0 +1,31 @@
+# Session: 2026-07-11
+**Date:** 2026-07-11
+**Started:** 02:11
+**Last Updated:** 02:29
+**Project:** krubics
+**Branch:** unknown
+**Worktree:** /home/krubics
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- hey
+- Ok so I need to you to update the pokeball on the waybar on different monitors differently. Remember Hyprland allows a workspace to only exist on 1 monitor. Now let's see an example, if workspace 1 on
+- <task-notification> <task-id>a4d1dec38e746df65</task-id> <tool-use-id>toolu_01PbpP2k3i9CL967gxSdAFra</tool-use-id> <output-file>/tmp/claude-1000/-home-krubics/b3fa1b14-5e77-43ce-8ad3-b9f7064c8637/task
+
+### Tools Used
+Agent, Read, Bash, ToolSearch, WebFetch, AskUserQuestion
+
+### Stats
+- Total user messages: 3
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

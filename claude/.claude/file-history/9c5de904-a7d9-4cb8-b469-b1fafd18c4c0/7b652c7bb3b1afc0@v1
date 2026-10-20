@@ -1,0 +1,41 @@
+[config]
+
+[templates.rofi]
+input_path = '~/.config/matugen/templates/rofi-colors.rasi'
+output_path = '~/.config/rofi/colors.rasi'
+
+[templates.ghostty]
+input_path = '~/.config/matugen/templates/ghostty.conf'
+output_path = '~/.config/ghostty/themes/matugen'
+post_hook = 'killall -SIGUSR2 ghostty'
+
+[templates.waybar]
+input_path = '~/.config/matugen/templates/waybar.css'
+output_path = '~/.config/waybar/style.css'
+
+[templates.gtk3]
+input_path = '~/.config/matugen/templates/gtk/gtk.css'
+output_path = '~/.local/share/themes/adw-gtk3/gtk-3.0/gtk.css'
+post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3'
+
+# GTK4: colors only. adw-gtk3 is GTK3-only; feeding its full GTK3 stylesheet
+# to GTK4 leaves plain GTK4 apps (gtk4-widget-factory) with a transparent
+# window. GTK4's built-in Adwaita/libadwaita draws the widgets; we only
+# recolor the named colors + paint the window background.
+[templates.gtk4]
+input_path = '~/.config/matugen/templates/gtk/colors-gtk4.css'
+output_path = '~/.config/gtk-4.0/colors.css'
+post_hook = '~/.config/matugen/scripts/gtk-themes-reload.sh'
+
+[templates.gtk4-overrides]
+input_path = '~/.config/matugen/templates/gtk/gtk4-overrides.css'
+output_path = '~/.config/gtk-4.0/gtk.css'
+
+[templates.qt5ct]
+input_path = '~/.config/matugen/templates/qt/qt5ct.conf'
+output_path = '~/.config/qt5ct/colors/matugen.conf'
+
+
+[templates.qt6ct]
+input_path = '~/.config/matugen/templates/qt/qt6ct.conf'
+output_path = '~/.config/qt6ct/colors/matugen.conf'

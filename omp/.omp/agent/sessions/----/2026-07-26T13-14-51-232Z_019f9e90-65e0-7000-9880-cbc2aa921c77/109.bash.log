@@ -1,0 +1,30 @@
+herdr 0.7.4
+---
+client:
+  version: 0.7.4
+  channel: stable
+  protocol: 16
+
+server:
+  status: running
+  version: 0.7.4
+  protocol: 16
+  compatible: yes
+  socket: /home/krubics/.config/herdr/herdr.sock
+
+update:
+  restart_needed: no
+---
+ ''Fatal internal error. Please consider filing a bug report at https://github.com/clap-rs/clap/issues
+ update readyproduct announcementproduct announcement previewevent src/app/agent_resume.rs:250herdr::app::agent_resumeagenterrsrc/app/agent_resume.rsevent src/app/agent_resume.rs:220event src/app/agent_resume.rs:267env key must not be emptyenv key must not contain NUL byteselvishpowershellzsh|--poll encountered PTY fd errorpoll encountered invalid PTY actor fdmacoslinuxx86_64aarch64 --remote-keybindings localserver--remote-keybindings must be 'local' or 'server'ssh-Tssh bridge stdin missingssh bridge stdout missingclientHERDR_CLIENT_SOCKET_PATHHERDR_RENDER_ENCODINGterminal-ansiHERDR_REATTACH_COMMANDHERDR_REMOTE_KEYBINDINGSHERDR_SOCKET_PATHremote server stop failed--remote-keybindings can only be specified oncemissing value for --remote-keybindings--remote can only be specified oncemissing value for --remote--remote-keybindings requires --remoteassetsdata did not match any variant of untagged enum RemoteAssetReffailed to create private herdr remote download directoryhttps://herdr.dev/latest.jsonHERDR_REMOTE_BINARYremote server status failed--retry3--connect-timeout10--max-time20failed to fetch update manifest
+# Check herdr.dev for new Herdr versions in the background.
+# Check herdr.dev for remote agent-detection manifest updates in the background.
+ErrorFatal internal error. Please consider filing a bug report at https://github.com/clap-rs/clap/issues -Command::get_arg_conflicts_with: The passed arg conflicts with an arg unknown to the cmdPrint help (see more with '--help')Print help (see a summary with '-h')versionPrint this message or the help of the given subcommand(s)subcommandCOMMANDcalled `Result::unwrap()` on an `Err` value
+Fatal internal error. Please consider filing a bug report at https://github.com/clap-rs/clap/issues
+Fatal internal error. Please consider filing a bug report at https://github.com/clap-rs/clap/issues  [=[=
+Fatal internal error. Please consider filing a bug report at https://github.com/clap-rs/clap/issuesCommand::get_arg_conflicts_with: The passed arg conflicts with an arg unknown to the cmd
+Home:   https://herdr.dev
+[>4;0mevent src/config/theme.rs:113herdr::config::themecolorsrc/config/theme.rsunknown color, defaulting to cyanThemeConfigauto_switchdark_namelight_namecustomCustomThemeColorsevent src/config/keybinds.rs:1030herdr::config::keybindssrc/config/keybinds.rsevent src/config/keybinds.rs:1041event src/config/keybinds.rs:1019config diagnostic+CommandKeybindTypeCommandKeybindConfigkeydescriptionwidthheightdata did not match any variant of untagged enum BindingConfignavigate reserved keysevent src/config/keybinds.rs:1290geminiagyclineamp--retry2--connect-timeout5--max-time15--max-filesizecurl stdout was not capturedagent-detectionevent src/detect/manifest_update.rs:182herdr::detect::manifest_updatesrc/detect/manifest_update.rsHERDR_AGENT_DETECTION_MANIFEST_CATALOG_URLhttps://herdr.dev/agent-detection/index.tomlevent src/detect/manifest_update.rs:357status.tomlevent src/detect/manifest_update.rs:426agent detection manifest committed but parent directory sync failedevent src/detect/manifest_update.rs:325://skipping unknown remote manifest agentversion must not be emptyManifestCatalogAgentRemoteStatuscached_versionattempted_versionlast_checked_unixlast_resultlast_errorManifestUpdateStatuslast_check_unixManifestCatalogAgentremoteevent src/detect/manifest_update.rs:249event src/detect/manifest_update.rs:270updatedagent detection manifest update failed for agentwhole_recentid = "amp"
+\(\)\ *built_files_files -/_absolute_command_paths_command_names -e_cmdstring_cmdambivalent_users_hosts_urlsFatal internal error. Please consider filing a bug report at https://github.com/clap-rs/clap/issues
+https://github.com/
+run `herdr update` outside herdr after detaching from the sessionself-update is disabled for Nix installs; update with `nix profile upgrade` or update the flake input that provides Herdrself-update is disabled for Nix installs; preview is only available for direct Herdr installsmise upgrade herdrself-update is disabled for mise installs; preview is only available for direct Herdr installsbrew update && brew upgrade herdrself-update is disabled for Homebrew installs; preview is only available for direct Herdr installsstablepreviewManifestReleaseMetadataannouncementevent src/update.rs:593sha256can't find binary directory.herdr-write-test--max-time120-odownloaded update checksum verifiedtargetsserverserverssession--retry3--connect-timeout1020failed to fetch update manifestevent src/update.rs:2175event src/update.rs:2172HERDR_ENV25https://formulae.brew.sh/api/formula/herdr.jsonfailed to fetch Homebrew formula JSONhttps://herdr.dev/latest.json/nix/storehttps://herdr.dev/preview.jsonusage: herdr update [--handoff]HERDR_SOCKET_PATHdefaultupdate:server:stopserver stopherdr updateupdate through NixHERDR_FAKE_UPDATE_NOTES_VERSIONdownloaded update temp file is missing

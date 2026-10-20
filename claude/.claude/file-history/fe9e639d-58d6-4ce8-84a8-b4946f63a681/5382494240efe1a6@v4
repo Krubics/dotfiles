@@ -1,0 +1,114 @@
+#!/usr/bin/env bash
+# Run fastfetch with a pokeget sprite as the logo, vertically and
+# horizontally centered against the system info column.
+set -euo pipefail
+
+# --- Mode switch ----------------------------------------------------------
+# true  -> always draw a random entry from FAVORITES below (args to this
+#          script are ignored)
+# false -> forward "$@" straight through to pokeget as-is
+USE_FAVORITES=false
+# ----------------------------------------------------------------------------
+
+# --- Favourites -------------------------------------------------------
+# Each entry is anything pokeget itself accepts: a name, "random", a
+# region, plus any flags (-s, -m, --shiny, --gmax, etc). Only used when
+# USE_FAVORITES=true above; one entry is picked at random per run.
+FAVORITES=(
+)
+# ------------------------------------------------------------------------
+
+# --- Sizing -----------------------------------------------------------
+# Width (terminal columns) used to horizontally center the sprite.
+# The info text starts right after the sprite's own right edge, not
+# at this width - so this only controls left/right centering, not
+# how close the text sits to the sprite.
+# Leave empty to default to the height of the whole fastfetch output
+# (in rows) each run, scaled by CHAR_ASPECT_RATIO below; set a fixed
+# number here instead if you want a constant width no matter which
+# pokemon is drawn - if a sprite is wider than this, it's left as-is
+# (uncentered).
+POKEMON_WIDTH=
+
+# Terminal character cells are taller than they are wide (commonly
+# ~2x), so N rows need roughly N * CHAR_ASPECT_RATIO columns to look
+# square. Only used to compute the default width above; tweak this to
+# match your terminal font if the result looks too narrow/wide.
+CHAR_ASPECT_RATIO=2.5
+
+# Visible columns to crop off the right edge of every sprite row
+# before any width/centering math runs, in case pokeget's own artwork
+# has more blank margin on the right than you want. 0 leaves the
+# sprite untouched.
+POKEMON_TRIM_RIGHT=0
+# ------------------------------------------------------------------------
+
+FASTFETCH_CONFIG="${POKEFETCH_CONFIG:-$HOME/.config/fastfetch/normal.jsonc}"
+
+sprite="$(mktemp)"
+trimmed="$(mktemp)"
+padded="$(mktemp)"
+trap 'rm -f "$sprite" "$trimmed" "$padded"' EXIT
+
+if $USE_FAVORITES && [[ ${#FAVORITES[@]} -gt 0 ]]; then
+    chosen="${FAVORITES[RANDOM % ${#FAVORITES[@]}]}"
+    read -r -a args <<< "$chosen"
+else
+    args=("random")
+fi
+
+pokeget --hide-name "${args[@]}" > "$sprite"
+
+# Crop POKEMON_TRIM_RIGHT visible columns off the right of every row,
+# skipping over ANSI color codes so escape sequences stay attached to
+# the character they color.
+perl -CSD -e '
+    my $trim = shift;
+    while (my $line = <STDIN>) {
+        chomp $line;
+        my @cols;
+        while ($line =~ /\G((?:\x1b\[[0-9;]*m)*[^\x1b])/gc) {
+            push @cols, $1;
+        }
+        splice(@cols, -$trim) if $trim > 0 && @cols;
+        print join("", @cols), "\n";
+    }
+' "$POKEMON_TRIM_RIGHT" < "$sprite" > "$trimmed"
+mv "$trimmed" "$sprite"
+
+sprite_lines=$(wc -l < "$sprite")
+sprite_width=$(sed 's/\x1b\[[0-9;]*m//g' "$sprite" | awk '{ print length }' | sort -n | tail -1)
+info_lines=$(fastfetch -c "$FASTFETCH_CONFIG" --logo none | wc -l)
+
+default_width=$(awk -v h="$info_lines" -v r="$CHAR_ASPECT_RATIO" 'BEGIN { printf "%d", h * r + 0.5 }')
+width="${POKEMON_WIDTH:-$default_width}"
+
+pad_top=$(( (info_lines - sprite_lines) / 2 ))
+if (( pad_top < 0 )); then
+    pad_top=0
+fi
+
+pad_left=$(( (width - sprite_width) / 2 ))
+if (( pad_left < 0 )); then
+    pad_left=0
+fi
+
+# Left-pad every line by the same amount (keeps the sprite's shape
+# intact) and right-pad each line individually so every line ends up
+# exactly $sprite_width visible columns wide - i.e. only up to the
+# sprite's own bounding box, so the info text starts right after the
+# sprite instead of at the wider centering column.
+awk -v padleft="$pad_left" -v spritewidth="$sprite_width" '
+{
+    stripped = $0
+    gsub(/\033\[[0-9;]*m/, "", stripped)
+    rightpad = spritewidth - length(stripped)
+    if (rightpad < 0) rightpad = 0
+    printf "%s%s%s\n", sprintf("%*s", padleft, ""), $0, sprintf("%*s", rightpad, "")
+}
+' "$sprite" > "$padded"
+
+fastfetch -c "$FASTFETCH_CONFIG" \
+    --logo-type file-raw \
+    --logo "$padded" \
+    --logo-padding-top "$pad_top"

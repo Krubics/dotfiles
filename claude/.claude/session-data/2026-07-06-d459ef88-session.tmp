@@ -1,0 +1,29 @@
+# Session: 2026-07-06
+**Date:** 2026-07-06
+**Started:** 23:01
+**Last Updated:** 23:01
+**Project:** zen
+**Branch:** unknown
+**Worktree:** /home/krubics/.tarball-installations/zen
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- install fx-autoconfig in this zen browser installation
+
+### Tools Used
+Bash, AskUserQuestion
+
+### Stats
+- Total user messages: 1
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

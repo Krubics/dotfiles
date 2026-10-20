@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Printable GTK 3 and GTK 4 theme diagnosis checklist.">
+  <title>Reference — GTK theme diagnosis</title>
+  <link rel="stylesheet" href="../assets/course.css">
+</head>
+<body>
+  <main class="reference-sheet">
+    <header class="reference-head">
+      <div>
+        <p class="kicker">Quick reference · loaded → matched → applied</p>
+        <h1>GTK theme diagnosis</h1>
+      </div>
+      <div class="reference-meta">
+        <strong>Use when:</strong> a GTK CSS rule appears to do nothing.<br>
+        <strong>Rule:</strong> stop at the earliest failed gate.<br>
+        <a href="../lessons/0001-three-gate-gtk-theme-diagnosis.html">Review lesson 0001</a>
+      </div>
+    </header>
+
+    <div class="reference-grid">
+      <section class="reference-block">
+        <h2>1. Loaded?</h2>
+        <ol>
+          <li>Identify the application’s GTK major version.</li>
+          <li>Confirm which stylesheet/provider the process receives.</li>
+          <li>Make one unmistakable temporary change in Inspector.</li>
+        </ol>
+        <div class="command-list">
+          <code>ldd "$(command -v APP)" | grep -E 'gtk|gtkmm'</code>
+          <code>GTK_DEBUG=interactive gtk4-demo</code>
+          <code>GTK_DEBUG=interactive waybar</code>
+        </div>
+        <p><strong>Proof:</strong> Inspector lists the provider or a live edit changes the app.</p>
+      </section>
+
+      <section class="reference-block">
+        <h2>2. Matched?</h2>
+        <ol>
+          <li>Select the visible widget with Inspector.</li>
+          <li>Record its CSS node name, <code>#id</code>, <code>.classes</code>, state, and ancestors.</li>
+          <li>Compare those observations to the selector from right to left.</li>
+        </ol>
+        <p><strong>Proof:</strong> Inspector shows the rule on the selected node.</p>
+        <p><strong>Remember:</strong> GTK’s CSS node tree is not a web DOM. Widget API pages document their node structures.</p>
+      </section>
+
+      <section class="reference-block">
+        <h2>3. Applied?</h2>
+        <ol>
+          <li>Check for unknown or removed declarations.</li>
+          <li>Inspect the computed value and winning origin.</li>
+          <li>Compare specificity, source order, and state.</li>
+        </ol>
+        <p><strong>Proof:</strong> the expected value appears in computed style.</p>
+        <p><strong>GTK 4 warning signs:</strong> widget style properties, <code>-gtk-gradient</code>, <code>-gtk-icon-effect</code>, <code>-gtk-icon-theme</code>, or assumptions about GTK 3 node nesting.</p>
+      </section>
+
+      <section class="reference-block">
+        <h2>Stylesheet targets</h2>
+        <table class="reference-table">
+          <thead><tr><th>Target</th><th>Typical user file</th><th>Scope</th></tr></thead>
+          <tbody>
+            <tr><td>GTK 3</td><td><code>~/.config/gtk-3.0/gtk.css</code></td><td>GTK 3 apps</td></tr>
+            <tr><td>GTK 4</td><td><code>~/.config/gtk-4.0/gtk.css</code></td><td>GTK 4 apps</td></tr>
+            <tr><td>Waybar</td><td><code>~/.config/waybar/style.css</code></td><td>Waybar’s own tree</td></tr>
+          </tbody>
+        </table>
+        <p>Waybar on this workstation linked GTK 3 on 2026-08-01. Re-run the library check after upgrades.</p>
+      </section>
+
+      <section class="reference-block">
+        <h2>Selector vocabulary</h2>
+        <table class="reference-table">
+          <thead><tr><th>Form</th><th>Meaning</th><th>Waybar example</th></tr></thead>
+          <tbody>
+            <tr><td><code>node</code></td><td>CSS node name</td><td><code>window</code>, <code>button</code></td></tr>
+            <tr><td><code>#id</code></td><td>Node ID</td><td><code>#waybar</code>, <code>#workspaces</code></td></tr>
+            <tr><td><code>.class</code></td><td>Style class</td><td><code>.modules-left</code>, <code>.active</code></td></tr>
+            <tr><td><code>:state</code></td><td>Widget state</td><td><code>:hover</code>, <code>:disabled</code></td></tr>
+            <tr><td><code>A B</code></td><td>B beneath A</td><td><code>#workspaces button</code></td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="reference-block">
+        <h2>Your Waybar rule, parsed</h2>
+        <pre><code><span class="code-node">#workspaces</span>:not(<span class="code-class">.taskbar</span>)
+  <span class="code-node">button</span><span class="code-class">.active</span></code></pre>
+        <ul>
+          <li>Find an active <code>button</code>.</li>
+          <li>It must descend from <code>#workspaces</code>.</li>
+          <li>That ancestor must not have class <code>taskbar</code>.</li>
+        </ul>
+        <p>If the node tree changes, the selector can remain syntactically valid while matching nothing.</p>
+      </section>
+
+      <section class="reference-block">
+        <h2>Evidence-rich help request</h2>
+        <p>Send this, not “GTK ignored my CSS”:</p>
+        <pre><code>Application + version:
+Linked GTK major:
+Stylesheet path/provider:
+Observed node + ancestors:
+Selector:
+Declaration:
+Computed value or warning:</code></pre>
+        <p>Ask follow-up questions whenever one field is unclear; collecting the evidence is part of the diagnosis.</p>
+      </section>
+
+      <section class="reference-block">
+        <h2>Primary sources</h2>
+        <ul>
+          <li><a href="https://docs.gtk.org/gtk4/css-overview.html">GTK 4 CSS Overview</a></li>
+          <li><a href="https://docs.gtk.org/gtk4/css-selectors.html">GTK 4 CSS Selectors</a></li>
+          <li><a href="https://docs.gtk.org/gtk4/running.html#interactive-debugging">GTK Inspector</a></li>
+          <li><a href="https://docs.gtk.org/gtk4/migrating-3to4.html">GTK 3 → 4 migration guide</a></li>
+          <li><a href="https://github.com/Alexays/Waybar/wiki/Styling">Waybar styling guide</a></li>
+        </ul>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

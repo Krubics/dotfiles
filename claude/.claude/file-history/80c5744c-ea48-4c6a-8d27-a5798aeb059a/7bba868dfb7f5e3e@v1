@@ -1,0 +1,8 @@
+.titlebar-min, .titlebar-max, .titlebar-restore, .titlebar-buttonbox {
+  display: none !important;
+}
+
+#zen-sidebar-web-panel[pinned="true"] {
+    border-left: 1px solid #ccc !important; /* Adjust color and width as needed */
+    margin-left: 0 !important; /* Remove any default left margin if present */
+}

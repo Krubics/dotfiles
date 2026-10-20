@@ -1,0 +1,22 @@
+--- lua tree ---
+/home/krubics/.config/nvim/lua
+/home/krubics/.config/nvim/lua/plugins
+/home/krubics/.config/nvim/lua/plugins/_lazyvim_nix_treesitter.lua
+/home/krubics/.config/nvim/lua/plugins/_lazyvim_nix_default.lua
+--- lazyvim.json ---
+{
+  "extras": [
+
+  ],
+  "install_version": 8,
+  "news": {
+    "NEWS.md": "11866"
+  },
+  "version": 8
+}--- readlink lua dir ---
+/home/krubics/.config/nvim/lua
+--- is lua a symlink? ---
+total 12
+drwxrwxr-x 3 krubics krubics 4096 Jul 28 17:03 .
+drwxrwxr-x 3 krubics krubics 4096 Jul 29 10:32 ..
+drwxrwxr-x 2 krubics krubics 4096 Jul 28 17:03 plugins

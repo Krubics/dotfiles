@@ -1,0 +1,102 @@
+[{
+    "id": 1,
+    "name": "HDMI-A-1",
+    "description": "AOC Q27G40XMN 2QTR4JA002874",
+    "make": "AOC",
+    "model": "Q27G40XMN",
+    "serial": "2QTR4JA002874",
+    "width": 2560,
+    "height": 1440,
+    "physicalWidth": 600,
+    "physicalHeight": 340,
+    "refreshRate": 144.00101,
+    "x": 2580,
+    "y": 210,
+    "activeWorkspace": {
+        "id": 2,
+        "name": "2"
+    },
+    "specialWorkspace": {
+        "id": 0,
+        "name": ""
+    },
+    "reserved": [0, 60, 0, 0],
+    "scale": 1.00,
+    "transform": 0,
+    "focused": true,
+    "dpmsStatus": true,
+    "vrr": false,
+    "solitary": "0",
+    "solitaryBlockedBy": ["WINDOWED","CANDIDATE"],
+    "activelyTearing": false,
+    "tearingBlockedBy": ["NOT_TORN","USER","CANDIDATE"],
+    "directScanoutTo": "0",
+    "directScanoutBlockedBy": ["USER","SW","CANDIDATE"],
+    "disabled": false,
+    "currentFormat": "XRGB8888",
+    "mirrorOf": "none",
+    "availableModes": ["2560x1440@60.00Hz","2560x1440@144.00Hz","2560x1440@120.00Hz","2560x1440@100.00Hz","1920x1080@119.88Hz","1920x1080@60.00Hz","1920x1080@59.94Hz","1920x1080@50.00Hz","1280x1024@75.03Hz","1280x1024@60.02Hz","1280x720@59.94Hz","1280x720@50.00Hz","1024x768@119.99Hz","1024x768@100.00Hz","1024x768@75.03Hz","1024x768@70.07Hz","1024x768@60.00Hz","800x600@119.97Hz","800x600@100.00Hz","800x600@75.00Hz","800x600@72.19Hz","800x600@60.32Hz","800x600@56.25Hz","720x576@50.00Hz","720x480@59.94Hz","640x480@120.01Hz","640x480@99.99Hz","640x480@75.00Hz","640x480@72.81Hz","640x480@59.94Hz","640x480@59.93Hz"],
+    "colorManagementPreset": "srgb",
+    "sdrBrightness": 1.00,
+    "sdrSaturation": 1.00,
+    "sdrMinLuminance": 0.20,
+    "sdrMaxLuminance": 80,
+    "hardwareCursorsInUse": false
+},{
+    "id": 0,
+    "name": "eDP-1",
+    "description": "BOE 0x0974",
+    "make": "BOE",
+    "model": "0x0974",
+    "serial": "",
+    "width": 2560,
+    "height": 1440,
+    "physicalWidth": 340,
+    "physicalHeight": 190,
+    "refreshRate": 165.00301,
+    "x": 20,
+    "y": 210,
+    "activeWorkspace": {
+        "id": 1,
+        "name": "1"
+    },
+    "specialWorkspace": {
+        "id": 0,
+        "name": ""
+    },
+    "reserved": [0, 60, 0, 0],
+    "scale": 1.00,
+    "transform": 0,
+    "focused": false,
+    "dpmsStatus": true,
+    "vrr": false,
+    "solitary": "0",
+    "solitaryBlockedBy": ["WINDOWED","CANDIDATE"],
+    "activelyTearing": false,
+    "tearingBlockedBy": ["NOT_TORN","USER","CANDIDATE"],
+    "directScanoutTo": "0",
+    "directScanoutBlockedBy": ["USER","SW","CANDIDATE"],
+    "disabled": false,
+    "currentFormat": "XRGB8888",
+    "mirrorOf": "none",
+    "availableModes": ["2560x1440@165.00Hz","2560x1440@40.00Hz"],
+    "colorManagementPreset": "srgb",
+    "sdrBrightness": 1.00,
+    "sdrSaturation": 1.00,
+    "sdrMinLuminance": 0.20,
+    "sdrMaxLuminance": 80,
+    "hardwareCursorsInUse": false
+}]
+=== current wallpaper-related processes ===
+krubics     3630  0.0  0.0   2808  1736 tty1     S+   03:59   0:00 /bin/sh -c yin
+krubics     3632  0.0  0.5 943404 95656 tty1     SLl+ 03:59   0:00 yin
+krubics     6113  0.0  0.1 50742412 26104 ?      Sl   04:00   0:02 /snap/code/253/usr/share/code/code --type=utility --utility-sub-type=network.mojom.NetworkService --lang=en-US --service-sandbox-type=none --no-sandbox --crashpad-handler-pid=6099 --enable-crash-reporter=c69bc5d6-cd8d-4371-a8b9-10462f6b7c69,no_channel --user-data-dir=/home/krubics/.config/Code --standard-schemes=vscode-webview,vscode-file --secure-schemes=vscode-webview,vscode-file,vscode-remote-resource,vscode-managed-remote-resource --cors-schemes=vscode-webview,vscode-file,vscode-remote-resource,vscode-managed-remote-resource --fetch-schemes=vscode-webview,vscode-file,vscode-remote-resource,vscode-managed-remote-resource --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,6224248455098083508,10317720144747733724,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,EarlyEstablishGpuChannel,EstablishGpuChannelAsync,GlobalShortcutsPortal,PdfUseShowSaveFilePicker --disable-features=CalculateNativeWinOcclusion,DropInputEventsWhilePaintHolding,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --pseudonymization-salt-handle=7,i,12419815843747446335,5191565133054754327,4 --trace-process-track-uuid=3190708989122997041
+krubics     6169  0.7  1.7 1524637664 278396 ?   Sl   04:00   2:23 /snap/code/253/usr/share/code/code --type=renderer --crashpad-handler-pid=6099 --enable-crash-reporter=c69bc5d6-cd8d-4371-a8b9-10462f6b7c69,no_channel --user-data-dir=/home/krubics/.config/Code --standard-schemes=vscode-webview,vscode-file --secure-schemes=vscode-webview,vscode-file,vscode-remote-resource,vscode-managed-remote-resource --cors-schemes=vscode-webview,vscode-file,vscode-remote-resource,vscode-managed-remote-resource --fetch-schemes=vscode-webview,vscode-file,vscode-remote-resource,vscode-managed-remote-resource --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --app-path=/snap/code/253/usr/share/code/resources/app --enable-sandbox --enable-blink-features=HighlightAPI --no-sandbox --max-active-webgl-contexts=32 --ozone-platform=x11 --disable-blink-features=FontMatchingCTMigration,StandardizedBrowserZoom, --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=4 --time-ticks-at-unix-epoch=-1785095973850286 --launch-time-ticks=86921527 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,6224248455098083508,10317720144747733724,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,EarlyEstablishGpuChannel,EstablishGpuChannelAsync,GlobalShortcutsPortal,PdfUseShowSaveFilePicker --disable-features=CalculateNativeWinOcclusion,DropInputEventsWhilePaintHolding,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --pseudonymization-salt-handle=7,i,12419815843747446335,5191565133054754327,4 --trace-process-track-uuid=3190708990060038890 --vscode-window-config=vscode:f58585e8-f816-480a-8c5d-187f0505b779
+krubics     6254  0.1  0.2 50708056 46716 ?      Sl   04:01   0:28 /snap/code/253/usr/share/code/code --type=gpu-process --disable-gpu-sandbox --no-sandbox --ozone-platform=x11 --crashpad-handler-pid=6099 --enable-crash-reporter=c69bc5d6-cd8d-4371-a8b9-10462f6b7c69,no_channel --user-data-dir=/home/krubics/.config/Code --gpu-preferences=UAAAAAAAAAAgAQAEAAAAAAAAAAAAAGAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAYAAAAAAAAABgAAAAAAAAAAQAAAAAAAAAIAAAAAAAAAAgAAAAAAAAA --use-gl=disabled --shared-files --field-trial-handle=3,i,6224248455098083508,10317720144747733724,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,EarlyEstablishGpuChannel,EstablishGpuChannelAsync,GlobalShortcutsPortal,PdfUseShowSaveFilePicker --disable-features=CalculateNativeWinOcclusion,DropInputEventsWhilePaintHolding,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --pseudonymization-salt-handle=7,i,12419815843747446335,5191565133054754327,4 --trace-process-track-uuid=3190708990997080739
+krubics     6296  0.7  2.6 1520479132 433852 ?   Sl   04:01   2:21 /snap/code/253/usr/share/code/code --type=utility --utility-sub-type=node.mojom.NodeService --lang=en-US --service-sandbox-type=none --no-sandbox --dns-result-order=ipv4first --experimental-network-inspection --inspect-port=0 --crashpad-handler-pid=6099 --enable-crash-reporter=c69bc5d6-cd8d-4371-a8b9-10462f6b7c69,no_channel --user-data-dir=/home/krubics/.config/Code --standard-schemes=vscode-webview,vscode-file --secure-schemes=vscode-webview,vscode-file,vscode-remote-resource,vscode-managed-remote-resource --cors-schemes=vscode-webview,vscode-file,vscode-remote-resource,vscode-managed-remote-resource --fetch-schemes=vscode-webview,vscode-file,vscode-remote-resource,vscode-managed-remote-resource --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,6224248455098083508,10317720144747733724,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,EarlyEstablishGpuChannel,EstablishGpuChannelAsync,GlobalShortcutsPortal,PdfUseShowSaveFilePicker --disable-features=CalculateNativeWinOcclusion,DropInputEventsWhilePaintHolding,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --pseudonymization-salt-handle=7,i,12419815843747446335,5191565133054754327,4 --trace-process-track-uuid=3190708991934122588
+krubics     6311  0.0  0.2 1520359780 38332 ?    Sl   04:01   0:15 /snap/code/253/usr/share/code/code --type=utility --utility-sub-type=node.mojom.NodeService --lang=en-US --service-sandbox-type=none --no-sandbox --crashpad-handler-pid=6099 --enable-crash-reporter=c69bc5d6-cd8d-4371-a8b9-10462f6b7c69,no_channel --user-data-dir=/home/krubics/.config/Code --standard-schemes=vscode-webview,vscode-file --secure-schemes=vscode-webview,vscode-file,vscode-remote-resource,vscode-managed-remote-resource --cors-schemes=vscode-webview,vscode-file,vscode-remote-resource,vscode-managed-remote-resource --fetch-schemes=vscode-webview,vscode-file,vscode-remote-resource,vscode-managed-remote-resource --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,6224248455098083508,10317720144747733724,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,EarlyEstablishGpuChannel,EstablishGpuChannelAsync,GlobalShortcutsPortal,PdfUseShowSaveFilePicker --disable-features=CalculateNativeWinOcclusion,DropInputEventsWhilePaintHolding,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --pseudonymization-salt-handle=7,i,12419815843747446335,5191565133054754327,4 --trace-process-track-uuid=3190708992871164437
+krubics     6312  0.3  5.1 1520368560 841596 ?   Sl   04:01   1:00 /snap/code/253/usr/share/code/code --type=utility --utility-sub-type=node.mojom.NodeService --lang=en-US --service-sandbox-type=none --no-sandbox --crashpad-handler-pid=6099 --enable-crash-reporter=c69bc5d6-cd8d-4371-a8b9-10462f6b7c69,no_channel --user-data-dir=/home/krubics/.config/Code --standard-schemes=vscode-webview,vscode-file --secure-schemes=vscode-webview,vscode-file,vscode-remote-resource,vscode-managed-remote-resource --cors-schemes=vscode-webview,vscode-file,vscode-remote-resource,vscode-managed-remote-resource --fetch-schemes=vscode-webview,vscode-file,vscode-remote-resource,vscode-managed-remote-resource --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,6224248455098083508,10317720144747733724,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,EarlyEstablishGpuChannel,EstablishGpuChannelAsync,GlobalShortcutsPortal,PdfUseShowSaveFilePicker --disable-features=CalculateNativeWinOcclusion,DropInputEventsWhilePaintHolding,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --pseudonymization-salt-handle=7,i,12419815843747446335,5191565133054754327,4 --trace-process-track-uuid=3190708993808206286
+krubics     6520  0.0  0.1 1520371516 31668 ?    Sl   04:01   0:19 /snap/code/253/usr/share/code/code --type=utility --utility-sub-type=node.mojom.NodeService --lang=en-US --service-sandbox-type=none --no-sandbox --crashpad-handler-pid=6099 --enable-crash-reporter=c69bc5d6-cd8d-4371-a8b9-10462f6b7c69,no_channel --user-data-dir=/home/krubics/.config/Code --standard-schemes=vscode-webview,vscode-file --secure-schemes=vscode-webview,vscode-file,vscode-remote-resource,vscode-managed-remote-resource --cors-schemes=vscode-webview,vscode-file,vscode-remote-resource,vscode-managed-remote-resource --fetch-schemes=vscode-webview,vscode-file,vscode-remote-resource,vscode-managed-remote-resource --service-worker-schemes=vscode-webview --code-cache-schemes=vscode-webview,vscode-file --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,6224248455098083508,10317720144747733724,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports,EarlyEstablishGpuChannel,EstablishGpuChannelAsync,GlobalShortcutsPortal,PdfUseShowSaveFilePicker --disable-features=CalculateNativeWinOcclusion,DropInputEventsWhilePaintHolding,LocalNetworkAccessChecks,ScreenAIOCREnabled,SpareRendererForSitePerProcess,TraceSiteInstanceGetProcessCreation --variations-seed-version --pseudonymization-salt-handle=7,i,12419815843747446335,5191565133054754327,4 --trace-process-track-uuid=3190708994745248135
+krubics     7034  0.0  0.5 1034088 95512 ?       SNLl 04:01   0:00 yin
+=== awww query (daemon not started yet, expect failure) ===
+Error: "Socket file '/run/user/1000/wayland-1-awww-daemon.sock' not found. Make sure awww-daemon is running, and that the --namespace argument matches for the client and the daemon"

@@ -1,0 +1,696 @@
+  INFO: Launching config: "/home/krubics/.config/quickshell/shell.qml"
+  INFO: Shell ID: "d051c435653b3f3e3cbaa4f8ebb8d895" Path ID "d051c435653b3f3e3cbaa4f8ebb8d895"
+  INFO quickshell.crashhandler: Crash handler initialized.
+  INFO: Saving logs to "/run/user/1000/quickshell/by-id/jcp5sfq8jt/log.qslog"
+  INFO quickshell.logging: Saving detailed logs to "/run/user/1000/quickshell/by-id/jcp5sfq8jt/log.log"
+  INFO quickshell.wayland.safederef: Installed wl_proxy_get_listener hook.
+  INFO quickshell.ipc: Started IPC server on path "/run/user/1000/quickshell/by-id/jcp5sfq8jt/ipc.sock"
+  INFO quickshell.tooling: Acquired tooling support lock
+  INFO: QML tooling support enabled
+  WARN qt.qpa.wayland: EGL not available
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  INFO: Configuration Loaded
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad346e80180): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+ ERROR: Failed to load configuration
+ ERROR:   caused by @shell.qml[5:5]: Cannot assign to non-existent property "anchor"
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad346e80340): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+ ERROR: Failed to load configuration
+ ERROR:   caused by @shell.qml[5:5]: Cannot assign to non-existent property "anchor"
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba66fc0): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+ ERROR: Failed to load configuration
+ ERROR:   caused by @shell.qml[5:5]: Incomplete binding, expected token `:` or `{`
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba6b400): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+ ERROR: Failed to load configuration
+ ERROR:   caused by @shell.qml[5:5]: Incomplete binding, expected token `:` or `{`
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad346e82480): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+ ERROR: Failed to load configuration
+ ERROR:   caused by @shell.qml[5:5]: Incomplete binding, expected token `:` or `{`
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33c2ed200): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  INFO: Configuration Loaded
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33c2eaf00): "Failed to initialize graphics backend for OpenGL."
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33c2eb440): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: <Unknown File>: QML ProxyFloatingWindow: Setting `width` is deprecated. Set `implicitWidth` instead.
+  WARN: <Unknown File>: QML ProxyFloatingWindow: Setting `height` is deprecated. Set `implicitHeight` instead.
+  INFO: Configuration Loaded
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba66c40): "Failed to initialize graphics backend for OpenGL."
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for ProxyFloatingWindow(0x7ad33bb75760): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  INFO: Configuration Loaded
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad346e80500): "Failed to initialize graphics backend for OpenGL."
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba6a980): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+ ERROR: Failed to load configuration
+ ERROR:   caused by @shell.qml[6:9]: Incomplete binding, expected token `:` or `{`
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33c2eb440): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  INFO: Configuration Loaded
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33c2ec080): "Failed to initialize graphics backend for OpenGL."
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33c2ed740): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  INFO: Configuration Loaded
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba69b80): "Failed to initialize graphics backend for OpenGL."
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba69640): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  INFO: Configuration Loaded
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad346e814c0): "Failed to initialize graphics backend for OpenGL."
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad346e80f80): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  INFO: Configuration Loaded
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba692c0): "Failed to initialize graphics backend for OpenGL."
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba69100): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+ ERROR: Failed to load configuration
+ ERROR:   caused by @shell.qml[1:1]: module "Quickshell.PanelWindow" is not installed
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba69640): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+ ERROR: Failed to load configuration
+ ERROR:   caused by @shell.qml[7:9]: Incomplete binding, expected token `:` or `{`
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad346e80180): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  INFO: Configuration Loaded
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33c2edac0): "Failed to initialize graphics backend for OpenGL."
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba66000): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  INFO: Configuration Loaded
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba69800): "Failed to initialize graphics backend for OpenGL."
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba68f40): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  INFO: Configuration Loaded
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33c2ed900): "Failed to initialize graphics backend for OpenGL."
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba66700): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  INFO: Configuration Loaded
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba68f40): "Failed to initialize graphics backend for OpenGL."
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba68680): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  INFO: Configuration Loaded
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba66e00): "Failed to initialize graphics backend for OpenGL."
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba66a80): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  INFO: Configuration Loaded
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad346e7fe00): "Failed to initialize graphics backend for OpenGL."
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba6a0c0): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+ ERROR: Failed to load configuration
+ ERROR:   caused by @shell.qml[6:5]: Expected type name
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad346e80340): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+ ERROR: Failed to load configuration
+ ERROR:   caused by @shell.qml[5:17]: Expected token `,'
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad346e81f40): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+ ERROR: Failed to load configuration
+ ERROR:   caused by @shell.qml[5:17]: Expected token `,'
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba6a600): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  INFO: Configuration Loaded
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba68140): "Failed to initialize graphics backend for OpenGL."
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba68d80): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+ ERROR: Failed to load configuration
+ ERROR:   caused by @shell.qml[8:5]: Incomplete binding, expected token `:` or `{`
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba6ab40): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  INFO: Configuration Loaded
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba6a0c0): "Failed to initialize graphics backend for OpenGL."
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33c2ec5c0): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+ ERROR: Failed to load configuration
+ ERROR:   caused by @shell.qml[9:9]: Incomplete binding, expected token `:` or `{`
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad346e80500): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  INFO: Configuration Loaded
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba66700): "Failed to initialize graphics backend for OpenGL."
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba66a80): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  INFO: Configuration Loaded
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba6a600): "Failed to initialize graphics backend for OpenGL."
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba6c740): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  INFO: Configuration Loaded
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba6b240): "Failed to initialize graphics backend for OpenGL."
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba66a80): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  INFO: Configuration Loaded
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33a244000): "Failed to initialize graphics backend for OpenGL."
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba6c740): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  INFO: Configuration Loaded
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba66c40): "Failed to initialize graphics backend for OpenGL."
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba66540): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  INFO: Configuration Loaded
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad346e80dc0): "Failed to initialize graphics backend for OpenGL."
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad346e7fe00): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+ ERROR: Failed to load configuration
+ ERROR:   caused by @shell.qml[14:13]: Expected token `;'
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad346e80340): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+ ERROR: Failed to load configuration
+ ERROR:   caused by @shell.qml[13:17]: Incomplete binding, expected token `:` or `{`
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba66c40): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+ ERROR: Failed to load configuration
+ ERROR:   caused by @shell.qml[12:13]: Incomplete binding, expected token `:` or `{`
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33c2ec080): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: Variants instance does not have a component specified
+  INFO: Configuration Loaded
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba6a980): "Failed to initialize graphics backend for OpenGL."
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad346e80a40): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  INFO: Configuration Loaded
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba6b940): "Failed to initialize graphics backend for OpenGL."
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba6bcc0): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  INFO: Configuration Loaded
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad346e80a40): "Failed to initialize graphics backend for OpenGL."
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba6b780): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  INFO: Configuration Loaded
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad346e80f80): "Failed to initialize graphics backend for OpenGL."
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad346e81d80): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  INFO: Configuration Loaded
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33c2ed200): "Failed to initialize graphics backend for OpenGL."
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33c2ed580): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  INFO: Configuration Loaded
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba668c0): "Failed to initialize graphics backend for OpenGL."
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba6a7c0): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+ ERROR: Failed to load configuration
+ ERROR:   caused by @shell.qml[13:27]: Expected token `:'
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba66540): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+ ERROR: Failed to load configuration
+ ERROR:   caused by @shell.qml[13:27]: Expected token `:'
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad346e81140): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+ ERROR: Failed to load configuration
+ ERROR:   caused by @shell.qml[13:27]: Expected token `:'
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba66540): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+ ERROR: Failed to load configuration
+ ERROR:   caused by @shell.qml[13:27]: Expected token `:'
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba6b5c0): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+ ERROR: Failed to load configuration
+ ERROR:   caused by @shell.qml[13:17]: Cannot assign to non-existent property "modelData"
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33c2eb280): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+ ERROR: Failed to load configuration
+ ERROR:   caused by @shell.qml[13:17]: Unexpected token `const'
+ ERROR:   caused by @shell.qml[13:33]: Expected token `:'
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33c2ec5c0): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+ ERROR: Failed to load configuration
+ ERROR:   caused by @shell.qml[13:17]: Unexpected token `const'
+ ERROR:   caused by @shell.qml[13:33]: Expected token `:'
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad346e7fe00): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+ ERROR: Failed to load configuration
+ ERROR:   caused by @shell.qml[13:27]: Expected token `:'
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33c2eaf00): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+ ERROR: Failed to load configuration
+ ERROR:   caused by @shell.qml[13:17]: Cannot assign to non-existent property "modelData"
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba69d40): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+ ERROR: Failed to load configuration
+ ERROR:   caused by @shell.qml[13:35]: Expected token `identifier'
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba6a0c0): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  INFO: Configuration Loaded
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad346e82480): "Failed to initialize graphics backend for OpenGL."
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad346e81bc0): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  INFO: Configuration Loaded
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33c2ed200): "Failed to initialize graphics backend for OpenGL."
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33c2ed580): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  INFO: Configuration Loaded
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad346e81bc0): "Failed to initialize graphics backend for OpenGL."
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33c2ed040): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: qs:@/qs/shell.qml: Setting initial properties failed: Text does not have a property called modelData
+  WARN: qs:@/qs/shell.qml: Setting initial properties failed: Text does not have a property called modelData
+  WARN: qs:@/qs/shell.qml: Setting initial properties failed: Text does not have a property called modelData
+  WARN scene: @shell.qml[15:-1]: ReferenceError: modelData is not defined
+  WARN scene: @shell.qml[15:-1]: ReferenceError: modelData is not defined
+  WARN scene: @shell.qml[15:-1]: ReferenceError: modelData is not defined
+  INFO: Configuration Loaded
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33c2ed580): "Failed to initialize graphics backend for OpenGL."
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad346e80f80): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+ ERROR: Failed to load configuration
+ ERROR:   caused by @shell.qml[16:17]: Expected token `identifier'
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33c2edac0): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  INFO: Configuration Loaded
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad346e806c0): "Failed to initialize graphics backend for OpenGL."
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad346e82100): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  INFO: Configuration Loaded
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33c6e6380): "Failed to initialize graphics backend for OpenGL."
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33c2eb0c0): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  INFO: Configuration Loaded
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33a25d1c0): "Failed to initialize graphics backend for OpenGL."
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad346e80500): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+ ERROR: Failed to load configuration
+ ERROR:   caused by @shell.qml[11:9]: Incomplete binding, expected token `:` or `{`
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba699c0): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+ ERROR: Failed to load configuration
+ ERROR:   caused by @shell.qml[11:9]: Cannot assign to non-existent property "size"
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33ba6a440): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  INFO: Configuration Loaded
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33de72000): "Failed to initialize graphics backend for OpenGL."
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad346e81d80): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  INFO: Configuration Loaded
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad346e80180): "Failed to initialize graphics backend for OpenGL."
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad346e80a40): "Failed to initialize graphics backend for OpenGL."
+  INFO: Reloading configuration...
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  INFO: Configuration Loaded
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33c2eaf00): "Failed to initialize graphics backend for OpenGL."
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ ERROR: Failed to create graphics context for qs::wayland::layershell::WlrLayershell(0x7ad33c2eb7c0): "Failed to initialize graphics backend for OpenGL."
+  INFO quickshell.ipc: New IPC connection qs::ipc::IpcServerConnection(0x7ad338a91300)
+  INFO: Exiting due to IPC request.

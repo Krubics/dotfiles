@@ -1,0 +1,111 @@
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 16px;
+    background: none;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+
+.modules-left,
+.modules-center,
+.modules-right{
+    background: rgba(30, 30, 46, 0.85);
+    border-radius: 8px;
+    /* 4px, not 6px: the 26px sprites need the vertical room, and this keeps the
+       bar at 56px — the height it already rendered at before the sprites moved
+       into CSS. Raising it to 6px forces the bar to 60px. */
+    margin: 4px 4px;
+    padding: 4px 8px;
+}
+
+/* :not(.taskbar) keeps this off the taskbar module's active button */
+#workspaces:not(.taskbar) button.active {
+    background-image: url('/home/krubics/.config/waybar/assets/pokeball.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-origin: content-box; /* inset the ball from the accent pill's edges */
+    background-color: #89b4fa;
+    color: transparent; /* hides the workspace number behind the pokeball */
+    padding: 2px 2px;
+    min-width: 26px;
+    min-height: 20px;
+    margin: 4px 0px;
+    border-radius: 5px;
+}
+
+/* ---- Sprite size lives in the three spots marked [1] [2] [3] below ----
+
+   Height comes from `background-size: auto <H>px`, not from min-height.
+   min-height is only a floor, and the pill already allocates more height than
+   that, so editing it does nothing. min-width doesn't set the height either --
+   it just has to be wide enough that the sprite isn't cut off sideways:
+
+       min-width >= H * aspect ratio     (round up)
+
+       dialga  1.024:1     magneton  1.041:1
+       wooper  1.167:1     pikachu   4.992:1  (it's a 5-cell gauge, not one pokemon)
+
+   The shared rule uses wooper's 1.167 -- the widest of the three square icons.
+
+   Ceiling: a sprite can't exceed (bar height - 24px), since the bar is eaten by
+   pill margin 4x2 + pill padding 4x2 + icon margin 4x2. With "height": 56 in
+   config.jsonc that's 32px. For bigger sprites raise "height" to match, or trim
+   the .modules-* margin/padding above.
+
+   Now: H = 26  ->  ceil(26 * 1.167) = 31,  ceil(26 * 4.992) = 130            */
+#custom-clock-icon,
+#network.icon,
+#bluetooth.icon,
+#custom-battery-icon {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto 24px;  /* [1] H -- the one knob */
+    background-origin: content-box;
+    color: transparent; /* hides the placeholder space glyph */
+    min-width: 31px;            /* [2] ceil(H * 1.167) */
+    padding: 2px;
+    margin: 4px 0;
+}
+
+#custom-clock-icon { background-image: url('/home/krubics/.config/waybar/assets/dialga.png'); }
+#network.icon      { background-image: url('/home/krubics/.config/waybar/assets/wooper.png'); }
+#bluetooth.icon    { background-image: url('/home/krubics/.config/waybar/assets/magneton.png'); }
+
+/* A 5-cell gauge, not one pikachu: 629x126 */
+#custom-battery-icon { min-width: 130px; }  /* [3] ceil(H * 4.992) */
+
+#custom-battery-icon.p100 { background-image: url('/home/krubics/.config/waybar/assets/pikachu-100.png'); }
+#custom-battery-icon.p80  { background-image: url('/home/krubics/.config/waybar/assets/pikachu-80.png'); }
+#custom-battery-icon.p60  { background-image: url('/home/krubics/.config/waybar/assets/pikachu-60.png'); }
+#custom-battery-icon.p40  { background-image: url('/home/krubics/.config/waybar/assets/pikachu-40.png'); }
+#custom-battery-icon.p20  { background-image: url('/home/krubics/.config/waybar/assets/pikachu-20.png'); }
+#custom-battery-icon.p10  { background-image: url('/home/krubics/.config/waybar/assets/pikachu-10.png'); }
+
+#custom-taskbar-divider,
+#custom-divider {
+    color: rgba(255, 255, 255, 0.25);
+    margin: 0 6px;
+}
+
+#workspaces.taskbar button {
+    min-width: 0;
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+}
+
+#workspaces.taskbar .taskbar-window {
+    padding: 2px 4px;
+    margin: 0 2px;
+    border-radius: 5px;
+}
+
+#workspaces.taskbar .taskbar-window:hover {
+    background: rgba(137, 180, 250, 0.3);
+}

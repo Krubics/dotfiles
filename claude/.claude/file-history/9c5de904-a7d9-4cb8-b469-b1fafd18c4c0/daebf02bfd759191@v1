@@ -1,0 +1,29 @@
+@import "colors.css";
+
+/* Explicit widget rules — needed because @define-color overrides are resolved
+   per-provider, so libadwaita's widget CSS doesn't pick up @accent_bg_color
+   from this (higher-priority) provider. These rules win by CSS cascade priority. */
+button.suggested-action,
+button.suggested-action:checked {
+  background-color: @accent_bg_color;
+  color: @accent_fg_color;
+}
+
+scale > trough > highlight,
+progressbar > trough > progress {
+  background-color: @accent_bg_color;
+  color: @accent_fg_color;
+}
+
+check:checked,
+check:indeterminate,
+radio:checked,
+radio:indeterminate {
+  background-color: @accent_bg_color;
+  color: @accent_fg_color;
+}
+
+switch:checked {
+  background-color: @accent_bg_color;
+  color: @accent_fg_color;
+}

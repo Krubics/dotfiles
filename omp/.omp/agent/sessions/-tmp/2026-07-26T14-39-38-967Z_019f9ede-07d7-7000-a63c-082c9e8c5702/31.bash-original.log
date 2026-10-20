@@ -1,0 +1,23 @@
+=== full resolved (defaults + user config merged) ===
+82 /tmp/resolved.txt
+
+=== pure defaults only (--default flag) ===
+72 /tmp/defaults.txt
+
+=== diff: user overrides / additions (in resolved but not stock default) ===
+--- /tmp/defaults.txt
++++ /tmp/resolved.txt
+@@ -70,3 +70,13 @@
+ keybind = ctrl+enter=toggle_fullscreen
+ keybind = ctrl+shift+enter=toggle_split_zoom
+ keybind = ctrl+shift+p=toggle_command_palette
++keybind = super+shift+enter=new_split:auto
++keybind = super+shift+\=close_surface
++keybind = super+shift+F=toggle_maximize
++keybind = super+shift+O=toggle_command_palette
++keybind = super+shift+P=goto_split:up
++keybind = super+shift+;=goto_split:down
++keybind = super+shift+L=goto_split:left
++keybind = super+shift+'=goto_split:right
++keybind = alt+/=jump_to_prompt:1
++keybind = alt+shift+/=jump_to_prompt:-1

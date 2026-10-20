@@ -1,0 +1,16 @@
+--- HF hub cache ---
+total 36
+drwxrwxr-x 8 krubics krubics 4096 Jul 29 18:11 .
+drwxrwxr-x 5 krubics krubics 4096 Jul 29 18:11 ..
+drwxrwxr-x 7 krubics krubics 4096 Jul 29 18:11 .locks
+-rw-rw-r-- 1 krubics krubics  191 Jul 24 01:22 CACHEDIR.TAG
+drwxrwxr-x 6 krubics krubics 4096 Jul 29 18:11 models--CohereLabs--cohere-transcribe-03-2026
+drwxrwxr-x 6 krubics krubics 4096 Jul 24 01:26 models--Systran--faster-whisper-base
+drwxrwxr-x 6 krubics krubics 4096 Jul 24 01:22 models--Systran--faster-whisper-large-v3
+drwxrwxr-x 6 krubics krubics 4096 Jul 24 01:30 models--Systran--faster-whisper-small
+drwxr-xr-x 6 krubics krubics 4096 Jul 24 02:29 models--mobiuslabsgmbh--faster-whisper-large-v3-turbo
+--- hyprwhspr models dir (if any) ---
+/home/krubics/.local/share/hyprwhspr/src/lib/src/paths.py:45:# Temporary files and models
+/home/krubics/.local/share/hyprwhspr/src/lib/src/paths.py:52:# Model lifecycle signal file (presence = model is manually unloaded from memory)
+/home/krubics/.local/share/hyprwhspr/src/lib/src/paths.py:53:MODEL_UNLOADED_FILE = RUNTIME_DIR / 'model_unloaded'
+--- XDG cache/data model dirs ---

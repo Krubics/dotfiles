@@ -1,0 +1,26 @@
+=== panels ===
+Running gnome-control-center is only supported under GNOME and Unity, exiting
+=== pypr refs ===
+/home/krubics/.config/hypr/conf/keybinds.lua:103:-- ---- Scratchpads (pyprland) -----------------------------------
+/home/krubics/.config/hypr/conf/keybinds.lua:104:-- `pypr toggle <name>` launches the app on first use (lazy) and shows/hides
+/home/krubics/.config/hypr/conf/keybinds.lua:106:-- Config: ~/.config/pypr/config.toml. Daemon autostarted in hyprland.lua.
+/home/krubics/.config/hypr/conf/keybinds.lua:107:hl.bind(modKey .. " + V", hl.dsp.exec_cmd("pypr toggle code"))
+/home/krubics/.config/hypr/conf/keybinds.lua:108:hl.bind(modKey .. " + T", hl.dsp.exec_cmd("pypr toggle term"))
+/home/krubics/.config/hypr/conf/keybinds.lua:109:hl.bind(modKey .. " + W", hl.dsp.exec_cmd("pypr toggle browser"))
+/home/krubics/.config/hypr/scripts/zen-scratch.sh:3:# genuinely separate process pyprland can track by PID (safe: no shared
+/home/krubics/.config/hypr/scripts/zen-scratch.sh:9:# which Zen folds into the OS window title. pyprland's [scratchpads.browser]
+/home/krubics/.config/hypr/scripts/zen-scratch.sh:10:# in ~/.config/pypr/config.toml matches on that title regex — without this,
+/home/krubics/.config/hypr/scripts/zen-scratch-marker.html:3:<body>Zen scratchpad — this window is matched by pyprland via its title.</body>
+=== hyprland.lua pypr/autostart ===
+48:-- Or execute your favorite apps at launch like this:
+51:--   hl.exec_cmd(terminal)
+52:--   hl.exec_cmd("nm-applet")
+53:--   hl.exec_cmd("waybar & hyprpaper & firefox")
+60:    hl.dispatch(hl.dsp.exec_cmd("yin"))
+65:    hl.dispatch(hl.dsp.exec_cmd("/home/krubics/.nix-profile/bin/hyprsession"))
+67:    hl.dispatch(hl.dsp.exec_cmd("/usr/lib/x86_64-linux-gnu/libexec/polkit-kde-authentication-agent-1"))
+68:    hl.dispatch(hl.dsp.exec_cmd("waybar"))
+72:    hl.dispatch(hl.dsp.exec_cmd("/home/krubics/.config/hypr/scripts/wallpaper-autostart.lua"))
+79:    hl.dispatch(hl.dsp.exec_cmd(
+102:  hl.dispatch(hl.dsp.exec_cmd("hyprctl setcursor Pokemon 32"))
+120:-- hl.permission("/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland", "screencopy", "allow")

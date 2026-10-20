@@ -1,0 +1,19 @@
+[2026-08-01 15:33:22.619] [info] Using configuration file /home/krubics/.config/waybar/config.jsonc
+[2026-08-01 15:33:22.622] [info] Discovered appearance 'dark'
+[2026-08-01 15:33:22.622] [info] Using CSS file /home/krubics/.config/waybar/style.css
+[2026-08-01 15:33:22.630] [info] Hyprland IPC starting
+[2026-08-01 15:33:22.631] [info] Loading persistent workspaces from Waybar config
+[2026-08-01 15:33:22.631] [info] Loading persistent workspaces from Hyprland workspace rules
+[2026-08-01 15:33:22.634] [info] Loading persistent workspaces from Hyprland workspace rules
+[2026-08-01T15:33:22+08:00] pickachu-battery: capacity=21 class=p40
+[2026-08-01 15:33:22.678] [info] Loading persistent workspaces from Waybar config
+[2026-08-01 15:33:22.678] [info] Loading persistent workspaces from Hyprland workspace rules
+[2026-08-01 15:33:22.681] [info] Loading persistent workspaces from Hyprland workspace rules
+[2026-08-01T15:33:22+08:00] pickachu-battery: capacity=21 class=p40
+[2026-08-01 15:33:22.760] [warning] Requested height: 56 is less than the minimum height: 60 required by the modules
+[2026-08-01 15:33:22.760] [info] Bar configured (width: 2560, height: 60) for output: eDP-1
+[2026-08-01 15:33:22.760] [warning] Requested height: 56 is less than the minimum height: 60 required by the modules
+[2026-08-01 15:33:22.760] [info] Bar configured (width: 2560, height: 60) for output: HDMI-A-1
+2026/08/01 15:33:34 socat[149114] W exiting on signal 15
+jq: error: writing output failed: Broken pipe
+2026/08/01 15:34:29 socat[149139] E write(1, 0x647ee9539000, 103): Broken pipe

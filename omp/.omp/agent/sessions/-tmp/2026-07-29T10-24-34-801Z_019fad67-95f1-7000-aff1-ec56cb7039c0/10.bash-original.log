@@ -1,0 +1,8 @@
+=== live LD_PRELOAD/GI env of running proc ===
+ExecMainPID=380751
+ActiveState=active
+SubState=running
+--- override as applied ---
+GI_TYPELIB_PATH=/usr/local/lib/x86_64-linux-gnu/girepository-1.0
+LD_LIBRARY_PATH=/usr/local/lib/x86_64-linux-gnu
+LD_PRELOAD=/usr/local/lib/x86_64-linux-gnu/libgtk4-layer-shell.so.0

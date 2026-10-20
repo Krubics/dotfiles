@@ -1,0 +1,67 @@
+➜  yin git:(main) ✗ meson compile -C release
+sudo cp release/yin /usr/bin
+sudo cp release/yinctl /usr/bin
+
+INFO: autodetecting backend as ninja
+INFO: calculating backend command to run: /usr/bin/ninja -C /home/krubics/yin/release
+ninja: Entering directory `/home/krubics/yin/release'
+[14/28] Compiling C++ object yinctl.p/client_IPC_Client.cpp.o
+../client/IPC_Client.cpp: In member function ‘void IPC::clientWrite(unsigned char*, size_t)’:
+../client/IPC_Client.cpp:27:10: warning: ignoring return value of ‘ssize_t write(int, const void*, size_t)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+   27 |   ::write(m_clientFd, reinterpret_cast<char *>(data), len);
+      |   ~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[15/28] Compiling C++ object yin.p/shared_Binary.cpp.o
+../shared/Binary.cpp: In member function ‘void VectorWriter::writeu32(u32)’:
+../shared/Binary.cpp:11:21: warning: comparison of integer expressions of different signedness: ‘int’ and ‘long unsigned in’ [-Wsign-compare]
+   11 |   for (int i = 0; i < sizeof(u32); i++) {
+      |                   ~~^~~~~~~~~~~~~
+[16/28] Compiling C++ object yinctl.p/shared_Binary.cpp.o
+../shared/Binary.cpp: In member function ‘void VectorWriter::writeu32(u32)’:
+../shared/Binary.cpp:11:21: warning: comparison of integer expressions of different signedness: ‘int’ and ‘long unsigned in’ [-Wsign-compare]
+   11 |   for (int i = 0; i < sizeof(u32); i++) {
+      |                   ~~^~~~~~~~~~~~~
+[17/28] Compiling C++ object yin.p/daemon_Buffer.cpp.o
+../daemon/Buffer.cpp: In constructor ‘Buffer::Buffer(u32, u32, wl_shm*)’:
+../daemon/Buffer.cpp:22:21: warning: comparison of integer expressions of different signedness: ‘int’ and ‘u32’ {aka ‘unsigned int’} [-Wsign-compare]
+   22 |   for (int y = 0; y < height; y++) {
+      |                   ~~^~~~~~~~
+../daemon/Buffer.cpp:23:23: warning: comparison of integer expressions of different signedness: ‘int’ and ‘u32’ {aka ‘unsigned int’} [-Wsign-compare]
+   23 |     for (int x = 0; x < width; x++) {
+      |                     ~~^~~~~~~
+../daemon/Buffer.cpp: In constructor ‘Buffer::Buffer(u32, u32, wl_shm*)’:
+../daemon/Buffer.cpp:15:12: warning: ignoring return value of ‘int ftruncate(int, __off64_t)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+   15 |   ftruncate(fd, size);
+      |   ~~~~~~~~~^~~~~~~~~~
+[23/28] Compiling C++ object yin.p/daemon_Daemon.cpp.o
+../daemon/Daemon.cpp: In member function ‘void Daemon::run()’:
+../daemon/Daemon.cpp:115:9: warning: unused variable ‘_’ [-Wunused-variable]
+  115 |     int _ = poll(fds, 2, -1);
+      |         ^
+[26/28] Compiling C++ object yin.p/daemon_IPC_Server.cpp.o
+../daemon/IPC_Server.cpp: In member function ‘void IPC::serverAccept(Daemon&)’:
+../daemon/IPC_Server.cpp:56:14: warning: ignoring return value of ‘ssize_t write(int, const void*, size_t)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+   56 |         write(client, dimensions.data(), dimensions.size());
+      |         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../daemon/IPC_Server.cpp:66:14: warning: ignoring return value of ‘ssize_t write(int, const void*, size_t)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+   66 |         write(client, bad_video_message, std::strlen(bad_video_message));
+      |         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../daemon/IPC_Server.cpp:69:14: warning: ignoring return value of ‘ssize_t write(int, const void*, size_t)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+   69 |         write(client, no_hardware_decoding, std::strlen(no_hardware_decoding));
+      |         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../daemon/IPC_Server.cpp:72:14: warning: ignoring return value of ‘ssize_t write(int, const void*, size_t)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+   72 |         write(client, success_message, std::strlen(success_message));
+      |         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../daemon/IPC_Server.cpp:83:14: warning: ignoring return value of ‘ssize_t write(int, const void*, size_t)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+   83 |         write(client, bad_video_message, std::strlen(bad_video_message));
+      |         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../daemon/IPC_Server.cpp:86:14: warning: ignoring return value of ‘ssize_t write(int, const void*, size_t)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+   86 |         write(client, no_hardware_decoding, std::strlen(no_hardware_decoding));
+      |         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../daemon/IPC_Server.cpp:89:14: warning: ignoring return value of ‘ssize_t write(int, const void*, size_t)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+   89 |         write(client, success_message, std::strlen(success_message));
+      |         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../daemon/IPC_Server.cpp:92:14: warning: ignoring return value of ‘ssize_t write(int, const void*, size_t)’ declared with attribute ‘warn_unused_result’ [-Wunused-result]
+   92 |         write(client, no_history, std::strlen(no_history));
+      |         ~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[28/28] Linking target yin
+[sudo] password for krubics:

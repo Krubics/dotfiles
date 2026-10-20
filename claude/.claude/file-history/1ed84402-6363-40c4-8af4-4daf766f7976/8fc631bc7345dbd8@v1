@@ -1,0 +1,231 @@
+# Order processing logic
+
+How a Discord message becomes (or doesn't become) a broker order, and the exact
+rules for **buy**, **sell**, and **trim**.
+
+> **Tuning:** every order knob — spread, conviction scaling, order types, and the
+> stop loss / take profit — lives in one place: [`only_trades/order_policy.py`](only_trades/order_policy.py)
+> (the `OrderPolicy` dataclass + pure helpers) loaded from the **`ORDER_POLICY`** block
+> in [config.json](config.json). Per-trader SL/TP overrides go on each trader's
+> config entry. Tune there; the executor and brokers only read these values.
+
+**Division of labor:** the LLM only *interprets* — it turns a message into a
+`ParsedTrade` plus a `confidence`, and nothing more. Everything else is hard-coded:
+validity, the confidence gate (HELD vs AUTONOMOUS), conviction scaling, and resolving
+sell/trim against the trader's own positions. Sizing and the qty decisions are pure
+functions ([sizing.py](only_trades/sizing.py), [risk.py](only_trades/risk.py)).
+
+## Pipeline (every message)
+
+1. **Route** — [discord_listener.route_message](only_trades/discord_listener.py#L23): a
+   message in a watched channel → `InboundMessage` (raw) → queue.
+2. **Interpret (LLM)** — [llm_parser.interpret](only_trades/llm_parser.py): returns an
+   `Interpretation(trade, confidence, reasoning, error)`. `trade` is a `ParsedTrade`
+   or `None` (chatter / failure). The model does **not** see open positions, does
+   **not** judge validity, and does **not** resolve exits.
+3. **Decide (hard-coded)** — [executor.process_message](only_trades/executor.py#L72):
+
+   | Condition | Result |
+   |---|---|
+   | `error` set | **notify only**, never trade |
+   | `trade is None` (chatter) | skip silently |
+   | trade fails the **validity** check | **notify only** |
+   | valid, `confidence ≥ LLM.MIN_CONFIDENCE` | **AUTONOMOUS** — trade now |
+   | valid, `confidence < LLM.MIN_CONFIDENCE` | **HELD** — Discord poll (✅ Place / ❌ Discard); placed only on your ✅ |
+
+4. **Execute** — [process_signal](only_trades/executor.py) routes `buy` → `_handle_buy`,
+   `sell`/`trim` → `_handle_exit`.
+
+## ParsedTrade
+
+```
+action      buy | sell | trim                 (required)
+ticker      e.g. "AAPL"                        (required)
+expiry, strike, option_type, premium          (optional)
+scale       up | neutral | down               (conviction; default neutral)
+```
+
+A **BUY** is expected to carry the full contract. A **SELL/TRIM** may carry only the
+ticker — the executor fills in the rest from the trader's positions.
+
+## Validity (hard-coded, [_invalid_reason](only_trades/executor.py))
+
+- **BUY**: requires `ticker`, `expiry`, `strike > 0`, `option_type ∈ {call,put}`, `premium > 0`. Missing any → invalid → notify only.
+- **SELL/TRIM**: requires only `ticker`.
+
+Only **valid** trades reach the confidence gate; invalid ones are surfaced to you and
+never traded or held.
+
+## Conviction scaling (`scale`)
+
+The LLM reads the trader's sizing language ("starter/small/lotto" → `down`,
+"loading up/aggressive/full size" → `up`, else `neutral`). The factor multiplies the
+**algorithm-determined quantity** ([config.json](config.json) `ORDER_POLICY.SCALE_UP`=1.5,
+`SCALE_DOWN`=0.5):
+
+- **Buys**: `qty = floor(sized_qty × factor)`. ⚠️ A scale-up can take the order **above
+  the per-order allocation slice and available funds** — that's the intent of "going
+  bigger". (No affordability re-clamp; assumes a paper/margin account. Flagged so you
+  can add a clamp if you want one.)
+- **Exits**: applied to the close quantity, then **clamped to the holding** (you can
+  never sell more than you hold) — so scale-up on a full sell is a no-op, and any
+  explicit exit closes at least 1 contract.
+
+## BUY (open / add)
+
+[_handle_buy](only_trades/executor.py). Sizing ([size_order](only_trades/sizing.py#L57))
+works off a stable cash base so concurrent fills don't inflate later orders:
+
+```
+order_pct     = allocation / max_open_trades
+order_dollars = order_pct * reference_cash
+headroom      = allocation * net_liquidation - current_exposure
+allowed       = min(order_dollars, headroom, available_funds)
+qty           = floor(allowed / (premium * 100))
+qty           = floor(qty * scale_factor)        # conviction scaling
+```
+
+`current_exposure` and the open-contract count both measure the trader's **committed**
+book — filled positions **plus resting, still-unfilled entry BUYs**
+([committed_contract_occs](only_trades/orders.py), [_trader_exposure](only_trades/executor.py)).
+Counting the resting orders is what stops a burst of buys (placed faster than they fill)
+from each sizing against an empty book and collectively overshooting the cap. A filled
+position is valued at its live mark; a standing order is valued worst-case at its limit
+price (falling back to the mark for a market order).
+
+Risk gate ([decide_buy](only_trades/risk.py#L32)): duplicate → skip; new contract beyond
+`max_open_trades` → skip (adding to an already-held **or already-working** contract is
+allowed); `premium ≤ 0` → reject; scaled qty `< 1` → skip. A buy with a stated premium is
+a **limit** order at `premium × (1 + SPREAD)`; a price-less buy is a **market** order
+(sized off the live mark).
+
+### Entry-fill timeout
+
+A resting entry BUY that never fills ties up exposure headroom and leaves its protective
+legs dangling. With `ORDER_POLICY.ENTRY_TIMEOUT_SECS` set (per-trader override:
+`ENTRY_TIMEOUT_SECS` on the trader; `None`/`0` disables), each **limit** entry BUY
+auto-cancels if unfilled `timeout` seconds after placement. Two layers realize this:
+
+- **IBKR — native `GTD`:** the entry is placed as a Good-Till-Date order (`now + timeout`),
+  so IBKR cancels it broker-side at the deadline — even while our process is down — and
+  pushes the cancel back. Market entries fill immediately and stay `DAY` (unaffected).
+- **`SafetySweeper` reconciliation** ([safety.py](only_trades/safety.py) `_timeout_stale_buys`):
+  a startup + periodic pass that cancels any still-working entry BUY whose persisted
+  `created_at + timeout` has passed. This survives a **process restart** (the deadline is
+  the persisted `created_at`, not in-memory state) and is the sole enforcement for **Moomoo**
+  (no native order expiry); for IBKR it's a backstop.
+
+Either layer cancels via the broker, so the `CANCELLED` transition flows through
+[`Executor.on_order_update`](only_trades/executor.py): with **zero** fill it settles the
+orphaned protective legs (as any cancelled entry does); with a **partial** fill it keeps the
+smaller position and **resizes** the protective legs down to the filled qty
+([`_resize_protective_to_fill`](only_trades/executor.py)).
+
+## SELL (full close) and TRIM (partial close)
+
+Both go through [_handle_exit](only_trades/executor.py), which **resolves the exit
+against the trader's own holdings** — both **filled positions**
+([open_positions](only_trades/orders.py#L151)) **and still-standing entry BUYs**
+([standing_buy_orders](only_trades/orders.py)) — scoped to that trader, so one trader's
+exit can never touch another's contract. A standing order is an entry that hasn't fully
+filled (PENDING / SUBMITTED, or a partial fill's working remainder).
+
+**Which contracts** ([_select_exit_contracts](only_trades/executor.py)): the two sources
+are merged into one entry per contract (keyed by `occ_symbol`; a partial fill appears as
+both a position and a standing remainder), then:
+
+- **Specified exit** (the message gave a strike / expiry / option_type) → the single
+  **nearest** contract: same `option_type` preferred, then nearest strike, then nearest
+  expiry. Other contracts in the same ticker are untouched.
+- **Ambiguous exit** (only the ticker, e.g. "out of NVDA") → **every** matching contract
+  in that ticker. One ambiguous message can therefore act on **multiple** contracts.
+
+**Standing entries** are acted on by the order's broker ref ([cancel / modify](only_trades/brokers/protocol.py)):
+
+- **SELL** → **cancel** the working entry. IBKR cancels its bracketed protective legs with
+  it; we also mark any still-PENDING protective rows CANCELLED in our books
+  ([cancel_protective_for_message](only_trades/orders.py)).
+- **TRIM** → **reduce** the order's quantity in place by `TRIM_FRACTION` (new remaining =
+  `floor(remaining × (1 - TRIM_FRACTION))`); if that floors below 1 the working remainder
+  is cancelled (symmetric with the 1-lot trim rule below).
+
+A **partially-filled** entry is a full exit on **both** parts: SELL sells the filled
+position **and** cancels the remainder; TRIM trims the filled position **and** reduces the
+remainder. The exit is only skipped `no_position` when neither a position nor a standing
+order matches.
+
+**How much**, per resolved position ([decide_exit](only_trades/risk.py#L54)):
+
+```
+held = floor(position net_qty)
+SELL : base = held
+TRIM : base = floor(held * TRIM_FRACTION)        # default 0.5, rounded down
+       if base < 1: base = held                  # a TRIM on a 1-lot is a SELL
+qty  = min(floor(base * scale_factor), held)     # scale, then cap at holding
+if qty < 1: qty = 1                              # an explicit exit closes >= 1
+```
+
+Both `sell` and `trim` are sent to the broker as side **`SELL`**
+([side_for](only_trades/orders.py#L28)) — they differ only in quantity. An exit with a
+stated price is a **limit** at `price × (1 - SPREAD)`; a price-less exit is a **market**
+order. Each placed order is **recorded with the matched position's actual contract** (not
+the bare message), so the books and notifications show what was really sold.
+
+Notes:
+- TRIM works off the **current net** holding at processing time — two trims in a row each take half of what's *left* (10 → 5 → 2).
+- A held ambiguous exit fans out on **approval**: one ✅ closes all matching positions.
+
+## Stop loss & take profit (protective exits)
+
+Every **BUY** can carry a protective stop loss and/or take profit, defined as a
+**fraction of the entry premium** in [order_policy.py](only_trades/order_policy.py) /
+the `ORDER_POLICY` block:
+
+```
+stop   = entry_premium * (1 - STOP_LOSS_PCT)     # e.g. 0.5 -> stop 50% below
+target = entry_premium * (1 + TAKE_PROFIT_PCT)   # e.g. 1.0 -> target at +100%
+```
+
+- **Scope / override:** `ORDER_POLICY.STOP_LOSS_PCT` / `TAKE_PROFIT_PCT` are the global
+  defaults; any trader may override either in their `config.json` entry
+  (`STOP_LOSS_PCT` / `TAKE_PROFIT_PCT`). `null`/absent disables that leg. With both
+  disabled the buy is a plain single order, exactly as before. Resolution lives in
+  [`effective_sl_tp`](only_trades/order_policy.py).
+- **Basis:** prices are computed from the **entry premium** (the stated premium, or the
+  live mark for a market entry), *not* the realized fill — the protective legs must be
+  submitted together with the parent, before the fill is known.
+- **Mechanism (broker-neutral):** the protective stop and target are submitted as exit
+  orders such that **filling one cancels the other**. This is expressed in neutral terms
+  (`ProtectiveExit` in [order_policy.py](only_trades/order_policy.py); `place(...,
+  protective_exit=...)` on [BrokerProtocol](only_trades/brokers/protocol.py)); each
+  adapter realizes it natively — IBKR with a real bracket (the stop/target are child
+  orders of the entry, **armed by IBKR only once the entry fills**, in a one-cancels-other
+  group), Moomoo by emulating it (the legs are placed as separate SELLs and the
+  [`_watch`](only_trades/brokers/moomoo.py) loop cancels the survivor when one fills).
+  Moomoo also **defers arming until the entry actually fills** — it stashes the spec on the
+  entry and places the legs on the fill transition, so an entry that never fills leaves no
+  live stop/target behind. The executor, policy, and DB contain no broker specifics.
+- **Bookkeeping:** each protective leg is recorded as its own **PENDING `SELL`** row
+  sharing the entry's message/contract, tagged with an order ref. When a leg triggers
+  (or is cancelled), the broker emits a neutral **`OrderUpdate`** that
+  [`Executor.on_order_update`](only_trades/executor.py) reconciles into the orders/fills
+  tables — so a stop/target fill closes the derived position with no manual message.
+- **Orphan cascade:** if an entry goes terminal **without ever opening a position**
+  (rejected outright, or cancelled/expired while still resting — zero fills), its protective
+  legs have nothing to protect, so
+  [`Executor._settle_orphaned_protective`](only_trades/executor.py) cancels them at the
+  broker (by ref) and marks the rows CANCELLED. This runs both on the immediate place result
+  and on a later broker `OrderUpdate`. A **partial** fill counts as opened, so its legs are
+  kept.
+- **Manual exit takes precedence:** a trader's SELL/TRIM wins over the automated stop/target.
+  After an exit, [`_reconcile_protective_on_exit`](only_trades/executor.py) resizes the
+  contract's working protective legs to the net the trader will still hold — a full SELL
+  cancels them, a TRIM shrinks them to the remainder (cancelling the excess and shrinking the
+  one leg that straddles the boundary, oldest-first, so total coverage never exceeds the
+  holding). This is done once per contract, so it also covers the partial-fill/standing mix.
+
+## Attribution, dedupe, confirmation
+
+- **Attribution** — every order carries `order_ref = "{trader_id}:{order_id}"`; positions/exposure are derived per trader from filled orders.
+- **Dedupe** — a Discord `message_id` yields at most one *processing* (checked before the LLM call and again at placement); fan-out orders from one message all share that id and a later duplicate is blocked.
+- **Confirmation** — low-confidence trades are held and placed only on your ✅; chatter is ignored; errors/invalid trades notify without trading. See [prompt_running_readme.md](prompt_running_readme.md) for tuning the confidence threshold.

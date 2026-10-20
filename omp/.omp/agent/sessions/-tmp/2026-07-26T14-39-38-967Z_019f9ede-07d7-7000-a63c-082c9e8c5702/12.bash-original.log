@@ -1,0 +1,144 @@
+=== session.json (first part) ===
+{
+  "version": 3,
+  "workspaces": [
+    {
+      "id": "w6",
+      "custom_name": null,
+      "identity_cwd": "/home/krubics",
+      "public_pane_numbers": {
+        "16": 2,
+        "14": 1
+      },
+      "next_public_pane_number": 3,
+      "public_tab_numbers": [
+        1
+      ],
+      "next_public_tab_number": 2,
+      "tabs": [
+        {
+          "custom_name": null,
+          "layout": {
+            "Split": {
+              "direction": "Horizontal",
+              "ratio": 0.5,
+              "first": {
+                "Pane": 14
+              },
+              "second": {
+                "Pane": 16
+              }
+            }
+          },
+          "panes": {
+            "14": {
+              "cwd": "/home/krubics"
+            },
+            "16": {
+              "cwd": "/tmp",
+              "label": "yazi-fix",
+              "agent_name": "yazi-fix",
+              "launch_argv": [
+                "omp"
+              ]
+            }
+          },
+          "zoomed": false,
+          "focused": 16,
+          "root_pane": 14
+        }
+      ],
+      "active_tab": 0
+    },
+    {
+      "id": "w5",
+      "custom_name": null,
+      "identity_cwd": "/home/krubics",
+      "public_pane_numbers": {
+        "10": 10,
+        "1": 1,
+        "15": 14
+      },
+      "next_public_pane_number": 17,
+      "public_tab_numbers": [
+        1,
+        8
+      ],
+      "next_public_tab_number": 11,
+      "tabs": [
+        {
+          "custom_name": null,
+          "layout": {
+            "Pane": 1
+          },
+          "panes": {
+            "1": {
+              "cwd": "/home/krubics"
+            }
+          },
+          "zoomed": false,
+          "focused": 1,
+          "root_pane": 1
+        },
+        {
+          "custom_name": null,
+          "layout": {
+            "Split": {
+              "direction": "Horizontal",
+              "ratio": 0.5,
+              "first": {
+                "Pane": 10
+              },
+              "second": {
+                "Pane": 15
+              }
+            }
+          },
+          "panes": {
+            "10": {
+              "cwd": "/"
+            },
+            "15": {
+              "cwd": "/home/krubics"
+            }
+          },
+          "zoomed": false,
+          "focused": 10,
+          "root_pane": 10
+        }
+      ],
+      "active_tab": 1
+    }
+  ],
+  "active": 1,
+  "selected": 1,
+  "sidebar_width": 18,
+  "sidebar_section_split": 0.5,
+  "collapsed_space_keys": []
+}
+=== herdr status ===
+client:
+  version: 0.7.4
+  channel: stable
+  protocol: 16
+
+server:
+  status: running
+  version: 0.7.4
+  protocol: 16
+  compatible: yes
+  socket: /home/krubics/.config/herdr/herdr.sock
+
+update:
+  restart_needed: no
+=== grep server log for restore/persist keywords ===
+2026-07-23T09:51:53.076324Z  INFO herdr::logging: session saved event="persist.save" subsystem="persist" outcome="ok" path=/home/krubics/.config/herdr/session.json workspaces=1
+2026-07-23T09:52:00.960826Z  INFO herdr::logging: session saved event="persist.save" subsystem="persist" outcome="ok" path=/home/krubics/.config/herdr/session.json workspaces=1
+2026-07-23T10:59:33.050213Z  INFO herdr::logging: session saved event="persist.save" subsystem="persist" outcome="ok" path=/home/krubics/.config/herdr/session.json workspaces=1
+2026-07-23T11:03:09.830290Z  INFO herdr::logging: session saved event="persist.save" subsystem="persist" outcome="ok" path=/home/krubics/.config/herdr/session.json workspaces=1
+2026-07-26T09:28:11.533549Z  INFO herdr::logging: session restore evaluated event="persist.restore" subsystem="persist" outcome="ok" workspaces=1
+2026-07-26T09:28:11.584653Z  INFO herdr::server::headless: restored session already has workspaces; ignoring startup cwd cwd=/home/krubics/PicksBT
+2026-07-26T09:28:52.807097Z  INFO herdr::logging: session saved event="persist.save" subsystem="persist" outcome="ok" path=/home/krubics/.config/herdr/session.json workspaces=1
+2026-07-26T09:30:15.189393Z  INFO herdr::logging: session saved event="persist.save" subsystem="persist" outcome="ok" path=/home/krubics/.config/herdr/session.json workspaces=1
+2026-07-26T09:31:57.255008Z  INFO herdr::logging: session saved event="persist.save" subsystem="persist" outcome="ok" path=/home/krubics/.config/herdr/session.json workspaces=1
+2026-07-26T09:32:46.086646Z  INFO herdr::logging: session saved event="persist.save" subsystem="persist" outcome="ok" path=/home/krubics/.config/herdr/session.json workspaces=1

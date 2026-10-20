@@ -1,0 +1,20 @@
+.titlebar-min, .titlebar-max, .titlebar-restore, .titlebar-buttonbox {
+  display: none !important;
+}
+
+#zen-sidebar-web-panel[pinned="true"] {
+    border-left: 1px solid #888 !important; /* grey, matches expanded-sidebar border */
+    margin-left: 0 !important; /* Remove any default left margin if present */
+}
+
+/* Left border on the main sidebar only while it is expanded.
+ * Zen sets zen-sidebar-expanded="true" on the toolbox in the expanded state,
+ * so the border disappears automatically when the sidebar collapses.
+ * Zen gives the toolbox a default light (near-white) border on all sides,
+ * so we zero that out first, then paint only the inner-start edge grey.
+ * border-inline-start tracks the sidebar's real inner edge regardless of
+ * left/right sidebar placement. */
+#navigator-toolbox[zen-sidebar-expanded="true"] {
+    border: none !important;
+    border-inline-start: 1px solid #888 !important;
+}

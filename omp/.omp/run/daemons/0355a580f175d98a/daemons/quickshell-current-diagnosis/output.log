@@ -1,0 +1,7 @@
+[32m  INFO[0m: Launching config: "/home/krubics/.config/quickshell/shell.qml"
+[32m  INFO[0m: Shell ID: "d051c435653b3f3e3cbaa4f8ebb8d895" Path ID "d051c435653b3f3e3cbaa4f8ebb8d895"
+[32m  INFO[0m: Saving logs to "/run/user/1000/quickshell/by-id/csh4blxajt/log.qslog"
+[32m  INFO[0m: QML tooling support enabled
+[32m  INFO[0m: Configuration Loaded
+[34m DEBUG[97m qml[0m: gojo-eye
+[34m DEBUG[97m qml[0m: gojo

@@ -1,0 +1,37 @@
+# Session: 2026-07-23
+**Date:** 2026-07-23
+**Started:** 13:01
+**Last Updated:** 13:16
+**Project:** krubics
+**Branch:** unknown
+**Worktree:** /home/krubics
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Why is my GTK3 not live refreshing?
+- Hello please refer to the matugen templates I made
+- [Request interrupted by user]
+- You are joking bro: [gtk3-reload] gtk3-widget-factory not running, skipping
+- WTF I don't want to close and open my GTK windows
+- Yes
+
+### Files Modified
+- /home/krubics/.config/matugen/scripts/gtk3-reload.sh
+
+### Tools Used
+Bash, Write, Read, Edit
+
+### Stats
+- Total user messages: 6
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

@@ -1,0 +1,405 @@
+"""IBKR adapter: a thin async wrapper over ib_async implementing `BrokerProtocol`
+plus a few IBKR-only chain-discovery helpers used by `check_ib.py`.
+
+Requires a running IB Gateway / TWS logged into a PAPER account. Cannot be unit
+tested without that connection; the executor is tested against a fake implementing
+the same surface (see tests/test_executor.py).
+"""
+from __future__ import annotations
+
+import asyncio
+import logging
+import math
+
+from ib_async import (
+    IB, Contract, ExecutionFilter, LimitOrder, MarketOrder, Option, Order, Stock,
+)
+
+from datetime import date, datetime, timezone
+
+from .. import orders as orders_store
+from ..options import occ_symbol
+from ..order_policy import ProtectiveExit
+from .protocol import (
+    AccountSnapshot, BrokerPosition, OrderUpdate, OrderUpdateCallback, PlaceResult,
+)
+
+log = logging.getLogger("only_trades.brokers.ibkr")
+
+_TERMINAL_OK = {"Filled"}
+_CANCELLED = {"Cancelled", "ApiCancelled"}
+# IBKR reports "Inactive" for BOTH a genuine reject AND an order that is merely accepted
+# but not yet active (waiting for the market open, or a stop held until its trigger can be
+# evaluated). Only a reject carries an error code, so "Inactive" is disambiguated at
+# runtime (see _reject_error) rather than mapped terminally here.
+_INACTIVE = "Inactive"
+# TWS message codes 2100–2199 are system/warning notices (e.g. 2109 "outside RTH"), not
+# rejects — they must not turn a still-working order into a REJECTED one.
+_WARNING_CODES = range(2100, 2200)
+
+
+def _fmt_gtd(when: datetime) -> str:
+    """Format an absolute deadline for IBKR's `goodTillDate`. The dash-separated form
+    `yyyyMMdd-HH:mm:ss` is interpreted by IBKR as UTC, so convert to UTC first (a naive
+    datetime is assumed already-UTC)."""
+    if when.tzinfo is not None:
+        when = when.astimezone(timezone.utc)
+    return when.strftime("%Y%m%d-%H:%M:%S")
+
+
+def _num(x) -> float | None:
+    try:
+        f = float(x)
+        return None if math.isnan(f) else f
+    except (TypeError, ValueError):
+        return None
+
+
+def _account_value(values, tag: str, account: str | None) -> float:
+    candidates = [v for v in values if v.tag == tag and (account is None or v.account == account)]
+    for cur in ("USD", "BASE", ""):
+        for v in candidates:
+            if v.currency == cur and (n := _num(v.value)) is not None:
+                return n
+    for v in candidates:
+        if (n := _num(v.value)) is not None:
+            return n
+    return 0.0
+
+
+class IBKRAdapter:
+    def __init__(
+        self,
+        host: str,
+        port: int,
+        client_id: int,
+        account: str | None = None,
+        *,
+        market_data_type: int = 3,   # 1=live, 3=delayed, 4=delayed-frozen
+        fill_timeout: float = 60.0,
+        connect_timeout: float = 15.0,
+    ):
+        self.ib = IB()
+        self.host = host
+        self.port = port
+        self.client_id = client_id
+        self.account = account
+        self.market_data_type = market_data_type
+        self.fill_timeout = fill_timeout
+        self.connect_timeout = connect_timeout
+        self._on_update: OrderUpdateCallback | None = None
+        # order_ref -> last status we forwarded, to suppress duplicate callbacks.
+        self._last_status: dict[str, str] = {}
+        # order_ref -> live Trade, so a later cancel/modify can find the order to act on.
+        self._trades: dict[str, "object"] = {}
+
+    async def connect(self) -> None:
+        await self.ib.connectAsync(
+            self.host, self.port, clientId=self.client_id,
+            account=self.account or "", timeout=self.connect_timeout,
+        )
+        self.ib.reqMarketDataType(self.market_data_type)
+        # Continuous reconciliation: every status change (including protective legs that
+        # trigger long after the entry) flows through the neutral order-update callback.
+        self.ib.orderStatusEvent += self._on_order_status
+
+    def register_order_update(self, callback: OrderUpdateCallback) -> None:
+        self._on_update = callback
+
+    def _on_order_status(self, trade) -> None:
+        """ib_async fires this for any tracked order; translate to a neutral OrderUpdate
+        and dispatch on the running loop. Keyed by our orderRef so child legs reconcile."""
+        ref = getattr(trade.order, "orderRef", "") or ""
+        if not ref or self._on_update is None:
+            return
+        result = self._result(trade)
+        if self._last_status.get(ref) == result.status:
+            return  # ib_async re-fires unchanged statuses; only forward transitions
+        self._last_status[ref] = result.status
+        update = OrderUpdate(
+            order_ref=ref,
+            status=result.status,
+            filled_qty=result.filled_qty,
+            avg_fill_price=result.avg_fill_price,
+            broker_order_id=result.broker_order_id,
+            error=result.error,
+        )
+        asyncio.ensure_future(self._dispatch(update))
+
+    async def _dispatch(self, update: OrderUpdate) -> None:
+        try:
+            await self._on_update(update)
+        except Exception:  # noqa: BLE001 - a bad callback must not kill the event loop
+            log.exception("order-update callback failed for %s", update.order_ref)
+
+    def is_connected(self) -> bool:
+        return self.ib.isConnected()
+
+    def disconnect(self) -> None:
+        if self.ib.isConnected():
+            self.ib.disconnect()
+
+    def account_snapshot(self) -> AccountSnapshot:
+        v = self.ib.accountValues(self.account or "")
+        return AccountSnapshot(
+            net_liquidation=_account_value(v, "NetLiquidation", self.account),
+            available_funds=_account_value(v, "AvailableFunds", self.account),
+            total_cash=_account_value(v, "TotalCashValue", self.account),
+        )
+
+    async def qualify(self, option: Option) -> Option | None:
+        await self.ib.qualifyContractsAsync(option)
+        return option if option.conId else None
+
+    async def mark(self, contract: Contract) -> float | None:
+        """Best-available mark for valuing a position: midpoint, else last/close."""
+        tickers = await self.ib.reqTickersAsync(contract)
+        if not tickers:
+            return None
+        t = tickers[0]
+        for value in (t.midpoint(), t.marketPrice(), t.last, t.close):
+            n = _num(value)
+            if n is not None and n > 0:
+                return n
+        return None
+
+    async def place(
+        self,
+        contract: Contract,
+        *,
+        side: str,            # "BUY" | "SELL"
+        qty: int,
+        order_ref: str,
+        order_type: str = "limit",
+        limit_price: float | None = None,
+        protective_exit: ProtectiveExit | None = None,
+        good_till: datetime | None = None,
+    ) -> PlaceResult:
+        if order_type == "limit" and limit_price is not None:
+            parent = LimitOrder(side, qty, limit_price)
+        else:
+            parent = MarketOrder(side, qty)
+
+        children = self._protective_legs(qty, side, order_ref, protective_exit)
+        # When protective legs exist, hold the parent until they are attached so IBKR
+        # transmits the whole group atomically.
+        parent.transmit = not children
+        # A resting entry BUY auto-cancels at `good_till`: IBKR does this natively as a
+        # Good-Till-Date order and pushes the cancel back via orderStatusEvent. Only a
+        # limit order rests long enough to matter; a market entry fills at once.
+        if good_till is not None and side == "BUY" and isinstance(parent, LimitOrder):
+            self._tag(parent, order_ref, tif="GTD")
+            parent.goodTillDate = _fmt_gtd(good_till)
+        else:
+            self._tag(parent, order_ref)
+        trade = self.ib.placeOrder(contract, parent)  # assigns parent.orderId locally
+        self._trades[order_ref] = trade  # remember it so cancel/modify can find it later
+        self._attach_children(contract, parent, children)
+
+        # Non-blocking: report the immediate state and return. The fill — and any
+        # protective-leg transitions — arrive later via the orderStatusEvent callback,
+        # so the serial executor loop is never stalled on a resting order.
+        return self._result(trade)
+
+    def _lookup_trade(self, order_ref: str):
+        """The live Trade for an order_ref: the one we recorded at placement, falling back
+        to a scan of the broker's current trades (survives a restart that emptied the map
+        while IBKR still has the order). None if it isn't there."""
+        trade = self._trades.get(order_ref)
+        if trade is not None:
+            return trade
+        for t in self.ib.trades():
+            if getattr(t.order, "orderRef", "") == order_ref:
+                return t
+        return None
+
+    async def cancel(self, order_ref: str) -> None:
+        trade = self._lookup_trade(order_ref)
+        if trade is None or trade.isDone():
+            return  # unknown or already terminal -> no-op
+        self.ib.cancelOrder(trade.order)
+
+    async def modify(self, order_ref: str, *, qty: int) -> None:
+        trade = self._lookup_trade(order_ref)
+        if trade is None or trade.isDone():
+            return
+        if qty <= 0:
+            self.ib.cancelOrder(trade.order)
+            return
+        # IBKR has no distinct modify call: re-submitting an order that carries the same
+        # orderId modifies the live order in place. Reusing trade.order preserves it.
+        trade.order.totalQuantity = qty
+        self.ib.placeOrder(trade.contract, trade.order)
+
+    def _tag(self, order: Order, ref: str, tif: str = "DAY") -> None:
+        order.orderRef = ref
+        order.tif = tif
+        if self.account:
+            order.account = self.account
+
+    def _protective_legs(
+        self, qty: int, side: str, order_ref: str, pe: ProtectiveExit | None,
+    ) -> list[tuple[Order, str]]:
+        """Build the (order, ref) protective legs for an entry, or [] if none. The exit
+        side is the opposite of the entry; each leg carries its own ref so its later
+        fill/cancel reconciles to our row, and shares an OCA group so filling one
+        cancels the other."""
+        if pe is None or not pe.has_any:
+            return []
+        exit_side = "SELL" if side == "BUY" else "BUY"
+        oca = f"oca_{order_ref}"
+        legs: list[tuple[Order, str]] = []
+        if pe.take_profit_price is not None:
+            legs.append((LimitOrder(exit_side, qty, pe.take_profit_price), pe.take_profit_ref))
+        if pe.stop_price is not None:
+            legs.append((Order(orderType="STP", action=exit_side, totalQuantity=qty,
+                               auxPrice=pe.stop_price), pe.stop_ref))
+        for leg, _ in legs:
+            leg.ocaGroup = oca
+            leg.ocaType = 1   # cancel the remaining leg on a fill
+        return legs
+
+    def _attach_children(
+        self, contract: Contract, parent: Order, children: list[tuple[Order, str]],
+    ) -> None:
+        """Attach protective legs to a just-placed parent: each is a child order
+        (parentId) so it only arms after the entry fills; the last leg transmits the
+        group."""
+        for i, (leg, ref) in enumerate(children):
+            leg.parentId = parent.orderId
+            leg.transmit = (i == len(children) - 1)
+            # GTC so protective exits outlive the session that opened the position.
+            self._tag(leg, ref, tif="GTC")
+            self.ib.placeOrder(contract, leg)
+
+    def _result(self, trade) -> PlaceResult:
+        status = trade.orderStatus.status
+        filled = float(trade.filled() or 0)
+        remaining = float(trade.remaining() or 0)
+        avg = _num(trade.orderStatus.avgFillPrice)
+        error = None
+
+        if status in _TERMINAL_OK or (filled > 0 and remaining <= 0):
+            mapped = orders_store.FILLED
+        elif filled > 0:
+            mapped = orders_store.PARTIAL
+        elif status == _INACTIVE:
+            # Inactive-with-an-error is a real reject; Inactive-without is an order waiting
+            # to become active (e.g. submitted before the open) — keep it working so we
+            # don't orphan it (and its protective legs) in our books.
+            error = self._reject_error(trade)
+            mapped = orders_store.REJECTED if error else orders_store.SUBMITTED
+        elif status in _CANCELLED:
+            mapped = orders_store.CANCELLED
+            error = self._last_error(trade)
+        else:
+            mapped = orders_store.SUBMITTED
+
+        return PlaceResult(
+            status=mapped,
+            filled_qty=filled,
+            avg_fill_price=avg if filled > 0 else None,
+            broker_order_id=getattr(trade.order, "orderId", None) or None,
+            broker_perm_id=getattr(trade.order, "permId", None) or None,
+            error=error,
+        )
+
+    @staticmethod
+    def _last_error(trade) -> str | None:
+        for entry in reversed(trade.log):
+            if getattr(entry, "errorCode", 0) or getattr(entry, "message", ""):
+                return f"{getattr(entry, 'errorCode', '')} {getattr(entry, 'message', '')}".strip()
+        return None
+
+    @staticmethod
+    def _reject_error(trade) -> str | None:
+        """The reject reason for an order IBKR marked Inactive, or None when it carries no
+        real error code — meaning it was accepted but isn't active yet (waiting for the
+        open, or a stop awaiting its trigger). A genuine reject always logs an error code;
+        system/warning codes (2100–2199, e.g. the outside-RTH notice) are not rejects."""
+        for entry in reversed(trade.log):
+            code = getattr(entry, "errorCode", 0) or 0
+            if code and code not in _WARNING_CODES:
+                return f"{code} {getattr(entry, 'message', '')}".strip()
+        return None
+
+    async def resync(self) -> None:
+        """Replay the current state of every order IBKR still knows about through the
+        order-update callback — recovering fills/cancels (incl. GTC protective legs) that
+        happened while we were down. Pulls completed orders too so terminal states that
+        left the open book are seen."""
+        if self._on_update is None:
+            return
+        try:
+            await self.ib.reqCompletedOrdersAsync(apiOnly=False)
+        except Exception:  # noqa: BLE001 - recovery must not fail startup
+            log.warning("reqCompletedOrders failed during resync", exc_info=True)
+        for trade in self.ib.trades():
+            ref = getattr(trade.order, "orderRef", "") or ""
+            if not ref:
+                continue
+            r = self._result(trade)
+            self._last_status[ref] = r.status
+            await self._dispatch(OrderUpdate(
+                order_ref=ref, status=r.status, filled_qty=r.filled_qty,
+                avg_fill_price=r.avg_fill_price, broker_order_id=r.broker_order_id,
+                error=r.error,
+            ))
+
+    @staticmethod
+    def _occ_for(contract) -> str | None:
+        exp = getattr(contract, "lastTradeDateOrContractMonth", "") or ""
+        if len(exp) < 8 or not getattr(contract, "right", ""):
+            return None
+        d = date(int(exp[:4]), int(exp[4:6]), int(exp[6:8]))
+        ot = "call" if contract.right.upper().startswith("C") else "put"
+        return occ_symbol(contract.symbol, d, ot, float(contract.strike))
+
+    async def positions(self) -> list[BrokerPosition]:
+        out: list[BrokerPosition] = []
+        for p in self.ib.positions(self.account or ""):
+            c = p.contract
+            if getattr(c, "secType", "") != "OPT":
+                continue
+            try:
+                occ = self._occ_for(c)
+            except Exception:  # noqa: BLE001 - a weird contract must not break the pass
+                occ = getattr(c, "localSymbol", None)
+            out.append(BrokerPosition(
+                occ_symbol=occ, qty=float(p.position),
+                con_id=getattr(c, "conId", None) or None,
+                avg_cost=_num(getattr(p, "avgCost", None)),
+            ))
+        return out
+
+    async def executions(self):
+        return await self.ib.reqExecutionsAsync(ExecutionFilter())
+
+    # ---- IBKR-only chain discovery (used by check_ib.py; not part of BrokerProtocol) ----
+    async def underlying(self, symbol: str, exchange: str = "SMART", currency: str = "USD") -> Stock | None:
+        """Qualify the underlying stock (needed to look up its option chain)."""
+        stock = Stock(symbol.upper(), exchange, currency)
+        await self.ib.qualifyContractsAsync(stock)
+        return stock if stock.conId else None
+
+    async def option_params(self, stock: Stock) -> list:
+        """Return the option-chain parameters (expirations/strikes) for an underlying."""
+        return await self.ib.reqSecDefOptParamsAsync(stock.symbol, "", "STK", stock.conId)
+
+    async def list_strikes_for_expiry(
+        self, symbol: str, expiry_yyyymmdd: str, right: str = "call",
+        exchange: str = "SMART", currency: str = "USD",
+    ) -> list[float]:
+        """Strikes that are actually listed for a specific symbol+expiry+right.
+        Unlike the chain's strike/expiry sets (whose cross-product may not exist),
+        this returns only real contracts."""
+        probe = Option(
+            symbol=symbol.upper(),
+            lastTradeDateOrContractMonth=expiry_yyyymmdd,
+            strike=0.0,
+            right="C" if right.lower().startswith("c") else "P",
+            exchange=exchange,
+            currency=currency,
+        )
+        details = await self.ib.reqContractDetailsAsync(probe)
+        return sorted({d.contract.strike for d in details})

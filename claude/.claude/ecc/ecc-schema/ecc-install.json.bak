@@ -1,0 +1,20 @@
+{
+  "$schema": "./schemas/ecc-install-config.schema.json",
+  "version": 1,
+  "target": "claude",
+  "profile": "developer",
+  "include": [
+    "lang:typescript",
+    "lang:python",
+    "framework:nextjs",
+    "capability:security"
+  ],
+  "exclude": [
+    "capability:media"
+  ],
+  "options": {
+    "hooksProfile": "standard",
+    "mcpCatalog": "baseline",
+    "includeExamples": false
+  }
+}

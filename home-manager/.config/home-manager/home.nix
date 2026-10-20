@@ -1,4 +1,4 @@
-{ config, pkgs, irisPkg, ... }:
+{ config, pkgs, irisPkg, nixgl, quickshellPkg, ... }:
 
 let
   no-mistakes = pkgs.callPackage ./modules/no-mistakes.nix { };
@@ -6,6 +6,7 @@ let
   hyprsession = pkgs.callPackage ./modules/hyprsession.nix { };
 in
 {
+  imports = [ ./modules/skills-manager.nix ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "krubics";
@@ -21,6 +22,11 @@ in
   home.stateVersion = "26.05"; # Please read the comment before changing.
 
   nixpkgs.config.allowUnfree = true;
+
+  targets.genericLinux.nixGL = {
+    packages = nixgl.packages;
+    defaultWrapper = "mesa";
+  };
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -51,10 +57,16 @@ in
     pkgs.cava
     pkgs.hyprshutdown
     pkgs.trash-cli
+    (config.lib.nixGL.wrap (
+      quickshellPkg.withModules [
+        pkgs.kdePackages.qtmultimedia
+      ]
+    ))
     no-mistakes
     lyrics-tool
     hyprsession
     irisPkg
+    pkgs.kdePackages.qtdeclarative
   ];
   programs.lazyvim = {
     enable = true;

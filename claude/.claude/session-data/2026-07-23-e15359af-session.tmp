@@ -1,0 +1,38 @@
+# Session: 2026-07-23
+**Date:** 2026-07-23
+**Started:** 12:17
+**Last Updated:** 12:59
+**Project:** krubics
+**Branch:** unknown
+**Worktree:** /home/krubics
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Assistant: Good — that's an important clue, and it actually **breaks my earlier theory.** If reopening the app doesn't pick up new colors, then "missing live-reload module" isn't your real problem (or
+- Human: I'm on Ubuntu bro and I just installed adw-gtk3 but its still not working
+- Assistant: **Fact-force gate:** 1. **Request:** On Ubuntu, installed adw-gtk3 but gtk3-widget-factory still doesn't recolor from matugen. 2. **What this produces:** Where adw-gtk3 actually landed (apt
+- Human: Why is my GTK-4 theme transparent in the background?
+- Assistant: **Fact-force gate:** 1. **Request:** Why do GTK4 apps show a transparent background under this matugen setup. 2. **What this produces:** The full contents of the GTK4 \`colors.css\`, \`gtk.css
+- Human: It's the GTK-4-widget-factory
+- Assistant: That pins it — and it ties directly back to the fix we did earlier for your GTK3 colors. Let me confirm the one thing that explains it:  **Fact-force gate:** 1. **Request:** gtk4-widget-fac
+- Assistant: That pins it — and it ties directly back to the fix we did earlier for your GTK3 colors. Let me confirm the one thing that explains it:  **Fact-force gate:** 1. **Request:** gtk4-widget-fac
+- Human: What does this command even do: post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
+- Assistant: That's the \`post_hook\` matugen runs right after it writes your GTK3 \`colors.css\`. It's two \`gsettings\` commands chained with \`;\`:  \`\`\`bash gsettings set org.gnome.desktop.interface gtk-them
+
+### Tools Used
+Bash
+
+### Stats
+- Total user messages: 14
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

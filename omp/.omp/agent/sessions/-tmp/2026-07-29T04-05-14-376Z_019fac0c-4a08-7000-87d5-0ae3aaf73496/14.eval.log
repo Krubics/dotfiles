@@ -1,0 +1,61 @@
+before ghostty pids: ['11581', '11582', '220611', '220618']
+before log size: 61987
+after ghostty pids: ['11581', '11582', '220611', '220618']
+NEW ghostty pids spawned: set()
+=== PTY OUTPUT (repr, first 3000 chars) ===
+'\x1b[?7l\x1b7\x1b8\x1b[1B\r\x1b[2K\x1b8\x1b[2B\r\x1b[2K\x1b8\x1b[3B\r\x1b[2K\x1b8\x1b[4B\r\x1b[2K\x1b8\x1b[5B\r\x1b[2K\x1b8\x1b[6B\r\x1b[2K\x1b8\x1b[7B\r\x1b[2K\x1b8\x1b[8B\r\x1b[2K\x1b8\x1b[?7h\x1b[1m\x1b[7m%\x1b[27m\x1b[1m\x1b[0m                                                                                                                       \r \r\x1b]2;krubics@KrubicsLaptop:/tmp\x07\x1b]1;/tmp\x07\x1b]7;file://KrubicsLaptop/tmp\x1b\\\r\x1b[0m\x1b[27m\x1b[24m\x1b[J\x1b[38;2;214;93;14m\ue0b6\x1b[48;2;214;93;14;38;2;251;241;199m\U000f0548 krubics \x1b[48;2;215;153;33;38;2;214;93;14m\ue0b0\x1b[38;2;251;241;199m /tmp \x1b[48;2;104;157;106;38;2;215;153;33m\ue0b0\x1b[48;2;69;133;136;38;2;104;157;106m\ue0b0\x1b[48;2;102;92;84;38;2;69;133;136m\ue0b0\x1b[48;2;60;56;54;38;2;102;92;84m\ue0b0\x1b[38;2;251;241;199m \uf43a 23:31 \x1b[0m\x1b[38;2;60;56;54m\ue0b4 \x1b[0m\r\n\x1b[1;38;2;152;151;26m\uf432\x1b[0m \x1b[K\x1b[?1h\x1b=\x1b[?2004h\x1b[m                                                            \r\n                                                            \x1b[m\x1b[1m\x1b[33m\uebc6 DISTRO\x1b[m\x1b[m \U000f0443  \x1b[mUbuntu 24.04.4 LTS (Noble Numbat) x86_64\r\n                                                            \x1b[m\x1b[1m\x1b[33m│ ├\uf013\x1b[m\x1b[m \U000f0443  \x1b[mLinux 7.0.0-28-generic\r\n                                                            \x1b[m\x1b[1m\x1b[33m│ ├\U000f03d6\x1b[m\x1b[m \U000f0443  \x1b[m2957 (dpkg), 9 (flatpak), 541 (nix-user), 62 (nix-default), 28 (snap)\r\n                                                            \x1b[m\x1b[1m\x1b[33m│ └\uf489\x1b[m\x1b[m \U000f0443  \x1b[mbash 5.2.21\r\n                                                            \x1b[m\x1b[1m\x1b[34m\uf488 DE/WM\x1b[m\x1b[m \U000f0443  \x1b[mHyprland 0.55.4 (Wayland)\r\n                                                            \x1b[m\x1b[1m\x1b[34m│ ├\U000f003b\x1b[m\x1b[m \U000f0443  \x1b[mTokyonight-Dark [Qt], Papirus [GTK2/3/4]\r\n                                                            \x1b[m\x1b[1m\x1b[34m│ ├\ue623\x1b[m\x1b[m \U000f0443  \x1b[mPokemon (32px)\r\n\x1b[1m                                   \x1b[38;2;0;0;0m▄\x1b[0m\x1b[48;2;0;0;0m\x1b[38;2;247;230;41m▄\x1b[0m\x1b[38;2;0;0;0m▄\x1b[0m                      \x1b[m\x1b[m\x1b[1m\x1b[34m│ └\ue795\x1b[m\x1b[m \U000f0443  \x1b[miris\r\n\x1b[1m\x1b[0m                         \x1b[38;2;0;0;0m▄\x1b[0m\x1b[38;2;0;0;0m▄\x1b[0m\x1b[48;2;0;0;0m\x1b[38;2;132;206;107m▄\x1b[0m\x1b[48;2;0;0;0m\x1b[38;2;132;206;107m▄\x1b[0m\x1b[48;2;0;0;0m\x1b[38;2;132;206;107m▄\x1b[0m\x1b[48;2;0;0;0m\x1b[38;2;132;206;107m▄\x1b[0m\x1b[48;2;0;0;0m\x1b[38;2;132;206;107m▄\x1b[0m\x1b[38;2;0;0;0m▄\x1b[0m \x1b[38;2;0;0;0m▄\x1b[0m\x1b[48;2;0;0;0m\x1b[38;2;247;230;41m▄\x1b[0m\x1b[48;2;247;230;41m\x1b[38;2;99;156;107m▄\x1b[0m\x1b[48;2;0;0;0m\x1b[38;2;0;0;0m▄\x1b[0m                      \x1b[m\x1b[m\x1b[1m\x1b[32m\U000f0322 SYSTEM\x1b[m\x1b[m \U000f0443  \x1b[mAPEX 15\r\n\x1b[1m\x1b[0m                   
+log grew by 5042 bytes
+=== NEW iris.log CONTENT ===
+2026-07-31T23:31:14.756+08:00 [INFO] [root.go:68] IRIS session started: os=linux, arch=amd64, go=go1.25.0, pid=1269514
+2026-07-31T23:31:14.757+08:00 [DEBUG] [root.go:70] IRIS loaded config: shell="zsh", mode="spec", ghost-text=true, max-suggestions=100
+2026-07-31T23:31:14.758+08:00 [INFO] [wrapper.go:167] PTY child shell started: shell=zsh, path=zsh, pid=1269521
+2026-07-31T23:31:14.758+08:00 [DEBUG] [wrapper.go:178] Terminal set to raw mode successfully
+2026-07-31T23:31:14.963+08:00 [INFO] [root.go:68] IRIS session started: os=linux, arch=amd64, go=go1.26.4, pid=1269626
+2026-07-31T23:31:14.992+08:00 [DEBUG] [overlay.go:178] SetPromptLen: 0 -> 2
+2026-07-31T23:31:15.101+08:00 [DEBUG] [overlay.go:178] SetPromptLen: 2 -> 0
+2026-07-31T23:31:15.918+08:00 [DEBUG] [wrapper.go:646] Stdin raw input: bytes="g", hex=67
+2026-07-31T23:31:15.938+08:00 [DEBUG] [wrapper.go:568] Render query: 'g', mode: spec
+2026-07-31T23:31:15.938+08:00 [DEBUG] [suggestions.go:44] Merge Calling Lookup for 'g'
+2026-07-31T23:31:15.968+08:00 [DEBUG] [wrapper.go:646] Stdin raw input: bytes="h", hex=68
+2026-07-31T23:31:15.969+08:00 [DEBUG] [wrapper.go:570] Render results found: 100
+2026-07-31T23:31:15.969+08:00 [DEBUG] [wrapper.go:593] RenderOverlay nav: false, typedQuery: 'g', currentCmd: 'gh'
+2026-07-31T23:31:15.969+08:00 [DEBUG] [overlay.go:578] Overlay draw: pLen=0, typedLen=1, targetCol=1, width=120
+2026-07-31T23:31:15.988+08:00 [DEBUG] [wrapper.go:568] Render query: 'gh', mode: spec
+2026-07-31T23:31:15.988+08:00 [DEBUG] [suggestions.go:44] Merge Calling Lookup for 'gh'
+2026-07-31T23:31:16.018+08:00 [DEBUG] [wrapper.go:646] Stdin raw input: bytes="o", hex=6f
+2026-07-31T23:31:16.028+08:00 [DEBUG] [wrapper.go:570] Render results found: 3
+2026-07-31T23:31:16.028+08:00 [DEBUG] [wrapper.go:593] RenderOverlay nav: false, typedQuery: 'gh', currentCmd: 'ghostscript'
+2026-07-31T23:31:16.028+08:00 [DEBUG] [overlay.go:578] Overlay draw: pLen=0, typedLen=2, targetCol=2, width=120
+2026-07-31T23:31:16.038+08:00 [DEBUG] [wrapper.go:568] Render query: 'gho', mode: spec
+2026-07-31T23:31:16.038+08:00 [DEBUG] [suggestions.go:44] Merge Calling Lookup for 'gho'
+2026-07-31T23:31:16.041+08:00 [DEBUG] [wrapper.go:570] Render results found: 2
+2026-07-31T23:31:16.041+08:00 [DEBUG] [wrapper.go:593] RenderOverlay nav: false, typedQuery: 'gho', currentCmd: 'ghostscript'
+2026-07-31T23:31:16.041+08:00 [DEBUG] [overlay.go:578] Overlay draw: pLen=0, typedLen=3, targetCol=3, width=120
+2026-07-31T23:31:16.068+08:00 [DEBUG] [wrapper.go:646] Stdin raw input: bytes="s", hex=73
+2026-07-31T23:31:16.088+08:00 [DEBUG] [wrapper.go:568] Render query: 'ghos', mode: spec
+2026-07-31T23:31:16.088+08:00 [DEBUG] [suggestions.go:44] Merge Calling Lookup for 'ghos'
+2026-07-31T23:31:16.090+08:00 [DEBUG] [wrapper.go:570] Render results found: 2
+2026-07-31T23:31:16.090+08:00 [DEBUG] [wrapper.go:593] RenderOverlay nav: false, typedQuery: 'ghos', currentCmd: 'ghostscript'
+2026-07-31T23:31:16.090+08:00 [DEBUG] [overlay.go:578] Overlay draw: pLen=0, typedLen=4, targetCol=4, width=120
+2026-07-31T23:31:16.118+08:00 [DEBUG] [wrapper.go:646] Stdin raw input: bytes="t", hex=74
+2026-07-31T23:31:16.139+08:00 [DEBUG] [wrapper.go:568] Render query: 'ghost', mode: spec
+2026-07-31T23:31:16.139+08:00 [DEBUG] [suggestions.go:44] Merge Calling Lookup for 'ghost'
+2026-07-31T23:31:16.142+08:00 [DEBUG] [wrapper.go:570] Render results found: 2
+2026-07-31T23:31:16.142+08:00 [DEBUG] [wrapper.go:593] RenderOverlay nav: false, typedQuery: 'ghost', currentCmd: 'ghostscript'
+2026-07-31T23:31:16.142+08:00 [DEBUG] [overlay.go:578] Overlay draw: pLen=0, typedLen=5, targetCol=5, width=120
+2026-07-31T23:31:16.168+08:00 [DEBUG] [wrapper.go:646] Stdin raw input: bytes="t", hex=74
+2026-07-31T23:31:16.189+08:00 [DEBUG] [wrapper.go:568] Render query: 'ghostt', mode: spec
+2026-07-31T23:31:16.189+08:00 [DEBUG] [suggestions.go:44] Merge Calling Lookup for 'ghostt'
+2026-07-31T23:31:16.192+08:00 [DEBUG] [wrapper.go:570] Render results found: 1
+2026-07-31T23:31:16.192+08:00 [DEBUG] [wrapper.go:593] RenderOverlay nav: false, typedQuery: 'ghostt', currentCmd: 'ghostty'
+2026-07-31T23:31:16.192+08:00 [DEBUG] [overlay.go:578] Overlay draw: pLen=0, typedLen=6, targetCol=6, width=120
+2026-07-31T23:31:16.218+08:00 [DEBUG] [wrapper.go:646] Stdin raw input: bytes="y", hex=79
+2026-07-31T23:31:16.239+08:00 [DEBUG] [wrapper.go:568] Render query: 'ghostty', mode: spec
+2026-07-31T23:31:16.239+08:00 [DEBUG] [suggestions.go:44] Merge Calling Lookup for 'ghostty'
+2026-07-31T23:31:16.241+08:00 [DEBUG] [wrapper.go:570] Render results found: 0
+2026-07-31T23:31:16.268+08:00 [DEBUG] [wrapper.go:646] Stdin raw input: bytes=" ", hex=20
+2026-07-31T23:31:16.289+08:00 [DEBUG] [wrapper.go:568] Render query: 'ghostty ', mode: spec
+2026-07-31T23:31:16.289+08:00 [DEBUG] [suggestions.go:44] Merge Calling Lookup for 'ghostty '
+2026-07-31T23:31:16.291+08:00 [DEBUG] [lookup.go:111] core lookup tokens: [ghostty ], registry exists: false
+2026-07-31T23:31:16.597+08:00 [DEBUG] [wrapper.go:570] Render results found: 0
+

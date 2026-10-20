@@ -1,0 +1,35 @@
+# Session: 2026-07-23
+**Date:** 2026-07-23
+**Started:** 13:46
+**Last Updated:** 13:46
+**Project:** krubics
+**Branch:** unknown
+**Worktree:** /home/krubics
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Human: <transcript> {"user":"Figure out why whenever I hover on my scrollbar on the right the scroll bar background turns black."} {"Bash":"cd /home/krubics && ls -la 2>/dev/null | head -50"} {"Bash":
+- Human: <transcript> {"user":"Figure out why whenever I hover on my scrollbar on the right the scroll bar background turns black."} {"Bash":"cd /home/krubics && ls -la 2>/dev/null | head -50"} {"Bash":
+- Human: <transcript> {"user":"Figure out why whenever I hover on my scrollbar on the right the scroll bar background turns black."} {"Bash":"cd /home/krubics && ls -la 2>/dev/null | head -50"} {"Bash":
+- Human: <transcript> {"user":"Figure out why whenever I hover on my scrollbar on the right the scroll bar background turns black."} {"Bash":"cd /home/krubics && ls -la 2>/dev/null | head -50"} {"Bash":
+- Human: <transcript> {"user":"Figure out why whenever I hover on my scrollbar on the right the scroll bar background turns black."} {"Bash":"cd /home/krubics && ls -la 2>/dev/null | head -50"} {"Bash":
+- Human: <transcript> {"user":"Figure out why whenever I hover on my scrollbar on the right the scroll bar background turns black."} {"Bash":"cd /home/krubics && ls -la 2>/dev/null | head -50"} {"Bash":
+- Human: <transcript> {"user":"Figure out why whenever I hover on my scrollbar on the right the scroll bar background turns black."} {"Bash":"cd /home/krubics && ls -la 2>/dev/null | head -50"} {"Bash":
+- Human: <transcript> {"user":"Why does my GTK3 apps not live reload when after the matugen template has obviously changed the gtk3 color.css? It only reloads after I open and close the apps."} {"Bash":
+- Human: <transcript> {"user":"Why does my GTK3 apps not live reload when after the matugen template has obviously changed the gtk3 color.css? It only reloads after I open and close the apps."} {"Bash":
+- Human: <transcript> {"user":"Why does my GTK3 apps not live reload when after the matugen template has obviously changed the gtk3 color.css? It only reloads after I open and close the apps."} {"Bash":
+
+### Stats
+- Total user messages: 55
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

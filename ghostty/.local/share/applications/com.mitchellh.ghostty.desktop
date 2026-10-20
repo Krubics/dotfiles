@@ -1,0 +1,17 @@
+[Desktop Entry]
+Version=1.0
+Name=Ghostty
+Type=Application
+Comment=A terminal emulator
+Exec=/snap/bin/ghostty --gtk-single-instance=true
+Icon=/snap/ghostty/current/share/icons/hicolor/512x512/apps/com.mitchellh.ghostty.png
+Categories=System;TerminalEmulator;
+Keywords=terminal;tty;pty;
+StartupNotify=true
+StartupWMClass=com.mitchellh.ghostty
+Terminal=false
+Actions=new-window;
+
+[Desktop Action new-window]
+Name=New Window
+Exec=/snap/bin/ghostty --gtk-single-instance=true

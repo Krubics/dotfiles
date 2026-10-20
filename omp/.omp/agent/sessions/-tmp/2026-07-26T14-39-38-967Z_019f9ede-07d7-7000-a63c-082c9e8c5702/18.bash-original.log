@@ -1,0 +1,12 @@
+config: ok
+{"id":"cli:server:reload-config","result":{"diagnostics":[],"status":"applied","type":"config_reload"}}
+=== locate xremap config/service ===
+/home/krubics/.config/systemd/user/default.target.wants/xremap.service
+/home/krubics/.config/systemd/user/xremap.service
+/home/krubics/.config/xremap
+● xremap.service - Xremap
+     Loaded: loaded (/home/krubics/.config/systemd/user/xremap.service; enabled; preset: enabled)
+     Active: active (running) since Sun 2026-07-26 23:26:12 +08; 18min ago
+   Main PID: 1024296 (xremap)
+      Tasks: 1 (limit: 16254)
+krubics  1024296  0.1  0.0   6556  2336 ?        Ss   23:26   0:01 /home/krubics/.cargo/bin/xremap --watch=device /home/krubics/.config/xremap/config.yml

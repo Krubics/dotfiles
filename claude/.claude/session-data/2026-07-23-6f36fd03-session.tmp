@@ -1,0 +1,50 @@
+# Session: 2026-07-23
+**Date:** 2026-07-23
+**Started:** 17:11
+**Last Updated:** 18:13
+**Project:** qt6ct
+**Branch:** unknown
+**Worktree:** /home/krubics/.config/qt6ct
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+1. **Diagnose gtk4-widget-factory theme application** — investigate why the widget factory's appearance doesn't change when theme settings are modified via matugen
+2. **Verify CSS file loading** — confirm whether `~/.config/gtk-4.0/gtk.css` actually reaches and paints the gtk4-widget-factory window
+3. **Build automated testing** — implement screenshot-based color sampling to replace eyeballing
+
+### Decisions Made
+- **Diagnostic approach:** Added a magenta probe value (`#FF00FF`) to the `window`/`.background` rule in `gtk.css` to programmatically verify if it paints
+- **Automated verification:** Built a harness using `grim` (screenshotting), `hyprctl` (window location), and Python color sampling to detect dominant pixel colors in the live window
+- **Root cause method:** Proved via screenshot that the CSS loads and applies (191k+ pixels of magenta filled the window once window-class matching was corrected)
+
+### Files Modified
+- `/home/krubics/.config/gtk-4.0/gtk.css` — added magenta diagnostic (`#FF00FF`), then reverted to `@window_bg_color` (line 125)
+- `/home/krubics/.config/matugen/templates/gtk/colors-gtk4.css` — the matugen template (referenced; content not changed)
+- `/home/krubics/.config/matugen/config.toml` — output path for gtk.css (referenced; content not changed)
+
+### Proven Facts
+✅ `~/.config/gtk-4.0/gtk.css` **is loaded** and **is painting** gtk4-widget-factory's window  
+✅ The file regenerates correctly on every matugen run  
+✅ The `adw-gtk3` theme name does not block GTK4 color application  
+✅ The window is **not transparent** — earlier theories about transparency were caused by a window-class filter typo in the screenshot detector  
+
+### Unresolved Issues
+- **Why visual appearance doesn't change:** Despite confirmed CSS loading and painting, the user reports the widget factory "looks the same." Likely causes: (1) wallpaper blur effect rendering background colors invisible, (2) the magenta diagnostic being the only color tested (other theme colors may not apply visibly), or (3) other GTK4 styling rules overriding the background color rule. This needs deeper investigation into why the baseline theme colors aren't visually apparent when the diagnostic magenta does paint.
+
+### Next Session Context
+- The pipeline (matugen → gtk.css generation → GTK4 loading) **works**. Stop debugging the loading mechanism.
+- Focus on why *color changes in gtk.css* don't produce *visible changes* in the running widget factory. Consider: widget styling hierarchy, Adwaita's own CSS, whether the background color is actually the bottleneck for visual perception, or whether the blur/transparency is inherent to the app design.
+- Screenshot testing with color sampling is effective — keep that diagnostic harness if you continue debugging.
+<!-- LLM_SUMMARY:pre-compact:18:13 -->
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

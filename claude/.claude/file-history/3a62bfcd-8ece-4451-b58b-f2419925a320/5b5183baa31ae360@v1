@@ -1,0 +1,59 @@
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 16px;
+    background: none;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+
+.modules-left,
+.modules-center,
+.modules-right{
+    background: rgba(30, 30, 46, 0.85);
+    border-radius: 8px;
+    margin: 6px 4px;
+    padding: 4px 8px;
+}
+
+#workspaces button.active {
+    background: #89b4fa;
+    color: #1e1e2e;
+    margin: 4px 0px;
+    border-radius: 5px;
+}
+
+#custom-taskbar-divider {
+    color: rgba(255, 255, 255, 0.25);
+    margin: 0 6px;
+}
+
+#workspaces.taskbar button {
+    min-width: 0;
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+}
+
+#workspaces.taskbar .taskbar-window {
+    padding: 2px 4px;
+    margin: 0 2px;
+    border-radius: 5px;
+}
+
+#workspaces.taskbar .taskbar-window:hover {
+    background: rgba(137, 180, 250, 0.3);
+}
+
+#custom-clock-icon {
+    background-image: url('/home/krubics/Downloads/right-facing-pixelated-dialga.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-left: 20px; /* Gives the background element room to display */
+    margin-left: 10px;
+}

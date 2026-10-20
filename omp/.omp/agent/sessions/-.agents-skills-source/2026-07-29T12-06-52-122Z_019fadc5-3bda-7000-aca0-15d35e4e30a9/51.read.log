@@ -1,0 +1,1026 @@
+URL: https://learn.chatgpt.com/docs
+Content-Type: text/html
+Method: native
+
+---
+
+---
+canonical: https://learn.chatgpt.com/docs
+meta-astro-view-transitions-enabled: true
+meta-astro-view-transitions-fallback: swap
+meta-description: Use ChatGPT for ambitious work and software development
+meta-generator: Astro v6.0.4
+meta-og:description: Use ChatGPT for ambitious work and software development
+meta-og:image: https://learn.chatgpt.com/og/docs.png
+meta-og:image:alt: ChatGPT | ChatGPT Learn
+meta-og:image:height: 630
+meta-og:image:width: 1200
+meta-og:site_name: ChatGPT Learn
+meta-og:title: ChatGPT | ChatGPT Learn
+meta-og:type: website
+meta-og:url: https://learn.chatgpt.com/docs
+meta-title: ChatGPT | ChatGPT Learn
+meta-twitter:card: summary_large_image
+meta-twitter:description: Use ChatGPT for ambitious work and software development
+meta-twitter:image: https://learn.chatgpt.com/og/docs.png
+meta-twitter:image:alt: ChatGPT | ChatGPT Learn
+meta-twitter:image:height: 630
+meta-twitter:image:width: 1200
+meta-twitter:site: @ChatGPTapp
+meta-twitter:title: ChatGPT | ChatGPT Learn
+meta-twitter:url: https://learn.chatgpt.com/docs
+meta-viewport: width=device-width,initial-scale=1
+title: ChatGPT | ChatGPT Learn
+---
+
+For the complete documentation index, see [llms.txt](/llms.txt). Markdown versions of documentation pages are available by appending
+`.md` to the page URL.
+
+## Search the docs
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgc3Ryb2tlLXdpZHRoPSIyIiB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIGNsYXNzPSJoLVsxOHB4XSB3LVsxOHB4XSBzaHJpbmstMCBhc3Ryby0zZWY2a3NyMiAiPjxwYXRoIGQ9Ik0xOCA2IDYgMTgiIC8+PHBhdGggZD0ibTYgNiAxMiAxMiIgLz48L3N2Zz4=)
+
+Search docs
+
+### Suggested
+
+responses create
+
+reasoning_effort
+
+realtime
+
+prompt caching
+
+ Primary navigation
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjIgMjIiIHdpZHRoPSIyMiIgZmlsbD0ibm9uZSIgaGVpZ2h0PSIyMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBjbGFzcz0iYmxvY2sgZGFyazpoaWRkZW4gdy01IGgtNSBhc3Ryby0zZWY2a3NyMiAiPjxwYXRoIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTExIDBDMTEuNTUyMyAwIDEyIDAuNDQ3NzE1IDEyIDFWM0MxMiAzLjU1MjI4IDExLjU1MjMgNCAxMSA0QzEwLjQ0NzcgNCAxMCAzLjU1MjI4IDEwIDNWMUMxMCAwLjQ0NzcxNSAxMC40NDc3IDAgMTEgMFpNMy4yMjE4MyAzLjIyMTgzQzMuNjEyMzUgMi44MzEzIDQuMjQ1NTEgMi44MzEzIDQuNjM2MDQgMy4yMjE4M0w2LjA1MDI1IDQuNjM2MDRDNi40NDA3OCA1LjAyNjU2IDYuNDQwNzggNS42NTk3MyA2LjA1MDI1IDYuMDUwMjVDNS42NTk3MyA2LjQ0MDc4IDUuMDI2NTYgNi40NDA3OCA0LjYzNjA0IDYuMDUwMjVMMy4yMjE4MyA0LjYzNjA0QzIuODMxMyA0LjI0NTUxIDIuODMxMyAzLjYxMjM1IDMuMjIxODMgMy4yMjE4M1pNMTguNzc4MiAzLjIyMTgzQzE5LjE2ODcgMy42MTIzNSAxOS4xNjg3IDQuMjQ1NTEgMTguNzc4MiA0LjYzNjA0TDE3LjM2NCA2LjA1MDI1QzE2Ljk3MzQgNi40NDA3OCAxNi4zNDAzIDYuNDQwNzggMTUuOTQ5NyA2LjA1MDI1QzE1LjU1OTIgNS42NTk3MyAxNS41NTkyIDUuMDI2NTYgMTUuOTQ5NyA0LjYzNjA0TDE3LjM2NCAzLjIyMTgzQzE3Ljc1NDUgMi44MzEzIDE4LjM4NzYgMi44MzEzIDE4Ljc3ODIgMy4yMjE4M1pNMTEgOEM5LjM0MzE1IDggOCA5LjM0MzE1IDggMTFDOCAxMi42NTY5IDkuMzQzMTUgMTQgMTEgMTRDMTIuNjU2OSAxNCAxNCAxMi42NTY5IDE0IDExQzE0IDkuMzQzMTUgMTIuNjU2OSA4IDExIDhaTTYgMTFDNiA4LjIzODU4IDguMjM4NTggNiAxMSA2QzEzLjc2MTQgNiAxNiA4LjIzODU4IDE2IDExQzE2IDEzLjc2MTQgMTMuNzYxNCAxNiAxMSAxNkM4LjIzODU4IDE2IDYgMTMuNzYxNCA2IDExWk0wIDExQzAgMTAuNDQ3NyAwLjQ0NzcxNSAxMCAxIDEwSDNDMy41NTIyOCAxMCA0IDEwLjQ0NzcgNCAxMUM0IDExLjU1MjMgMy41NTIyOCAxMiAzIDEySDFDMC40NDc3MTUgMTIgMCAxMS41NTIzIDAgMTFaTTE4IDExQzE4IDEwLjQ0NzcgMTguNDQ3NyAxMCAxOSAxMEgyMUMyMS41NTIzIDEwIDIyIDEwLjQ0NzcgMjIgMTFDMjIgMTEuNTUyMyAyMS41NTIzIDEyIDIxIDEySDE5QzE4LjQ0NzcgMTIgMTggMTEuNTUyMyAxOCAxMVpNNi4wNTAyNSAxNS45NDk3QzYuNDQwNzggMTYuMzQwMyA2LjQ0MDc4IDE2Ljk3MzQgNi4wNTAyNSAxNy4zNjRMNC42MzYwNCAxOC43NzgyQzQuMjQ1NTEgMTkuMTY4NyAzLjYxMjM1IDE5LjE2ODcgMy4yMjE4MyAxOC43NzgyQzIuODMxMyAxOC4zODc2IDIuODMxMyAxNy43NTQ1IDMuMjIxODMgMTcuMzY0TDQuNjM2MDQgMTUuOTQ5N0M1LjAyNjU2IDE1LjU1OTIgNS42NTk3MyAxNS41NTkyIDYuMDUwMjUgMTUuOTQ5N1pNMTUuOTQ5NyAxNS45NDk3QzE2LjM0MDMgMTUuNTU5MiAxNi45NzM0IDE1LjU1OTIgMTcuMzY0IDE1Ljk0OTdMMTguNzc4MiAxNy4zNjRDMTkuMTY4NyAxNy43NTQ1IDE5LjE2ODcgMTguMzg3NiAxOC43NzgyIDE4Ljc3ODJDMTguMzg3NyAxOS4xNjg3IDE3Ljc1NDUgMTkuMTY4NyAxNy4zNjQgMTguNzc4MkwxNS45NDk3IDE3LjM2NEMxNS41NTkyIDE2Ljk3MzQgMTUuNTU5MiAxNi4zNDAzIDE1Ljk0OTcgMTUuOTQ5N1pNMTEgMThDMTEuNTUyMyAxOCAxMiAxOC40NDc3IDEyIDE5VjIxQzEyIDIxLjU1MjMgMTEuNTUyMyAyMiAxMSAyMkMxMC40NDc3IDIyIDEwIDIxLjU1MjMgMTAgMjFWMTlDMTAgMTguNDQ3NyAxMC40NDc3IDE4IDExIDE4WiIgZmlsbD0iY3VycmVudENvbG9yIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIC8+PC9zdmc+) ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAgMjAiIHdpZHRoPSIyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjIwIiBjbGFzcz0iaGlkZGVuIGRhcms6YmxvY2sgdy01IGgtNSBhc3Ryby0zZWY2a3NyMiAiPjxwYXRoIGQ9Ik0xMC43ODM2IDAuNDcwNDgxQzEwLjk2NzYgMC43NjUxMTggMTAuOTg1NSAxLjEzNDE1IDEwLjgzMDkgMS40NDUyNUMxMC4yOTk0IDIuNTE0OTcgMTAgMy43MjExIDEwIDUuMDAwMDFDMTAgOS40MTgyOSAxMy41ODE3IDEzIDE4IDEzTDE4LjA1NzUgMTIuOTk5OEMxOC40MDQ5IDEyLjk5NzQgMTguNzI4NyAxMy4xNzU0IDE4LjkxMjcgMTMuNDdDMTkuMDk2OCAxMy43NjQ3IDE5LjExNDcgMTQuMTMzNyAxOC45NjAxIDE0LjQ0NDhDMTcuMzI1IDE3LjczNTIgMTMuOTI3OSAyMCAxMCAyMEM0LjQ3NzE1IDIwIDAgMTUuNTIyOSAwIDEwQzAgNC41MDEwNyA0LjQzODQxIDAuMDM4ODU3IDkuOTI4MzggMC4wMDAyNjg5MzdDMTAuMjc1OCAtMC4wMDIxNzI3MSAxMC41OTk1IDAuMTc1ODQ0IDEwLjc4MzYgMC40NzA0ODFaTTguNDA5ODkgMi4xNTgwM0M0Ljc1MzQ0IDIuODk1NCAyIDYuMTI2MTkgMiAxMEMyIDE0LjQxODMgNS41ODE3MiAxOCAxMCAxOEMxMi41ODcgMTggMTQuODg4NiAxNi43NzIxIDE2LjM1MTYgMTQuODY0OEMxMS42MTMxIDE0LjA3ODkgOCA5Ljk2MTM5IDggNS4wMDAwMUM4IDQuMDEzNjEgOC4xNDMxIDMuMDU5NTMgOC40MDk4OSAyLjE1ODAzWiIgZmlsbD0iY3VycmVudENvbG9yIiAvPjwvc3ZnPg==)
+
+Search docs
+
+### Suggested
+
+responses create
+
+reasoning_effort
+
+realtime
+
+prompt caching
+
+ Overview
+
+Models
+
+Agents
+
+Tools
+
+Voice & Audio
+
+Production
+
+API reference
+
+* Overview
+Models
+Agents
+Tools
+Voice & Audio
+Production
+API reference
+
+Docs sectionOverview
+
+![SVG Image](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMWVtIiBoZWlnaHQ9IjFlbSIgdmlld0JveD0iMCAwIDE2IDkiIGZpbGw9ImN1cnJlbnRDb2xvciIgY2xhc3M9Il9Ecm9wZG93bkljb25feDg4N29fNDc1IF9Ecm9wZG93bkljb25DaGV2cm9uX3g4ODdvXzU4NiI+PHBhdGggZD0iTTAuMjkyODkzIDAuMjkyODkzQzAuNjgzNDE4IC0wLjA5NzYzMTEgMS4zMTY1OCAtMC4wOTc2MzExIDEuNzA3MTEgMC4yOTI4OTNMOCA2LjU4NTc5TDE0LjI5MjkgMC4yOTI4OTRDMTQuNjgzNCAtMC4wOTc2MzA1IDE1LjMxNjYgLTAuMDk3NjMwNCAxNS43MDcxIDAuMjkyODk0QzE2LjA5NzYgMC42ODM0MTggMTYuMDk3NiAxLjMxNjU4IDE1LjcwNzEgMS43MDcxMUw4LjcwNzExIDguNzA3MTFDOC4zMTY1OCA5LjA5NzYzIDcuNjgzNDIgOS4wOTc2MyA3LjI5Mjg5IDguNzA3MTFMMC4yOTI4OTMgMS43MDcxMUMtMC4wOTc2MzExIDEuMzE2NTggLTAuMDk3NjMxMSAwLjY4MzQxNyAwLjI5Mjg5MyAwLjI5Mjg5M1oiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbC1ydWxlPSJldmVub2RkIiAvPjwvc3ZnPg==)
+
+  
+
+-  [Home](/api/docs)
+
+### Get started
+
+-  [Quickstart](/api/docs/quickstart)
+-  [Using GPT-5.6](/api/docs/guides/latest-model)
+-  [Key concepts](/api/docs/concepts)
+
+### Core concepts
+
+-  [Responses API](/api/docs/guides/migrate-to-responses)
+-  [Conversation state](/api/docs/guides/conversation-state)
+-  [Background mode](/api/docs/guides/background)
+-  [Streaming](/api/docs/guides/streaming-responses)
+-  [WebSocket mode](/api/docs/guides/websocket-mode)
+-  [Multi-agent](/api/docs/guides/responses-multi-agent)
+-  [Webhooks](/api/docs/guides/webhooks)
+-  [File inputs](/api/docs/guides/file-inputs)
+-  [Compaction](/api/docs/guides/compaction)
+-  [Counting tokens](/api/docs/guides/token-counting)
+
+### SDKs and CLI
+
+-  [OpenAI SDK](/api/docs/libraries)
+-  [OpenAI CLI](/api/docs/libraries/openai-cli)
+
+### Resources
+
+-  [Changelog](/api/docs/changelog)
+-  [Deprecations](/api/docs/deprecations)
+-  [Supported countries](/api/docs/supported-countries)
+-  [OpenAI Crawlers](/api/docs/bots)
+-  [Terms and policies ![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLWV4dGVybmFsLWxpbmstaW5kaWNhdG9yPSJ0cnVlIiBmaWxsPSJub25lIiB2aWV3Qm94PSIwIDAgMTIgMTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgY2xhc3M9InctMiBoLTIgaW5saW5lLWJsb2NrIG1sLTEgdGV4dC1ncmF5LTYwMCBkYXJrOnRleHQtZ3JheS0zMDAgIj48cGF0aCBkPSJNMTAuMjQyNiAwLjc1NzM4NUMxMC43OTQ5IDAuNzU3Mzg1IDExLjI0MjYgMS4yMDUxIDExLjI0MjYgMS43NTczOFY4LjgyODQ1QzExLjI0MjYgOS4zODA3NCAxMC43OTQ5IDkuODI4NDUgMTAuMjQyNiA5LjgyODQ1QzkuNjkwMzUgOS44Mjg0NSA5LjI0MjY0IDkuMzgwNzQgOS4yNDI2NCA4LjgyODQ1VjQuMTcxNkwyLjQ2NDQ2IDEwLjk0OThDMi4wNzM5NCAxMS4zNDAzIDEuNDQwNzcgMTEuMzQwMyAxLjA1MDI1IDEwLjk0OThDMC42NTk3MjQgMTAuNTU5MiAwLjY1OTcyMyA5LjkyNjA4IDEuMDUwMjUgOS41MzU1Nkw3LjgyODQyIDIuNzU3MzlIMy4xNzE1N0MyLjYxOTI4IDIuNzU3MzkgMi4xNzE1NyAyLjMwOTY3IDIuMTcxNTcgMS43NTczOEMyLjE3MTU3IDEuMjA1MSAyLjYxOTI4IDAuNzU3Mzg1IDMuMTcxNTcgMC43NTczODVIMTAuMjQyNloiIGZpbGw9ImN1cnJlbnRDb2xvciIgLz48L3N2Zz4=)](https://openai.com/policies)
+
+### Legacy APIs
+
+-  
+
+**Agent Builder ![SVG Image](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGFyaWEtaGlkZGVuPSJ0cnVlIiBmaWxsPSJub25lIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGNsYXNzPSJuYXYtZGlzY2xvc3VyZS1jaGV2cm9uIHctMyBoLTMgaW5saW5lLWJsb2NrIHRleHQtc2Vjb25kYXJ5IHRyYW5zaXRpb24tdHJhbnNmb3JtIGR1cmF0aW9uLTE1MCAiPjxwYXRoIGQ9Ik04LjI5Mjg5IDQuMjkyODlDOC42ODM0MiAzLjkwMjM3IDkuMzE2NTggMy45MDIzNyA5LjcwNzExIDQuMjkyODlMMTYuNzA3MSAxMS4yOTI5QzE3LjA5NzYgMTEuNjgzNCAxNy4wOTc2IDEyLjMxNjYgMTYuNzA3MSAxMi43MDcxTDkuNzA3MTEgMTkuNzA3MUM5LjMxNjU4IDIwLjA5NzYgOC42ODM0MiAyMC4wOTc2IDguMjkyODkgMTkuNzA3MUM3LjkwMjM3IDE5LjMxNjYgNy45MDIzNyAxOC42ODM0IDguMjkyODkgMTguMjkyOUwxNC41ODU4IDEyTDguMjkyODkgNS43MDcxMUM3LjkwMjM3IDUuMzE2NTggNy45MDIzNyA0LjY4MzQyIDguMjkyODkgNC4yOTI4OVoiIGZpbGw9ImN1cnJlbnRDb2xvciIgLz48L3N2Zz4=)**
+
+  -  [Overview](/api/docs/guides/agent-builder)
+  -  [Migration guide](/api/docs/guides/agent-builder/migrate-from-agent-builder)
+  -  [Node reference](/api/docs/guides/node-reference)
+  -  [Safety in building agents](/api/docs/guides/agent-builder-safety)
+
+-  
+
+**Evals ![SVG Image](data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGFyaWEtaGlkZGVuPSJ0cnVlIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGNsYXNzPSJuYXYtZGlzY2xvc3VyZS1jaGV2cm9uIHctMyBoLTMgaW5saW5lLWJsb2NrIHRleHQtc2Vjb25kYXJ5IHRyYW5zaXRpb24tdHJhbnNmb3JtIGR1cmF0aW9uLTE1MCAiPjxwYXRoIGQ9Ik04LjI5Mjg5IDQuMjkyODlDOC42ODM0MiAzLjkwMjM3IDkuMzE2NTggMy45MDIzNyA5LjcwNzExIDQuMjkyODlMMTYuNzA3MSAxMS4yOTI5QzE3LjA5NzYgMTEuNjgzNCAxNy4wOTc2IDEyLjMxNjYgMTYuNzA3MSAxMi43MDcxTDkuNzA3MTEgMTkuNzA3MUM5LjMxNjU4IDIwLjA5NzYgOC42ODM0MiAyMC4wOTc2IDguMjkyODkgMTkuNzA3MUM3LjkwMjM3IDE5LjMxNjYgNy45MDIzNyAxOC42ODM0IDguMjkyODkgMTguMjkyOUwxNC41ODU4IDEyTDguMjkyODkgNS43MDcxMUM3LjkwMjM3IDUuMzE2NTggNy45MDIzNyA0LjY4MzQyIDguMjkyODkgNC4yOTI4OVoiIGZpbGw9ImN1cnJlbnRDb2xvciIgLz48L3N2Zz4=)**
+
+  -  [Getting started](/api/docs/guides/evaluation-getting-started)
+  -  [Working with evals](/api/docs/guides/evals)
+  -  [Prompt optimizer](/api/docs/guides/prompt-optimizer)
+  -  [External models](/api/docs/guides/external-models)
+  -  [Best practices](/api/docs/guides/evaluation-best-practices)
+  -  [Graders](/api/docs/guides/graders)
+
+-  
+
+**Fine-tuning ![SVG Image](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGFyaWEtaGlkZGVuPSJ0cnVlIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIGNsYXNzPSJuYXYtZGlzY2xvc3VyZS1jaGV2cm9uIHctMyBoLTMgaW5saW5lLWJsb2NrIHRleHQtc2Vjb25kYXJ5IHRyYW5zaXRpb24tdHJhbnNmb3JtIGR1cmF0aW9uLTE1MCAiPjxwYXRoIGQ9Ik04LjI5Mjg5IDQuMjkyODlDOC42ODM0MiAzLjkwMjM3IDkuMzE2NTggMy45MDIzNyA5LjcwNzExIDQuMjkyODlMMTYuNzA3MSAxMS4yOTI5QzE3LjA5NzYgMTEuNjgzNCAxNy4wOTc2IDEyLjMxNjYgMTYuNzA3MSAxMi43MDcxTDkuNzA3MTEgMTkuNzA3MUM5LjMxNjU4IDIwLjA5NzYgOC42ODM0MiAyMC4wOTc2IDguMjkyODkgMTkuNzA3MUM3LjkwMjM3IDE5LjMxNjYgNy45MDIzNyAxOC42ODM0IDguMjkyODkgMTguMjkyOUwxNC41ODU4IDEyTDguMjkyODkgNS43MDcxMUM3LjkwMjM3IDUuMzE2NTggNy45MDIzNyA0LjY4MzQyIDguMjkyODkgNC4yOTI4OVoiIGZpbGw9ImN1cnJlbnRDb2xvciIgLz48L3N2Zz4=)**
+
+  -  [Optimization cycle](/api/docs/guides/model-optimization)
+  -  [Supervised fine-tuning](/api/docs/guides/supervised-fine-tuning)
+  -  [Vision fine-tuning](/api/docs/guides/vision-fine-tuning)
+  -  [Direct preference optimization](/api/docs/guides/direct-preference-optimization)
+  -  [Reinforcement fine-tuning](/api/docs/guides/reinforcement-fine-tuning)
+  -  [RFT use cases](/api/docs/guides/rft-use-cases)
+  -  [Best practices](/api/docs/guides/fine-tuning-best-practices)
+
+-  
+
+**Assistants API ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgdmlld0JveD0iMCAwIDI0IDI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIGNsYXNzPSJuYXYtZGlzY2xvc3VyZS1jaGV2cm9uIHctMyBoLTMgaW5saW5lLWJsb2NrIHRleHQtc2Vjb25kYXJ5IHRyYW5zaXRpb24tdHJhbnNmb3JtIGR1cmF0aW9uLTE1MCAiPjxwYXRoIGQ9Ik04LjI5Mjg5IDQuMjkyODlDOC42ODM0MiAzLjkwMjM3IDkuMzE2NTggMy45MDIzNyA5LjcwNzExIDQuMjkyODlMMTYuNzA3MSAxMS4yOTI5QzE3LjA5NzYgMTEuNjgzNCAxNy4wOTc2IDEyLjMxNjYgMTYuNzA3MSAxMi43MDcxTDkuNzA3MTEgMTkuNzA3MUM5LjMxNjU4IDIwLjA5NzYgOC42ODM0MiAyMC4wOTc2IDguMjkyODkgMTkuNzA3MUM3LjkwMjM3IDE5LjMxNjYgNy45MDIzNyAxOC42ODM0IDguMjkyODkgMTguMjkyOUwxNC41ODU4IDEyTDguMjkyODkgNS43MDcxMUM3LjkwMjM3IDUuMzE2NTggNy45MDIzNyA0LjY4MzQyIDguMjkyODkgNC4yOTI4OVoiIGZpbGw9ImN1cnJlbnRDb2xvciIgLz48L3N2Zz4=)**
+
+  -  [Migration guide](/api/docs/assistants/migration)
+  -  [Deep dive](/api/docs/assistants/deep-dive)
+  -  [Tools](/api/docs/assistants/tools)
+
+  
+
+-  [Model catalog](/api/docs/models)
+
+### Choose a model
+
+-  [Pricing](/api/docs/pricing)
+-  [Model selection](/api/docs/guides/model-selection)
+
+### Text and code
+
+-  [Text generation](/api/docs/guides/text)
+-  [Code generation](/api/docs/guides/code-generation)
+-  [Structured output](/api/docs/guides/structured-outputs)
+
+### Prompting
+
+-  [Overview](/api/docs/guides/prompting)
+-  [Prompt engineering](/api/docs/guides/prompt-engineering)
+-  [Citation formatting](/api/docs/guides/citation-formatting)
+-  [Migration guide](/api/docs/guides/prompting/migrate-from-prompt-object)
+-  [Prompt generation](/api/docs/guides/prompt-generation)
+-  [Frontend prompting](/api/docs/guides/frontend-prompt)
+
+### Reasoning
+
+-  [Reasoning models](/api/docs/guides/reasoning)
+-  [Reasoning best practices](/api/docs/guides/reasoning-best-practices)
+
+### Images and video
+
+-  [Images and vision](/api/docs/guides/images-vision)
+-  [Image generation](/api/docs/guides/image-generation)
+-  [Video generation](/api/docs/guides/video-generation)
+
+### Realtime and audio
+
+-  [Audio and speech](/api/docs/guides/audio)
+-  [Overview](/api/docs/guides/realtime)
+-  [Voice agents](/api/docs/guides/voice-agents)
+
+### Specialized models
+
+-  [Deep research](/api/docs/guides/deep-research)
+-  [Embeddings](/api/docs/guides/embeddings)
+-  [Moderation](/api/docs/guides/moderation)
+
+  
+
+-  [Overview](/api/docs/guides/agents)
+
+### Agents SDK
+
+-  [Quickstart](/api/docs/guides/agents/quickstart)
+-  [Agent definitions](/api/docs/guides/agents/define-agents)
+-  [Models and providers](/api/docs/guides/agents/models)
+-  [Running agents](/api/docs/guides/agents/running-agents)
+-  [Sandbox agents](/api/docs/guides/agents/sandboxes)
+-  [Orchestration](/api/docs/guides/agents/orchestration)
+-  [Guardrails](/api/docs/guides/agents/guardrails-approvals)
+-  [Results and state](/api/docs/guides/agents/results)
+-  [Integrations and observability](/api/docs/guides/agents/integrations-observability)
+-  [Evaluate agent workflows](/api/docs/guides/agent-evals)
+
+### ChatKit
+
+-  [Overview](/api/docs/guides/chatkit)
+-  [Customize](/api/docs/guides/chatkit-themes)
+-  [Widgets](/api/docs/guides/chatkit-widgets)
+-  [Actions](/api/docs/guides/chatkit-actions)
+-  [Advanced integrations](/api/docs/guides/custom-chatkit)
+
+  
+
+-  [Overview](/api/docs/guides/tools)
+-  [Function calling](/api/docs/guides/function-calling)
+
+### Search and retrieval
+
+-  [Web search](/api/docs/guides/tools-web-search)
+-  [File search](/api/docs/guides/tools-file-search)
+-  [Retrieval](/api/docs/guides/retrieval)
+
+### Connect tools and data
+
+-  [MCP and Connectors](/api/docs/guides/tools-connectors-mcp)
+-  [Secure MCP Tunnel](/api/docs/guides/secure-mcp-tunnels)
+
+### Build tool workflows
+
+-  [Skills](/api/docs/guides/tools-skills)
+-  [Tool search](/api/docs/guides/tools-tool-search)
+-  [Programmatic tool calling](/api/docs/guides/tools-programmatic-tool-calling)
+
+### Computer and code
+
+-  [Shell](/api/docs/guides/tools-shell)
+-  [Computer use](/api/docs/guides/tools-computer-use)
+-  [Apply Patch](/api/docs/guides/tools-apply-patch)
+-  [Local shell](/api/docs/guides/tools-local-shell)
+-  [Code interpreter](/api/docs/guides/tools-code-interpreter)
+
+### Media
+
+-  [Image generation](/api/docs/guides/tools-image-generation)
+
+  
+
+-  [Overview](/api/docs/guides/realtime)
+
+### Get started
+
+-  [Voice agents](/api/docs/guides/voice-agents)
+-  [Live translation](/api/docs/guides/realtime-translation)
+-  [Realtime prompting guide](/api/docs/guides/realtime-models-prompting)
+
+### Audio
+
+-  [Audio and speech](/api/docs/guides/audio)
+-  [Transcription](/api/docs/guides/transcription)
+-  [File transcription](/api/docs/guides/speech-to-text)
+-  [Realtime transcription](/api/docs/guides/realtime-transcription)
+-  [Speech generation](/api/docs/guides/text-to-speech)
+
+### Connection methods
+
+-  [WebRTC](/api/docs/guides/realtime-webrtc)
+-  [WebSocket](/api/docs/guides/realtime-websocket)
+-  [SIP](/api/docs/guides/realtime-sip)
+
+### Sessions and operations
+
+-  [Managing conversations](/api/docs/guides/realtime-conversations)
+-  [Voice activity detection](/api/docs/guides/realtime-vad)
+-  [Realtime with tools](/api/docs/guides/realtime-mcp)
+-  [Webhooks and server-side controls](/api/docs/guides/realtime-server-controls)
+-  [Managing costs](/api/docs/guides/realtime-costs)
+
+### Go live
+
+-  [Production best practices](/api/docs/guides/production-best-practices)
+-  [Deployment checklist](/api/docs/guides/deployment-checklist)
+
+### Performance and quality
+
+-  [Latency optimization](/api/docs/guides/latency-optimization)
+-  [Predicted Outputs](/api/docs/guides/predicted-outputs)
+-  [Priority processing](/api/docs/guides/priority-processing)
+-  [Accuracy optimization](/api/docs/guides/optimizing-llm-accuracy)
+
+### Cost and throughput
+
+-  [Cost optimization](/api/docs/guides/cost-optimization)
+-  [Prompt caching](/api/docs/guides/prompt-caching)
+-  [Batch](/api/docs/guides/batch)
+-  [Flex processing](/api/docs/guides/flex-processing)
+
+### Safety and governance
+
+-  [Safety best practices](/api/docs/guides/safety-best-practices)
+-  [Red teaming](/api/docs/guides/red-teaming)
+-  
+
+**[Safety checks](/api/docs/guides/safety-checks) ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGNsYXNzPSJuYXYtZGlzY2xvc3VyZS1jaGV2cm9uIHctMyBoLTMgaW5saW5lLWJsb2NrIHRleHQtc2Vjb25kYXJ5IHRyYW5zaXRpb24tdHJhbnNmb3JtIGR1cmF0aW9uLTE1MCAiPjxwYXRoIGQ9Ik04LjI5Mjg5IDQuMjkyODlDOC42ODM0MiAzLjkwMjM3IDkuMzE2NTggMy45MDIzNyA5LjcwNzExIDQuMjkyODlMMTYuNzA3MSAxMS4yOTI5QzE3LjA5NzYgMTEuNjgzNCAxNy4wOTc2IDEyLjMxNjYgMTYuNzA3MSAxMi43MDcxTDkuNzA3MTEgMTkuNzA3MUM5LjMxNjU4IDIwLjA5NzYgOC42ODM0MiAyMC4wOTc2IDguMjkyODkgMTkuNzA3MUM3LjkwMjM3IDE5LjMxNjYgNy45MDIzNyAxOC42ODM0IDguMjkyODkgMTguMjkyOUwxNC41ODU4IDEyTDguMjkyODkgNS43MDcxMUM3LjkwMjM3IDUuMzE2NTggNy45MDIzNyA0LjY4MzQyIDguMjkyODkgNC4yOTI4OVoiIGZpbGw9ImN1cnJlbnRDb2xvciIgLz48L3N2Zz4=)**
+
+  -  [Cybersecurity checks](/api/docs/guides/safety-checks/cybersecurity)
+  -  [Under 18 API Guidance](/api/docs/guides/safety-checks/under-18-api-guidance)
+
+-  [Your data](/api/docs/guides/your-data)
+-  [Permissions](/api/docs/guides/rbac)
+
+### Infrastructure and access
+
+-  
+
+**[Terraform provider](/api/docs/guides/terraform) ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIGFyaWEtaGlkZGVuPSJ0cnVlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGNsYXNzPSJuYXYtZGlzY2xvc3VyZS1jaGV2cm9uIHctMyBoLTMgaW5saW5lLWJsb2NrIHRleHQtc2Vjb25kYXJ5IHRyYW5zaXRpb24tdHJhbnNmb3JtIGR1cmF0aW9uLTE1MCAiPjxwYXRoIGQ9Ik04LjI5Mjg5IDQuMjkyODlDOC42ODM0MiAzLjkwMjM3IDkuMzE2NTggMy45MDIzNyA5LjcwNzExIDQuMjkyODlMMTYuNzA3MSAxMS4yOTI5QzE3LjA5NzYgMTEuNjgzNCAxNy4wOTc2IDEyLjMxNjYgMTYuNzA3MSAxMi43MDcxTDkuNzA3MTEgMTkuNzA3MUM5LjMxNjU4IDIwLjA5NzYgOC42ODM0MiAyMC4wOTc2IDguMjkyODkgMTkuNzA3MUM3LjkwMjM3IDE5LjMxNjYgNy45MDIzNyAxOC42ODM0IDguMjkyODkgMTguMjkyOUwxNC41ODU4IDEyTDguMjkyODkgNS43MDcxMUM3LjkwMjM3IDUuMzE2NTggNy45MDIzNyA0LjY4MzQyIDguMjkyODkgNC4yOTI4OVoiIGZpbGw9ImN1cnJlbnRDb2xvciIgLz48L3N2Zz4=)**
+
+  -  [Overview](/api/docs/guides/terraform)
+  -  [Projects and access](/api/docs/guides/terraform/projects-and-access)
+  -  [Service accounts](/api/docs/guides/terraform/service-accounts)
+  -  [Rate limits and spend](/api/docs/guides/terraform/rate-limits-and-spend)
+  -  [Model, tool, and data controls](/api/docs/guides/terraform/project-controls)
+  -  [Import and reconciliation](/api/docs/guides/terraform/import-and-reconcile)
+
+-  [Private Link](/api/docs/guides/private-link)
+-  
+
+**[Workload identity federation](/api/docs/guides/workload-identity-federation) ![SVG Image](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgYXJpYS1oaWRkZW49InRydWUiIGNsYXNzPSJuYXYtZGlzY2xvc3VyZS1jaGV2cm9uIHctMyBoLTMgaW5saW5lLWJsb2NrIHRleHQtc2Vjb25kYXJ5IHRyYW5zaXRpb24tdHJhbnNmb3JtIGR1cmF0aW9uLTE1MCAiPjxwYXRoIGQ9Ik04LjI5Mjg5IDQuMjkyODlDOC42ODM0MiAzLjkwMjM3IDkuMzE2NTggMy45MDIzNyA5LjcwNzExIDQuMjkyODlMMTYuNzA3MSAxMS4yOTI5QzE3LjA5NzYgMTEuNjgzNCAxNy4wOTc2IDEyLjMxNjYgMTYuNzA3MSAxMi43MDcxTDkuNzA3MTEgMTkuNzA3MUM5LjMxNjU4IDIwLjA5NzYgOC42ODM0MiAyMC4wOTc2IDguMjkyODkgMTkuNzA3MUM3LjkwMjM3IDE5LjMxNjYgNy45MDIzNyAxOC42ODM0IDguMjkyODkgMTguMjkyOUwxNC41ODU4IDEyTDguMjkyODkgNS43MDcxMUM3LjkwMjM3IDUuMzE2NTggNy45MDIzNyA0LjY4MzQyIDguMjkyODkgNC4yOTI4OVoiIGZpbGw9ImN1cnJlbnRDb2xvciIgLz48L3N2Zz4=)**
+
+  -  [Kubernetes](/api/docs/guides/workload-identity-federation/kubernetes)
+  -  [AWS](/api/docs/guides/workload-identity-federation/aws)
+  -  [Microsoft Azure](/api/docs/guides/workload-identity-federation/microsoft-azure)
+  -  [Google Cloud](/api/docs/guides/workload-identity-federation/google-cloud)
+  -  [Oracle Cloud Infrastructure](/api/docs/guides/workload-identity-federation/oracle-cloud)
+  -  [GitHub Actions](/api/docs/guides/workload-identity-federation/github-actions)
+  -  [SPIFFE](/api/docs/guides/workload-identity-federation/spiffe)
+
+-  [IP egress ranges](/api/docs/guides/ip-addresses)
+-  [Amazon Bedrock](/api/docs/guides/amazon-bedrock)
+
+### Operations
+
+-  [Rate limits](/api/docs/guides/rate-limits)
+-  [Spend limits](/api/docs/guides/spend-limits)
+-  [Admin APIs](/api/docs/guides/admin-apis)
+-  [Error codes](/api/docs/guides/error-codes)
+
+ [Docs](https://learn.chatgpt.com/docs)[Use cases](https://learn.chatgpt.com/use-cases)
+
+* Docs
+Use cases
+
+Docs sectionDocs
+
+![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTYgOSIgd2lkdGg9IjFlbSIgaGVpZ2h0PSIxZW0iIGZpbGw9ImN1cnJlbnRDb2xvciIgY2xhc3M9Il9Ecm9wZG93bkljb25feDg4N29fNDc1IF9Ecm9wZG93bkljb25DaGV2cm9uX3g4ODdvXzU4NiI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0wLjI5Mjg5MyAwLjI5Mjg5M0MwLjY4MzQxOCAtMC4wOTc2MzExIDEuMzE2NTggLTAuMDk3NjMxMSAxLjcwNzExIDAuMjkyODkzTDggNi41ODU3OUwxNC4yOTI5IDAuMjkyODk0QzE0LjY4MzQgLTAuMDk3NjMwNSAxNS4zMTY2IC0wLjA5NzYzMDQgMTUuNzA3MSAwLjI5Mjg5NEMxNi4wOTc2IDAuNjgzNDE4IDE2LjA5NzYgMS4zMTY1OCAxNS43MDcxIDEuNzA3MTFMOC43MDcxMSA4LjcwNzExQzguMzE2NTggOS4wOTc2MyA3LjY4MzQyIDkuMDk3NjMgNy4yOTI4OSA4LjcwNzExTDAuMjkyODkzIDEuNzA3MTFDLTAuMDk3NjMxMSAxLjMxNjU4IC0wLjA5NzYzMTEgMC42ODM0MTcgMC4yOTI4OTMgMC4yOTI4OTNaIiAvPjwvc3ZnPg==)
+
+ Plugins
+
+Workspace Agents
+
+Commerce
+
+Ads
+
+Plugins
+Workspace Agents
+Commerce
+Ads
+
+Docs sectionSelect...
+
+![SVG Image](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMWVtIiB2aWV3Qm94PSIwIDAgMTYgOSIgZmlsbD0iY3VycmVudENvbG9yIiBoZWlnaHQ9IjFlbSIgY2xhc3M9Il9Ecm9wZG93bkljb25feDg4N29fNDc1IF9Ecm9wZG93bkljb25DaGV2cm9uX3g4ODdvXzU4NiI+PHBhdGggZD0iTTAuMjkyODkzIDAuMjkyODkzQzAuNjgzNDE4IC0wLjA5NzYzMTEgMS4zMTY1OCAtMC4wOTc2MzExIDEuNzA3MTEgMC4yOTI4OTNMOCA2LjU4NTc5TDE0LjI5MjkgMC4yOTI4OTRDMTQuNjgzNCAtMC4wOTc2MzA1IDE1LjMxNjYgLTAuMDk3NjMwNCAxNS43MDcxIDAuMjkyODk0QzE2LjA5NzYgMC42ODM0MTggMTYuMDk3NiAxLjMxNjU4IDE1LjcwNzEgMS43MDcxMUw4LjcwNzExIDguNzA3MTFDOC4zMTY1OCA5LjA5NzYzIDcuNjgzNDIgOS4wOTc2MyA3LjI5Mjg5IDguNzA3MTFMMC4yOTI4OTMgMS43MDcxMUMtMC4wOTc2MzExIDEuMzE2NTggLTAuMDk3NjMxMSAwLjY4MzQxNyAwLjI5Mjg5MyAwLjI5Mjg5M1oiIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiAvPjwvc3ZnPg==)
+
+  
+
+-  [Home](/plugins)
+-  [Quickstart](/plugins/quickstart)
+
+### Core concepts
+
+-  [Plugin architecture](/plugins/concepts/plugins)
+-  [Skills](/plugins/concepts/skills)
+-  [MCP server](/plugins/concepts/mcp-server)
+
+### Plan
+
+-  [Brainstorm use cases](/plugins/plan/use-case)
+-  [Define tools](/plugins/plan/tools)
+
+### Build
+
+-  [Build an MCP server](/plugins/build/mcp-server)
+-  [Add UI to your MCP server (optional)](/plugins/build/chatgpt-ui)
+-  [Authenticate users](/plugins/build/auth)
+-  [Build skills](/plugins/build/skills)
+-  [Package your plugin](/plugins/build/plugins)
+-  [Examples](/plugins/build/examples)
+
+### Test and publish
+
+-  [Connect and test your plugin](/plugins/deploy/connect-chatgpt)
+-  [Submit and publish](/plugins/deploy/submission)
+-  [Submission error reference](/plugins/deploy/submission-errors)
+
+### Conversion specs
+
+-  [Restaurant reservation spec](/plugins/guides/restaurant-reservation-conversion-spec)
+-  [Get Quote spec](/plugins/guides/local-services-request-quote-conversion-spec)
+-  [Product checkout spec](/plugins/guides/product-checkout-conversion-spec)
+
+### Guides
+
+-  [UI guidelines](/plugins/concepts/ui-guidelines)
+-  [Optimize Metadata](/plugins/guides/optimize-metadata)
+-  [Security & Privacy](/plugins/guides/security-privacy)
+-  [Troubleshooting](/plugins/deploy/troubleshooting)
+
+### Resources
+
+-  [Changelog](/plugins/changelog)
+-  [Plugin guidelines](/plugins/app-guidelines)
+-  [MCP server review requirements](/plugins/deploy/app-review)
+-  [Plugin UI reference](/plugins/reference)
+-  [Checkout API reference](/plugins/build/monetization)
+
+  
+
+-  [Home](/workspace-agents)
+
+### Get started
+
+-  [Trigger workspace agent runs](/workspace-agents/trigger-runs)
+-  [Authenticate with Workspace Agent access tokens](/workspace-agents/authentication)
+
+  
+
+-  [Home](/commerce)
+
+### Guides
+
+-  [Get started](/commerce/guides/get-started)
+-  [Best practices](/commerce/guides/best-practices)
+
+### File Upload
+
+-  [Overview](/commerce/specs/file-upload/overview)
+-  [Products](/commerce/specs/file-upload/products)
+
+### API
+
+-  [Overview](/commerce/specs/api/overview)
+-  [Feeds](/commerce/specs/api/feeds)
+-  [Products](/commerce/specs/api/products)
+-  [Promotions](/commerce/specs/api/promotions)
+
+  
+
+-  [Ads Overview](/ads)
+
+### Measurement
+
+-  [JavaScript Pixel](/ads/measurement-pixel)
+-  [Image tag](/ads/image-tag)
+-  [Conversions API](/ads/conversions-api)
+-  [Supported events](/ads/supported-events)
+
+### Advertiser API
+
+-  [Overview](/ads/api-overview)
+-  [API partner setup](/ads/api-partner-setup)
+-  [Quickstart](/ads/api-quickstart)
+-  [Bulk API](/ads/bulk-api)
+-  [Product feeds](/ads/product-feeds)
+-  [Campaign Targeting](/ads/campaign-targeting)
+-  [Conversion-optimized campaigns](/ads/conversion-optimized-campaigns)
+
+### API Reference
+
+-  [Authentication](/ads/api-reference/authentication)
+-  [Conversion setup](/ads/api-reference/conversion-setup)
+-  [Campaigns](/ads/api-reference/campaigns)
+-  [Ad Groups](/ads/api-reference/ad-groups)
+-  [Ads](/ads/api-reference/ads)
+-  [Ad Account](/ads/api-reference/ad-account)
+-  [Insights](/ads/api-reference/insights)
+-  [Files](/ads/api-reference/files)
+
+ Overview
+
+Features
+
+Configuration
+
+Developers
+
+Security
+
+Administration
+
+Use Cases
+
+Resources
+
+* Overview
+Features
+Configuration
+Developers
+Security
+Administration
+Use Cases
+Resources
+
+Docs sectionOverview
+
+![SVG Image](data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjFlbSIgZmlsbD0iY3VycmVudENvbG9yIiB3aWR0aD0iMWVtIiB2aWV3Qm94PSIwIDAgMTYgOSIgY2xhc3M9Il9Ecm9wZG93bkljb25feDg4N29fNDc1IF9Ecm9wZG93bkljb25DaGV2cm9uX3g4ODdvXzU4NiI+PHBhdGggZD0iTTAuMjkyODkzIDAuMjkyODkzQzAuNjgzNDE4IC0wLjA5NzYzMTEgMS4zMTY1OCAtMC4wOTc2MzExIDEuNzA3MTEgMC4yOTI4OTNMOCA2LjU4NTc5TDE0LjI5MjkgMC4yOTI4OTRDMTQuNjgzNCAtMC4wOTc2MzA1IDE1LjMxNjYgLTAuMDk3NjMwNCAxNS43MDcxIDAuMjkyODk0QzE2LjA5NzYgMC42ODM0MTggMTYuMDk3NiAxLjMxNjU4IDE1LjcwNzEgMS43MDcxMUw4LjcwNzExIDguNzA3MTFDOC4zMTY1OCA5LjA5NzYzIDcuNjgzNDIgOS4wOTc2MyA3LjI5Mjg5IDguNzA3MTFMMC4yOTI4OTMgMS43MDcxMUMtMC4wOTc2MzExIDEuMzE2NTggLTAuMDk3NjMxMSAwLjY4MzQxNyAwLjI5Mjg5MyAwLjI5Mjg5M1oiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbC1ydWxlPSJldmVub2RkIiAvPjwvc3ZnPg==)
+
+  
+
+-  [Home](/codex)
+
+### Get started
+
+-  [Quickstart](/codex/quickstart)
+-  [Use ChatGPT](/codex/use-chatgpt)
+-  [Get started with Work](/codex/get-started-with-work)
+-  [Import from another agent](/codex/import)
+
+### Foundations
+
+-  [Prompting](/codex/prompting)
+-  [Personalize ChatGPT](/codex/personalize)
+-  [Skills & Plugins](/codex/skills-and-plugins)
+-  [Permissions](/codex/permission-modes)
+
+### Explore
+
+-  [What's new](/codex/whats-new)
+-  [Models](/codex/models)
+-  [Pricing](/codex/pricing)
+-  [Glossary](/codex/glossary)
+
+### Available on
+
+-  [ChatGPT desktop app](/codex/app)
+-  [ChatGPT on the web](/codex/web)
+-  [Codex CLI](/codex/cli)
+-  [Codex IDE extension](/codex/ide)
+-  [Codex cloud](/codex/cloud)
+
+### Releases
+
+-  [Changelog](/codex/changelog)
+-  [Feature Maturity](/codex/feature-maturity)
+-  [Open Source](/codex/open-source)
+
+  
+
+-  [Overview](/codex/features)
+
+### Workflows
+
+-  [Projects and chats](/codex/projects)
+-  [Sites](/codex/sites)
+-  [Visualizations](/codex/visualizations)
+-  [Scheduled tasks](/codex/automations)
+-  [Long-running work](/codex/long-running-work)
+-  [Notifications](/codex/notifications)
+-  [Pets](/codex/pets)
+-  [Codex Micro](/codex/features/codex-micro)
+
+### Capabilities
+
+-  [Browser](/codex/browser)
+-  [Computer use](/codex/computer-use)
+-  [Voice](/codex/features/voice)
+-  [Plugins](/codex/plugins)
+-  [Web search](/codex/web-search)
+-  [Image generation](/codex/image-generation)
+-  [Image inputs](/codex/image-inputs)
+-  [Appshots](/codex/appshots)
+-  [Chrome extension](/codex/chrome-extension)
+-  [Work with files](/codex/artifacts-viewer)
+
+### Reference
+
+-  [Commands](/codex/reference/commands)
+-  [Slash commands](/codex/reference/slash-commands)
+-  [Settings](/codex/reference/settings)
+-  [Troubleshooting](/codex/reference/troubleshooting)
+
+  
+
+-  [Overview](/codex/configuration)
+
+### Customization
+
+-  [Overview](/codex/customization/overview)
+-  [Memories](/codex/customization/memories)
+-  [Chronicle](/codex/customization/chronicle)
+
+### Config file
+
+-  [Config Basics](/codex/config-file/config-basic)
+-  [Advanced Config](/codex/config-file/config-advanced)
+-  [Config Reference](/codex/config-file/config-reference)
+-  [Environment Variables](/codex/config-file/environment-variables)
+-  [Sample Config](/codex/config-file/config-sample)
+
+### Agent configuration
+
+-  [AGENTS.md](/codex/agent-configuration/agents-md)
+-  [Subagents](/codex/agent-configuration/subagents)
+-  [Speed](/codex/agent-configuration/speed)
+-  [Rules](/codex/agent-configuration/rules)
+
+### Extend ChatGPT and Codex
+
+-  [Record & Replay](/codex/extend/record-and-replay)
+-  [MCP](/codex/extend/mcp)
+
+### Windows
+
+-  [Desktop app](/codex/windows/windows-app)
+-  [Windows sandbox](/codex/windows/windows-sandbox)
+-  [WSL](/codex/windows/wsl)
+
+  
+
+-  [Overview](/codex/developers)
+
+### Development workflows
+
+-  [Code review](/codex/code-review)
+-  [Integrated terminal](/codex/integrated-terminal)
+
+### Extend and automate
+
+-  [Build skills](/codex/build-skills)
+-  [Build plugins](/codex/build-plugins)
+-  [Hooks](/codex/hooks)
+
+### Environments
+
+-  [Modes](/codex/environments/modes)
+-  [Local environments](/codex/environments/local-environment)
+-  [Cloud environment](/codex/environments/cloud-environment)
+-  [Git worktrees](/codex/environments/git-worktrees)
+
+### Build with Codex
+
+-  [Codex SDK](/codex/codex-sdk)
+-  [App Server](/codex/app-server)
+-  [MCP Server](/codex/mcp-server)
+-  [GitHub Action](/codex/github-action)
+-  [Non-interactive mode](/codex/non-interactive-mode)
+
+### Third-party integrations
+
+-  [GitHub](/codex/third-party/github)
+-  [Slack](/codex/third-party/slack)
+-  [Linear](/codex/third-party/linear)
+
+### Reference
+
+-  [CLI customization](/codex/cli-customization)
+-  [Developer commands](/codex/developer-commands)
+-  [Developer settings](/codex/developer-settings)
+
+  
+
+-  [Overview](/codex/security-administration)
+
+### Permissions
+
+-  [Profiles](/codex/permissions)
+-  [Sandboxing](/codex/sandboxing)
+-  [Auto-review](/codex/sandboxing/auto-review)
+-  [Agent approvals & security](/codex/agent-approvals-security)
+-  [Internet access](/codex/cloud/internet-access)
+
+### Codex Security
+
+-  [Overview](/codex/security)
+-  
+
+**Codex Security plugin ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZmlsbD0ibm9uZSIgYXJpYS1oaWRkZW49InRydWUiIGNsYXNzPSJuYXYtZGlzY2xvc3VyZS1jaGV2cm9uIHctMyBoLTMgaW5saW5lLWJsb2NrIHRleHQtc2Vjb25kYXJ5IHRyYW5zaXRpb24tdHJhbnNmb3JtIGR1cmF0aW9uLTE1MCAiPjxwYXRoIGQ9Ik04LjI5Mjg5IDQuMjkyODlDOC42ODM0MiAzLjkwMjM3IDkuMzE2NTggMy45MDIzNyA5LjcwNzExIDQuMjkyODlMMTYuNzA3MSAxMS4yOTI5QzE3LjA5NzYgMTEuNjgzNCAxNy4wOTc2IDEyLjMxNjYgMTYuNzA3MSAxMi43MDcxTDkuNzA3MTEgMTkuNzA3MUM5LjMxNjU4IDIwLjA5NzYgOC42ODM0MiAyMC4wOTc2IDguMjkyODkgMTkuNzA3MUM3LjkwMjM3IDE5LjMxNjYgNy45MDIzNyAxOC42ODM0IDguMjkyODkgMTguMjkyOUwxNC41ODU4IDEyTDguMjkyODkgNS43MDcxMUM3LjkwMjM3IDUuMzE2NTggNy45MDIzNyA0LjY4MzQyIDguMjkyODkgNC4yOTI4OVoiIGZpbGw9ImN1cnJlbnRDb2xvciIgLz48L3N2Zz4=)**
+
+  -  [Quickstart](/codex/security/plugin)
+  -  [Run a security scan](/codex/security/plugin/scans)
+  -  [Run a deep scan](/codex/security/plugin/deep-scans)
+  -  [Review code changes](/codex/security/plugin/code-changes)
+  -  [Triage a backlog](/codex/security/plugin/triage-backlog)
+  -  [Fix findings](/codex/security/plugin/fix-findings)
+  -  [Export and track findings](/codex/security/plugin/export-findings)
+  -  [Write vulnerability reports](/codex/security/plugin/vulnerability-reports)
+  -  [Propose security hardening](/codex/security/plugin/security-hardening)
+  -  [Changelog](/codex/security/plugin/changelog)
+
+-  
+
+**Codex Security cloud ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgYXJpYS1oaWRkZW49InRydWUiIGNsYXNzPSJuYXYtZGlzY2xvc3VyZS1jaGV2cm9uIHctMyBoLTMgaW5saW5lLWJsb2NrIHRleHQtc2Vjb25kYXJ5IHRyYW5zaXRpb24tdHJhbnNmb3JtIGR1cmF0aW9uLTE1MCAiPjxwYXRoIGQ9Ik04LjI5Mjg5IDQuMjkyODlDOC42ODM0MiAzLjkwMjM3IDkuMzE2NTggMy45MDIzNyA5LjcwNzExIDQuMjkyODlMMTYuNzA3MSAxMS4yOTI5QzE3LjA5NzYgMTEuNjgzNCAxNy4wOTc2IDEyLjMxNjYgMTYuNzA3MSAxMi43MDcxTDkuNzA3MTEgMTkuNzA3MUM5LjMxNjU4IDIwLjA5NzYgOC42ODM0MiAyMC4wOTc2IDguMjkyODkgMTkuNzA3MUM3LjkwMjM3IDE5LjMxNjYgNy45MDIzNyAxOC42ODM0IDguMjkyODkgMTguMjkyOUwxNC41ODU4IDEyTDguMjkyODkgNS43MDcxMUM3LjkwMjM3IDUuMzE2NTggNy45MDIzNyA0LjY4MzQyIDguMjkyODkgNC4yOTI4OVoiIGZpbGw9ImN1cnJlbnRDb2xvciIgLz48L3N2Zz4=)**
+
+  -  [Setup](/codex/security/setup)
+  -  [Improving the threat model](/codex/security/threat-model)
+  -  [FAQ](/codex/security/faq)
+
+-  
+
+**CLI and SDK ![SVG Image](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgYXJpYS1oaWRkZW49InRydWUiIGZpbGw9Im5vbmUiIGNsYXNzPSJuYXYtZGlzY2xvc3VyZS1jaGV2cm9uIHctMyBoLTMgaW5saW5lLWJsb2NrIHRleHQtc2Vjb25kYXJ5IHRyYW5zaXRpb24tdHJhbnNmb3JtIGR1cmF0aW9uLTE1MCAiPjxwYXRoIGQ9Ik04LjI5Mjg5IDQuMjkyODlDOC42ODM0MiAzLjkwMjM3IDkuMzE2NTggMy45MDIzNyA5LjcwNzExIDQuMjkyODlMMTYuNzA3MSAxMS4yOTI5QzE3LjA5NzYgMTEuNjgzNCAxNy4wOTc2IDEyLjMxNjYgMTYuNzA3MSAxMi43MDcxTDkuNzA3MTEgMTkuNzA3MUM5LjMxNjU4IDIwLjA5NzYgOC42ODM0MiAyMC4wOTc2IDguMjkyODkgMTkuNzA3MUM3LjkwMjM3IDE5LjMxNjYgNy45MDIzNyAxOC42ODM0IDguMjkyODkgMTguMjkyOUwxNC41ODU4IDEyTDguMjkyODkgNS43MDcxMUM3LjkwMjM3IDUuMzE2NTggNy45MDIzNyA0LjY4MzQyIDguMjkyODkgNC4yOTI4OVoiIGZpbGw9ImN1cnJlbnRDb2xvciIgLz48L3N2Zz4=)**
+
+  -  [CLI quickstart](/codex/security/cli)
+  -  [Run bulk scans](/codex/security/cli/bulk-scans)
+  -  [CLI reference](/codex/security/cli/reference)
+  -  [Run scans in CI](/codex/security/cli/ci)
+  -  [CLI FAQ](/codex/security/cli/faq)
+  -  [TypeScript SDK](/codex/security/sdk)
+
+### Safety
+
+-  [Cyber Safety](/codex/cyber-safety)
+
+  
+
+-  [Overview](/codex/administration)
+
+### Getting started
+
+-  [Admin rollout guide](/codex/enterprise/admin-setup)
+-  [ChatGPT Work admin FAQ](/codex/enterprise/work-admin-faq)
+
+### Identity and authentication
+
+-  [Authentication overview](/codex/auth)
+-  [Access tokens](/codex/enterprise/access-tokens)
+
+### Workspace access, policy, and models
+
+-  [Groups and provisioning](/codex/enterprise/groups-and-provisioning)
+-  [Roles and workspace permissions](/codex/enterprise/roles-and-workspace-permissions)
+-  [Managed configuration](/codex/enterprise/managed-configuration)
+-  [HIPAA configuration](/codex/hipaa-configuration)
+-  [Workspace model availability](/codex/enterprise/workspace-model-availability)
+
+### Plugin and connector controls
+
+-  [Plugin controls](/codex/enterprise/apps-and-connectors)
+-  [Skill controls](/codex/enterprise/skills)
+
+### Usage, governance, and compliance
+
+-  [Governance](/codex/enterprise/governance)
+-  [Workspace analytics](/codex/enterprise/workspace-analytics)
+-  [Analytics API](/codex/enterprise/analytics-api)
+-  [Compliance API and audit events](/codex/enterprise/compliance-api)
+
+### Deployment and model providers
+
+-  [Windows app deployment](/codex/enterprise/windows-deployment)
+-  [Remote connections](/codex/remote-connections)
+-  [Amazon Bedrock](/codex/amazon-bedrock)
+
+  
+
+-  [Explore use cases](/codex/use-cases)
+-  [Collections](/codex/use-cases/collections)
+
+  
+
+-  [Home](/codex/resources)
+-  [Videos](/codex/videos)
+-  [Showcase ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTIgMTIiIGRhdGEtZXh0ZXJuYWwtbGluay1pbmRpY2F0b3I9InRydWUiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgY2xhc3M9InctMiBoLTIgaW5saW5lLWJsb2NrIG1sLTEgdGV4dC1ncmF5LTYwMCBkYXJrOnRleHQtZ3JheS0zMDAgIj48cGF0aCBkPSJNMTAuMjQyNiAwLjc1NzM4NUMxMC43OTQ5IDAuNzU3Mzg1IDExLjI0MjYgMS4yMDUxIDExLjI0MjYgMS43NTczOFY4LjgyODQ1QzExLjI0MjYgOS4zODA3NCAxMC43OTQ5IDkuODI4NDUgMTAuMjQyNiA5LjgyODQ1QzkuNjkwMzUgOS44Mjg0NSA5LjI0MjY0IDkuMzgwNzQgOS4yNDI2NCA4LjgyODQ1VjQuMTcxNkwyLjQ2NDQ2IDEwLjk0OThDMi4wNzM5NCAxMS4zNDAzIDEuNDQwNzcgMTEuMzQwMyAxLjA1MDI1IDEwLjk0OThDMC42NTk3MjQgMTAuNTU5MiAwLjY1OTcyMyA5LjkyNjA4IDEuMDUwMjUgOS41MzU1Nkw3LjgyODQyIDIuNzU3MzlIMy4xNzE1N0MyLjYxOTI4IDIuNzU3MzkgMi4xNzE1NyAyLjMwOTY3IDIuMTcxNTcgMS43NTczOEMyLjE3MTU3IDEuMjA1MSAyLjYxOTI4IDAuNzU3Mzg1IDMuMTcxNTcgMC43NTczODVIMTAuMjQyNloiIGZpbGw9ImN1cnJlbnRDb2xvciIgLz48L3N2Zz4=)](https://developers.openai.com/showcase)
+-  [OpenAI Academy ![SVG Image](data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBkYXRhLWV4dGVybmFsLWxpbmstaW5kaWNhdG9yPSJ0cnVlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMiAxMiIgY2xhc3M9InctMiBoLTIgaW5saW5lLWJsb2NrIG1sLTEgdGV4dC1ncmF5LTYwMCBkYXJrOnRleHQtZ3JheS0zMDAgIj48cGF0aCBkPSJNMTAuMjQyNiAwLjc1NzM4NUMxMC43OTQ5IDAuNzU3Mzg1IDExLjI0MjYgMS4yMDUxIDExLjI0MjYgMS43NTczOFY4LjgyODQ1QzExLjI0MjYgOS4zODA3NCAxMC43OTQ5IDkuODI4NDUgMTAuMjQyNiA5LjgyODQ1QzkuNjkwMzUgOS44Mjg0NSA5LjI0MjY0IDkuMzgwNzQgOS4yNDI2NCA4LjgyODQ1VjQuMTcxNkwyLjQ2NDQ2IDEwLjk0OThDMi4wNzM5NCAxMS4zNDAzIDEuNDQwNzcgMTEuMzQwMyAxLjA1MDI1IDEwLjk0OThDMC42NTk3MjQgMTAuNTU5MiAwLjY1OTcyMyA5LjkyNjA4IDEuMDUwMjUgOS41MzU1Nkw3LjgyODQyIDIuNzU3MzlIMy4xNzE1N0MyLjYxOTI4IDIuNzU3MzkgMi4xNzE1NyAyLjMwOTY3IDIuMTcxNTcgMS43NTczOEMyLjE3MTU3IDEuMjA1MSAyLjYxOTI4IDAuNzU3Mzg1IDMuMTcxNTcgMC43NTczODVIMTAuMjQyNloiIGZpbGw9ImN1cnJlbnRDb2xvciIgLz48L3N2Zz4=)](https://openai.com/academy/)
+-  [Online trainings ![SVG Image](data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBkYXRhLWV4dGVybmFsLWxpbmstaW5kaWNhdG9yPSJ0cnVlIiB2aWV3Qm94PSIwIDAgMTIgMTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgY2xhc3M9InctMiBoLTIgaW5saW5lLWJsb2NrIG1sLTEgdGV4dC1ncmF5LTYwMCBkYXJrOnRleHQtZ3JheS0zMDAgIj48cGF0aCBkPSJNMTAuMjQyNiAwLjc1NzM4NUMxMC43OTQ5IDAuNzU3Mzg1IDExLjI0MjYgMS4yMDUxIDExLjI0MjYgMS43NTczOFY4LjgyODQ1QzExLjI0MjYgOS4zODA3NCAxMC43OTQ5IDkuODI4NDUgMTAuMjQyNiA5LjgyODQ1QzkuNjkwMzUgOS44Mjg0NSA5LjI0MjY0IDkuMzgwNzQgOS4yNDI2NCA4LjgyODQ1VjQuMTcxNkwyLjQ2NDQ2IDEwLjk0OThDMi4wNzM5NCAxMS4zNDAzIDEuNDQwNzcgMTEuMzQwMyAxLjA1MDI1IDEwLjk0OThDMC42NTk3MjQgMTAuNTU5MiAwLjY1OTcyMyA5LjkyNjA4IDEuMDUwMjUgOS41MzU1Nkw3LjgyODQyIDIuNzU3MzlIMy4xNzE1N0MyLjYxOTI4IDIuNzU3MzkgMi4xNzE1NyAyLjMwOTY3IDIuMTcxNTcgMS43NTczOEMyLjE3MTU3IDEuMjA1MSAyLjYxOTI4IDAuNzU3Mzg1IDMuMTcxNTcgMC43NTczODVIMTAuMjQyNloiIGZpbGw9ImN1cnJlbnRDb2xvciIgLz48L3N2Zz4=)](https://academy.openai.com/home/events)
+
+### Community
+
+-  [Codex Ambassadors ![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLWV4dGVybmFsLWxpbmstaW5kaWNhdG9yPSJ0cnVlIiB2aWV3Qm94PSIwIDAgMTIgMTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZmlsbD0ibm9uZSIgY2xhc3M9InctMiBoLTIgaW5saW5lLWJsb2NrIG1sLTEgdGV4dC1ncmF5LTYwMCBkYXJrOnRleHQtZ3JheS0zMDAgIj48cGF0aCBkPSJNMTAuMjQyNiAwLjc1NzM4NUMxMC43OTQ5IDAuNzU3Mzg1IDExLjI0MjYgMS4yMDUxIDExLjI0MjYgMS43NTczOFY4LjgyODQ1QzExLjI0MjYgOS4zODA3NCAxMC43OTQ5IDkuODI4NDUgMTAuMjQyNiA5LjgyODQ1QzkuNjkwMzUgOS44Mjg0NSA5LjI0MjY0IDkuMzgwNzQgOS4yNDI2NCA4LjgyODQ1VjQuMTcxNkwyLjQ2NDQ2IDEwLjk0OThDMi4wNzM5NCAxMS4zNDAzIDEuNDQwNzcgMTEuMzQwMyAxLjA1MDI1IDEwLjk0OThDMC42NTk3MjQgMTAuNTU5MiAwLjY1OTcyMyA5LjkyNjA4IDEuMDUwMjUgOS41MzU1Nkw3LjgyODQyIDIuNzU3MzlIMy4xNzE1N0MyLjYxOTI4IDIuNzU3MzkgMi4xNzE1NyAyLjMwOTY3IDIuMTcxNTcgMS43NTczOEMyLjE3MTU3IDEuMjA1MSAyLjYxOTI4IDAuNzU3Mzg1IDMuMTcxNTcgMC43NTczODVIMTAuMjQyNloiIGZpbGw9ImN1cnJlbnRDb2xvciIgLz48L3N2Zz4=)](https://developers.openai.com/community/codex-ambassadors)
+-  [Codex for Students ![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLWV4dGVybmFsLWxpbmstaW5kaWNhdG9yPSJ0cnVlIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMiAxMiIgY2xhc3M9InctMiBoLTIgaW5saW5lLWJsb2NrIG1sLTEgdGV4dC1ncmF5LTYwMCBkYXJrOnRleHQtZ3JheS0zMDAgIj48cGF0aCBkPSJNMTAuMjQyNiAwLjc1NzM4NUMxMC43OTQ5IDAuNzU3Mzg1IDExLjI0MjYgMS4yMDUxIDExLjI0MjYgMS43NTczOFY4LjgyODQ1QzExLjI0MjYgOS4zODA3NCAxMC43OTQ5IDkuODI4NDUgMTAuMjQyNiA5LjgyODQ1QzkuNjkwMzUgOS44Mjg0NSA5LjI0MjY0IDkuMzgwNzQgOS4yNDI2NCA4LjgyODQ1VjQuMTcxNkwyLjQ2NDQ2IDEwLjk0OThDMi4wNzM5NCAxMS4zNDAzIDEuNDQwNzcgMTEuMzQwMyAxLjA1MDI1IDEwLjk0OThDMC42NTk3MjQgMTAuNTU5MiAwLjY1OTcyMyA5LjkyNjA4IDEuMDUwMjUgOS41MzU1Nkw3LjgyODQyIDIuNzU3MzlIMy4xNzE1N0MyLjYxOTI4IDIuNzU3MzkgMi4xNzE1NyAyLjMwOTY3IDIuMTcxNTcgMS43NTczOEMyLjE3MTU3IDEuMjA1MSAyLjYxOTI4IDAuNzU3Mzg1IDMuMTcxNTcgMC43NTczODVIMTAuMjQyNloiIGZpbGw9ImN1cnJlbnRDb2xvciIgLz48L3N2Zz4=)](https://developers.openai.com/community/students)
+-  [Codex for Open Source ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTIgMTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZGF0YS1leHRlcm5hbC1saW5rLWluZGljYXRvcj0idHJ1ZSIgY2xhc3M9InctMiBoLTIgaW5saW5lLWJsb2NrIG1sLTEgdGV4dC1ncmF5LTYwMCBkYXJrOnRleHQtZ3JheS0zMDAgIj48cGF0aCBkPSJNMTAuMjQyNiAwLjc1NzM4NUMxMC43OTQ5IDAuNzU3Mzg1IDExLjI0MjYgMS4yMDUxIDExLjI0MjYgMS43NTczOFY4LjgyODQ1QzExLjI0MjYgOS4zODA3NCAxMC43OTQ5IDkuODI4NDUgMTAuMjQyNiA5LjgyODQ1QzkuNjkwMzUgOS44Mjg0NSA5LjI0MjY0IDkuMzgwNzQgOS4yNDI2NCA4LjgyODQ1VjQuMTcxNkwyLjQ2NDQ2IDEwLjk0OThDMi4wNzM5NCAxMS4zNDAzIDEuNDQwNzcgMTEuMzQwMyAxLjA1MDI1IDEwLjk0OThDMC42NTk3MjQgMTAuNTU5MiAwLjY1OTcyMyA5LjkyNjA4IDEuMDUwMjUgOS41MzU1Nkw3LjgyODQyIDIuNzU3MzlIMy4xNzE1N0MyLjYxOTI4IDIuNzU3MzkgMi4xNzE1NyAyLjMwOTY3IDIuMTcxNTcgMS43NTczOEMyLjE3MTU3IDEuMjA1MSAyLjYxOTI4IDAuNzU3Mzg1IDMuMTcxNTcgMC43NTczODVIMTAuMjQyNloiIGZpbGw9ImN1cnJlbnRDb2xvciIgLz48L3N2Zz4=)](https://developers.openai.com/community/codex-for-oss)
+-  [Meetups ![SVG Image](data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMiAxMiIgZGF0YS1leHRlcm5hbC1saW5rLWluZGljYXRvcj0idHJ1ZSIgY2xhc3M9InctMiBoLTIgaW5saW5lLWJsb2NrIG1sLTEgdGV4dC1ncmF5LTYwMCBkYXJrOnRleHQtZ3JheS0zMDAgIj48cGF0aCBkPSJNMTAuMjQyNiAwLjc1NzM4NUMxMC43OTQ5IDAuNzU3Mzg1IDExLjI0MjYgMS4yMDUxIDExLjI0MjYgMS43NTczOFY4LjgyODQ1QzExLjI0MjYgOS4zODA3NCAxMC43OTQ5IDkuODI4NDUgMTAuMjQyNiA5LjgyODQ1QzkuNjkwMzUgOS44Mjg0NSA5LjI0MjY0IDkuMzgwNzQgOS4yNDI2NCA4LjgyODQ1VjQuMTcxNkwyLjQ2NDQ2IDEwLjk0OThDMi4wNzM5NCAxMS4zNDAzIDEuNDQwNzcgMTEuMzQwMyAxLjA1MDI1IDEwLjk0OThDMC42NTk3MjQgMTAuNTU5MiAwLjY1OTcyMyA5LjkyNjA4IDEuMDUwMjUgOS41MzU1Nkw3LjgyODQyIDIuNzU3MzlIMy4xNzE1N0MyLjYxOTI4IDIuNzU3MzkgMi4xNzE1NyAyLjMwOTY3IDIuMTcxNTcgMS43NTczOEMyLjE3MTU3IDEuMjA1MSAyLjYxOTI4IDAuNzU3Mzg1IDMuMTcxNTcgMC43NTczODVIMTAuMjQyNloiIGZpbGw9ImN1cnJlbnRDb2xvciIgLz48L3N2Zz4=)](https://developers.openai.com/community/meetups)
+
+### Blog
+
+-  [Company blog ![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLWV4dGVybmFsLWxpbmstaW5kaWNhdG9yPSJ0cnVlIiB2aWV3Qm94PSIwIDAgMTIgMTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgY2xhc3M9InctMiBoLTIgaW5saW5lLWJsb2NrIG1sLTEgdGV4dC1ncmF5LTYwMCBkYXJrOnRleHQtZ3JheS0zMDAgIj48cGF0aCBkPSJNMTAuMjQyNiAwLjc1NzM4NUMxMC43OTQ5IDAuNzU3Mzg1IDExLjI0MjYgMS4yMDUxIDExLjI0MjYgMS43NTczOFY4LjgyODQ1QzExLjI0MjYgOS4zODA3NCAxMC43OTQ5IDkuODI4NDUgMTAuMjQyNiA5LjgyODQ1QzkuNjkwMzUgOS44Mjg0NSA5LjI0MjY0IDkuMzgwNzQgOS4yNDI2NCA4LjgyODQ1VjQuMTcxNkwyLjQ2NDQ2IDEwLjk0OThDMi4wNzM5NCAxMS4zNDAzIDEuNDQwNzcgMTEuMzQwMyAxLjA1MDI1IDEwLjk0OThDMC42NTk3MjQgMTAuNTU5MiAwLjY1OTcyMyA5LjkyNjA4IDEuMDUwMjUgOS41MzU1Nkw3LjgyODQyIDIuNzU3MzlIMy4xNzE1N0MyLjYxOTI4IDIuNzU3MzkgMi4xNzE1NyAyLjMwOTY3IDIuMTcxNTcgMS43NTczOEMyLjE3MTU3IDEuMjA1MSAyLjYxOTI4IDAuNzU3Mzg1IDMuMTcxNTcgMC43NTczODVIMTAuMjQyNloiIGZpbGw9ImN1cnJlbnRDb2xvciIgLz48L3N2Zz4=)](https://openai.com/news/)
+-  [Developer blog ![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLWV4dGVybmFsLWxpbmstaW5kaWNhdG9yPSJ0cnVlIiB2aWV3Qm94PSIwIDAgMTIgMTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgY2xhc3M9InctMiBoLTIgaW5saW5lLWJsb2NrIG1sLTEgdGV4dC1ncmF5LTYwMCBkYXJrOnRleHQtZ3JheS0zMDAgIj48cGF0aCBkPSJNMTAuMjQyNiAwLjc1NzM4NUMxMC43OTQ5IDAuNzU3Mzg1IDExLjI0MjYgMS4yMDUxIDExLjI0MjYgMS43NTczOFY4LjgyODQ1QzExLjI0MjYgOS4zODA3NCAxMC43OTQ5IDkuODI4NDUgMTAuMjQyNiA5LjgyODQ1QzkuNjkwMzUgOS44Mjg0NSA5LjI0MjY0IDkuMzgwNzQgOS4yNDI2NCA4LjgyODQ1VjQuMTcxNkwyLjQ2NDQ2IDEwLjk0OThDMi4wNzM5NCAxMS4zNDAzIDEuNDQwNzcgMTEuMzQwMyAxLjA1MDI1IDEwLjk0OThDMC42NTk3MjQgMTAuNTU5MiAwLjY1OTcyMyA5LjkyNjA4IDEuMDUwMjUgOS41MzU1Nkw3LjgyODQyIDIuNzU3MzlIMy4xNzE1N0MyLjYxOTI4IDIuNzU3MzkgMi4xNzE1NyAyLjMwOTY3IDIuMTcxNTcgMS43NTczOEMyLjE3MTU3IDEuMjA1MSAyLjYxOTI4IDAuNzU3Mzg1IDMuMTcxNTcgMC43NTczODVIMTAuMjQyNloiIGZpbGw9ImN1cnJlbnRDb2xvciIgLz48L3N2Zz4=)](https://developers.openai.com/blog)
+
+  
+
+-  [Explore use cases](/codex/use-cases)
+-  [Collections](/codex/use-cases/collections)
+
+  
+
+-  [Home](/codex/resources)
+-  [Videos](/codex/videos)
+-  [Showcase ![SVG Image](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAxMiAxMiIgZGF0YS1leHRlcm5hbC1saW5rLWluZGljYXRvcj0idHJ1ZSIgY2xhc3M9InctMiBoLTIgaW5saW5lLWJsb2NrIG1sLTEgdGV4dC1ncmF5LTYwMCBkYXJrOnRleHQtZ3JheS0zMDAgIj48cGF0aCBkPSJNMTAuMjQyNiAwLjc1NzM4NUMxMC43OTQ5IDAuNzU3Mzg1IDExLjI0MjYgMS4yMDUxIDExLjI0MjYgMS43NTczOFY4LjgyODQ1QzExLjI0MjYgOS4zODA3NCAxMC43OTQ5IDkuODI4NDUgMTAuMjQyNiA5LjgyODQ1QzkuNjkwMzUgOS44Mjg0NSA5LjI0MjY0IDkuMzgwNzQgOS4yNDI2NCA4LjgyODQ1VjQuMTcxNkwyLjQ2NDQ2IDEwLjk0OThDMi4wNzM5NCAxMS4zNDAzIDEuNDQwNzcgMTEuMzQwMyAxLjA1MDI1IDEwLjk0OThDMC42NTk3MjQgMTAuNTU5MiAwLjY1OTcyMyA5LjkyNjA4IDEuMDUwMjUgOS41MzU1Nkw3LjgyODQyIDIuNzU3MzlIMy4xNzE1N0MyLjYxOTI4IDIuNzU3MzkgMi4xNzE1NyAyLjMwOTY3IDIuMTcxNTcgMS43NTczOEMyLjE3MTU3IDEuMjA1MSAyLjYxOTI4IDAuNzU3Mzg1IDMuMTcxNTcgMC43NTczODVIMTAuMjQyNloiIGZpbGw9ImN1cnJlbnRDb2xvciIgLz48L3N2Zz4=)](https://developers.openai.com/showcase)
+-  [OpenAI Academy ![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLWV4dGVybmFsLWxpbmstaW5kaWNhdG9yPSJ0cnVlIiB2aWV3Qm94PSIwIDAgMTIgMTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZmlsbD0ibm9uZSIgY2xhc3M9InctMiBoLTIgaW5saW5lLWJsb2NrIG1sLTEgdGV4dC1ncmF5LTYwMCBkYXJrOnRleHQtZ3JheS0zMDAgIj48cGF0aCBkPSJNMTAuMjQyNiAwLjc1NzM4NUMxMC43OTQ5IDAuNzU3Mzg1IDExLjI0MjYgMS4yMDUxIDExLjI0MjYgMS43NTczOFY4LjgyODQ1QzExLjI0MjYgOS4zODA3NCAxMC43OTQ5IDkuODI4NDUgMTAuMjQyNiA5LjgyODQ1QzkuNjkwMzUgOS44Mjg0NSA5LjI0MjY0IDkuMzgwNzQgOS4yNDI2NCA4LjgyODQ1VjQuMTcxNkwyLjQ2NDQ2IDEwLjk0OThDMi4wNzM5NCAxMS4zNDAzIDEuNDQwNzcgMTEuMzQwMyAxLjA1MDI1IDEwLjk0OThDMC42NTk3MjQgMTAuNTU5MiAwLjY1OTcyMyA5LjkyNjA4IDEuMDUwMjUgOS41MzU1Nkw3LjgyODQyIDIuNzU3MzlIMy4xNzE1N0MyLjYxOTI4IDIuNzU3MzkgMi4xNzE1NyAyLjMwOTY3IDIuMTcxNTcgMS43NTczOEMyLjE3MTU3IDEuMjA1MSAyLjYxOTI4IDAuNzU3Mzg1IDMuMTcxNTcgMC43NTczODVIMTAuMjQyNloiIGZpbGw9ImN1cnJlbnRDb2xvciIgLz48L3N2Zz4=)](https://openai.com/academy/)
+-  [Online trainings ![SVG Image](data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMiAxMiIgZGF0YS1leHRlcm5hbC1saW5rLWluZGljYXRvcj0idHJ1ZSIgY2xhc3M9InctMiBoLTIgaW5saW5lLWJsb2NrIG1sLTEgdGV4dC1ncmF5LTYwMCBkYXJrOnRleHQtZ3JheS0zMDAgIj48cGF0aCBkPSJNMTAuMjQyNiAwLjc1NzM4NUMxMC43OTQ5IDAuNzU3Mzg1IDExLjI0MjYgMS4yMDUxIDExLjI0MjYgMS43NTczOFY4LjgyODQ1QzExLjI0MjYgOS4zODA3NCAxMC43OTQ5IDkuODI4NDUgMTAuMjQyNiA5LjgyODQ1QzkuNjkwMzUgOS44Mjg0NSA5LjI0MjY0IDkuMzgwNzQgOS4yNDI2NCA4LjgyODQ1VjQuMTcxNkwyLjQ2NDQ2IDEwLjk0OThDMi4wNzM5NCAxMS4zNDAzIDEuNDQwNzcgMTEuMzQwMyAxLjA1MDI1IDEwLjk0OThDMC42NTk3MjQgMTAuNTU5MiAwLjY1OTcyMyA5LjkyNjA4IDEuMDUwMjUgOS41MzU1Nkw3LjgyODQyIDIuNzU3MzlIMy4xNzE1N0MyLjYxOTI4IDIuNzU3MzkgMi4xNzE1NyAyLjMwOTY3IDIuMTcxNTcgMS43NTczOEMyLjE3MTU3IDEuMjA1MSAyLjYxOTI4IDAuNzU3Mzg1IDMuMTcxNTcgMC43NTczODVIMTAuMjQyNloiIGZpbGw9ImN1cnJlbnRDb2xvciIgLz48L3N2Zz4=)](https://academy.openai.com/home/events)
+
+### Community
+
+-  [Codex Ambassadors ![SVG Image](data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBkYXRhLWV4dGVybmFsLWxpbmstaW5kaWNhdG9yPSJ0cnVlIiB2aWV3Qm94PSIwIDAgMTIgMTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgY2xhc3M9InctMiBoLTIgaW5saW5lLWJsb2NrIG1sLTEgdGV4dC1ncmF5LTYwMCBkYXJrOnRleHQtZ3JheS0zMDAgIj48cGF0aCBkPSJNMTAuMjQyNiAwLjc1NzM4NUMxMC43OTQ5IDAuNzU3Mzg1IDExLjI0MjYgMS4yMDUxIDExLjI0MjYgMS43NTczOFY4LjgyODQ1QzExLjI0MjYgOS4zODA3NCAxMC43OTQ5IDkuODI4NDUgMTAuMjQyNiA5LjgyODQ1QzkuNjkwMzUgOS44Mjg0NSA5LjI0MjY0IDkuMzgwNzQgOS4yNDI2NCA4LjgyODQ1VjQuMTcxNkwyLjQ2NDQ2IDEwLjk0OThDMi4wNzM5NCAxMS4zNDAzIDEuNDQwNzcgMTEuMzQwMyAxLjA1MDI1IDEwLjk0OThDMC42NTk3MjQgMTAuNTU5MiAwLjY1OTcyMyA5LjkyNjA4IDEuMDUwMjUgOS41MzU1Nkw3LjgyODQyIDIuNzU3MzlIMy4xNzE1N0MyLjYxOTI4IDIuNzU3MzkgMi4xNzE1NyAyLjMwOTY3IDIuMTcxNTcgMS43NTczOEMyLjE3MTU3IDEuMjA1MSAyLjYxOTI4IDAuNzU3Mzg1IDMuMTcxNTcgMC43NTczODVIMTAuMjQyNloiIGZpbGw9ImN1cnJlbnRDb2xvciIgLz48L3N2Zz4=)](https://developers.openai.com/community/codex-ambassadors)
+-  [Codex for Students ![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLWV4dGVybmFsLWxpbmstaW5kaWNhdG9yPSJ0cnVlIiB2aWV3Qm94PSIwIDAgMTIgMTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZmlsbD0ibm9uZSIgY2xhc3M9InctMiBoLTIgaW5saW5lLWJsb2NrIG1sLTEgdGV4dC1ncmF5LTYwMCBkYXJrOnRleHQtZ3JheS0zMDAgIj48cGF0aCBkPSJNMTAuMjQyNiAwLjc1NzM4NUMxMC43OTQ5IDAuNzU3Mzg1IDExLjI0MjYgMS4yMDUxIDExLjI0MjYgMS43NTczOFY4LjgyODQ1QzExLjI0MjYgOS4zODA3NCAxMC43OTQ5IDkuODI4NDUgMTAuMjQyNiA5LjgyODQ1QzkuNjkwMzUgOS44Mjg0NSA5LjI0MjY0IDkuMzgwNzQgOS4yNDI2NCA4LjgyODQ1VjQuMTcxNkwyLjQ2NDQ2IDEwLjk0OThDMi4wNzM5NCAxMS4zNDAzIDEuNDQwNzcgMTEuMzQwMyAxLjA1MDI1IDEwLjk0OThDMC42NTk3MjQgMTAuNTU5MiAwLjY1OTcyMyA5LjkyNjA4IDEuMDUwMjUgOS41MzU1Nkw3LjgyODQyIDIuNzU3MzlIMy4xNzE1N0MyLjYxOTI4IDIuNzU3MzkgMi4xNzE1NyAyLjMwOTY3IDIuMTcxNTcgMS43NTczOEMyLjE3MTU3IDEuMjA1MSAyLjYxOTI4IDAuNzU3Mzg1IDMuMTcxNTcgMC43NTczODVIMTAuMjQyNloiIGZpbGw9ImN1cnJlbnRDb2xvciIgLz48L3N2Zz4=)](https://developers.openai.com/community/students)
+-  [Codex for Open Source ![SVG Image](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMiAxMiIgZGF0YS1leHRlcm5hbC1saW5rLWluZGljYXRvcj0idHJ1ZSIgZmlsbD0ibm9uZSIgY2xhc3M9InctMiBoLTIgaW5saW5lLWJsb2NrIG1sLTEgdGV4dC1ncmF5LTYwMCBkYXJrOnRleHQtZ3JheS0zMDAgIj48cGF0aCBkPSJNMTAuMjQyNiAwLjc1NzM4NUMxMC43OTQ5IDAuNzU3Mzg1IDExLjI0MjYgMS4yMDUxIDExLjI0MjYgMS43NTczOFY4LjgyODQ1QzExLjI0MjYgOS4zODA3NCAxMC43OTQ5IDkuODI4NDUgMTAuMjQyNiA5LjgyODQ1QzkuNjkwMzUgOS44Mjg0NSA5LjI0MjY0IDkuMzgwNzQgOS4yNDI2NCA4LjgyODQ1VjQuMTcxNkwyLjQ2NDQ2IDEwLjk0OThDMi4wNzM5NCAxMS4zNDAzIDEuNDQwNzcgMTEuMzQwMyAxLjA1MDI1IDEwLjk0OThDMC42NTk3MjQgMTAuNTU5MiAwLjY1OTcyMyA5LjkyNjA4IDEuMDUwMjUgOS41MzU1Nkw3LjgyODQyIDIuNzU3MzlIMy4xNzE1N0MyLjYxOTI4IDIuNzU3MzkgMi4xNzE1NyAyLjMwOTY3IDIuMTcxNTcgMS43NTczOEMyLjE3MTU3IDEuMjA1MSAyLjYxOTI4IDAuNzU3Mzg1IDMuMTcxNTcgMC43NTczODVIMTAuMjQyNloiIGZpbGw9ImN1cnJlbnRDb2xvciIgLz48L3N2Zz4=)](https://developers.openai.com/community/codex-for-oss)
+-  [Meetups ![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLWV4dGVybmFsLWxpbmstaW5kaWNhdG9yPSJ0cnVlIiB2aWV3Qm94PSIwIDAgMTIgMTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZmlsbD0ibm9uZSIgY2xhc3M9InctMiBoLTIgaW5saW5lLWJsb2NrIG1sLTEgdGV4dC1ncmF5LTYwMCBkYXJrOnRleHQtZ3JheS0zMDAgIj48cGF0aCBkPSJNMTAuMjQyNiAwLjc1NzM4NUMxMC43OTQ5IDAuNzU3Mzg1IDExLjI0MjYgMS4yMDUxIDExLjI0MjYgMS43NTczOFY4LjgyODQ1QzExLjI0MjYgOS4zODA3NCAxMC43OTQ5IDkuODI4NDUgMTAuMjQyNiA5LjgyODQ1QzkuNjkwMzUgOS44Mjg0NSA5LjI0MjY0IDkuMzgwNzQgOS4yNDI2NCA4LjgyODQ1VjQuMTcxNkwyLjQ2NDQ2IDEwLjk0OThDMi4wNzM5NCAxMS4zNDAzIDEuNDQwNzcgMTEuMzQwMyAxLjA1MDI1IDEwLjk0OThDMC42NTk3MjQgMTAuNTU5MiAwLjY1OTcyMyA5LjkyNjA4IDEuMDUwMjUgOS41MzU1Nkw3LjgyODQyIDIuNzU3MzlIMy4xNzE1N0MyLjYxOTI4IDIuNzU3MzkgMi4xNzE1NyAyLjMwOTY3IDIuMTcxNTcgMS43NTczOEMyLjE3MTU3IDEuMjA1MSAyLjYxOTI4IDAuNzU3Mzg1IDMuMTcxNTcgMC43NTczODVIMTAuMjQyNloiIGZpbGw9ImN1cnJlbnRDb2xvciIgLz48L3N2Zz4=)](https://developers.openai.com/community/meetups)
+
+### Blog
+
+-  [Company blog ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTIgMTIiIGZpbGw9Im5vbmUiIGRhdGEtZXh0ZXJuYWwtbGluay1pbmRpY2F0b3I9InRydWUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgY2xhc3M9InctMiBoLTIgaW5saW5lLWJsb2NrIG1sLTEgdGV4dC1ncmF5LTYwMCBkYXJrOnRleHQtZ3JheS0zMDAgIj48cGF0aCBkPSJNMTAuMjQyNiAwLjc1NzM4NUMxMC43OTQ5IDAuNzU3Mzg1IDExLjI0MjYgMS4yMDUxIDExLjI0MjYgMS43NTczOFY4LjgyODQ1QzExLjI0MjYgOS4zODA3NCAxMC43OTQ5IDkuODI4NDUgMTAuMjQyNiA5LjgyODQ1QzkuNjkwMzUgOS44Mjg0NSA5LjI0MjY0IDkuMzgwNzQgOS4yNDI2NCA4LjgyODQ1VjQuMTcxNkwyLjQ2NDQ2IDEwLjk0OThDMi4wNzM5NCAxMS4zNDAzIDEuNDQwNzcgMTEuMzQwMyAxLjA1MDI1IDEwLjk0OThDMC42NTk3MjQgMTAuNTU5MiAwLjY1OTcyMyA5LjkyNjA4IDEuMDUwMjUgOS41MzU1Nkw3LjgyODQyIDIuNzU3MzlIMy4xNzE1N0MyLjYxOTI4IDIuNzU3MzkgMi4xNzE1NyAyLjMwOTY3IDIuMTcxNTcgMS43NTczOEMyLjE3MTU3IDEuMjA1MSAyLjYxOTI4IDAuNzU3Mzg1IDMuMTcxNTcgMC43NTczODVIMTAuMjQyNloiIGZpbGw9ImN1cnJlbnRDb2xvciIgLz48L3N2Zz4=)](https://openai.com/news/)
+-  [Developer blog ![SVG Image](data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiB2aWV3Qm94PSIwIDAgMTIgMTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZGF0YS1leHRlcm5hbC1saW5rLWluZGljYXRvcj0idHJ1ZSIgY2xhc3M9InctMiBoLTIgaW5saW5lLWJsb2NrIG1sLTEgdGV4dC1ncmF5LTYwMCBkYXJrOnRleHQtZ3JheS0zMDAgIj48cGF0aCBkPSJNMTAuMjQyNiAwLjc1NzM4NUMxMC43OTQ5IDAuNzU3Mzg1IDExLjI0MjYgMS4yMDUxIDExLjI0MjYgMS43NTczOFY4LjgyODQ1QzExLjI0MjYgOS4zODA3NCAxMC43OTQ5IDkuODI4NDUgMTAuMjQyNiA5LjgyODQ1QzkuNjkwMzUgOS44Mjg0NSA5LjI0MjY0IDkuMzgwNzQgOS4yNDI2NCA4LjgyODQ1VjQuMTcxNkwyLjQ2NDQ2IDEwLjk0OThDMi4wNzM5NCAxMS4zNDAzIDEuNDQwNzcgMTEuMzQwMyAxLjA1MDI1IDEwLjk0OThDMC42NTk3MjQgMTAuNTU5MiAwLjY1OTcyMyA5LjkyNjA4IDEuMDUwMjUgOS41MzU1Nkw3LjgyODQyIDIuNzU3MzlIMy4xNzE1N0MyLjYxOTI4IDIuNzU3MzkgMi4xNzE1NyAyLjMwOTY3IDIuMTcxNTcgMS43NTczOEMyLjE3MTU3IDEuMjA1MSAyLjYxOTI4IDAuNzU3Mzg1IDMuMTcxNTcgMC43NTczODVIMTAuMjQyNloiIGZpbGw9ImN1cnJlbnRDb2xvciIgLz48L3N2Zz4=)](https://developers.openai.com/blog)
+
+ [Showcase](/showcase) Blog
+
+Cookbook
+
+Learn
+
+Community
+
+Showcase
+Blog
+Cookbook
+Learn
+Community
+
+Docs sectionSelect...
+
+![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTYgOSIgaGVpZ2h0PSIxZW0iIHdpZHRoPSIxZW0iIGZpbGw9ImN1cnJlbnRDb2xvciIgY2xhc3M9Il9Ecm9wZG93bkljb25feDg4N29fNDc1IF9Ecm9wZG93bkljb25DaGV2cm9uX3g4ODdvXzU4NiI+PHBhdGggZD0iTTAuMjkyODkzIDAuMjkyODkzQzAuNjgzNDE4IC0wLjA5NzYzMTEgMS4zMTY1OCAtMC4wOTc2MzExIDEuNzA3MTEgMC4yOTI4OTNMOCA2LjU4NTc5TDE0LjI5MjkgMC4yOTI4OTRDMTQuNjgzNCAtMC4wOTc2MzA1IDE1LjMxNjYgLTAuMDk3NjMwNCAxNS43MDcxIDAuMjkyODk0QzE2LjA5NzYgMC42ODM0MTggMTYuMDk3NiAxLjMxNjU4IDE1LjcwNzEgMS43MDcxMUw4LjcwNzExIDguNzA3MTFDOC4zMTY1OCA5LjA5NzYzIDcuNjgzNDIgOS4wOTc2MyA3LjI5Mjg5IDguNzA3MTFMMC4yOTI4OTMgMS43MDcxMUMtMC4wOTc2MzExIDEuMzE2NTggLTAuMDk3NjMxMSAwLjY4MzQxNyAwLjI5Mjg5MyAwLjI5Mjg5M1oiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZmlsbC1ydWxlPSJldmVub2RkIiAvPjwvc3ZnPg==)
+
+  
+
+-  [All posts](/blog)
+
+### Recent
+
+-  [Custom Code Review rules for Codex](/blog/custom-code-review-rules-for-codex)
+-  [Mastering remote engineering work from your phone](/blog/mastering-codex-remote-for-engineering)
+-  [Making private MCP servers reachable without making them public](/blog/connect-private-mcp-servers-to-openai-products)
+-  [How Perplexity Brought Voice Search to Millions Using the Realtime API](/blog/realtime-perplexity-computer)
+-  [Designing delightful frontends with GPT-5.4](/blog/designing-delightful-frontends-with-gpt-5-4)
+
+### Topics
+
+-  [General](/blog/topic/general)
+-  [API](/blog/topic/api)
+-  [Apps SDK](/blog/topic/apps-sdk)
+-  [Audio](/blog/topic/audio)
+-  [Codex](/blog/topic/codex)
+
+  
+
+-  [Home](/cookbook)
+
+### Topics
+
+-  [Agents](/cookbook/topic/agents)
+-  [Evals](/cookbook/topic/evals)
+-  [Multimodal](/cookbook/topic/multimodal)
+-  [Text](/cookbook/topic/text)
+-  [Guardrails](/cookbook/topic/guardrails)
+-  [Optimization](/cookbook/topic/optimization)
+-  [ChatGPT](/cookbook/topic/chatgpt)
+-  [Codex](/cookbook/topic/codex)
+-  [gpt-oss](/cookbook/topic/gpt-oss)
+
+### Contribute
+
+-  [Cookbook on GitHub ![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLWV4dGVybmFsLWxpbmstaW5kaWNhdG9yPSJ0cnVlIiB2aWV3Qm94PSIwIDAgMTIgMTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZmlsbD0ibm9uZSIgY2xhc3M9InctMiBoLTIgaW5saW5lLWJsb2NrIG1sLTEgdGV4dC1ncmF5LTYwMCBkYXJrOnRleHQtZ3JheS0zMDAgIj48cGF0aCBkPSJNMTAuMjQyNiAwLjc1NzM4NUMxMC43OTQ5IDAuNzU3Mzg1IDExLjI0MjYgMS4yMDUxIDExLjI0MjYgMS43NTczOFY4LjgyODQ1QzExLjI0MjYgOS4zODA3NCAxMC43OTQ5IDkuODI4NDUgMTAuMjQyNiA5LjgyODQ1QzkuNjkwMzUgOS44Mjg0NSA5LjI0MjY0IDkuMzgwNzQgOS4yNDI2NCA4LjgyODQ1VjQuMTcxNkwyLjQ2NDQ2IDEwLjk0OThDMi4wNzM5NCAxMS4zNDAzIDEuNDQwNzcgMTEuMzQwMyAxLjA1MDI1IDEwLjk0OThDMC42NTk3MjQgMTAuNTU5MiAwLjY1OTcyMyA5LjkyNjA4IDEuMDUwMjUgOS41MzU1Nkw3LjgyODQyIDIuNzU3MzlIMy4xNzE1N0MyLjYxOTI4IDIuNzU3MzkgMi4xNzE1NyAyLjMwOTY3IDIuMTcxNTcgMS43NTczOEMyLjE3MTU3IDEuMjA1MSAyLjYxOTI4IDAuNzU3Mzg1IDMuMTcxNTcgMC43NTczODVIMTAuMjQyNloiIGZpbGw9ImN1cnJlbnRDb2xvciIgLz48L3N2Zz4=)](https://github.com/openai/openai-cookbook)
+
+  
+
+-  [Home](/learn)
+-  [OpenAI Developers plugin](/learn/developers-codex-plugin)
+-  [Docs MCP](/learn/docs-mcp)
+
+### Categories
+
+-  [Demo apps](/learn/code)
+-  [Videos](/learn/videos)
+
+### Topics
+
+-  [Agents](/learn/agents)
+-  [Audio & Voice](/learn/audio)
+-  [Computer Use](/learn/cua)
+-  [Codex](/learn/codex)
+-  [Evals](/learn/evals)
+-  [gpt-oss](/learn/gpt-oss)
+-  [Fine-tuning](/learn/fine-tuning)
+-  [Image generation](/learn/imagegen)
+-  [Scaling](/learn/scaling)
+-  [Tools](/learn/tools)
+-  [Video generation](/learn/videogen)
+
+  
+
+-  [Community](/community)
+
+### Programs
+
+-  [Codex Ambassadors](/community/codex-ambassadors)
+-  [Codex for Students](/community/students)
+-  [Codex for Open Source](/community/codex-for-oss)
+-  [OpenAI for Startups ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTIgMTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZGF0YS1leHRlcm5hbC1saW5rLWluZGljYXRvcj0idHJ1ZSIgZmlsbD0ibm9uZSIgY2xhc3M9InctMiBoLTIgaW5saW5lLWJsb2NrIG1sLTEgdGV4dC1ncmF5LTYwMCBkYXJrOnRleHQtZ3JheS0zMDAgIj48cGF0aCBkPSJNMTAuMjQyNiAwLjc1NzM4NUMxMC43OTQ5IDAuNzU3Mzg1IDExLjI0MjYgMS4yMDUxIDExLjI0MjYgMS43NTczOFY4LjgyODQ1QzExLjI0MjYgOS4zODA3NCAxMC43OTQ5IDkuODI4NDUgMTAuMjQyNiA5LjgyODQ1QzkuNjkwMzUgOS44Mjg0NSA5LjI0MjY0IDkuMzgwNzQgOS4yNDI2NCA4LjgyODQ1VjQuMTcxNkwyLjQ2NDQ2IDEwLjk0OThDMi4wNzM5NCAxMS4zNDAzIDEuNDQwNzcgMTEuMzQwMyAxLjA1MDI1IDEwLjk0OThDMC42NTk3MjQgMTAuNTU5MiAwLjY1OTcyMyA5LjkyNjA4IDEuMDUwMjUgOS41MzU1Nkw3LjgyODQyIDIuNzU3MzlIMy4xNzE1N0MyLjYxOTI4IDIuNzU3MzkgMi4xNzE1NyAyLjMwOTY3IDIuMTcxNTcgMS43NTczOEMyLjE3MTU3IDEuMjA1MSAyLjYxOTI4IDAuNzU3Mzg1IDMuMTcxNTcgMC43NTczODVIMTAuMjQyNloiIGZpbGw9ImN1cnJlbnRDb2xvciIgLz48L3N2Zz4=)](https://openai.com/business/why-openai/startups/)
+
+### Events
+
+-  [Meetups](/community/meetups)
+
+### Spaces
+
+-  [Developer Forum ![SVG Image](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMiAxMiIgZGF0YS1leHRlcm5hbC1saW5rLWluZGljYXRvcj0idHJ1ZSIgZmlsbD0ibm9uZSIgY2xhc3M9InctMiBoLTIgaW5saW5lLWJsb2NrIG1sLTEgdGV4dC1ncmF5LTYwMCBkYXJrOnRleHQtZ3JheS0zMDAgIj48cGF0aCBkPSJNMTAuMjQyNiAwLjc1NzM4NUMxMC43OTQ5IDAuNzU3Mzg1IDExLjI0MjYgMS4yMDUxIDExLjI0MjYgMS43NTczOFY4LjgyODQ1QzExLjI0MjYgOS4zODA3NCAxMC43OTQ5IDkuODI4NDUgMTAuMjQyNiA5LjgyODQ1QzkuNjkwMzUgOS44Mjg0NSA5LjI0MjY0IDkuMzgwNzQgOS4yNDI2NCA4LjgyODQ1VjQuMTcxNkwyLjQ2NDQ2IDEwLjk0OThDMi4wNzM5NCAxMS4zNDAzIDEuNDQwNzcgMTEuMzQwMyAxLjA1MDI1IDEwLjk0OThDMC42NTk3MjQgMTAuNTU5MiAwLjY1OTcyMyA5LjkyNjA4IDEuMDUwMjUgOS41MzU1Nkw3LjgyODQyIDIuNzU3MzlIMy4xNzE1N0MyLjYxOTI4IDIuNzU3MzkgMi4xNzE1NyAyLjMwOTY3IDIuMTcxNTcgMS43NTczOEMyLjE3MTU3IDEuMjA1MSAyLjYxOTI4IDAuNzU3Mzg1IDMuMTcxNTcgMC43NTczODVIMTAuMjQyNloiIGZpbGw9ImN1cnJlbnRDb2xvciIgLz48L3N2Zz4=)](https://community.openai.com/)
+-  [Discord ![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLWV4dGVybmFsLWxpbmstaW5kaWNhdG9yPSJ0cnVlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAxMiAxMiIgY2xhc3M9InctMiBoLTIgaW5saW5lLWJsb2NrIG1sLTEgdGV4dC1ncmF5LTYwMCBkYXJrOnRleHQtZ3JheS0zMDAgIj48cGF0aCBkPSJNMTAuMjQyNiAwLjc1NzM4NUMxMC43OTQ5IDAuNzU3Mzg1IDExLjI0MjYgMS4yMDUxIDExLjI0MjYgMS43NTczOFY4LjgyODQ1QzExLjI0MjYgOS4zODA3NCAxMC43OTQ5IDkuODI4NDUgMTAuMjQyNiA5LjgyODQ1QzkuNjkwMzUgOS44Mjg0NSA5LjI0MjY0IDkuMzgwNzQgOS4yNDI2NCA4LjgyODQ1VjQuMTcxNkwyLjQ2NDQ2IDEwLjk0OThDMi4wNzM5NCAxMS4zNDAzIDEuNDQwNzcgMTEuMzQwMyAxLjA1MDI1IDEwLjk0OThDMC42NTk3MjQgMTAuNTU5MiAwLjY1OTcyMyA5LjkyNjA4IDEuMDUwMjUgOS41MzU1Nkw3LjgyODQyIDIuNzU3MzlIMy4xNzE1N0MyLjYxOTI4IDIuNzU3MzkgMi4xNzE1NyAyLjMwOTY3IDIuMTcxNTcgMS43NTczOEMyLjE3MTU3IDEuMjA1MSAyLjYxOTI4IDAuNzU3Mzg1IDMuMTcxNTcgMC43NTczODVIMTAuMjQyNloiIGZpbGw9ImN1cnJlbnRDb2xvciIgLz48L3N2Zz4=)](https://discord.com/invite/openai)
+-  [Reddit ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTIgMTIiIGRhdGEtZXh0ZXJuYWwtbGluay1pbmRpY2F0b3I9InRydWUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZmlsbD0ibm9uZSIgY2xhc3M9InctMiBoLTIgaW5saW5lLWJsb2NrIG1sLTEgdGV4dC1ncmF5LTYwMCBkYXJrOnRleHQtZ3JheS0zMDAgIj48cGF0aCBkPSJNMTAuMjQyNiAwLjc1NzM4NUMxMC43OTQ5IDAuNzU3Mzg1IDExLjI0MjYgMS4yMDUxIDExLjI0MjYgMS43NTczOFY4LjgyODQ1QzExLjI0MjYgOS4zODA3NCAxMC43OTQ5IDkuODI4NDUgMTAuMjQyNiA5LjgyODQ1QzkuNjkwMzUgOS44Mjg0NSA5LjI0MjY0IDkuMzgwNzQgOS4yNDI2NCA4LjgyODQ1VjQuMTcxNkwyLjQ2NDQ2IDEwLjk0OThDMi4wNzM5NCAxMS4zNDAzIDEuNDQwNzcgMTEuMzQwMyAxLjA1MDI1IDEwLjk0OThDMC42NTk3MjQgMTAuNTU5MiAwLjY1OTcyMyA5LjkyNjA4IDEuMDUwMjUgOS41MzU1Nkw3LjgyODQyIDIuNzU3MzlIMy4xNzE1N0MyLjYxOTI4IDIuNzU3MzkgMi4xNzE1NyAyLjMwOTY3IDIuMTcxNTcgMS43NTczOEMyLjE3MTU3IDEuMjA1MSAyLjYxOTI4IDAuNzU3Mzg1IDMuMTcxNTcgMC43NTczODVIMTAuMjQyNloiIGZpbGw9ImN1cnJlbnRDb2xvciIgLz48L3N2Zz4=)](https://www.reddit.com/r/OpenAI/)
+-  [X ![SVG Image](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMiAxMiIgZGF0YS1leHRlcm5hbC1saW5rLWluZGljYXRvcj0idHJ1ZSIgZmlsbD0ibm9uZSIgY2xhc3M9InctMiBoLTIgaW5saW5lLWJsb2NrIG1sLTEgdGV4dC1ncmF5LTYwMCBkYXJrOnRleHQtZ3JheS0zMDAgIj48cGF0aCBkPSJNMTAuMjQyNiAwLjc1NzM4NUMxMC43OTQ5IDAuNzU3Mzg1IDExLjI0MjYgMS4yMDUxIDExLjI0MjYgMS43NTczOFY4LjgyODQ1QzExLjI0MjYgOS4zODA3NCAxMC43OTQ5IDkuODI4NDUgMTAuMjQyNiA5LjgyODQ1QzkuNjkwMzUgOS44Mjg0NSA5LjI0MjY0IDkuMzgwNzQgOS4yNDI2NCA4LjgyODQ1VjQuMTcxNkwyLjQ2NDQ2IDEwLjk0OThDMi4wNzM5NCAxMS4zNDAzIDEuNDQwNzcgMTEuMzQwMyAxLjA1MDI1IDEwLjk0OThDMC42NTk3MjQgMTAuNTU5MiAwLjY1OTcyMyA5LjkyNjA4IDEuMDUwMjUgOS41MzU1Nkw3LjgyODQyIDIuNzU3MzlIMy4xNzE1N0MyLjYxOTI4IDIuNzU3MzkgMi4xNzE1NyAyLjMwOTY3IDIuMTcxNTcgMS43NTczOEMyLjE3MTU3IDEuMjA1MSAyLjYxOTI4IDAuNzU3Mzg1IDMuMTcxNTcgMC43NTczODVIMTAuMjQyNloiIGZpbGw9ImN1cnJlbnRDb2xvciIgLz48L3N2Zz4=)](https://x.com/OpenAIDevs)
+
+[API Dashboard![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLWV4dGVybmFsLWxpbmstaW5kaWNhdG9yPSJwZXJzaXN0ZW50IiB3aWR0aD0iMWVtIiBmaWxsPSJjdXJyZW50Q29sb3IiIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGNsYXNzPSJzaHJpbmstMCI+PHBhdGggZD0iTTE2LjI0MyA2Ljc1N2ExIDEgMCAwIDEgMSAxdjcuMDcyYTEgMSAwIDAgMS0yIDB2LTQuNjU3TDguNDY0IDE2Ljk1YTEgMSAwIDAgMS0xLjQxNC0xLjQxNGw2Ljc3OC02Ljc3OUg5LjE3MmExIDEgMCAwIDEgMC0yaDcuMDdaIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgLz48L3N2Zz4=)](https://platform.openai.com/login)
+
+[Try ChatGPT![SVG Image](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMWVtIiBoZWlnaHQ9IjFlbSIgZGF0YS1leHRlcm5hbC1saW5rLWluZGljYXRvcj0icGVyc2lzdGVudCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJjdXJyZW50Q29sb3IiIGNsYXNzPSJzaHJpbmstMCI+PHBhdGggZD0iTTE2LjI0MyA2Ljc1N2ExIDEgMCAwIDEgMSAxdjcuMDcyYTEgMSAwIDAgMS0yIDB2LTQuNjU3TDguNDY0IDE2Ljk1YTEgMSAwIDAgMS0xLjQxNC0xLjQxNGw2Ljc3OC02Ljc3OUg5LjE3MmExIDEgMCAwIDEgMC0yaDcuMDdaIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgLz48L3N2Zz4=)](https://chatgpt.com/)
+
+# Overview
+
+Start with a goal, idea, or task. ChatGPT can gather context, take
+ action, and produce something useful.
+
+ [Quickstart ![SVG Image](data:image/svg+xml;base64,PHN2ZyBmaWxsPSJjdXJyZW50Q29sb3IiIGFyaWEtaGlkZGVuPSJ0cnVlIiBoZWlnaHQ9IjFlbSIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMWVtIiBjbGFzcz0idHJhbnNpdGlvbi10cmFuc2Zvcm0gZHVyYXRpb24tMjAwIGVhc2Utb3V0IGdyb3VwLWhvdmVyOnRyYW5zbGF0ZS14LTAuNSBncm91cC1mb2N1cy12aXNpYmxlOnRyYW5zbGF0ZS14LTAuNSI+PHBhdGggY2xpcC1ydWxlPSJldmVub2RkIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xOC43MDcgMTIuNzA3YTEgMSAwIDAgMCAwLTEuNDE0bC01LTVhMSAxIDAgMSAwLTEuNDE0IDEuNDE0TDE1LjU4NiAxMUg2YTEgMSAwIDEgMCAwIDJoOS41ODZsLTMuMjkzIDMuMjkzYTEgMSAwIDAgMCAxLjQxNCAxLjQxNGw1LTVaIiAvPjwvc3ZnPg==)](/codex/quickstart)
+
+ [Explore use cases ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgZmlsbD0iY3VycmVudENvbG9yIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjI0IiBjbGFzcz0iaC1bMS4xMjVyZW1dIHctWzEuMTI1cmVtXSB0cmFuc2l0aW9uLXRyYW5zZm9ybSBncm91cC1ob3Zlcjp0cmFuc2xhdGUteC0wLjUgIj48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTE4LjcwNyAxMi43MDdhMSAxIDAgMCAwIDAtMS40MTRsLTUtNWExIDEgMCAxIDAtMS40MTQgMS40MTRMMTUuNTg2IDExSDZhMSAxIDAgMSAwIDAgMmg5LjU4NmwtMy4yOTMgMy4yOTNhMSAxIDAgMCAwIDEuNDE0IDEuNDE0bDUtNVoiIC8+PC9zdmc+)](/codex/use-cases)
+
+![](/images/codex/icons/sidebar.svg)
+
+Codex
+
+- ![](/images/codex/icons/compose.svg)New chat⌘N![](/images/codex/icons/chat-reply-plus.svg)
+- ![](/images/codex/icons/app-search.svg)Search⌘K
+
+- ![](/images/codex/icons/clock.svg)Scheduled
+- ![](/images/codex/icons/apps.svg)Plugins
+- ![](/images/codex/icons/sites.svg)Sites
+- ![](/images/codex/icons/diff.svg)Pull requests
+
+### Pinned
+
+- ![](/images/codex/icons/app-pin.svg)Update landing page illustrations2m
+
+### Projects
+
+- ![](/images/codex/icons/sidebar-folder.svg)developers-website
+- ![](/images/codex/icons/sidebar-folder.svg)codex
+
+### Chats
+
+- Polish onboarding flow1h
+- Review sidebar changes3h
+
+## What should we build?
+
+![](/images/codex/icons/app-search.svg)Explore and understand code
+
+![](/images/codex/icons/terminal.svg)Build a new feature, app, or tool
+
+![](/images/codex/icons/app-diff-unified.svg)Review code and suggest changes
+
+![](/images/codex/icons/app-settings-cog.svg)Fix issues and failures
+
+![](/images/codex/icons/folder.svg)Choose project![](/images/codex/icons/chevron.svg)![](/images/codex/icons/app-branch.svg)main![](/images/codex/icons/chevron.svg)![](/images/codex/icons/terminal.svg)On my computer![](/images/codex/icons/chevron.svg)
+
+Do anything
+
+![](/images/codex/icons/plus.svg)
+
+![](/images/codex/icons/app-lightning-bolt-outline.svg)5.6 Sol Extra High![](/images/codex/icons/app-mic.svg)![](/images/codex/icons/arrow-up.svg)
+
+1/8
+
+CodeyI found a tiny loose thread in settings. Want me to tug it?
+
+## What’s new
+
+ [View all updates ![SVG Image](data:image/svg+xml;base64,PHN2ZyBmaWxsPSJjdXJyZW50Q29sb3IiIHdpZHRoPSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBhcmlhLWhpZGRlbj0idHJ1ZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjI0IiBjbGFzcz0iaC00IHctNCB0cmFuc2l0aW9uLXRyYW5zZm9ybSBncm91cC1ob3Zlcjp0cmFuc2xhdGUteC0wLjUgIj48cGF0aCBkPSJNMTguNzA3IDEyLjcwN2ExIDEgMCAwIDAgMC0xLjQxNGwtNS01YTEgMSAwIDEgMC0xLjQxNCAxLjQxNEwxNS41ODYgMTFINmExIDEgMCAxIDAgMCAyaDkuNTg2bC0zLjI5MyAzLjI5M2ExIDEgMCAwIDAgMS40MTQgMS40MTRsNS01WiIgY2xpcC1ydWxlPSJldmVub2RkIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIC8+PC9zdmc+)](/codex/whats-new)
+
+ July 13–17, 2026
+
+ [Keep Work conversations and Projects together on desktop Use cloud Work conversations across devices, keep local conversations on your computer, and open ChatGPT Projects in the desktop app. SVG Image](/codex/whats-new#keep-work-conversations-and-projects-together-on-desktop)[Control parallel Codex work with Codex Micro Use Codex Micro's Agent Keys, Command Keys, analog stick, and dial to control up to six chats from a physical desktop surface.](/codex/whats-new#control-parallel-codex-work-with-codex-micro)
+
+ July 6–10, 2026
+
+ [Take on ambitious work in ChatGPT ChatGPT Work can gather context across files and plugins, take action, and produce reviewable deliverables. SVG Image](/codex/whats-new#take-on-ambitious-work-in-chatgpt)[Choose the right GPT-5.6 model Compare Sol for flagship capability, Terra for balanced everyday work, and Luna for speed and lower cost.](/codex/whats-new#choose-the-right-gpt-56-model)
+
+Ask AI
+
+Loading docs agent...

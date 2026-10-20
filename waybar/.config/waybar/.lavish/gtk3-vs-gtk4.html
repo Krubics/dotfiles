@@ -1,0 +1,777 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An interactive, visual explanation of how GTK 4 differs from GTK 3.">
+  <title>GTK 3 → GTK 4 — what actually changed?</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f4f1ea;
+      --paper-deep: #e8e2d6;
+      --ink: #1c2130;
+      --muted: #646876;
+      --line: #c9c3b7;
+      --line-strong: #8f8a82;
+      --gtk3: #b4472e;
+      --gtk3-soft: #f4d9ce;
+      --gtk3-deep: #702819;
+      --gtk4: #3156c8;
+      --gtk4-soft: #dce4ff;
+      --gtk4-deep: #20347c;
+      --green: #39705b;
+      --white: #fffdf8;
+      --shadow: 0 16px 40px rgba(28, 33, 48, .12);
+      --radius: 12px;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Cantarell, "Segoe UI", system-ui, sans-serif;
+      --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 0;
+      overflow-x: hidden;
+      color: var(--ink);
+      background:
+        linear-gradient(rgba(28, 33, 48, .035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(28, 33, 48, .035) 1px, transparent 1px),
+        var(--paper);
+      background-size: 24px 24px;
+      font-family: var(--sans);
+      line-height: 1.55;
+    }
+
+    a { color: inherit; text-underline-offset: 3px; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button:focus-visible, a:focus-visible {
+      outline: 3px solid #efb732;
+      outline-offset: 3px;
+    }
+
+    .page { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(143, 138, 130, .55);
+      background: rgba(244, 241, 234, .92);
+      backdrop-filter: blur(14px);
+    }
+
+    .topbar-inner {
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      display: grid;
+      grid-template-columns: repeat(2, 9px);
+      grid-template-rows: repeat(2, 9px);
+      gap: 2px;
+      transform: rotate(45deg);
+    }
+    .brand-mark i { display: block; background: var(--gtk4); }
+    .brand-mark i:first-child { background: var(--gtk3); }
+
+    nav { display: flex; gap: 20px; font-size: .86rem; color: var(--muted); }
+    nav a { text-decoration: none; }
+    nav a:hover { color: var(--ink); }
+
+    .hero {
+      padding: clamp(58px, 10vw, 116px) 0 54px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 22px;
+      color: var(--muted);
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 34px; border-top: 2px solid var(--ink); }
+
+    h1 {
+      max-width: 980px;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(3.6rem, 10vw, 8.7rem);
+      font-weight: 400;
+      letter-spacing: -.065em;
+      line-height: .84;
+    }
+
+    h1 .arrow { color: var(--line-strong); font-family: var(--sans); font-weight: 200; }
+    h1 .v3 { color: var(--gtk3); }
+    h1 .v4 { color: var(--gtk4); }
+
+    .hero-bottom {
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(260px, .8fr);
+      gap: 52px;
+      align-items: end;
+      margin-top: 46px;
+    }
+
+    .lede {
+      max-width: 760px;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(1.25rem, 2.2vw, 1.7rem);
+      line-height: 1.45;
+    }
+
+    .thesis {
+      padding: 18px 0 0 20px;
+      border-left: 4px solid var(--gtk4);
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .93rem;
+    }
+    .thesis strong { display: block; margin-bottom: 5px; color: var(--ink); }
+
+    section { padding: 84px 0; border-bottom: 1px solid var(--line); }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 170px minmax(0, 1fr);
+      gap: 34px;
+      margin-bottom: 44px;
+    }
+    .section-no {
+      padding-top: 9px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: .76rem;
+      letter-spacing: .08em;
+    }
+    h2 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(2.25rem, 5vw, 4.7rem);
+      font-weight: 400;
+      letter-spacing: -.045em;
+      line-height: 1;
+    }
+    .section-intro { max-width: 720px; margin: 18px 0 0; color: var(--muted); font-size: 1.04rem; }
+
+    .same-different {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      padding: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+    .same-different article { min-width: 0; padding: clamp(24px, 4vw, 46px); background: var(--white); }
+    .same-different h3 { margin: 0 0 22px; font-size: 1rem; letter-spacing: .03em; }
+    .same-different ul { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
+    .same-different li { position: relative; padding-left: 26px; }
+    .same-different li::before { content: ""; position: absolute; left: 0; top: .65em; width: 10px; border-top: 2px solid var(--green); }
+    .same-different .changed li::before { border-color: var(--gtk4); transform: rotate(-35deg); }
+
+    .pipeline-shell {
+      overflow: hidden;
+      border: 1px solid var(--line-strong);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .window-bar {
+      min-height: 45px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      padding: 0 15px;
+      border-bottom: 1px solid var(--line);
+      background: var(--paper-deep);
+      font-size: .73rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .window-dots { display: flex; gap: 6px; }
+    .window-dots i { width: 9px; height: 9px; border: 1px solid var(--line-strong); border-radius: 50%; background: var(--white); }
+    .window-bar span { grid-column: 2; }
+
+    .mode-switch {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--line);
+    }
+    .mode-switch button {
+      border: 0;
+      border-right: 1px solid var(--line);
+      padding: 17px 20px;
+      background: #f8f6f1;
+      color: var(--muted);
+      font: 800 .82rem/1 var(--sans);
+      cursor: pointer;
+    }
+    .mode-switch button:last-child { border-right: 0; }
+    .mode-switch button[aria-selected="true"][data-version="3"] { background: var(--gtk3-soft); color: var(--gtk3-deep); box-shadow: inset 0 -4px var(--gtk3); }
+    .mode-switch button[aria-selected="true"][data-version="4"] { background: var(--gtk4-soft); color: var(--gtk4-deep); box-shadow: inset 0 -4px var(--gtk4); }
+
+    .pipeline-stage { padding: clamp(24px, 5vw, 52px); }
+    .pipeline-title { display: flex; justify-content: space-between; gap: 20px; align-items: baseline; margin-bottom: 28px; }
+    .pipeline-title h3 { margin: 0; font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.3rem); font-weight: 400; }
+    .pipeline-title p { margin: 0; color: var(--muted); font-family: var(--mono); font-size: .72rem; }
+
+    .pipeline {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      align-items: stretch;
+      gap: 22px;
+    }
+    .pipe-step {
+      position: relative;
+      min-height: 168px;
+      padding: 20px 17px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      transition: transform .22s ease, background .22s ease, border-color .22s ease;
+    }
+    .pipe-step:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      top: 50%;
+      right: -19px;
+      width: 16px;
+      color: var(--line-strong);
+      transform: translateY(-50%);
+      text-align: center;
+      font-size: 1.2rem;
+    }
+    .pipe-step .index { color: var(--muted); font: .7rem var(--mono); }
+    .pipe-step h4 { margin: 28px 0 8px; font-size: .92rem; }
+    .pipe-step p { margin: 0; color: var(--muted); font-size: .8rem; line-height: 1.4; }
+    .pipe-step.active { transform: translateY(-6px); }
+    .pipeline-stage[data-active-version="3"] .pipe-step.active { background: var(--gtk3-soft); border-color: var(--gtk3); }
+    .pipeline-stage[data-active-version="4"] .pipe-step.active { background: var(--gtk4-soft); border-color: var(--gtk4); }
+
+    .trace-controls { display: flex; align-items: center; gap: 12px; margin-top: 26px; }
+    .trace-controls button {
+      min-height: 42px;
+      border: 1px solid var(--ink);
+      padding: 0 18px;
+      background: var(--ink);
+      color: var(--white);
+      font: 800 .78rem var(--sans);
+      cursor: pointer;
+    }
+    .trace-controls button.secondary { background: transparent; color: var(--ink); }
+    .trace-status { margin-left: auto; color: var(--muted); font: .74rem var(--mono); }
+
+    .split-labels, .comparison-row {
+      display: grid;
+      grid-template-columns: 170px minmax(0, 1fr) minmax(0, 1fr);
+      gap: 0;
+    }
+    .split-labels { position: sticky; top: 58px; z-index: 10; border-bottom: 1px solid var(--line-strong); background: var(--paper); }
+    .split-labels div { padding: 14px 20px; font-size: .78rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+    .split-labels .label3 { color: var(--gtk3-deep); background: var(--gtk3-soft); }
+    .split-labels .label4 { color: var(--gtk4-deep); background: var(--gtk4-soft); }
+
+    .comparison-row { border-bottom: 1px solid var(--line); }
+    .comparison-row > * { min-width: 0; padding: 27px 20px; }
+    .comparison-row h3 { margin: 0; font-size: .9rem; }
+    .comparison-row .old { border-left: 1px solid var(--line); background: rgba(244, 217, 206, .22); }
+    .comparison-row .new { border-left: 1px solid var(--line); border-right: 1px solid var(--line); background: rgba(220, 228, 255, .3); }
+    .comparison-row p { margin: 0 0 10px; font-size: .94rem; }
+    .comparison-row p:last-child { margin-bottom: 0; }
+    code { padding: .12em .34em; background: rgba(28, 33, 48, .08); font-family: var(--mono); font-size: .84em; }
+
+    .code-lab {
+      display: grid;
+      grid-template-columns: 190px minmax(0, 1fr);
+      border: 1px solid var(--line-strong);
+      background: #171b27;
+      box-shadow: var(--shadow);
+    }
+    .code-tabs { border-right: 1px solid #3a3f4d; background: #111520; }
+    .code-tabs button {
+      display: block;
+      width: 100%;
+      border: 0;
+      border-bottom: 1px solid #2f3441;
+      padding: 20px;
+      background: transparent;
+      color: #a8adba;
+      text-align: left;
+      font: 800 .78rem var(--sans);
+      cursor: pointer;
+    }
+    .code-tabs button[aria-selected="true"] { color: white; background: #232838; box-shadow: inset 4px 0 var(--gtk4); }
+    .code-output { min-width: 0; }
+    .code-panel { display: none; }
+    .code-panel.active { display: grid; grid-template-columns: 1fr 1fr; }
+    .snippet { min-width: 0; padding: 25px; overflow: auto; }
+    .snippet + .snippet { border-left: 1px solid #3a3f4d; }
+    .snippet-head { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 18px; color: #d5d7df; font-size: .75rem; }
+    .snippet-head span:last-child { color: #7d8290; font-family: var(--mono); }
+    pre { margin: 0; color: #d7dae4; font: .78rem/1.7 var(--mono); tab-size: 2; }
+    pre .fn { color: #9cb5ff; }
+    pre .type { color: #efb8ff; }
+    pre .str { color: #f3bd79; }
+    pre .comment { color: #747b8b; }
+    pre .removed { color: #ffab95; }
+    pre .added { color: #a8e3c3; }
+
+    .migration-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .migration-card {
+      min-width: 0;
+      min-height: 260px;
+      display: flex;
+      flex-direction: column;
+      padding: 27px;
+      border-top: 4px solid var(--line-strong);
+      background: var(--white);
+      box-shadow: 0 8px 24px rgba(28, 33, 48, .07);
+    }
+    .migration-card[data-level="high"] { border-color: var(--gtk3); }
+    .migration-card[data-level="medium"] { border-color: #c48a24; }
+    .migration-card[data-level="low"] { border-color: var(--green); }
+    .risk { color: var(--muted); font: 700 .69rem var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+    .migration-card h3 { margin: 24px 0 10px; font-family: var(--serif); font-size: 1.45rem; font-weight: 400; }
+    .migration-card p { margin: 0; color: var(--muted); font-size: .9rem; }
+    .migration-card .replacement { margin-top: auto; padding-top: 20px; color: var(--ink); font-size: .82rem; font-weight: 800; }
+
+    .verdict {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      min-height: 440px;
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: var(--white);
+      box-shadow: var(--shadow);
+    }
+    .verdict-main { display: flex; flex-direction: column; justify-content: space-between; padding: clamp(30px, 6vw, 64px); }
+    .verdict-main h2 { max-width: 660px; font-size: clamp(2.4rem, 5vw, 5rem); }
+    .verdict-main p { max-width: 640px; margin: 34px 0 0; color: #c4c8d3; font-size: 1.05rem; }
+    .verdict-rule { margin-top: 50px; padding-top: 18px; border-top: 1px solid #565c6b; color: #f2c777; font: .85rem var(--mono); }
+    .verdict-side { display: grid; grid-template-rows: 1fr 1fr; border-left: 1px solid #565c6b; }
+    .verdict-side article { padding: 34px; }
+    .verdict-side article + article { border-top: 1px solid #565c6b; }
+    .verdict-side h3 { margin: 0 0 12px; font-size: 1rem; }
+    .verdict-side p { margin: 0; color: #b8bdc9; font-size: .9rem; }
+
+    footer { padding: 36px 0 58px; color: var(--muted); font-size: .82rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 30px; }
+    .sources { display: flex; flex-wrap: wrap; gap: 16px; }
+
+    @media (max-width: 900px) {
+      .hero-bottom, .verdict { grid-template-columns: 1fr; }
+      .pipeline { grid-template-columns: 1fr; gap: 12px; }
+      .pipe-step { min-height: auto; }
+      .pipe-step h4 { margin-top: 12px; }
+      .pipe-step:not(:last-child)::after { top: auto; right: 50%; bottom: -16px; transform: translateX(50%) rotate(90deg); z-index: 2; }
+      .split-labels, .comparison-row { grid-template-columns: 120px 1fr 1fr; }
+      .migration-grid { grid-template-columns: 1fr 1fr; }
+      .verdict-side { border-left: 0; border-top: 1px solid #565c6b; grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .verdict-side article + article { border-top: 0; border-left: 1px solid #565c6b; }
+    }
+
+    @media (max-width: 680px) {
+      .page { width: min(100% - 24px, 1180px); }
+      nav { display: none; }
+      .hero { padding-top: 56px; }
+      .hero-bottom, .section-head { grid-template-columns: 1fr; gap: 22px; }
+      section { padding: 60px 0; }
+      .section-no { padding-top: 0; }
+      .same-different, .migration-grid { grid-template-columns: 1fr; }
+      .window-bar { grid-template-columns: auto 1fr; }
+      .window-bar span { grid-column: 2; justify-self: end; }
+      .pipeline-stage { padding: 20px 14px 24px; }
+      .pipeline-title { display: block; }
+      .pipeline-title p { margin-top: 7px; }
+      .trace-controls { flex-wrap: wrap; }
+      .trace-status { width: 100%; margin-left: 0; }
+      .split-labels { display: none; }
+      .comparison-row { display: block; margin-bottom: 16px; border: 1px solid var(--line); }
+      .comparison-row > * { padding: 18px; }
+      .comparison-row h3 { background: var(--paper-deep); }
+      .comparison-row .old, .comparison-row .new { border: 0; border-top: 1px solid var(--line); }
+      .comparison-row .old::before, .comparison-row .new::before { display: block; margin-bottom: 8px; font-size: .7rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+      .comparison-row .old::before { content: "GTK 3"; color: var(--gtk3); }
+      .comparison-row .new::before { content: "GTK 4"; color: var(--gtk4); }
+      .code-lab { grid-template-columns: 1fr; }
+      .code-tabs { display: flex; overflow-x: auto; border-right: 0; border-bottom: 1px solid #3a3f4d; }
+      .code-tabs button { min-width: max-content; border-bottom: 0; border-right: 1px solid #2f3441; }
+      .code-tabs button[aria-selected="true"] { box-shadow: inset 0 -4px var(--gtk4); }
+      .code-panel.active { grid-template-columns: 1fr; }
+      .snippet + .snippet { border-left: 0; border-top: 1px solid #3a3f4d; }
+      .verdict-side { grid-template-columns: 1fr; }
+      .verdict-side article + article { border-left: 0; border-top: 1px solid #565c6b; }
+      .footer-inner { display: block; }
+      .sources { margin-top: 16px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+
+    @media print {
+      .topbar, .mode-switch, .trace-controls, .code-tabs { display: none !important; }
+      body { background: white; }
+      .page { width: 100%; }
+      section { break-inside: avoid; padding: 32px 0; }
+      .pipeline-shell, .same-different, .code-lab, .verdict { box-shadow: none; }
+      .code-panel { display: grid !important; grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="page topbar-inner">
+      <div class="brand"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span> Toolkit field guide</div>
+      <nav aria-label="Page sections">
+        <a href="#rendering">Rendering</a>
+        <a href="#api">API shifts</a>
+        <a href="#migration">Migration</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <header class="hero page">
+      <p class="eyebrow">A visual model for application developers</p>
+      <h1><span class="v3">GTK 3</span> <span class="arrow">→</span> <span class="v4">GTK 4</span></h1>
+      <div class="hero-bottom">
+        <p class="lede">The object model survived. The machinery underneath changed: GTK 4 turns widget output into a reusable scene graph, routes input through controllers, and makes composition explicit.</p>
+        <div class="thesis"><strong>Not “GTK 3, but faster.”</strong>A source- and ABI-breaking redesign around modern rendering and display systems.</div>
+      </div>
+    </header>
+
+    <section id="orientation">
+      <div class="page">
+        <div class="section-head">
+          <div class="section-no">00 / ORIENT</div>
+          <div><h2>Same language.<br>Different grammar.</h2><p class="section-intro">If you know GTK 3, the concepts remain recognizable. The places where those concepts connect are what moved.</p></div>
+        </div>
+        <div class="same-different">
+          <article>
+            <h3>Still foundational</h3>
+            <ul>
+              <li>Widgets arranged in a parent–child tree</li>
+              <li>GObject properties, references, and signals</li>
+              <li>GLib’s main loop and main-thread UI work</li>
+              <li>CSS-driven visual styling</li>
+              <li>GDK as the platform and window-system boundary</li>
+              <li>Pango for internationalized text</li>
+            </ul>
+          </article>
+          <article class="changed">
+            <h3>Rewired in GTK 4</h3>
+            <ul>
+              <li>Drawing becomes snapshot → scene graph → renderer</li>
+              <li>Input signals become controllers and gestures</li>
+              <li>Generic containers become widget-specific child APIs</li>
+              <li>Layout policy becomes an explicit manager</li>
+              <li>Lists become model + selection + item factory</li>
+              <li>Blocking and X11-centric APIs largely disappear</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="rendering">
+      <div class="page">
+        <div class="section-head">
+          <div class="section-no">01 / FRAME</div>
+          <div><h2>Follow one frame.</h2><p class="section-intro">Switch versions, then step through the path from changed application state to pixels. This is the architectural difference that explains many of the API changes.</p></div>
+        </div>
+
+        <div class="pipeline-shell">
+          <div class="window-bar"><div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div><span>frame inspector</span></div>
+          <div class="mode-switch" role="tablist" aria-label="GTK rendering version">
+            <button type="button" role="tab" aria-selected="false" data-version="3">GTK 3 · immediate drawing</button>
+            <button type="button" role="tab" aria-selected="true" data-version="4">GTK 4 · retained scene graph</button>
+          </div>
+          <div class="pipeline-stage" data-active-version="4">
+            <div class="pipeline-title"><h3 id="pipeline-heading">GTK 4 rendering path</h3><p id="pipeline-note">Renderer can cache and transform nodes</p></div>
+            <div class="pipeline" id="pipeline" aria-live="polite"></div>
+            <div class="trace-controls">
+              <button type="button" id="step-trace">Step through frame</button>
+              <button type="button" class="secondary" id="reset-trace">Reset</button>
+              <span class="trace-status" id="trace-status">Ready · 0 / 5</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="api">
+      <div class="page">
+        <div class="section-head">
+          <div class="section-no">02 / COMPARE</div>
+          <div><h2>The shifts, aligned.</h2><p class="section-intro">Like-for-like comparisons. Read across each row rather than treating GTK 4 as a list of removals.</p></div>
+        </div>
+
+        <div class="split-labels" aria-hidden="true"><div>Concern</div><div class="label3">GTK 3</div><div class="label4">GTK 4</div></div>
+        <div class="comparison-table">
+          <div class="comparison-row"><h3>Rendering</h3><div class="old"><p>A widget handles <code>draw()</code> and emits Cairo commands into a context.</p></div><div class="new"><p>A widget handles <code>snapshot()</code> and appends GSK render nodes. OpenGL, Vulkan, or Cairo renders the resulting graph.</p></div></div>
+          <div class="comparison-row"><h3>Input</h3><div class="old"><p>Connect to low-level widget signals such as <code>button-press-event</code> or <code>scroll-event</code>.</p></div><div class="new"><p>Attach <code>GtkGestureClick</code>, <code>GtkEventControllerKey</code>, scroll, motion, focus, drag, or drop controllers.</p></div></div>
+          <div class="comparison-row"><h3>Children</h3><div class="old"><p><code>gtk_container_add()</code> and <code>gtk_box_pack_start()</code> expose generic container behavior.</p></div><div class="new"><p><code>gtk_window_set_child()</code> and <code>gtk_box_append()</code> make ownership and structure specific to each widget.</p></div></div>
+          <div class="comparison-row"><h3>Layout</h3><div class="old"><p>Container classes commonly own their measurement and allocation logic.</p></div><div class="new"><p><code>GtkLayoutManager</code> separates layout policy from the widget. Expansion and alignment live on children.</p></div></div>
+          <div class="comparison-row"><h3>Large lists</h3><div class="old"><p><code>GtkTreeView</code>, tree models, and cell renderers.</p></div><div class="new"><p><code>GListModel</code> + selection model + <code>GtkListView</code>/<code>GtkColumnView</code> + item factory. Better fit for virtualization.</p></div></div>
+          <div class="comparison-row"><h3>Lifecycle</h3><div class="old"><p><code>gtk_widget_destroy()</code> and widget-specific destruction patterns are common.</p></div><div class="new"><p>Widgets follow normal GObject ownership more closely. Parents hold children; cleanup belongs in <code>dispose</code>/<code>finalize</code>.</p></div></div>
+          <div class="comparison-row"><h3>Application</h3><div class="old"><p><code>gtk_init()</code>, <code>gtk_widget_show_all()</code>, and <code>gtk_main()</code> are common.</p></div><div class="new"><p><code>GtkApplication</code>, <code>g_application_run()</code>, and <code>gtk_window_present()</code>. The <code>gtk_main_*()</code> family is gone.</p></div></div>
+          <div class="comparison-row"><h3>Platform</h3><div class="old"><p>More APIs expose X11-era concepts: <code>GdkScreen</code>, visuals, root windows, and child <code>GdkWindow</code>s.</p></div><div class="new"><p><code>GdkDisplay</code> and <code>GdkSurface</code> fit Wayland and other backends. Child widgets normally share their toplevel surface.</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="code">
+      <div class="page">
+        <div class="section-head">
+          <div class="section-no">03 / CODE</div>
+          <div><h2>See the cutover.</h2><p class="section-intro">Choose a task to compare the old and new idioms. The GTK 4 side is not a compatibility wrapper; it expresses the new ownership and event models directly.</p></div>
+        </div>
+
+        <div class="code-lab">
+          <div class="code-tabs" role="tablist" aria-label="Code comparison topic">
+            <button type="button" role="tab" aria-selected="true" data-code-tab="children">Add children</button>
+            <button type="button" role="tab" aria-selected="false" data-code-tab="input">Handle a click</button>
+            <button type="button" role="tab" aria-selected="false" data-code-tab="drawing">Custom drawing</button>
+            <button type="button" role="tab" aria-selected="false" data-code-tab="startup">Run the app</button>
+          </div>
+          <div class="code-output">
+            <div class="code-panel active" data-code-panel="children">
+              <div class="snippet"><div class="snippet-head"><span>GTK 3</span><span>generic container</span></div><pre><span class="type">GtkWidget</span> *box = gtk_box_new(
+  GTK_ORIENTATION_VERTICAL, 8);
+
+<span class="removed">gtk_container_add(</span>
+  GTK_CONTAINER(window), box);
+
+<span class="removed">gtk_box_pack_start(</span>
+  GTK_BOX(box), button,
+  TRUE, TRUE, 0);</pre></div>
+              <div class="snippet"><div class="snippet-head"><span>GTK 4</span><span>specific ownership</span></div><pre><span class="type">GtkWidget</span> *box = gtk_box_new(
+  GTK_ORIENTATION_VERTICAL, 8);
+
+<span class="added">gtk_window_set_child(</span>
+  GTK_WINDOW(window), box);
+
+<span class="added">gtk_box_append(</span>
+  GTK_BOX(box), button);
+
+gtk_widget_set_vexpand(button, TRUE);</pre></div>
+            </div>
+            <div class="code-panel" data-code-panel="input">
+              <div class="snippet"><div class="snippet-head"><span>GTK 3</span><span>widget event signal</span></div><pre>g_signal_connect(
+  button,
+  <span class="str">"button-press-event"</span>,
+  G_CALLBACK(on_press),
+  NULL);</pre></div>
+              <div class="snippet"><div class="snippet-head"><span>GTK 4</span><span>gesture controller</span></div><pre><span class="type">GtkGesture</span> *click =
+  gtk_gesture_click_new();
+
+g_signal_connect(click, <span class="str">"pressed"</span>,
+  G_CALLBACK(on_pressed), NULL);
+
+<span class="added">gtk_widget_add_controller(</span>
+  button, GTK_EVENT_CONTROLLER(click));</pre></div>
+            </div>
+            <div class="code-panel" data-code-panel="drawing">
+              <div class="snippet"><div class="snippet-head"><span>GTK 3</span><span>Cairo immediately</span></div><pre><span class="type">gboolean</span>
+<span class="fn">draw</span>(<span class="type">GtkWidget</span> *widget,
+     <span class="type">cairo_t</span> *cr)
+{
+  cairo_set_source_rgb(cr, 1, 0, 0);
+  cairo_paint(cr);
+  return FALSE;
+}</pre></div>
+              <div class="snippet"><div class="snippet-head"><span>GTK 4</span><span>describe a scene</span></div><pre><span class="type">void</span>
+<span class="fn">snapshot</span>(<span class="type">GtkWidget</span> *widget,
+         <span class="type">GtkSnapshot</span> *snapshot)
+{
+  <span class="type">GdkRGBA</span> red = { 1, 0, 0, 1 };
+  <span class="type">graphene_rect_t</span> bounds = ...;
+
+  <span class="added">gtk_snapshot_append_color(</span>
+    snapshot, &amp;red, &amp;bounds);
+}</pre></div>
+            </div>
+            <div class="code-panel" data-code-panel="startup">
+              <div class="snippet"><div class="snippet-head"><span>GTK 3</span><span>nested GTK loop</span></div><pre>gtk_init(&amp;argc, &amp;argv);
+
+<span class="comment">/* build window */</span>
+
+gtk_widget_show_all(window);
+<span class="removed">gtk_main();</span></pre></div>
+              <div class="snippet"><div class="snippet-head"><span>GTK 4</span><span>GApplication lifecycle</span></div><pre><span class="type">GtkApplication</span> *app =
+  gtk_application_new(
+    <span class="str">"com.example.App"</span>, 0);
+
+g_signal_connect(app, <span class="str">"activate"</span>,
+  G_CALLBACK(activate), NULL);
+
+<span class="added">g_application_run(</span>
+  G_APPLICATION(app), argc, argv);</pre></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="migration">
+      <div class="page">
+        <div class="section-head">
+          <div class="section-no">04 / PORT</div>
+          <div><h2>Where migration effort hides.</h2><p class="section-intro">A mostly stock-widget application may port cleanly. These seams—not line count—usually determine the real cost.</p></div>
+        </div>
+        <div class="migration-grid">
+          <article class="migration-card" data-level="high"><span class="risk">High rewrite</span><h3>Custom drawing</h3><p>Replace <code>draw()</code> assumptions with snapshots and GSK nodes. Cairo remains available inside a node when necessary.</p><div class="replacement">Target → <code>snapshot()</code></div></article>
+          <article class="migration-card" data-level="high"><span class="risk">High rewrite</span><h3>Tree views</h3><p>Reframe trees, sorting, selection, and cells around list models and factories. There is no mechanical one-call swap.</p><div class="replacement">Target → model + factory + view</div></article>
+          <article class="migration-card" data-level="high"><span class="risk">High rewrite</span><h3>Deep subclasses</h3><p>Several concrete widgets can no longer be subclassed. Prefer a custom <code>GtkWidget</code> that composes child widgets.</p><div class="replacement">Target → composition</div></article>
+          <article class="migration-card" data-level="medium"><span class="risk">Medium rewrite</span><h3>Event signals</h3><p>Replace direct event signals with purpose-built controllers and gestures; adjust callbacks to their higher-level semantics.</p><div class="replacement">Target → controllers</div></article>
+          <article class="migration-card" data-level="medium"><span class="risk">Medium rewrite</span><h3>Dialogs and clipboard</h3><p>Code that depends on nested blocking loops must become signal- or callback-driven and tolerate asynchronous results.</p><div class="replacement">Target → async flow</div></article>
+          <article class="migration-card" data-level="low"><span class="risk">Usually mechanical</span><h3>Basic containers</h3><p>Replace generic add/remove and packing calls with widget-specific APIs, then move expand/fill behavior onto children.</p><div class="replacement">Target → explicit child APIs</div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="decision">
+      <div class="page">
+        <div class="verdict">
+          <div class="verdict-main">
+            <div><p class="eyebrow" style="color:#aeb4c2">The practical answer</p><h2>Use GTK 4 for new work. Treat an existing app as a port, not an upgrade.</h2><p>GTK 4 rewards applications that model UI as composition and state. The hardest GTK 3 code to move is usually the code most coupled to immediate drawing, concrete widget internals, blocking control flow, or X11 concepts.</p></div>
+            <div class="verdict-rule">Rule of thumb: stock widgets + modern GtkApplication → easier; custom renderers + GtkTreeView + nested dialogs → deliberate rewrite.</div>
+          </div>
+          <div class="verdict-side">
+            <article><h3>What GTK 4 does not change</h3><p>GTK is still a stateful, retained widget toolkit. It is not a web DOM, immediate-mode GUI library, or thread-safe UI runtime.</p></article>
+            <article><h3>What “GPU accelerated” means</h3><p>Widgets describe reusable render nodes; GSK chooses a renderer. It does not mean application code should issue raw GPU commands.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="page footer-inner">
+      <span>GTK 3 → GTK 4 field guide</span>
+      <div class="sources"><a href="https://docs.gtk.org/gtk4/overview.html">GTK overview</a><a href="https://docs.gtk.org/gtk4/drawing-model.html">Drawing model</a><a href="https://docs.gtk.org/gtk4/migrating-3to4.html">Official migration guide</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const pipelineData = {
+      3: {
+        title: "GTK 3 rendering path",
+        note: "Widget issues Cairo drawing commands",
+        steps: [
+          ["State changes", "A property, event, or timer invalidates content."],
+          ["Queue draw", "GTK marks a widget region for repainting."],
+          ["draw()", "GTK passes the widget a Cairo context."],
+          ["Cairo commands", "The widget paints shapes, text, and images now."],
+          ["Surface", "Pixels are presented through the GDK window."],
+        ],
+      },
+      4: {
+        title: "GTK 4 rendering path",
+        note: "Renderer can cache and transform nodes",
+        steps: [
+          ["State changes", "A property, event, or timer invalidates content."],
+          ["Frame phases", "Update and layout settle before painting begins."],
+          ["snapshot()", "Each widget describes its visual output."],
+          ["GSK scene graph", "Text, clip, texture, and transform nodes form a tree."],
+          ["Renderer", "OpenGL, Vulkan, or Cairo produces the surface."],
+        ],
+      },
+    };
+
+    const pipeline = document.querySelector("#pipeline");
+    const stage = document.querySelector(".pipeline-stage");
+    const versionTabs = [...document.querySelectorAll(".mode-switch button")];
+    const stepButton = document.querySelector("#step-trace");
+    const resetButton = document.querySelector("#reset-trace");
+    const status = document.querySelector("#trace-status");
+    let version = "4";
+    let activeStep = 0;
+
+    function renderPipeline() {
+      const data = pipelineData[version];
+      document.querySelector("#pipeline-heading").textContent = data.title;
+      document.querySelector("#pipeline-note").textContent = data.note;
+      stage.dataset.activeVersion = version;
+      pipeline.innerHTML = data.steps.map((step, index) => `
+        <article class="pipe-step${index < activeStep ? " active" : ""}">
+          <span class="index">0${index + 1}</span>
+          <h4>${step[0]}</h4>
+          <p>${step[1]}</p>
+        </article>`).join("");
+      status.textContent = activeStep === 5 ? "Frame complete · 5 / 5" : `Ready · ${activeStep} / 5`;
+      stepButton.textContent = activeStep === 5 ? "Replay frame" : "Step through frame";
+    }
+
+    versionTabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        version = tab.dataset.version;
+        activeStep = 0;
+        versionTabs.forEach((candidate) => candidate.setAttribute("aria-selected", String(candidate === tab)));
+        renderPipeline();
+      });
+      tab.addEventListener("keydown", (event) => {
+        if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+        event.preventDefault();
+        const next = version === "4" ? versionTabs[0] : versionTabs[1];
+        next.focus();
+        next.click();
+      });
+    });
+
+    stepButton.addEventListener("click", () => {
+      if (activeStep === 5) activeStep = 0;
+      activeStep += 1;
+      renderPipeline();
+    });
+    resetButton.addEventListener("click", () => { activeStep = 0; renderPipeline(); });
+
+    const codeTabs = [...document.querySelectorAll("[data-code-tab]")];
+    const codePanels = [...document.querySelectorAll("[data-code-panel]")];
+    function activateCodeTab(tab) {
+      codeTabs.forEach((candidate) => candidate.setAttribute("aria-selected", String(candidate === tab)));
+      codePanels.forEach((panel) => panel.classList.toggle("active", panel.dataset.codePanel === tab.dataset.codeTab));
+    }
+    codeTabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => activateCodeTab(tab));
+      tab.addEventListener("keydown", (event) => {
+        const delta = event.key === "ArrowRight" || event.key === "ArrowDown" ? 1 : event.key === "ArrowLeft" || event.key === "ArrowUp" ? -1 : 0;
+        if (!delta) return;
+        event.preventDefault();
+        const next = codeTabs[(index + delta + codeTabs.length) % codeTabs.length];
+        next.focus();
+        activateCodeTab(next);
+      });
+    });
+
+    renderPipeline();
+  </script>
+</body>
+</html>

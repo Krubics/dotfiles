@@ -1,0 +1,11 @@
+{
+  "$schema": "https://raw.githubusercontent.com/goodroot/hyprwhspr/main/share/config.schema.json",
+  "transcription_backend": "faster-whisper",
+  "faster_whisper_model": "large-v3-turbo",
+  "audio_ducking": false,
+  "mic_osd_enabled": true,
+  "mic_osd_style": "pill",
+  "mic_osd_pill_transcript_enabled": true,
+  "whisper_language": "en",
+  "notification_timeout_ms": 500
+}

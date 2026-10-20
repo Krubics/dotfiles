@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+# Restart running GTK3 apps so they re-read ~/.config/gtk-3.0/gtk.css (colors.css).
+# GTK3 loads user CSS once at startup and never reloads it, so a relaunch is the
+# only reliable way to apply new matugen colors. Called from matugen's gtk3 post_hook.
+set -u
+
+log() { printf '[gtk3-reload] %s\n' "$*" >&2; }
+
+# A relaunched GUI app needs a display. matugen's post_hook normally inherits
+# WAYLAND_DISPLAY/DISPLAY from the session, but a detached run (e.g. nohup) may
+# not — in which case the relaunch dies with "cannot open display". Recover the
+# Wayland socket from the runtime dir if it's missing.
+if [[ -z ${WAYLAND_DISPLAY:-} && -z ${DISPLAY:-} && -n ${XDG_RUNTIME_DIR:-} ]]; then
+  sock=$(find "$XDG_RUNTIME_DIR" -maxdepth 1 -name 'wayland-*' ! -name '*.lock' -printf '%f\n' 2>/dev/null | head -1)
+  if [[ -n $sock ]]; then
+    export WAYLAND_DISPLAY="$sock"
+    log "WAYLAND_DISPLAY was unset; recovered '$sock' from \$XDG_RUNTIME_DIR"
+  fi
+fi
+
+# GTK3 apps to relaunch if they are currently running. Add your own here.
+apps=(
+  gtk3-widget-factory
+)
+
+for app in "${apps[@]}"; do
+  # The kernel truncates a process's comm name to 15 chars (TASK_COMM_LEN),
+  # so `pgrep -x gtk3-widget-factory` (19 chars) never matches. Match against
+  # the truncated comm instead; pgrep/pkill -x compare against that same field.
+  comm=${app:0:15}
+  if pgrep -x "$comm" >/dev/null 2>&1; then
+    log "restarting $app (matched comm '$comm')"
+    pkill -x "$comm" 2>/dev/null
+    # wait for it to die, then relaunch detached
+    for _ in 1 2 3 4 5 6 7 8 9 10; do
+      pgrep -x "$comm" >/dev/null 2>&1 || break
+      sleep 0.1
+    done
+    setsid -f "$app" >/dev/null 2>&1 || nohup "$app" >/dev/null 2>&1 &
+  else
+    log "$app not running, skipping"
+  fi
+done

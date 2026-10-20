@@ -1,0 +1,52 @@
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 13px;
+    background: none;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+
+.modules-left,
+.modules-center,
+.modules-right{
+    background: rgba(30, 30, 46, 0.85);
+    border-radius: 8px;
+    margin: 6px 4px;
+    padding: 0 5px;
+}
+
+#workspaces button.active {
+    background: #89b4fa;
+    color: #1e1e2e;
+    border-radius: 5px;
+}
+
+#workspaces.taskbar {
+    border-left: 2px solid rgba(255, 255, 255, 0.15);
+    margin-left: 6px;
+    padding-left: 6px;
+}
+
+#workspaces.taskbar button {
+    padding: 0 2px;
+}
+
+#workspaces.taskbar button:not(.active) {
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+#workspaces.taskbar .taskbar-window {
+    padding: 2px 4px;
+    margin: 0 2px;
+    border-radius: 5px;
+}
+
+#workspaces.taskbar .taskbar-window:hover {
+    background: rgba(137, 180, 250, 0.3);
+}

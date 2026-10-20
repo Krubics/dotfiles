@@ -1,0 +1,40 @@
+# Session: 2026-07-09
+**Date:** 2026-07-09
+**Started:** 22:57
+**Last Updated:** 23:15
+**Project:** waybar
+**Branch:** unknown
+**Worktree:** /home/krubics/.config/waybar
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Let's convert all my jsonc image modules into use background images styled in css instead just like the pokeball example so we can have a consistent height of all the different pokemon.
+- [Image: original 2700x168, displayed at 2000x124. Multiply coordinates by 1.35 to map to original image.]
+- [Image: original 2640x168, displayed at 2000x127. Multiply coordinates by 1.32 to map to original image.]
+- [Image: original 2160x224, displayed at 2000x207. Multiply coordinates by 1.08 to map to original image.]
+- I can't seem to change the size of the pokemon by change their shared min-width.
+- Revert back to the version with just your min-width and min-height, this is way too complicated.
+
+### Files Modified
+- /home/krubics/.claude/plans/let-s-convert-all-my-immutable-dawn.md
+- /home/krubics/.config/waybar/scripts/pickachu-battery.sh
+- /home/krubics/.config/waybar/config.jsonc
+- /home/krubics/.config/waybar/style.css
+
+### Tools Used
+Agent, Read, Bash, AskUserQuestion, Write, ToolSearch, ExitPlanMode, Edit
+
+### Stats
+- Total user messages: 6
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

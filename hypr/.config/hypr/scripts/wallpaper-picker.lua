@@ -13,7 +13,7 @@ local function shell_quote(s)
 end
 
 local pick_cmd = string.format(
-    "find %s -type f | rofi -dmenu -i -p 'Wallpaper' -theme %s",
+    "find -L %s -type f | rofi -dmenu -i -p 'Wallpaper' -theme %s",
     shell_quote(WALLPAPER_DIR), shell_quote(ROFI_THEME)
 )
 

@@ -1,0 +1,9 @@
+/home/krubics/.config/hypr/hyprland.lua:63:    -- path for the same reason as awww-daemon above: this is a
+/home/krubics/.config/hypr/conf/wallpapers.lua:10:-- Unlike awww/swww, yin plays video wallpapers natively -- these
+---
+hyprland.lua OK
+keybinds.lua OK
+wallpapers.lua OK
+set-wallpaper.lua OK
+wallpaper-autostart.lua OK
+wallpaper-picker.lua OK

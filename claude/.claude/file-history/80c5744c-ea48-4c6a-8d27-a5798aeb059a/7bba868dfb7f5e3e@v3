@@ -1,0 +1,15 @@
+.titlebar-min, .titlebar-max, .titlebar-restore, .titlebar-buttonbox {
+  display: none !important;
+}
+
+#zen-sidebar-web-panel[pinned="true"] {
+    border-left: 1px solid #ccc !important; /* Adjust color and width as needed */
+    margin-left: 0 !important; /* Remove any default left margin if present */
+}
+
+/* Left border on the main sidebar only while it is expanded.
+ * Zen sets zen-sidebar-expanded="true" on the toolbox in the expanded state,
+ * so the border disappears automatically when the sidebar collapses. */
+#navigator-toolbox[zen-sidebar-expanded="true"] {
+    border-left: 1px solid #888 !important;
+}

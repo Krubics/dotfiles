@@ -1,0 +1,30 @@
+# Session: 2026-07-23
+**Date:** 2026-07-23
+**Started:** 17:14
+**Last Updated:** 17:14
+**Project:** krubics
+**Branch:** unknown
+**Worktree:** /home/krubics
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Human: <system-reminder> As you answer the user's questions, you can use the following context: # claudeMd Codebase and user instructions are shown below. Be sure to adhere to these instructions. IMPO
+- Assistant: Good question — this is one of the most common matugen GTK4 gotchas. Let me look at your actual templates so I can point at the real cause rather than guess. **Fact-forcing gate:**  1. **Cu
+
+### Tools Used
+Bash
+
+### Stats
+- Total user messages: 2
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

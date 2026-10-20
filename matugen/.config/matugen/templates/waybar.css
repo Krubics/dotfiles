@@ -1,7 +1,6 @@
 @define-color primary {{colors.primary.default.hex}};
 @define-color primary-container {{colors.primary_container.default.hex}};
 @define-color outline {{colors.outline.default.hex}};
-
 * {
     font-family: "JetBrainsMono Nerd Font";
     font-size: 16px;

@@ -1,0 +1,39 @@
+# Session: 2026-07-25
+**Date:** 2026-07-25
+**Started:** 00:00
+**Last Updated:** 00:14
+**Project:** gtk-4.0
+**Branch:** unknown
+**Worktree:** /usr/share/gtk-4.0
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Does ghostty read GTK values?
+- But my background changed when I themed my GTK3 css
+- But what to set the background if I want it to be transperant?
+- Yea but it doesn't work even since I themed my GTK3
+- Yea but I don't want a background color to be set because I want it to transparent for ghostty
+- Bro I know I'm telling you its not working for me
+- wayland you can check
+- Nope remocing background doesn't work either
+
+### Files Modified
+- /home/krubics/.config/gtk-4.0/gtk.css
+
+### Tools Used
+Bash, Read, Edit
+
+### Stats
+- Total user messages: 8
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

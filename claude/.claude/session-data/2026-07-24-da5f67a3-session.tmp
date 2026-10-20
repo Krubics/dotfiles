@@ -1,0 +1,34 @@
+# Session: 2026-07-24
+**Date:** 2026-07-24
+**Started:** 18:00
+**Last Updated:** 18:00
+**Project:** voxtype
+**Branch:** dev
+**Worktree:** /home/krubics/voxtype
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Why am I getting the error "Audio stream broke during recording - no audio captured. Try recording again after reseating" when using hyprwhspr?
+- [Request interrupted by user for tool use]
+- So what did you change to make this fix?
+
+### Files Modified
+- /home/krubics/.config/hyprwhspr/config.json
+
+### Tools Used
+Bash, Read, Edit
+
+### Stats
+- Total user messages: 3
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

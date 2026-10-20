@@ -1,0 +1,40 @@
+# /home/krubics/.config/systemd/user/hyprwhspr.service
+[Unit]
+Description=hyprwhspr stt
+Documentation=https://github.com/goodroot/hyprwhspr
+
+PartOf=graphical-session.target
+After=graphical-session.target
+
+After=pipewire.service
+Wants=pipewire.service
+
+Wants=wireplumber.service
+After=wireplumber.service
+
+[Service]
+Type=simple
+ExecStartPre=/bin/bash -lc 'for i in $(seq 1 60); do if [ -n "$WAYLAND_DISPLAY" ]; then case "$WAYLAND_DISPLAY" in /*) wayland_socket="$WAYLAND_DISPLAY" ;; *) wayland_socket="${XDG_RUNTIME_DIR}/${WAYLAND_DISPLAY}" ;; esac; [ -S "$wayland_socket" ] && exit 0; fi; [ -n "$DISPLAY" ] && exit 0; if [ -n "$XDG_RUNTIME_DIR" ]; then for wayland_socket in "${XDG_RUNTIME_DIR}"/wayland-*; do [ -S "$wayland_socket" ] && exit 0; done; fi; sleep 0.25; done; echo "No usable Wayland socket or X11 DISPLAY found"; exit 1'
+ExecStart=/home/krubics/.local/share/hyprwhspr/src/bin/hyprwhspr
+ExecStopPost=/bin/bash -c '( pkill -9 -f "hyprwhspr-virtual-keyboar[d]" 2>/dev/null; pkill -9 -f "hyprwhspr-ydotool.soc[k]" 2>/dev/null ) || true'
+Environment=HYPRWHSPR_ROOT=/home/krubics/.local/share/hyprwhspr/src
+Environment=PYTHONUNBUFFERED=1
+Restart=on-failure
+RestartSec=2
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=graphical-session.target
+
+# /home/krubics/.config/systemd/user/hyprwhspr.service.d/override.conf
+[Service]
+Environment=GI_TYPELIB_PATH=/usr/local/lib/x86_64-linux-gnu/girepository-1.0
+Environment=LD_LIBRARY_PATH=/usr/local/lib/x86_64-linux-gnu
+Environment=LD_PRELOAD=/usr/local/lib/x86_64-linux-gnu/libgtk4-layer-shell.so.1.3.0
+---dir---
+total 20
+drwxrwxr-x  2 krubics krubics 4096 Jul 24 16:01 .
+drwxrwxr-x 14 krubics krubics 4096 Jul 24 16:01 ..
+-rwxrwxr-x  1 krubics krubics 4110 Jul 24 16:01 hyprwhspr
+-rwxrwxr-x  1 krubics krubics 1828 Jul 24 16:01 meeting-recorder

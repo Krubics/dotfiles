@@ -1,0 +1,32 @@
+# Session: 2026-07-25
+**Date:** 2026-07-25
+**Started:** 05:59
+**Last Updated:** 06:08
+**Project:** krubics
+**Branch:** unknown
+**Worktree:** /home/krubics
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Human: <system-reminder> As you answer the user's questions, you can use the following context: # claudeMd Codebase and user instructions are shown below. Be sure to adhere to these instructions. IMPO
+- Human: Brother I installed adw-gtk3 v5.10 github package and it has the pseudo class root in the gtk.css
+- Assistant: Let me look at what's actually installed now to confirm the \`:root\` usage. **Facts:** 1. The user installed adw-gtk3 v5.10 which uses \`:root\` in gtk.css, causing GTK errors, and wants to un
+- Assistant: Good question. Let me check what libadwaita version is actually on this system and look at its own installed CSS to see if it already solved this differently. There's an \`adw-gtk3v3-0\` fold
+
+### Tools Used
+Bash
+
+### Stats
+- Total user messages: 4
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

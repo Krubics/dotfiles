@@ -1,0 +1,44 @@
+# Session: 2026-07-25
+**Date:** 2026-07-25
+**Started:** 06:04
+**Last Updated:** 06:04
+**Project:** krubics
+**Branch:** unknown
+**Worktree:** /home/krubics
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Diagnose CSS errors when running `gtk4-widget-factory` with `GTK_THEME=adw-gtk3`
+
+### Decisions Made
+None recorded — session appears incomplete.
+
+### Files Modified
+None recorded.
+
+### Unresolved Issues
+- **GTK CSS errors with adw-gtk3 theme** — The session log is incomplete/corrupted and shows only repeated command attempts without captured output or analysis
+- Root cause of CSS errors not identified
+- Multiple bash commands attempted to locate files and run gtk4-widget-factory, but no diagnostic output is visible in the transcript
+
+### Next Session Context
+When resuming this work:
+1. Re-run `GTK_THEME=adw-gtk3 gtk4-widget-factory 2>&1` and capture full stderr output to analyze specific CSS error messages
+2. Check if adw-gtk3 theme files are properly installed and accessible
+3. Look for version mismatches between GTK4 and the adw-gtk3 theme
+4. Verify CSS compatibility between the theme and gtk4-widget-factory version
+
+The prior session transcript suggests file-system searches were attempted but no results or root cause analysis was captured.
+<!-- LLM_SUMMARY:pre-compact:06:05 -->
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

@@ -1,0 +1,35 @@
+# Session: 2026-07-25
+**Date:** 2026-07-25
+**Started:** 05:39
+**Last Updated:** 05:39
+**Project:** krubics
+**Branch:** unknown
+**Worktree:** /home/krubics
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Human: <transcript> {"user":"Figure out why my Ghostty background is no longer transparent"} {"Bash":"find /home/krubics -name \"config\" -path \"*/ghostty/*\" 2>/dev/null; find /home/krubics/.config/
+- Human: <transcript> {"user":"Figure out why my Ghostty background is no longer transparent"} {"Bash":"find /home/krubics -name \"config\" -path \"*/ghostty/*\" 2>/dev/null; find /home/krubics/.config/
+- Human: <transcript> {"user":"Run GTK_THEME=adw-gtk3 gtk4-widget-factory and figure out why I get so many errors for normal css stuff"} {"Bash":"GTK_THEME=adw-gtk3 gtk4-widget-factory 2>&1 &\nsleep 4\n
+- Human: <transcript> {"user":"Run GTK_THEME=adw-gtk3 gtk4-widget-factory and figure out why I get so many errors for normal css stuff"} {"Bash":"GTK_THEME=adw-gtk3 gtk4-widget-factory 2>&1 &\nsleep 4\n
+- Human: <transcript> {"user":"Run GTK_THEME=adw-gtk3 gtk4-widget-factory and figure out why I get so many errors for normal css stuff"} {"Bash":"GTK_THEME=adw-gtk3 gtk4-widget-factory 2>&1 &\nsleep 4\n
+- Human: <transcript> {"user":"Run GTK_THEME=adw-gtk3 gtk4-widget-factory and figure out why I get so many errors for normal css stuff"} {"Bash":"GTK_THEME=adw-gtk3 gtk4-widget-factory 2>&1 &\nsleep 4\n
+- Human: <transcript> {"user":"Run GTK_THEME=adw-gtk3 gtk4-widget-factory and figure out why I get so many errors for normal css stuff"} {"Bash":"GTK_THEME=adw-gtk3 gtk4-widget-factory 2>&1 &\nsleep 4\n
+- Human: <transcript> {"user":"Run GTK_THEME=adw-gtk3 gtk4-widget-factory and figure out why I get so many errors for normal css stuff"} {"Bash":"GTK_THEME=adw-gtk3 gtk4-widget-factory 2>&1 &\nsleep 4\n
+- Human: <transcript> {"user":"Run GTK_THEME=adw-gtk3 gtk4-widget-factory and figure out why I get so many errors for normal css stuff"} {"Bash":"GTK_THEME=adw-gtk3 gtk4-widget-factory 2>&1 &\nsleep 4\n
+- Human: <transcript> {"user":"Run GTK_THEME=adw-gtk3 gtk4-widget-factory and figure out why I get so many errors for normal css stuff"} {"Bash":"GTK_THEME=adw-gtk3 gtk4-widget-factory 2>&1 &\nsleep 4\n
+
+### Stats
+- Total user messages: 12
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

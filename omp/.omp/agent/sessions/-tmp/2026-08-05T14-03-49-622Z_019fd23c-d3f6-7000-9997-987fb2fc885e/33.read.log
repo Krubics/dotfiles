@@ -1,0 +1,1293 @@
+URL: https://nix-community.github.io/home-manager/options/home-manager/home.html
+Content-Type: text/html
+Method: native
+
+---
+
+---
+meta-description:
+meta-theme-color: #ffffff
+meta-viewport: width=device-width, initial-scale=1
+title: home - Home Manager Manual
+---
+
+## Keyboard shortcuts
+
+Press `←` or `→` to navigate between chapters
+
+Press `S` or `/` to search in the book
+
+Press `?` to show this help
+
+Press `Esc` to hide this help
+
+![SVG Image](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48cGF0aCBkPSJNMCA5NkMwIDc4LjMgMTQuMyA2NCAzMiA2NEg0MTZjMTcuNyAwIDMyIDE0LjMgMzIgMzJzLTE0LjMgMzItMzIgMzJIMzJDMTQuMyAxMjggMCAxMTMuNyAwIDk2ek0wIDI1NmMwLTE3LjcgMTQuMy0zMiAzMi0zMkg0MTZjMTcuNyAwIDMyIDE0LjMgMzIgMzJzLTE0LjMgMzItMzIgMzJIMzJjLTE3LjcgMC0zMi0xNC4zLTMyLTMyek00NDggNDE2YzAgMTcuNy0xNC4zIDMyLTMyIDMySDMyYy0xNy43IDAtMzItMTQuMy0zMi0zMnMxNC4zLTMyIDMyLTMySDQxNmMxNy43IDAgMzIgMTQuMyAzMiAzMnoiIC8+PC9zdmc+)
+
+![SVG Image](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NzYgNTEyIj48cGF0aCBkPSJNMzcxLjMgMzY3LjFjMjcuMy0zLjkgNTEuOS0xOS40IDY3LjItNDIuOUw2MDAuMiA3NC4xYzEyLjYtMTkuNSA5LjQtNDUuMy03LjYtNjEuMlM1NDkuNy00LjQgNTMxLjEgOS42TDI5NC40IDE4Ny4yYy0yNCAxOC0zOC4yIDQ2LjEtMzguNCA3Ni4xTDM3MS4zIDM2Ny4xem0tMTkuNiAyNS40bC0xMTYtMTA0LjRDMTc1LjkgMjkwLjMgMTI4IDMzOS42IDEyOCA0MDBjMCAzLjkgLjIgNy44IC42IDExLjZjMS44IDE3LjUtMTAuMiAzNi40LTI3LjggMzYuNEg5NmMtMTcuNyAwLTMyIDE0LjMtMzIgMzJzMTQuMyAzMiAzMiAzMkgyNDBjNjEuOSAwIDExMi01MC4xIDExMi0xMTJjMC0yLjUtLjEtNS0uMi03LjV6IiAvPjwvc3ZnPg==)
+
+- Auto
+
+- Light
+
+- Rust
+
+- Coal
+
+- Navy
+
+- Ayu
+
+![SVG Image](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBkPSJNNDE2IDIwOGMwIDQ1LjktMTQuOSA4OC4zLTQwIDEyMi43TDUwMi42IDQ1Ny40YzEyLjUgMTIuNSAxMi41IDMyLjggMCA0NS4zcy0zMi44IDEyLjUtNDUuMyAwTDMzMC43IDM3NmMtMzQuNCAyNS4yLTc2LjggNDAtMTIyLjcgNDBDOTMuMSA0MTYgMCAzMjIuOSAwIDIwOFM5My4xIDAgMjA4IDBTNDE2IDkzLjEgNDE2IDIwOHpNMjA4IDM1MmM3OS41IDAgMTQ0LTY0LjUgMTQ0LTE0NHMtNjQuNS0xNDQtMTQ0LTE0NFM2NCAxMjguNSA2NCAyMDhzNjQuNSAxNDQgMTQ0IDE0NHoiIC8+PC9zdmc+)
+
+# Home Manager Manual
+
+[![SVG Image](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBkPSJNMTI4IDBDOTIuNyAwIDY0IDI4LjcgNjQgNjR2OTZoNjRWNjRIMzU0LjdMMzg0IDkzLjNWMTYwaDY0VjkzLjNjMC0xNy02LjctMzMuMy0xOC43LTQ1LjNMNDAwIDE4LjdDMzg4IDYuNyAzNzEuNyAwIDM1NC43IDBIMTI4ek0zODQgMzUydjMyIDY0SDEyOFYzODQgMzY4IDM1MkgzODR6bTY0IDMyaDMyYzE3LjcgMCAzMi0xNC4zIDMyLTMyVjI1NmMwLTM1LjMtMjguNy02NC02NC02NEg2NGMtMzUuMyAwLTY0IDI4LjctNjQgNjR2OTZjMCAxNy43IDE0LjMgMzIgMzIgMzJINjR2NjRjMCAzNS4zIDI4LjcgNjQgNjQgNjRIMzg0YzM1LjMgMCA2NC0yOC43IDY0LTY0VjM4NHptLTE2LTg4Yy0xMy4zIDAtMjQtMTAuNy0yNC0yNHMxMC43LTI0IDI0LTI0czI0IDEwLjcgMjQgMjRzLTEwLjcgMjQtMjQgMjR6IiAvPjwvc3ZnPg==)](../../print.html "Print this book") [![SVG Image](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OTYgNTEyIj48cGF0aCBkPSJNMTY1LjkgMzk3LjRjMCAyLTIuMyAzLjYtNS4yIDMuNi0zLjMuMy01LjYtMS4zLTUuNi0zLjYgMC0yIDIuMy0zLjYgNS4yLTMuNiAzLS4zIDUuNiAxLjMgNS42IDMuNnptLTMxLjEtNC41Yy0uNyAyIDEuMyA0LjMgNC4zIDQuOSAyLjYgMSA1LjYgMCA2LjItMnMtMS4zLTQuMy00LjMtNS4yYy0yLjYtLjctNS41LjMtNi4yIDIuM3ptNDQuMi0xLjdjLTIuOS43LTQuOSAyLjYtNC42IDQuOS4zIDIgMi45IDMuMyA1LjkgMi42IDIuOS0uNyA0LjktMi42IDQuNi00LjYtLjMtMS45LTMtMy4yLTUuOS0yLjl6TTI0NC44IDhDMTA2LjEgOCAwIDExMy4zIDAgMjUyYzAgMTEwLjkgNjkuOCAyMDUuOCAxNjkuNSAyMzkuMiAxMi44IDIuMyAxNy4zLTUuNiAxNy4zLTEyLjEgMC02LjItLjMtNDAuNC0uMy02MS40IDAgMC03MCAxNS04NC43LTI5LjggMCAwLTExLjQtMjkuMS0yNy44LTM2LjYgMCAwLTIyLjktMTUuNyAxLjYtMTUuNCAwIDAgMjQuOSAyIDM4LjYgMjUuOCAyMS45IDM4LjYgNTguNiAyNy41IDcyLjkgMjAuOSAyLjMtMTYgOC44LTI3LjEgMTYtMzMuNy01NS45LTYuMi0xMTIuMy0xNC4zLTExMi4zLTExMC41IDAtMjcuNSA3LjYtNDEuMyAyMy42LTU4LjktMi42LTYuNS0xMS4xLTMzLjMgMi42LTY3LjkgMjAuOS02LjUgNjkgMjcgNjkgMjcgMjAtNS42IDQxLjUtOC41IDYyLjgtOC41czQyLjggMi45IDYyLjggOC41YzAgMCA0OC4xLTMzLjYgNjktMjcgMTMuNyAzNC43IDUuMiA2MS40IDIuNiA2Ny45IDE2IDE3LjcgMjUuOCAzMS41IDI1LjggNTguOSAwIDk2LjUtNTguOSAxMDQuMi0xMTQuOCAxMTAuNSA5LjIgNy45IDE3IDIyLjkgMTcgNDYuNCAwIDMzLjctLjMgNzUuNC0uMyA4My42IDAgNi41IDQuNiAxNC40IDE3LjMgMTIuMUM0MjguMiA0NTcuOCA0OTYgMzYyLjkgNDk2IDI1MiA0OTYgMTEzLjMgMzgzLjUgOCAyNDQuOCA4ek05Ny4yIDM1Mi45Yy0xLjMgMS0xIDMuMy43IDUuMiAxLjYgMS42IDMuOSAyLjMgNS4yIDEgMS4zLTEgMS0zLjMtLjctNS4yLTEuNi0xLjYtMy45LTIuMy01LjItMXptLTEwLjgtOC4xYy0uNyAxLjMuMyAyLjkgMi4zIDMuOSAxLjYgMSAzLjYuNyA0LjMtLjcuNy0xLjMtLjMtMi45LTIuMy0zLjktMi0uNi0zLjYtLjMtNC4zLjd6bTMyLjQgMzUuNmMtMS42IDEuMy0xIDQuMyAxLjMgNi4yIDIuMyAyLjMgNS4yIDIuNiA2LjUgMSAxLjMtMS4zLjctNC4zLTEuMy02LjItMi4yLTIuMy01LjItMi42LTYuNS0xem0tMTEuNC0xNC43Yy0xLjYgMS0xLjYgMy42IDAgNS45IDEuNiAyLjMgNC4zIDMuMyA1LjYgMi4zIDEuNi0xLjMgMS42LTMuOSAwLTYuMi0xLjQtMi4zLTQtMy4zLTUuNi0yeiIgLz48L3N2Zz4=)](https://github.com/nix-community/home-manager "Git repository")
+
+![SVG Image](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBkPSJNMzA0IDQ4YzAtMjYuNS0yMS41LTQ4LTQ4LTQ4cy00OCAyMS41LTQ4IDQ4czIxLjUgNDggNDggNDhzNDgtMjEuNSA0OC00OHptMCA0MTZjMC0yNi41LTIxLjUtNDgtNDgtNDhzLTQ4IDIxLjUtNDggNDhzMjEuNSA0OCA0OCA0OHM0OC0yMS41IDQ4LTQ4ek00OCAzMDRjMjYuNSAwIDQ4LTIxLjUgNDgtNDhzLTIxLjUtNDgtNDgtNDhzLTQ4IDIxLjUtNDggNDhzMjEuNSA0OCA0OCA0OHptNDY0LTQ4YzAtMjYuNS0yMS41LTQ4LTQ4LTQ4cy00OCAyMS41LTQ4IDQ4czIxLjUgNDggNDggNDhzNDgtMjEuNSA0OC00OHpNMTQyLjkgNDM3YzE4LjctMTguNyAxOC43LTQ5LjEgMC02Ny45cy00OS4xLTE4LjctNjcuOSAwcy0xOC43IDQ5LjEgMCA2Ny45czQ5LjEgMTguNyA2Ny45IDB6bTAtMjk0LjJjMTguNy0xOC43IDE4LjctNDkuMSAwLTY3LjlTOTMuNyA1Ni4yIDc1IDc1cy0xOC43IDQ5LjEgMCA2Ny45czQ5LjEgMTguNyA2Ny45IDB6TTM2OS4xIDQzN2MxOC43IDE4LjcgNDkuMSAxOC43IDY3LjkgMHMxOC43LTQ5LjEgMC02Ny45cy00OS4xLTE4LjctNjcuOSAwcy0xOC43IDQ5LjEgMCA2Ny45eiIgLz48L3N2Zz4=)
+
+## [home.enableDebugInfo](#opt-home.enableDebugInfo)
+
+Some Nix packages provide debug symbols for `gdb` in the `debug` output.
+This option ensures that those are automatically fetched from
+the binary cache if available and `gdb` is
+configured to find those symbols.
+
+*Type:* boolean
+
+*Default:*
+
+    false
+
+*Example:*
+
+    true
+
+*Declared by:*
+
+- [<home-manager/modules/misc/debug.nix>](https://github.com/nix-community/home-manager/blob/master/modules/misc/debug.nix)
+
+## [home.enableNixpkgsReleaseCheck](#opt-home.enableNixpkgsReleaseCheck)
+
+Determines whether to check for release version mismatch between Home
+Manager and Nixpkgs. Using mismatched versions is likely to cause errors
+and unexpected behavior. It is therefore highly recommended to use a
+release of Home Manager that corresponds with your chosen release of
+Nixpkgs.
+
+When this option is enabled and a mismatch is detected then a warning
+will be printed when the user configuration is being built.
+
+*Type:* boolean
+
+*Default:*
+
+    true
+
+*Declared by:*
+
+- [<home-manager/modules/home-environment.nix>](https://github.com/nix-community/home-manager/blob/master/modules/home-environment.nix)
+
+## [home.packages](#opt-home.packages)
+
+The set of packages to appear in the user environment.
+
+*Type:* list of package
+
+*Default:*
+
+    [ ]
+
+*Declared by:*
+
+- [<home-manager/modules/home-environment.nix>](https://github.com/nix-community/home-manager/blob/master/modules/home-environment.nix)
+
+## [home.activation](#opt-home.activation)
+
+The activation scripts blocks to run when activating a Home
+Manager generation. Any entry here should be idempotent,
+meaning running twice or more times produces the same result
+as running it once.
+
+If the script block produces any observable side effect, such
+as writing or deleting files, then it *must* be placed after the special `writeBoundary` script block. Prior to the
+write boundary one can place script blocks that verifies, but
+does not modify, the state of the system and exits if an
+unexpected state is found. For example, the `checkLinkTargets` script block checks for
+collisions between non-managed files and files defined in [](#opt-home.file).
+
+A script block should respect the `DRY_RUN` variable. If it is set
+then the actions taken by the script should be logged to standard out
+and not actually performed. A convenient shell function `run` is provided for activation script blocks. It is used as follows:
+
+- *‌`run {command}`‌*
+
+    Runs the given command on live run, otherwise prints the command to
+standard output.
+
+- *‌`run --quiet {command}`‌*
+
+    Runs the given command on live run and sends its standard output to `/dev/null`, otherwise prints the command to standard output.
+
+- *‌`run --silence {command}`‌*
+
+    Runs the given command on live run and sends its standard and error
+output to `/dev/null`, otherwise prints the command to standard
+output.
+
+The `--quiet` and `--silence` flags are mutually exclusive.
+
+A script block should also respect the `VERBOSE` variable, and if
+set print information on standard out that may be useful for debugging
+any issue that may arise. The variable `VERBOSE_ARG` is set to `--verbose` if verbose output is enabled. You can also use the
+provided shell function `verboseEcho`, which acts as `echo` when verbose output is enabled.
+
+*Type:* DAG of string
+
+*Default:*
+
+    { }
+
+*Example:*
+
+    {
+      myActivationAction = lib.hm.dag.entryAfter ["writeBoundary"] ''
+        run ln -s $VERBOSE_ARG \
+            ${builtins.toPath ./link-me-directly} $HOME
+      '';
+    }
+
+*Declared by:*
+
+- [<home-manager/modules/home-environment.nix>](https://github.com/nix-community/home-manager/blob/master/modules/home-environment.nix)
+
+## [home.checks](#opt-home.checks)
+
+Packages that are added as dependencies of the home’s build, usually
+for the purpose of validating some part of the configuration.
+
+Unlike `home.extraDependencies`, these store paths do not
+become part of the built home configuration.
+
+*Type:* list of package
+
+*Default:*
+
+    [ ]
+
+*Declared by:*
+
+- [<home-manager/modules/home-environment.nix>](https://github.com/nix-community/home-manager/blob/master/modules/home-environment.nix)
+
+## [home.extraDependencies](#opt-home.extraDependencies)
+
+A list of paths that should be included in the home
+closure but generally not visible.
+
+For built-time checks the `home.checks` option is more appropriate
+for that purpose as checks should not leave a trace in the built
+home configuration.
+
+*Type:* list of path in the Nix store
+
+*Default:*
+
+    [ ]
+
+*Declared by:*
+
+- [<home-manager/modules/home-environment.nix>](https://github.com/nix-community/home-manager/blob/master/modules/home-environment.nix)
+
+## [home.extraOutputsToInstall](#opt-home.extraOutputsToInstall)
+
+List of additional package outputs of the packages `home.packages` that should be installed into
+the user environment.
+
+*Type:* list of string
+
+*Default:*
+
+    [ ]
+
+*Example:*
+
+    [
+      "doc"
+      "info"
+      "devdoc"
+    ]
+
+*Declared by:*
+
+- [<home-manager/modules/home-environment.nix>](https://github.com/nix-community/home-manager/blob/master/modules/home-environment.nix)
+
+## [home.file](#opt-home.file)
+
+Attribute set of files to link into the user home.
+
+*Type:* attribute set of (submodule)
+
+*Default:*
+
+    { }
+
+*Declared by:*
+
+- [<home-manager/modules/files.nix>](https://github.com/nix-community/home-manager/blob/master/modules/files.nix)
+
+## [home.file.<name>.enable](#opt-home.file._name_.enable)
+
+Whether this file should be generated. This option allows specific
+files to be disabled.
+
+*Type:* boolean
+
+*Default:*
+
+    true
+
+*Declared by:*
+
+- [<home-manager/modules/files.nix>](https://github.com/nix-community/home-manager/blob/master/modules/files.nix)
+
+## [home.file.<name>.executable](#opt-home.file._name_.executable)
+
+Set the execute bit. If `null`, defaults to the mode
+of the `source` file or to `false` for files created through the `text` option.
+
+*Type:* null or boolean
+
+*Default:*
+
+    null
+
+*Declared by:*
+
+- [<home-manager/modules/files.nix>](https://github.com/nix-community/home-manager/blob/master/modules/files.nix)
+
+## [home.file.<name>.force](#opt-home.file._name_.force)
+
+Whether the target path should be unconditionally replaced
+by the managed file source. Warning, this will silently
+delete the target regardless of whether it is a file or
+link.
+
+*Type:* boolean
+
+*Default:*
+
+    false
+
+*Declared by:*
+
+- [<home-manager/modules/files.nix>](https://github.com/nix-community/home-manager/blob/master/modules/files.nix)
+
+## [home.file.<name>.ignorelinks](#opt-home.file._name_.ignorelinks)
+
+When `recursive` is enabled, adds the `-ignorelinks` flag to lndir.
+
+It causes lndir to not treat symbolic links in the source directory specially.
+The link created in the target directory will point back to the corresponding
+symbolic link in the source directory. If that link points to a directory, the
+resulting target will be a link to the source tree’s symlink rather than a
+recursively linked directory tree.
+
+*Type:* boolean
+
+*Default:*
+
+    false
+
+*Declared by:*
+
+- [<home-manager/modules/files.nix>](https://github.com/nix-community/home-manager/blob/master/modules/files.nix)
+
+## [home.file.<name>.onChange](#opt-home.file._name_.onChange)
+
+Shell commands to run when file has changed between
+generations. The script will be run *after* the new files have been linked
+into place.
+
+Note, this code is always run when `recursive` is
+enabled.
+
+*Type:* strings concatenated with “\n”
+
+*Default:*
+
+    ""
+
+*Declared by:*
+
+- [<home-manager/modules/files.nix>](https://github.com/nix-community/home-manager/blob/master/modules/files.nix)
+
+## [home.file.<name>.recursive](#opt-home.file._name_.recursive)
+
+If the file source is a directory, then this option
+determines whether the directory should be recursively
+linked to the target location. This option has no effect
+if the source is a file.
+
+If `false` (the default) then the target
+will be a symbolic link to the source directory. If `true` then the target will be a
+directory structure matching the source’s but whose leaves
+are symbolic links to the files of the source directory.
+
+*Type:* boolean
+
+*Default:*
+
+    false
+
+*Declared by:*
+
+- [<home-manager/modules/files.nix>](https://github.com/nix-community/home-manager/blob/master/modules/files.nix)
+
+## [home.file.<name>.source](#opt-home.file._name_.source)
+
+Path of the source file or directory. If [](#opt-home.file._name_.text) is non-null then this option will automatically point to a file
+containing that text.
+
+*Type:* absolute path
+
+*Declared by:*
+
+- [<home-manager/modules/files.nix>](https://github.com/nix-community/home-manager/blob/master/modules/files.nix)
+
+## [home.file.<name>.target](#opt-home.file._name_.target)
+
+Path to target file relative to `HOME`.
+
+*Type:* non-empty string
+
+*Default:*
+
+    name
+
+*Declared by:*
+
+- [<home-manager/modules/files.nix>](https://github.com/nix-community/home-manager/blob/master/modules/files.nix)
+
+## [home.file.<name>.text](#opt-home.file._name_.text)
+
+Text of the file. If this option is null then [](#opt-home.file._name_.source) must be set.
+
+*Type:* null or strings concatenated with “\n”
+
+*Default:*
+
+    null
+
+*Declared by:*
+
+- [<home-manager/modules/files.nix>](https://github.com/nix-community/home-manager/blob/master/modules/files.nix)
+
+## [home.homeDirectory](#opt-home.homeDirectory)
+
+The user’s home directory. Must be an absolute path.
+
+If Home Manager is installed as a NixOS or nix-darwin submodule, it is
+set to `osConfig.users.users.<name>.home`.
+
+*Type:* absolute path
+
+*Default:* `$HOME`, for state version < 20.09
+undefined, otherwise.
+
+*Example:*
+
+    "/home/jane.doe"
+
+*Declared by:*
+
+- [<home-manager/modules/home-environment.nix>](https://github.com/nix-community/home-manager/blob/master/modules/home-environment.nix)
+
+## [home.keyboard](#opt-home.keyboard)
+
+Keyboard configuration. Set to `null` to
+disable Home Manager keyboard management.
+
+*Type:* null or (submodule)
+
+*Default:*
+
+    "{ }"  for state version < 21.11,
+    "null" for state version ≥ 21.11
+
+*Declared by:*
+
+- [<home-manager/modules/home-environment.nix>](https://github.com/nix-community/home-manager/blob/master/modules/home-environment.nix)
+
+## [home.keyboard.layout](#opt-home.keyboard.layout)
+
+Keyboard layout. If `null`, then the system
+configuration will be used.
+
+This defaults to `null` for state
+version ≥ 19.09 and `"us"` otherwise.
+
+*Type:* null or string
+
+*Default:*
+
+    null
+
+*Declared by:*
+
+- [<home-manager/modules/home-environment.nix>](https://github.com/nix-community/home-manager/blob/master/modules/home-environment.nix)
+
+## [home.keyboard.model](#opt-home.keyboard.model)
+
+Keyboard model.
+
+*Type:* null or string
+
+*Default:*
+
+    null
+
+*Example:*
+
+    "presario"
+
+*Declared by:*
+
+- [<home-manager/modules/home-environment.nix>](https://github.com/nix-community/home-manager/blob/master/modules/home-environment.nix)
+
+## [home.keyboard.options](#opt-home.keyboard.options)
+
+X keyboard options; layout switching goes here.
+
+*Type:* list of string
+
+*Default:*
+
+    [ ]
+
+*Example:*
+
+    [
+      "grp:caps_toggle"
+      "grp_led:scroll"
+    ]
+
+*Declared by:*
+
+- [<home-manager/modules/home-environment.nix>](https://github.com/nix-community/home-manager/blob/master/modules/home-environment.nix)
+
+## [home.keyboard.variant](#opt-home.keyboard.variant)
+
+X keyboard variant. If `null`, then the
+system configuration will be used.
+
+This defaults to `null` for state
+version ≥ 19.09 and `""` otherwise.
+
+*Type:* null or string
+
+*Default:*
+
+    null
+
+*Example:*
+
+    "colemak"
+
+*Declared by:*
+
+- [<home-manager/modules/home-environment.nix>](https://github.com/nix-community/home-manager/blob/master/modules/home-environment.nix)
+
+## [home.language](#opt-home.language)
+
+Language configuration.
+
+*Type:* submodule
+
+*Default:*
+
+    { }
+
+*Declared by:*
+
+- [<home-manager/modules/home-environment.nix>](https://github.com/nix-community/home-manager/blob/master/modules/home-environment.nix)
+
+## [home.language.address](#opt-home.language.address)
+
+The language to use for addresses.
+
+*Type:* null or string
+
+*Default:*
+
+    null
+
+*Declared by:*
+
+- [<home-manager/modules/home-environment.nix>](https://github.com/nix-community/home-manager/blob/master/modules/home-environment.nix)
+
+## [home.language.base](#opt-home.language.base)
+
+The language to use unless overridden by a more specific option.
+
+*Type:* null or string
+
+*Default:*
+
+    null
+
+*Declared by:*
+
+- [<home-manager/modules/home-environment.nix>](https://github.com/nix-community/home-manager/blob/master/modules/home-environment.nix)
+
+## [home.language.collate](#opt-home.language.collate)
+
+The language to use for collation (alphabetical ordering).
+
+*Type:* null or string
+
+*Default:*
+
+    null
+
+*Declared by:*
+
+- [<home-manager/modules/home-environment.nix>](https://github.com/nix-community/home-manager/blob/master/modules/home-environment.nix)
+
+## [home.language.ctype](#opt-home.language.ctype)
+
+Character classification category.
+
+*Type:* null or string
+
+*Default:*
+
+    null
+
+*Declared by:*
+
+- [<home-manager/modules/home-environment.nix>](https://github.com/nix-community/home-manager/blob/master/modules/home-environment.nix)
+
+## [home.language.measurement](#opt-home.language.measurement)
+
+The language to use for measurement values.
+
+*Type:* null or string
+
+*Default:*
+
+    null
+
+*Declared by:*
+
+- [<home-manager/modules/home-environment.nix>](https://github.com/nix-community/home-manager/blob/master/modules/home-environment.nix)
+
+## [home.language.messages](#opt-home.language.messages)
+
+The language to use for messages, application UI languages, etc.
+
+*Type:* null or string
+
+*Default:*
+
+    null
+
+*Declared by:*
+
+- [<home-manager/modules/home-environment.nix>](https://github.com/nix-community/home-manager/blob/master/modules/home-environment.nix)
+
+## [home.language.monetary](#opt-home.language.monetary)
+
+The language to use for formatting currencies and money amounts.
+
+*Type:* null or string
+
+*Default:*
+
+    null
+
+*Declared by:*
+
+- [<home-manager/modules/home-environment.nix>](https://github.com/nix-community/home-manager/blob/master/modules/home-environment.nix)
+
+## [home.language.name](#opt-home.language.name)
+
+The language to use for personal names.
+
+*Type:* null or string
+
+*Default:*
+
+    null
+
+*Declared by:*
+
+- [<home-manager/modules/home-environment.nix>](https://github.com/nix-community/home-manager/blob/master/modules/home-environment.nix)
+
+## [home.language.numeric](#opt-home.language.numeric)
+
+The language to use for numerical values.
+
+*Type:* null or string
+
+*Default:*
+
+    null
+
+*Declared by:*
+
+- [<home-manager/modules/home-environment.nix>](https://github.com/nix-community/home-manager/blob/master/modules/home-environment.nix)
+
+## [home.language.paper](#opt-home.language.paper)
+
+The language to use for paper sizes.
+
+*Type:* null or string
+
+*Default:*
+
+    null
+
+*Declared by:*
+
+- [<home-manager/modules/home-environment.nix>](https://github.com/nix-community/home-manager/blob/master/modules/home-environment.nix)
+
+## [home.language.telephone](#opt-home.language.telephone)
+
+The language to use for telephone numbers.
+
+*Type:* null or string
+
+*Default:*
+
+    null
+
+*Declared by:*
+
+- [<home-manager/modules/home-environment.nix>](https://github.com/nix-community/home-manager/blob/master/modules/home-environment.nix)
+
+## [home.language.time](#opt-home.language.time)
+
+The language to use for formatting times.
+
+*Type:* null or string
+
+*Default:*
+
+    null
+
+*Declared by:*
+
+- [<home-manager/modules/home-environment.nix>](https://github.com/nix-community/home-manager/blob/master/modules/home-environment.nix)
+
+## [home.pointerCursor](#opt-home.pointerCursor)
+
+Cursor configuration.
+
+Top-level options declared under this submodule are backend independent
+options. Options declared under namespaces such as `x11` are backend specific options. By default, only backend independent cursor
+configurations are generated. If you need configurations for specific
+backends, you can toggle them via the enable option. For example, [](#opt-home.pointerCursor.x11.enable) will enable x11 cursor configurations.
+
+Note that this will merely generate the cursor configurations.
+To apply the configurations, the relevant subsystems must also be configured.
+For example, [](#opt-home.pointerCursor.gtk.enable) will generate
+the gtk cursor configuration, but [](#opt-gtk.enable) needs
+to be set for it to be applied.
+
+*Type:* submodule
+
+*Default:*
+
+    { }
+
+*Declared by:*
+
+- [<home-manager/modules/config/home-cursor.nix>](https://github.com/nix-community/home-manager/blob/master/modules/config/home-cursor.nix)
+
+## [home.pointerCursor.enable](#opt-home.pointerCursor.enable)
+
+Whether to enable cursor config generation.
+
+*Type:* boolean
+
+*Default:*
+
+    false
+
+*Example:*
+
+    true
+
+*Declared by:*
+
+- [<home-manager/modules/config/home-cursor.nix>](https://github.com/nix-community/home-manager/blob/master/modules/config/home-cursor.nix)
+
+## [home.pointerCursor.package](#opt-home.pointerCursor.package)
+
+Package providing the cursor theme.
+
+*Type:* package
+
+*Example:*
+
+    pkgs.vanilla-dmz
+
+*Declared by:*
+
+- [<home-manager/modules/config/home-cursor.nix>](https://github.com/nix-community/home-manager/blob/master/modules/config/home-cursor.nix)
+
+## [home.pointerCursor.dotIcons.enable](#opt-home.pointerCursor.dotIcons.enable)
+
+Whether to enable `.icons` config generation for `home.pointerCursor` .
+
+*Type:* boolean
+
+*Default:*
+
+    true
+
+*Example:*
+
+    true
+
+*Declared by:*
+
+- [<home-manager/modules/config/home-cursor.nix>](https://github.com/nix-community/home-manager/blob/master/modules/config/home-cursor.nix)
+
+## [home.pointerCursor.gtk.enable](#opt-home.pointerCursor.gtk.enable)
+
+Whether to enable gtk config generation for `home.pointerCursor` .
+
+*Type:* boolean
+
+*Default:*
+
+    false
+
+*Example:*
+
+    true
+
+*Declared by:*
+
+- [<home-manager/modules/config/home-cursor.nix>](https://github.com/nix-community/home-manager/blob/master/modules/config/home-cursor.nix)
+
+## [home.pointerCursor.gtk.size](#opt-home.pointerCursor.gtk.size)
+
+The cursor size for gtk.
+
+*Type:* signed integer
+
+*Default:*
+
+    "config.home.pointerCursor.size"
+
+*Example:*
+
+    32
+
+*Declared by:*
+
+- [<home-manager/modules/config/home-cursor.nix>](https://github.com/nix-community/home-manager/blob/master/modules/config/home-cursor.nix)
+
+## [home.pointerCursor.hyprcursor.enable](#opt-home.pointerCursor.hyprcursor.enable)
+
+Whether to enable hyprcursor config generation.
+
+*Type:* boolean
+
+*Default:*
+
+    false
+
+*Example:*
+
+    true
+
+*Declared by:*
+
+- [<home-manager/modules/config/home-cursor.nix>](https://github.com/nix-community/home-manager/blob/master/modules/config/home-cursor.nix)
+
+## [home.pointerCursor.hyprcursor.size](#opt-home.pointerCursor.hyprcursor.size)
+
+The cursor size for hyprcursor.
+
+*Type:* signed integer
+
+*Default:*
+
+    "config.home.pointerCursor.size"
+
+*Example:*
+
+    32
+
+*Declared by:*
+
+- [<home-manager/modules/config/home-cursor.nix>](https://github.com/nix-community/home-manager/blob/master/modules/config/home-cursor.nix)
+
+## [home.pointerCursor.name](#opt-home.pointerCursor.name)
+
+The cursor name within the package.
+
+*Type:* string
+
+*Example:*
+
+    "Vanilla-DMZ"
+
+*Declared by:*
+
+- [<home-manager/modules/config/home-cursor.nix>](https://github.com/nix-community/home-manager/blob/master/modules/config/home-cursor.nix)
+
+## [home.pointerCursor.size](#opt-home.pointerCursor.size)
+
+The cursor size.
+
+*Type:* signed integer
+
+*Default:*
+
+    32
+
+*Example:*
+
+    64
+
+*Declared by:*
+
+- [<home-manager/modules/config/home-cursor.nix>](https://github.com/nix-community/home-manager/blob/master/modules/config/home-cursor.nix)
+
+## [home.pointerCursor.sway.enable](#opt-home.pointerCursor.sway.enable)
+
+Whether to enable sway config generation for `home.pointerCursor`.
+
+*Type:* boolean
+
+*Default:*
+
+    false
+
+*Example:*
+
+    true
+
+*Declared by:*
+
+- [<home-manager/modules/config/home-cursor.nix>](https://github.com/nix-community/home-manager/blob/master/modules/config/home-cursor.nix)
+
+## [home.pointerCursor.sway.size](#opt-home.pointerCursor.sway.size)
+
+The cursor size for sway.
+
+*Type:* signed integer
+
+*Default:*
+
+    "config.home.pointerCursor.size"
+
+*Example:*
+
+    32
+
+*Declared by:*
+
+- [<home-manager/modules/config/home-cursor.nix>](https://github.com/nix-community/home-manager/blob/master/modules/config/home-cursor.nix)
+
+## [home.pointerCursor.x11.enable](#opt-home.pointerCursor.x11.enable)
+
+Whether to enable x11 config generation for `home.pointerCursor` .
+
+*Type:* boolean
+
+*Default:*
+
+    false
+
+*Example:*
+
+    true
+
+*Declared by:*
+
+- [<home-manager/modules/config/home-cursor.nix>](https://github.com/nix-community/home-manager/blob/master/modules/config/home-cursor.nix)
+
+## [home.pointerCursor.x11.defaultCursor](#opt-home.pointerCursor.x11.defaultCursor)
+
+The default cursor file to use within the package.
+
+*Type:* string
+
+*Default:*
+
+    "left_ptr"
+
+*Example:*
+
+    "X_cursor"
+
+*Declared by:*
+
+- [<home-manager/modules/config/home-cursor.nix>](https://github.com/nix-community/home-manager/blob/master/modules/config/home-cursor.nix)
+
+## [home.pointerCursor.x11.size](#opt-home.pointerCursor.x11.size)
+
+The cursor size for x11.
+
+*Type:* signed integer
+
+*Default:*
+
+    "config.home.pointerCursor.size"
+
+*Example:*
+
+    32
+
+*Declared by:*
+
+- [<home-manager/modules/config/home-cursor.nix>](https://github.com/nix-community/home-manager/blob/master/modules/config/home-cursor.nix)
+
+## [home.preferXdgDirectories](#opt-home.preferXdgDirectories)
+
+Whether to make programs use XDG directories whenever supported.
+
+*Type:* boolean
+
+*Default:*
+
+    false
+
+*Example:*
+
+    true
+
+*Declared by:*
+
+- [<home-manager/modules/home-environment.nix>](https://github.com/nix-community/home-manager/blob/master/modules/home-environment.nix)
+
+## [home.profileDirectory](#opt-home.profileDirectory)
+
+The profile directory where Home Manager generations are installed.
+
+*Type:* absolute path *(read only)*
+
+*Default:*
+
+- `/etc/profiles/per-user/${home.username}`, if Home Manager is installed as
+a submodule and `home-manager.useUserPackages` is enabled, else
+- `${xdg.stateHome}/nix/profile`, if `nix.useXdg` is enabled, else
+- `${home.homeDirectory}/.nix-profile`.
+
+*Declared by:*
+
+- [<home-manager/modules/home-environment.nix>](https://github.com/nix-community/home-manager/blob/master/modules/home-environment.nix)
+
+## [home.services](#opt-home.services)
+
+Home Manager [modular services](https://nixos.org/manual/nixos/unstable/#modular-services).
+
+Each entry is an abstract service that may declare a `process.argv` and Home Manager-style `systemd.user.{services,sockets}` units
+(INI section shape). Units are emitted under Home Manager’s `systemd.user.services` (and friends) with the service name
+as a prefix. Mirrors `system.services` in NixOS.
+
+*Type:* attribute set of (submodule)
+
+*Default:*
+
+    { }
+
+*Declared by:*
+
+- [<home-manager/modules/services-modular>](https://github.com/nix-community/home-manager/blob/master/modules/services-modular)
+
+## [home.sessionPath](#opt-home.sessionPath)
+
+Extra directories to prepend to `PATH`.
+
+These directories are added to the `PATH` variable in a
+double-quoted context, so expressions like `$HOME` are
+expanded by the shell. However, since expressions like `~` or `*` are escaped, they will end up in the `PATH` verbatim.
+
+*Type:* list of string
+
+*Default:*
+
+    [ ]
+
+*Example:*
+
+    [
+      "$HOME/.local/bin"
+      "\${xdg.configHome}/emacs/bin"
+      ".git/safe/../../bin"
+    ]
+
+*Declared by:*
+
+- [<home-manager/modules/home-environment.nix>](https://github.com/nix-community/home-manager/blob/master/modules/home-environment.nix)
+
+## [home.sessionSearchVariables](#opt-home.sessionSearchVariables)
+
+Extra directories to prepend to arbitrary PATH-like
+environment variables (e.g.: `MANPATH`). The values
+will be concatenated by `:`.
+These directories are added to the environment variable in a
+double-quoted context, so expressions like `$HOME` are
+expanded by the shell. However, since expressions like `~` or `*` are escaped, they will end up in the environment
+verbatim.
+
+*Type:* attribute set of list of string
+
+*Default:*
+
+    { }
+
+*Example:*
+
+    {
+      MANPATH = [
+        "$HOME/.npm-packages/man"
+        "\${xdg.configHome}/.local/share/man"
+      ];
+    }
+
+*Declared by:*
+
+- [<home-manager/modules/home-environment.nix>](https://github.com/nix-community/home-manager/blob/master/modules/home-environment.nix)
+
+## [home.sessionVariables](#opt-home.sessionVariables)
+
+Environment variables to always set at login.
+
+The values may refer to other environment variables using
+POSIX.2 style variable references. For example, a variable `parameter` may be referenced as `$parameter` or `${parameter}`. A
+default value `foo` may be given as per `${parameter:-foo}` and, similarly, an alternate
+value `bar` can be given as per `${parameter:+bar}`.
+
+Note, these variables may be set in any order so no session
+variable may have a runtime dependency on another session
+variable. In particular code like
+
+    home.sessionVariables = {
+      FOO = "Hello";
+      BAR = "$FOO World!";
+    };
+
+may not work as expected. If you need to reference another
+session variable (even if it is declared by using other options
+like [](#opt-xdg.configHome)), then do so inside Nix instead.
+The above example then becomes
+
+    home.sessionVariables = {
+      FOO = "Hello";
+      BAR = "${config.home.sessionVariables.FOO} World!";
+    };
+
+Setting a value to `null` will skip setting the variable at all, which
+may be useful when overriding.
+
+*Type:* lazy attribute set of (null or string or absolute path or signed integer or floating point number or boolean)
+
+*Default:*
+
+    { }
+
+*Example:*
+
+    {
+      EDITOR = "emacs";
+      GS_OPTIONS = "-sPAPERSIZE=a4";
+    }
+
+*Declared by:*
+
+- [<home-manager/modules/home-environment.nix>](https://github.com/nix-community/home-manager/blob/master/modules/home-environment.nix)
+
+## [home.shell.enableBashIntegration](#opt-home.shell.enableBashIntegration)
+
+Whether to enable Bash integration.
+
+*Type:* boolean
+
+*Default:* [](#opt-home.shell.enableShellIntegration)
+
+*Example:*
+
+    false
+
+*Declared by:*
+
+- [<home-manager/modules/misc/shell.nix>](https://github.com/nix-community/home-manager/blob/master/modules/misc/shell.nix)
+
+## [home.shell.enableFishIntegration](#opt-home.shell.enableFishIntegration)
+
+Whether to enable Fish integration.
+
+*Type:* boolean
+
+*Default:* [](#opt-home.shell.enableShellIntegration)
+
+*Example:*
+
+    false
+
+*Declared by:*
+
+- [<home-manager/modules/misc/shell.nix>](https://github.com/nix-community/home-manager/blob/master/modules/misc/shell.nix)
+
+## [home.shell.enableIonIntegration](#opt-home.shell.enableIonIntegration)
+
+Whether to enable Ion integration.
+
+*Type:* boolean
+
+*Default:* [](#opt-home.shell.enableShellIntegration)
+
+*Example:*
+
+    false
+
+*Declared by:*
+
+- [<home-manager/modules/misc/shell.nix>](https://github.com/nix-community/home-manager/blob/master/modules/misc/shell.nix)
+
+## [home.shell.enableNushellIntegration](#opt-home.shell.enableNushellIntegration)
+
+Whether to enable Nushell integration.
+
+*Type:* boolean
+
+*Default:* [](#opt-home.shell.enableShellIntegration)
+
+*Example:*
+
+    false
+
+*Declared by:*
+
+- [<home-manager/modules/misc/shell.nix>](https://github.com/nix-community/home-manager/blob/master/modules/misc/shell.nix)
+
+## [home.shell.enableShellIntegration](#opt-home.shell.enableShellIntegration)
+
+Whether to globally enable shell integration for all supported shells.
+
+Individual shell integrations can be overridden with their respective `shell.enable<SHELL>Integration` option. For example, the following
+declaration globally disables shell integration for Bash:
+
+    home.shell.enableBashIntegration = false;
+
+*Type:* boolean
+
+*Default:*
+
+    true
+
+*Example:*
+
+    false
+
+*Declared by:*
+
+- [<home-manager/modules/misc/shell.nix>](https://github.com/nix-community/home-manager/blob/master/modules/misc/shell.nix)
+
+## [home.shell.enableZshIntegration](#opt-home.shell.enableZshIntegration)
+
+Whether to enable Zsh integration.
+
+*Type:* boolean
+
+*Default:* [](#opt-home.shell.enableShellIntegration)
+
+*Example:*
+
+    false
+
+*Declared by:*
+
+- [<home-manager/modules/misc/shell.nix>](https://github.com/nix-community/home-manager/blob/master/modules/misc/shell.nix)
+
+## [home.shellAliases](#opt-home.shellAliases)
+
+An attribute set that maps aliases (the top level attribute names
+in this option) to command strings or directly to build outputs.
+
+This option should only be used to manage simple aliases that are
+compatible across all shells. If you need to use a shell specific
+feature then make sure to use a shell specific option, for example [](#opt-programs.bash.shellAliases) for Bash.
+
+*Type:* attribute set of string
+
+*Default:*
+
+    { }
+
+*Example:*
+
+    {
+      g = "git";
+      "..." = "cd ../..";
+    }
+
+*Declared by:*
+
+- [<home-manager/modules/home-environment.nix>](https://github.com/nix-community/home-manager/blob/master/modules/home-environment.nix)
+
+## [home.stateVersion](#opt-home.stateVersion)
+
+It is occasionally necessary for Home Manager to change
+configuration defaults in a way that is incompatible with
+stateful data. This could, for example, include switching the
+default data format or location of a file.
+
+The *state version* indicates which default
+settings are in effect and will therefore help avoid breaking
+program configurations. Switching to a higher state version
+typically requires performing some manual steps, such as data
+conversion or moving files.
+
+*Type:* one of “18.09”, “19.03”, “19.09”, “20.03”, “20.09”, “21.03”, “21.05”, “21.11”, “22.05”, “22.11”, “23.05”, “23.11”, “24.05”, “24.11”, “25.05”, “25.11”, “26.05”, “26.11”
+
+*Declared by:*
+
+- [<home-manager/modules/misc/version.nix>](https://github.com/nix-community/home-manager/blob/master/modules/misc/version.nix)
+
+## [home.uid](#opt-home.uid)
+
+The user’s uid.
+
+If Home Manager is installed as a NixOS or nix-darwin submodule, it is
+set to `osConfig.users.users.<name>.uid`.
+
+*Type:* null or (unsigned integer, meaning >=0)
+
+*Default:*
+
+    null
+
+*Example:*
+
+    1000
+
+*Declared by:*
+
+- [<home-manager/modules/home-environment.nix>](https://github.com/nix-community/home-manager/blob/master/modules/home-environment.nix)
+
+## [home.username](#opt-home.username)
+
+The user’s username.
+
+If Home Manager is installed as a NixOS or nix-darwin submodule, it is
+set to `osConfig.users.users.<name>.name`.
+
+*Type:* non-empty string
+
+*Default:* `$USER`, for state version < 20.09,
+undefined, otherwise.
+
+*Example:*
+
+    "jane.doe"
+
+*Declared by:*
+
+- [<home-manager/modules/home-environment.nix>](https://github.com/nix-community/home-manager/blob/master/modules/home-environment.nix)

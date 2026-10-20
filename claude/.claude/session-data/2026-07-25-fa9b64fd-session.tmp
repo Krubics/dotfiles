@@ -1,0 +1,44 @@
+# Session: 2026-07-25
+**Date:** 2026-07-25
+**Started:** 05:55
+**Last Updated:** 05:55
+**Project:** krubics
+**Branch:** unknown
+**Worktree:** /home/krubics
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Investigate CSS errors when running `GTK_THEME=adw-gtk3 gtk4-widget-factory`
+- Debug why normal CSS properties are generating errors in the adw-gtk3 theme
+
+### Decisions Made
+None fully captured — session appears to have been interrupted or truncated.
+
+### Files Modified
+None identified in the available transcript.
+
+### Unresolved Issues
+- **Incomplete session**: The transcript cuts off repeatedly mid-command (at `find /usr /home` search attempts)
+- CSS error investigation was not completed
+- Root cause of the adw-gtk3 CSS compatibility issues remains unknown
+- No errors or findings were captured before the session ended
+
+### Next Session Context
+- User is working with GTK4 and the adw-gtk3 theme
+- The issue involves CSS validation/parsing errors that appear for standard CSS properties
+- Consider running gtk4-widget-factory in foreground with stderr captured to a file for better diagnostics
+- May need to examine the adw-gtk3 CSS files directly to identify compatibility issues with GTK4's CSS parser
+- GitHub repo context: lassekongo83/adw-gtk3 (v5.10)
+<!-- LLM_SUMMARY:pre-compact:05:55 -->
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

@@ -1,0 +1,37 @@
+# Session: 2026-07-09
+**Date:** 2026-07-09
+**Started:** 16:39
+**Last Updated:** 19:29
+**Project:** krubics
+**Branch:** unknown
+**Worktree:** /home/krubics
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- I have a waybar config at .config/waybar/config.jsonc can you make the taskbar sort the apps by alphabetical order?
+- Ok let's put a hold on that. Can we make the current selected workspace icon into a pokeball using the pixelated-pokeball.png file in my Downloads folder?
+- [Image: original 2400x144, displayed at 2000x120. Multiply coordinates by 1.20 to map to original image.]
+- We need to remember to still highlight the pokeball with the accent color.
+- [Request interrupted by user for tool use]
+- Why is the waybar so tall right now/
+
+### Files Modified
+- /home/krubics/.config/waybar/style.css
+
+### Tools Used
+Read, Bash, ToolSearch, WebFetch, Edit
+
+### Stats
+- Total user messages: 6
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

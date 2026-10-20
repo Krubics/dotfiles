@@ -1,0 +1,51 @@
+# Session: 2026-07-08
+**Date:** 2026-07-08
+**Started:** 02:28
+**Last Updated:** 03:30
+**Project:** krubics
+**Branch:** unknown
+**Worktree:** /home/krubics
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Integrated `pokeget` (Pokémon sprite CLI tool) with `fastfetch` (system info display) to show centered Pokémon alongside system information
+- Created `pokefetch` wrapper script with configurable favorites system and display options
+- Implemented vertical centering and multiple iterations of horizontal centering for Pokémon sprites
+- Finalized width scaling based on terminal aspect ratio for consistent alignment
+
+### Decisions Made
+- **Architecture**: Single shell script (`pokefetch`) at `~/.local/bin/pokefetch` that pipes `pokeget` sprite output through a temp file into `fastfetch --logo-type file`
+- **Vertical centering**: Dynamically calculates padding by measuring sprite height and info column height
+- **Horizontal centering approach**: Final solution uses aspect-ratio scaling — width defaults to `info_lines * CHAR_ASPECT_RATIO` (where `CHAR_ASPECT_RATIO` defaults to 2 for typical terminal fonts that are ~2x taller than wide)
+- **Favorites system**: Toggle `USE_FAVORITES=true|false` at top of script; when true, picks random pokemon from `FAVORITES` array; when false, forwards CLI args directly to `pokeget`
+- **Width customization**: `POKEMON_WIDTH` parameter (empty by default) can be set to override the aspect-ratio calculation with a specific fixed width
+
+### Files Modified
+- **Created**: `~/.local/bin/pokefetch` — main integration script with:
+  - `FAVORITES` array (customizable list of favorite Pokémon)
+  - `USE_FAVORITES` toggle (line 10, default `false`)
+  - `CHAR_ASPECT_RATIO` parameter (line 24, default `2`)
+  - `POKEMON_WIDTH` parameter (line 25, empty by default = dynamic scaling)
+  - Dynamic padding calculation for vertical centering
+  - Horizontal centering via `--logo-padding-left` with aspect-ratio-aware width
+
+### Unresolved Issues
+- None — script is complete and tested across multiple Pokémon sizes
+
+### Next Session Context
+- Script is installed and on `$PATH` — user can run `pokefetch [args]` directly
+- Default behavior (`USE_FAVORITES=false`, `POKEMON_WIDTH` empty): forwards arguments to `pokeget`, pokemon column width automatically scales to match fastfetch output height × character aspect ratio for consistent alignment
+- Customization points: edit `FAVORITES` array, toggle `USE_FAVORITES`, adjust `CHAR_ASPECT_RATIO` for different terminal fonts, set `POKEMON_WIDTH` to override dynamic width (e.g., `44` for wider forms like Charizard)
+- Works with all `pokeget` flags: `-s`/`--shiny`, `-m`/`--mega`, regions, `random`, etc.
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

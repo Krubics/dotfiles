@@ -1,0 +1,6 @@
+[32m  INFO[0m: Launching config: "/home/krubics/.config/quickshell/shell.qml"
+[32m  INFO[0m: Shell ID: "d051c435653b3f3e3cbaa4f8ebb8d895" Path ID "d051c435653b3f3e3cbaa4f8ebb8d895"
+[32m  INFO[0m: Saving logs to "/run/user/1000/quickshell/by-id/qne3x4vajt/log.qslog"
+[32m  INFO[0m: QML tooling support enabled
+[31m ERROR[0m: Failed to load configuration
+[31m ERROR[0m:   caused by @shell.qml[119:1]: module "QtMultimedia" is not installed

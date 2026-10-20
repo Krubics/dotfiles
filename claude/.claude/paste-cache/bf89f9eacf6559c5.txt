@@ -1,0 +1,108 @@
+ adding a new plugin repository from https://github.com/sandwichfarm/hyprexpo
+  MAKE SURE that you trust the authors. DO NOT install random plugins without verifying the code and author.
+  Are you sure? [Y/n] Y
+
+→ Cloning https://github.com/sandwichfarm/hyprexpo
+✔ cloned
+✔ found hyprpm manifest
+✔ parsed manifest, found 1 plugins:
+→ hyprexpo by sandwich version
+✔ Hyprland headers OK
+→ Building hyprexpo
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╍━━━━━━━━━━━━━━━━━━━  3 / 5  Building plugin(s)[v] shell returned:  -> cd /run/user/1000/hyprpm/krubics && PKG_CONFIG_PATH="/var/cache/hyprpm/krubics/headersRoot/share/pkgconfig:$PKG_CONFIG_PATH" make all
+Package aquamarine was not found in the pkg-config search path.
+Perhaps you should add the directory containing `aquamarine.pc'
+to the PKG_CONFIG_PATH environment variable
+Package 'aquamarine', required by 'hyprland', not found
+Package 'hyprcursor', required by 'hyprland', not found
+Package 'hyprgraphics', required by 'hyprland', not found
+Package 'hyprlang', required by 'hyprland', not found
+Package 'hyprutils', required by 'hyprland', not found
+Package 'xcb-errors', required by 'hyprland', not found
+Package 'lua5.4', required by 'virtual:world', not found
+Package lua5.4 was not found in the pkg-config search path.
+Perhaps you should add the directory containing `lua5.4.pc'
+to the PKG_CONFIG_PATH environment variable
+Package 'lua5.4', required by 'virtual:world', not found
+g++ -shared -fPIC -g -std=c++2b -Wno-c++11-narrowing -Wno-narrowing --no-gnu-unique -DHYPREXPO_VERSION='"v0.55.4"'  main.cpp Dispatchers.cpp PluginConfig.cpp Overview.cpp OverviewInteraction.cpp OverviewRender.cpp ExpoGesture.cpp OverviewPassElement.cpp HyprexpoLogic.cpp -o hyprexpo.so
+In file included from /usr/include/hyprland/src/SharedDefs.hpp:3,
+                 from /usr/include/hyprland/src/includes.hpp:30,
+                 from /usr/include/hyprland/src/defines.hpp:3,
+                 from /usr/include/hyprland/src/managers/XWaylandManager.hpp:3,
+                 from /usr/include/hyprland/src/Compositor.hpp:8,
+                 from main.cpp:3:
+/usr/include/hyprland/src/helpers/math/Math.hpp:6:10: fatal error: hyprutils/math/Region.hpp: No such file or directory
+    6 | #include <hyprutils/math/Region.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+In file included from /usr/include/hyprland/src/plugins/PluginAPI.hpp:23,
+                 from globals.hpp:3,
+                 from Dispatchers.hpp:5,
+                 from Dispatchers.cpp:3:
+/usr/include/hyprland/src/helpers/Color.hpp:4:10: fatal error: hyprgraphics/color/Color.hpp: No such file or directory
+    4 | #include <hyprgraphics/color/Color.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+In file included from /usr/include/hyprland/src/plugins/PluginAPI.hpp:23,
+                 from globals.hpp:3,
+                 from Dispatchers.hpp:5,
+                 from PluginConfig.cpp:5:
+/usr/include/hyprland/src/helpers/Color.hpp:4:10: fatal error: hyprgraphics/color/Color.hpp: No such file or directory
+    4 | #include <hyprgraphics/color/Color.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+In file included from /usr/include/hyprland/src/plugins/PluginAPI.hpp:23,
+                 from globals.hpp:3,
+                 from Overview.hpp:5,
+                 from Overview.cpp:1:
+/usr/include/hyprland/src/helpers/Color.hpp:4:10: fatal error: hyprgraphics/color/Color.hpp: No such file or directory
+    4 | #include <hyprgraphics/color/Color.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+In file included from /usr/include/hyprland/src/plugins/PluginAPI.hpp:23,
+                 from globals.hpp:3,
+                 from HyprlandConfigCompat.hpp:3,
+                 from OverviewInteraction.cpp:1:
+/usr/include/hyprland/src/helpers/Color.hpp:4:10: fatal error: hyprgraphics/color/Color.hpp: No such file or directory
+    4 | #include <hyprgraphics/color/Color.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+In file included from /usr/include/hyprland/src/plugins/PluginAPI.hpp:23,
+                 from globals.hpp:3,
+                 from HyprlandConfigCompat.hpp:3,
+                 from OverviewRender.cpp:1:
+/usr/include/hyprland/src/helpers/Color.hpp:4:10: fatal error: hyprgraphics/color/Color.hpp: No such file or directory
+    4 | #include <hyprgraphics/color/Color.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+In file included from /usr/include/hyprland/src/devices/IHID.hpp:6,
+                 from /usr/include/hyprland/src/devices/IPointer.hpp:3,
+                 from /usr/include/hyprland/src/managers/input/trackpad/gestures/ITrackpadGesture.hpp:3,
+                 from ExpoGesture.hpp:3,
+                 from ExpoGesture.cpp:1:
+/usr/include/hyprland/src/helpers/signal/Signal.hpp:3:10: fatal error: hyprutils/signal/Signal.hpp: No such file or directory
+    3 | #include <hyprutils/signal/Signal.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+In file included from /usr/include/hyprland/src/SharedDefs.hpp:3,
+                 from /usr/include/hyprland/src/includes.hpp:30,
+                 from /usr/include/hyprland/src/defines.hpp:3,
+                 from /usr/include/hyprland/src/render/pass/PassElement.hpp:3,
+                 from OverviewPassElement.hpp:2,
+                 from OverviewPassElement.cpp:1:
+/usr/include/hyprland/src/helpers/math/Math.hpp:6:10: fatal error: hyprutils/math/Region.hpp: No such file or directory
+    6 | #include <hyprutils/math/Region.hpp>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+make: *** [Makefile:42: hyprexpo.so] Error 1
+
+
+✖ Plugin hyprexpo failed to build.
+  This likely means that the plugin is either outdated, not yet available for your version, or broken.
+  If you are on -git, update first
+  Try re-running with -v to see more verbose output.
+
+✔ all plugins built
+✔ installed repository
+✔ you can now enable the plugin(s) with hyprpm enable
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  5 / 5  Done!

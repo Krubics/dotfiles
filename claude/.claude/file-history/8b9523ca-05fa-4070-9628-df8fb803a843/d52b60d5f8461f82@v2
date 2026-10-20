@@ -1,0 +1,55 @@
+#!/bin/bash
+# Applies the boot wallpaper once yin's IPC daemon is actually ready.
+#
+# yin is started by Hyprland's autostart (see hyprland.lua) immediately before
+# this script. yin binds a Unix socket at /tmp/yin when it comes up, so instead
+# of guessing with a fixed delay we wait for that socket to exist and then poll
+# yinctl until it succeeds (the socket can exist a moment before it accepts).
+
+set -u
+
+SOCKET="/tmp/yin"
+IMG="/home/krubics/.config/hypr/images/latios-latias.jpg"
+OUTPUT="eDP-1"
+LOG="${XDG_STATE_HOME:-$HOME/.local/state}/hypr/wallpaper-autostart.log"
+
+SOCKET_TIMEOUT_MS=5000   # give up waiting for the socket after ~5s
+YINCTL_RETRIES=20        # then retry yinctl this many times (0.1s apart)
+POLL_MS=100
+
+mkdir -p "$(dirname "$LOG")"
+
+log() {
+    printf '%s [wallpaper-autostart] %s\n' "$(date '+%Y-%m-%d %H:%M:%S')" "$1" >> "$LOG"
+}
+
+log "starting; waiting for yin socket at $SOCKET (timeout ${SOCKET_TIMEOUT_MS}ms)"
+
+# 1. Wait for yin to create its IPC socket.
+waited=0
+while [ ! -S "$SOCKET" ]; do
+    if [ "$waited" -ge "$SOCKET_TIMEOUT_MS" ]; then
+        log "ERROR: yin socket did not appear within ${SOCKET_TIMEOUT_MS}ms; aborting"
+        exit 1
+    fi
+    sleep 0.1
+    waited=$((waited + POLL_MS))
+done
+log "yin socket ready after ${waited}ms"
+
+# 2. Send the wallpaper, retrying until yin accepts the request.
+attempt=1
+while :; do
+    if yinctl --img "$IMG" --output "$OUTPUT" >> "$LOG" 2>&1; then
+        log "yinctl succeeded on attempt ${attempt} (img=$IMG output=$OUTPUT)"
+        exit 0
+    fi
+    rc=$?
+    if [ "$attempt" -ge "$YINCTL_RETRIES" ]; then
+        log "ERROR: yinctl failed after ${attempt} attempts (last rc=$rc)"
+        exit "$rc"
+    fi
+    log "yinctl attempt ${attempt} failed (rc=$rc); retrying"
+    attempt=$((attempt + 1))
+    sleep 0.1
+done

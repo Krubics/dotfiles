@@ -1,0 +1,37 @@
+=== find process cmdline for existing omp agent panes ===
+pid 122:
+
+pid 3465:
+/usr/bin/gnome-keyring-daemon --foreground --components=pkcs11,secrets --control-directory=/run/user/1000/keyring 
+pid 5759:
+/snap/code/253/usr/share/code/chrome_crashpad_handler --monitor-self-annotation=ptype=crashpad-handler --no-rate-limit --database=/home/krubics/.config/Code/Crashpad --url=appcenter://code?aid=fba07a4d-84bd-4fc8-a125-9640fc8ce171&uid=37128cc2-c541-4dd1-b36b-8ab05a78938b&iid=37128cc2-c541-4dd1-b36b-8ab05a78938b&sid=37128cc2-c541-4dd1-b36b-8ab05a78938b --annotation=_companyName=Microsoft --annotation=_productName=VSCode --annotation=_version=1.130.0 --annotation=lsb-release=Ubuntu 24.04.4 LTS --annotation=plat=Linux --annotation=prod=Electron --annotation=ver=42.6.0 --initial-client-fd=48 --shared-client-connection 
+pid 10342:
+/snap/code/253/usr/share/code/chrome_crashpad_handler --monitor-self-annotation=ptype=crashpad-handler --no-rate-limit --database=/home/krubics/.config/Code/Crashpad --url=appcenter://code?aid=fba07a4d-84bd-4fc8-a125-9640fc8ce171&uid=37128cc2-c541-4dd1-b36b-8ab05a78938b&iid=37128cc2-c541-4dd1-b36b-8ab05a78938b&sid=37128cc2-c541-4dd1-b36b-8ab05a78938b --annotation=_companyName=Microsoft --annotation=_productName=VSCode --annotation=_version=1.130.0 --annotation=lsb-release=Ubuntu 24.04.4 LTS --annotation=plat=Linux --annotation=prod=Electron --annotation=ver=42.6.0 --initial-client-fd=48 --shared-client-connection 
+pid 21554:
+omp 
+pid 41092:
+omp 
+pid 55479:
+/usr/bin/python3 -u /tmp/omp-python-runner/runner-31e08syzbruvv.py 
+pid 72951:
+omp --resume 
+pid 73128:
+omp --resume 
+pid 76759:
+/snap/discord/298/usr/share/discord/Discord --use-tray-icon --no-sandbox --disable-seccomp-filter-sandbox --url -- 
+pid 76943:
+/snap/discord/298/usr/share/discord/Discord --type=zygote --no-zygote-sandbox --disable-seccomp-filter-sandbox --no-sandbox 
+pid 76944:
+/snap/discord/298/usr/share/discord/Discord --type=zygote --disable-seccomp-filter-sandbox --no-sandbox 
+pid 77009:
+/snap/discord/298/usr/share/discord/Discord --type=zygote --no-zygote-sandbox --disable-seccomp-filter-sandbox --no-sandbox 
+pid 77158:
+/proc/self/exe --type=renderer --crashpad-handler-pid=76967 --enable-crash-reporter=34e2b34c-68c0-451d-86df-75a84992ecff,no_channel --user-data-dir=/home/krubics/snap/discord/298/.config/discord --standard-schemes=disclip --secure-schemes=disclip,sentry-ipc --bypasscsp-schemes=sentry-ipc --cors-schemes=sentry-ipc --fetch-schemes=disclip,sentry-ipc --streaming-schemes=disclip --app-path=/snap/discord/298/usr/share/discord/resources/app.asar --no-sandbox --no-zygote --enable-blink-features=EnumerateDevices,AudioOutputDevices --disable-seccomp-filter-sandbox --no-sandbox --autoplay-policy=no-user-gesture-required --openh264-library-path=/home/krubics/snap/discord/298/.config/discord/discord_asset_cache/openh264/libopenh264-2.5.1-linux64.7.so --enable-libopenh264 --lang=en-US --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=6 --time-ticks-at-unix-epoch=-1785060847858950 --launch-time-ticks=4143558534 --shared-files=v8_context_snapshot_data:100 --field-trial-handle=3,i,5961179060059444953,13571485401299270940,262144 --enable-features=DocumentPolicyIncludeJSCallStacksInCrashReports --disable-features=AllowAggressiveThrottlingWithWebSocket,HardwareMediaKeyHandling,IntensiveWakeUpThrottling,MediaSessionService,ScreenAIOCREnabled,SpareRendererForSitePerProcess,UseEcoQoSForBackgroundProcess,WinRetrieveSuggestionsOnlyOnDemand --variations-seed-version --enable-node-leakage-in-renderers 
+pid 771568:
+omp --resume 
+
+=== command -v omp ===
+/home/krubics/.local/bin/omp
+=== check my own process tree for the launch command ===
+    PID    PPID CMD
+ 893138  892657 omp

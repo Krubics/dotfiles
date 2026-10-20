@@ -1,0 +1,44 @@
+# Session: 2026-07-11
+**Date:** 2026-07-11
+**Started:** 18:35
+**Last Updated:** 19:31
+**Project:** yin
+**Branch:** main
+**Worktree:** /home/krubics/yin
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Currently, yinctl --image <file_path> doesn't work. These are the logs of the install ➜  yin git:(main) ✗ meson compile -C release sudo cp release/yin /usr/bin sudo cp release/yinctl /usr/bin  INFO: a
+- No need, I'm still getting the error Problem with video file, please delete ~/cache/yin and try again
+- How to yinctl for all monitors in my setup?
+- How do I use transition from one image to another
+- Can you write script this in lua? for m in $(ls ~/.cache/yin | grep -vE '^[0-9]+x[0-9]+_'); do   yinctl --img ~/Pictures/wallpaper.jpg --output "$m" done
+- [Request interrupted by user for tool use]
+- Oh hell nah let's just stick to using bash I already have a file called set-wallpaper.sh just without multi monitor support and we have keybinds lua only send the next wallpaper and an optional transi
+- Now we just need to add a wallpaper list and their transitions to keybinds lua for the SUPER CTRL Space keybind. If there isn't a transition set for a wallpaper then we don't do a transition.
+- [Request interrupted by user for tool use]
+- Sorry the default should be a static transition
+
+### Files Modified
+- /home/krubics/yin/daemon/IPC_Server.cpp
+- /home/krubics/yin/scripts/set_wallpaper_all.lua
+- /home/krubics/.config/hypr/scripts/set-wallpaper.sh
+- /home/krubics/.config/hypr/conf/keybinds.lua
+
+### Tools Used
+Read, Bash, Edit, Write, AskUserQuestion
+
+### Stats
+- Total user messages: 12
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

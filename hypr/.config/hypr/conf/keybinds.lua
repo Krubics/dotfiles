@@ -32,7 +32,6 @@ hl.bind(modKey .. " + RETURN",         hl.dsp.exec_cmd(vars.terminal))
 hl.bind(modKey .. " + SPACE",          hl.dsp.exec_cmd(vars.launcher))
 -- hl.bind(modKey .. " + B",      hl.dsp.exec_cmd(vars.browser))
 hl.bind(modKey .. " + F",          hl.dsp.exec_cmd(vars.yazi))   -- yazi (terminal FM)
-hl.bind(modKey .. " + CTRL + SHIFT + F",  hl.dsp.exec_cmd(vars.files))  -- nautilus (moved off SUPER+SHIFT+F for herdr search)
 hl.bind(modKey .. " + O",      hl.dsp.exec_cmd(vars.obsidian))
 hl.bind(modKey .. " + A",      function()
   hl.exec_cmd(vars.browser)
@@ -55,13 +54,18 @@ hl.bind(modKey .. " + bracketright", hl.dsp.window.fullscreen({ mode = 0 }))    
 hl.bind(modKey .. " + GRAVE", hl.dsp.layout("rotatesplit 90"))
 -- (0.55 quirk: fullscreen toggle-off can misfire from a bind; works via hyprctl)
 
--- Pop out: float + size + center + pin  (Omarchy's SUPER+O)
-hl.bind(modKey .. " + O", function()
-  hl.dispatch(hl.dsp.window.float({ action = "set" }))
-  hl.dispatch(hl.dsp.exec_raw("resizeactive exact 50% 50%"))
-  hl.dispatch(hl.dsp.exec_raw("centerwindow"))
-  hl.dispatch(hl.dsp.exec_raw("pin"))
-end)
+hl.bind(
+    "SUPER + SHIFT + S",
+    hl.dsp.window.move({ workspace = "previous_per_monitor" })
+)
+
+-- -- Pop out: float + size + center + pin  (Omarchy's SUPER+O)
+-- hl.bind(modKey .. " + O", function()
+--   hl.dispatch(hl.dsp.window.float({ action = "set" }))
+--   hl.dispatch(hl.dsp.exec_raw("resizeactive exact 50% 50%"))
+--   hl.dispatch(hl.dsp.exec_raw("centerwindow"))
+--   hl.dispatch(hl.dsp.exec_raw("pin"))
+-- end)
 
 -- Toggle whole-workspace layout dwindle <-> master  (Omarchy's SUPER+L)
 hl.bind(modKey .. " + N", function()
@@ -74,12 +78,23 @@ hl.bind(modKey .. " + N", function()
   end
 end)
 
--- ---- Focus / swap / cycle ----------------------------------
-hl.bind(modKey  .. " + L",  hl.dsp.focus({ direction = "l" }))
-hl.bind(modKey .. " + apostrophe", hl.dsp.focus({ direction = "r" }))
-hl.bind(modKey .. " + P",    hl.dsp.focus({ direction = "u" }))
-hl.bind(modKey .. " + semicolon",  hl.dsp.focus({ direction = "d" }))
+-- Window and workspace cycling
+hl.config({
+    binds = {
+        workspace_back_and_forth = true,
+    },
+})
 
+hl.bind(modKey .. " + semicolon", hl.dsp.focus({
+    workspace = "m+1",
+}))
+
+hl.bind(modKey .. " + P", hl.dsp.focus({
+    workspace = "m-1",
+}))
+
+hl.bind(modKey .. " + apostrophe", hl.dsp.focus({ direction = "right" }))
+hl.bind(modKey .. " + L", hl.dsp.focus({ direction = "left" }))
 
 -- ---- Resize (horizontal, Omarchy default) ------------------
 hl.bind(modKey .. " + minus", hl.dsp.window.resize({ x = 100*(16/9), y = 100, relative = true }))
@@ -90,47 +105,39 @@ hl.bind(modKey .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
 hl.bind(modKey .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- ============================================================
---  WORKSPACES  (SUPER = go, +SHIFT = move, +SHIFT+ALT = silent)
+--  WORKSPACES  (SUPER+P/; = cycle; +SHIFT = move; +SHIFT+ALT = silent)
 -- ============================================================
 for i = 1, 9 do
-    hl.bind(modKey .. " + " .. i, hl.dsp.focus({ workspace = i }))
     hl.bind(modKey .. " + SHIFT + " .. i, hl.dsp.window.move({ workspace = i }))
     hl.bind(modKey .. " + SHIFT + ALT + " .. i, hl.dsp.window.move({ workspace = i, silent = true }))
 end
 
 hl.bind(modKey .. " + ALT + 0", hl.dsp.window.move({ workspace = 10 }))
 hl.bind(modKey .. " + SHIFT + ALT + 0", hl.dsp.window.move({ workspace = 10, silent = true }))
--- ---- Scratchpads (pyprland) -----------------------------------
--- `pypr toggle <name>` launches the app on first use (lazy) and shows/hides
--- it on every call after — one bind per scratchpad, no separate spawn key.
--- Config: ~/.config/pypr/config.toml. Daemon autostarted in hyprland.lua.
-hl.bind(modKey .. " + V", hl.dsp.exec_cmd("pypr toggle code"))
-hl.bind(modKey .. " + T", hl.dsp.exec_cmd("pypr toggle term"))
-hl.bind(modKey .. " + W", hl.dsp.exec_cmd("pypr toggle browser"))
 
 -- ============================================================
 --  SYSTEM / SETTINGS  (SUPER + CTRL)  — mapped to standard tools
 -- ============================================================
--- hl.bind(modKey .. " + CTRL + L", hl.dsp.exec_cmd("hyprlock"))                     -- lock
-hl.bind(modKey .. " + CTRL + A", hl.dsp.exec_cmd("pavucontrol"))                  -- audio
-hl.bind(modKey .. " + CTRL + B", hl.dsp.exec_cmd("blueman-manager"))              -- bluetooth
-hl.bind(modKey .. " + CTRL + SHIFT + W", hl.dsp.exec_cmd("nm-connection-editor"))         -- wifi (moved off SUPER+CTRL+W for herdr search)
-hl.bind(modKey .. " + CTRL + SHIFT + N", hl.dsp.exec_cmd("hyprsunset -t 4000"))           -- nightlight (moved off SUPER+CTRL+N for herdr new_workspace)
-hl.bind(modKey .. " + CTRL + I", hl.dsp.exec_cmd("pkill hypridle || hypridle"))   -- toggle idle
-hl.bind(modKey .. " + CTRL + E", hl.dsp.exec_cmd("rofi -modi emoji -show emoji")) -- emoji (needs rofi-emoji)
+-- hl.bind(modKey .. " + CTRL + L", hl.dsp.exec_cmd("hyprlock"))
+hl.bind(modKey .. " + CTRL + A", hl.dsp.exec_cmd("pavucontrol"))
+hl.bind(modKey .. " + CTRL + B", hl.dsp.exec_cmd("blueman-manager"))
+hl.bind(modKey .. " + CTRL + SHIFT + W", hl.dsp.exec_cmd("nm-connection-editor"))
+hl.bind(modKey .. " + CTRL + SHIFT + N", hl.dsp.exec_cmd("hyprsunset -t 4000"))
+hl.bind(modKey .. " + CTRL + I", hl.dsp.exec_cmd("pkill hypridle || hypridle"))
+hl.bind(modKey .. " + CTRL + E", hl.dsp.exec_cmd("rofi -modi emoji -show emoji"))
 -- Wallpaper transitions are configured in conf/wallpapers.lua, not here.
-hl.bind(modKey .. " + SHIFT + Space", hl.dsp.exec_cmd("/home/krubics/.config/hypr/scripts/wallpaper-picker.lua"))
+hl.bind(modKey .. " + SHIFT + SPACE", hl.dsp.exec_cmd("qs ipc call wallpaperPicker toggle"))
 hl.bind("CTRL + ALT + Delete", hl.dsp.exec_cmd("wlogout"))
- 
+
 -- ============================================================
 --  SPEECH TO TEXT
 -- ============================================================
-hl.bind(modKey .. " + ALT + D", hl.dsp.exec_cmd("/home/krubics/.local/share/hyprwhspr/src/config/hyprland/hyprwhspr-tray.sh record"))
+hl.bind(modKey .. " + R", hl.dsp.exec_cmd("/home/krubics/.local/share/hyprwhspr/src/config/hyprland/hyprwhspr-tray.sh record"))
 
 -- ============================================================
 --  CAPTURE
 -- ============================================================
-hl.bind(modKey .. " + CTRL + S",   hl.dsp.exec_cmd("hyprshot -m region"))
+hl.bind(modKey .. "  + S",   hl.dsp.exec_cmd("hyprshot -m region"))
 
 -- ============================================================
 --  MEDIA KEYS  (standard: wpctl / brightnessctl / playerctl)
@@ -146,12 +153,11 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"),   { locked = tru
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 
 -- SCRATCHPADS
--- Terminal
 local size = {
   l = 0.90,
   w = 0.90,
 }
-
+-- Terminal
 hl.workspace_rule({ workspace = "special:term", on_created_empty = "ghostty --class=com.krubics.ghostty-scratch --gtk-single-instance=false" })
 hl.window_rule({
   match = { class = "ghostty-scratch", workspace = "special:term" },
@@ -173,7 +179,7 @@ hl.window_rule({
 })
 hl.bind("SUPER+C", hl.dsp.workspace.toggle_special("code"))
 
--- Zen
+-- Zen Browser
 hl.workspace_rule({ workspace = "special:zen", on_created_empty = "zen --new-window about:blank" })
 hl.window_rule({
   match = { class = "^zen$", workspace = "special:zen" },

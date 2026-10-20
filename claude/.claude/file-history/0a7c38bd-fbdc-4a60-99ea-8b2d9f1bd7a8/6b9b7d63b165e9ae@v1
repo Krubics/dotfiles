@@ -1,0 +1,16 @@
+#!/bin/bash
+# Usage: set-wallpaper.sh /path/to/image-or-video
+
+WALLPAPER="$1"
+[ -z "$WALLPAPER" ] && { echo "Usage: $0 <path>"; exit 1; }
+
+# Set the wallpaper via yin's IPC
+# Confirm the exact subcommand with `yinctl --help` — placeholder below
+yinctl --img "$WALLPAPER"
+
+# Retheme in the background so this script returns instantly
+nohup matugen image "$WALLPAPER" > /dev/null 2>&1 &
+disown
+
+# Track current wallpaper for restarts
+ln -sf "$WALLPAPER" ~/.cache/current-wallpaper

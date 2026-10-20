@@ -1,0 +1,42 @@
+# Session: 2026-07-24
+**Date:** 2026-07-24
+**Started:** 22:35
+**Last Updated:** 23:09
+**Project:** yin
+**Branch:** main
+**Worktree:** /home/krubics/yin
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Why is that when I change to latias-and-latios wallpaper through my wallpaper shortcut my monitors change 1 by 1?
+- Yea that didn't work
+- [Request interrupted by user for tool use]
+- Nope doesn't work
+- [Request interrupted by user]
+- Its just a transition thing
+- No I mean without transitions it works perfectly but fails with transitions
+
+### Files Modified
+- /home/krubics/.config/hypr/conf/keybinds.lua
+- /home/krubics/yin/daemon/Wallpaper.cpp
+- /home/krubics/yin/daemon/Monitor.cpp
+- /home/krubics/yin/daemon/IPC_Server.cpp
+- /home/krubics/.config/hypr/scripts/set-wallpaper.sh
+
+### Tools Used
+Bash, Read, Edit
+
+### Stats
+- Total user messages: 7
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

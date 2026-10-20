@@ -1,0 +1,37 @@
+# Session: 2026-07-25
+**Date:** 2026-07-25
+**Started:** 05:40
+**Last Updated:** 06:00
+**Project:** gtk-3.0
+**Branch:** unknown
+**Worktree:** /home/krubics/.local/share/themes/adw-gtk3/gtk-3.0
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Run GTK_THEME=adw-gtk3 gtk4-widget-factory and figure out why I get so many errors for normal css stuff
+- Is updating GTK from 4.14 to 4.16 gonna cause other issues?
+- [Request interrupted by user]
+- Wait show me the errors you saw from the gtk4-widget-factory
+- Try running the command yourself and just stopping it after 5 seconds to see the results
+- [Request interrupted by user]
+- This are the errors: (gtk4-widget-factory:881148): Gtk-WARNING **: 05:46:18.200: Theme parser error: libadwaita.css:1433:46-56: Expected a valid color. (gtk4-widget-factory:881148): Gtk-WARNING **: 05
+- Can you pinpoint the latest adw-gtl version for me to use?
+- Brother I installed adw-gtk3 v5.10 github package and it has the pseudo class root in the gtk.css
+
+### Tools Used
+Bash, Read, WebSearch, WebFetch
+
+### Stats
+- Total user messages: 9
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

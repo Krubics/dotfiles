@@ -1,0 +1,42 @@
+# Session: 2026-07-24
+**Date:** 2026-07-24
+**Started:** 13:19
+**Last Updated:** 13:43
+**Project:** krubics
+**Branch:** unknown
+**Worktree:** /home/krubics
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Assistant: It's a systemd target — a synchronization point that represents "a graphical session is now running."  Targets in systemd don't do anything themselves; they're markers other units use to ex
+- Assistant: The standard pattern for this is a single \`exec-once\` in your \`hyprland.conf\`:  \`\`\`ini exec-once = systemctl --user import-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP && systemc
+- Assistant: Good to know — the syntax will be different. Can you share a snippet of your \`hyprland.lua\` showing how you currently have any \`exec-once\` entries (or any other keyword directives)? The Lua
+- Assistant: Let me read the file first so I know the syntax before touching it. Facts for the gate:  1. **The current user request:** Add an \`exec-once\` autostart entry to \`hyprland.lua\` to start the u
+- Assistant: The edit is already in place — looking at line 59 in the file output, the \`import-environment\` + \`start hyprland-session.service\` line is there. The "String to replace not found" errors app
+- Human: Why did hyprwhspr revert back to no OSD?
+- Assistant: Let me check the current state of both fixes to see which one didn't survive. Both fixes are still in place. Let me look further back in the logs to find the OSD initialization line, which 
+- Assistant: The command reached the daemon (\`[SUCCESS] Recording started\`) — the \`-n 5\` just cut off before the recording log entries. Let me grab the full picture since the record started. The service
+- Assistant: Yes, go ahead and add it to \`keybinds.lua\`. I'll put it in the SYSTEM/SETTINGS section since it's a system-level action. Facts for the gate:  1. **Files that import this:** \`~/.config/hypr/
+- Assistant: Already done — the edit succeeded. \`SUPER + ALT + D\` is now live in \`keybinds.lua\`. Give it a try.  Human: The user stepped away and is coming back. Recap in under 40 words, 1-2 plain sente
+
+### Files Modified
+- /home/krubics/.config/hypr/hyprland.lua
+- /home/krubics/.config/hypr/conf/keybinds.lua
+
+### Tools Used
+Bash, Read, Edit
+
+### Stats
+- Total user messages: 11
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

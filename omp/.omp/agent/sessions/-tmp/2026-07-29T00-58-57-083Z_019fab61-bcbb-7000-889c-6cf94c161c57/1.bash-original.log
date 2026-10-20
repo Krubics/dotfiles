@@ -1,0 +1,11 @@
+HERDR_ENV=1
+/home/krubics/.config/herdr
+/home/krubics/.config/herdr/herdr-client.log
+/home/krubics/.config/herdr/herdr-server.log
+/home/krubics/.local/state/herdr
+/home/krubics/.agents/skills/herdr
+/nix/store/q1ndmhl405xgwfqz0fs4zhgzm2q5nxg6-herdr-0.7.4-zig-deps.drv
+/nix/store/h3zzdgdcv5a607zi2jkmycnmc95daya5-herdr-0.7.4-vendor.drv
+/nix/store/y1y23bfm6cpp38zay4czhr6rq1nkmqdl-herdr-0.7.4-vendor-staging.drv
+/nix/store/4x6m0zb6fjmlfvyfazyn89ar87z08rm5-herdr-0.7.4
+/nix/store/ifrfcx5jr258h3g0762ig121ydxy9p5j-herdr-0.7.4.drv

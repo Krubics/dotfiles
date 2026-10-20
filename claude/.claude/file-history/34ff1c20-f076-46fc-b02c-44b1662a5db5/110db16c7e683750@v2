@@ -1,0 +1,132 @@
+{
+  "layer": "top",
+  "position": "top",
+  // 38px icon box (26px sprite + 2px padding + 4px margin, doubled) plus the
+  // .modules-* pill's own margin and padding. Waybar warns and overrides if
+  // this is under what the modules need.
+  "height": 56,
+  "spacing": 4,
+
+  "modules-left": [
+     "custom/clock-icon",
+     "custom/divider",
+     "clock"
+  ],
+  "modules-center": [
+    "hyprland/workspaces",
+    "custom/taskbar-divider",
+    "hyprland/workspaces#taskbar",
+  ],
+  "modules-right": [
+     "network#icon",
+     "network",
+     "custom/divider",
+     "bluetooth#icon",
+     "bluetooth",
+     "custom/divider",
+     "battery",
+     "custom/battery-icon"
+   ],
+
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "all-outputs": true,
+    "ignore-hidden": false,
+    "on-click": "activate",
+    "tooltip": false,
+  },
+
+  "custom/taskbar-divider": {
+    "exec": "/home/krubics/.config/waybar/scripts/workspace-tabs.sh",
+    "return-type": "json",
+    "restart-interval": 0,
+    "tooltip": false,
+  },
+
+  "custom/divider": {
+     "format": "│",
+     "tooltip": false,
+  },
+
+  "hyprland/workspaces#taskbar": {
+    "format": "{windows}",
+    "all-outputs": false,
+    "active-only": true,
+    "on-click": "activate",
+    "tooltip": false,
+    "workspace-taskbar": {
+      "enable": true,
+      "format": "{icon}",
+      "icon-size": 20,
+      "icon-theme": ["Papirus"],
+      "orientation": "horizontal",
+    },
+  },
+
+  "clock": {
+    "format": "{:%H:%M}",
+    "tooltip": false,
+    "tooltip-format": "{:%A, %B %d, %Y}",
+  },
+
+  // The sprites below are painted by style.css as background images. The " "
+  // format is a placeholder glyph for the background to paint behind; an empty
+  // format hides the module outright, which is what the disconnected and
+  // disabled cases rely on.
+  "custom/clock-icon": {
+    "format": " ",
+    "tooltip": false,
+  },
+
+  "network#icon": {
+    "interface": "wlo1",
+    "format": " ",
+    "format-wifi": " ",
+    "format-ethernet": " ",
+    "format-disconnected": "",
+    "tooltip": false,
+  },
+
+  "network": {
+    "interface": "wlo1",
+    "format": "{ifname}",
+    "format-wifi": "{signalStrength}%",
+    "format-ethernet": "{ifname} ",
+    "format-disconnected": "", //An empty format will hide the module.
+    "tooltip": false,
+    "tooltip-format": "{ifname}",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-ethernet": "{ifname} ",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50,
+  },
+
+  "bluetooth#icon": {
+    "format": " ",
+    "format-connected": " ",
+    "format-disabled": "",
+    "tooltip": false,
+  },
+
+  "battery": {
+    "format": "{capacity}%",
+    "tooltip": false,
+  },
+
+  "custom/battery-icon": {
+    "exec": "/home/krubics/.config/waybar/scripts/pickachu-battery.sh",
+    "return-type": "json",
+    "interval": 30,
+    "tooltip": false,
+  },
+
+  "bluetooth": {
+    "format": " {status}",
+    "format-disabled": "", // an empty format will hide the module
+    "format-connected": "{num_connections}C",
+    "tooltip": false,
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+  },
+}

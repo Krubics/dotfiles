@@ -6,47 +6,95 @@
       "custom_name": null,
       "identity_cwd": "/home/krubics/yin",
       "public_pane_numbers": {
-        "36": 94,
-        "4": 56,
-        "34": 92,
-        "5": 44,
-        "17": 77,
-        "35": 93,
-        "18": 78
+        "1": 56,
+        "2": 92,
+        "6": 98,
+        "12": 115,
+        "7": 101,
+        "10": 107,
+        "8": 97,
+        "11": 108,
+        "9": 104,
+        "4": 105,
+        "3": 77,
+        "5": 95
       },
-      "next_public_pane_number": 95,
+      "next_public_pane_number": 116,
       "public_tab_numbers": [
         24,
-        20,
         30,
         32,
-        33,
-        35
+        36,
+        39,
+        38,
+        40,
+        42,
+        43
       ],
-      "next_public_tab_number": 36,
+      "next_public_tab_number": 44,
       "tabs": [
         {
           "custom_name": "Yin Changes",
           "layout": {
-            "Pane": 4
+            "Pane": 1
           },
           "panes": {
-            "4": {
+            "1": {
               "cwd": "/home/krubics/yin"
             }
           },
           "zoomed": false,
-          "focused": 4,
-          "root_pane": 4
+          "focused": 1,
+          "root_pane": 1
         },
         {
-          "custom_name": "Revamp Keybindings",
+          "custom_name": "IRIS Debugging",
+          "layout": {
+            "Pane": 2
+          },
+          "panes": {
+            "2": {
+              "cwd": "/home/krubics"
+            }
+          },
+          "zoomed": false,
+          "focused": 2,
+          "root_pane": 2
+        },
+        {
+          "custom_name": "Skill Manager Installation",
+          "layout": {
+            "Split": {
+              "direction": "Horizontal",
+              "ratio": 0.5,
+              "first": {
+                "Pane": 3
+              },
+              "second": {
+                "Pane": 4
+              }
+            }
+          },
+          "panes": {
+            "3": {
+              "cwd": "/home/krubics"
+            },
+            "4": {
+              "cwd": "/home/krubics/dotfiles/home-manager/.config/home-manager"
+            }
+          },
+          "zoomed": false,
+          "focused": 3,
+          "root_pane": 3
+        },
+        {
+          "custom_name": "Hyprwhspr",
           "layout": {
             "Pane": 5
           },
           "panes": {
             "5": {
-              "cwd": "/tmp"
+              "cwd": "/home/krubics"
             }
           },
           "zoomed": false,
@@ -56,22 +104,42 @@
         {
           "custom_name": null,
           "layout": {
-            "Pane": 34
-          },
-          "panes": {
-            "34": {
-              "cwd": "/home/krubics",
-              "agent_session": {
-                "source": "herdr:omp",
-                "agent": "omp",
-                "kind": "path",
-                "value": "/home/krubics/.omp/agent/sessions/-tmp/2026-07-29T04-05-14-376Z_019fac0c-4a08-7000-87d5-0ae3aaf73496.jsonl"
+            "Split": {
+              "direction": "Horizontal",
+              "ratio": 0.55744684,
+              "first": {
+                "Pane": 6
+              },
+              "second": {
+                "Pane": 7
               }
             }
           },
+          "panes": {
+            "6": {
+              "cwd": "/home/krubics/.agents"
+            },
+            "7": {
+              "cwd": "/home/krubics"
+            }
+          },
           "zoomed": false,
-          "focused": 34,
-          "root_pane": 34
+          "focused": 7,
+          "root_pane": 6
+        },
+        {
+          "custom_name": "GTK4-LAYER-SHELL FIX",
+          "layout": {
+            "Pane": 8
+          },
+          "panes": {
+            "8": {
+              "cwd": "/home/krubics"
+            }
+          },
+          "zoomed": false,
+          "focused": 8,
+          "root_pane": 8
         },
         {
           "custom_name": null,
@@ -80,73 +148,73 @@
               "direction": "Horizontal",
               "ratio": 0.5,
               "first": {
-                "Pane": 17
+                "Pane": 9
               },
               "second": {
-                "Pane": 35
+                "Pane": 10
               }
             }
           },
           "panes": {
-            "35": {
-              "cwd": "/home/krubics"
+            "10": {
+              "cwd": "/home/krubics/.config/lyrics-tool"
             },
-            "17": {
-              "cwd": "/home/krubics",
+            "9": {
+              "cwd": "/tmp",
               "agent_session": {
                 "source": "herdr:omp",
                 "agent": "omp",
                 "kind": "path",
-                "value": "/home/krubics/.omp/agent/sessions/-tmp/2026-07-29T03-53-21-703Z_019fac01-6a27-7000-8313-0a9fd6864a1c.jsonl"
+                "value": "/home/krubics/.omp/agent/sessions/-tmp/2026-08-01T06-24-52-290Z_019fbbff-3442-7000-be2b-e0490cb8e8a7.jsonl"
               }
             }
           },
           "zoomed": false,
-          "focused": 17,
-          "root_pane": 17
+          "focused": 9,
+          "root_pane": 9
         },
         {
           "custom_name": null,
           "layout": {
-            "Pane": 18
+            "Pane": 11
           },
           "panes": {
-            "18": {
+            "11": {
               "cwd": "/home/krubics",
               "agent_session": {
                 "source": "herdr:omp",
                 "agent": "omp",
                 "kind": "path",
-                "value": "/home/krubics/.omp/agent/sessions/-tmp/2026-07-29T03-37-37-878Z_019fabf3-0356-7000-8889-73d814971500.jsonl"
+                "value": "/home/krubics/.omp/agent/sessions/-tmp/2026-08-05T15-20-11-029Z_019fd282-bc15-7000-bdae-b2d401a1aaf9.jsonl"
               }
             }
           },
           "zoomed": false,
-          "focused": 18,
-          "root_pane": 18
+          "focused": 11,
+          "root_pane": 11
         },
         {
           "custom_name": null,
           "layout": {
-            "Pane": 36
+            "Pane": 12
           },
           "panes": {
-            "36": {
-              "cwd": "/home/krubics",
+            "12": {
+              "cwd": "/tmp",
               "agent_session": {
                 "source": "herdr:omp",
                 "agent": "omp",
                 "kind": "path",
-                "value": "/home/krubics/.omp/agent/sessions/-tmp/2026-07-29T04-27-54-300Z_019fac21-0a3c-7000-817f-32b01bd61751.jsonl"
+                "value": "/home/krubics/.omp/agent/sessions/-tmp/2026-10-20T11-02-13-083Z_01a158f9-df5b-7000-afa5-e16800bcde28.jsonl"
               }
             }
           },
           "zoomed": false,
-          "focused": 36,
-          "root_pane": 36
+          "focused": 12,
+          "root_pane": 12
         }
       ],
-      "active_tab": 5
+      "active_tab": 8
     }
   ],
   "active": 0,

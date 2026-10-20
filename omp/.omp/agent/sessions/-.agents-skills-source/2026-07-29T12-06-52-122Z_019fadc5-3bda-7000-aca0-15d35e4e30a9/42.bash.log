@@ -1,0 +1,74 @@
+## Hooks
+
+Codex introduced hooks in v0.99.0 (AfterAgent) and v0.100.0 (AfterToolUse), then added an experimental hooks engine in v0.114.0 with `SessionStart` and `Stop` events.[70](#fn:72) **As of v0.124.0 (April 23, 2026), hooks are stable.**[85](#fn:162) They are now configurable inline in `config.toml` and `requirements.toml` — no more separate hook scripts file required — and they observe MCP tools alongside `apply_patch` and long-running Bash sessions. The system now covers session lifecycle and tool-level automation, closing the gap with Claude Code’s hook model.
+
+### Available Hook Events
+
+| Event | When It Fires | Added |
+| --- | --- | --- |
+| `SessionStart` | Once at the beginning of a session; hook stdout is injected as startup context before the first turn | v0.114.0 `[EXPERIMENTAL]` |
+| `Stop` | When the session ends | v0.114.0 `[EXPERIMENTAL]` |
+| `AfterAgent` | After the agent finishes a complete turn | v0.99.0 |
+| `AfterToolUse` | After each individual tool call completes | v0.100.0 |
+| `UserPromptSubmit` | Before a user prompt is executed; can block or augment the prompt before it enters history | v0.116.0 `[EXPERIMENTAL]` |
+
+### Hook Configuration
+
+Hooks are configured in `.codex/config.toml`:
+
+    [[hooks]]
+    event = "AfterToolUse"
+    command = "echo 'Tool completed' >> /tmp/codex-log.txt"
+
+    [[hooks]]
+    event = "SessionStart"
+    command = "echo 'Current date: $(date +%Y-%m-%d)'"
+
+The `SessionStart` hook’s stdout feeds into the model’s context, making it ideal for injecting dynamic information (dates, branch names, environment variables) at session start.
+
+### Replicating Claude Code Hook Patterns
+
+If migrating from Claude Code, here’s how to achieve similar automation:
+
+| Claude Code Pattern | Codex Alternative |
+| --- | --- |
+| `PreToolUse` file blocking | AGENTS.md instructions + sandbox `read-only` mode |
+| `PostToolUse` linting | `AfterToolUse` hook running your linter |
+| `SessionStart` context injection | `SessionStart` hook (v0.114.0) with stdout injection |
+| `Stop` notification | `Stop` hook (v0.114.0) with notification command |
+| `SubagentStop` notification | `AfterAgent` hook with notification script |
+| Async hooks | Not yet supported; use Cloud tasks for background work |
+
+> **Expert tip:** As of v0.124.0 (April 23, 2026) the hooks engine is **stable**. New hook events still ship in releases — check the [Codex changelog](https://github.com/openai/codex/releases).
+>
+> **In-TUI hook browser (v0.129.0):** Run `/hooks` in the TUI to discover available hooks, see which are currently active, and toggle individual hooks without editing `config.toml`. Useful when troubleshooting a misbehaving plugin-bundled hook or temporarily disabling an `AfterToolUse` linter for a heads-down editing session.[89](#fn:166)
+---
+
+## What Is MCP (Model Context Protocol)? `[EXPERIMENTAL]`
+
+MCP extends Codex’s capabilities by connecting to external tools and services. The `codex mcp` command group is currently marked **experimental**, and commands and config format may change between releases. Codex supports two transport types: STDIO (local processes) and Streamable HTTP (remote servers).[11](#fn:12)
+> **v0.121.0 MCP changes:** Tools are now registered with a **namespace**, so tool names in listings appear as `<server>:<tool>` rather than bare names — update any scripts or prompts that grep against unqualified tool names. A new `supports_parallel_tool_calls` flag is plumbed through to included MCPs, enabling parallel execution for servers that declare support. Sandbox-state metadata now flows through MCP tool metadata so servers can adapt behavior (e.g., warn if running under a read-only sandbox). The custom `codex/sandbox-state` request has been **removed** — use the metadata path instead. Phase 3 of the MCP Apps rollout lands here with tool-call support; flattened deferred tool calls are now supported for servers using the deferred-call pattern.[82](#fn:151)
+>
+> **v0.142.2 MCP changes (June 25, 2026):** MCP tools now use **tool search by default when supported** — instead of loading every tool definition upfront, Codex discovers tools on demand, improving discovery in tool-heavy setups while staying compatible with older models and providers. Remote stdio MCP servers also accept absolute working directories written in the remote platform’s path format (a Windows-style path from a macOS client, or vice versa).[105](#fn:187)
+
+### Configuring MCP Servers
+
+**STDIO servers** (local processes):
+
+    # In ~/.codex/config.toml or .codex/config.toml
+
+    [mcp_servers.context7]
+    enabled = true
+    required = true                         # Fail startup if unavailable
+    command = "npx"
+    args = ["-y", "@upstash/context7-mcp"]
+    env = { "MY_VAR" = "value" }            # Static env vars
+    env_vars = ["PATH", "HOME"]             # Forward host env vars
+    cwd = "/path/to/project"                # Optional working directory
+    startup_timeout_sec = 10
+    tool_timeout_sec = 60
+    enabled_tools = ["search", "summarize"]  # Tool allowlist
+    disabled_tools = ["slow-tool"]           # Tool denylist
+
+**HTTP servers** (remote):
+

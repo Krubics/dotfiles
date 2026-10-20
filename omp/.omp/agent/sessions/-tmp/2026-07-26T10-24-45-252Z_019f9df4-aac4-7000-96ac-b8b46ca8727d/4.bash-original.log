@@ -1,0 +1,8 @@
+● xremap.service - Xremap
+     Loaded: loaded (/home/krubics/.config/systemd/user/xremap.service; enabled; preset: enabled)
+     Active: active (running) since Sun 2026-07-26 23:23:43 +08; 1s ago
+   Main PID: 1017584 (xremap)
+      Tasks: 1 (limit: 16254)
+     Memory: 3.5M (high: 8.0M max: 16.0M available: 4.4M peak: 3.8M)
+        CPU: 4ms
+     CGroup: /user.slice/user-1000.slice/user@1000.service/app.slice/xremap.service

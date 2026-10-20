@@ -1,0 +1,755 @@
+URL: https://ntorres.dev/blog/cursor-hooks-json-guide
+Content-Type: text/markdown
+Method: md-suffix
+Notes: Found .md suffix version
+
+---
+
+---
+date: 06/07/2026
+title: "Customize Agent Workflows with Hooks"
+description: "Use hooks.json to intercept, block, and extend what Cursor and Claude Code agents do: shell gating, auto-formatting, audit logs, and more."
+image: card.png
+draft: false
+categories:
+  - ai
+  - cursor
+  - engineering
+---
+
+If you've used git hooks, you already understand the idea. A commit hook runs your linter before code lands in history. A pre-push hook blocks you from pushing to `main` by mistake. The hook doesn't replace git. It sits on the lifecycle and enforces policy.
+
+**Cursor hooks** do the same thing for AI coding agents. They fire when the agent reads a file, runs a shell command, calls an MCP tool, edits code, or spawns a subagent. You can log what happened, rewrite the request, or block it entirely.
+
+Rules tell the model what you want. Skills package reusable instructions. **Hooks are the only one that can actually stop the agent from doing something.**
+
+This post is a practical guide to `hooks.json`: what it is, how to create hooks in Cursor and Claude Code, how the schema works, copy-paste recipes, and how the two platforms compare.
+
+---
+
+## How to create hooks
+
+Neither platform hides hooks behind a single magic command. The workflows differ.
+
+### Cursor
+
+Cursor does not have Claude's `/hooks` browser. It has **`/create-hook`**, a built-in Agent skill you invoke as a slash command. Describe what you want ("block `rm -rf`, auto-format after edits") and it scaffolds `.cursor/hooks.json` plus the hook scripts.
+
+Other ways to add hooks:
+
+| Method | What it does |
+|--------|--------------|
+| **`/create-hook`** | Fastest path. Agent skill that writes `hooks.json` and scripts from a plain-language request. |
+| **Write `.cursor/hooks.json` by hand** | Full control. Create the JSON and scripts under `.cursor/hooks/`, then `chmod +x` them. |
+| **Customize > Hooks** | Settings gear → Customize → Hooks tab. Inspect loaded hooks and debug execution. Pair with the **Hooks** output channel (Cmd+Shift+P → "Hooks"). |
+| **Enterprise / team dashboard** | Enterprise admins configure hooks at [cursor.com/dashboard](https://cursor.com/dashboard/team-content?section=hooks). Synced to all team machines. |
+| **Plugins** | Hooks can ship inside Cursor plugins from the marketplace. |
+| **Reuse Claude Code hooks** | Enable third-party skills in Cursor Settings. Existing `.claude/settings.json` hooks are auto-mapped to Cursor event names ([third-party hooks docs](https://cursor.com/docs/reference/third-party-hooks)). |
+
+Project hooks live at `.cursor/hooks.json` (committed to git). User hooks live at `~/.cursor/hooks.json` (machine-wide).
+
+### Claude Code
+
+Claude Code has **`/hooks`**, a slash command that opens a **read-only browser**. It lists configured hooks by event, shows matchers, commands, and source files. Per the [official guide](https://code.claude.com/docs/en/hooks-guide): "The `/hooks` menu is read-only. To add, modify, or remove hooks, edit your settings JSON directly or ask Claude to make the change."
+
+To create hooks:
+
+| Method | What it does |
+|--------|--------------|
+| **Edit `settings.json`** | Add a `"hooks"` block to `~/.claude/settings.json` (user-wide) or `.claude/settings.json` (project, shareable via git). |
+| **Ask Claude** | Describe the policy in the CLI. Claude can write the hook JSON and script files for you. |
+| **`/hooks`** | Inspect what's configured. Read-only. |
+| **Plugins** | Plugins can bundle `hooks/hooks.json`. |
+| **Skill / agent frontmatter** | Hooks can also live in a skill or subagent definition while that component is active. |
+| **Managed settings** | Enterprise admins deploy hooks via managed policy; `allowManagedHooksOnly` can block user/project hooks. |
+
+Hook config can also live in `.claude/settings.local.json` (project-local, gitignored).
+
+Claude's schema is nested (event → matcher group → handler array). Cursor's is flatter (event → array of hook entries with `command` and `matcher` on the same object). Same concept, different JSON shape.
+
+---
+
+## Git hooks, but for your agent
+
+An AI coding session is a stream of actions: read files, run terminals, edit code, call external tools. Most of that is useful. Some of it is dangerous (`rm -rf`, piping `curl` to `bash`), noisy (unformatted diffs), or policy-sensitive (reading `.env` files into context).
+
+Without hooks, your only levers are:
+
+- **Prompting** ("please don't run destructive commands")
+- **Rules** (`.cursor/rules`, always-on instructions)
+- **Manual review** (watching every tool call)
+
+Prompting and rules are soft guardrails. The model can ignore them under pressure, context compaction, or a cleverly phrased task. Hooks are hard guardrails. They run outside the model, on every matching event, before the action completes.
+
+Cursor shipped hooks in 2024 and has iterated heavily since. As of 2026, it remains the most mature **editor-integrated** hook system, with deep Tab, Agent, and workspace lifecycle coverage. Claude Code has caught up on the **CLI agent loop** side with a larger raw event count.
+
+Official docs: [cursor.com/docs/agent/hooks](https://cursor.com/docs/agent/hooks)
+
+**Hook priority** (highest wins on conflict): Enterprise → Team → Project → User. Enterprise paths include `/Library/Application Support/Cursor/hooks.json` (macOS) and `/etc/cursor/hooks.json` (Linux).
+
+---
+
+## Rules, Skills, and Hooks
+
+These three features overlap in conversation, but they solve different problems.
+
+| Feature | What it does | Can it block? |
+|---------|--------------|---------------|
+| **Rules** | Inject coding conventions and project context into the system prompt | No |
+| **Skills** | Reusable, shareable instruction packs the agent can invoke | No |
+| **Hooks** | Run scripts or prompt checks at lifecycle events | **Yes** |
+
+Rules are great for "we use `pnpm`, not `npm`" or "follow this API pattern." Skills are great for repeatable workflows ("use this skill when creating a PR"). Hooks are for "if the agent tries to `curl | bash`, deny it" or "after every file edit, run Prettier."
+
+![Rules, Skills, and Hooks: only hooks can block agent actions](rules-skills-hooks.png)
+
+Think of it this way: rules shape *intent*. Hooks shape *permission*.
+
+---
+
+## The hooks.json schema
+
+Create `.cursor/hooks.json` in your project (or `~/.cursor/hooks.json` for user-wide hooks). Project hooks are checked into git and shared with the team. User hooks apply to every repo on your machine.
+
+The current schema (version 1) keys events by name:
+
+```json
+{
+  "version": 1,
+  "hooks": {
+    "beforeShellExecution": [
+      {
+        "command": ".cursor/hooks/approve-network.sh",
+        "matcher": "curl|wget|nc ",
+        "failClosed": true,
+        "timeout": 10
+      }
+    ],
+    "afterFileEdit": [
+      {
+        "command": ".cursor/hooks/format.sh"
+      }
+    ]
+  }
+}
+```
+
+**Key fields per hook entry:**
+
+| Field | Description |
+|-------|-------------|
+| `command` | Path to a script (command hooks) |
+| `type` | `"command"` (default) or `"prompt"` (LLM-evaluated policy) |
+| `matcher` | JavaScript regex string; hook only runs when the event payload matches |
+| `failClosed` | If `true`, hook crash/timeout blocks the action; default is fail-open |
+| `timeout` | Max seconds before the hook is killed |
+| `loop_limit` | Auto-disable after N invocations. Default is `5` for `stop` and `subagentStop`; set `null` for no limit |
+
+**Path rules:**
+
+- Project hooks: commands relative to repo root (`.cursor/hooks/my-hook.sh`)
+- User hooks: commands relative to `~/.cursor/` (`./hooks/my-hook.sh`)
+
+Cursor watches `hooks.json` and reloads on save. If hooks don't appear, restart Cursor and check the **Hooks** output channel (Cmd+Shift+P → "Hooks").
+
+### Events you can hook
+
+Cursor exposes hooks across the full agent lifecycle. The ones you'll use most:
+
+**Session:** `sessionStart`, `sessionEnd`, `stop`, `preCompact`
+
+**Tools:** `preToolUse`, `postToolUse`, `postToolUseFailure`, `beforeSubmitPrompt`
+
+**Shell:** `beforeShellExecution`, `afterShellExecution`
+
+**Files:** `beforeReadFile`, `afterFileEdit`
+
+**MCP:** `beforeMCPExecution`, `afterMCPExecution`
+
+**Subagents:** `subagentStart`, `subagentStop`
+
+**Agent output:** `afterAgentResponse`, `afterAgentThought`
+
+**Tab (inline completions):** `beforeTabFileRead`, `afterTabFileEdit`
+
+**App lifecycle:** `workspaceOpen` (fires when a workspace opens or folders change; can return plugin paths to load)
+
+Use the narrowest event. If you only care about shell commands, use `beforeShellExecution`, not `preToolUse`.
+
+### Cloud agents
+
+[Cloud agents](https://cursor.com/agents) run **project** hooks from `.cursor/hooks.json` in your repo. They do **not** see user-level `~/.cursor/hooks.json`. Command hooks work; prompt hooks do not (no auth wiring in the cloud VM). Several events are IDE-only and do not fire in cloud agents: `sessionStart`, `sessionEnd`, `beforeSubmitPrompt`, Tab hooks, `workspaceOpen`, and (currently) `beforeMCPExecution`, `afterMCPExecution`, `stop`, `afterAgentResponse`, `afterAgentThought`.
+
+### Command hooks: stdin and stdout
+
+Command hooks receive JSON on stdin and may return JSON on stdout.
+
+**Exit codes:**
+
+- `0` = success
+- `2` = block (same as returning `permission: "deny"`)
+- Other non-zero = fail open unless `failClosed: true`
+
+**Blocking events** (`beforeShellExecution`, `beforeMCPExecution`, `preToolUse`, `subagentStart`) return:
+
+```json
+{
+  "permission": "allow",
+  "user_message": "Optional message shown to you",
+  "agent_message": "Optional message injected for the agent"
+}
+```
+
+`permission` can be `"allow"`, `"ask"`, or `"deny"`.
+
+**`preToolUse`** can also return `updated_input` to rewrite the tool call before it runs.
+
+**`postToolUse`** can return `additional_context` (and `updated_mcp_tool_output` for MCP tools).
+
+**`subagentStop`** can return `followup_message` to chain subagent loops.
+
+### Prompt hooks
+
+For policies that are easier to describe than to script, use `"type": "prompt"`:
+
+```json
+{
+  "version": 1,
+  "hooks": {
+    "beforeShellExecution": [
+      {
+        "type": "prompt",
+        "prompt": "Does this command look safe? Only allow read-only operations. Hook input: $ARGUMENTS",
+        "timeout": 10
+      }
+    ]
+  }
+}
+```
+
+Prompt hooks are flexible. Command hooks are deterministic and auditable. For security policy, prefer command hooks.
+
+### Matchers
+
+Matchers filter when a hook runs. They use **JavaScript regex**, not POSIX/grep syntax. Use `\s` not `[[:space:]]`.
+
+| Event | Matcher matches against |
+|-------|-------------------------|
+| `beforeShellExecution` | Full shell command string |
+| `preToolUse` / `postToolUse` | Tool name (`Shell`, `Read`, `Write`, `Task`, `MCP: ...`) |
+| `beforeReadFile` | Tool type (`Read`, `TabRead`) |
+| `afterFileEdit` | Tool type (`Write`, `TabWrite`) |
+| `subagentStart` / `subagentStop` | Subagent type (`explore`, `shell`, `generalPurpose`, ...) |
+| `beforeSubmitPrompt` | `UserPromptSubmit` |
+
+If a matcher is tricky, get the hook working without one first, then tighten it.
+
+---
+
+## Hook recipes you can copy today
+
+Each recipe includes the `hooks.json` entry and a hook script. Put scripts in `.cursor/hooks/` and `chmod +x` them. Recipes 1-5 are the essentials; 6-8 come from [official Cursor docs](https://cursor.com/docs/agent/hooks).
+
+### 1. Block dangerous shell commands
+
+The most common first hook. Stop the agent from running obviously destructive patterns.
+
+**`.cursor/hooks.json`:**
+
+```json
+{
+  "version": 1,
+  "hooks": {
+    "beforeShellExecution": [
+      {
+        "command": ".cursor/hooks/block-dangerous.sh",
+        "matcher": "rm\\s+-rf|curl.*\\|\\s*bash|wget.*\\|\\s*sh",
+        "failClosed": true
+      }
+    ]
+  }
+}
+```
+
+**`.cursor/hooks/block-dangerous.sh`:**
+
+```bash
+#!/bin/bash
+input=$(cat)
+command=$(echo "$input" | jq -r '.command // empty')
+
+echo "{
+  \"permission\": \"deny\",
+  \"user_message\": \"Blocked by project hook: $command\",
+  \"agent_message\": \"A beforeShellExecution hook denied this shell command. Choose a safer alternative.\"
+}"
+exit 0
+```
+
+Set `failClosed: true` so a crashed script blocks execution rather than silently passing through.
+
+### 2. Auto-format after every file edit
+
+Agents produce working code with inconsistent formatting. Run Prettier (or your formatter) on every write.
+
+**`.cursor/hooks.json`:**
+
+```json
+{
+  "version": 1,
+  "hooks": {
+    "afterFileEdit": [
+      {
+        "command": ".cursor/hooks/format.sh"
+      }
+    ]
+  }
+}
+```
+
+**`.cursor/hooks/format.sh`:**
+
+```bash
+#!/bin/bash
+input=$(cat)
+file=$(echo "$input" | jq -r '.file_path // .filePath // empty')
+
+if [ -n "$file" ] && [ -f "$file" ]; then
+  npx prettier --write "$file" 2>/dev/null || true
+fi
+
+exit 0
+```
+
+`afterFileEdit` hooks don't need to return JSON if they're side-effect only. The agent already wrote the file; you're post-processing it.
+
+### 3. Secret scanning before file reads
+
+Keep `.env`, keys, and credential files out of the agent's context.
+
+**`.cursor/hooks.json`:**
+
+```json
+{
+  "version": 1,
+  "hooks": {
+    "beforeReadFile": [
+      {
+        "command": ".cursor/hooks/block-secrets.sh",
+        "matcher": "\\.(env|pem|key)$|credentials",
+        "failClosed": true
+      }
+    ]
+  }
+}
+```
+
+**`.cursor/hooks/block-secrets.sh`:**
+
+```bash
+#!/bin/bash
+input=$(cat)
+path=$(echo "$input" | jq -r '.file_path // .filePath // .path // empty')
+
+echo "{
+  \"permission\": \"deny\",
+  \"user_message\": \"Reading sensitive file blocked: $path\",
+  \"agent_message\": \"This file may contain secrets. Do not read it into context. Use environment variables or a secrets manager instead.\"
+}"
+exit 0
+```
+
+For production, swap the simple path matcher for a `gitleaks` or `trufflehog` scan. The hook pattern is the same: read stdin, return `permission: deny` if policy fails.
+
+### 4. Audit log every tool call
+
+Observability for compliance, debugging, or "what did the agent actually do today?"
+
+**`.cursor/hooks.json`:**
+
+```json
+{
+  "version": 1,
+  "hooks": {
+    "preToolUse": [
+      {
+        "command": ".cursor/hooks/audit-log.sh",
+        "failClosed": false
+      }
+    ],
+    "postToolUse": [
+      {
+        "command": ".cursor/hooks/audit-log.sh",
+        "failClosed": false
+      }
+    ]
+  }
+}
+```
+
+**`.cursor/hooks/audit-log.sh`:**
+
+```bash
+#!/bin/bash
+input=$(cat)
+log_dir=".cursor/hooks/audit"
+mkdir -p "$log_dir"
+
+echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) $input" >> "$log_dir/tool-calls.jsonl"
+exit 0
+```
+
+Add `audit/` to `.gitignore` if you don't want logs in version control. For team-wide audit trails, pipe to stdout and ship to your log aggregator from a wrapper script.
+
+`failClosed: false` here is intentional. Logging should never block the agent.
+
+### 5. Subagent loop guard
+
+Subagents are powerful and easy to overuse. `loop_limit` disables a hook after N firings per session. Pair it with logging on `subagentStop`:
+
+**`.cursor/hooks.json`:**
+
+```json
+{
+  "version": 1,
+  "hooks": {
+    "subagentStop": [
+      {
+        "command": ".cursor/hooks/log-subagent.sh",
+        "loop_limit": 50
+      }
+    ]
+  }
+}
+```
+
+**`.cursor/hooks/log-subagent.sh`:**
+
+```bash
+#!/bin/bash
+input=$(cat)
+log_dir=".cursor/hooks/audit"
+mkdir -p "$log_dir"
+
+echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) subagentStop $input" >> "$log_dir/subagents.jsonl"
+exit 0
+```
+
+If you're building chained subagent workflows, `subagentStop` can also return a `followup_message` to continue the loop programmatically. Use `loop_limit` as a circuit breaker so a runaway chain doesn't burn your quota.
+
+### 6. Redirect raw `git` to `gh` (official Cursor example)
+
+Cursor's docs include a `beforeShellExecution` hook that blocks raw `git` commands and asks permission for `gh`. Useful when you want the agent on GitHub CLI, not ad-hoc git.
+
+**`.cursor/hooks.json`:**
+
+```json
+{
+  "version": 1,
+  "hooks": {
+    "beforeShellExecution": [
+      {
+        "command": ".cursor/hooks/block-git.sh",
+        "matcher": "git|gh "
+      }
+    ]
+  }
+}
+```
+
+**`.cursor/hooks/block-git.sh`:**
+
+```bash
+#!/bin/bash
+input=$(cat)
+command=$(echo "$input" | jq -r '.command // empty')
+
+if [[ "$command" =~ git[[:space:]] ]] || [[ "$command" == "git" ]]; then
+  cat <<EOF
+{
+  "permission": "deny",
+  "user_message": "Git command blocked. Use the gh tool instead.",
+  "agent_message": "Raw git is blocked by project policy. Use gh for GitHub operations."
+}
+EOF
+  exit 0
+fi
+
+if [[ "$command" =~ gh[[:space:]] ]] || [[ "$command" == "gh" ]]; then
+  cat <<EOF
+{
+  "permission": "ask",
+  "user_message": "GitHub CLI command requires approval: $command"
+}
+EOF
+  exit 0
+fi
+
+echo '{"permission": "allow"}'
+exit 0
+```
+
+### 7. Gate `kubectl apply` to production namespaces
+
+From Cursor's official kube guard example. Requires `pip install pyyaml`.
+
+**`.cursor/hooks.json`:**
+
+```json
+{
+  "version": 1,
+  "hooks": {
+    "beforeShellExecution": [
+      {
+        "command": "python3 .cursor/hooks/kube_guard.py",
+        "matcher": "kubectl"
+      }
+    ]
+  }
+}
+```
+
+**`.cursor/hooks/kube_guard.py`:** (abbreviated; full version in [Cursor docs](https://cursor.com/docs/agent/hooks))
+
+```python
+#!/usr/bin/env python3
+import json, shlex, sys
+from pathlib import Path
+
+SENSITIVE = {"prod", "production"}
+
+payload = json.load(sys.stdin)
+command = payload.get("command", "")
+response = {"permission": "allow"}
+
+args = shlex.split(command)
+if len(args) < 4 or args[0] != "kubectl" or args[1] != "apply":
+    print(json.dumps(response)); sys.exit(0)
+
+# If manifest or -n flag targets prod, require human approval
+if "prod" in command.lower():
+    response.update({
+        "permission": "ask",
+        "user_message": "kubectl apply touching prod requires manual approval."
+    })
+
+print(json.dumps(response))
+```
+
+### 8. Inject context at session start
+
+Use `sessionStart` to prime the agent with sprint notes, test commands, or repo conventions. Fire-and-forget: the agent does not block on your script.
+
+**`.cursor/hooks.json`:**
+
+```json
+{
+  "version": 1,
+  "hooks": {
+    "sessionStart": [
+      {
+        "command": ".cursor/hooks/session-context.sh"
+      }
+    ]
+  }
+}
+```
+
+**`.cursor/hooks/session-context.sh`:**
+
+```bash
+#!/bin/bash
+# sessionStart hooks can return additional_context on stdout
+cat <<EOF
+{
+  "additional_context": "Project conventions: use pnpm not npm. Run pnpm test before committing. Current branch policy: no direct pushes to main."
+}
+EOF
+exit 0
+```
+
+### Claude Code equivalents
+
+The same policies work in Claude Code with different event names and nested JSON. Examples from [code.claude.com/docs/en/hooks-guide](https://code.claude.com/docs/en/hooks-guide):
+
+| Goal | Cursor event | Claude Code event |
+|------|--------------|-------------------|
+| Block dangerous shell | `beforeShellExecution` | `PreToolUse` matcher `Bash` |
+| Auto-format after edit | `afterFileEdit` | `PostToolUse` matcher `Edit\|Write` |
+| Desktop notification | N/A (IDE handles this) | `Notification` |
+| Re-inject context after compaction | `preCompact` (observe) | `SessionStart` matcher `compact` |
+| Scan prompts for PII | `beforeSubmitPrompt` | `UserPromptSubmit` |
+
+Claude `PreToolUse` blocking uses exit code `2` (stderr message) **or** exit `0` with structured JSON:
+
+```json
+{
+  "hookSpecificOutput": {
+    "hookEventName": "PreToolUse",
+    "permissionDecision": "deny",
+    "permissionDecisionReason": "Use a safer alternative."
+  }
+}
+```
+
+Do not mix both in one hook. Claude Code ignores JSON when you exit `2`.
+
+**Claude notification hook** (macOS):
+
+```json
+{
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "osascript -e 'display notification \"Claude needs input\" with title \"Claude Code\"'"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+Add to `.claude/settings.json`. Run `/hooks` to verify it registered. Edit the JSON to change it; `/hooks` will not let you modify hooks in place.
+
+---
+
+## Claude Code hooks: richer events, different JSON
+
+[Claude Code](https://code.claude.com/docs/en/hooks-guide) ships a full hook system for the CLI agent loop. The [official reference](https://code.claude.com/docs/en/hooks.md) documents events across the full lifecycle, including:
+
+| Event | Fires when |
+|-------|-----------|
+| `SessionStart` | Session begins, resumes, clears, or compacts |
+| `UserPromptSubmit` | Before your prompt is processed |
+| `PreToolUse` / `PostToolUse` / `PostToolUseFailure` | Around tool execution |
+| `PermissionRequest` / `PermissionDenied` | Permission dialog flow |
+| `Notification` | Claude needs your attention |
+| `SubagentStart` / `SubagentStop` | Subagent lifecycle |
+| `Stop` / `StopFailure` | Turn completion or API error |
+| `PreCompact` / `PostCompact` | Context compaction |
+| `ConfigChange` | Settings file changes mid-session |
+| `CwdChanged` / `FileChanged` | Directory or watched file changes |
+
+Claude supports five handler types: `command` (shell), `http` (POST to a URL), `mcp_tool` (call a connected MCP tool), `prompt` (single-turn LLM evaluation), and `agent` (multi-turn verification, experimental). Cursor supports command and prompt hooks.
+
+When multiple hooks match the same event, Claude runs them **in parallel** and merges results. For `PreToolUse` permission decisions, the most restrictive answer wins: `deny` beats `defer` beats `ask` beats `allow`.
+
+**Configuration:** Hooks live in `settings.json` under a `"hooks"` key, not a separate `hooks.json`. Project hooks: `.claude/settings.json`. User hooks: `~/.claude/settings.json`.
+
+**Enterprise controls:** `allowManagedHooksOnly`, `strictPluginOnlyCustomization`, and managed-settings deployment let admins lock down hook sources.
+
+**Schema shape** (three levels deep):
+
+```json
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/guard.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+**Blocking:** Exit `2` with a stderr message, or exit `0` with `hookSpecificOutput.permissionDecision: "deny"`. Never mix both. A `PreToolUse` deny blocks the tool even in `bypassPermissions` mode.
+
+**Comparison:**
+
+| Aspect | Cursor | Claude Code |
+|--------|--------|-------------|
+| Config file | `.cursor/hooks.json` | `settings.json` inline |
+| Create via slash command | `/create-hook` (scaffolds hooks) | No create command |
+| Inspect via slash command | Customize > Hooks tab | `/hooks` (read-only browser) |
+| Documented events | ~20 agent + Tab + workspace | Full lifecycle (see [reference](https://code.claude.com/docs/en/hooks.md)) |
+| Schema | Flat per hook entry | Nested matcher groups |
+| Matchers | Single regex per entry | Matcher + optional `if` filter on args |
+| `failClosed` | Per-hook boolean | Fail-open default; exit 2 blocks |
+| Plugin hooks | Via Cursor plugins | Via plugin `hooks/hooks.json` |
+| Third-party import | Reads Claude hooks when enabled | N/A |
+| HTTP / MCP / agent hook types | Command + prompt only | command, http, mcp_tool, prompt, agent |
+
+Cursor is stronger on IDE integration: Tab hooks, `workspaceOpen`, cloud agent pickup from repo-level config. Claude Code goes deeper on the CLI loop: notifications, compaction hooks, permission events, and HTTP/MCP hook types. Same idea, different runtimes.
+
+---
+
+## The rest of the ecosystem
+
+Most AI coding tools still lack a formal hook API:
+
+| Tool | Hooks? | Notes |
+|------|--------|-------|
+| **Cursor** | Yes | `hooks.json`, 20+ events, blocking |
+| **Claude Code** | Yes | `settings.json`, `/hooks` inspector, ask Claude to write hooks |
+| **Windsurf** | No | Rules (`.windsurfrules`) only |
+| **Cline** | No | `.clinerules` + custom MCP middleware |
+| **GitHub Copilot** | No | VS Code extension API, not agent lifecycle |
+| **Aider** | No | `.aider.conf.yml` conventions |
+| **OpenCode** | No | CLI flags and env vars |
+
+The gap matters for teams evaluating AI coding tools. Rules scale advice. Hooks scale **policy**. If your security team needs "the agent cannot exfiltrate secrets" to be enforceable, not aspirational, you need hooks or something equivalent.
+
+---
+
+## Debugging and gotchas
+
+**Where to look:** Cmd+Shift+P → "Hooks" opens the output channel. Hook stderr lands there. There is no interactive debugger; log liberally inside your scripts.
+
+**Common failures:**
+
+- **Wrong path.** Project hooks use `.cursor/hooks/...` from repo root. User hooks use `./hooks/...` from `~/.cursor/`.
+- **Missing shebang or execute bit.** Scripts need `#!/bin/bash` and `chmod +x`.
+- **Missing dependencies.** If your script calls `jq`, verify it's on `$PATH` in the hook environment. Don't assume.
+- **Matcher syntax.** JavaScript regex, not grep. Start without a matcher, confirm the hook fires, then add filtering.
+- **Timeout.** Default is a few seconds. Long hooks get killed; a killed hook with `failClosed: true` blocks the agent.
+- **Circular invocations.** A hook that shells out to `cursor` CLI can recurse. Use `loop_limit`.
+- **Windows.** Shebang scripts won't work; use `.bat`/`.cmd` or explicit interpreters.
+
+**Fail open vs fail closed:** Default is fail-open (hook error → log and continue). Security hooks should set `failClosed: true`. Observability hooks should stay fail-open.
+
+**Schema mix-ups:** Cursor and Claude use different JSON shapes. Cursor keys events in `hooks.json` with a flat array of `{ "command", "matcher" }` objects. Claude nests matcher groups with a `"hooks"` array inside each group. Copy-pasting Claude examples into `.cursor/hooks.json` without translating the structure is a common source of silent failures.
+
+**`PostToolUse` is not an undo button.** The tool has already run. Use `PreToolUse`, `beforeShellExecution`, or `beforeReadFile` when you need to block.
+
+**Shell gating:** For Cursor, prefer `beforeShellExecution` over `preToolUse` when you only care about terminal commands. The `permission: "ask"` field on `preToolUse` is in the schema but not fully enforced today.
+
+**Cross-platform hooks:** If you use both tools, enable third-party skills in Cursor to pick up existing `.claude/settings.json` hooks. Event names map automatically (`PreToolUse` → `preToolUse`). For full control, maintain a native `.cursor/hooks.json` alongside Claude config.
+
+---
+
+## When to add hooks to your repo
+
+Start here:
+
+1. **`beforeShellExecution`** with a dangerous-command blocklist (recipe 1)
+2. **`afterFileEdit`** with your formatter (recipe 2)
+3. **`beforeReadFile`** if you have secrets in the repo (recipe 3)
+
+Add audit logging when you need compliance or post-incident review. Add subagent guards when you start chaining Task agents. Consider recipes 6-8 for git policy, Kubernetes guardrails, and session context.
+
+Check `.cursor/hooks.json` into git. Document what each hook does in a short README in `.cursor/hooks/`. Review hooks in PRs the same way you'd review CI config.
+
+Rules tell the agent how to write code. Hooks define what it's allowed to do. For production AI coding, you want both.
+
+---
+
+## Sources
+
+- [Cursor Hooks documentation](https://cursor.com/docs/agent/hooks)
+- [Cursor third-party hooks (Claude compatibility)](https://cursor.com/docs/reference/third-party-hooks)
+- [Cursor changelog](https://www.cursor.com/changelog)
+- [Claude Code hooks guide](https://code.claude.com/docs/en/hooks-guide)
+- [Claude Code hooks reference](https://code.claude.com/docs/en/hooks.md)
+- [Claude Code settings](https://docs.anthropic.com/en/docs/claude-code/settings)
+- [Model Context Protocol](https://modelcontextprotocol.io/)

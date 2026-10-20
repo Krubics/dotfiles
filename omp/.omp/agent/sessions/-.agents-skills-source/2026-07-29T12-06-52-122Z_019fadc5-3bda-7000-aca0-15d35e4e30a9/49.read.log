@@ -1,0 +1,338 @@
+URL: https://github.com/openai/codex/issues/26828
+Content-Type: text/markdown
+Method: github-issue
+Notes: Fetched via GitHub API
+
+---
+
+# Custom subagent roles not exposed in spawn_agent schema on Windows/Ubuntu, only default spawn available
+
+**#26828** · closed · opened by @antoinezambelli
+Created: 2026-06-06T21:53:55Z · Updated: 2026-07-06T08:48:30Z
+Labels: bug, windows-os, CLI, subagent
+
+---
+
+### What version of Codex CLI is running?
+
+codex-cli 0.137.0
+
+### What subscription do you have?
+
+Pro
+
+### Which model were you using?
+
+gpt-5.5
+
+### What platform is your computer?
+
+Microsoft Windows NT 10.0.26200.0 x64
+
+### What terminal emulator and version are you using (if applicable)?
+
+Windows Terminal
+
+### Codex doctor report
+
+```json
+Codex Doctor v0.137.0 · windows-x86_64
+
+Environment
+  ✓ system       en-US
+      os                       Windows 10.0.26200 (Windows 11 Core) [64-bit]
+      OS language              en-US
+  ✓ runtime      standalone (windows, package C:\Users\antoi\.codex\packages\standalone\releases\0.137.0-x86_64-pc-windows-msvc, bin C:\Users\antoi\.codex\packages\standalone\releases\0.137.0-x86_64-pc-windows-msvc\bin, resources C:\Users\antoi\.codex\packages\standalone\releases\0.137.0-x86_64-pc-windows-msvc\codex-resources, path C:\Users\antoi\.codex\packages\standalone\releases\0.137.0-x86_64-pc-windows-msvc\codex-path)
+      version                  0.137.0
+      install method           standalone (windows, package C:\Users\antoi\.codex\packages\standalone\releases\0.137.0-x86_64-pc-windows-msvc, bin C:\Users\antoi\.codex\packages\standalone\releases\0.137.0-x86_64-pc-windows-msvc\bin, resources C:\Users\antoi\.codex\packages\standalone\releases\0.137.0-x86_64-pc-windows-msvc\codex-resources, path C:\Users\antoi\.codex\packages\standalone\releases\0.137.0-x86_64-pc-windows-msvc\codex-path)
+      commit                   unknown
+      executable               C:\Users\antoi\AppData\Local\Programs\OpenAI\Codex\bin\codex.exe
+  ✓ install      consistent
+      context                  standalone (windows, package C:\Users\antoi\.codex\packages\standalone\releases\0.137.0-x86_64-pc-windows-msvc, bin C:\Users\antoi\.codex\packages\standalone\releases\0.137.0-x86_64-pc-windows-msvc\bin, resources C:\Users\antoi\.codex\packages\standalone\releases\0.137.0-x86_64-pc-windows-msvc\codex-resources, path C:\Users\antoi\.codex\packages\standalone\releases\0.137.0-x86_64-pc-windows-msvc\codex-path)
+      managed by               npm: no · bun: no · package root —
+      PATH entries (1)         C:\Users\antoi\AppData\Local\Programs\OpenAI\Codex\bin\codex.exe
+  ✓ search       file exists (bundled, C:\Users\antoi\.codex\packages\standalone\releases\0.137.0-x86_64-pc-windows-msvc\codex-path\rg.exe)
+      search command           C:\Users\antoi\.codex\packages\standalone\releases\0.137.0-x86_64-pc-windows-msvc\codex-path\rg.exe
+      search provider          bundled
+      search command readiness file exists
+  ✓ git          git version 2.51.0.windows.1
+      selected git             C:\Program Files\Git\cmd\git.exe
+      version                  git version 2.51.0.windows.1
+      exec path                C:/Program Files/Git/mingw64/libexec/git-core
+      repo detected            false
+      PATH entries (1)         C:\Program Files\Git\cmd\git.exe
+  ✓ terminal     unknown
+      terminal                 unknown
+      stdin is terminal        true
+      stdout is terminal       true
+      stderr is terminal       true
+      terminal size            209x78
+      color output             enabled
+      COLORTERM                truecolor
+      console input code page  437
+      console output code page 437
+      stdout console mode      0x00000007 (VT processing: true)
+      stderr console mode      0x00000007 (VT processing: true)
+  ✓ title        default · project Documents
+      title source             default
+      title items              activity, project-name
+      activity item            true
+      project source           cwd
+      project value            Documents
+  ✓ state        databases healthy
+      CODEX_HOME               C:\Users\antoi\.codex (dir)
+      log dir                  C:\Users\antoi\.codex\log (missing)
+      sqlite home              C:\Users\antoi\.codex (dir)
+      state DB                 C:\Users\antoi\.codex\state_5.sqlite (file) · integrity ok
+      log DB                   C:\Users\antoi\.codex\logs_2.sqlite (file) · integrity ok
+      goals DB                 C:\Users\antoi\.codex\goals_1.sqlite (file) · integrity ok
+      memories DB              C:\Users\antoi\.codex\memories_1.sqlite (file) · integrity ok
+      active rollouts          23 files · 16.48 MB (avg 733.61 KB)
+      archived rollouts        0 files · 0 B (avg 0 B)
+      standalone release cache 1 entries in C:\Users\antoi\.codex\packages\standalone\releases
+  ✓ threads      rollout files and state DB thread inventory agree
+      default model provider   openai
+      rollout DB active files  23
+      rollout DB archived files 0
+      rollout DB scan errors   0
+      rollout DB malformed file names 0
+      rollout DB scan cap reached false
+      rollout DB rows          23
+      rollout DB active rows   23
+      rollout DB archived rows 0
+      rollout DB missing active rows 0
+      rollout DB missing archived rows 0
+      rollout DB stale rows    0
+      rollout DB archive mismatches 0
+      rollout DB duplicate rollout thread ids 0
+      rollout DB duplicate DB paths 0
+      rollout DB model providers openai=23
+      rollout DB sources       cli=10, subagent:thread_spawn=10, subagent:other=3
+
+Configuration
+  ✓ config       loaded
+      model                    gpt-5.5 · openai
+      cwd                      C:\Users\antoi\Documents
+      config.toml              C:\Users\antoi\.codex\config.toml
+      config.toml parse        ok
+      MCP servers              0
+      feature flags            26 enabled · 0 overridden (full list with --all)
+  ✓ auth         auth is configured
+      auth storage mode        File
+      auth file                C:\Users\antoi\.codex\auth.json
+      stored auth mode         chatgpt
+      stored API key           false
+      stored ChatGPT tokens    true
+      stored agent identity    false
+  ✓ mcp          no MCP servers configured
+  ✓ sandbox      restricted fs + restricted network · approval OnRequest
+      approval policy          OnRequest
+      filesystem sandbox       restricted
+      network sandbox          restricted
+      linux helper             none
+      execve wrapper helper    none
+
+Updates
+  ✓ updates      update configuration is locally consistent
+      startup update check     true
+      update action            standalone installer
+      version cache            C:\Users\antoi\.codex\version.json
+      cached latest version    0.137.0
+      last checked at          2026-06-06 21:23 UTC
+      latest version           0.137.0
+      latest version status    current version is not older
+
+Connectivity
+  ✓ network      no proxy env vars
+      proxy env vars           none
+  ✓ websocket    connected (HTTP 101 Switching Protocols) · 15s timeout
+      model provider           openai
+      provider name            OpenAI
+      wire API                 responses
+      supports websockets      true
+      proxy env vars           none
+      connect timeout          15000 ms
+      auth mode                chatgpt
+      endpoint                 wss://chatgpt.com/backend-api/<redacted>
+      DNS                      2 IPv4, 2 IPv6, first IPv6
+      handshake result         HTTP 101 Switching Protocols
+      reasoning header         false
+      models etag present      true
+      server model present     false
+  ✓ reachability active provider endpoints are reachable over HTTP
+      reachability mode        ChatGPT auth
+      ChatGPT base URL         https://chatgpt.com/backend-api/ reachable (HTTP 403)
+
+Background Server
+  ○ app-server   not running (ephemeral mode)
+      daemon state dir         C:\Users\antoi\.codex\app-server-daemon
+      settings                 C:\Users\antoi\.codex\app-server-daemon\settings.json (missing)
+      pid file                 C:\Users\antoi\.codex\app-server-daemon\app-server.pid (missing)
+      update-loop pid file     C:\Users\antoi\.codex\app-server-daemon\app-server-updater.pid (missing)
+      control socket           C:\Users\antoi\.codex\app-server-control\app-server-control.sock
+      status                   not running
+      mode                     ephemeral
+
+─────────────────────────────────────────────────────────────
+17 ok · 1 idle · 0 warn · 0 fail ok
+
+--summary compact output   --all expand truncated lists
+--json redacted report
+```
+
+### What issue are you seeing?
+
+Custom subagent roles configured in ~/.codex/agents/*.toml are not exposed in the runtime spawn_agent tool schema on Windows and Ubuntu, while the same setup works on Fedora with the same Codex CLI version.
+
+On Fedora, spawn_agent exposes role/model selection fields:
+
+agent_type
+fork_context
+items
+message
+model
+reasoning_effort
+service_tier
+
+On Windows and Ubuntu, the schema only exposes:
+
+fork_context
+items
+message
+
+This means custom agents like cheap_explorer, pressure_test, and code_reviewer cannot be selected. Generic subagents inherit the parent model/effort, so a cheap explorer intended to run as gpt-5.4-mini medium instead runs as the parent session model, e.g. gpt-5.5 high. That makes multi-agent workflows impractical.
+
+### What steps can reproduce the bug?
+
+1. Install Codex CLI 0.137.0.
+2. Create a custom agent file:
+```
+# ~/.codex/agents/cheap_explorer.toml
+
+name = "cheap_explorer"
+description = "Read-only codebase explorer for fast, low-cost reconnaissance."
+model = "gpt-5.4-mini"
+model_reasoning_effort = "medium"
+sandbox_mode = "read-only"
+
+developer_instructions = """
+You are a read-only reconnaissance agent.
+
+Use fast search and targeted file reads to answer specific codebase questions.
+Prefer concrete paths, entry points, commands, and architecture notes over broad summaries.
+Do not edit files, run destructive commands, or make repo changes.
+Keep the final concise, factual, and grounded in the files you inspected.
+"""
+```
+3. Start a fresh Codex session.
+4. Ask the assistant to spawn/use the cheap_explorer subagent.
+5. Inspect the exposed spawn_agent tool schema.
+
+Observed on Windows and Ubuntu: schema only includes fork_context, items, and message.
+
+Observed on Fedora with the same CLI version and equivalent config: schema includes agent_type and the custom roles are available.
+
+### What is the expected behavior?
+
+Custom agents from ~/.codex/agents/*.toml should be exposed consistently across supported platforms.
+
+The spawn_agent schema should include a role selector such as agent_type, and configured custom agents should be selectable, e.g.:
+```
+{
+  "agent_type": "cheap_explorer",
+  "fork_context": false,
+  "message": "..."
+}
+```
+The spawned agent should use the model/reasoning/sandbox settings from the selected custom agent TOML.
+
+### Additional information
+
+Codex version on all tested machines:
+
+codex-cli 0.137.0
+
+Working machine:
+
+Fedora
+spawn_agent schema includes agent_type/model/reasoning_effort/service_tier
+
+Failing machines:
+
+Windows
+Ubuntu
+spawn_agent schema only includes fork_context/items/message
+
+Reinstalling Codex on Windows did not resolve the issue.
+
+Relevant config shape:
+```
+model = "gpt-5.5"
+model_reasoning_effort = "high"
+approvals_reviewer = "guardian_subagent"
+
+[projects."/home/antoine/Documents"]
+trust_level = "trusted"
+```
+Windows equivalent:
+```
+model = "gpt-5.5"
+model_reasoning_effort = "high"
+approvals_reviewer = "guardian_subagent"
+
+[projects.'c:\users\antoi']
+trust_level = "trusted"
+
+[projects.'c:\users\antoi\documents']
+trust_level = "trusted"
+
+[windows]
+sandbox = "unelevated"
+```
+This looks like a platform-specific runtime/tool-schema generation issue or inconsistent feature gating, not invalid custom-agent TOML.
+
+---
+
+## Comments (5)
+
+### @github-actions[bot] · 2026-06-06T21:55:31Z
+
+Potential duplicates detected. Please review them and close your issue if it is a duplicate.
+
+- #26363
+
+*Powered by [Codex Action](https://github.com/openai/codex-action)*
+
+---
+
+### @antoinezambelli · 2026-06-06T22:35:52Z
+
+This appears to be the same root cause as #26363 : the multi_agent_v2 filter was accidentally affecting v1. Keeping this open until a release includes the fix, since the current latest release 0.137.0 still exposes only fork_context/items/message on Windows/Ubuntu and blocks custom agent role selection.
+
+---
+
+### @phuturesh · 2026-06-08T19:19:05Z
+
+See #26363, #26114, and #26599: assigning`features.multi_agent_v2.hide_spawn_agent_metadata` to `false` will set it up.
+
+---
+
+### @antoinezambelli · 2026-06-09T02:00:22Z
+
+Updating to v0.138.0 fixed it.
+
+---
+
+### @davidmanheim · 2026-07-06T08:48:30Z
+
+This does not actually fully fix the issue - @antoinezambelli ; the model will deny that it can do this!
+
+<img width="1102" height="496" alt="Image" src="https://github.com/user-attachments/assets/816cf668-c408-4113-8443-9ea79eb38722" />
+
+I needed to point to this github issue to get it to check what it was doing. 
+
+<img width="1092" height="689" alt="Image" src="https://github.com/user-attachments/assets/924f2245-0852-42aa-9dba-9d46c6f24d49" />
+
+This seems like a clear issue with its prompt not telling it what it is capable of doing.
+
+---

@@ -1,0 +1,264 @@
+"""LLM interpretation of a trader's alert message.
+
+The model's only job is to **interpret**, not to judge: read one message and return
+a `ParsedTrade` (action + ticker, plus whatever contract detail and conviction it can
+extract) and a `confidence`. It does NOT decide whether the option is valid, does NOT
+see open positions, and does NOT resolve exits — the hard-coded executor does all of
+that (validity check, confidence gate → HELD/AUTONOMOUS, sell/trim position matching).
+
+Provider-agnostic via LiteLLM: set `LLM.MODEL` as ``provider/model`` and the matching
+key in env. `interpret` never raises into the executor loop.
+
+See prompt_running_readme.md for tuning; order_processing.md for the execution rules.
+"""
+
+from __future__ import annotations
+
+import json
+import logging
+from dataclasses import dataclass
+from datetime import date
+
+import litellm
+
+from .signals import (
+    SCALE_DOWN,
+    SCALE_NEUTRAL,
+    SCALE_UP,
+    ParsedTrade,
+)
+
+log = logging.getLogger("only_trades.llm")
+
+# Portable LiteLLM defaults: drop params a given provider rejects (e.g. temperature
+# on Opus 4.8), validate json-schema responses client-side, and quiet the banner.
+litellm.drop_params = True
+litellm.enable_json_schema_validation = True
+litellm.suppress_debug_info = True
+
+_ACTIONS = ("buy", "sell", "trim", "none")
+_SCALES = (SCALE_UP, SCALE_NEUTRAL, SCALE_DOWN)
+
+
+@dataclass(frozen=True)
+class Interpretation:
+    """The model's reading of a message.
+
+    `trade` is None when the message isn't an actionable order (chatter) or when the
+    call/parse failed (`error` set). When present it's the model's best extraction —
+    possibly incomplete; the executor validates it."""
+
+    trade: ParsedTrade | None
+    confidence: float  # 0.0 – 1.0
+    reasoning: str
+    error: str | None = None
+
+
+# Strict structured output. Every property required (nullable via union types) so the
+# model always returns the full shape; the executor — not the model — judges validity.
+_SCHEMA = {
+    "type": "object",
+    "additionalProperties": False,
+    "properties": {
+        "action": {"type": "string", "enum": list(_ACTIONS)},
+        "confidence": {"type": "number"},
+        "ticker": {"type": ["string", "null"]},
+        "expiry": {"type": ["string", "null"]},  # YYYY-MM-DD
+        "strike": {"type": ["number", "null"]},
+        "option_type": {"type": ["string", "null"]},  # call | put
+        "premium": {"type": ["number", "null"]},
+        "scale": {"type": "string", "enum": list(_SCALES)},
+        "reasoning": {"type": "string"},
+    },
+    "required": [
+        "action",
+        "confidence",
+        "ticker",
+        "expiry",
+        "strike",
+        "option_type",
+        "premium",
+        "scale",
+        "reasoning",
+    ],
+}
+
+SYSTEM_PROMPT = """\
+You read ONE message from a stock-options trading alert channel and INTERPRET the \
+trade it implies. You do not judge whether the order is valid or executable — just \
+report what the trader said. Output ONLY the JSON object described by the schema.
+
+action:
+- "buy"  — open or add to a long option position.
+- "sell" — close an existing position ("out", "closed", "sold all").
+- "trim" — reduce an existing position ("trimmed", "sold half", "took some off").
+- "none" — not an order: commentary, watchlists, questions, P&L talk, greetings, \
+news, "watching"/"alert coming". When in doubt, choose "none".
+
+ticker: the underlying symbol (uppercase). Required whenever action is buy/sell/trim.
+
+Contract fields — extract what's present, use null for anything absent:
+- expiry: an ISO date (YYYY-MM-DD); convert "6/20"-style dates with the given current \
+date, rolling to next year if the month/day already passed.
+- strike, option_type ("call"/"put"; calls/c→call, puts/p→put), premium (the price).
+- For a BUY the trader normally gives all of these. For a SELL/TRIM they often give \
+only the ticker ("out of NVDA") — that's fine, leave the rest null. Do NOT invent \
+values you didn't see; the system resolves exits against the trader's positions.
+
+scale: the conviction/size the trader signalled — "up" (loading up, aggressive, big, \
+"full size"), "down" (starter, small, lotto, "tiny"), or "neutral" (default).
+
+confidence (0.0–1.0): how sure you are that this is an actionable order and that you \
+read it correctly. Lower it when the message is terse or ambiguous. Don't penalise a \
+sell/trim just for omitting the contract — that's expected.
+
+reasoning: one short sentence.
+
+Examples:
+- "BUY AAPL 6/20 $420 call @ 1.50" -> action buy, AAPL, 2026-06-20, 420, call, 1.5, \
+scale neutral, confidence ~0.95.
+- "starter NVDA 900c 8/15 @ 12.75" -> action buy, NVDA, 2026-08-15, 900, call, 12.75, \
+scale down, ~0.9.
+- "loading up SPY 9/19 500p" -> action buy, SPY, 2026-09-19, 500, put, premium null, \
+scale up, ~0.8.
+- "out of NVDA" -> action sell, NVDA, everything else null, scale neutral, ~0.85.
+- "trimmed half my calls" -> action trim, ticker if stated else null, null contract, ~0.7.
+- "watching SPY here" / "up 50% \U0001f680" -> action none.\
+"""
+
+
+def resolve_expiry(month: int, day: int, today: date | None = None) -> date | None:
+    """Build an expiry date from a month/day, rolling to next year if already past.
+    Returns None for an impossible month/day. Used only to normalize a date the model
+    already produced — not to reject anything."""
+    if not (1 <= month <= 12 and 1 <= day <= 31):
+        return None
+    today = today or date.today()
+    try:
+        candidate = date(today.year, month, day)
+    except ValueError:
+        return None
+    if candidate < today:
+        try:
+            candidate = date(today.year + 1, month, day)
+        except ValueError:
+            return None
+    return candidate
+
+
+def _user_prompt(content: str, today: date, trader_notes: str) -> str:
+    notes = f"Trader style notes: {trader_notes}\n\n" if trader_notes else ""
+    return (
+        f"Current date: {today.isoformat()}\n\n"
+        f"{notes}"
+        f'Message to interpret:\n"""\n{content}\n"""'
+    )
+
+
+def _response_format(model: str) -> dict:  # noqa: ARG001 - model kept for signature stability
+    """JSON mode for the completion: OpenAI-compatible ``json_object``, which DeepSeek and
+    other OpenAI-style providers honour to guarantee parseable JSON. Strict ``json_schema``
+    is intentionally NOT used — some providers (DeepSeek) advertise it via litellm's
+    capability probe but reject it at the API (`This response_format type is unavailable`).
+    A provider that doesn't support ``response_format`` at all simply drops it
+    (``litellm.drop_params=True``) and relies on the prompt; `_extract_json` then tolerates
+    any stray wrapping."""
+    return {"type": "json_object"}
+
+
+def _extract_json(raw: str | None) -> str:
+    """Pull the JSON object out of a model reply, tolerating a stray ```json fence or a line
+    of prose around it (json_object mode makes this rare, but providers still slip). Returns
+    the substring from the first '{' to the last '}'; an empty/braceless reply is returned
+    as-is so `json.loads` raises and the caller records it as an error rather than guessing."""
+    s = (raw or "").strip()
+    i, j = s.find("{"), s.rfind("}")
+    return s[i:j + 1] if i != -1 and j > i else s
+
+
+def _clamp_confidence(value) -> float:
+    try:
+        return max(0.0, min(1.0, float(value)))
+    except (TypeError, ValueError):
+        return 0.0
+
+
+def _coerce_expiry(raw, today: date) -> date | None:
+    if not raw:
+        return None
+    try:
+        d = date.fromisoformat(str(raw).strip())
+    except ValueError:
+        return None
+    return resolve_expiry(d.month, d.day, today)
+
+
+def _coerce_float(raw) -> float | None:
+    if raw is None:
+        return None
+    try:
+        return float(raw)
+    except (TypeError, ValueError):
+        return None
+
+
+def _to_interpretation(data: dict, today: date) -> Interpretation:
+    action = str(data.get("action", "none")).lower().strip()
+    if action not in _ACTIONS:
+        action = "none"
+    confidence = _clamp_confidence(data.get("confidence"))
+    reasoning = str(data.get("reasoning", "") or "")
+
+    if action == "none":
+        return Interpretation(None, confidence, reasoning)
+
+    option_type = str(data.get("option_type") or "").lower().strip() or None
+    if option_type not in (None, "call", "put"):
+        option_type = None
+    scale = str(data.get("scale") or SCALE_NEUTRAL).lower().strip()
+    if scale not in _SCALES:
+        scale = SCALE_NEUTRAL
+
+    # Build the trade from whatever is present; the executor judges completeness.
+    trade = ParsedTrade(
+        action=action,
+        ticker=str(data.get("ticker") or "").upper().strip(),
+        expiry=_coerce_expiry(data.get("expiry"), today),
+        strike=_coerce_float(data.get("strike")),
+        option_type=option_type,
+        premium=_coerce_float(data.get("premium")),
+        scale=scale,
+    )
+    return Interpretation(trade, confidence, reasoning)
+
+
+async def interpret(
+    *,
+    content: str,
+    trader_notes: str = "",
+    today: date | None = None,
+    model: str,
+    timeout: float = 20.0,
+) -> Interpretation:
+    """Read one message and return a structured `Interpretation`. Never raises."""
+    today = today or date.today()
+    if not content or not content.strip():
+        return Interpretation(None, 1.0, "empty message")
+
+    try:
+        resp = await litellm.acompletion(
+            model=model,
+            messages=[
+                {"role": "system", "content": SYSTEM_PROMPT},
+                {"role": "user", "content": _user_prompt(content, today, trader_notes)},
+            ],
+            response_format=_response_format(model),
+            timeout=timeout,
+        )
+        raw = resp.choices[0].message.content
+        data = json.loads(_extract_json(raw))
+    except Exception as e:  # noqa: BLE001 - the executor loop must never see an exception
+        log.warning("LLM interpret failed (%s): %s", model, e)
+        return Interpretation(None, 0.0, "", error=str(e))
+
+    return _to_interpretation(data, today)

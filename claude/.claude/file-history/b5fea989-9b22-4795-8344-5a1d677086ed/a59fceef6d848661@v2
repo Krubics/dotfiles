@@ -1,0 +1,19 @@
+[Unit]
+Description=Meridian (Claude Max proxy)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# node is nvm-managed and claude lives in ~/.local/bin; neither is on the
+# systemd manager PATH. cli.js runs under `#!/usr/bin/env node` and the SDK
+# spawns the claude executable, so both dirs must be here.
+Environment="PATH=/home/krubics/.local/bin:/home/krubics/.config/nvm/versions/node/v26.5.0/bin:/usr/local/bin:/usr/bin:/bin"
+ExecStart=/usr/local/bin/meridian
+Restart=on-failure
+RestartSec=5s
+Environment="MERIDIAN_PORT=3456"
+Environment="MERIDIAN_HOST=127.0.0.1"
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,22 @@
+  INFO: Launching config: "/tmp/qs-qt-window.qml"
+  INFO: Shell ID: "01ba1f58bd86bf8941de39b116e1d5a5" Path ID "01ba1f58bd86bf8941de39b116e1d5a5"
+  INFO quickshell.crashhandler: Crash handler initialized.
+  INFO: Saving logs to "/run/user/1000/quickshell/by-id/s0q5kgq8jt/log.qslog"
+  INFO quickshell.logging: Saving detailed logs to "/run/user/1000/quickshell/by-id/s0q5kgq8jt/log.log"
+  INFO quickshell.wayland.safederef: Installed wl_proxy_get_listener hook.
+  INFO quickshell.ipc: Started IPC server on path "/run/user/1000/quickshell/by-id/s0q5kgq8jt/ipc.sock"
+  INFO quickshell.tooling: Acquired tooling support lock
+  INFO quickshell.tooling: Not enabling QML tooling support, qmlls.ini is missing at path "/tmp/.qmlls.ini"
+  WARN qt.qpa.wayland: EGL not available
+  INFO quickshell.incubator: Render loop does not have animation driver, animationStopped cannot be used to trigger incubation.
+  INFO: Configuration Loaded
+  WARN: QRhiGles2: Failed to create temporary context
+  WARN: QRhiGles2: Failed to create context
+  WARN: Failed to create RHI (backend 2)
+ FATAL: Failed to initialize graphics backend for OpenGL.
+  WARN: QEventLoop: Cannot be used without QCoreApplication
+ ERROR: Quickshell has crashed under pid 267011 (Coredumps will be available under that pid.)
+ ERROR: Further crash information is stored under "/home/krubics/.cache/quickshell/crashes/s0q5kgq8jt"
+ ERROR: Quickshell crashed within 10 seconds of launching. Not restarting to avoid a crash loop.
+  INFO quickshell.crashreporter: Starting crash reporter...
+  INFO quickshell.wayland.safederef: Installed wl_proxy_get_listener hook.

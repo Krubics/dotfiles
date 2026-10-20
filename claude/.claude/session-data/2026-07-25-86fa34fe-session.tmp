@@ -1,0 +1,35 @@
+# Session: 2026-07-25
+**Date:** 2026-07-25
+**Started:** 00:37
+**Last Updated:** 00:37
+**Project:** krubics
+**Branch:** unknown
+**Worktree:** /home/krubics
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Human: <transcript> {"user":"Where are my GTK4.0 theme files?"} {"Bash":"find /home/krubics/.config/gtk-4.0 /home/krubics/.local/share/themes /usr/share/themes -maxdepth 3 -name \"gtk.css\" -o -name \
+- Human: <transcript> {"user":"Where are my GTK4.0 theme files?"} {"Bash":"find /home/krubics/.config/gtk-4.0 /home/krubics/.local/share/themes /usr/share/themes -maxdepth 3 -name \"gtk.css\" -o -name \
+- Human: <transcript> {"user":"Why is that when I change to latias-and-latios wallpaper through my wallpaper shortcut my monitors change 1 by 1?"} {"Bash":"find /home/krubics -name \"*.sh\" -o -name \"*
+- Human: <transcript> {"user":"Why is that when I change to latias-and-latios wallpaper through my wallpaper shortcut my monitors change 1 by 1?"} {"Bash":"find /home/krubics -name \"*.sh\" -o -name \"*
+- Human: <transcript> {"user":"Why is that when I change to latias-and-latios wallpaper through my wallpaper shortcut my monitors change 1 by 1?"} {"Bash":"find /home/krubics -name \"*.sh\" -o -name \"*
+- Human: <transcript> {"user":"Why is that when I change to latias-and-latios wallpaper through my wallpaper shortcut my monitors change 1 by 1?"} {"Bash":"find /home/krubics -name \"*.sh\" -o -name \"*
+- Human: <transcript> {"user":"Why is that when I change to latias-and-latios wallpaper through my wallpaper shortcut my monitors change 1 by 1?"} {"Bash":"find /home/krubics -name \"*.sh\" -o -name \"*
+- Human: <transcript> {"user":"Why is that when I change to latias-and-latios wallpaper through my wallpaper shortcut my monitors change 1 by 1?"} {"Bash":"find /home/krubics -name \"*.sh\" -o -name \"*
+- Human: <transcript> {"user":"Why is that when I change to latias-and-latios wallpaper through my wallpaper shortcut my monitors change 1 by 1?"} {"Bash":"find /home/krubics -name \"*.sh\" -o -name \"*
+- Human: <transcript> {"user":"Why is that when I change to latias-and-latios wallpaper through my wallpaper shortcut my monitors change 1 by 1?"} {"Bash":"find /home/krubics -name \"*.sh\" -o -name \"*
+
+### Stats
+- Total user messages: 12
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

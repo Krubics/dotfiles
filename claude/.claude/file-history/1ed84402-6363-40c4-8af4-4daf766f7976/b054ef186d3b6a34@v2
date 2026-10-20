@@ -1,0 +1,246 @@
+"""Configuration loading: secrets from .env / environment, structure from config.json.
+
+.env parsing is delegated to python-dotenv's ``load_dotenv``.
+"""
+
+from __future__ import annotations
+
+import json
+import os
+from dataclasses import dataclass, field
+from pathlib import Path
+
+from dotenv import load_dotenv
+
+from .order_policy import OrderPolicy
+
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+
+
+@dataclass(frozen=True)
+class Trader:
+    id: str
+    channel_id: int
+    allocation: float  # fraction of NetLiquidation this trader may be exposed to
+    max_open_trades: int
+    notes: str = ""  # optional free-text style hint fed to the LLM (not a parser)
+    # Optional protective-exit overrides; None inherits the global ORDER_POLICY default.
+    stop_loss_pct: float | None = None
+    take_profit_pct: float | None = None
+    # Optional entry-fill timeout override (seconds); None inherits the global default.
+    entry_timeout_secs: float | None = None
+
+    @property
+    def order_pct(self) -> float:
+        """Per-order target as a fraction of the reference cash base."""
+        return self.allocation / self.max_open_trades if self.max_open_trades else 0.0
+
+
+@dataclass(frozen=True)
+class LLMConfig:
+    """How messages are interpreted. `model` is a LiteLLM id (``provider/model``);
+    the matching provider API key is read from the environment by LiteLLM."""
+
+    model: str = "anthropic/claude-opus-4-8"
+    min_confidence: float = 0.7  # auto-trade at/above this; below → hold for approval
+    timeout: float = 20.0  # seconds per LLM call
+    retry_attempts: int = 2  # extra attempts on a network-layer failure only
+
+
+@dataclass(frozen=True)
+class IBKRConfig:
+    host: str = "127.0.0.1"
+    port: int = 7497
+    client_id: int = 1
+    account: str | None = None
+    market_data_type: int = 3  # 1=live, 2=frozen, 3=delayed, 4=delayed-frozen
+
+
+@dataclass(frozen=True)
+class MoomooConfig:
+    host: str = "127.0.0.1"
+    port: int = 11111
+    trd_env: str = "simulate"  # "simulate" | "real"
+    security_firm: str = "FUTUINC"  # SecurityFirm.* name; FUTUINC = Moomoo US
+
+
+BrokerConfig = IBKRConfig | MoomooConfig
+
+
+@dataclass(frozen=True)
+class Safety:
+    """The periodic safety sweep (only_trades.safety): expiry close, orphan reap, and
+    position-drift alerts that complement the real-time order-update reconciliation."""
+
+    enabled: bool = True
+    interval: float = 300.0  # seconds between sweeps
+    drift_epsilon: float = 1e-6  # contract tolerance before flagging position drift
+    orphan_grace: float = 300.0  # seconds a PENDING row may sit with no broker id
+
+
+@dataclass(frozen=True)
+class Config:
+    # secrets / runtime
+    discord_token: str
+    notify_channel_id: int | None
+    profile: str
+    dashboard_host: str
+    dashboard_port: int
+    dashboard_token: str | None
+    # structure
+    traders: dict[str, Trader]
+    policy: OrderPolicy
+    llm: LLMConfig = field(default_factory=LLMConfig)
+    active_trader_ids: list[str] = field(default_factory=list)
+    # broker selection + the selected broker's typed settings
+    broker: str = "ibkr"  # "ibkr" | "moomoo"
+    broker_config: BrokerConfig = field(default_factory=IBKRConfig)
+    safety: Safety = field(default_factory=Safety)
+
+    @property
+    def active_traders(self) -> dict[str, Trader]:
+        return {tid: self.traders[tid] for tid in self.active_trader_ids if tid in self.traders}
+
+    @property
+    def channel_to_trader(self) -> dict[int, str]:
+        """Map of Discord channel id -> trader id, for the ACTIVE profile only."""
+        return {t.channel_id: t.id for t in self.active_traders.values()}
+
+    def trader_for_channel(self, channel_id: int) -> Trader | None:
+        tid = self.channel_to_trader.get(channel_id)
+        return self.traders.get(tid) if tid else None
+
+
+def _env_int(name: str) -> int | None:
+    val = os.environ.get(name, "").strip()
+    return int(val) if val else None
+
+
+def _opt_float(val) -> float | None:
+    """Parse an optional numeric config value; blank/None stays None (leg disabled)."""
+    if val is None or (isinstance(val, str) and not val.strip()):
+        return None
+    return float(val)
+
+
+def _load_order_policy(raw: dict) -> OrderPolicy:
+    """Read the ORDER_POLICY block, falling back to the legacy EXECUTION block for the
+    pricing/sizing knobs so older config.json files keep working."""
+    op = raw.get("ORDER_POLICY", {})
+    legacy = raw.get("EXECUTION", {})
+
+    def knob(key: str, default: float) -> float:
+        if key in op:
+            return float(op[key])
+        return float(legacy.get(key, default))
+
+    return OrderPolicy(
+        spread=knob("SPREAD", 0.05),
+        trim_fraction=knob("TRIM_FRACTION", 0.5),
+        scale_up=knob("SCALE_UP", 1.5),
+        scale_down=knob("SCALE_DOWN", 0.5),
+        capital_fraction=knob("CAPITAL_FRACTION", 1.0),
+        stop_loss_pct=_opt_float(op.get("STOP_LOSS_PCT")),
+        take_profit_pct=_opt_float(op.get("TAKE_PROFIT_PCT")),
+        entry_timeout_secs=_opt_float(op.get("ENTRY_TIMEOUT_SECS")),
+        protective_cancel_timeout_secs=knob("PROTECTIVE_CANCEL_TIMEOUT_SECS", 5.0),
+        protective_cancel_poll_secs=knob("PROTECTIVE_CANCEL_POLL_SECS", 0.25),
+    )
+
+
+def load_config(base_dir: Path | None = None, *, profile: str | None = None) -> Config:
+    base_dir = base_dir or PROJECT_ROOT
+    load_dotenv(base_dir / ".env")
+
+    raw = json.loads((base_dir / "config.json").read_text())
+
+    traders: dict[str, Trader] = {}
+    for tid, t in raw.get("TRADERS", {}).items():
+        traders[tid] = Trader(
+            id=tid,
+            channel_id=int(t["channel_id"]),
+            allocation=float(t["allocation"]),
+            max_open_trades=int(t["max_open_trades"]),
+            notes=str(t.get("notes", "")),
+            stop_loss_pct=_opt_float(t.get("STOP_LOSS_PCT")),
+            take_profit_pct=_opt_float(t.get("TAKE_PROFIT_PCT")),
+            entry_timeout_secs=_opt_float(t.get("ENTRY_TIMEOUT_SECS")),
+        )
+
+    profile = profile or os.environ.get("ONLY_TRADES_PROFILE", "dev")
+    profiles = raw.get("PROFILES", {})
+    active_ids = list(profiles.get(profile, []))
+
+    policy = _load_order_policy(raw)
+
+    ll = raw.get("LLM", {})
+    llm = LLMConfig(
+        model=ll.get("MODEL", LLMConfig.model),
+        min_confidence=float(ll.get("MIN_CONFIDENCE", LLMConfig.min_confidence)),
+        timeout=float(ll.get("TIMEOUT", LLMConfig.timeout)),
+        retry_attempts=int(ll.get("RETRY_ATTEMPTS", LLMConfig.retry_attempts)),
+    )
+
+    broker = os.environ.get("BROKER", "ibkr").strip().lower()
+    broker_config = load_broker_config(broker)
+
+    sf = raw.get("SAFETY", {})
+    safety = Safety(
+        enabled=bool(sf.get("ENABLED", Safety.enabled)),
+        interval=float(sf.get("INTERVAL", Safety.interval)),
+        drift_epsilon=float(sf.get("DRIFT_EPSILON", Safety.drift_epsilon)),
+        orphan_grace=float(sf.get("ORPHAN_GRACE", Safety.orphan_grace)),
+    )
+
+    cfg = Config(
+        discord_token=os.environ.get("DISCORD_TOKEN", ""),
+        notify_channel_id=_env_int("NOTIFY_CHANNEL_ID"),
+        profile=profile,
+        dashboard_host=os.environ.get("DASHBOARD_HOST", "127.0.0.1"),
+        dashboard_port=_env_int("DASHBOARD_PORT") or 8787,
+        dashboard_token=os.environ.get("DASHBOARD_TOKEN") or None,
+        traders=traders,
+        policy=policy,
+        llm=llm,
+        active_trader_ids=active_ids,
+        broker=broker,
+        broker_config=broker_config,
+        safety=safety,
+    )
+    return cfg
+
+
+def load_broker_config(broker: str) -> BrokerConfig:
+    """Read only the named broker's env vars into its typed config block. Public so
+    IBKR-only tools (e.g. check_ib) can load IBKR settings regardless of BROKER."""
+    match broker:
+        case "ibkr":
+            return IBKRConfig(
+                host=os.environ.get("IB_HOST", "127.0.0.1"),
+                port=_env_int("IB_PORT") or 7497,
+                client_id=_env_int("IB_CLIENT_ID") or 1,
+                account=os.environ.get("IB_ACCOUNT") or None,
+                market_data_type=_env_int("IB_MARKET_DATA_TYPE") or 3,
+            )
+        case "moomoo":
+            return MoomooConfig(
+                host=os.environ.get("MOOMOO_HOST", "127.0.0.1"),
+                port=_env_int("MOOMOO_PORT") or 11111,
+                trd_env=os.environ.get("MOOMOO_TRD_ENV", "simulate"),
+                security_firm=os.environ.get("MOOMOO_SECURITY_FIRM", "FUTUINC"),
+            )
+        case _:
+            raise ValueError(f"Unknown BROKER='{broker}'. Choose: ibkr, moomoo")
+
+
+def allocation_warnings(cfg: Config) -> list[str]:
+    """Non-fatal sanity checks surfaced at startup."""
+    warnings: list[str] = []
+    total = sum(t.allocation for t in cfg.active_traders.values())
+    if total > 1.0:
+        warnings.append(
+            f"Active allocations sum to {total:.0%} (>100%) — traders will contend for cash."
+        )
+    if not cfg.active_trader_ids:
+        warnings.append(f"Profile '{cfg.profile}' has no active traders.")
+    return warnings

@@ -1,0 +1,145 @@
+"""The broker abstraction Only_Trades executes against.
+
+`BrokerProtocol` formalizes the duck-typed surface the executor already used, so
+IBKR, Moomoo, and any future backend are interchangeable. `AccountSnapshot` and
+`PlaceResult` are the broker-neutral value objects every adapter returns.
+"""
+from __future__ import annotations
+
+from collections.abc import Awaitable, Callable
+from dataclasses import dataclass
+from datetime import datetime
+from typing import Protocol, runtime_checkable
+
+# Broker-neutral protective exit (stop loss / take profit) produced by order_policy.
+# Adapters realize it with their own native primitives; nothing broker-specific here.
+from ..order_policy import ProtectiveExit
+
+__all__ = [
+    "AccountSnapshot", "PlaceResult", "ProtectiveExit", "OrderUpdate",
+    "BrokerPosition", "BrokerProtocol",
+]
+
+
+@dataclass
+class AccountSnapshot:
+    net_liquidation: float
+    available_funds: float
+    total_cash: float
+
+
+@dataclass
+class PlaceResult:
+    status: str                  # orders.py constant: FILLED | PARTIALLY FILLED | SUBMITTED | REJECTED | CANCELLED
+    filled_qty: float
+    avg_fill_price: float | None
+    broker_order_id: int | None  # native order id (IBKR orderId / Moomoo order_id) — audit/reconciliation
+    broker_perm_id: int | None   # IBKR permId; None for brokers without one (e.g. Moomoo)
+    error: str | None = None
+
+
+@dataclass
+class OrderUpdate:
+    """A broker-neutral lifecycle event for one order, keyed by the `order_ref` we
+    assigned at placement (`trader_id:order_id`). Adapters emit these — by push event
+    or polling, their choice — whenever an order changes state, for its whole life,
+    including protective-exit legs that trigger long after the entry. The executor
+    reconciles each into the orders table."""
+    order_ref: str
+    status: str                  # orders.py constant
+    filled_qty: float = 0.0
+    avg_fill_price: float | None = None
+    broker_order_id: int | None = None
+    error: str | None = None
+
+
+@dataclass
+class BrokerPosition:
+    """A broker-neutral net position in one option contract, for drift detection /
+    startup recovery. `occ_symbol` is the canonical OCC symbol (matches our books);
+    `con_id` is the IBKR contract id when available (None for brokers without one)."""
+    occ_symbol: str | None
+    qty: float
+    con_id: int | None = None
+    avg_cost: float | None = None
+
+
+# Called by the executor to receive order updates; adapters invoke it (awaiting).
+OrderUpdateCallback = Callable[[OrderUpdate], Awaitable[None]]
+
+
+@runtime_checkable
+class BrokerProtocol(Protocol):
+    """What the executor needs from any broker. Adapters translate ib_async
+    `Option`/`Contract` objects (built by `options.option_for_trade`) into their
+    own native format internally."""
+
+    async def connect(self) -> None: ...
+
+    def is_connected(self) -> bool: ...
+
+    def disconnect(self) -> None: ...
+
+    def account_snapshot(self) -> AccountSnapshot: ...
+
+    async def qualify(self, option) -> object | None: ...
+
+    async def mark(self, contract) -> float | None: ...
+
+    async def place(
+        self,
+        contract,
+        *,
+        side: str,            # "BUY" | "SELL"
+        qty: int,
+        order_ref: str,
+        order_type: str = "limit",
+        limit_price: float | None = None,
+        protective_exit: ProtectiveExit | None = None,
+        good_till: datetime | None = None,
+    ) -> PlaceResult:
+        """Place an order. When `protective_exit` is given (only meaningful for an
+        entry BUY), the adapter additionally arms a stop and/or take-profit exit such
+        that **filling one cancels the other**, tagging each leg with its `*_ref` so
+        fills reconcile back to our rows. How that mutual exclusion is achieved is the
+        adapter's concern. The returned `PlaceResult` describes the entry only; the
+        protective legs report later via the order-update callback.
+
+        `good_till` (only meaningful for a resting entry BUY) is an absolute UTC deadline
+        after which an unfilled order auto-cancels; the adapter realizes it natively
+        where possible (else emulates it). The resulting CANCELLED transition reports
+        back through the normal order-update callback, exactly like any other cancel."""
+        ...
+
+    async def cancel(self, order_ref: str) -> None:
+        """Cancel a working order, keyed by the `order_ref` assigned at placement. Used
+        to act on a still-standing entry BUY when a SELL arrives before it fills. A
+        no-op for an unknown or already-terminal order (must not raise); the resulting
+        CANCELLED transition reconciles back via the order-update callback."""
+        ...
+
+    async def modify(self, order_ref: str, *, qty: int) -> None:
+        """Modify a working order's quantity in place, keyed by `order_ref`. `qty` is the
+        new *absolute* total quantity. Used to reduce a still-standing entry BUY when a
+        TRIM arrives before it fills; `qty <= 0` is equivalent to `cancel`. A no-op for
+        an unknown or already-terminal order (must not raise)."""
+        ...
+
+    def register_order_update(self, callback: OrderUpdateCallback) -> None:
+        """Register the callback the adapter invokes (awaiting) on every order
+        lifecycle change, for the order's whole life — including protective legs that
+        trigger later. The single reconciliation mechanism the executor relies on."""
+        ...
+
+    async def resync(self) -> None:
+        """Startup/restart recovery: replay the broker's *current* state for every order
+        the broker still knows about through the registered order-update callback, so
+        fills/cancels that happened while the process was down (e.g. a GTC protective leg
+        that triggered) reconcile into our books. No-op if no callback is registered."""
+        ...
+
+    async def positions(self) -> list[BrokerPosition]:
+        """Current net positions per contract (account-wide), for drift detection."""
+        ...
+
+    async def executions(self) -> list: ...

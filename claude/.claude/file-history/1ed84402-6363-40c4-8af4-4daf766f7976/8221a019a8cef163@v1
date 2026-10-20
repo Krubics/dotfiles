@@ -1,0 +1,860 @@
+import types
+from dataclasses import replace as dc_replace
+from datetime import date, datetime, timedelta, timezone
+
+from only_trades import db
+from only_trades import orders as ostore
+from only_trades.config import Config, OrderPolicy, Trader
+from only_trades.executor import Executor
+from only_trades.ib_client import AccountSnapshot, PlaceResult
+from only_trades.options import occ_symbol
+from only_trades.signals import InboundMessage, ParsedTrade, Signal
+
+
+# ---- fakes ---------------------------------------------------------------
+class FakeIB:
+    def __init__(self, *, net_liq=100_000, avail=100_000, cash=100_000,
+                 mark_px=5.0, qualify_ok=True, status=ostore.FILLED):
+        self.net_liq, self.avail, self.cash = net_liq, avail, cash
+        self.mark_px, self.qualify_ok, self.status = mark_px, qualify_ok, status
+        self.placed: list[dict] = []
+        self.cancels: list[str] = []
+        self.modifies: list[tuple[str, int]] = []
+        self.on_update = None
+
+    def account_snapshot(self):
+        return AccountSnapshot(self.net_liq, self.avail, self.cash)
+
+    def register_order_update(self, callback):
+        self.on_update = callback
+
+    async def qualify(self, option):
+        if not self.qualify_ok:
+            return None
+        option.conId = 12345
+        return option
+
+    async def mark(self, contract):
+        return self.mark_px
+
+    async def place(self, contract, *, side, qty, order_ref, order_type,
+                    limit_price=None, protective_exit=None, good_till=None):
+        self.placed.append(dict(side=side, qty=qty, order_ref=order_ref,
+                                order_type=order_type, limit_price=limit_price,
+                                protective_exit=protective_exit, good_till=good_till))
+        filled = qty if self.status in (ostore.FILLED, ostore.PARTIAL) else 0
+        return PlaceResult(self.status, filled, limit_price or 1.5, 11, 22, None)
+
+    async def cancel(self, order_ref):
+        self.cancels.append(order_ref)
+
+    async def modify(self, order_ref, *, qty):
+        self.modifies.append((order_ref, qty))
+
+
+class FakeNotifier:
+    def __init__(self):
+        self.placed, self.status, self.skips = [], [], []
+        self.holds, self.errors = [], []
+        self.order_updates = []
+        self._next_mid = 7000
+
+    async def notify_order_update(self, row, update):
+        self.order_updates.append((row, update))
+
+    async def notify_placed(self, signal, side, qty, limit_price, order_id):
+        self.placed.append((signal, side, qty, order_id))
+
+    async def notify_status(self, signal, result, order_id):
+        self.status.append((signal, result, order_id))
+
+    async def notify_skip(self, signal, reason):
+        self.skips.append(reason)
+
+    async def notify_hold(self, signal, confidence, reasoning):
+        self._next_mid += 1
+        self.holds.append((signal, confidence, self._next_mid))
+        return (self._next_mid, 1)  # (posted message id, place answer id)
+
+    async def notify_error(self, msg, reason):
+        self.errors.append((msg, reason))
+
+
+def _config(llm=None):
+    from only_trades.config import LLMConfig
+    return Config(
+        discord_token="", notify_channel_id=None, profile="dev",
+        dashboard_host="", dashboard_port=0, dashboard_token=None,
+        traders={"KENNY": Trader("KENNY", 111, 0.45, 3)},
+        policy=OrderPolicy(), llm=llm or LLMConfig(), active_trader_ids=["KENNY"],
+    )
+
+
+def _signal(action, msg_id, *, ticker="AAPL", strike=420.0, option_type="call",
+            expiry=date(2026, 6, 20), premium=1.5, scale="neutral"):
+    trade = ParsedTrade(action, ticker, expiry, strike, option_type, premium, scale)
+    return Signal("KENNY", "kenny", trade, msg_id, 111, 222, "kenny",
+                  f"[{action}] ...", 0.0)
+
+
+def _exit_signal(action, msg_id, ticker, *, strike=None, expiry=None,
+                 option_type=None, scale="neutral"):
+    """A SELL/TRIM that may be ambiguous (only ticker) or specified."""
+    trade = ParsedTrade(action, ticker, expiry, strike, option_type, None, scale)
+    return Signal("KENNY", "llm", trade, msg_id, 111, 222, "kenny",
+                  f"[{action}] {ticker}", 0.0)
+
+
+def _inbound(msg_id, content="some alert"):
+    return InboundMessage("KENNY", msg_id, 111, 222, "kenny", content, 0.0)
+
+
+def _interp(trade=None, *, confidence=0.9, reasoning="", error=None):
+    return types.SimpleNamespace(
+        trade=trade, confidence=confidence, reasoning=reasoning, error=error,
+    )
+
+
+def _fixed_interpret(result):
+    async def _fn(**kwargs):
+        return result
+    return _fn
+
+
+async def _conn():
+    c = await db.connect(":memory:")
+    await db.init_db(c)
+    return c
+
+
+async def _seed_position(conn, *, action="buy", qty, price, ticker="TSLA", strike=250.0):
+    sig = _signal(action, 1, ticker=ticker, strike=strike)
+    occ = occ_symbol(ticker, sig.trade.expiry, sig.trade.option_type, strike)
+    oid = await ostore.create_order(conn, signal=sig, occ_symbol=occ,
+                                    requested_qty=int(qty), limit_price=price)
+    await ostore.update_order(conn, oid, status=ostore.FILLED, filled_qty=qty,
+                              avg_fill_price=price)
+
+
+async def _seed_standing_buy(conn, *, msg_id, requested_qty, filled_qty=0,
+                             status=ostore.SUBMITTED, price=1.5, ticker="TSLA",
+                             strike=250.0):
+    """A working entry BUY left non-FILLED (PENDING/SUBMITTED/PARTIAL) so it shows up in
+    standing_buy_orders. A PARTIAL with filled_qty>0 also contributes to open_positions.
+    Returns the order_id (so a test can assert the expected order_ref)."""
+    sig = _signal("buy", msg_id, ticker=ticker, strike=strike)
+    occ = occ_symbol(ticker, sig.trade.expiry, sig.trade.option_type, strike)
+    oid = await ostore.create_order(conn, signal=sig, occ_symbol=occ,
+                                    requested_qty=int(requested_qty), limit_price=price)
+    await ostore.update_order(conn, oid, status=status, filled_qty=filled_qty,
+                              avg_fill_price=price if filled_qty else None)
+    return oid
+
+
+async def _seed_leg(conn, *, signal_type, qty, ticker="NVDA", strike=900.0,
+                    status=ostore.SUBMITTED, price=6.0, msg_id=1):
+    """A resting protective SELL leg (stop_loss / take_profit) on a contract."""
+    sig = _signal("buy", msg_id, ticker=ticker, strike=strike)
+    occ = occ_symbol(ticker, sig.trade.expiry, sig.trade.option_type, strike)
+    oid = await ostore.create_order(conn, signal=sig, occ_symbol=occ, requested_qty=int(qty),
+                                    limit_price=price, signal_type=signal_type, side="SELL")
+    await ostore.update_order(conn, oid, status=status)
+    return oid
+
+
+# ---- tests ---------------------------------------------------------------
+async def test_buy_end_to_end_is_recorded_and_tagged():
+    conn = await _conn()
+    ib, notes = FakeIB(), FakeNotifier()
+    ex = Executor(conn, _config(), ib, notes)
+
+    await ex.process_signal(_signal("buy", 900))
+
+    rows = await ostore.list_orders(conn)
+    assert len(rows) == 1
+    row = rows[0]
+    assert row["status"] == ostore.FILLED
+    assert row["trader_id"] == "KENNY" and row["message_id"] == 900
+    assert row["side"] == "BUY" and row["filled_qty"] == 100  # 0.15*100k / 150
+    # tagged with trader:order_id on the IB order
+    assert ib.placed[0]["order_ref"] == f"KENNY:{row['order_id']}"
+    assert notes.placed and notes.status
+
+
+async def test_buy_blocked_when_exposure_cap_reached():
+    conn = await _conn()
+    # pre-existing 90 contracts @ mark 5 -> 90*5*100 = 45k = full Kenny cap (0.45*100k)
+    await _seed_position(conn, qty=90, price=5.0)
+    ib, notes = FakeIB(mark_px=5.0), FakeNotifier()
+    ex = Executor(conn, _config(), ib, notes)
+
+    await ex.process_signal(_signal("buy", 901))
+
+    assert "skip_no_headroom" in notes.skips
+    # no new order placed for message 901
+    assert not any(r["message_id"] == 901 for r in await ostore.list_orders(conn))
+    assert ib.placed == []
+
+
+async def test_resting_unfilled_buy_reserves_exposure_headroom():
+    conn = await _conn()
+    # A resting (SUBMITTED, unfilled) buy of 90 @ limit 5 = 45k = Kenny's full cap.
+    await _seed_standing_buy(conn, msg_id=901, requested_qty=90, price=5.0,
+                             ticker="TSLA", strike=250.0)
+    ib, notes = FakeIB(mark_px=5.0), FakeNotifier()
+    ex = Executor(conn, _config(), ib, notes)
+    # A *different* contract: cap is consumed by the resting order, so no headroom left.
+    await ex.process_signal(_signal("buy", 902, ticker="AAPL", strike=420.0))
+    assert "skip_no_headroom" in notes.skips
+    assert ib.placed == []
+
+
+async def test_pending_buys_count_toward_max_open_trades():
+    conn = await _conn()
+    # Three resting buys in three distinct contracts (tiny notional -> cap isn't binding).
+    for i, strike in enumerate((900.0, 950.0, 1000.0)):
+        await _seed_standing_buy(conn, msg_id=910 + i, requested_qty=1, price=0.5,
+                                 ticker="NVDA", strike=strike)
+    ib, notes = FakeIB(), FakeNotifier()
+    ex = Executor(conn, _config(), ib, notes)   # KENNY max_open_trades=3
+    # A fourth, *new* contract would open a 4th slot -> blocked.
+    await ex.process_signal(_signal("buy", 913, ticker="NVDA", strike=850.0))
+    assert "max_open_trades" in notes.skips
+    assert ib.placed == []
+
+
+async def test_adding_to_a_contract_with_a_pending_buy_is_allowed():
+    conn = await _conn()
+    for i, strike in enumerate((900.0, 950.0, 1000.0)):
+        await _seed_standing_buy(conn, msg_id=920 + i, requested_qty=1, price=0.5,
+                                 ticker="NVDA", strike=strike)
+    ib, notes = FakeIB(), FakeNotifier()
+    ex = Executor(conn, _config(), ib, notes)
+    # Same contract as an existing standing order -> already-open, no new slot consumed.
+    await ex.process_signal(_signal("buy", 923, ticker="NVDA", strike=900.0))
+    assert "max_open_trades" not in notes.skips
+    assert [p["side"] for p in ib.placed] == ["BUY"]
+
+
+async def test_process_message_logs_llm_reading_even_for_chatter(caplog):
+    conn = await _conn()
+    ex = Executor(conn, _config(), FakeIB(), FakeNotifier(),
+                  interpret=_fixed_interpret(_interp(None, confidence=0.2, reasoning="chatter")))
+    with caplog.at_level("INFO", logger="only_trades.executor"):
+        await ex.process_message(_inbound(8001, "watching SPY here"))
+    assert any("LLM read message 8001" in r.message and "action=none" in r.message
+               for r in caplog.records)
+
+
+async def test_duplicate_message_is_skipped():
+    conn = await _conn()
+    ex = Executor(conn, _config(), FakeIB(), FakeNotifier())
+    await ex.process_signal(_signal("buy", 900))
+    await ex.process_signal(_signal("buy", 900))  # same message id
+    rows = [r for r in await ostore.list_orders(conn) if r["message_id"] == 900]
+    assert len(rows) == 1
+
+
+async def test_sell_with_no_position_skips():
+    conn = await _conn()
+    notes = FakeNotifier()
+    ex = Executor(conn, _config(), FakeIB(), notes)
+    await ex.process_signal(_signal("sell", 902))
+    assert "no_position" in notes.skips
+    assert await ostore.list_orders(conn) == []
+
+
+async def test_trim_sells_half_of_held():
+    conn = await _conn()
+    # Kenny holds 10 AAPL calls
+    await _seed_position(conn, qty=10, price=1.5, ticker="AAPL", strike=420.0)
+    ib = FakeIB()
+    ex = Executor(conn, _config(), ib, FakeNotifier())
+    await ex.process_signal(_signal("trim", 903, ticker="AAPL", strike=420.0))
+    assert ib.placed and ib.placed[-1]["side"] == "SELL" and ib.placed[-1]["qty"] == 5
+
+
+async def test_trim_of_single_contract_sells_it():
+    conn = await _conn()
+    # Holding a single contract: a TRIM can't take half, so it closes the position.
+    await _seed_position(conn, qty=1, price=1.5, ticker="AAPL", strike=420.0)
+    ib = FakeIB()
+    ex = Executor(conn, _config(), ib, FakeNotifier())
+    await ex.process_signal(_signal("trim", 905, ticker="AAPL", strike=420.0))
+    assert ib.placed and ib.placed[-1]["side"] == "SELL" and ib.placed[-1]["qty"] == 1
+
+
+async def test_qualify_failure_skips_without_row():
+    conn = await _conn()
+    notes = FakeNotifier()
+    ex = Executor(conn, _config(), FakeIB(qualify_ok=False), notes)
+    await ex.process_signal(_signal("buy", 904))
+    assert "qualify_failed" in notes.skips
+    assert not any(r["message_id"] == 904 for r in await ostore.list_orders(conn))
+
+
+# ---- process_message (LLM front end) -------------------------------------
+def _buy_trade(scale="neutral"):
+    return ParsedTrade("buy", "AAPL", date(2026, 6, 20), 420.0, "call", 1.5, scale)
+
+
+async def test_process_message_confident_buy_auto_trades():
+    conn = await _conn()
+    ib, notes = FakeIB(), FakeNotifier()
+    ex = Executor(conn, _config(), ib, notes,
+                  interpret=_fixed_interpret(_interp(_buy_trade(), confidence=0.95)))
+    await ex.process_message(_inbound(1000))
+    assert ib.placed and ib.placed[-1]["side"] == "BUY"
+    assert notes.placed and not notes.holds
+
+
+async def test_process_message_low_confidence_holds_then_approve_places():
+    conn = await _conn()
+    ib, notes = FakeIB(), FakeNotifier()
+    ex = Executor(conn, _config(), ib, notes,
+                  interpret=_fixed_interpret(_interp(_buy_trade(), confidence=0.4)))
+    await ex.process_message(_inbound(1001))
+    assert notes.holds and ib.placed == []        # held, not traded
+    mid = notes.holds[-1][2]
+    assert ex.held_message(mid) is not None
+    await ex.approve(mid)                          # owner approves -> trades
+    assert ib.placed and ib.placed[-1]["side"] == "BUY"
+    assert ex.held_message(mid) is None            # consumed
+
+
+async def test_process_message_low_confidence_reject_discards():
+    conn = await _conn()
+    ib, notes = FakeIB(), FakeNotifier()
+    ex = Executor(conn, _config(), ib, notes,
+                  interpret=_fixed_interpret(_interp(_buy_trade(), confidence=0.4)))
+    await ex.process_message(_inbound(1002))
+    mid = notes.holds[-1][2]
+    await ex.reject(mid)
+    assert ib.placed == [] and ex.held_message(mid) is None
+
+
+async def test_process_message_chatter_is_ignored():
+    conn = await _conn()
+    ib, notes = FakeIB(), FakeNotifier()
+    ex = Executor(conn, _config(), ib, notes,
+                  interpret=_fixed_interpret(_interp(None, confidence=1.0)))
+    await ex.process_message(_inbound(1003, "gm everyone"))
+    assert ib.placed == [] and not notes.holds and not notes.errors
+
+
+async def test_process_message_error_notifies_only():
+    conn = await _conn()
+    ib, notes = FakeIB(), FakeNotifier()
+    ex = Executor(conn, _config(), ib, notes,
+                  interpret=_fixed_interpret(_interp(None, confidence=0.0, error="boom")))
+    await ex.process_message(_inbound(1004))
+    assert ib.placed == [] and notes.errors and not notes.holds
+
+
+async def test_process_message_invalid_buy_notifies_only():
+    # The LLM returns a buy but the hard-coded validity check rejects it (no contract).
+    conn = await _conn()
+    ib, notes = FakeIB(), FakeNotifier()
+    bad = ParsedTrade("buy", "AAPL")  # no expiry/strike/option_type/premium
+    ex = Executor(conn, _config(), ib, notes,
+                  interpret=_fixed_interpret(_interp(bad, confidence=0.99)))
+    await ex.process_message(_inbound(1005))
+    assert ib.placed == [] and notes.errors and not notes.holds
+
+
+async def test_process_message_dedupes_before_interpreting():
+    conn = await _conn()
+    ib, notes = FakeIB(), FakeNotifier()
+    calls = {"n": 0}
+
+    async def counting_interpret(**kwargs):
+        calls["n"] += 1
+        return _interp(_buy_trade(), confidence=0.95)
+
+    ex = Executor(conn, _config(), ib, notes, interpret=counting_interpret)
+    await ex.process_message(_inbound(1006))
+    await ex.process_message(_inbound(1006))   # same id -> deduped before interpret
+    assert calls["n"] == 1
+    rows = [r for r in await ostore.list_orders(conn) if r["message_id"] == 1006]
+    assert len(rows) == 1
+
+
+# ---- scale (conviction sizing) -------------------------------------------
+async def test_buy_scale_up_multiplies_qty():
+    conn = await _conn()
+    ib = FakeIB()
+    ex = Executor(conn, _config(), ib, FakeNotifier())
+    # base sized qty is 100 (0.45/3 * 100k / (1.5*100)); scale up x1.5 -> 150.
+    await ex.process_signal(_signal("buy", 920, scale="up"))
+    assert ib.placed[-1]["qty"] == 150
+
+
+async def test_buy_scale_down_halves_qty():
+    conn = await _conn()
+    ib = FakeIB()
+    ex = Executor(conn, _config(), ib, FakeNotifier())
+    await ex.process_signal(_signal("buy", 921, scale="down"))
+    assert ib.placed[-1]["qty"] == 50
+
+
+# ---- exit resolution against the trader's positions ----------------------
+async def test_ambiguous_sell_fans_out_to_all_positions_in_ticker():
+    conn = await _conn()
+    await _seed_position(conn, qty=4, price=12.0, ticker="NVDA", strike=900.0)
+    await _seed_position(conn, qty=2, price=10.0, ticker="NVDA", strike=950.0)
+    ib = FakeIB()
+    ex = Executor(conn, _config(), ib, FakeNotifier())
+    await ex.process_signal(_exit_signal("sell", 930, "NVDA"))  # ticker only -> all
+    assert {p["side"] for p in ib.placed} == {"SELL"}
+    assert sorted(p["qty"] for p in ib.placed) == [2, 4]
+
+
+async def test_specified_sell_hits_nearest_position():
+    conn = await _conn()
+    await _seed_position(conn, qty=4, price=12.0, ticker="NVDA", strike=900.0)
+    await _seed_position(conn, qty=2, price=10.0, ticker="NVDA", strike=950.0)
+    ib = FakeIB()
+    ex = Executor(conn, _config(), ib, FakeNotifier())
+    # strike 905 is nearest the 900 contract.
+    await ex.process_signal(_exit_signal("sell", 931, "NVDA", strike=905.0, option_type="call"))
+    assert len(ib.placed) == 1 and ib.placed[0]["qty"] == 4
+    placed_strikes = {r["strike"] for r in await ostore.list_orders(conn) if r["message_id"] == 931}
+    assert placed_strikes == {900.0}
+
+
+async def test_ambiguous_trim_trims_each_position():
+    conn = await _conn()
+    await _seed_position(conn, qty=10, price=2.0, ticker="NVDA", strike=900.0)
+    await _seed_position(conn, qty=4, price=2.0, ticker="NVDA", strike=950.0)
+    ib = FakeIB()
+    ex = Executor(conn, _config(), ib, FakeNotifier())
+    await ex.process_signal(_exit_signal("trim", 932, "NVDA"))   # ticker only
+    assert sorted(p["qty"] for p in ib.placed) == [2, 5]         # half of each, floored
+
+
+# ---- exits act on still-standing (unfilled) entry orders -----------------
+async def test_sell_cancels_a_fully_unfilled_standing_buy():
+    conn = await _conn()
+    oid = await _seed_standing_buy(conn, msg_id=940, requested_qty=4,
+                                   ticker="AAPL", strike=420.0)
+    ib, notes = FakeIB(), FakeNotifier()
+    ex = Executor(conn, _config(), ib, notes)
+    await ex.process_signal(_exit_signal("sell", 941, "AAPL"))
+    assert ib.cancels == [f"KENNY:{oid}"]
+    assert ib.placed == [] and ib.modifies == []
+    assert "no_position" not in notes.skips
+    row = await ostore.get_order(conn, oid)
+    assert row["status"] == ostore.CANCELLED
+    # The clear is surfaced as a CANCELLED status notification for that order.
+    assert any(o == oid and r.status == ostore.CANCELLED for _, r, o in notes.status)
+
+
+async def test_trim_modifies_a_fully_unfilled_standing_buy():
+    conn = await _conn()
+    oid = await _seed_standing_buy(conn, msg_id=942, requested_qty=10,
+                                   ticker="AAPL", strike=420.0)
+    ib = FakeIB()
+    ex = Executor(conn, _config(), ib, FakeNotifier())
+    await ex.process_signal(_exit_signal("trim", 943, "AAPL"))
+    assert ib.modifies == [(f"KENNY:{oid}", 5)]   # remaining 10 -> keep 5
+    assert ib.cancels == [] and ib.placed == []
+    row = await ostore.get_order(conn, oid)
+    assert row["requested_qty"] == 5
+
+
+async def test_trim_of_one_lot_standing_buy_cancels_it():
+    conn = await _conn()
+    oid = await _seed_standing_buy(conn, msg_id=944, requested_qty=1,
+                                   ticker="AAPL", strike=420.0)
+    ib = FakeIB()
+    ex = Executor(conn, _config(), ib, FakeNotifier())
+    await ex.process_signal(_exit_signal("trim", 945, "AAPL"))   # floor(1*0.5)=0
+    assert ib.cancels == [f"KENNY:{oid}"] and ib.modifies == []
+
+
+async def test_partial_fill_sell_sells_filled_and_cancels_remainder():
+    conn = await _conn()
+    oid = await _seed_standing_buy(conn, msg_id=946, requested_qty=10, filled_qty=4,
+                                   status=ostore.PARTIAL, price=2.0,
+                                   ticker="NVDA", strike=900.0)
+    ib = FakeIB()
+    ex = Executor(conn, _config(), ib, FakeNotifier())
+    await ex.process_signal(_exit_signal("sell", 947, "NVDA"))
+    assert [p["qty"] for p in ib.placed] == [4]        # sell the filled position
+    assert ib.cancels == [f"KENNY:{oid}"]              # cancel the working remainder
+
+
+async def test_partial_fill_trim_trims_filled_and_reduces_remainder():
+    conn = await _conn()
+    oid = await _seed_standing_buy(conn, msg_id=948, requested_qty=10, filled_qty=4,
+                                   status=ostore.PARTIAL, price=2.0,
+                                   ticker="NVDA", strike=900.0)
+    ib = FakeIB()
+    ex = Executor(conn, _config(), ib, FakeNotifier())
+    await ex.process_signal(_exit_signal("trim", 949, "NVDA"))
+    assert [p["qty"] for p in ib.placed] == [2]        # floor(4*0.5) of the filled part
+    # new absolute total = filled 4 + floor(6*0.5)=3 -> 7
+    assert ib.modifies == [(f"KENNY:{oid}", 7)]
+    row = await ostore.get_order(conn, oid)
+    assert row["requested_qty"] == 7
+
+
+async def test_specified_sell_only_cancels_the_matched_standing_contract():
+    conn = await _conn()
+    oid900 = await _seed_standing_buy(conn, msg_id=950, requested_qty=3,
+                                      ticker="NVDA", strike=900.0)
+    await _seed_standing_buy(conn, msg_id=951, requested_qty=3,
+                             ticker="NVDA", strike=950.0)
+    ib = FakeIB()
+    ex = Executor(conn, _config(), ib, FakeNotifier())
+    await ex.process_signal(_exit_signal("sell", 952, "NVDA", strike=905.0,
+                                         option_type="call"))
+    assert ib.cancels == [f"KENNY:{oid900}"]   # only the nearest (900); 950 untouched
+
+
+async def test_ambiguous_sell_fans_out_to_standing_and_filled():
+    conn = await _conn()
+    oid1 = await _seed_standing_buy(conn, msg_id=953, requested_qty=3,
+                                    ticker="NVDA", strike=900.0)
+    oid2 = await _seed_standing_buy(conn, msg_id=954, requested_qty=3,
+                                    ticker="NVDA", strike=950.0)
+    await _seed_position(conn, qty=5, price=4.0, ticker="NVDA", strike=800.0)
+    ib = FakeIB()
+    ex = Executor(conn, _config(), ib, FakeNotifier())
+    await ex.process_signal(_exit_signal("sell", 955, "NVDA"))   # ticker only -> all
+    assert sorted(ib.cancels) == sorted([f"KENNY:{oid1}", f"KENNY:{oid2}"])
+    assert [p["qty"] for p in ib.placed] == [5]   # the filled position
+
+
+async def test_exit_with_standing_in_other_ticker_still_skips():
+    conn = await _conn()
+    await _seed_standing_buy(conn, msg_id=956, requested_qty=4, ticker="AAPL", strike=420.0)
+    ib, notes = FakeIB(), FakeNotifier()
+    ex = Executor(conn, _config(), ib, notes)
+    await ex.process_signal(_exit_signal("sell", 957, "TSLA"))
+    assert "no_position" in notes.skips
+    assert ib.cancels == [] and ib.modifies == [] and ib.placed == []
+
+
+# ---- manual exit takes precedence over the protective legs ----------------
+async def test_manual_sell_cancels_resting_protective_legs():
+    conn = await _conn()
+    await _seed_position(conn, qty=4, price=12.0, ticker="NVDA", strike=900.0)
+    sl = await _seed_leg(conn, signal_type="stop_loss", qty=4)
+    tp = await _seed_leg(conn, signal_type="take_profit", qty=4, price=20.0)
+    ib, notes = FakeIB(), FakeNotifier()
+    ex = Executor(conn, _config(), ib, notes)
+    await ex.process_signal(_exit_signal("sell", 980, "NVDA"))
+    assert [p["side"] for p in ib.placed] == ["SELL"] and ib.placed[0]["qty"] == 4
+    assert set(ib.cancels) == {f"KENNY:{sl}", f"KENNY:{tp}"}      # both legs cancelled
+    rows = {r["order_id"]: r for r in await ostore.list_orders(conn)}
+    assert rows[sl]["status"] == ostore.CANCELLED
+    assert rows[tp]["status"] == ostore.CANCELLED
+
+
+async def test_manual_trim_resizes_protective_legs_to_remaining():
+    conn = await _conn()
+    await _seed_position(conn, qty=10, price=2.0, ticker="NVDA", strike=900.0)
+    sl = await _seed_leg(conn, signal_type="stop_loss", qty=10)
+    ib = FakeIB()
+    ex = Executor(conn, _config(), ib, FakeNotifier())
+    await ex.process_signal(_exit_signal("trim", 981, "NVDA"))
+    assert ib.placed[0]["qty"] == 5                  # sold floor(10*0.5)
+    assert ib.modifies == [(f"KENNY:{sl}", 5)]       # stop resized to the remaining 5
+    rows = {r["order_id"]: r for r in await ostore.list_orders(conn)}
+    assert rows[sl]["requested_qty"] == 5
+
+
+async def test_manual_trim_distributes_across_multiple_legs():
+    conn = await _conn()
+    await _seed_position(conn, qty=10, price=2.0, ticker="NVDA", strike=900.0)
+    await _seed_position(conn, qty=10, price=2.0, ticker="NVDA", strike=900.0)  # net 20
+    sl1 = await _seed_leg(conn, signal_type="stop_loss", qty=10, msg_id=1)
+    sl2 = await _seed_leg(conn, signal_type="stop_loss", qty=10, msg_id=2)
+    ib = FakeIB()
+    ex = Executor(conn, _config(), ib, FakeNotifier())
+    await ex.process_signal(_exit_signal("trim", 982, "NVDA"))   # sell 10, keep 10
+    assert ib.placed[0]["qty"] == 10
+    # remaining 10 is covered by exactly one full leg; the other is cancelled.
+    assert len(ib.cancels) == 1 and ib.modifies == []
+    rows = {r["order_id"]: r for r in await ostore.list_orders(conn)}
+    statuses = {rows[sl1]["status"], rows[sl2]["status"]}
+    assert statuses == {ostore.SUBMITTED, ostore.CANCELLED}
+    kept = sl1 if rows[sl1]["status"] == ostore.SUBMITTED else sl2
+    assert rows[kept]["requested_qty"] == 10
+
+
+async def test_skipped_exit_leaves_protective_legs_intact():
+    conn = await _conn()
+    await _seed_position(conn, qty=4, price=12.0, ticker="NVDA", strike=900.0)
+    occ = occ_symbol("NVDA", date(2026, 6, 20), "call", 900.0)
+    sig = _signal("sell", 990, ticker="NVDA", strike=900.0)
+    soid = await ostore.create_order(conn, signal=sig, occ_symbol=occ, requested_qty=4,
+                                     limit_price=11.0, signal_type="sell", side="SELL")
+    await ostore.update_order(conn, soid, status=ostore.SUBMITTED)  # an exit already in flight
+    sl = await _seed_leg(conn, signal_type="stop_loss", qty=4)
+    ib, notes = FakeIB(), FakeNotifier()
+    ex = Executor(conn, _config(), ib, notes)
+    await ex.process_signal(_exit_signal("sell", 991, "NVDA"))
+    assert "exit_in_flight" in notes.skips
+    assert ib.cancels == []                                   # legs untouched (we didn't exit)
+    rows = {r["order_id"]: r for r in await ostore.list_orders(conn)}
+    assert rows[sl]["status"] == ostore.SUBMITTED
+
+
+# ---- order type follows the signal's price -------------------------------
+async def test_buy_with_price_is_limit_at_premium_plus_spread():
+    conn = await _conn()
+    ib = FakeIB()
+    ex = Executor(conn, _config(), ib, FakeNotifier())
+    await ex.process_signal(_signal("buy", 940, premium=1.5))
+    order = ib.placed[-1]
+    assert order["order_type"] == "limit"
+    assert order["limit_price"] == round(1.5 * 1.05, 2)   # premium + 5% spread
+
+
+async def test_buy_without_price_is_market_sized_off_mark():
+    conn = await _conn()
+    ib = FakeIB(mark_px=5.0)
+    ex = Executor(conn, _config(), ib, FakeNotifier())
+    await ex.process_signal(_signal("buy", 941, premium=None))
+    order = ib.placed[-1]
+    assert order["order_type"] == "market" and order["limit_price"] is None
+    assert order["qty"] == 30   # 0.45/3 * 100k / (mark 5 * 100)
+
+
+async def test_buy_without_price_and_no_mark_skips():
+    conn = await _conn()
+    notes = FakeNotifier()
+    ex = Executor(conn, _config(), FakeIB(mark_px=None), notes)
+    await ex.process_signal(_signal("buy", 942, premium=None))
+    assert "no_mark" in notes.skips
+    assert await ostore.list_orders(conn) == []
+
+
+async def test_sell_with_stated_price_is_limit_at_price_minus_spread():
+    conn = await _conn()
+    await _seed_position(conn, qty=4, price=12.0, ticker="NVDA", strike=900.0)
+    ib = FakeIB()
+    ex = Executor(conn, _config(), ib, FakeNotifier())
+    trade = ParsedTrade("sell", "NVDA", None, None, None, 3.0, "neutral")
+    sig = Signal("KENNY", "llm", trade, 943, 111, 222, "kenny", "[sell] NVDA @ 3", 0.0)
+    await ex.process_signal(sig)
+    order = ib.placed[-1]
+    assert order["side"] == "SELL" and order["order_type"] == "limit"
+    assert order["limit_price"] == round(3.0 * 0.95, 2)   # stated price − 5% spread
+
+
+async def test_sell_without_price_is_market():
+    conn = await _conn()
+    await _seed_position(conn, qty=4, price=12.0, ticker="NVDA", strike=900.0)
+    ib = FakeIB()
+    ex = Executor(conn, _config(), ib, FakeNotifier())
+    await ex.process_signal(_exit_signal("sell", 944, "NVDA"))  # no stated price
+    order = ib.placed[-1]
+    assert order["side"] == "SELL" and order["order_type"] == "market"
+    assert order["limit_price"] is None
+
+
+async def test_exit_skipped_when_a_sell_is_already_working():
+    """Oversell guard: a resting (working) non-protective SELL on the contract blocks a
+    second exit that would double-sell. The working order's fill reduces the position via
+    reconciliation instead."""
+    conn = await _conn()
+    await _seed_position(conn, qty=4, price=12.0, ticker="NVDA", strike=900.0)
+    occ = occ_symbol("NVDA", date(2026, 6, 20), "call", 900.0)
+    sig = _signal("sell", 998, ticker="NVDA", strike=900.0)
+    soid = await ostore.create_order(conn, signal=sig, occ_symbol=occ, requested_qty=4,
+                                     limit_price=11.0, signal_type="sell", side="SELL")
+    await ostore.update_order(conn, soid, status=ostore.SUBMITTED)
+    ib, notes = FakeIB(), FakeNotifier()
+    ex = Executor(conn, _config(), ib, notes)
+    await ex.process_signal(_exit_signal("sell", 999, "NVDA"))
+    assert "exit_in_flight" in notes.skips
+    assert ib.placed == []  # no second sell placed
+
+
+async def test_protective_leg_does_not_block_a_manual_exit():
+    """A working protective leg (stop/TP) must NOT count as an in-flight exit."""
+    conn = await _conn()
+    await _seed_position(conn, qty=4, price=12.0, ticker="NVDA", strike=900.0)
+    occ = occ_symbol("NVDA", date(2026, 6, 20), "call", 900.0)
+    sig = _signal("buy", 998, ticker="NVDA", strike=900.0)
+    sl = await ostore.create_order(conn, signal=sig, occ_symbol=occ, requested_qty=4,
+                                   limit_price=6.0, signal_type="stop_loss", side="SELL")
+    await ostore.update_order(conn, sl, status=ostore.SUBMITTED)
+    ib, notes = FakeIB(), FakeNotifier()
+    ex = Executor(conn, _config(), ib, notes)
+    await ex.process_signal(_exit_signal("sell", 999, "NVDA"))
+    assert ib.placed and ib.placed[-1]["side"] == "SELL"  # the manual exit went through
+
+
+# ---- protective exits (stop loss / take profit) --------------------------
+def _update(ref, status, *, filled=0.0, avg=None):
+    from only_trades.brokers.protocol import OrderUpdate
+    return OrderUpdate(order_ref=ref, status=status, filled_qty=filled, avg_fill_price=avg)
+
+
+def _config_sltp(stop=0.5, target=1.0):
+    from only_trades.config import LLMConfig
+    return Config(
+        discord_token="", notify_channel_id=None, profile="dev",
+        dashboard_host="", dashboard_port=0, dashboard_token=None,
+        traders={"KENNY": Trader("KENNY", 111, 0.45, 3)},
+        policy=OrderPolicy(stop_loss_pct=stop, take_profit_pct=target),
+        llm=LLMConfig(), active_trader_ids=["KENNY"],
+    )
+
+
+async def test_buy_with_policy_records_three_rows_with_protective_prices():
+    conn = await _conn()
+    ib, notes = FakeIB(), FakeNotifier()
+    ex = Executor(conn, _config_sltp(stop=0.5, target=1.0), ib, notes)
+
+    await ex.process_signal(_signal("buy", 950, premium=2.0))
+
+    rows = {r["signal_type"]: r for r in await ostore.list_orders(conn)}
+    assert set(rows) == {"buy", "take_profit", "stop_loss"}
+    assert rows["buy"]["side"] == "BUY"
+    # protective legs are SELLs, PENDING until they trigger
+    assert rows["take_profit"]["side"] == "SELL" and rows["take_profit"]["status"] == ostore.PENDING
+    assert rows["stop_loss"]["side"] == "SELL" and rows["stop_loss"]["status"] == ostore.PENDING
+    assert rows["take_profit"]["limit_price"] == 4.0   # 2.0 * (1 + 1.0)
+    assert rows["stop_loss"]["limit_price"] == 1.0     # 2.0 * (1 - 0.5)
+    # the broker received a protective_exit carrying both child refs
+    pe = ib.placed[0]["protective_exit"]
+    assert pe is not None and pe.stop_price == 1.0 and pe.take_profit_price == 4.0
+    assert pe.stop_ref == f"KENNY:{rows['stop_loss']['order_id']}"
+    assert pe.take_profit_ref == f"KENNY:{rows['take_profit']['order_id']}"
+
+
+async def test_buy_without_policy_is_a_single_plain_order():
+    conn = await _conn()
+    ib = FakeIB()
+    ex = Executor(conn, _config(), ib, FakeNotifier())  # default policy: no SL/TP
+
+    await ex.process_signal(_signal("buy", 951, premium=2.0))
+
+    rows = await ostore.list_orders(conn)
+    assert len(rows) == 1 and rows[0]["signal_type"] == "buy"
+    assert ib.placed[0]["protective_exit"] is None
+
+
+async def test_buy_passes_good_till_when_timeout_configured():
+    conn = await _conn()
+    ib = FakeIB()
+    cfg = dc_replace(_config(), policy=OrderPolicy(entry_timeout_secs=600))
+    ex = Executor(conn, cfg, ib, FakeNotifier())
+
+    before = datetime.now(timezone.utc)
+    await ex.process_signal(_signal("buy", 980, premium=2.0))
+
+    good_till = ib.placed[0]["good_till"]
+    assert good_till is not None
+    assert timedelta(seconds=595) <= (good_till - before) <= timedelta(seconds=605)
+
+
+async def test_buy_good_till_none_without_timeout():
+    conn = await _conn()
+    ib = FakeIB()
+    ex = Executor(conn, _config(), ib, FakeNotifier())  # default policy: no timeout
+    await ex.process_signal(_signal("buy", 981, premium=2.0))
+    assert ib.placed[0]["good_till"] is None
+
+
+async def test_take_profit_fill_closes_position_and_cancels_stop():
+    conn = await _conn()
+    ib, notes = FakeIB(), FakeNotifier()
+    ex = Executor(conn, _config_sltp(stop=0.5, target=1.0), ib, notes)
+    ib.register_order_update(ex.on_order_update)  # wired exactly as main.py does
+    await ex.process_signal(_signal("buy", 952, premium=2.0))  # entry fills 100 (0.15*100k/200)
+
+    rows = {r["signal_type"]: r for r in await ostore.list_orders(conn)}
+    entry_qty = rows["buy"]["filled_qty"]
+    assert entry_qty > 0
+
+    tp_ref = f"KENNY:{rows['take_profit']['order_id']}"
+    sl_ref = f"KENNY:{rows['stop_loss']['order_id']}"
+
+    # Broker reports the take-profit leg filled, then (OCA) the stop cancelled.
+    await ib.on_update(_update(tp_ref, ostore.FILLED, filled=entry_qty, avg=4.0))
+    await ib.on_update(_update(sl_ref, ostore.CANCELLED))
+
+    rows = {r["signal_type"]: r for r in await ostore.list_orders(conn)}
+    assert rows["take_profit"]["status"] == ostore.FILLED
+    assert rows["take_profit"]["filled_qty"] == entry_qty
+    assert rows["stop_loss"]["status"] == ostore.CANCELLED
+    # net position is flat (BUY filled - SELL filled == 0)
+    assert await ostore.open_positions(conn, "KENNY") == []
+
+    # The take-profit fill is notified and tagged to the entry order it protects.
+    tp_updates = [(r, u) for r, u in notes.order_updates if r["signal_type"] == "take_profit"]
+    assert tp_updates, "expected a take-profit order-update notification"
+    r, u = tp_updates[-1]
+    assert u.status == ostore.FILLED
+    assert r.get("parent_order_id") == rows["buy"]["order_id"]
+
+
+async def test_order_update_for_unknown_ref_is_ignored():
+    conn = await _conn()
+    ex = Executor(conn, _config(), FakeIB(), FakeNotifier())
+    await ex.on_order_update(_update("KENNY:does-not-exist", ostore.FILLED, filled=1, avg=1.0))
+    assert await ostore.list_orders(conn) == []
+
+
+# ---- orphaned-protective cascade (entry dies without opening) -------------
+async def test_rejected_entry_cancels_its_protective_legs():
+    conn = await _conn()
+    ib, notes = FakeIB(status=ostore.REJECTED), FakeNotifier()
+    ex = Executor(conn, _config_sltp(stop=0.5, target=1.0), ib, notes)
+    await ex.process_signal(_signal("buy", 970, premium=2.0))
+    rows = {r["signal_type"]: r for r in await ostore.list_orders(conn)}
+    assert rows["buy"]["status"] == ostore.REJECTED
+    assert rows["stop_loss"]["status"] == ostore.CANCELLED
+    assert rows["take_profit"]["status"] == ostore.CANCELLED
+    assert set(ib.cancels) == {
+        f"KENNY:{rows['stop_loss']['order_id']}",
+        f"KENNY:{rows['take_profit']['order_id']}",
+    }
+
+
+async def test_entry_cancelled_before_fill_settles_protective_legs():
+    conn = await _conn()
+    ib, notes = FakeIB(status=ostore.SUBMITTED), FakeNotifier()
+    ex = Executor(conn, _config_sltp(stop=0.5, target=1.0), ib, notes)
+    await ex.process_signal(_signal("buy", 971, premium=2.0))   # entry rests, legs PENDING
+    rows = {r["signal_type"]: r for r in await ostore.list_orders(conn)}
+    assert rows["stop_loss"]["status"] == ostore.PENDING        # not settled while entry works
+
+    await ex.on_order_update(_update(f"KENNY:{rows['buy']['order_id']}", ostore.CANCELLED))
+    rows = {r["signal_type"]: r for r in await ostore.list_orders(conn)}
+    assert rows["stop_loss"]["status"] == ostore.CANCELLED
+    assert rows["take_profit"]["status"] == ostore.CANCELLED
+    assert set(ib.cancels) == {
+        f"KENNY:{rows['stop_loss']['order_id']}",
+        f"KENNY:{rows['take_profit']['order_id']}",
+    }
+
+
+async def test_partially_filled_entry_cancel_resizes_protective_legs():
+    conn = await _conn()
+    ib, notes = FakeIB(status=ostore.SUBMITTED), FakeNotifier()
+    ex = Executor(conn, _config_sltp(stop=0.5, target=1.0), ib, notes)
+    await ex.process_signal(_signal("buy", 972, premium=2.0))
+    rows = {r["signal_type"]: r for r in await ostore.list_orders(conn)}
+    entry_ref = f"KENNY:{rows['buy']['order_id']}"
+    sl_ref = f"KENNY:{rows['stop_loss']['order_id']}"
+    tp_ref = f"KENNY:{rows['take_profit']['order_id']}"
+    assert rows["buy"]["requested_qty"] > 5  # sanity: 5 is a genuine partial
+
+    # A partial fill (5) then a timeout cancel of the remainder leaves a real 5-lot
+    # position; the legs must be RESIZED down to 5, not cancelled.
+    await ex.on_order_update(_update(entry_ref, ostore.PARTIAL, filled=5, avg=2.0))
+    await ex.on_order_update(_update(entry_ref, ostore.CANCELLED, filled=5))
+    rows = {r["signal_type"]: r for r in await ostore.list_orders(conn)}
+    assert rows["stop_loss"]["status"] == ostore.PENDING       # still working
+    assert rows["take_profit"]["status"] == ostore.PENDING
+    assert rows["stop_loss"]["requested_qty"] == 5             # trimmed to the fill
+    assert rows["take_profit"]["requested_qty"] == 5
+    assert ib.cancels == []                                     # legs kept, not cancelled
+    assert set(ib.modifies) == {(sl_ref, 5), (tp_ref, 5)}      # broker legs resized

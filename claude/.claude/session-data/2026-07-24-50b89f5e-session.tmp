@@ -1,0 +1,31 @@
+# Session: 2026-07-24
+**Date:** 2026-07-24
+**Started:** 23:18
+**Last Updated:** 23:18
+**Project:** krubics
+**Branch:** unknown
+**Worktree:** /home/krubics
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Human: <system-reminder> As you answer the user's questions, you can use the following context: # claudeMd Codebase and user instructions are shown below. Be sure to adhere to these instructions. IMPO
+- Human: So I should change the gtk-4.0 css file to make changes right?
+- Assistant: Yes, for user-level customization the right file is:  \`\`\` ~/.config/gtk-4.0/gtk.css \`\`\`  That file is loaded on top of whatever theme GTK4 is using, so you can override any style there with
+
+### Tools Used
+Bash
+
+### Stats
+- Total user messages: 3
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

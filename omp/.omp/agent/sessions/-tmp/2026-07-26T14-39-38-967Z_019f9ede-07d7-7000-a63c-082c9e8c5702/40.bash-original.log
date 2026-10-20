@@ -1,0 +1,37 @@
+/home/krubics/.config/hyprwhspr
+/home/krubics/.config/hypr-backup-back-up_0707_2056
+/home/krubics/.config/hypr-backup-back-up_0707_2056/hyprlock-2k.conf
+/home/krubics/.config/hypr-backup-back-up_0707_2056/hypridle.conf
+/home/krubics/.config/hypr-backup-back-up_0707_2056/hyprlock-1080p.conf
+/home/krubics/.config/hypr-backup-back-up_0707_2056/hyprlock.conf
+/home/krubics/.config/hypr-backup-back-up_0707_2056/hyprland.conf
+/home/krubics/.config/hypr-backup-back-up_0707_2031
+/home/krubics/.config/hypr-backup-back-up_0707_2031/hyprlock-2k.conf
+/home/krubics/.config/hypr-backup-back-up_0707_2031/hypridle.conf
+/home/krubics/.config/hypr-backup-back-up_0707_2031/hyprlock-1080p.conf
+/home/krubics/.config/hypr-backup-back-up_0707_2031/hyprlock.conf
+/home/krubics/.config/hypr-backup-back-up_0707_2031/hyprland.conf
+/home/krubics/.config/waybar/hyprwhspr-module.jsonc
+/home/krubics/.config/hypr
+/home/krubics/.config/hypr/hyprland.lua
+/home/krubics/.config/hypr/hyprpaper.conf
+/home/krubics/.config/hypr/hyprlock.conf
+/home/krubics/.config/hypr/hyprland-gui.lua
+---
+/home/krubics/.config/hypr/hyprland.lua
+/home/krubics/.config/hypr/hyprland-gui.lua
+--- hyprland config dir listing ---
+total 68
+drwxrwxr-x   9 krubics krubics  4096 Jul 26 22:16 .
+drwx------ 125 krubics krubics 12288 Jul 26 22:20 ..
+drwxrwxr-x   2 krubics krubics  4096 Jul 24 22:24 conf
+drwxrwxr-x   2 krubics krubics  4096 Jul 26 22:16 custom
+-rw-------   1 krubics krubics   845 Jul 22 22:58 hyprland-gui.lua
+-rw-rw-r--   1 krubics krubics 11946 Jul 27 00:43 hyprland.lua
+-rw-r--r--   1 root    root      813 Jul 10 20:38 hyprlock.conf
+-rw-rw-r--   1 krubics krubics   252 Jul  7 23:10 hyprpaper.conf
+drwxrwxr-x   2 krubics krubics  4096 Jul 24 22:42 images
+drwxrwxr-x   2 krubics krubics  4096 Jul 11 23:06 matugen-colors
+drwxrwxr-x   2 krubics krubics  4096 Jul 11 20:40 screenshots
+drwxrwxr-x   2 krubics krubics  4096 Jul 27 00:43 scripts
+drwxrwxr-x   2 krubics krubics  4096 Jul 24 22:42 wallpapers

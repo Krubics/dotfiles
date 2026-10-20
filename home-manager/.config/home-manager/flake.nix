@@ -8,15 +8,23 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixgl = {
+      url = "github:nix-community/nixGL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     lazyvim.url = "github:pfassina/lazyvim-nix";
     iris = {
       url = "github:versenilvis/iris";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    quickshell = {
+      url = "github:quickshell-mirror/quickshell/v0.3.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
-    { nixpkgs, home-manager, lazyvim, iris, ... }:
+    { nixpkgs, home-manager, lazyvim, iris, nixgl, quickshell, ... }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -33,7 +41,9 @@
         ];
 
         extraSpecialArgs = {
+          inherit nixgl;
           irisPkg = iris.packages.${system}.iris;
+          quickshellPkg = quickshell.packages.${system}.default;
         };
       };
     };

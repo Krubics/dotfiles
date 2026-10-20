@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pokémon Waybar — Sapphire Battle UI</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --void: #07111d;
+      --ink: #17233d;
+      --panel: #294c6b;
+      --panel-deep: #17334e;
+      --sapphire: #69b9e6;
+      --ice: #d8f2ff;
+      --cream: #f4f1d0;
+      --muted: #8ca5b7;
+      --hp: #58b85c;
+      --amber: #e9b949;
+      --critical: #d94b4b;
+      --line: #0d1829;
+      --shadow: rgba(2, 8, 16, .55);
+      font-family: "JetBrainsMono Nerd Font", "JetBrains Mono", ui-monospace, monospace;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      color: var(--ice);
+      background:
+        radial-gradient(circle at 14% 4%, rgba(72, 148, 196, .16), transparent 28rem),
+        radial-gradient(circle at 88% 28%, rgba(38, 94, 139, .2), transparent 30rem),
+        var(--void);
+    }
+    button, input, select, textarea { font: inherit; }
+    button { cursor: pointer; }
+
+    .shell { width: min(1480px, calc(100% - 36px)); margin: 0 auto; padding: 72px 0 130px; }
+    .eyebrow {
+      color: var(--sapphire);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+    h1 { max-width: 900px; margin: 12px 0 14px; color: var(--cream); font-size: clamp(34px, 6vw, 76px); line-height: .97; letter-spacing: -.055em; }
+    .lede { max-width: 760px; color: #b7cbd8; font-size: 16px; line-height: 1.7; }
+    .summary-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+    .summary-chips span { border: 1px solid #315674; background: #10273b; padding: 7px 10px; color: #b9d8e8; font-size: 11px; }
+
+    section { margin-top: 64px; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 18px; }
+    .section-head h2 { margin: 6px 0 0; color: var(--cream); font-size: clamp(23px, 3vw, 36px); letter-spacing: -.035em; }
+    .section-head p { max-width: 630px; margin: 0; color: var(--muted); font-size: 15px; line-height: 1.6; }
+
+    .current-card {
+      overflow: hidden;
+      border: 1px solid #31526b;
+      background: #0a1725;
+      box-shadow: 0 24px 70px var(--shadow);
+    }
+    .current-card img { display: block; width: 100%; height: auto; }
+    .current-notes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: #29445a; }
+    .current-notes article { min-width: 0; padding: 18px; background: #0e2031; }
+    .current-notes strong { display: block; margin-bottom: 7px; color: var(--cream); font-size: 14px; }
+    .current-notes p { margin: 0; color: #a8bfcd; font-size: 14px; line-height: 1.65; }
+
+    .prototype-wrap { border: 1px solid #31526b; background: #0a1725; box-shadow: 0 24px 70px var(--shadow); }
+    .prototype-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 14px; border-bottom: 1px solid #29475e; background: #0d1d2b; }
+    .variant-tabs { display: flex; gap: 6px; min-width: 0; overflow-x: auto; }
+    .variant-tab { border: 1px solid #31516a; background: #102336; color: #a9c0ce; padding: 9px 12px; font-size: 13px; white-space: nowrap; }
+    .variant-tab.active { border-color: var(--sapphire); background: #234d6e; color: #fff; box-shadow: inset 0 -2px 0 var(--sapphire); }
+    .prototype-badge { flex: none; color: #6f8899; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
+
+    .monitor {
+      position: relative;
+      min-height: 500px;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, #8fd0ed 0 55%, #cce9f2 55% 58%, #80a9a7 58% 65%, #354f5d 65% 100%);
+      isolation: isolate;
+    }
+    .monitor::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      opacity: .5;
+      background:
+        radial-gradient(ellipse at 12% 62%, #547b78 0 8%, transparent 8.5%),
+        radial-gradient(ellipse at 29% 60%, #678f87 0 10%, transparent 10.5%),
+        radial-gradient(ellipse at 74% 61%, #4f7370 0 12%, transparent 12.5%),
+        linear-gradient(90deg, transparent 0 8%, rgba(255,255,255,.28) 8% 8.15%, transparent 8.15% 100%);
+    }
+    .monitor::after {
+      content: "SAPPHIRE FIELD MODE";
+      position: absolute;
+      right: 24px;
+      bottom: 18px;
+      color: rgba(7, 28, 44, .36);
+      font-weight: 900;
+      font-size: clamp(18px, 3vw, 46px);
+      letter-spacing: .08em;
+    }
+    .waybar-concept { position: absolute; inset: 12px 12px auto; display: none; min-width: 0; }
+    .waybar-concept.active { display: grid; }
+
+    .battle-box {
+      min-width: 0;
+      color: var(--cream);
+      background: linear-gradient(180deg, #315b7b, #244560);
+      border: 2px solid var(--line);
+      border-radius: 5px;
+      box-shadow:
+        0 0 0 1px #9cd2ec,
+        0 0 0 3px #101b2c,
+        inset 0 0 0 1px rgba(228, 246, 255, .22),
+        0 5px 14px rgba(0, 16, 29, .42);
+    }
+    .micro { color: #9dd6f2; font-size: 8px; font-weight: 900; letter-spacing: .13em; line-height: 1; text-transform: uppercase; }
+    .data { color: var(--cream); font-size: 13px; font-weight: 900; letter-spacing: -.04em; white-space: nowrap; }
+    .sprite { width: 30px; height: 30px; object-fit: contain; image-rendering: pixelated; filter: drop-shadow(1px 2px 0 rgba(4, 10, 18, .65)); }
+    .sprite.large { width: 36px; height: 36px; }
+    .sprite.offline { filter: grayscale(1) opacity(.45); }
+    .pika-portrait {
+      width: 34px;
+      height: 34px;
+      flex: none;
+      background-image: url('assets/pikachu-100.png');
+      background-size: 500% 100%;
+      background-position: left center;
+      background-repeat: no-repeat;
+      image-rendering: pixelated;
+      filter: drop-shadow(1px 2px 0 rgba(4, 10, 18, .65));
+    }
+    .pika-portrait.charging { animation: charge 1.2s steps(2, end) infinite; }
+    @keyframes charge { 50% { filter: drop-shadow(0 0 5px #fff25e) brightness(1.25); transform: translateY(-1px); } }
+
+    .hp-track { height: 8px; overflow: hidden; border: 2px solid #0e1928; border-radius: 5px; background: #101c2b; box-shadow: 0 0 0 1px #708493; }
+    .hp-fill { width: 22%; height: 100%; background: var(--hp); transition: width .18s ease, background .18s ease; }
+
+    /* A — closest to the existing three-island Waybar */
+    .variant-a { grid-template-columns: auto minmax(310px, 1fr) auto; align-items: start; gap: 14px; }
+    .a-time, .a-link, .a-battery { height: 52px; display: flex; align-items: center; }
+    .a-time { padding: 5px 11px 5px 7px; gap: 8px; }
+    .label-stack { min-width: 0; display: grid; gap: 5px; }
+    .a-center { justify-self: center; height: 52px; display: flex; align-items: center; justify-content: center; padding: 6px 12px; }
+    .workspace-row { display: flex; align-items: center; gap: 4px; }
+    .workspace { min-width: 33px; height: 30px; display: grid; place-items: center; border: 1px solid transparent; color: #d8e8eb; font-size: 12px; font-weight: 900; }
+    .workspace.occupied::after { content: ""; width: 6px; height: 6px; position: absolute; margin-top: 27px; border-radius: 50%; background: #a9cad8; }
+    .workspace.active { position: relative; border-color: #bfeaff; background: #132d44; color: #fff; }
+    .workspace-ball { width: 23px; height: 23px; object-fit: contain; image-rendering: pixelated; }
+    .workspace.active b { position: absolute; right: -5px; bottom: -4px; min-width: 13px; padding: 1px 2px; border: 1px solid var(--line); background: var(--cream); color: var(--ink); font-size: 7px; line-height: 10px; text-align: center; }
+    .apps { display: flex; gap: 5px; margin-left: 12px; padding-left: 12px; border-left: 1px solid #7ca3bb; }
+    .app-dot { width: 19px; height: 19px; display: grid; place-items: center; border: 1px solid #7599ae; border-radius: 3px; background: #152c40; color: #c8e7f2; font-size: 8px; }
+    .a-right { display: flex; gap: 8px; justify-self: end; min-width: 0; }
+    .a-link { gap: 7px; padding: 5px 9px 5px 6px; }
+    .a-battery { min-width: 182px; gap: 8px; padding: 4px 10px 4px 6px; }
+    .hp-readout { min-width: 112px; display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 3px 8px; }
+    .hp-readout .micro { color: var(--cream); }
+    .hp-readout .battery-value { justify-self: end; color: #fff; font-size: 10px; font-weight: 900; }
+    .hp-readout .hp-track { grid-column: 1 / -1; }
+
+    /* B — single encounter ribbon with strong status hierarchy */
+    .variant-b { grid-template-columns: 1fr; }
+    .b-ribbon { min-width: 0; min-height: 58px; display: grid; grid-template-columns: auto 1px minmax(280px, 1fr) 1px auto; align-items: center; gap: 12px; padding: 5px 12px; border-radius: 3px; }
+    .b-time { display: flex; align-items: center; gap: 8px; }
+    .b-rule { align-self: stretch; background: linear-gradient(transparent, #a0c3d4 25% 75%, transparent); }
+    .b-menu { display: grid; grid-template-columns: repeat(4, minmax(34px, 1fr)); gap: 4px; max-width: 430px; justify-self: center; width: 100%; }
+    .b-move { position: relative; height: 28px; display: flex; align-items: center; justify-content: center; gap: 5px; border: 1px solid #658ca4; background: #18334b; color: #d8e9ef; font-size: 10px; }
+    .b-move.active { border-color: var(--cream); color: #fff; background: #285879; }
+    .b-move .workspace-ball { width: 19px; height: 19px; }
+    .b-party { display: flex; align-items: center; gap: 10px; }
+    .b-pokemon { display: flex; align-items: center; gap: 5px; }
+    .b-battery { min-width: 170px; display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 2px 7px; }
+    .b-battery .hp-track { grid-column: 2; }
+
+    /* C — asymmetric PokéNav-inspired command deck */
+    .variant-c { grid-template-columns: auto minmax(300px, 1fr) auto; gap: 0; align-items: start; }
+    .c-time { height: 48px; display: flex; align-items: center; gap: 7px; padding: 5px 18px 5px 7px; border-radius: 18px 3px 3px 18px; }
+    .c-center { height: 48px; align-self: start; display: flex; align-items: center; justify-content: center; border-radius: 0; padding: 5px 18px; border-left-width: 0; border-right-width: 0; box-shadow: 0 0 0 1px #9cd2ec, inset 0 0 0 1px rgba(228,246,255,.22), 0 5px 14px rgba(0,16,29,.42); }
+    .c-workspace { width: 36px; height: 28px; position: relative; display: grid; place-items: center; color: #c1dce8; font-size: 11px; }
+    .c-workspace::after { content: ""; position: absolute; bottom: 1px; width: 13px; height: 2px; background: #638da4; }
+    .c-workspace.active { color: #fff; background: #153048; }
+    .c-workspace.active::after { width: 22px; background: var(--cream); }
+    .c-workspace .workspace-ball { width: 23px; height: 23px; }
+    .c-workspace.active b { position: absolute; right: 1px; bottom: 0; z-index: 1; width: 11px; border: 1px solid var(--line); background: var(--cream); color: var(--ink); font-size: 7px; line-height: 9px; text-align: center; }
+    .c-center .apps { margin-left: 15px; }
+    .c-right { height: 48px; display: flex; align-items: center; gap: 8px; padding: 4px 8px 4px 16px; border-radius: 3px 18px 18px 3px; }
+    .c-status { position: relative; display: grid; place-items: center; width: 35px; height: 35px; border: 1px solid #79a7bf; border-radius: 50%; background: #152f46; }
+    .c-status .sprite { width: 28px; height: 28px; }
+    .c-status small { position: absolute; right: -5px; bottom: -2px; min-width: 17px; padding: 2px 3px; border: 1px solid #0c1725; background: var(--cream); color: #122033; font-size: 7px; font-weight: 900; text-align: center; }
+    .c-battery { width: 132px; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 3px 7px; }
+    .c-battery .hp-track { grid-column: 1 / -1; }
+
+    .controls { display: grid; grid-template-columns: 1.2fr .8fr; gap: 1px; border-top: 1px solid #29475e; background: #29475e; }
+    .control-panel, .verdict-panel { min-width: 0; padding: 22px; background: #0d1d2b; }
+    .controls h3 { margin: 0 0 6px; color: var(--cream); font-size: 17px; }
+    .controls .hint { margin: 0 0 18px; color: #91a9b9; font-size: 13px; line-height: 1.6; }
+    .control-grid { display: grid; grid-template-columns: minmax(220px, 1fr) repeat(3, auto); gap: 16px; align-items: end; }
+    .field { min-width: 0; display: grid; gap: 7px; color: #c3d5de; font-size: 13px; }
+    input[type="range"] { width: 100%; accent-color: var(--sapphire); }
+    input[type="checkbox"], input[type="radio"] { accent-color: var(--sapphire); }
+    select, textarea { width: 100%; border: 1px solid #365b74; background: #102437; color: #d9eaf0; padding: 8px; }
+    .toggle { display: flex; align-items: center; gap: 7px; padding-bottom: 8px; color: #b9ceda; font-size: 11px; white-space: nowrap; }
+
+    .choice-list { display: grid; gap: 7px; margin: 14px 0; }
+    .choice-list label { display: flex; align-items: center; gap: 9px; border: 1px solid #2b4a61; padding: 10px; background: #102235; color: #d3e2e8; font-size: 13px; }
+    .verdict-panel textarea { min-height: 80px; resize: vertical; margin-bottom: 9px; font-size: 13px; }
+    .queue-button { width: 100%; border: 1px solid #9edaf4; background: #2e7098; color: #fff; padding: 11px 13px; font-weight: 900; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }
+    .queue-button:hover { background: #3a82ad; }
+    .queue-status { min-height: 17px; margin-top: 8px; color: #78c889; font-size: 10px; }
+
+    .decision-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .decision-card { min-width: 0; border: 1px solid #2f5067; background: #0d1d2b; padding: 20px; }
+    .decision-card.recommended { border-color: #69b9e6; box-shadow: inset 0 3px 0 var(--sapphire); }
+    .decision-card .variant-key { color: var(--sapphire); font-size: 10px; font-weight: 900; letter-spacing: .15em; }
+    .decision-card h3 { margin: 9px 0 8px; color: var(--cream); font-size: 19px; }
+    .decision-card p { margin: 0; color: #a8bfcd; font-size: 14px; line-height: 1.65; }
+    .tradeoff { margin-top: 15px; padding-top: 13px; border-top: 1px solid #243f52; color: #d0dee4; font-size: 12px; line-height: 1.6; }
+
+    .switcher {
+      position: fixed;
+      z-index: 50;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      display: grid;
+      grid-template-columns: 40px minmax(190px, auto) 40px;
+      align-items: center;
+      padding: 5px;
+      border: 1px solid #86c9ea;
+      border-radius: 999px;
+      background: rgba(7, 18, 29, .94);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, .48);
+      backdrop-filter: blur(12px);
+    }
+    .switcher button { width: 34px; height: 34px; border: 0; border-radius: 50%; background: #214762; color: white; font-size: 18px; }
+    .switcher-output { color: var(--cream); text-align: center; font-size: 11px; font-weight: 900; white-space: nowrap; }
+
+    @media (max-width: 1100px) {
+      .variant-a { grid-template-columns: auto 1fr; }
+      .a-right { grid-column: 1 / -1; justify-self: end; margin-top: 8px; }
+      .b-ribbon { grid-template-columns: auto 1px 1fr; }
+      .b-party { grid-column: 1 / -1; justify-self: end; }
+      .b-ribbon > .b-rule:last-of-type { display: none; }
+      .variant-c { grid-template-columns: auto 1fr; }
+      .c-right { grid-column: 1 / -1; justify-self: end; margin-top: 8px; border: 2px solid var(--line); border-radius: 18px; box-shadow: 0 0 0 1px #9cd2ec, 0 0 0 3px #101b2c, inset 0 0 0 1px rgba(228,246,255,.22), 0 5px 14px rgba(0,16,29,.42); }
+      .controls { grid-template-columns: 1fr; }
+      .control-grid { grid-template-columns: 1fr 1fr; align-items: center; }
+    }
+    @media (max-width: 760px) {
+      .shell { width: min(100% - 22px, 1480px); padding-top: 42px; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 10px; }
+      .current-notes, .decision-grid { grid-template-columns: 1fr; }
+      .monitor { min-height: 570px; }
+      .variant-a, .variant-c { grid-template-columns: 1fr; gap: 8px; }
+      .a-time, .a-center, .a-right, .c-time, .c-center, .c-right { justify-self: stretch; }
+      .a-right { display: grid; grid-template-columns: 1fr; margin-top: 0; }
+      .a-battery { width: 100%; }
+      .c-center { border: 2px solid var(--line); border-radius: 3px; box-shadow: 0 0 0 1px #9cd2ec, 0 0 0 3px #101b2c, inset 0 0 0 1px rgba(228,246,255,.22), 0 5px 14px rgba(0,16,29,.42); }
+      .c-right { margin-top: 0; }
+      .b-ribbon { grid-template-columns: 1fr; gap: 8px; }
+      .b-rule { display: none; }
+      .b-menu { justify-self: stretch; }
+      .b-party { justify-self: stretch; flex-wrap: wrap; }
+      .control-grid { grid-template-columns: 1fr; }
+      .prototype-badge { display: none; }
+      .switcher { grid-template-columns: 36px minmax(145px, auto) 36px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div class="eyebrow">Waybar field study / Sapphire</div>
+      <h1>Battle UI, without turning the desktop into a toy.</h1>
+      <p class="lede">Three interactive directions for a balanced Gen III-inspired Waybar. Each preserves the semantic Pokémon casting already in use, improves small-sprite legibility, and turns battery state into the signature Pikachu HP treatment.</p>
+      <div class="summary-chips" aria-label="Confirmed direction">
+        <span>GEN III INTERFACE</span><span>SAPPHIRE PALETTE</span><span>BALANCED INTENSITY</span><span>MIXED-GENERATION PARTY</span>
+      </div>
+    </header>
+
+    <section aria-labelledby="current-title">
+      <div class="section-head">
+        <div><div class="eyebrow">01 / Current state</div><h2 id="current-title">What already works</h2></div>
+        <p>The real desktop capture is shown rather than reconstructed. The theme’s strongest idea is functional: each Pokémon already has a system role.</p>
+      </div>
+      <div class="current-card">
+        <img src="assets/current-waybar.png" alt="Current desktop with three floating Waybar islands">
+        <div class="current-notes">
+          <article><strong>Keep: semantic casting</strong><p>Dialga is time, Wooper is network, Magneton is Bluetooth, Pikachu is energy, and the Poké Ball identifies the active workspace.</p></article>
+          <article><strong>Fix: information balance</strong><p>The right island carries most of the detail while the center remains sparse. Labels such as “wlo1” and “1C” expose implementation details rather than useful state.</p></article>
+          <article><strong>Fix: sprite scale</strong><p>Wooper survives the current size. Dialga, Magneton, and the five-Pikachu strip lose defining details at roughly 26 pixels tall.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="prototype-title">
+      <div class="section-head">
+        <div><div class="eyebrow">02 / Interactive prototype</div><h2 id="prototype-title">Three structural interpretations</h2></div>
+        <p>Use the tabs, bottom switcher, or keyboard ← →. Change battery and connection states below the preview; the rendered bar updates immediately.</p>
+      </div>
+
+      <div class="prototype-wrap">
+        <div class="prototype-toolbar">
+          <nav class="variant-tabs" aria-label="Concept variants">
+            <button class="variant-tab" data-go="A">A — Battle cards</button>
+            <button class="variant-tab" data-go="B">B — Encounter ribbon</button>
+            <button class="variant-tab" data-go="C">C — PokéNav deck</button>
+          </nav>
+          <div class="prototype-badge">Throwaway visual prototype</div>
+        </div>
+
+        <div class="monitor">
+          <div class="waybar-concept variant-a" data-variant="A">
+            <div class="battle-box a-time">
+              <img class="sprite large" src="assets/dialga.png" alt="Dialga">
+              <div class="label-stack"><span class="micro">Field time</span><span class="data">22:50</span></div>
+            </div>
+            <div class="battle-box a-center">
+              <div class="workspace-row" aria-label="Workspaces">
+                <span class="workspace occupied">1</span><span class="workspace occupied">2</span><span class="workspace active occupied"><img class="workspace-ball" src="assets/pokeball.png" alt=""><b>3</b></span><span class="workspace">4</span>
+                <span class="apps" aria-label="Applications"><span class="app-dot">T</span><span class="app-dot">W</span><span class="app-dot">C</span></span>
+              </div>
+            </div>
+            <div class="a-right">
+              <div class="battle-box a-link">
+                <img class="sprite js-wooper" src="assets/wooper.png" alt="Wooper">
+                <div class="label-stack"><span class="micro">Link</span><span class="data js-network">78%</span></div>
+              </div>
+              <div class="battle-box a-link">
+                <img class="sprite js-magneton" src="assets/magneton.png" alt="Magneton">
+                <div class="label-stack"><span class="micro">Bluetooth</span><span class="data js-bluetooth">×1</span></div>
+              </div>
+              <div class="battle-box a-battery">
+                <div class="pika-portrait js-pika" role="img" aria-label="Pikachu"></div>
+                <div class="hp-readout"><span class="micro">Pika HP</span><span class="battery-value js-battery-text">22%</span><div class="hp-track"><div class="hp-fill js-hp"></div></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="waybar-concept variant-b" data-variant="B">
+            <div class="battle-box b-ribbon">
+              <div class="b-time"><img class="sprite large" src="assets/dialga.png" alt="Dialga"><div class="label-stack"><span class="micro">Field time</span><span class="data">22:50</span></div></div>
+              <div class="b-rule"></div>
+              <div class="b-menu" aria-label="Workspace command menu"><span class="b-move">WS 1</span><span class="b-move">WS 2</span><span class="b-move active"><img class="workspace-ball" src="assets/pokeball.png" alt="">WS 3</span><span class="b-move">WS 4</span></div>
+              <div class="b-rule"></div>
+              <div class="b-party">
+                <div class="b-pokemon"><img class="sprite js-wooper" src="assets/wooper.png" alt="Wooper"><div class="label-stack"><span class="micro">Link</span><span class="data js-network">78%</span></div></div>
+                <div class="b-pokemon"><img class="sprite js-magneton" src="assets/magneton.png" alt="Magneton"><div class="label-stack"><span class="micro">BT</span><span class="data js-bluetooth">×1</span></div></div>
+                <div class="b-battery"><div class="pika-portrait js-pika" role="img" aria-label="Pikachu"></div><div><div style="display:flex;justify-content:space-between"><span class="micro">Pika HP</span><span class="micro js-battery-text">22%</span></div><div class="hp-track"><div class="hp-fill js-hp"></div></div></div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="waybar-concept variant-c" data-variant="C">
+            <div class="battle-box c-time"><img class="sprite" src="assets/dialga.png" alt="Dialga"><div class="label-stack"><span class="micro">Time</span><span class="data">22:50</span></div></div>
+            <div class="battle-box c-center">
+              <span class="c-workspace">1</span><span class="c-workspace">2</span><span class="c-workspace active"><img class="workspace-ball" src="assets/pokeball.png" alt=""><b>3</b></span><span class="c-workspace">4</span>
+              <span class="apps"><span class="app-dot">T</span><span class="app-dot">W</span><span class="app-dot">C</span></span>
+            </div>
+            <div class="battle-box c-right">
+              <span class="c-status"><img class="sprite js-wooper" src="assets/wooper.png" alt="Wooper"><small class="js-network">78%</small></span>
+              <span class="c-status"><img class="sprite js-magneton" src="assets/magneton.png" alt="Magneton"><small class="js-bluetooth">×1</small></span>
+              <div class="c-battery"><span class="micro">Pika HP</span><span class="micro js-battery-text">22%</span><div class="hp-track"><div class="hp-fill js-hp"></div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="controls">
+          <div class="control-panel">
+            <h3>Exercise the system states</h3>
+            <p class="hint">These controls only affect the mockup. They reveal density and failure-state behavior before any Waybar code changes.</p>
+            <div class="control-grid">
+              <label class="field">Battery: <strong><span id="battery-output">22</span>%</strong><input id="battery" type="range" min="1" max="100" value="22"></label>
+              <label class="toggle"><input id="charging" type="checkbox"> Charging</label>
+              <label class="toggle"><input id="network" type="checkbox" checked> Network</label>
+              <label class="field">Bluetooth devices<select id="bluetooth"><option value="0">0</option><option value="1" selected>1</option><option value="2">2</option><option value="3">3</option></select></label>
+            </div>
+          </div>
+
+          <form class="verdict-panel" id="verdict-form" data-lavish-question="waybar-concept">
+            <h3>Queue your verdict</h3>
+            <p class="hint">Choose a structural direction, then add anything you want stolen from another variant.</p>
+            <div class="choice-list">
+              <label><input type="radio" name="concept" value="A — Battle cards" checked> A — Battle cards</label>
+              <label><input type="radio" name="concept" value="B — Encounter ribbon"> B — Encounter ribbon</label>
+              <label><input type="radio" name="concept" value="C — PokéNav deck"> C — PokéNav deck</label>
+            </div>
+            <textarea name="notes" aria-label="Design notes" placeholder="Example: Use A, but borrow C’s circular status portraits…"></textarea>
+            <button class="queue-button" type="submit">Queue this direction</button>
+            <div class="queue-status" id="queue-status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="tradeoffs-title">
+      <div class="section-head">
+        <div><div class="eyebrow">03 / Tradeoffs</div><h2 id="tradeoffs-title">What each direction optimizes</h2></div>
+        <p>All three are feasible with Waybar’s existing module structure. The implementation cost differs mainly in how much module regrouping and custom formatting is required.</p>
+      </div>
+      <div class="decision-grid">
+        <article class="decision-card recommended"><div class="variant-key">A / RECOMMENDED</div><h3>Battle cards</h3><p>Deepens the current three-island layout instead of replacing it. Pokémon portraits remain readable and every status keeps a textual value.</p><div class="tradeoff"><strong>Cost:</strong> modest CSS and formatting changes. <strong>Risk:</strong> the right island still needs careful width control.</div></article>
+        <article class="decision-card"><div class="variant-key">B / MOST GAME-LIKE</div><h3>Encounter ribbon</h3><p>Feels most like an actual Gen III battle interface. A single information hierarchy makes the HP treatment especially convincing.</p><div class="tradeoff"><strong>Cost:</strong> substantial module regrouping. <strong>Risk:</strong> one long bar loses the airy floating-island character.</div></article>
+        <article class="decision-card"><div class="variant-key">C / MOST DISTINCTIVE</div><h3>PokéNav deck</h3><p>Uses asymmetry and circular status portraits to make the bar feel like trainer hardware rather than a conventional desktop panel.</p><div class="tradeoff"><strong>Cost:</strong> moderate CSS complexity. <strong>Risk:</strong> tiny badges are less readable than A’s explicit labels.</div></article>
+      </div>
+    </section>
+  </main>
+
+  <nav class="switcher" aria-label="Prototype variant switcher">
+    <button id="previous" type="button" aria-label="Previous variant">←</button>
+    <output class="switcher-output" id="switcher-output">A — Battle cards</output>
+    <button id="next" type="button" aria-label="Next variant">→</button>
+  </nav>
+
+  <script>
+    const variants = [
+      { key: 'A', name: 'Battle cards' },
+      { key: 'B', name: 'Encounter ribbon' },
+      { key: 'C', name: 'PokéNav deck' }
+    ];
+    const params = new URLSearchParams(location.search);
+    let current = variants.some(v => v.key === params.get('variant')) ? params.get('variant') : 'A';
+
+    function renderVariant(key, updateUrl = true) {
+      current = key;
+      document.querySelectorAll('[data-variant]').forEach(el => el.classList.toggle('active', el.dataset.variant === key));
+      document.querySelectorAll('[data-go]').forEach(el => el.classList.toggle('active', el.dataset.go === key));
+      const meta = variants.find(v => v.key === key);
+      document.getElementById('switcher-output').textContent = `${meta.key} — ${meta.name}`;
+      const radio = document.querySelector(`input[name="concept"][value^="${key}"]`);
+      if (radio) radio.checked = true;
+      if (updateUrl) {
+        const next = new URL(location.href);
+        next.searchParams.set('variant', key);
+        history.replaceState({}, '', next);
+      }
+    }
+
+    function cycle(delta) {
+      const index = variants.findIndex(v => v.key === current);
+      renderVariant(variants[(index + delta + variants.length) % variants.length].key);
+    }
+
+    function renderState() {
+      const battery = Number(document.getElementById('battery').value);
+      const charging = document.getElementById('charging').checked;
+      const network = document.getElementById('network').checked;
+      const bluetooth = Number(document.getElementById('bluetooth').value);
+      const hpColor = battery <= 20 ? 'var(--critical)' : battery <= 50 ? 'var(--amber)' : 'var(--hp)';
+
+      document.getElementById('battery-output').textContent = battery;
+      document.querySelectorAll('.js-hp').forEach(el => { el.style.width = `${battery}%`; el.style.background = hpColor; });
+      document.querySelectorAll('.js-battery-text').forEach(el => el.textContent = `${battery}%`);
+      document.querySelectorAll('.js-pika').forEach(el => el.classList.toggle('charging', charging));
+      document.querySelectorAll('.js-network').forEach(el => el.textContent = network ? '78%' : '--');
+      document.querySelectorAll('.js-wooper').forEach(el => el.classList.toggle('offline', !network));
+      document.querySelectorAll('.js-bluetooth').forEach(el => el.textContent = bluetooth ? `×${bluetooth}` : '--');
+      document.querySelectorAll('.js-magneton').forEach(el => el.classList.toggle('offline', bluetooth === 0));
+    }
+
+    document.querySelectorAll('[data-go]').forEach(button => button.addEventListener('click', () => renderVariant(button.dataset.go)));
+    document.getElementById('previous').addEventListener('click', () => cycle(-1));
+    document.getElementById('next').addEventListener('click', () => cycle(1));
+    ['battery', 'charging', 'network', 'bluetooth'].forEach(id => document.getElementById(id).addEventListener('input', renderState));
+    window.addEventListener('keydown', event => {
+      const tag = document.activeElement?.tagName;
+      if (['INPUT', 'TEXTAREA', 'SELECT'].includes(tag) || document.activeElement?.isContentEditable) return;
+      if (event.key === 'ArrowLeft') cycle(-1);
+      if (event.key === 'ArrowRight') cycle(1);
+    });
+
+    document.getElementById('verdict-form').addEventListener('submit', event => {
+      event.preventDefault();
+      const form = new FormData(event.currentTarget);
+      const concept = form.get('concept');
+      const notes = String(form.get('notes') || '').trim();
+      const prompt = `Use ${concept} for the Pokémon Waybar direction.${notes ? ` Notes: ${notes}` : ''}`;
+      if (window.lavish?.queuePrompt) {
+        window.lavish.queuePrompt(prompt, {
+          tag: 'choice',
+          text: `Waybar concept: ${concept}`,
+          element: event.currentTarget,
+          data: { question: 'waybar-concept', answer: concept, notes }
+        });
+        document.getElementById('queue-status').textContent = 'Verdict queued for review.';
+      } else {
+        document.getElementById('queue-status').textContent = 'Open in Lavish to queue this verdict.';
+      }
+    });
+
+    renderVariant(current, false);
+    renderState();
+  </script>
+</body>
+</html>

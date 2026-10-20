@@ -1,0 +1,1595 @@
+code when it meets the requirement.
+
+1. **Plan First**
+   - Use **planner** agent to create implementation plan
+   - Generate planning docs before coding: PRD, architecture, system_design, tech_doc, task_list
+   - Identify dependencies and risks
+   - Break down into phases
+
+2. **TDD Approach**
+   - Use **tdd-guide** agent
+   - Write tests first (RED)
+   - Implement to pass tests (GREEN)
+   - Refactor (IMPROVE)
+   - Verify 80%+ coverage
+
+3. **Code Review**
+   - Use **code-reviewer** agent immediately after writing code
+   - Address CRITICAL and HIGH issues
+   - Fix MEDIUM issues when possible
+
+4. **Commit & Push**
+   - Detailed commit messages
+   - Follow conventional commits format
+   - See [git-workflow.md](./git-workflow.md) for commit message format and PR process
+
+5. **Pre-Review Checks**
+   - Verify all automated checks (CI/CD) are passing
+   - Resolve any merge conflicts
+   - Ensure branch is up to date with target branch
+   - Only request review after these checks pass
+--/home/krubics/.claude/rules/ecc/common/code-review.md--
+# Code Review Standards
+
+## Purpose
+
+Code review ensures quality, security, and maintainability before code is merged. This rule defines when and how to conduct code reviews.
+
+## When to Review
+
+**MANDATORY review triggers:**
+
+- After writing or modifying code
+- Before any commit to shared branches
+- When security-sensitive code is changed (auth, payments, user data)
+- When architectural changes are made
+- Before merging pull requests
+
+**Pre-Review Requirements:**
+
+Before requesting review, ensure:
+
+- All automated checks (CI/CD) are passing
+- Merge conflicts are resolved
+- Branch is up to date with target branch
+
+## Review Checklist
+
+Before marking code complete:
+
+- [ ] Code is readable and well-named
+- [ ] Functions are focused (<50 lines)
+- [ ] Files are cohesive (<800 lines)
+- [ ] No deep nesting (>4 levels)
+- [ ] Errors are handled explicitly
+- [ ] No hardcoded secrets or credentials
+- [ ] No console.log or debug statements
+- [ ] Tests exist for new functionality
+- [ ] Test coverage meets 80% minimum
+
+## Security Review Triggers
+
+**STOP and use security-reviewer agent when:**
+
+- Authentication or authorization code
+- User input handling
+- Database queries
+- File system operations
+- External API calls
+- Cryptographic operations
+- Payment or financial code
+
+## Review Severity Levels
+
+| Level | Meaning | Action |
+|-------|---------|--------|
+| CRITICAL | Security vulnerability or data loss risk | **BLOCK** - Must fix before merge |
+| HIGH | Bug or significant quality issue | **WARN** - Should fix before merge |
+| MEDIUM | Maintainability concern | **INFO** - Consider fixing |
+| LOW | Style or minor suggestion | **NOTE** - Optional |
+
+## Agent Usage
+
+Use these agents for code review:
+
+| Agent | Purpose |
+|-------|---------|
+| **code-reviewer** | General code quality, patterns, best practices |
+| **security-reviewer** | Security vulnerabilities, OWASP Top 10 |
+| **typescript-reviewer** | TypeScript/JavaScript specific issues |
+| **python-reviewer** | Python specific issues |
+| **go-reviewer** | Go specific issues |
+| **rust-reviewer** | Rust specific issues |
+
+## Review Workflow
+
+```
+1. Run git diff to understand changes
+2. Check security checklist first
+3. Review code quality checklist
+4. Run relevant tests
+5. Verify coverage >= 80%
+6. Use appropriate agent for detailed review
+```
+
+## Common Issues to Catch
+
+### Security
+
+- Hardcoded credentials (API keys, passwords, tokens)
+- SQL injection (string concatenation in queries)
+- XSS vulnerabilities (unescaped user input)
+- Path traversal (unsanitized file paths)
+- CSRF protection missing
+- Authentication bypasses
+
+### Code Quality
+
+- Large functions (>50 lines) - split into smaller
+- Large files (>800 lines) - extract modules
+- Deep nesting (>4 levels) - use early returns
+- Missing error handling - handle explicitly
+- Mutation patterns - prefer immutable operations
+- Missing tests - add test coverage
+
+### Performance
+
+- N+1 queries - use JOINs or batching
+- Missing pagination - add LIMIT to queries
+- Unbounded queries - add constraints
+- Missing caching - cache expensive operations
+
+## Approval Criteria
+
+- **Approve**: No CRITICAL or HIGH issues
+- **Warning**: Only HIGH issues (merge with caution)
+- **Block**: CRITICAL issues found
+
+## Integration with Other Rules
+
+This rule works with:
+
+- [testing.md](testing.md) - Test coverage requirements
+- [security.md](security.md) - Security checklist
+- [git-workflow.md](git-workflow.md) - Commit standards
+- [agents.md](agents.md) - Agent delegation
+--/home/krubics/.claude/rules/ecc/common/agents.md--
+# Agent Orchestration
+
+## Available Agents
+
+Located in `~/.claude/agents/`:
+
+| Agent | Purpose | When to Use |
+|-------|---------|-------------|
+| planner | Implementation planning | Complex features, refactoring |
+| architect | System design | Architectural decisions |
+| tdd-guide | Test-driven development | New features, bug fixes |
+| code-reviewer | Code review | After writing code |
+| security-reviewer | Security analysis | Before commits |
+| build-error-resolver | Fix build errors | When build fails |
+| e2e-runner | E2E testing | Critical user flows |
+| refactor-cleaner | Dead code cleanup | Code maintenance |
+| doc-updater | Documentation | Updating docs |
+| rust-reviewer | Rust code review | Rust projects |
+| harmonyos-app-resolver | HarmonyOS app development | HarmonyOS/ArkTS projects |
+
+## Immediate Agent Usage
+
+No user prompt needed:
+1. Complex feature requests - Use **planner** agent
+2. Code just written/modified - Use **code-reviewer** agent
+3. Bug fix or new feature - Use **tdd-guide** agent
+4. Architectural decision - Use **architect** agent
+
+## Parallel Task Execution
+
+ALWAYS use parallel Task execution for independent operations:
+
+```markdown
+# GOOD: Parallel execution
+Launch 3 agents in parallel:
+1. Agent 1: Security analysis of auth module
+2. Agent 2: Performance review of cache system
+3. Agent 3: Type checking of utilities
+
+# BAD: Sequential when unnecessary
+First agent 1, then agent 2, then agent 3
+```
+
+## Delegation Completion Contract
+
+Applies to every agent at every depth (parent, child, grandchild):
+
+1. **Your final message IS the deliverable.** Never end your turn with "waiting for background agents" — a spawned task is not a completed task. Ending your turn while children are running orphans their results (completed children cannot notify a parent whose turn has ended).
+2. **If you delegate, you own collection.** Wait for results, integrate them, then return. Fire-and-forget delegation is forbidden.
+3. **Decompose only when the work cannot fit in one context.** Do not re-delegate a task already sized for a single agent — depth is an outcome, not a plan.
+
+> Rationale: observed failure mode — research agents followed "Parallel Task Execution" above, spawned children, and returned "waiting" as their final answer. All children completed successfully but their results were orphaned. The parallel rule without a completion contract produces zombie tasks.
+
+## Multi-Perspective Analysis
+
+For complex problems, use split role sub-agents:
+- Factual reviewer
+- Senior engineer
+- Security expert
+- Consistency reviewer
+- Redundancy checker
+--/home/krubics/.claude/rules/ecc/python/patterns.md--
+---
+paths:
+  - "**/*.py"
+  - "**/*.pyi"
+---
+# Python Patterns
+
+> This file extends [common/patterns.md](../common/patterns.md) with Python specific content.
+
+## Protocol (Duck Typing)
+
+```python
+from typing import Protocol
+
+class Repository(Protocol):
+    def find_by_id(self, id: str) -> dict | None: ...
+    def save(self, entity: dict) -> dict: ...
+```
+
+## Dataclasses as DTOs
+
+```python
+from dataclasses import dataclass
+
+@dataclass
+class CreateUserRequest:
+    name: str
+    email: str
+    age: int | None = None
+```
+
+## Context Managers & Generators
+
+- Use context managers (`with` statement) for resource management
+- Use generators for lazy evaluation and memory-efficient iteration
+
+## Reference
+
+See skill: `python-patterns` for comprehensive patterns including decorators, concurrency, and package organization.
+--/home/krubics/.claude/rules/ecc/python/coding-style.md--
+---
+paths:
+  - "**/*.py"
+  - "**/*.pyi"
+---
+# Python Coding Style
+
+> This file extends [common/coding-style.md](../common/coding-style.md) with Python specific content.
+
+## Standards
+
+- Follow **PEP 8** conventions
+- Use **type annotations** on all function signatures
+
+## Immutability
+
+Prefer immutable data structures:
+
+```python
+from dataclasses import dataclass
+
+@dataclass(frozen=True)
+class User:
+    name: str
+    email: str
+
+from typing import NamedTuple
+
+class Point(NamedTuple):
+    x: float
+    y: float
+```
+
+## Formatting
+
+- **black** for code formatting
+- **isort** for import sorting
+- **ruff** for linting
+
+## Reference
+
+See skill: `python-patterns` for comprehensive Python idioms and patterns.
+--/home/krubics/.claude/rules/ecc/python/hooks.md--
+---
+paths:
+  - "**/*.py"
+  - "**/*.pyi"
+---
+# Python Hooks
+
+> This file extends [common/hooks.md](../common/hooks.md) with Python specific content.
+
+## PostToolUse Hooks
+
+Configure in `~/.claude/settings.json`:
+
+- **black/ruff**: Auto-format `.py` files after edit
+- **mypy/pyright**: Run type checking after editing `.py` files
+
+## Warnings
+
+- Warn about `print()` statements in edited files (use `logging` module instead)
+--/home/krubics/.claude/rules/ecc/python/testing.md--
+---
+paths:
+  - "**/*.py"
+  - "**/*.pyi"
+---
+# Python Testing
+
+> This file extends [common/testing.md](../common/testing.md) with Python specific content.
+
+## Framework
+
+Use **pytest** as the testing framework.
+
+## Coverage
+
+```bash
+pytest --cov=src --cov-report=term-missing
+```
+
+## Test Organization
+
+Use `pytest.mark` for test categorization:
+
+```python
+import pytest
+
+@pytest.mark.unit
+def test_calculate_total():
+    ...
+
+@pytest.mark.integration
+def test_database_connection():
+    ...
+```
+
+## Reference
+
+See skill: `python-testing` for detailed pytest patterns and fixtures.
+--/home/krubics/.claude/rules/ecc/python/security.md--
+---
+paths:
+  - "**/*.py"
+  - "**/*.pyi"
+---
+# Python Security
+
+> This file extends [common/security.md](../common/security.md) with Python specific content.
+
+## Secret Management
+
+```python
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+api_key = os.environ["OPENAI_API_KEY"]  # Raises KeyError if missing
+```
+
+## Security Scanning
+
+- Use **bandit** for static security analysis:
+  ```bash
+  bandit -r src/
+  ```
+
+## Reference
+
+See skill: `django-security` for Django-specific security guidelines (if applicable).
+--/home/krubics/.claude/rules/ecc/python/fastapi.md--
+---
+paths:
+  - "**/app/**/*.py"
+  - "**/fastapi/**/*.py"
+  - "**/*_api.py"
+---
+# FastAPI Rules
+
+Use these rules for FastAPI projects alongside the general Python rules.
+
+## Structure
+
+- Put app construction in `create_app()`.
+- Keep routers thin; move persistence and business behavior into services or CRUD helpers.
+- Keep request schemas, update schemas, and response schemas separate.
+- Keep database sessions and auth in dependencies.
+
+## Async
+
+- Use `async def` for endpoints that perform I/O.
+- Use async database and HTTP clients from async endpoints.
+- Do not call `requests`, sync SQLAlchemy sessions, or blocking file/network operations from async routes.
+
+## Dependency Injection
+
+```python
+@router.get("/users/{user_id}")
+async def get_user(
+    user_id: str,
+    db: AsyncSession = Depends(get_db),
+    current_user: User = Depends(get_current_user),
+):
+    ...
+```
+
+Do not create `SessionLocal()` or long-lived clients inside route handlers.
+
+## Schemas
+
+- Never include passwords, password hashes, access tokens, refresh tokens, or internal auth state in response models.
+- Use `response_model` on endpoints that return application data.
+- Use field constraints instead of hand-written validation when Pydantic can express the rule.
+
+## Security
+
+- Keep CORS origins environment-specific.
+- Do not combine wildcard origins with credentialed CORS.
+- Validate JWT expiry, issuer, audience, and algorithm.
+- Rate-limit auth and write-heavy endpoints.
+- Redact credentials, cookies, authorization headers, and tokens from logs.
+
+## Testing
+
+- Override the exact dependency used by `Depends`.
+- Clear `app.dependency_overrides` after tests.
+- Prefer async test clients for async applications.
+
+See skill: `fastapi-patterns`.
+--/home/krubics/.claude/rules/ecc/vue/patterns.md--
+---
+paths:
+  - "**/*.vue"
+---
+
+# Vue Patterns
+
+> This file extends [common/patterns.md](../common/patterns.md) with Vue specific content.
+
+## Composables
+
+- The composable (`useXxx`) is the reusable-logic unit. In Feature-Sliced Design it lives in the slice `model` segment.
+- Accept `MaybeRefOrGetter<T>` inputs and normalize with `toValue`, so callers can pass a ref, a getter, or a raw value.
+- Return `toRefs(reactive(...))` so consumers can destructure without losing reactivity.
+- A composable that uses lifecycle hooks or `provide` / `inject` must be called inside a component `setup`, not lazily or conditionally.
+
+## Props, Emits, v-model
+
+- Type-based `defineProps<Props>()` and tuple-form `defineEmits<{ change: [id: number] }>()`.
+- `defineModel<T>('name', { default })` for two-way binding. It compiles to a prop plus an `update:*` emit.
+
+## Provide / Inject
+
+- Use `provide` / `inject` for tree-scoped data without prop drilling.
+- Type-safe collision-free keys: `const key = Symbol() as InjectionKey<T>`.
+- The provider owns mutations. Expose a `readonly` ref plus an explicit updater function, never a raw mutable ref.
+
+## Pinia (FSD model segment)
+
+- Prefer setup stores: `ref` is state, `computed` is getters, `function` is actions.
+- Setup stores do not get `$reset` for free. Define your own.
+- Use `storeToRefs` for state and getters. Destructure actions directly off the store.
+- Never persist raw auth tokens to `localStorage`.
+
+## vue-router
+
+- Lazy-load route components with dynamic `import()`.
+- A global `beforeEach` auth gate keyed on `meta.requiresAuth`. Guards return `false` (cancel), a route location (redirect), or `undefined` / `true` (continue).
+- Watch `() => route.params.id`, not the whole `route` object.
+
+## vue-query (server cache)
+
+- `@tanstack/vue-query` owns server-cache state. Pinia owns client state.
+- Put request functions plus `queryOptions` factories in the FSD `api` segment.
+- Critical: put the ref or computed ITSELF in the query key, never `.value`. Passing `.value` freezes the key and kills reactive refetch.
+
+```ts
+useQuery({ queryKey: ['auction', id], queryFn: () => fetchAuction(toValue(id)) })
+// after a mutation
+queryClient.invalidateQueries({ queryKey: ['auction', id] })
+```
+
+## Reference
+
+- ECC skills: `frontend-patterns`, `vite-patterns`.
+- Docs: <https://pinia.vuejs.org/> · <https://router.vuejs.org/> · <https://tanstack.com/query/latest/docs/framework/vue/overview> · <https://vuejs.org/guide/reusability/composables.html>
+--/home/krubics/.claude/rules/ecc/vue/coding-style.md--
+---
+paths:
+  - "**/*.vue"
+---
+
+# Vue Coding Style
+
+> This file extends [common/coding-style.md](../common/coding-style.md) with Vue specific content.
+
+## SFC Structure
+
+- Always `<script setup lang="ts">` with the Composition API. No Options API in new code.
+- Block order inside a `.vue` file: `<script setup>`, then `<template>`, then `<style scoped>`. One component per file.
+- Naming: component files PascalCase (`AuctionCard.vue`), composables camelCase prefixed `useXxx` (`useAuctionTimer`).
+- Format with Prettier plus ESLint flat config using `eslint-plugin-vue` (`vue/vue3-recommended`). Type-check with `vue-tsc`.
+
+## Reactivity Discipline
+
+- `ref` is the primary state API. Mutate via `.value` in script, auto-unwrapped only at template top level.
+- Nested `ref` inside arrays, `Map`, or `Set` still needs `.value` to read.
+- Reach for `reactive` only for grouped object state. Never reassign a whole `reactive` object.
+- Never destructure a `reactive` object or a Pinia store without `toRefs` / `storeToRefs`. Plain destructure silently drops reactivity.
+
+## Computed and Watchers
+
+- `computed` getters must be pure: no side effects, no async, no DOM access.
+- 3.4+ `computed` only triggers when the returned value changes. Return the prior object unchanged when equal to skip downstream updates.
+- `watch` is lazy. Pass a getter for a reactive property (`watch(() => x.value, ...)`), not the bare reactive object.
+- `watchEffect` is eager and stops tracking dependencies after its first `await`.
+
+## Lifecycle and DOM
+
+- Register lifecycle hooks synchronously inside `setup` (`onMounted`, `onUnmounted`).
+- Clean up timers, listeners, and subscriptions in `onUnmounted`.
+- Read or measure the DOM only after `await nextTick()`.
+
+## Macros and Templates
+
+- Macros: `defineProps` / `defineEmits` (tuple form `change: [id: number]`), `defineModel` (3.4+) for `v-model`, `withDefaults` or 3.5+ reactive-props-destructure for defaults, `defineExpose` for the public ref API.
+- Put a `:key` on every `v-for`, a stable unique primitive. Never the array index, never an object.
+- Never put `v-if` and `v-for` on the same element. Wrap with `<template v-for>` plus an inner `v-if`, or precompute a filtered list.
+
+```vue
+<script setup lang="ts">
+const props = defineProps<{ id: number }>()
+const emit = defineEmits<{ change: [id: number] }>()
+const open = defineModel<boolean>('open', { default: false })
+</script>
+```
+
+## Reference
+
+- ECC skills: `frontend-patterns`, `vite-patterns`.
+- Docs: <https://vuejs.org/api/sfc-script-setup.html> · <https://vuejs.org/guide/essentials/reactivity-fundamentals.html> · <https://eslint.vuejs.org/>
+--/home/krubics/.claude/rules/ecc/vue/hooks.md--
+---
+paths:
+  - "**/*.vue"
+  - "**/*.ts"
+  - "**/*.tsx"
+---
+
+# Vue Hooks
+
+> This file extends [common/hooks.md](../common/hooks.md) with Vue specific content.
+
+## PostToolUse Targets
+
+Run on `*.vue`, `*.ts`, and `*.tsx` after edits. Scope to changed files where possible.
+
+## Typecheck
+
+- Use `vue-tsc --noEmit` for SFC plus TypeScript checking. Plain `tsc` cannot read `.vue` single-file components, so it must not be the typecheck hook for this project.
+- Typecheck is project-wide. Debounce or scope it so a save-on-every-keystroke loop does not stall the editor.
+
+## Lint and Format
+
+- `eslint --fix` with `eslint-plugin-vue` (flat-config `vue/vue3-recommended`) covers both template and script lint.
+- `prettier --write` for formatting. Prefer Prettier-via-ESLint over a separate Prettier pass to avoid double formatting and fight loops.
+
+## Architecture Boundaries
+
+- Optional: enforce Feature-Sliced Design slice boundaries with `@feature-sliced/steiger` or `eslint-plugin-boundaries` to block deep cross-slice imports.
+
+## Sequencing
+
+```bash
+# changed files only
+eslint --fix "$FILE"
+prettier --write "$FILE"
+# project-wide, debounced
+vue-tsc --noEmit
+```
+
+- Run lint and format per-file first, then the project-wide typecheck last so type errors reflect the formatted source.
+
+## Reference
+
+- ECC skills: `frontend-patterns`, `vite-patterns`.
+- Docs: <https://github.com/vuejs/language-tools> (vue-tsc) · <https://eslint.vuejs.org/> · <https://github.com/feature-sliced/steiger>
+--/home/krubics/.claude/rules/ecc/vue/testing.md--
+---
+paths:
+  - "**/*.vue"
+---
+
+# Vue Testing
+
+> This file extends [common/testing.md](../common/testing.md) with Vue specific content.
+
+## Stack
+
+- Vitest (Vite-native runner) plus `@vue/test-utils`. `create-vue` scaffolds `@vitejs/plugin-vue`.
+- DOM environment via `happy-dom` or `jsdom`, set in `vite.config.ts` under `test.environment`.
+
+## Rendering and Async
+
+- `mount` for a full render. `shallowMount` to stub all child components.
+- `trigger` and `setValue` return promises, `await` them.
+- `flushPromises` flushes resolved promise handlers. `nextTick` settles the DOM after a state change.
+
+## What to Test
+
+- Test the public interface only: props, emitted events, slots, rendered output.
+- Do not assert private state or internal methods, and do not rely solely on snapshots.
+
+## Composables
+
+- Composables that use only reactivity APIs unit-test directly: call the function, assert on the returned refs.
+- Composables that use lifecycle hooks or `inject` must be tested through a host component.
+
+## Pinia
+
+- In components: `createTestingPinia()` from `@pinia/testing`, passed via `global.plugins`. Actions are stubbed by default, set `stubActions: false` to run them. `createSpy: vi.fn` is required under Vitest (no Jest globals).
+- In isolation: `beforeEach(() => setActivePinia(createPinia()))` gives a fresh store per test and prevents state leakage.
+
+## Mount Config
+
+- `global.plugins`, `global.stubs` (stubs `Transition` / `TransitionGroup` by default), `global.mocks` (e.g. `$router`), `global.provide` (for `inject`, Symbol keys supported).
+- `RouterLinkStub` stubs `router-link` without mounting a full router.
+
+```ts
+const wrapper = mount(AuctionCard, {
+  props: { id: 1 },
+  global: { plugins: [createTestingPinia({ createSpy: vi.fn })] },
+})
+await wrapper.find('button').trigger('click')
+expect(wrapper.emitted('bid')).toBeTruthy()
+```
+
+## Reference
+
+- ECC skills: `frontend-patterns`, `vite-patterns`.
+- Docs: <https://test-utils.vuejs.org/api/> · <https://pinia.vuejs.org/cookbook/testing.html> · <https://vitest.dev/>
+--/home/krubics/.claude/rules/ecc/vue/security.md--
+---
+paths:
+  - "**/*.vue"
+---
+
+# Vue Security
+
+> This file extends [common/security.md](../common/security.md) with Vue specific content.
+
+## What Vue Escapes Automatically
+
+- Text interpolation `{{ }}` and dynamic attribute bindings (`:title`) are auto-escaped. The vectors below are NOT protected.
+
+## Rule No.1: Templates from Trusted Sources Only
+
+- Never use non-trusted content as a component template. No runtime template compilation from user input.
+- No user-controlled `:is` that resolves a component from an arbitrary string.
+
+## v-html and Render Functions
+
+- `v-html` bypasses escaping and is a direct XSS vector. Avoid it on user content.
+- If unavoidable, sanitize with DOMPurify (allowlist config) before binding, or render in a sandboxed iframe. Vue itself recommends sanitizing on the backend before persisting.
+- Render-function and scoped-slot output carry the same risk. Passing user HTML through `h()` with `innerHTML` is `v-html` by another name. Sanitize first.
+
+## URL, Style, and Event Injection
+
+- `:href` and `:src` are not escaped. `javascript:` URLs execute. Validate the scheme, allow `http` / `https` / `mailto` only. Vue docs reference `@braintree/sanitize-url`, but sanitize on the backend before persisting.
+- `:style` with user input is unsafe (CSS exfiltration). Use object syntax with whitelisted properties, never a raw user string.
+- Never bind user input to `onclick`, `onfocus`, or any event attribute.
+
+## Client Bundle Secrets
+
+- Anything in `import.meta.env.VITE_*` ships to the browser. Keep API keys and tokens server-side.
+- Use httpOnly cookies for session tokens. Never bundle credentials into the client.
+
+```vue
+<!-- unsafe -->
+<div v-html="userBio" />
+<!-- safe -->
+<div v-html="sanitize(userBio)" />
+```
+
+## Reference
+
+- ECC skills: `frontend-patterns`, `vite-patterns`.
+- Docs: <https://vuejs.org/guide/best-practices/security.html> · <https://github.com/cure53/DOMPurify> · <https://github.com/braintree/sanitize-url>
+--/home/krubics/.claude/rules/ecc/golang/patterns.md--
+---
+paths:
+  - "**/*.go"
+  - "**/go.mod"
+  - "**/go.sum"
+---
+# Go Patterns
+
+> This file extends [common/patterns.md](../common/patterns.md) with Go specific content.
+
+## Functional Options
+
+```go
+type Option func(*Server)
+
+func WithPort(port int) Option {
+    return func(s *Server) { s.port = port }
+}
+
+func NewServer(opts ...Option) *Server {
+    s := &Server{port: 8080}
+    for _, opt := range opts {
+        opt(s)
+    }
+    return s
+}
+```
+
+## Small Interfaces
+
+Define interfaces where they are used, not where they are implemented.
+
+## Dependency Injection
+
+Use constructor functions to inject dependencies:
+
+```go
+func NewUserService(repo UserRepository, logger Logger) *UserService {
+    return &UserService{repo: repo, logger: logger}
+}
+```
+
+## Reference
+
+See skill: `golang-patterns` for comprehensive Go patterns including concurrency, error handling, and package organization.
+--/home/krubics/.claude/rules/ecc/golang/coding-style.md--
+---
+paths:
+  - "**/*.go"
+  - "**/go.mod"
+  - "**/go.sum"
+---
+# Go Coding Style
+
+> This file extends [common/coding-style.md](../common/coding-style.md) with Go specific content.
+
+## Formatting
+
+- **gofmt** and **goimports** are mandatory — no style debates
+
+## Design Principles
+
+- Accept interfaces, return structs
+- Keep interfaces small (1-3 methods)
+
+## Error Handling
+
+Always wrap errors with context:
+
+```go
+if err != nil {
+    return fmt.Errorf("failed to create user: %w", err)
+}
+```
+
+## Reference
+
+See skill: `golang-patterns` for comprehensive Go idioms and patterns.
+--/home/krubics/.claude/rules/ecc/golang/hooks.md--
+---
+paths:
+  - "**/*.go"
+  - "**/go.mod"
+  - "**/go.sum"
+---
+# Go Hooks
+
+> This file extends [common/hooks.md](../common/hooks.md) with Go specific content.
+
+## PostToolUse Hooks
+
+Configure in `~/.claude/settings.json`:
+
+- **gofmt/goimports**: Auto-format `.go` files after edit
+- **go vet**: Run static analysis after editing `.go` files
+- **staticcheck**: Run extended static checks on modified packages
+--/home/krubics/.claude/rules/ecc/golang/testing.md--
+---
+paths:
+  - "**/*.go"
+  - "**/go.mod"
+  - "**/go.sum"
+---
+# Go Testing
+
+> This file extends [common/testing.md](../common/testing.md) with Go specific content.
+
+## Framework
+
+Use the standard `go test` with **table-driven tests**.
+
+## Race Detection
+
+Always run with the `-race` flag:
+
+```bash
+go test -race ./...
+```
+
+## Coverage
+
+```bash
+go test -cover ./...
+```
+
+## Reference
+
+See skill: `golang-testing` for detailed Go testing patterns and helpers.
+--/home/krubics/.claude/rules/ecc/golang/security.md--
+---
+paths:
+  - "**/*.go"
+  - "**/go.mod"
+  - "**/go.sum"
+---
+# Go Security
+
+> This file extends [common/security.md](../common/security.md) with Go specific content.
+
+## Secret Management
+
+```go
+apiKey := os.Getenv("OPENAI_API_KEY")
+if apiKey == "" {
+    log.Fatal("OPENAI_API_KEY not configured")
+}
+```
+
+## Security Scanning
+
+- Use **gosec** for static security analysis:
+  ```bash
+  gosec ./...
+  ```
+
+## Context & Timeouts
+
+Always use `context.Context` for timeout control:
+
+```go
+ctx, cancel := context.WithTimeout(ctx, 5*time.Second)
+defer cancel()
+```
+--/home/krubics/.claude/rules/ecc/README.md--
+# Rules
+
+## Structure
+
+Rules are organized into a **common** layer plus **language-specific** directories:
+
+```
+rules/
+├── common/          # Language-agnostic principles (always install)
+│   ├── coding-style.md
+│   ├── git-workflow.md
+│   ├── testing.md
+│   ├── performance.md
+│   ├── patterns.md
+│   ├── hooks.md
+│   ├── agents.md
+│   └── security.md
+├── typescript/      # TypeScript/JavaScript specific
+├── angular/         # Angular specific
+├── vue/             # Vue 3 specific
+├── nuxt/            # Nuxt 4 specific
+├── python/          # Python specific
+├── golang/          # Go specific
+├── web/             # Web and frontend specific
+├── react-native/    # React Native / Expo specific
+├── swift/           # Swift specific
+├── php/             # PHP specific
+├── ruby/            # Ruby / Rails specific
+└── arkts/           # HarmonyOS / ArkTS specific
+```
+
+- **common/** contains universal principles — no language-specific code examples.
+- **Language directories** extend the common rules with framework-specific patterns, tools, and code examples. Each file references its common counterpart.
+
+## Installation
+
+### Option 1: Install Script (Recommended)
+
+```bash
+# Install common + one or more language-specific rule sets
+./install.sh typescript
+./install.sh angular
+./install.sh vue
+./install.sh nuxt
+./install.sh python
+./install.sh golang
+./install.sh web
+./install.sh react-native
+./install.sh swift
+./install.sh php
+./install.sh ruby
+./install.sh arkts
+
+# Install multiple languages at once
+./install.sh typescript python
+```
+
+### Option 2: Manual Installation
+
+> **Important:** Copy entire directories — do NOT flatten with `/*`.
+> Common and language-specific directories contain files with the same names.
+> Flattening them into one directory causes language-specific files to overwrite
+> common rules, and breaks the relative `../common/` references used by
+> language-specific files.
+>
+> Use the ECC-owned namespace below for user-level Claude installs. Flat
+> package-level destinations can collide with non-ECC rule packs and do not
+> match the main README guidance.
+
+```bash
+# Create the ECC rule namespace once.
+mkdir -p ~/.claude/rules/ecc
+
+# Install common rules (required for all projects)
+cp -r rules/common ~/.claude/rules/ecc/
+
+# Install language-specific rules based on your project's tech stack
+cp -r rules/typescript ~/.claude/rules/ecc/
+cp -r rules/angular ~/.claude/rules/ecc/
+cp -r rules/vue ~/.claude/rules/ecc/
+cp -r rules/nuxt ~/.claude/rules/ecc/
+cp -r rules/python ~/.claude/rules/ecc/
+cp -r rules/golang ~/.claude/rules/ecc/
+cp -r rules/web ~/.claude/rules/ecc/
+cp -r rules/react-native ~/.claude/rules/ecc/
+cp -r rules/swift ~/.claude/rules/ecc/
+cp -r rules/php ~/.claude/rules/ecc/
+cp -r rules/ruby ~/.claude/rules/ecc/
+cp -r rules/arkts ~/.claude/rules/ecc/
+
+# Attention ! ! ! Configure according to your actual project requirements; the configuration here is for reference only.
+```
+
+For project-local rules, use the same namespace under the project root:
+
+```bash
+mkdir -p .claude/rules/ecc
+cp -r rules/common .claude/rules/ecc/
+cp -r rules/typescript .claude/rules/ecc/
+```
+
+## Rules vs Skills
+
+- **Rules** define standards, conventions, and checklists that apply broadly (e.g., "80% test coverage", "no hardcoded secrets").
+- **Skills** (`skills/` directory) provide deep, actionable reference material for specific tasks (e.g., `python-patterns`, `golang-testing`).
+
+Language-specific rule files reference relevant skills where appropriate. Rules tell you _what_ to do; skills tell you _how_ to do it.
+
+## Adding a New Language
+
+To add support for a new language (e.g., `rust/`):
+
+1. Create a `rules/rust/` directory
+2. Add files that extend the common rules:
+   - `coding-style.md` — formatting tools, idioms, error handling patterns
+   - `testing.md` — test framework, coverage tools, test organization
+   - `patterns.md` — language-specific design patterns
+   - `hooks.md` — PostToolUse hooks for formatters, linters, type checkers
+   - `security.md` — secret management, security scanning tools
+3. Each file should start with:
+   ```
+   > This file extends [common/xxx.md](../common/xxx.md) with <Language> specific content.
+   ```
+4. Reference existing skills if available, or create new ones under `skills/`.
+
+For non-language domains like `web/`, follow the same layered pattern when there is enough reusable domain-specific guidance to justify a standalone ruleset.
+
+## Rule Priority
+
+When language-specific rules and common rules conflict, **language-specific rules take precedence** (specific overrides general). This follows the standard layered configuration pattern (similar to CSS specificity or `.gitignore` precedence).
+
+- `rules/common/` defines universal defaults applicable to all projects.
+- `rules/golang/`, `rules/python/`, `rules/swift/`, `rules/php/`, `rules/typescript/`, `rules/react-native/`, etc. override those defaults where language idioms differ.
+
+### Example
+
+`common/coding-style.md` recommends immutability as a default principle. A language-specific `golang/coding-style.md` can override this:
+
+> Idiomatic Go uses pointer receivers for struct mutation — see [common/coding-style.md](../common/coding-style.md) for the general principle, but Go-idiomatic mutation is preferred here.
+
+### Common rules with override notes
+
+Rules in `rules/common/` that may be overridden by language-specific files are marked with:
+
+> **Language note**: This rule may be overridden by language-specific rules for languages where this pattern is not idiomatic.
+--/home/krubics/.claude/rules/ecc/java/patterns.md--
+---
+paths:
+  - "**/*.java"
+---
+# Java Patterns
+
+> This file extends [common/patterns.md](../common/patterns.md) with Java-specific content.
+
+## Repository Pattern
+
+Encapsulate data access behind an interface:
+
+```java
+public interface OrderRepository {
+    Optional<Order> findById(Long id);
+    List<Order> findAll();
+    Order save(Order order);
+    void deleteById(Long id);
+}
+```
+
+Concrete implementations handle storage details (JPA, JDBC, in-memory for tests).
+
+## Service Layer
+
+Business logic in service classes; keep controllers and repositories thin:
+
+```java
+public class OrderService {
+    private final OrderRepository orderRepository;
+    private final PaymentGateway paymentGateway;
+
+    public OrderService(OrderRepository orderRepository, PaymentGateway paymentGateway) {
+        this.orderRepository = orderRepository;
+        this.paymentGateway = paymentGateway;
+    }
+
+    public OrderSummary placeOrder(CreateOrderRequest request) {
+        var order = Order.from(request);
+        paymentGateway.charge(order.total());
+        var saved = orderRepository.save(order);
+        return OrderSummary.from(saved);
+    }
+}
+```
+
+## Constructor Injection
+
+Always use constructor injection — never field injection:
+
+```java
+// GOOD — constructor injection (testable, immutable)
+public class NotificationService {
+    private final EmailSender emailSender;
+
+    public NotificationService(EmailSender emailSender) {
+        this.emailSender = emailSender;
+    }
+}
+
+// BAD — field injection (untestable without reflection, requires framework magic)
+public class NotificationService {
+    @Inject // or @Autowired
+    private EmailSender emailSender;
+}
+```
+
+## DTO Mapping
+
+Use records for DTOs. Map at service/controller boundaries:
+
+```java
+public record OrderResponse(Long id, String customer, BigDecimal total) {
+    public static OrderResponse from(Order order) {
+        return new OrderResponse(order.getId(), order.getCustomerName(), order.getTotal());
+    }
+}
+```
+
+## Builder Pattern
+
+Use for objects with many optional parameters:
+
+```java
+public class SearchCriteria {
+    private final String query;
+    private final int page;
+    private final int size;
+    private final String sortBy;
+
+    private SearchCriteria(Builder builder) {
+        this.query = builder.query;
+        this.page = builder.page;
+        this.size = builder.size;
+        this.sortBy = builder.sortBy;
+    }
+
+    public static class Builder {
+        private String query = "";
+        private int page = 0;
+        private int size = 20;
+        private String sortBy = "id";
+
+        public Builder query(String query) { this.query = query; return this; }
+        public Builder page(int page) { this.page = page; return this; }
+        public Builder size(int size) { this.size = size; return this; }
+        public Builder sortBy(String sortBy) { this.sortBy = sortBy; return this; }
+        public SearchCriteria build() { return new SearchCriteria(this); }
+    }
+}
+```
+
+## Sealed Types for Domain Models
+
+```java
+public sealed interface PaymentResult permits PaymentSuccess, PaymentFailure {
+    record PaymentSuccess(String transactionId, BigDecimal amount) implements PaymentResult {}
+    record PaymentFailure(String errorCode, String message) implements PaymentResult {}
+}
+
+// Exhaustive handling (Java 21+)
+String message = switch (result) {
+    case PaymentSuccess s -> "Paid: " + s.transactionId();
+    case PaymentFailure f -> "Failed: " + f.errorCode();
+};
+```
+
+## API Response Envelope
+
+Consistent API responses:
+
+```java
+public record ApiResponse<T>(boolean success, T data, String error) {
+    public static <T> ApiResponse<T> ok(T data) {
+        return new ApiResponse<>(true, data, null);
+    }
+    public static <T> ApiResponse<T> error(String message) {
+        return new ApiResponse<>(false, null, message);
+    }
+}
+```
+
+## References
+
+See skill: `springboot-patterns` for Spring Boot architecture patterns.
+See skill: `quarkus-patterns` for Quarkus architecture patterns with REST, Panache, and messaging.
+See skill: `jpa-patterns` for entity design and query optimization.
+--/home/krubics/.claude/rules/ecc/java/coding-style.md--
+---
+paths:
+  - "**/*.java"
+---
+# Java Coding Style
+
+> This file extends [common/coding-style.md](../common/coding-style.md) with Java-specific content.
+
+## Formatting
+
+- **google-java-format** or **Checkstyle** (Google or Sun style) for enforcement
+- One public top-level type per file
+- Consistent indent: 2 or 4 spaces (match project standard)
+- Member order: constants, fields, constructors, public methods, protected, private
+
+## Immutability
+
+- Prefer `record` for value types (Java 16+)
+- Mark fields `final` by default — use mutable state only when required
+- Return defensive copies from public APIs: `List.copyOf()`, `Map.copyOf()`, `Set.copyOf()`
+- Copy-on-write: return new instances rather than mutating existing ones
+
+```java
+// GOOD — immutable value type
+public record OrderSummary(Long id, String customerName, BigDecimal total) {}
+
+// GOOD — final fields, no setters
+public class Order {
+    private final Long id;
+    private final List<LineItem> items;
+
+    public List<LineItem> getItems() {
+        return List.copyOf(items);
+    }
+}
+```
+
+## Naming
+
+Follow standard Java conventions:
+- `PascalCase` for classes, interfaces, records, enums
+- `camelCase` for methods, fields, parameters, local variables
+- `SCREAMING_SNAKE_CASE` for `static final` constants
+- Packages: all lowercase, reverse domain (`com.example.app.service`)
+
+## Modern Java Features
+
+Use modern language features where they improve clarity:
+- **Records** for DTOs and value types (Java 16+)
+- **Sealed classes** for closed type hierarchies (Java 17+)
+- **Pattern matching** with `instanceof` — no explicit cast (Java 16+)
+- **Text blocks** for multi-line strings — SQL, JSON templates (Java 15+)
+- **Switch expressions** with arrow syntax (Java 14+)
+- **Pattern matching in switch** — exhaustive sealed type handling (Java 21+)
+
+```java
+// Pattern matching instanceof
+if (shape instanceof Circle c) {
+    return Math.PI * c.radius() * c.radius();
+}
+
+// Sealed type hierarchy
+public sealed interface PaymentMethod permits CreditCard, BankTransfer, Wallet {}
+
+// Switch expression
+String label = switch (status) {
+    case ACTIVE -> "Active";
+    case SUSPENDED -> "Suspended";
+    case CLOSED -> "Closed";
+};
+```
+
+## Optional Usage
+
+- Return `Optional<T>` from finder methods that may have no result
+- Use `map()`, `flatMap()`, `orElseThrow()` — never call `get()` without `isPresent()`
+- Never use `Optional` as a field type or method parameter
+
+```java
+// GOOD
+return repository.findById(id)
+    .map(ResponseDto::from)
+    .orElseThrow(() -> new OrderNotFoundException(id));
+
+// BAD — Optional as parameter
+public void process(Optional<String> name) {}
+```
+
+## Error Handling
+
+- Prefer unchecked exceptions for domain errors
+- Create domain-specific exceptions extending `RuntimeException`
+- Avoid broad `catch (Exception e)` unless at top-level handlers
+- Include context in exception messages
+
+```java
+public class OrderNotFoundException extends RuntimeException {
+    public OrderNotFoundException(Long id) {
+        super("Order not found: id=" + id);
+    }
+}
+```
+
+## Streams
+
+- Use streams for transformations; keep pipelines short (3-4 operations max)
+- Prefer method references when readable: `.map(Order::getTotal)`
+- Avoid side effects in stream operations
+- For complex logic, prefer a loop over a convoluted stream pipeline
+
+## References
+
+See skill: `java-coding-standards` for full coding standards with examples.
+See skill: `jpa-patterns` for JPA/Hibernate entity design patterns.
+--/home/krubics/.claude/rules/ecc/java/hooks.md--
+---
+paths:
+  - "**/*.java"
+  - "**/pom.xml"
+  - "**/build.gradle"
+  - "**/build.gradle.kts"
+---
+# Java Hooks
+
+> This file extends [common/hooks.md](../common/hooks.md) with Java-specific content.
+
+## PostToolUse Hooks
+
+Configure in `~/.claude/settings.json`:
+
+- **google-java-format**: Auto-format `.java` files after edit
+- **checkstyle**: Run style checks after editing Java files
+- **./mvnw compile** or **./gradlew compileJava**: Verify compilation after changes
+--/home/krubics/.claude/rules/ecc/java/testing.md--
+---
+paths:
+  - "**/*.java"
+---
+# Java Testing
+
+> This file extends [common/testing.md](../common/testing.md) with Java-specific content.
+
+## Test Framework
+
+- **JUnit 5** (`@Test`, `@ParameterizedTest`, `@Nested`, `@DisplayName`)
+- **AssertJ** for fluent assertions (`assertThat(result).isEqualTo(expected)`)
+- **Mockito** for mocking dependencies
+- **Testcontainers** for integration tests requiring databases or services
+
+## Test Organization
+
+```
+src/test/java/com/example/app/
+  service/           # Unit tests for service layer
+  controller/        # Web layer / API tests
+  repository/        # Data access tests
+  integration/       # Cross-layer integration tests
+```
+
+Mirror the `src/main/java` package structure in `src/test/java`.
+
+## Unit Test Pattern
+
+```java
+@ExtendWith(MockitoExtension.class)
+class OrderServiceTest {
+
+    @Mock
+    private OrderRepository orderRepository;
+
+    private OrderService orderService;
+
+    @BeforeEach
+    void setUp() {
+        orderService = new OrderService(orderRepository);
+    }
+
+    @Test
+    @DisplayName("findById returns order when exists")
+    void findById_existingOrder_returnsOrder() {
+        var order = new Order(1L, "Alice", BigDecimal.TEN);
+        when(orderRepository.findById(1L)).thenReturn(Optional.of(order));
+
+        var result = orderService.findById(1L);
+
+        assertThat(result.customerName()).isEqualTo("Alice");
+        verify(orderRepository).findById(1L);
+    }
+
+    @Test
+    @DisplayName("findById throws when order not found")
+    void findById_missingOrder_throws() {
+        when(orderRepository.findById(99L)).thenReturn(Optional.empty());
+
+        assertThatThrownBy(() -> orderService.findById(99L))
+            .isInstanceOf(OrderNotFoundException.class)
+            .hasMessageContaining("99");
+    }
+}
+```
+
+## Parameterized Tests
+
+```java
+@ParameterizedTest
+@CsvSource({
+    "100.00, 10, 90.00",
+    "50.00, 0, 50.00",
+    "200.00, 25, 150.00"
+})
+@DisplayName("discount applied correctly")
+void applyDiscount(BigDecimal price, int pct, BigDecimal expected) {
+    assertThat(PricingUtils.discount(price, pct)).isEqualByComparingTo(expected);
+}
+```
+
+## Integration Tests
+
+Use Testcontainers for real database integration:
+
+```java
+@Testcontainers
+class OrderRepositoryIT {
+
+    @Container
+    static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>("postgres:16");
+
+    private OrderRepository repository;
+
+    @BeforeEach
+    void setUp() {
+        var dataSource = new PGSimpleDataSource();
+        dataSource.setUrl(postgres.getJdbcUrl());
+        dataSource.setUser(postgres.getUsername());
+        dataSource.setPassword(postgres.getPassword());
+        repository = new JdbcOrderRepository(dataSource);
+    }
+
+    @Test
+    void save_and_findById() {
+        var saved = repository.save(new Order(null, "Bob", BigDecimal.ONE));
+        var found = repository.findById(saved.getId());
+        assertThat(found).isPresent();
+    }
+}
+```
+
+For Spring Boot integration tests, see skill: `springboot-tdd`.
+For Quarkus integration tests, see skill: `quarkus-tdd`.
+
+## Test Naming
+
+Use descriptive names with `@DisplayName`:
+- `methodName_scenario_expectedBehavior()` for method names
+- `@DisplayName("human-readable description")` for reports
+
+## Coverage
+
+- Target 80%+ line coverage
+- Use JaCoCo for coverage reporting
+- Focus on service and domain logic — skip trivial getters/config classes
+
+## References
+
+See skill: `springboot-tdd` for Spring Boot TDD patterns with MockMvc and Testcontainers.
+See skill: `quarkus-tdd` for Quarkus TDD patterns with REST Assured and Dev Services.
+See skill: `java-coding-standards` for testing expectations.
+--/home/krubics/.claude/rules/ecc/java/security.md--
+---
+paths:
+  - "**/*.java"
+---
+# Java Security
+
+> This file extends [common/security.md](../common/security.md) with Java-specific content.
+
+## Secrets Management
+
+- Never hardcode API keys, tokens, or credentials in source code
+- Use environment variables: `System.getenv("API_KEY")`
+- Use a secret manager (Vault, AWS Secrets Manager) for production secrets
+- Keep local config files with secrets in `.gitignore`
+
+```java
+// BAD
+private static final String API_KEY = "sk-abc123...";
+
+// GOOD — environment variable
+String apiKey = System.getenv("PAYMENT_API_KEY");
+Objects.requireNonNull(apiKey, "PAYMENT_API_KEY must be set");
+```
+
+## SQL Injection Prevention
+
+- Always use parameterized queries — never concatenate user input into SQL
+- Use `PreparedStatement` or your framework's parameterized query API
+- Validate and sanitize any input used in native queries
+
+```java
+// BAD — SQL injection via string concatenation
+Statement stmt = conn.createStatement();
+String sql = "SELECT * FROM orders WHERE name = '" + name + "'";
+stmt.executeQuery(sql);
+
+// GOOD — PreparedStatement with parameterized query
+PreparedStatement ps = conn.prepareStatement("SELECT * FROM orders WHERE name = ?");
+ps.setString(1, name);
+
+// GOOD — JDBC template
+jdbcTemplate.query("SELECT * FROM orders WHERE name = ?", mapper, name);
+```
+
+## Input Validation
+
+- Validate all user input at system boundaries before processing
+- Use Bean Validation (`@NotNull`, `@NotBlank`, `@Size`) on DTOs when using a validation framework
+- Sanitize file paths and user-provided strings before use
+- Reject input that fails validation with clear error messages
+
+```java
+// Validate manually in plain Java
+public Order createOrder(String customerName, BigDecimal amount) {
+    if (customerName == null || customerName.isBlank()) {
+        throw new IllegalArgumentException("Customer name is required");
+    }
+    if (amount == null || amount.compareTo(BigDecimal.ZERO) <= 0) {
+        throw new IllegalArgumentException("Amount must be positive");
+    }
+    return new Order(customerName, amount);
+}
+```
+
+## Authentication and Authorization
+
+- Never implement custom auth crypto — use established libraries
+- Store passwords with bcrypt or Argon2, never MD5/SHA1
+- Enforce authorization checks at service boundaries
+- Clear sensitive data from logs — never log passwords, tokens, or PII
+
+## Dependency Security
+
+- Run `mvn dependency:tree` or `./gradlew dependencies` to audit transitive dependencies
+- Use OWASP Dependency-Check or Snyk to scan for known CVEs
+- Keep dependencies updated — set up Dependabot or Renovate
+
+## Error Messages
+
+- Never expose stack traces, internal paths, or SQL errors in API responses
+- Map exceptions to safe, generic client messages at handler boundaries
+- Log detailed errors server-side; return generic messages to clients
+
+```java
+// Log the detail, return a generic message
+try {
+    return orderService.findById(id);
+} catch (OrderNotFoundException ex) {
+    log.warn("Order not found: id={}", id);
+    return ApiResponse.error("Resource not found");  // generic, no internals
+} catch (Exception ex) {
+    log.error("Unexpected error processing order id={}", id, ex);
+    return ApiResponse.error("Internal server error");  // never expose ex.getMessage()
+}
+```
+
+## References
+
+See skill: `springboot-security` for Spring Security authentication and authorization patterns.
+See skill: `quarkus-security` for Quarkus security with JWT/OIDC, RBAC, and CDI.
+See skill: `security-review` for general security checklists.
+--/home/krubics/.claude/rules/python-logging.md--
+---
+paths:
+  - "**/*.py"
+---
+
+# Python Logging Rules (Default: Loguru)
+
+> You are to follow these logging rules for python projects.
+
+## Levels
+
+Retry loops: WARNING per failed attempt, ERROR once at give-up.
+
+| Level | Word | Test |
+|---|---|---|
+| TRACE | **Steps** | Every execution step (entry/exit, iterations, branches). Off by default. |
+| DEBUG | **Mechanism** | How a value was derived: intermediates, payloads, internal state. Judged by investigative usefulness, not importance. Runtime-toggleable, off in production. |
+| INFO | **Events** | IO boundary crossings, state transitions, operations between state and overall outcomes — with identifying data. Bar: enough boundary inputs for deterministic replay; sequence-number state transitions. |
+| SUCCESS | **Confirmation** | Optional. Expected completions worth eyeballing. Sparingly. |
+| WARNING | **Regret** | No action needed now; ignoring the pattern will eventually be regretted. |
+| ERROR | **Failed** | Operation did not achieve its outcome; rest of system still trustworthy. Recovery is irrelevant to the level — scope is what matters. |
+| CRITICAL | **Untrustworthy** | Load-bearing component or shared state invariant failed; system can't function as expected. Judged by dependency graph, not by whether it was caught. Conditions: defined in the project's CLAUDE.md. |
+
+WARNING edge cases (all pass the regret test): abnormal-path success · soft threshold crossed · anticipated future failure (expiry, deprecation) · unexpected input correctly rejected · defensive "impossible" branch fired · partial batch success (batch=WARNING, items=ERROR if independently actionable) · degraded mode entered/persisting.
+
+## Required Information
+
+- Every log: `time`, `level`, plain-words event message; all context as structured `extra` fields via `bind()`/`contextualize()` — never interpolated into the message.
+- Required entity ids per event type: defined in the project's CLAUDE.md. Attach via `bind()`/`contextualize()` at the point context becomes available. Optional hardening: a factory that raises, or a `patch()` validator.
+- Default any format-referenced field via `logger.configure(extra={...})` so a missing field never crashes a log call.
+- ERROR/CRITICAL additionally require: entity id(s), reason, full traceback.
+- Never log: secrets/tokens/PII · hot-loop per-event lines at INFO (aggregate, or DEBUG) · data already in metrics.
+
+## Exceptions
+
+- **One exception, one log entry** — logged once, at the operation's outermost boundary.
+- `logger.exception()` inside deliberate `except` blocks (never `logger.error(str(e))`); `@logger.catch` only as the boundary decorator. Bare `@logger.catch` returns `None` — use `reraise=True` wherever callers consume the return value.
+- Middle layers add context without logging: `contextualize()` or `raise X(...) from e`.
+
+## Sinks
+
+- Mandatory: one catch-all sink receiving every log, at the lowest enabled level.
+- Additional specialized sinks (errors-only, JSON stream, per-domain): defined in the project's CLAUDE.md.
+- All file sinks: `enqueue=True`; production: `diagnose=False`; machine-consumed sinks: `serialize=True`.
+- Third-party chatter: defined in the project's CLAUDE.md.
+
+## Lifecycle
+
+Loguru sink options, values from the project's CLAUDE.md:
+
+```python
+logger.add("[path]", rotation="[size or time]", retention="[duration]",
+           compression="zip", enqueue=True, diagnose=False)
+```
+[raw output: artifact://1]
+
+
+Wall time: 50.79 seconds

@@ -1,0 +1,190 @@
+[32m  INFO[0m: Launching config: "/home/krubics/.config/quickshell/shell.qml"
+[32m  INFO[0m: Shell ID: "d051c435653b3f3e3cbaa4f8ebb8d895" Path ID "d051c435653b3f3e3cbaa4f8ebb8d895"
+[32m  INFO[0m: Saving logs to "/run/user/1000/quickshell/by-id/skl3oovajt/log.qslog"
+[34m DEBUG[97m qt.qml.import[0m: addImportPath: "/nix/store/bmxdr74jgv4z0bkkzjhkbmdpy9y3yvvw-qtbase-6.11.1/lib/qt-6/qml"
+[34m DEBUG[97m qt.qml.import[0m: addImportPath: "/nix/store/dxplnd5yys9i9y4gz3m883yiyi2c1l79-qtdeclarative-6.11.1/lib/qt-6/qml"
+[34m DEBUG[97m qt.qml.import[0m: addImportPath: "/nix/store/b4l6d3l07sspfp6yxhkyx7a2d7zv6syb-qtwayland-6.11.1/lib/qt-6/qml"
+[34m DEBUG[97m qt.qml.import[0m: addImportPath: "/nix/store/wzpvm4jqi357xsblgy4y8g9k9qpk9vss-quickshell-0.3.0/lib/qt-6/qml"
+[34m DEBUG[97m qt.qml.import[0m: addImportPath: "qrc:/qt/qml"
+[34m DEBUG[97m qt.qml.import[0m: addImportPath: "qrc:/qt-project.org/imports"
+[34m DEBUG[97m qt.qml.import[0m: addImportPath: "/nix/store/wzpvm4jqi357xsblgy4y8g9k9qpk9vss-quickshell-0.3.0/bin"
+[32m  INFO[0m: QML tooling support enabled
+[34m DEBUG[97m qt.qml.import[0m: addImportPath: "/nix/store/bmxdr74jgv4z0bkkzjhkbmdpy9y3yvvw-qtbase-6.11.1/lib/qt-6/qml"
+[34m DEBUG[97m qt.qml.import[0m: addImportPath: "/nix/store/dxplnd5yys9i9y4gz3m883yiyi2c1l79-qtdeclarative-6.11.1/lib/qt-6/qml"
+[34m DEBUG[97m qt.qml.import[0m: addImportPath: "/nix/store/b4l6d3l07sspfp6yxhkyx7a2d7zv6syb-qtwayland-6.11.1/lib/qt-6/qml"
+[34m DEBUG[97m qt.qml.import[0m: addImportPath: "/nix/store/wzpvm4jqi357xsblgy4y8g9k9qpk9vss-quickshell-0.3.0/lib/qt-6/qml"
+[34m DEBUG[97m qt.qml.import[0m: addImportPath: "qrc:/qt/qml"
+[34m DEBUG[97m qt.qml.import[0m: addImportPath: "qrc:/qt-project.org/imports"
+[34m DEBUG[97m qt.qml.import[0m: addImportPath: "/nix/store/wzpvm4jqi357xsblgy4y8g9k9qpk9vss-quickshell-0.3.0/bin"
+[34m DEBUG[97m qt.qml.import[0m: addImportPath: "qs:@/"
+[34m DEBUG[97m qt.qml.import[0m: addImplicitImport: qs:@/qs/shell.qml
+[34m DEBUG[97m qt.qml.import[0m: addFileImport: qs:@/qs/shell.qml "." version "(latest)" as ""
+[34m DEBUG[97m qt.qml.import[0m: updateQmldirContent: qs:@/qs/shell.qml "." to "qs:@/qs/" as ""
+[34m DEBUG[97m qt.qml.import[0m: importExtension: qs:@/qs/shell.qml loaded "qs:@/qs/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: addLibraryImport: qs:@/qs/shell.qml "Quickshell" version "(latest)" as ""
+[34m DEBUG[97m qt.qml.import[0m: importExtension: qs:@/qs/shell.qml loaded ":/qt/qml/Quickshell/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: resolvePlugin Could not resolve dynamic plugin with base name "quickshell-coreplugin" in ":/qt/qml/Quickshell"  file does not exist
+[34m DEBUG[97m qt.qml.import[0m: loading dependent import "Quickshell._Window" version invalid as ""
+[34m DEBUG[97m qt.qml.import[0m: addLibraryImport: qs:@/qs/shell.qml "Quickshell._Window" version "(latest)" as ""
+[34m DEBUG[97m qt.qml.import[0m: importExtension: qs:@/qs/shell.qml loaded ":/qt/qml/Quickshell/_Window/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: resolvePlugin Could not resolve dynamic plugin with base name "quickshell-windowplugin" in ":/qt/qml/Quickshell/_Window"  file does not exist
+[34m DEBUG[97m qt.qml.import[0m: locateLocalQmldir: Quickshell._Window module's qmldir found at ""
+[34m DEBUG[97m qt.qml.import[0m: loading dependent import "Quickshell._WaylandOverlay" version invalid as ""
+[34m DEBUG[97m qt.qml.import[0m: locateLocalQmldir: Quickshell._WaylandOverlay module's qmldir file not found
+[34m DEBUG[97m qt.qml.import[0m: addLibraryImport: qs:@/qs/shell.qml "Quickshell._WaylandOverlay" version "(latest)" as ""
+[34m DEBUG[97m qt.qml.import[0m: locateLocalQmldir: Quickshell module's qmldir found at ""
+[34m DEBUG[97m qt.qml.import[0m: addLibraryImport: qs:@/qs/shell.qml "QtQuick.Layouts" version "6.0" as ""
+[34m DEBUG[97m qt.qml.import[0m: importExtension: qs:@/qs/shell.qml loaded "/nix/store/dxplnd5yys9i9y4gz3m883yiyi2c1l79-qtdeclarative-6.11.1/lib/qt-6/qml/QtQuick/Layouts/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: locateLocalQmldir: QtQuick.Layouts module's qmldir found at "/nix/store/dxplnd5yys9i9y4gz3m883yiyi2c1l79-qtdeclarative-6.11.1/lib/qt-6/qml/QtQuick/Layouts/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: addLibraryImport: qs:@/qs/shell.qml "QtQuick" version "(latest)" as ""
+[34m DEBUG[97m qt.qml.import[0m: importExtension: qs:@/qs/shell.qml loaded ":/qt-project.org/imports/QtQuick/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: resolvePlugin Could not resolve dynamic plugin with base name "qtquick2plugin" in ":/qt-project.org/imports/QtQuick"  file does not exist
+[34m DEBUG[97m qt.qml.import[0m: loading dependent import "QtQml" version 6.11 as ""
+[34m DEBUG[97m qt.qml.import[0m: addLibraryImport: qs:@/qs/shell.qml "QtQml" version "6.11" as ""
+[34m DEBUG[97m qt.qml.import[0m: importExtension: qs:@/qs/shell.qml loaded ":/qt-project.org/imports/QtQml/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: resolvePlugin Could not resolve dynamic plugin with base name "qmlplugin" in ":/qt-project.org/imports/QtQml"  file does not exist
+[34m DEBUG[97m qt.qml.import[0m: loading dependent import "QML" version 1.0 as ""
+[34m DEBUG[97m qt.qml.import[0m: addLibraryImport: qs:@/qs/shell.qml "QML" version "1.0" as ""
+[34m DEBUG[97m qt.qml.import[0m: loading dependent import "QtQml.Models" version 6.11 as ""
+[34m DEBUG[97m qt.qml.import[0m: addLibraryImport: qs:@/qs/shell.qml "QtQml.Models" version "6.11" as ""
+[34m DEBUG[97m qt.qml.import[0m: importExtension: qs:@/qs/shell.qml loaded ":/qt-project.org/imports/QtQml/Models/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: resolvePlugin Could not resolve dynamic plugin with base name "modelsplugin" in ":/qt-project.org/imports/QtQml/Models"  file does not exist
+[34m DEBUG[97m qt.qml.import[0m: locateLocalQmldir: QtQml.Models module's qmldir found at "/nix/store/dxplnd5yys9i9y4gz3m883yiyi2c1l79-qtdeclarative-6.11.1/lib/qt-6/qml/QtQml/Models/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: loading dependent import "QtQml.WorkerScript" version 6.11 as ""
+[34m DEBUG[97m qt.qml.import[0m: addLibraryImport: qs:@/qs/shell.qml "QtQml.WorkerScript" version "6.11" as ""
+[34m DEBUG[97m qt.qml.import[0m: importExtension: qs:@/qs/shell.qml loaded ":/qt-project.org/imports/QtQml/WorkerScript/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: resolvePlugin Could not resolve dynamic plugin with base name "workerscriptplugin" in ":/qt-project.org/imports/QtQml/WorkerScript"  file does not exist
+[34m DEBUG[97m qt.qml.import[0m: locateLocalQmldir: QtQml.WorkerScript module's qmldir found at "/nix/store/dxplnd5yys9i9y4gz3m883yiyi2c1l79-qtdeclarative-6.11.1/lib/qt-6/qml/QtQml/WorkerScript/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: locateLocalQmldir: QtQml module's qmldir found at "/nix/store/dxplnd5yys9i9y4gz3m883yiyi2c1l79-qtdeclarative-6.11.1/lib/qt-6/qml/QtQml/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: locateLocalQmldir: QtQuick module's qmldir found at "/nix/store/dxplnd5yys9i9y4gz3m883yiyi2c1l79-qtdeclarative-6.11.1/lib/qt-6/qml/QtQuick/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: addLibraryImport: qs:@/qs/shell.qml "Quickshell.Hyprland" version "(latest)" as ""
+[34m DEBUG[97m qt.qml.import[0m: importExtension: qs:@/qs/shell.qml loaded ":/qt/qml/Quickshell/Hyprland/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: resolvePlugin Could not resolve dynamic plugin with base name "quickshell-hyprlandplugin" in ":/qt/qml/Quickshell/Hyprland"  file does not exist
+[34m DEBUG[97m qt.qml.import[0m: loading dependent import "Quickshell.Hyprland._Ipc" version invalid as ""
+[34m DEBUG[97m qt.qml.import[0m: addLibraryImport: qs:@/qs/shell.qml "Quickshell.Hyprland._Ipc" version "(latest)" as ""
+[34m DEBUG[97m qt.qml.import[0m: importExtension: qs:@/qs/shell.qml loaded ":/qt/qml/Quickshell/Hyprland/_Ipc/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: resolvePlugin Could not resolve dynamic plugin with base name "quickshell-hyprland-ipcplugin" in ":/qt/qml/Quickshell/Hyprland/_Ipc"  file does not exist
+[34m DEBUG[97m qt.qml.import[0m: locateLocalQmldir: Quickshell.Hyprland._Ipc module's qmldir found at ""
+[34m DEBUG[97m qt.qml.import[0m: loading dependent import "Quickshell.Hyprland._FocusGrab" version invalid as ""
+[34m DEBUG[97m qt.qml.import[0m: addLibraryImport: qs:@/qs/shell.qml "Quickshell.Hyprland._FocusGrab" version "(latest)" as ""
+[34m DEBUG[97m qt.qml.import[0m: importExtension: qs:@/qs/shell.qml loaded ":/qt/qml/Quickshell/Hyprland/_FocusGrab/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: resolvePlugin Could not resolve dynamic plugin with base name "quickshell-hyprland-focus-grabplugin" in ":/qt/qml/Quickshell/Hyprland/_FocusGrab"  file does not exist
+[34m DEBUG[97m qt.qml.import[0m: locateLocalQmldir: Quickshell.Hyprland._FocusGrab module's qmldir found at ""
+[34m DEBUG[97m qt.qml.import[0m: loading dependent import "Quickshell.Hyprland._GlobalShortcuts" version invalid as ""
+[34m DEBUG[97m qt.qml.import[0m: addLibraryImport: qs:@/qs/shell.qml "Quickshell.Hyprland._GlobalShortcuts" version "(latest)" as ""
+[34m DEBUG[97m qt.qml.import[0m: importExtension: qs:@/qs/shell.qml loaded ":/qt/qml/Quickshell/Hyprland/_GlobalShortcuts/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: resolvePlugin Could not resolve dynamic plugin with base name "quickshell-hyprland-global-shortcutsplugin" in ":/qt/qml/Quickshell/Hyprland/_GlobalShortcuts"  file does not exist
+[34m DEBUG[97m qt.qml.import[0m: locateLocalQmldir: Quickshell.Hyprland._GlobalShortcuts module's qmldir found at ""
+[34m DEBUG[97m qt.qml.import[0m: loading dependent import "Quickshell.Hyprland._SurfaceExtensions" version invalid as ""
+[34m DEBUG[97m qt.qml.import[0m: addLibraryImport: qs:@/qs/shell.qml "Quickshell.Hyprland._SurfaceExtensions" version "(latest)" as ""
+[34m DEBUG[97m qt.qml.import[0m: importExtension: qs:@/qs/shell.qml loaded ":/qt/qml/Quickshell/Hyprland/_SurfaceExtensions/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: resolvePlugin Could not resolve dynamic plugin with base name "quickshell-hyprland-surface-extensionsplugin" in ":/qt/qml/Quickshell/Hyprland/_SurfaceExtensions"  file does not exist
+[34m DEBUG[97m qt.qml.import[0m: locateLocalQmldir: Quickshell.Hyprland._SurfaceExtensions module's qmldir found at ""
+[34m DEBUG[97m qt.qml.import[0m: locateLocalQmldir: Quickshell.Hyprland module's qmldir found at ""
+[34m DEBUG[97m qt.qml.import[0m: addLibraryImport: qs:@/qs/shell.qml "Qt.labs.folderlistmodel" version "(latest)" as ""
+[34m DEBUG[97m qt.qml.import[0m: importExtension: qs:@/qs/shell.qml loaded "/nix/store/dxplnd5yys9i9y4gz3m883yiyi2c1l79-qtdeclarative-6.11.1/lib/qt-6/qml/Qt/labs/folderlistmodel/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: locateLocalQmldir: Qt.labs.folderlistmodel module's qmldir found at "/nix/store/dxplnd5yys9i9y4gz3m883yiyi2c1l79-qtdeclarative-6.11.1/lib/qt-6/qml/Qt/labs/folderlistmodel/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: addLibraryImport: qs:@/qs/shell.qml "Quickshell.Wayland" version "(latest)" as ""
+[34m DEBUG[97m qt.qml.import[0m: importExtension: qs:@/qs/shell.qml loaded ":/qt/qml/Quickshell/Wayland/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: resolvePlugin Could not resolve dynamic plugin with base name "quickshell-waylandplugin" in ":/qt/qml/Quickshell/Wayland"  file does not exist
+[34m DEBUG[97m qt.qml.import[0m: loading dependent import "Quickshell.Wayland._WlrLayerShell" version invalid as ""
+[34m DEBUG[97m qt.qml.import[0m: addLibraryImport: qs:@/qs/shell.qml "Quickshell.Wayland._WlrLayerShell" version "(latest)" as ""
+[34m DEBUG[97m qt.qml.import[0m: importExtension: qs:@/qs/shell.qml loaded ":/qt/qml/Quickshell/Wayland/_WlrLayerShell/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: resolvePlugin Could not resolve dynamic plugin with base name "quickshell-wayland-layershellplugin" in ":/qt/qml/Quickshell/Wayland/_WlrLayerShell"  file does not exist
+[34m DEBUG[97m qt.qml.import[0m: locateLocalQmldir: Quickshell.Wayland._WlrLayerShell module's qmldir found at ""
+[34m DEBUG[97m qt.qml.import[0m: loading dependent import "Quickshell.Wayland._ToplevelManagement" version invalid as ""
+[34m DEBUG[97m qt.qml.import[0m: addLibraryImport: qs:@/qs/shell.qml "Quickshell.Wayland._ToplevelManagement" version "(latest)" as ""
+[34m DEBUG[97m qt.qml.import[0m: importExtension: qs:@/qs/shell.qml loaded ":/qt/qml/Quickshell/Wayland/_ToplevelManagement/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: resolvePlugin Could not resolve dynamic plugin with base name "quickshell-wayland-toplevel-managementplugin" in ":/qt/qml/Quickshell/Wayland/_ToplevelManagement"  file does not exist
+[34m DEBUG[97m qt.qml.import[0m: locateLocalQmldir: Quickshell.Wayland._ToplevelManagement module's qmldir found at ""
+[34m DEBUG[97m qt.qml.import[0m: loading dependent import "Quickshell.Wayland._Screencopy" version invalid as ""
+[34m DEBUG[97m qt.qml.import[0m: addLibraryImport: qs:@/qs/shell.qml "Quickshell.Wayland._Screencopy" version "(latest)" as ""
+[34m DEBUG[97m qt.qml.import[0m: importExtension: qs:@/qs/shell.qml loaded ":/qt/qml/Quickshell/Wayland/_Screencopy/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: resolvePlugin Could not resolve dynamic plugin with base name "quickshell-wayland-screencopyplugin" in ":/qt/qml/Quickshell/Wayland/_Screencopy"  file does not exist
+[34m DEBUG[97m qt.qml.import[0m: locateLocalQmldir: Quickshell.Wayland._Screencopy module's qmldir found at ""
+[34m DEBUG[97m qt.qml.import[0m: loading dependent import "Quickshell.Wayland._BackgroundEffect" version invalid as ""
+[34m DEBUG[97m qt.qml.import[0m: addLibraryImport: qs:@/qs/shell.qml "Quickshell.Wayland._BackgroundEffect" version "(latest)" as ""
+[34m DEBUG[97m qt.qml.import[0m: importExtension: qs:@/qs/shell.qml loaded ":/qt/qml/Quickshell/Wayland/_BackgroundEffect/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: resolvePlugin Could not resolve dynamic plugin with base name "quickshell-wayland-background-effectplugin" in ":/qt/qml/Quickshell/Wayland/_BackgroundEffect"  file does not exist
+[34m DEBUG[97m qt.qml.import[0m: locateLocalQmldir: Quickshell.Wayland._BackgroundEffect module's qmldir found at ""
+[34m DEBUG[97m qt.qml.import[0m: loading dependent import "Quickshell.Wayland._IdleInhibitor" version invalid as ""
+[34m DEBUG[97m qt.qml.import[0m: addLibraryImport: qs:@/qs/shell.qml "Quickshell.Wayland._IdleInhibitor" version "(latest)" as ""
+[34m DEBUG[97m qt.qml.import[0m: importExtension: qs:@/qs/shell.qml loaded ":/qt/qml/Quickshell/Wayland/_IdleInhibitor/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: resolvePlugin Could not resolve dynamic plugin with base name "quickshell-wayland-idle-inhibitplugin" in ":/qt/qml/Quickshell/Wayland/_IdleInhibitor"  file does not exist
+[34m DEBUG[97m qt.qml.import[0m: locateLocalQmldir: Quickshell.Wayland._IdleInhibitor module's qmldir found at ""
+[34m DEBUG[97m qt.qml.import[0m: loading dependent import "Quickshell.Wayland._IdleNotify" version invalid as ""
+[34m DEBUG[97m qt.qml.import[0m: addLibraryImport: qs:@/qs/shell.qml "Quickshell.Wayland._IdleNotify" version "(latest)" as ""
+[34m DEBUG[97m qt.qml.import[0m: importExtension: qs:@/qs/shell.qml loaded ":/qt/qml/Quickshell/Wayland/_IdleNotify/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: resolvePlugin Could not resolve dynamic plugin with base name "quickshell-wayland-idle-notifyplugin" in ":/qt/qml/Quickshell/Wayland/_IdleNotify"  file does not exist
+[34m DEBUG[97m qt.qml.import[0m: locateLocalQmldir: Quickshell.Wayland._IdleNotify module's qmldir found at ""
+[34m DEBUG[97m qt.qml.import[0m: loading dependent import "Quickshell.Wayland._ShortcutsInhibitor" version invalid as ""
+[34m DEBUG[97m qt.qml.import[0m: addLibraryImport: qs:@/qs/shell.qml "Quickshell.Wayland._ShortcutsInhibitor" version "(latest)" as ""
+[34m DEBUG[97m qt.qml.import[0m: importExtension: qs:@/qs/shell.qml loaded ":/qt/qml/Quickshell/Wayland/_ShortcutsInhibitor/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: resolvePlugin Could not resolve dynamic plugin with base name "quickshell-wayland-shortcuts-inhibitplugin" in ":/qt/qml/Quickshell/Wayland/_ShortcutsInhibitor"  file does not exist
+[34m DEBUG[97m qt.qml.import[0m: locateLocalQmldir: Quickshell.Wayland._ShortcutsInhibitor module's qmldir found at ""
+[34m DEBUG[97m qt.qml.import[0m: locateLocalQmldir: Quickshell.Wayland module's qmldir found at ""
+[34m DEBUG[97m qt.qml.import[0m: addLibraryImport: qs:@/qs/shell.qml "Quickshell.Widgets" version "(latest)" as ""
+[34m DEBUG[97m qt.qml.import[0m: importExtension: qs:@/qs/shell.qml loaded ":/qt/qml/Quickshell/Widgets/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: resolvePlugin Could not resolve dynamic plugin with base name "quickshell-widgetsplugin" in ":/qt/qml/Quickshell/Widgets"  file does not exist
+[34m DEBUG[97m qt.qml.import[0m: locateLocalQmldir: Quickshell.Widgets module's qmldir found at ""
+[34m DEBUG[97m qt.qml.import[0m: addLibraryImport: qs:@/qs/shell.qml "Quickshell.Io" version "(latest)" as ""
+[34m DEBUG[97m qt.qml.import[0m: importExtension: qs:@/qs/shell.qml loaded ":/qt/qml/Quickshell/Io/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: resolvePlugin Could not resolve dynamic plugin with base name "quickshell-ioplugin" in ":/qt/qml/Quickshell/Io"  file does not exist
+[34m DEBUG[97m qt.qml.import[0m: locateLocalQmldir: Quickshell.Io module's qmldir found at ""
+[34m DEBUG[97m qt.qml.import[0m: resolveType: qs:@/qs/shell.qml "PanelWindow"  =>  "qs::wayland::layershell::WaylandPanelInterface"  TYPE
+[34m DEBUG[97m qt.qml.import[0m: resolveType: qs:@/qs/shell.qml "ListView"  =>  "QQuickListView"  TYPE
+[34m DEBUG[97m qt.qml.import[0m: resolveType: qs:@/qs/shell.qml "ClippingRectangle"  =>  ""   QUrl("qrc:/qt/qml/Quickshell/Widgets/ClippingRectangle.qml")  TYPE/URL
+[34m DEBUG[97m qt.qml.import[0m: addLibraryImport: qrc:/qt/qml/Quickshell/Widgets/ClippingRectangle.qml "QtQuick" version "(latest)" as ""
+[34m DEBUG[97m qt.qml.import[0m: importExtension: qrc:/qt/qml/Quickshell/Widgets/ClippingRectangle.qml loaded ":/qt-project.org/imports/QtQuick/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: loading dependent import "QtQml" version 6.11 as ""
+[34m DEBUG[97m qt.qml.import[0m: addLibraryImport: qrc:/qt/qml/Quickshell/Widgets/ClippingRectangle.qml "QtQml" version "6.11" as ""
+[34m DEBUG[97m qt.qml.import[0m: importExtension: qrc:/qt/qml/Quickshell/Widgets/ClippingRectangle.qml loaded ":/qt-project.org/imports/QtQml/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: loading dependent import "QML" version 1.0 as ""
+[34m DEBUG[97m qt.qml.import[0m: addLibraryImport: qrc:/qt/qml/Quickshell/Widgets/ClippingRectangle.qml "QML" version "1.0" as ""
+[34m DEBUG[97m qt.qml.import[0m: loading dependent import "QtQml.Models" version 6.11 as ""
+[34m DEBUG[97m qt.qml.import[0m: addLibraryImport: qrc:/qt/qml/Quickshell/Widgets/ClippingRectangle.qml "QtQml.Models" version "6.11" as ""
+[34m DEBUG[97m qt.qml.import[0m: importExtension: qrc:/qt/qml/Quickshell/Widgets/ClippingRectangle.qml loaded ":/qt-project.org/imports/QtQml/Models/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: loading dependent import "QtQml.WorkerScript" version 6.11 as ""
+[34m DEBUG[97m qt.qml.import[0m: addLibraryImport: qrc:/qt/qml/Quickshell/Widgets/ClippingRectangle.qml "QtQml.WorkerScript" version "6.11" as ""
+[34m DEBUG[97m qt.qml.import[0m: importExtension: qrc:/qt/qml/Quickshell/Widgets/ClippingRectangle.qml loaded ":/qt-project.org/imports/QtQml/WorkerScript/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: addImplicitImport: qrc:/qt/qml/Quickshell/Widgets/ClippingRectangle.qml
+[34m DEBUG[97m qt.qml.import[0m: addFileImport: qrc:/qt/qml/Quickshell/Widgets/ClippingRectangle.qml "." version "(latest)" as ""
+[34m DEBUG[97m qt.qml.import[0m: importExtension: qrc:/qt/qml/Quickshell/Widgets/ClippingRectangle.qml loaded ":/qt/qml/Quickshell/Widgets/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: resolveType: qrc:/qt/qml/Quickshell/Widgets/ClippingRectangle.qml "ShaderEffect"  =>  "QQuickShaderEffect"  TYPE
+[34m DEBUG[97m qt.qml.import[0m: resolveType: qrc:/qt/qml/Quickshell/Widgets/ClippingRectangle.qml "Rectangle"  =>  "QQuickRectangle"  TYPE
+[34m DEBUG[97m qt.qml.import[0m: resolveType: qrc:/qt/qml/Quickshell/Widgets/ClippingRectangle.qml "ShaderEffectSource"  =>  "QQuickShaderEffectSource"  TYPE
+[34m DEBUG[97m qt.qml.import[0m: resolveType: qrc:/qt/qml/Quickshell/Widgets/ClippingRectangle.qml "Item"  =>  "QQuickItem"  TYPE
+[34m DEBUG[97m qt.qml.import[0m: resolveType: qrc:/qt/qml/Quickshell/Widgets/ClippingRectangle.qml "clippingRectangleBorder"  =>  "ClippingRectangleBorder"  TYPE
+[34m DEBUG[97m qt.qml.import[0m: resolveType: qrc:/qt/qml/Quickshell/Widgets/ClippingRectangle.qml "Rectangle"  =>  "QQuickRectangle"  TYPE
+[34m DEBUG[97m qt.qml.import[0m: resolveType: qrc:/qt/qml/Quickshell/Widgets/ClippingRectangle.qml "color"  =>  ""  TYPE
+[34m DEBUG[97m qt.qml.import[0m: resolveType: qrc:/qt/qml/Quickshell/Widgets/ClippingRectangle.qml "color"  =>  ""  TYPE
+[34m DEBUG[97m qt.qml.import[0m: resolveType: qrc:/qt/qml/Quickshell/Widgets/ClippingRectangle.qml "ShaderEffectSource"  =>  "QQuickShaderEffectSource"  TYPE
+[34m DEBUG[97m qt.qml.import[0m: resolveType: qs:@/qs/shell.qml "FolderListModel"  =>  "QQuickFolderListModel"  TYPE
+[34m DEBUG[97m qt.qml.import[0m: resolveType: qs:@/qs/shell.qml "NumberAnimation"  =>  "QQuickNumberAnimation"  TYPE
+[34m DEBUG[97m qt.qml.import[0m: resolveType: qs:@/qs/shell.qml "Process"  =>  "Process"  TYPE
+[34m DEBUG[97m qt.qml.import[0m: resolveType: qs:@/qs/shell.qml "Image"  =>  "QQuickImage"  TYPE
+[34m DEBUG[97m qt.qml.import[0m: resolveType: qs:@/qs/shell.qml "Behavior"  =>  "QQuickBehavior"  TYPE
+[34m DEBUG[97m qt.qml.import[0m: resolveType: qs:@/qs/shell.qml "WrapperRectangle"  =>  ""   QUrl("qrc:/qt/qml/Quickshell/Widgets/WrapperRectangle.qml")  TYPE/URL
+[34m DEBUG[97m qt.qml.import[0m: addLibraryImport: qrc:/qt/qml/Quickshell/Widgets/WrapperRectangle.qml "QtQuick" version "(latest)" as ""
+[34m DEBUG[97m qt.qml.import[0m: importExtension: qrc:/qt/qml/Quickshell/Widgets/WrapperRectangle.qml loaded ":/qt-project.org/imports/QtQuick/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: loading dependent import "QtQml" version 6.11 as ""
+[34m DEBUG[97m qt.qml.import[0m: addLibraryImport: qrc:/qt/qml/Quickshell/Widgets/WrapperRectangle.qml "QtQml" version "6.11" as ""
+[34m DEBUG[97m qt.qml.import[0m: importExtension: qrc:/qt/qml/Quickshell/Widgets/WrapperRectangle.qml loaded ":/qt-project.org/imports/QtQml/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: loading dependent import "QML" version 1.0 as ""
+[34m DEBUG[97m qt.qml.import[0m: addLibraryImport: qrc:/qt/qml/Quickshell/Widgets/WrapperRectangle.qml "QML" version "1.0" as ""
+[34m DEBUG[97m qt.qml.import[0m: loading dependent import "QtQml.Models" version 6.11 as ""
+[34m DEBUG[97m qt.qml.import[0m: addLibraryImport: qrc:/qt/qml/Quickshell/Widgets/WrapperRectangle.qml "QtQml.Models" version "6.11" as ""
+[34m DEBUG[97m qt.qml.import[0m: importExtension: qrc:/qt/qml/Quickshell/Widgets/WrapperRectangle.qml loaded ":/qt-project.org/imports/QtQml/Models/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: loading dependent import "QtQml.WorkerScript" version 6.11 as ""
+[34m DEBUG[97m qt.qml.import[0m: addLibraryImport: qrc:/qt/qml/Quickshell/Widgets/WrapperRectangle.qml "QtQml.WorkerScript" version "6.11" as ""
+[34m DEBUG[97m qt.qml.import[0m: importExtension: qrc:/qt/qml/Quickshell/Widgets/WrapperRectangle.qml loaded ":/qt-project.org/imports/QtQml/WorkerScript/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: addImplicitImport: qrc:/qt/qml/Quickshell/Widgets/WrapperRectangle.qml
+[34m DEBUG[97m qt.qml.import[0m: addFileImport: qrc:/qt/qml/Quickshell/Widgets/WrapperRectangle.qml "." version "(latest)" as ""
+[34m DEBUG[97m qt.qml.import[0m: importExtension: qrc:/qt/qml/Quickshell/Widgets/WrapperRectangle.qml loaded ":/qt/qml/Quickshell/Widgets/qmldir"
+[34m DEBUG[97m qt.qml.import[0m: resolveType: qrc:/qt/qml/Quickshell/Widgets/WrapperRectangle.qml "MarginWrapperManager"  =>  "qs::widgets::MarginWrapperManager"  TYPE
+[34m DEBUG[97m qt.qml.import[0m: resolveType: qrc:/qt/qml/Quickshell/Widgets/WrapperRectangle.qml "Rectangle"  =>  "QQuickRectangle"  TYPE
+[34m DEBUG[97m qt.qml.import[0m: resolveType: qs:@/qs/shell.qml "Component"  =>  "QQmlComponent"  TYPE
+[34m DEBUG[97m qt.qml.import[0m: resolveType: qs:@/qs/shell.qml "WlrLayershell"  =>  "qs::wayland::layershell::WlrLayershell"  TYPE
+[34m DEBUG[97m qt.qml.import[0m: resolveType: qs:@/qs/shell.qml "Keys"  =>  "QQuickKeysAttached"  TYPE
+[31m ERROR[0m: Failed to load configuration
+[31m ERROR[0m:   caused by @shell.qml[117:9]: id is not unique

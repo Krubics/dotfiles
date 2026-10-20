@@ -1,0 +1,1 @@
+- [Prefers standard tools over custom scripts](prefers-standard-tools-over-custom-scripts.md) — push for simpler/off-the-shelf options first; keep custom code portable

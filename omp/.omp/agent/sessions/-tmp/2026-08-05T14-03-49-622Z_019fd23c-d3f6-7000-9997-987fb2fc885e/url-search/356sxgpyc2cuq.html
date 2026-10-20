@@ -1,0 +1,456 @@
+---
+meta-description:
+meta-theme-color: #ffffff
+meta-viewport: width=device-width, initial-scale=1
+title: qt - Home Manager Manual
+---
+
+## Keyboard shortcuts
+
+Press `←` or `→` to navigate between chapters
+
+Press `S` or `/` to search in the book
+
+Press `?` to show this help
+
+Press `Esc` to hide this help
+
+![SVG Image](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDggNTEyIj48cGF0aCBkPSJNMCA5NkMwIDc4LjMgMTQuMyA2NCAzMiA2NEg0MTZjMTcuNyAwIDMyIDE0LjMgMzIgMzJzLTE0LjMgMzItMzIgMzJIMzJDMTQuMyAxMjggMCAxMTMuNyAwIDk2ek0wIDI1NmMwLTE3LjcgMTQuMy0zMiAzMi0zMkg0MTZjMTcuNyAwIDMyIDE0LjMgMzIgMzJzLTE0LjMgMzItMzIgMzJIMzJjLTE3LjcgMC0zMi0xNC4zLTMyLTMyek00NDggNDE2YzAgMTcuNy0xNC4zIDMyLTMyIDMySDMyYy0xNy43IDAtMzItMTQuMy0zMi0zMnMxNC4zLTMyIDMyLTMySDQxNmMxNy43IDAgMzIgMTQuMyAzMiAzMnoiIC8+PC9zdmc+)
+
+![SVG Image](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NzYgNTEyIj48cGF0aCBkPSJNMzcxLjMgMzY3LjFjMjcuMy0zLjkgNTEuOS0xOS40IDY3LjItNDIuOUw2MDAuMiA3NC4xYzEyLjYtMTkuNSA5LjQtNDUuMy03LjYtNjEuMlM1NDkuNy00LjQgNTMxLjEgOS42TDI5NC40IDE4Ny4yYy0yNCAxOC0zOC4yIDQ2LjEtMzguNCA3Ni4xTDM3MS4zIDM2Ny4xem0tMTkuNiAyNS40bC0xMTYtMTA0LjRDMTc1LjkgMjkwLjMgMTI4IDMzOS42IDEyOCA0MDBjMCAzLjkgLjIgNy44IC42IDExLjZjMS44IDE3LjUtMTAuMiAzNi40LTI3LjggMzYuNEg5NmMtMTcuNyAwLTMyIDE0LjMtMzIgMzJzMTQuMyAzMiAzMiAzMkgyNDBjNjEuOSAwIDExMi01MC4xIDExMi0xMTJjMC0yLjUtLjEtNS0uMi03LjV6IiAvPjwvc3ZnPg==)
+
+- Auto
+
+- Light
+
+- Rust
+
+- Coal
+
+- Navy
+
+- Ayu
+
+![SVG Image](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBkPSJNNDE2IDIwOGMwIDQ1LjktMTQuOSA4OC4zLTQwIDEyMi43TDUwMi42IDQ1Ny40YzEyLjUgMTIuNSAxMi41IDMyLjggMCA0NS4zcy0zMi44IDEyLjUtNDUuMyAwTDMzMC43IDM3NmMtMzQuNCAyNS4yLTc2LjggNDAtMTIyLjcgNDBDOTMuMSA0MTYgMCAzMjIuOSAwIDIwOFM5My4xIDAgMjA4IDBTNDE2IDkzLjEgNDE2IDIwOHpNMjA4IDM1MmM3OS41IDAgMTQ0LTY0LjUgMTQ0LTE0NHMtNjQuNS0xNDQtMTQ0LTE0NFM2NCAxMjguNSA2NCAyMDhzNjQuNSAxNDQgMTQ0IDE0NHoiIC8+PC9zdmc+)
+
+# Home Manager Manual
+
+[![SVG Image](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBkPSJNMTI4IDBDOTIuNyAwIDY0IDI4LjcgNjQgNjR2OTZoNjRWNjRIMzU0LjdMMzg0IDkzLjNWMTYwaDY0VjkzLjNjMC0xNy02LjctMzMuMy0xOC43LTQ1LjNMNDAwIDE4LjdDMzg4IDYuNyAzNzEuNyAwIDM1NC43IDBIMTI4ek0zODQgMzUydjMyIDY0SDEyOFYzODQgMzY4IDM1MkgzODR6bTY0IDMyaDMyYzE3LjcgMCAzMi0xNC4zIDMyLTMyVjI1NmMwLTM1LjMtMjguNy02NC02NC02NEg2NGMtMzUuMyAwLTY0IDI4LjctNjQgNjR2OTZjMCAxNy43IDE0LjMgMzIgMzIgMzJINjR2NjRjMCAzNS4zIDI4LjcgNjQgNjQgNjRIMzg0YzM1LjMgMCA2NC0yOC43IDY0LTY0VjM4NHptLTE2LTg4Yy0xMy4zIDAtMjQtMTAuNy0yNC0yNHMxMC43LTI0IDI0LTI0czI0IDEwLjcgMjQgMjRzLTEwLjcgMjQtMjQgMjR6IiAvPjwvc3ZnPg==)](../../print.html "Print this book") [![SVG Image](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OTYgNTEyIj48cGF0aCBkPSJNMTY1LjkgMzk3LjRjMCAyLTIuMyAzLjYtNS4yIDMuNi0zLjMuMy01LjYtMS4zLTUuNi0zLjYgMC0yIDIuMy0zLjYgNS4yLTMuNiAzLS4zIDUuNiAxLjMgNS42IDMuNnptLTMxLjEtNC41Yy0uNyAyIDEuMyA0LjMgNC4zIDQuOSAyLjYgMSA1LjYgMCA2LjItMnMtMS4zLTQuMy00LjMtNS4yYy0yLjYtLjctNS41LjMtNi4yIDIuM3ptNDQuMi0xLjdjLTIuOS43LTQuOSAyLjYtNC42IDQuOS4zIDIgMi45IDMuMyA1LjkgMi42IDIuOS0uNyA0LjktMi42IDQuNi00LjYtLjMtMS45LTMtMy4yLTUuOS0yLjl6TTI0NC44IDhDMTA2LjEgOCAwIDExMy4zIDAgMjUyYzAgMTEwLjkgNjkuOCAyMDUuOCAxNjkuNSAyMzkuMiAxMi44IDIuMyAxNy4zLTUuNiAxNy4zLTEyLjEgMC02LjItLjMtNDAuNC0uMy02MS40IDAgMC03MCAxNS04NC43LTI5LjggMCAwLTExLjQtMjkuMS0yNy44LTM2LjYgMCAwLTIyLjktMTUuNyAxLjYtMTUuNCAwIDAgMjQuOSAyIDM4LjYgMjUuOCAyMS45IDM4LjYgNTguNiAyNy41IDcyLjkgMjAuOSAyLjMtMTYgOC44LTI3LjEgMTYtMzMuNy01NS45LTYuMi0xMTIuMy0xNC4zLTExMi4zLTExMC41IDAtMjcuNSA3LjYtNDEuMyAyMy42LTU4LjktMi42LTYuNS0xMS4xLTMzLjMgMi42LTY3LjkgMjAuOS02LjUgNjkgMjcgNjkgMjcgMjAtNS42IDQxLjUtOC41IDYyLjgtOC41czQyLjggMi45IDYyLjggOC41YzAgMCA0OC4xLTMzLjYgNjktMjcgMTMuNyAzNC43IDUuMiA2MS40IDIuNiA2Ny45IDE2IDE3LjcgMjUuOCAzMS41IDI1LjggNTguOSAwIDk2LjUtNTguOSAxMDQuMi0xMTQuOCAxMTAuNSA5LjIgNy45IDE3IDIyLjkgMTcgNDYuNCAwIDMzLjctLjMgNzUuNC0uMyA4My42IDAgNi41IDQuNiAxNC40IDE3LjMgMTIuMUM0MjguMiA0NTcuOCA0OTYgMzYyLjkgNDk2IDI1MiA0OTYgMTEzLjMgMzgzLjUgOCAyNDQuOCA4ek05Ny4yIDM1Mi45Yy0xLjMgMS0xIDMuMy43IDUuMiAxLjYgMS42IDMuOSAyLjMgNS4yIDEgMS4zLTEgMS0zLjMtLjctNS4yLTEuNi0xLjYtMy45LTIuMy01LjItMXptLTEwLjgtOC4xYy0uNyAxLjMuMyAyLjkgMi4zIDMuOSAxLjYgMSAzLjYuNyA0LjMtLjcuNy0xLjMtLjMtMi45LTIuMy0zLjktMi0uNi0zLjYtLjMtNC4zLjd6bTMyLjQgMzUuNmMtMS42IDEuMy0xIDQuMyAxLjMgNi4yIDIuMyAyLjMgNS4yIDIuNiA2LjUgMSAxLjMtMS4zLjctNC4zLTEuMy02LjItMi4yLTIuMy01LjItMi42LTYuNS0xem0tMTEuNC0xNC43Yy0xLjYgMS0xLjYgMy42IDAgNS45IDEuNiAyLjMgNC4zIDMuMyA1LjYgMi4zIDEuNi0xLjMgMS42LTMuOSAwLTYuMi0xLjQtMi4zLTQtMy4zLTUuNi0yeiIgLz48L3N2Zz4=)](https://github.com/nix-community/home-manager "Git repository")
+
+![SVG Image](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBkPSJNMzA0IDQ4YzAtMjYuNS0yMS41LTQ4LTQ4LTQ4cy00OCAyMS41LTQ4IDQ4czIxLjUgNDggNDggNDhzNDgtMjEuNSA0OC00OHptMCA0MTZjMC0yNi41LTIxLjUtNDgtNDgtNDhzLTQ4IDIxLjUtNDggNDhzMjEuNSA0OCA0OCA0OHM0OC0yMS41IDQ4LTQ4ek00OCAzMDRjMjYuNSAwIDQ4LTIxLjUgNDgtNDhzLTIxLjUtNDgtNDgtNDhzLTQ4IDIxLjUtNDggNDhzMjEuNSA0OCA0OCA0OHptNDY0LTQ4YzAtMjYuNS0yMS41LTQ4LTQ4LTQ4cy00OCAyMS41LTQ4IDQ4czIxLjUgNDggNDggNDhzNDgtMjEuNSA0OC00OHpNMTQyLjkgNDM3YzE4LjctMTguNyAxOC43LTQ5LjEgMC02Ny45cy00OS4xLTE4LjctNjcuOSAwcy0xOC43IDQ5LjEgMCA2Ny45czQ5LjEgMTguNyA2Ny45IDB6bTAtMjk0LjJjMTguNy0xOC43IDE4LjctNDkuMSAwLTY3LjlTOTMuNyA1Ni4yIDc1IDc1cy0xOC43IDQ5LjEgMCA2Ny45czQ5LjEgMTguNyA2Ny45IDB6TTM2OS4xIDQzN2MxOC43IDE4LjcgNDkuMSAxOC43IDY3LjkgMHMxOC43LTQ5LjEgMC02Ny45cy00OS4xLTE4LjctNjcuOSAwcy0xOC43IDQ5LjEgMCA2Ny45eiIgLz48L3N2Zz4=)
+
+## [qt.enable](#opt-qt.enable)
+
+Whether to enable Qt 5 and 6 configuration.
+
+*Type:* boolean
+
+*Default:*
+
+    false
+
+*Example:*
+
+    true
+
+*Declared by:*
+
+- [<home-manager/modules/misc/qt>](https://github.com/nix-community/home-manager/blob/master/modules/misc/qt)
+
+## [qt.kde.settings](#opt-qt.kde.settings)
+
+A set of values to be modified by `kwriteconfig6`.
+
+The example value would cause the following command to run in the
+activation script:
+
+    kwriteconfig6 --file $XDG_CONFIG_HOME/powermanagementprofilesrc \
+                  --group AC \
+                  --group HandleButtonEvents \
+                  --group lidAction \
+                  --key lidAction \
+                  32
+
+Note, `null` values will delete the corresponding entry instead of
+inserting any value.
+
+*Type:* attribute set of (KDE option value)
+
+*Default:*
+
+    { }
+
+*Example:*
+
+    {
+      powermanagementprofilesrc = {
+        AC = {
+          HandleButtonEvents = {
+            lidAction = 32;
+          };
+        };
+      };
+    }
+
+*Declared by:*
+
+- [<home-manager/modules/misc/qt/kconfig.nix>](https://github.com/nix-community/home-manager/blob/master/modules/misc/qt/kconfig.nix)
+
+## [qt.kvantum.enable](#opt-qt.kvantum.enable)
+
+Whether to enable Kvantum configuration.
+
+*Type:* boolean
+
+*Default:*
+
+    false
+
+*Example:*
+
+    true
+
+*Declared by:*
+
+- [<home-manager/modules/misc/qt/kvantum.nix>](https://github.com/nix-community/home-manager/blob/master/modules/misc/qt/kvantum.nix)
+
+## [qt.kvantum.settings](#opt-qt.kvantum.settings)
+
+Global configuration settings written to `$XDG_CONFIG_HOME/Kvantum/kvantum.kvconfig`.
+
+*Type:* open submodule of attribute set of section of a kvconfig file (attrs of INI atom (null, bool, int, float or string) or a non-empty list of them)
+
+*Default:*
+
+    { }
+
+*Example:*
+
+    {
+      Applications = {
+        KvArc = [
+          "app1"
+          "app2"
+        ];
+        KvFlat = [
+          "app3"
+        ];
+      };
+      General = {
+        theme = "KvAdapta";
+      };
+      SomethingElse = {
+        foo = "bar";
+      };
+    }
+
+*Declared by:*
+
+- [<home-manager/modules/misc/qt/kvantum.nix>](https://github.com/nix-community/home-manager/blob/master/modules/misc/qt/kvantum.nix)
+
+## [qt.kvantum.settings.Applications](#opt-qt.kvantum.settings.Applications)
+
+Application configuration settings for Kvantum.
+
+Themes set here will override `qt.kvantum.settings.General.theme` for their specific applications.
+
+*Type:* attribute set of list of string
+
+*Default:*
+
+    { }
+
+*Example:*
+
+    {
+      KvArc = [
+        "app1"
+        "app2"
+      ];
+      KvFlat = [
+        "app3"
+      ];
+    }
+
+*Declared by:*
+
+- [<home-manager/modules/misc/qt/kvantum.nix>](https://github.com/nix-community/home-manager/blob/master/modules/misc/qt/kvantum.nix)
+
+## [qt.kvantum.settings.General](#opt-qt.kvantum.settings.General)
+
+General configuration settings for Kvantum.
+
+*Type:* open submodule of section of a kvconfig file (attrs of INI atom (null, bool, int, float or string) or a non-empty list of them)
+
+*Default:*
+
+    { }
+
+*Example:*
+
+    {
+      theme = "KvAdapta";
+    }
+
+*Declared by:*
+
+- [<home-manager/modules/misc/qt/kvantum.nix>](https://github.com/nix-community/home-manager/blob/master/modules/misc/qt/kvantum.nix)
+
+## [qt.kvantum.settings.General.theme](#opt-qt.kvantum.settings.General.theme)
+
+The default Kvantum theme to use.
+
+*Type:* null or string
+
+*Default:*
+
+    null
+
+*Example:*
+
+    "KvAdapta"
+
+*Declared by:*
+
+- [<home-manager/modules/misc/qt/kvantum.nix>](https://github.com/nix-community/home-manager/blob/master/modules/misc/qt/kvantum.nix)
+
+## [qt.kvantum.themes](#opt-qt.kvantum.themes)
+
+Theme packages to install to `$XDG_CONFIG_HOME/Kvantum/`.
+
+*Type:* list of package
+
+*Default:*
+
+    [ ]
+
+*Example:*
+
+    with pkgs; [
+      gruvbox-kvantum
+      catppuccin-kvantum
+    ]
+
+*Declared by:*
+
+- [<home-manager/modules/misc/qt/kvantum.nix>](https://github.com/nix-community/home-manager/blob/master/modules/misc/qt/kvantum.nix)
+
+## [qt.platformTheme](#opt-qt.platformTheme)
+
+Deprecated. Use `qt.platformTheme.name` instead.
+
+*Type:* null or one of “gtk”, “gtk3”, “gnome”, “adwaita”, “lxqt”, “qtct”, “kde”, “kde6” or (submodule)
+
+*Default:*
+
+    null
+
+*Declared by:*
+
+- [<home-manager/modules/misc/qt>](https://github.com/nix-community/home-manager/blob/master/modules/misc/qt)
+
+## [qt.platformTheme.package](#opt-qt.platformTheme.package)
+
+Theme package to be used in Qt5/Qt6 applications.
+Auto-detected from `qt.platformTheme.name` if possible.
+See its documentation for available options.
+
+*Type:* null or package or list of package
+
+*Default:*
+
+    null
+
+*Example:*
+
+    [pkgs.adwaita-qt pkgs.adwaita-qt6]
+
+## [qt.platformTheme.name](#opt-qt.platformTheme.name)
+
+Platform theme to use for Qt applications.
+
+Some examples are
+
+- *‌`gtk`‌*
+
+    Use Qt’s [GTK platform theme plugin](https://github.com/qt/qtbase/tree/dev/src/plugins/platformthemes/gtk3)
+
+- *‌`gtk2`‌*
+
+    Use GTK2 theme with [`qtstyleplugins`](https://github.com/qt/qtstyleplugins) and [`qt6gtk2`](https://github.com/trialuser02/qt6gtk2)
+
+- *‌`gtk3`‌*
+
+    Use [GTK3 integration](https://github.com/qt/qtbase/tree/dev/src/plugins/platformthemes/gtk3) for file picker dialogs, font and theme configuration
+
+- *‌`adwaita`‌*
+
+    Use Adwaita theme with [`qadwaitadecorations`](https://github.com/FedoraQt/QAdwaitaDecorations)
+
+- *‌`gnome` (deprecated)‌*
+
+    Use GNOME theme with [`qgnomeplatform`](https://github.com/FedoraQt/QGnomePlatform).
+Is no longer maintained so prefer `adwaita`.
+
+- *‌`lxqt`‌*
+
+    Use LXQt theme style set using the [`lxqt-config-appearance`](https://github.com/lxqt/lxqt-config) application
+
+- *‌`qtct`‌*
+
+    Use Qt style set using [`qt5ct`](https://github.com/desktop-app/qt5ct) and [`qt6ct`](https://github.com/trialuser02/qt6ct) applications
+
+- *‌`kde`‌*
+
+    Use Qt settings from Plasma
+
+*Type:* null or string
+
+*Default:*
+
+    null
+
+*Example:*
+
+    "adwaita"
+
+*Related packages:*
+
+- [`pkgs.qgnomeplatform`](https://search.nixos.org/packages?show=qgnomeplatform&sort=relevance&query=qgnomeplatform)
+- [`pkgs.qgnomeplatform-qt6`](https://search.nixos.org/packages?show=qgnomeplatform-qt6&sort=relevance&query=qgnomeplatform-qt6)
+- [`pkgs.qadwaitadecorations`](https://search.nixos.org/packages?show=qadwaitadecorations&sort=relevance&query=qadwaitadecorations)
+- [`pkgs.qadwaitadecorations-qt6`](https://search.nixos.org/packages?show=qadwaitadecorations-qt6&sort=relevance&query=qadwaitadecorations-qt6)
+- [`pkgs.libsForQt5.plasma-integration`](https://search.nixos.org/packages?show=libsForQt5.plasma-integration&sort=relevance&query=libsForQt5.plasma-integration)
+- [`pkgs.libsForQt5.qt5ct`](https://search.nixos.org/packages?show=libsForQt5.qt5ct&sort=relevance&query=libsForQt5.qt5ct)
+- [`pkgs.libsForQt5.qtstyleplugins`](https://search.nixos.org/packages?show=libsForQt5.qtstyleplugins&sort=relevance&query=libsForQt5.qtstyleplugins)
+- [`pkgs.libsForQt5.systemsettings`](https://search.nixos.org/packages?show=libsForQt5.systemsettings&sort=relevance&query=libsForQt5.systemsettings)
+- [`pkgs.kdePackages.plasma-integration`](https://search.nixos.org/packages?show=kdePackages.plasma-integration&sort=relevance&query=kdePackages.plasma-integration)
+- [`pkgs.kdePackages.systemsettings`](https://search.nixos.org/packages?show=kdePackages.systemsettings&sort=relevance&query=kdePackages.systemsettings)
+- [`pkgs.lxqt.lxqt-config`](https://search.nixos.org/packages?show=lxqt.lxqt-config&sort=relevance&query=lxqt.lxqt-config)
+- [`pkgs.lxqt.lxqt-qtplugin`](https://search.nixos.org/packages?show=lxqt.lxqt-qtplugin&sort=relevance&query=lxqt.lxqt-qtplugin)
+- [`pkgs.qt6Packages.qt6ct`](https://search.nixos.org/packages?show=qt6Packages.qt6ct&sort=relevance&query=qt6Packages.qt6ct)
+- [`pkgs.qt6Packages.qt6gtk2`](https://search.nixos.org/packages?show=qt6Packages.qt6gtk2&sort=relevance&query=qt6Packages.qt6gtk2)
+
+## [qt.qt5ctSettings](#opt-qt.qt5ctSettings)
+
+Qtct configuration. Writes settings to `qt5ct/qt5ct.conf` file. Lists will be translated to comma-separated strings.
+Fonts must be quoted (see example).
+
+*Type:* null or (attribute set of section of an INI file (attrs of INI atom (null, bool, int, float or string) or a non-empty list of them))
+
+*Default:*
+
+    null
+
+*Example:*
+
+    {
+      Appearance = {
+        icon_theme = "Papirus-Dark";
+        standard_dialogs = "xdgdesktopportal";
+        style = "kvantum";
+      };
+      Fonts = {
+        fixed = "\"DejaVuSansM Nerd Font Mono,12\"";
+        general = "\"DejaVu Sans,12\"";
+      };
+    }
+
+*Declared by:*
+
+- [<home-manager/modules/misc/qt>](https://github.com/nix-community/home-manager/blob/master/modules/misc/qt)
+
+## [qt.qt6ctSettings](#opt-qt.qt6ctSettings)
+
+Qtct configuration. Writes settings to `qt6ct/qt6ct.conf` file. Lists will be translated to comma-separated strings.
+Fonts must be quoted (see example).
+
+*Type:* null or (attribute set of section of an INI file (attrs of INI atom (null, bool, int, float or string) or a non-empty list of them))
+
+*Default:*
+
+    null
+
+*Example:*
+
+    {
+      Appearance = {
+        icon_theme = "Papirus-Dark";
+        standard_dialogs = "xdgdesktopportal";
+        style = "kvantum";
+      };
+      Fonts = {
+        fixed = "\"DejaVuSansM Nerd Font Mono,12\"";
+        general = "\"DejaVu Sans,12\"";
+      };
+    }
+
+*Declared by:*
+
+- [<home-manager/modules/misc/qt>](https://github.com/nix-community/home-manager/blob/master/modules/misc/qt)
+
+## [qt.style.package](#opt-qt.style.package)
+
+Theme package to be used in Qt5/Qt6 applications.
+Auto-detected from `qt.style.name` if possible.
+See its documentation for available options.
+
+*Type:* null or package or list of package
+
+*Default:*
+
+    null
+
+*Example:*
+
+    pkgs.adwaita-qt
+
+*Declared by:*
+
+- [<home-manager/modules/misc/qt>](https://github.com/nix-community/home-manager/blob/master/modules/misc/qt)
+
+## [qt.style.name](#opt-qt.style.name)
+
+Style to use for Qt5/Qt6 applications. Case-insensitive.
+
+Some examples are
+
+- *‌`adwaita`, `adwaita-dark`, `adwaita-highcontrast`, `adwaita-highcontrastinverse`‌*
+
+    Use the Adwaita style from [`adwaita-qt`](https://github.com/FedoraQt/adwaita-qt)
+
+- *‌`breeze`‌*
+
+    Use the Breeze style from [`breeze`](https://github.com/KDE/breeze)
+
+- *‌`bb10bright`, `bb10dark`, `cde`, `cleanlooks`, `gtk2`, `motif`, `plastique`‌*
+
+    Use styles from [`qtstyleplugins`](https://github.com/qt/qtstyleplugins)
+
+- *‌`kvantum`‌*
+
+    Use styles from [`kvantum`](https://github.com/tsujan/Kvantum)
+
+*Type:* null or string
+
+*Default:*
+
+    null
+
+*Example:*
+
+    "adwaita-dark"
+
+*Related packages:*
+
+- [`pkgs.adwaita-qt`](https://search.nixos.org/packages?show=adwaita-qt&sort=relevance&query=adwaita-qt)
+- [`pkgs.adwaita-qt6`](https://search.nixos.org/packages?show=adwaita-qt6&sort=relevance&query=adwaita-qt6)
+- [`pkgs.libsForQt5.breeze-qt5`](https://search.nixos.org/packages?show=libsForQt5.breeze-qt5&sort=relevance&query=libsForQt5.breeze-qt5)
+- [`pkgs.libsForQt5.qtstyleplugin-kvantum`](https://search.nixos.org/packages?show=libsForQt5.qtstyleplugin-kvantum&sort=relevance&query=libsForQt5.qtstyleplugin-kvantum)
+- [`pkgs.libsForQt5.qtstyleplugins`](https://search.nixos.org/packages?show=libsForQt5.qtstyleplugins&sort=relevance&query=libsForQt5.qtstyleplugins)
+- [`pkgs.qt6Packages.qt6gtk2`](https://search.nixos.org/packages?show=qt6Packages.qt6gtk2&sort=relevance&query=qt6Packages.qt6gtk2)
+- [`pkgs.qt6Packages.qtstyleplugin-kvantum`](https://search.nixos.org/packages?show=qt6Packages.qtstyleplugin-kvantum&sort=relevance&query=qt6Packages.qtstyleplugin-kvantum)
+
+*Declared by:*
+
+- [<home-manager/modules/misc/qt>](https://github.com/nix-community/home-manager/blob/master/modules/misc/qt)

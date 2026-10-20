@@ -1,0 +1,28 @@
+--- searching for distinctive skill dirs ---
+--- claude.json / claude settings for skills.customDirectories ---
+--- omp config full ---
+providers: 
+  {}
+setupVersion: 1
+modelRoles: 
+  GOD: anthropic/claude-fable-5
+  default: openrouter/z-ai/glm-5.2
+disabledExtensions: 
+  []
+theme: 
+  dark: slop
+  light: slop
+dev: 
+  autoqaConsent: denied
+disabledProviders: 
+  []--- check for .codex, .agents, .agent dirs anywhere in home ---
+ls: cannot access '/home/krubics/.codex': No such file or directory
+ls: cannot access '/home/krubics/.agents': No such file or directory
+ls: cannot access '/home/krubics/.agent': No such file or directory
+--- check omp/agent/skills existence ---
+lrwxrwxrwx 1 krubics krubics 30 Jul 26 21:03 /home/krubics/.omp/agent/skills -> /home/krubics/.pi/agent/skills
+--- ecc dir sample structure (any nested SKILL.md beyond 1 level?) ---
+138
+/home/krubics/.claude/skills
+/home/krubics/.claude/skills/ecc
+/home/krubics/.claude/skills/learned

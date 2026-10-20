@@ -1,0 +1,29 @@
+# Session: 2026-07-08
+**Date:** 2026-07-08
+**Started:** 03:01
+**Last Updated:** 03:01
+**Project:** krubics
+**Branch:** unknown
+**Worktree:** /home/krubics
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- I want to install # Add DankLinux PPA sudo add-apt-repository ppa:avengemedia/danklinux sudo apt update  sudo apt install quickshell # OR sudo apt install quickshell-git but can't do so please help
+
+### Tools Used
+Bash
+
+### Stats
+- Total user messages: 1
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

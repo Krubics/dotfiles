@@ -1,0 +1,87 @@
+--- claude skills ---
+total 16
+drwxrwxr-x   4 krubics krubics 4096 Jul 25 23:08 .
+drwx------  28 krubics krubics 4096 Jul 28 17:41 ..
+drwxrwxr-x 140 krubics krubics 4096 Jul 25 23:08 ecc
+drwxrwxr-x   2 krubics krubics 4096 Jul  4 00:14 learned
+--- claude plugins ---
+/home/krubics/.claude/skills/ecc/plankton-code-quality/SKILL.md
+/home/krubics/.claude/skills/ecc/code-tour/SKILL.md
+/home/krubics/.claude/skills/ecc/springboot-patterns/SKILL.md
+/home/krubics/.claude/skills/ecc/loop-design-check/SKILL.md
+/home/krubics/.claude/skills/ecc/quarkus-verification/SKILL.md
+/home/krubics/.claude/skills/ecc/compose-multiplatform-patterns/SKILL.md
+/home/krubics/.claude/skills/ecc/clickhouse-io/SKILL.md
+/home/krubics/.claude/skills/ecc/ck/SKILL.md
+/home/krubics/.claude/skills/ecc/python-testing/SKILL.md
+/home/krubics/.claude/skills/ecc/windows-desktop-e2e/SKILL.md
+/home/krubics/.claude/skills/ecc/database-migrations/SKILL.md
+/home/krubics/.claude/skills/ecc/cpp-testing/SKILL.md
+/home/krubics/.claude/skills/ecc/backend-patterns/SKILL.md
+/home/krubics/.claude/skills/ecc/perl-patterns/SKILL.md
+/home/krubics/.claude/skills/ecc/agent-sort/SKILL.md
+/home/krubics/.claude/skills/ecc/llm-trading-agent-security/SKILL.md
+/home/krubics/.claude/skills/ecc/hipaa-compliance/SKILL.md
+/home/krubics/.claude/skills/ecc/golang-patterns/SKILL.md
+/home/krubics/.claude/skills/ecc/ui-to-vue/SKILL.md
+/home/krubics/.claude/skills/ecc/continuous-learning/SKILL.md
+/home/krubics/.claude/skills/ecc/nextjs-turbopack/SKILL.md
+/home/krubics/.claude/skills/ecc/eval-harness/SKILL.md
+/home/krubics/.claude/skills/ecc/kotlin-ktor-patterns/SKILL.md
+/home/krubics/.claude/skills/ecc/growth-log/SKILL.md
+/home/krubics/.claude/skills/ecc/santa-method/SKILL.md
+/home/krubics/.claude/skills/ecc/laravel-plugin-discovery/SKILL.md
+/home/krubics/.claude/skills/ecc/frontend-design-direction/SKILL.md
+/home/krubics/.claude/skills/ecc/dart-flutter-patterns/SKILL.md
+/home/krubics/.claude/skills/ecc/iterative-retrieval/SKILL.md
+/home/krubics/.claude/skills/ecc/production-audit/SKILL.md
+/home/krubics/.claude/skills/ecc/healthcare-phi-compliance/SKILL.md
+/home/krubics/.claude/skills/ecc/plan-canvas/SKILL.md
+/home/krubics/.claude/skills/ecc/accessibility/SKILL.md
+/home/krubics/.claude/skills/ecc/click-path-audit/SKILL.md
+/home/krubics/.claude/skills/ecc/bun-runtime/SKILL.md
+/home/krubics/.claude/skills/ecc/perl-testing/SKILL.md
+/home/krubics/.claude/skills/ecc/delivery-gate/SKILL.md
+/home/krubics/.claude/skills/ecc/react-testing/SKILL.md
+/home/krubics/.claude/skills/ecc/quarkus-security/SKILL.md
+/home/krubics/.claude/skills/ecc/safety-guard/SKILL.md
+/home/krubics/.claude/skills/ecc/java-coding-standards/SKILL.md
+/home/krubics/.claude/skills/ecc/nodejs-keccak256/SKILL.md
+/home/krubics/.claude/skills/ecc/hexagonal-architecture/SKILL.md
+/home/krubics/.claude/skills/ecc/tinystruct-patterns/SKILL.md
+/home/krubics/.claude/skills/ecc/laravel-verification/SKILL.md
+/home/krubics/.claude/skills/ecc/android-clean-architecture/SKILL.md
+/home/krubics/.claude/skills/ecc/django-security/SKILL.md
+/home/krubics/.claude/skills/ecc/healthcare-emr-patterns/SKILL.md
+/home/krubics/.claude/skills/ecc/laravel-tdd/SKILL.md
+/home/krubics/.claude/skills/ecc/browser-qa/SKILL.md
+--- agents dir ---
+ls: cannot access '/home/krubics/.agents': No such file or directory
+--- omp dir ---
+total 36
+drwxrwxr-x   7 krubics krubics 4096 Jul 26 20:47 .
+drwxr-x--- 103 krubics krubics 4096 Jul 28 17:56 ..
+drwx------   8 krubics krubics 4096 Jul 28 17:53 agent
+-rw-rw-r--   1 krubics krubics  114 Jul 19 23:39 gpu_cache.json
+-rw-------   1 krubics krubics   37 Jul 19 23:43 install-id
+drwxrwxr-x   2 krubics krubics 4096 Jul 28 17:53 logs
+drwxrwxr-x   3 krubics krubics 4096 Jul 26 15:32 natives
+drwxrwxr-x   3 krubics krubics 4096 Jul 26 15:32 plugins
+drwx------   3 krubics krubics 4096 Jul 19 23:39 run
+--- config.json / omp config ---
+/home/krubics/.omp
+/home/krubics/.omp/logs/.omp.438536-audit.json
+/home/krubics/.omp/logs/.omp.429368-audit.json
+/home/krubics/.omp/logs/.omp.206732-audit.json
+/home/krubics/.omp/logs/.omp.232664-audit.json
+{
+  "permissions": {
+    "allow": []
+  },
+  "model": "sonnet-5",
+  "enabledPlugins": {},
+  "extraKnownMarketplaces": {},
+  "effortLevel": "high",
+  "tui": "fullscreen",
+  "theme": "dark"
+}

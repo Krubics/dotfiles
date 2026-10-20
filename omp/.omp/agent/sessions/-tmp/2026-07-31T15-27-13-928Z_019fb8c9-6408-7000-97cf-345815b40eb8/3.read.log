@@ -1,0 +1,392 @@
+URL: https://api.github.com/repos/xingkongliang/skills-manager/contents/
+Content-Type: application/json
+Method: json
+
+---
+
+[
+  {
+    "name": ".github",
+    "path": ".github",
+    "sha": "86d83f96db578f1c848ebafa65dcb0a3aecb2bab",
+    "size": 0,
+    "url": "https://api.github.com/repos/xingkongliang/skills-manager/contents/.github?ref=main",
+    "html_url": "https://github.com/xingkongliang/skills-manager/tree/main/.github",
+    "git_url": "https://api.github.com/repos/xingkongliang/skills-manager/git/trees/86d83f96db578f1c848ebafa65dcb0a3aecb2bab",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/xingkongliang/skills-manager/contents/.github?ref=main",
+      "git": "https://api.github.com/repos/xingkongliang/skills-manager/git/trees/86d83f96db578f1c848ebafa65dcb0a3aecb2bab",
+      "html": "https://github.com/xingkongliang/skills-manager/tree/main/.github"
+    }
+  },
+  {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "sha": "8695c66669e2fec36a22004c534dbc9aeecaa84a",
+    "size": 388,
+    "url": "https://api.github.com/repos/xingkongliang/skills-manager/contents/.gitignore?ref=main",
+    "html_url": "https://github.com/xingkongliang/skills-manager/blob/main/.gitignore",
+    "git_url": "https://api.github.com/repos/xingkongliang/skills-manager/git/blobs/8695c66669e2fec36a22004c534dbc9aeecaa84a",
+    "download_url": "https://raw.githubusercontent.com/xingkongliang/skills-manager/main/.gitignore",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/xingkongliang/skills-manager/contents/.gitignore?ref=main",
+      "git": "https://api.github.com/repos/xingkongliang/skills-manager/git/blobs/8695c66669e2fec36a22004c534dbc9aeecaa84a",
+      "html": "https://github.com/xingkongliang/skills-manager/blob/main/.gitignore"
+    }
+  },
+  {
+    "name": "CHANGELOG-zh.md",
+    "path": "CHANGELOG-zh.md",
+    "sha": "fcbe1802910a4953d4edfd92e583ddfbfd44f975",
+    "size": 68126,
+    "url": "https://api.github.com/repos/xingkongliang/skills-manager/contents/CHANGELOG-zh.md?ref=main",
+    "html_url": "https://github.com/xingkongliang/skills-manager/blob/main/CHANGELOG-zh.md",
+    "git_url": "https://api.github.com/repos/xingkongliang/skills-manager/git/blobs/fcbe1802910a4953d4edfd92e583ddfbfd44f975",
+    "download_url": "https://raw.githubusercontent.com/xingkongliang/skills-manager/main/CHANGELOG-zh.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/xingkongliang/skills-manager/contents/CHANGELOG-zh.md?ref=main",
+      "git": "https://api.github.com/repos/xingkongliang/skills-manager/git/blobs/fcbe1802910a4953d4edfd92e583ddfbfd44f975",
+      "html": "https://github.com/xingkongliang/skills-manager/blob/main/CHANGELOG-zh.md"
+    }
+  },
+  {
+    "name": "CHANGELOG.md",
+    "path": "CHANGELOG.md",
+    "sha": "99e2e33e0156e642c6fd7c53c1990b046c3288b7",
+    "size": 73274,
+    "url": "https://api.github.com/repos/xingkongliang/skills-manager/contents/CHANGELOG.md?ref=main",
+    "html_url": "https://github.com/xingkongliang/skills-manager/blob/main/CHANGELOG.md",
+    "git_url": "https://api.github.com/repos/xingkongliang/skills-manager/git/blobs/99e2e33e0156e642c6fd7c53c1990b046c3288b7",
+    "download_url": "https://raw.githubusercontent.com/xingkongliang/skills-manager/main/CHANGELOG.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/xingkongliang/skills-manager/contents/CHANGELOG.md?ref=main",
+      "git": "https://api.github.com/repos/xingkongliang/skills-manager/git/blobs/99e2e33e0156e642c6fd7c53c1990b046c3288b7",
+      "html": "https://github.com/xingkongliang/skills-manager/blob/main/CHANGELOG.md"
+    }
+  },
+  {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "sha": "2ca9080b0ef5639a1205cafb14ec77a4ace980e6",
+    "size": 1072,
+    "url": "https://api.github.com/repos/xingkongliang/skills-manager/contents/LICENSE?ref=main",
+    "html_url": "https://github.com/xingkongliang/skills-manager/blob/main/LICENSE",
+    "git_url": "https://api.github.com/repos/xingkongliang/skills-manager/git/blobs/2ca9080b0ef5639a1205cafb14ec77a4ace980e6",
+    "download_url": "https://raw.githubusercontent.com/xingkongliang/skills-manager/main/LICENSE",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/xingkongliang/skills-manager/contents/LICENSE?ref=main",
+      "git": "https://api.github.com/repos/xingkongliang/skills-manager/git/blobs/2ca9080b0ef5639a1205cafb14ec77a4ace980e6",
+      "html": "https://github.com/xingkongliang/skills-manager/blob/main/LICENSE"
+    }
+  },
+  {
+    "name": "README.md",
+    "path": "README.md",
+    "sha": "f904010bd4be20903003b89aef944622828a66f0",
+    "size": 16881,
+    "url": "https://api.github.com/repos/xingkongliang/skills-manager/contents/README.md?ref=main",
+    "html_url": "https://github.com/xingkongliang/skills-manager/blob/main/README.md",
+    "git_url": "https://api.github.com/repos/xingkongliang/skills-manager/git/blobs/f904010bd4be20903003b89aef944622828a66f0",
+    "download_url": "https://raw.githubusercontent.com/xingkongliang/skills-manager/main/README.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/xingkongliang/skills-manager/contents/README.md?ref=main",
+      "git": "https://api.github.com/repos/xingkongliang/skills-manager/git/blobs/f904010bd4be20903003b89aef944622828a66f0",
+      "html": "https://github.com/xingkongliang/skills-manager/blob/main/README.md"
+    }
+  },
+  {
+    "name": "README.zh-CN.md",
+    "path": "README.zh-CN.md",
+    "sha": "613d519e364f76c3b8bf43d6f7a626dca70141c9",
+    "size": 14085,
+    "url": "https://api.github.com/repos/xingkongliang/skills-manager/contents/README.zh-CN.md?ref=main",
+    "html_url": "https://github.com/xingkongliang/skills-manager/blob/main/README.zh-CN.md",
+    "git_url": "https://api.github.com/repos/xingkongliang/skills-manager/git/blobs/613d519e364f76c3b8bf43d6f7a626dca70141c9",
+    "download_url": "https://raw.githubusercontent.com/xingkongliang/skills-manager/main/README.zh-CN.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/xingkongliang/skills-manager/contents/README.zh-CN.md?ref=main",
+      "git": "https://api.github.com/repos/xingkongliang/skills-manager/git/blobs/613d519e364f76c3b8bf43d6f7a626dca70141c9",
+      "html": "https://github.com/xingkongliang/skills-manager/blob/main/README.zh-CN.md"
+    }
+  },
+  {
+    "name": "assets",
+    "path": "assets",
+    "sha": "e76742d667fc659771527b22035932ab77a9f3ae",
+    "size": 0,
+    "url": "https://api.github.com/repos/xingkongliang/skills-manager/contents/assets?ref=main",
+    "html_url": "https://github.com/xingkongliang/skills-manager/tree/main/assets",
+    "git_url": "https://api.github.com/repos/xingkongliang/skills-manager/git/trees/e76742d667fc659771527b22035932ab77a9f3ae",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/xingkongliang/skills-manager/contents/assets?ref=main",
+      "git": "https://api.github.com/repos/xingkongliang/skills-manager/git/trees/e76742d667fc659771527b22035932ab77a9f3ae",
+      "html": "https://github.com/xingkongliang/skills-manager/tree/main/assets"
+    }
+  },
+  {
+    "name": "docs",
+    "path": "docs",
+    "sha": "39d864c27fc501858d6ef2917458b040c1fec6c9",
+    "size": 0,
+    "url": "https://api.github.com/repos/xingkongliang/skills-manager/contents/docs?ref=main",
+    "html_url": "https://github.com/xingkongliang/skills-manager/tree/main/docs",
+    "git_url": "https://api.github.com/repos/xingkongliang/skills-manager/git/trees/39d864c27fc501858d6ef2917458b040c1fec6c9",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/xingkongliang/skills-manager/contents/docs?ref=main",
+      "git": "https://api.github.com/repos/xingkongliang/skills-manager/git/trees/39d864c27fc501858d6ef2917458b040c1fec6c9",
+      "html": "https://github.com/xingkongliang/skills-manager/tree/main/docs"
+    }
+  },
+  {
+    "name": "eslint.config.js",
+    "path": "eslint.config.js",
+    "sha": "3539af38ffd85aa72a4954b41e17455b344a1cfb",
+    "size": 655,
+    "url": "https://api.github.com/repos/xingkongliang/skills-manager/contents/eslint.config.js?ref=main",
+    "html_url": "https://github.com/xingkongliang/skills-manager/blob/main/eslint.config.js",
+    "git_url": "https://api.github.com/repos/xingkongliang/skills-manager/git/blobs/3539af38ffd85aa72a4954b41e17455b344a1cfb",
+    "download_url": "https://raw.githubusercontent.com/xingkongliang/skills-manager/main/eslint.config.js",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/xingkongliang/skills-manager/contents/eslint.config.js?ref=main",
+      "git": "https://api.github.com/repos/xingkongliang/skills-manager/git/blobs/3539af38ffd85aa72a4954b41e17455b344a1cfb",
+      "html": "https://github.com/xingkongliang/skills-manager/blob/main/eslint.config.js"
+    }
+  },
+  {
+    "name": "index.html",
+    "path": "index.html",
+    "sha": "f6a2c786bf1b34f75dd30631b6ca9935c1766ed7",
+    "size": 363,
+    "url": "https://api.github.com/repos/xingkongliang/skills-manager/contents/index.html?ref=main",
+    "html_url": "https://github.com/xingkongliang/skills-manager/blob/main/index.html",
+    "git_url": "https://api.github.com/repos/xingkongliang/skills-manager/git/blobs/f6a2c786bf1b34f75dd30631b6ca9935c1766ed7",
+    "download_url": "https://raw.githubusercontent.com/xingkongliang/skills-manager/main/index.html",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/xingkongliang/skills-manager/contents/index.html?ref=main",
+      "git": "https://api.github.com/repos/xingkongliang/skills-manager/git/blobs/f6a2c786bf1b34f75dd30631b6ca9935c1766ed7",
+      "html": "https://github.com/xingkongliang/skills-manager/blob/main/index.html"
+    }
+  },
+  {
+    "name": "package-lock.json",
+    "path": "package-lock.json",
+    "sha": "e5f12ab1eecef0586205c0da56a8ab1b819340ae",
+    "size": 222097,
+    "url": "https://api.github.com/repos/xingkongliang/skills-manager/contents/package-lock.json?ref=main",
+    "html_url": "https://github.com/xingkongliang/skills-manager/blob/main/package-lock.json",
+    "git_url": "https://api.github.com/repos/xingkongliang/skills-manager/git/blobs/e5f12ab1eecef0586205c0da56a8ab1b819340ae",
+    "download_url": "https://raw.githubusercontent.com/xingkongliang/skills-manager/main/package-lock.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/xingkongliang/skills-manager/contents/package-lock.json?ref=main",
+      "git": "https://api.github.com/repos/xingkongliang/skills-manager/git/blobs/e5f12ab1eecef0586205c0da56a8ab1b819340ae",
+      "html": "https://github.com/xingkongliang/skills-manager/blob/main/package-lock.json"
+    }
+  },
+  {
+    "name": "package.json",
+    "path": "package.json",
+    "sha": "d8aca5fcf76aa0f05b4ba5cae09c12cba0544c08",
+    "size": 1870,
+    "url": "https://api.github.com/repos/xingkongliang/skills-manager/contents/package.json?ref=main",
+    "html_url": "https://github.com/xingkongliang/skills-manager/blob/main/package.json",
+    "git_url": "https://api.github.com/repos/xingkongliang/skills-manager/git/blobs/d8aca5fcf76aa0f05b4ba5cae09c12cba0544c08",
+    "download_url": "https://raw.githubusercontent.com/xingkongliang/skills-manager/main/package.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/xingkongliang/skills-manager/contents/package.json?ref=main",
+      "git": "https://api.github.com/repos/xingkongliang/skills-manager/git/blobs/d8aca5fcf76aa0f05b4ba5cae09c12cba0544c08",
+      "html": "https://github.com/xingkongliang/skills-manager/blob/main/package.json"
+    }
+  },
+  {
+    "name": "postcss.config.js",
+    "path": "postcss.config.js",
+    "sha": "2e7af2b7f1a6f391da1631d93968a9d487ba977d",
+    "size": 80,
+    "url": "https://api.github.com/repos/xingkongliang/skills-manager/contents/postcss.config.js?ref=main",
+    "html_url": "https://github.com/xingkongliang/skills-manager/blob/main/postcss.config.js",
+    "git_url": "https://api.github.com/repos/xingkongliang/skills-manager/git/blobs/2e7af2b7f1a6f391da1631d93968a9d487ba977d",
+    "download_url": "https://raw.githubusercontent.com/xingkongliang/skills-manager/main/postcss.config.js",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/xingkongliang/skills-manager/contents/postcss.config.js?ref=main",
+      "git": "https://api.github.com/repos/xingkongliang/skills-manager/git/blobs/2e7af2b7f1a6f391da1631d93968a9d487ba977d",
+      "html": "https://github.com/xingkongliang/skills-manager/blob/main/postcss.config.js"
+    }
+  },
+  {
+    "name": "public",
+    "path": "public",
+    "sha": "2452810108a62075bc5b86ddccff0515afbb1b32",
+    "size": 0,
+    "url": "https://api.github.com/repos/xingkongliang/skills-manager/contents/public?ref=main",
+    "html_url": "https://github.com/xingkongliang/skills-manager/tree/main/public",
+    "git_url": "https://api.github.com/repos/xingkongliang/skills-manager/git/trees/2452810108a62075bc5b86ddccff0515afbb1b32",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/xingkongliang/skills-manager/contents/public?ref=main",
+      "git": "https://api.github.com/repos/xingkongliang/skills-manager/git/trees/2452810108a62075bc5b86ddccff0515afbb1b32",
+      "html": "https://github.com/xingkongliang/skills-manager/tree/main/public"
+    }
+  },
+  {
+    "name": "scripts",
+    "path": "scripts",
+    "sha": "52a726e3ba4a61ec0fae2eae3dba4dcd1f3eb72b",
+    "size": 0,
+    "url": "https://api.github.com/repos/xingkongliang/skills-manager/contents/scripts?ref=main",
+    "html_url": "https://github.com/xingkongliang/skills-manager/tree/main/scripts",
+    "git_url": "https://api.github.com/repos/xingkongliang/skills-manager/git/trees/52a726e3ba4a61ec0fae2eae3dba4dcd1f3eb72b",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/xingkongliang/skills-manager/contents/scripts?ref=main",
+      "git": "https://api.github.com/repos/xingkongliang/skills-manager/git/trees/52a726e3ba4a61ec0fae2eae3dba4dcd1f3eb72b",
+      "html": "https://github.com/xingkongliang/skills-manager/tree/main/scripts"
+    }
+  },
+  {
+    "name": "skills",
+    "path": "skills",
+    "sha": "3d015494f93cb06faca81899f498c1f8fe998964",
+    "size": 0,
+    "url": "https://api.github.com/repos/xingkongliang/skills-manager/contents/skills?ref=main",
+    "html_url": "https://github.com/xingkongliang/skills-manager/tree/main/skills",
+    "git_url": "https://api.github.com/repos/xingkongliang/skills-manager/git/trees/3d015494f93cb06faca81899f498c1f8fe998964",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/xingkongliang/skills-manager/contents/skills?ref=main",
+      "git": "https://api.github.com/repos/xingkongliang/skills-manager/git/trees/3d015494f93cb06faca81899f498c1f8fe998964",
+      "html": "https://github.com/xingkongliang/skills-manager/tree/main/skills"
+    }
+  },
+  {
+    "name": "src-tauri",
+    "path": "src-tauri",
+    "sha": "f05b54b8d5bd35da21b2d36969d0d99edea731d4",
+    "size": 0,
+    "url": "https://api.github.com/repos/xingkongliang/skills-manager/contents/src-tauri?ref=main",
+    "html_url": "https://github.com/xingkongliang/skills-manager/tree/main/src-tauri",
+    "git_url": "https://api.github.com/repos/xingkongliang/skills-manager/git/trees/f05b54b8d5bd35da21b2d36969d0d99edea731d4",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/xingkongliang/skills-manager/contents/src-tauri?ref=main",
+      "git": "https://api.github.com/repos/xingkongliang/skills-manager/git/trees/f05b54b8d5bd35da21b2d36969d0d99edea731d4",
+      "html": "https://github.com/xingkongliang/skills-manager/tree/main/src-tauri"
+    }
+  },
+  {
+    "name": "src",
+    "path": "src",
+    "sha": "b9045f4a30c2fb59c62cec7e77addae25c0b28b4",
+    "size": 0,
+    "url": "https://api.github.com/repos/xingkongliang/skills-manager/contents/src?ref=main",
+    "html_url": "https://github.com/xingkongliang/skills-manager/tree/main/src",
+    "git_url": "https://api.github.com/repos/xingkongliang/skills-manager/git/trees/b9045f4a30c2fb59c62cec7e77addae25c0b28b4",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/xingkongliang/skills-manager/contents/src?ref=main",
+      "git": "https://api.github.com/repos/xingkongliang/skills-manager/git/trees/b9045f4a30c2fb59c62cec7e77addae25c0b28b4",
+      "html": "https://github.com/xingkongliang/skills-manager/tree/main/src"
+    }
+  },
+  {
+    "name": "tailwind.config.js",
+    "path": "tailwind.config.js",
+    "sha": "cec8299688c71cfa49db091ab2d4786f1b3a21ff",
+    "size": 1686,
+    "url": "https://api.github.com/repos/xingkongliang/skills-manager/contents/tailwind.config.js?ref=main",
+    "html_url": "https://github.com/xingkongliang/skills-manager/blob/main/tailwind.config.js",
+    "git_url": "https://api.github.com/repos/xingkongliang/skills-manager/git/blobs/cec8299688c71cfa49db091ab2d4786f1b3a21ff",
+    "download_url": "https://raw.githubusercontent.com/xingkongliang/skills-manager/main/tailwind.config.js",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/xingkongliang/skills-manager/contents/tailwind.config.js?ref=main",
+      "git": "https://api.github.com/repos/xingkongliang/skills-manager/git/blobs/cec8299688c71cfa49db091ab2d4786f1b3a21ff",
+      "html": "https://github.com/xingkongliang/skills-manager/blob/main/tailwind.config.js"
+    }
+  },
+  {
+    "name": "tsconfig.app.json",
+    "path": "tsconfig.app.json",
+    "sha": "a9b5a59ca647ca0102d2501b56cedd83ad7b6818",
+    "size": 732,
+    "url": "https://api.github.com/repos/xingkongliang/skills-manager/contents/tsconfig.app.json?ref=main",
+    "html_url": "https://github.com/xingkongliang/skills-manager/blob/main/tsconfig.app.json",
+    "git_url": "https://api.github.com/repos/xingkongliang/skills-manager/git/blobs/a9b5a59ca647ca0102d2501b56cedd83ad7b6818",
+    "download_url": "https://raw.githubusercontent.com/xingkongliang/skills-manager/main/tsconfig.app.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/xingkongliang/skills-manager/contents/tsconfig.app.json?ref=main",
+      "git": "https://api.github.com/repos/xingkongliang/skills-manager/git/blobs/a9b5a59ca647ca0102d2501b56cedd83ad7b6818",
+      "html": "https://github.com/xingkongliang/skills-manager/blob/main/tsconfig.app.json"
+    }
+  },
+  {
+    "name": "tsconfig.json",
+    "path": "tsconfig.json",
+    "sha": "1ffef600d959ec9e396d5a260bd3f5b927b2cef8",
+    "size": 119,
+    "url": "https://api.github.com/repos/xingkongliang/skills-manager/contents/tsconfig.json?ref=main",
+    "html_url": "https://github.com/xingkongliang/skills-manager/blob/main/tsconfig.json",
+    "git_url": "https://api.github.com/repos/xingkongliang/skills-manager/git/blobs/1ffef600d959ec9e396d5a260bd3f5b927b2cef8",
+    "download_url": "https://raw.githubusercontent.com/xingkongliang/skills-manager/main/tsconfig.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/xingkongliang/skills-manager/contents/tsconfig.json?ref=main",
+      "git": "https://api.github.com/repos/xingkongliang/skills-manager/git/blobs/1ffef600d959ec9e396d5a260bd3f5b927b2cef8",
+      "html": "https://github.com/xingkongliang/skills-manager/blob/main/tsconfig.json"
+    }
+  },
+  {
+    "name": "tsconfig.node.json",
+    "path": "tsconfig.node.json",
+    "sha": "8a67f62f4ceebff3424e6e8cd4b3c25b17347546",
+    "size": 653,
+    "url": "https://api.github.com/repos/xingkongliang/skills-manager/contents/tsconfig.node.json?ref=main",
+    "html_url": "https://github.com/xingkongliang/skills-manager/blob/main/tsconfig.node.json",
+    "git_url": "https://api.github.com/repos/xingkongliang/skills-manager/git/blobs/8a67f62f4ceebff3424e6e8cd4b3c25b17347546",
+    "download_url": "https://raw.githubusercontent.com/xingkongliang/skills-manager/main/tsconfig.node.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/xingkongliang/skills-manager/contents/tsconfig.node.json?ref=main",
+      "git": "https://api.github.com/repos/xingkongliang/skills-manager/git/blobs/8a67f62f4ceebff3424e6e8cd4b3c25b17347546",
+      "html": "https://github.com/xingkongliang/skills-manager/blob/main/tsconfig.node.json"
+    }
+  },
+  {
+    "name": "vite.config.ts",
+    "path": "vite.config.ts",
+    "sha": "01e393c2b6fcaeaf7daa5822c1d3788a2ab7e9ff",
+    "size": 293,
+    "url": "https://api.github.com/repos/xingkongliang/skills-manager/contents/vite.config.ts?ref=main",
+    "html_url": "https://github.com/xingkongliang/skills-manager/blob/main/vite.config.ts",
+    "git_url": "https://api.github.com/repos/xingkongliang/skills-manager/git/blobs/01e393c2b6fcaeaf7daa5822c1d3788a2ab7e9ff",
+    "download_url": "https://raw.githubusercontent.com/xingkongliang/skills-manager/main/vite.config.ts",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/xingkongliang/skills-manager/contents/vite.config.ts?ref=main",
+      "git": "https://api.github.com/repos/xingkongliang/skills-manager/git/blobs/01e393c2b6fcaeaf7daa5822c1d3788a2ab7e9ff",
+      "html": "https://github.com/xingkongliang/skills-manager/blob/main/vite.config.ts"
+    }
+  }
+]
