@@ -1,9 +1,12 @@
-{ config, pkgs, irisPkg, nixgl, quickshellPkg, ... }:
+{ pkgs, inputs, ... }:
 
 let
   no-mistakes = pkgs.callPackage ./modules/no-mistakes.nix { };
   lyrics-tool = pkgs.callPackage ./modules/lyrics-tool.nix { };
   hyprsession = pkgs.callPackage ./modules/hyprsession.nix { };
+  yin = pkgs.callPackage ./modules/yin.nix {
+    src = inputs.yin-src;
+  };
 in
 {
   imports = [ ./modules/skills-manager.nix ];
@@ -31,7 +34,10 @@ in
   # The home.packages option allows you to install Nix packages into your
   # environment.
   # home.nix
-  
+
+  targets.genericLinux.enable = true;
+
+  programs.gh.enable = true;
 
   home.packages = [
     # # Adds the 'hello' command to your environment. It prints a friendly
@@ -50,47 +56,56 @@ in
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    pkgs.yazi
+
+    # Desktop Tools
+    pkgs.hyprland
+    pkgs.quickshell
+    pkgs.waybar
+    pkgs.hyprshutdown
+    hyprsession
+    inputs.matugen.packages.${pkgs.system}.default
+    inputs.hyprmod.packages.${pkgs.system}.default
+    yin
+    pkgs.xremap
+
+    # Build Tools
+    pkgs.meson
+    pkgs.ninja
+
+    # Terminal    
+    ## System Tools
+    pkgs.btop
+
+    ## Shell
+    pkgs.zsh
+    pkgs.oh-my-zsh
+
+    ## Zsh Plugins
+    pkgs.starship
+    pkgs.zoxide
+    pkgs.eza
+    pkgs.zsh-syntax-highlighting
+
+    ## Tools
+    pkgs.p7zip
+    pkgs.neovim
     pkgs.stow
+    pkgs.trash-cli
+    ## TUIs
+    pkgs.git
     pkgs.herdr
+    pkgs.yazi
+
+    # Applications
+    inputs.zen-browser.packages.${pkgs.system}.default
+    pkgs.obsidian
+    pkgs.ghostty
     pkgs.gtk4-layer-shell
     pkgs.cava
-    pkgs.hyprshutdown
-    pkgs.trash-cli
-    (config.lib.nixGL.wrap (
-      quickshellPkg.withModules [
-        pkgs.kdePackages.qtmultimedia
-      ]
-    ))
     no-mistakes
     lyrics-tool
-    hyprsession
-    irisPkg
-    pkgs.kdePackages.qtdeclarative
+    inputs.iris.packages.${pkgs.system}.iris
   ];
-  programs.lazyvim = {
-    enable = true;
-    extras.lang.nix.enable = true;
-    extraPackages = with pkgs; [
-      nixd
-      alejandra
-    ];
-    plugins = {
-      cyberdream = ''
-        return {
-          "scottmckendry/cyberdream.nvim",
-          lazy = false,
-          priority = 1000,
-          config = function()
-            require("cyberdream").setup({
-              transparent = true,
-            })
-            vim.cmd("colorscheme cyberdream")
-          end,
-        }
-      '';
-    };
-  };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.

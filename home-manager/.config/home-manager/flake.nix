@@ -8,23 +8,27 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixgl = {
-      url = "github:nix-community/nixGL";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    lazyvim.url = "github:pfassina/lazyvim-nix";
+    hyprmod.url = "github:BlueManCZ/hyprmod";
     iris = {
       url = "github:versenilvis/iris";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    quickshell = {
-      url = "github:quickshell-mirror/quickshell/v0.3.0";
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
+    matugen = {
+      url = "github:InioX/matugen?ref=refs/tags/v4.2.0";
+    };
+    yin-src = {
+      url = "github:SaverinOnRails/yin";
+      flake = false;
     };
   };
 
   outputs =
-    { nixpkgs, home-manager, lazyvim, iris, nixgl, quickshell, ... }:
+    inputs@{ nixpkgs, home-manager, ... }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -37,14 +41,10 @@
         # the path to your home.nix.
         modules = [
           ./home.nix
-          lazyvim.homeManagerModules.default
         ];
-
-        extraSpecialArgs = {
-          inherit nixgl;
-          irisPkg = iris.packages.${system}.iris;
-          quickshellPkg = quickshell.packages.${system}.default;
-        };
+	extraSpecialArgs = {
+	  inherit inputs;
+	};
       };
     };
 }

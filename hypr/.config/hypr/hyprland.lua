@@ -10,27 +10,16 @@ hl.monitor({
     scale    = "auto",
 })
 
-
 ---------------------
 ---- MY PROGRAMS ----
 ---------------------
 
--- Set programs that you use
 require("conf.vars")
+
 -------------------
 ---- AUTOSTART ----
 -------------------
 
--- See https://wiki.hypr.land/Configuring/Basics/Autostart/
-
--- Autostart necessary processes (like notifications daemons, status bars, etc.)
--- Or execute your favorite apps at launch like this:
---
--- hl.on("hyprland.start", function () 
---   hl.exec_cmd(terminal)
---   hl.exec_cmd("nm-applet")
---   hl.exec_cmd("waybar & hyprpaper & firefox")
--- end)
 hl.on("hyprland.start", function()
     -- Start the yin wallpaper daemon first. yin is a system binary at
     -- /usr/bin, already on Hyprland's own PATH, so no absolute path is
@@ -41,9 +30,7 @@ hl.on("hyprland.start", function()
     -- periodically so the next Hyprland start can restore again. Absolute
     -- path: this is a home-manager package under ~/.nix-profile/bin, not
     -- on Hyprland's own process PATH (unlike yin, a system binary).
-    hl.dispatch(hl.dsp.exec_cmd("/home/krubics/.nix-profile/bin/hyprsession"))
-    -- To be real I'm not sure about auth stuff
-    hl.dispatch(hl.dsp.exec_cmd("/usr/lib/x86_64-linux-gnu/libexec/polkit-kde-authentication-agent-1"))
+    -- hl.dispatch(hl.dsp.exec_cmd("/home/krubics/.nix-profile/bin/hyprsession"))
     hl.dispatch(hl.dsp.exec_cmd("waybar"))
     -- Then apply the boot wallpaper once yin's IPC socket is ready. The
     -- wrapper waits for /tmp/yin instead of a fixed delay, so yinctl never
@@ -59,11 +46,10 @@ hl.on("hyprland.start", function()
         "sh -c 'while true; do /home/krubics/.config/hypr/scripts/wallpaper-hotplug.lua; sleep 1; done'"
     ))
 end)
+
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
 -------------------------------
-
--- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
 
 hl.env("XCURSOR_THEME", "Pokemon")
 hl.env("XCURSOR_SIZE", "32")
@@ -75,11 +61,10 @@ hl.env("HYPRCURSOR_SIZE", "24")
 -- snap's window class to an app entry and renders no icon for it. The two
 -- defaults must be spelled out: XDG_DATA_DIRS is otherwise unset, and glib's
 -- implicit fallback to /usr/local/share:/usr/share is lost once we set it.
-hl.env("XDG_DATA_DIRS", "/var/lib/snapd/desktop:/usr/local/share:/usr/share")
 
-hl.on("hyprland.start", function()
-  hl.dispatch(hl.dsp.exec_cmd("hyprctl setcursor Pokemon 32"))
-end)
+
+-- hl.env("XDG_DATA_DIRS", "/var/lib/snapd/desktop:/usr/local/share:/usr/share")
+
 
 -----------------------
 ----- PERMISSIONS -----
@@ -99,7 +84,6 @@ end)
 -- hl.permission("/usr/(lib|libexec|lib64)/xdg-desktop-portal-hyprland", "screencopy", "allow")
 -- hl.permission("/usr/(bin|local/bin)/hyprpm", "plugin", "allow")
 
-
 -----------------------
 ---- LOOK AND FEEL ----
 -----------------------
@@ -108,6 +92,8 @@ end)
 -----------------------
 ----  LAYOUTS  ----
 -----------------------
+
+
 hl.window_rule({
   name  = "scratch-term",
   match = { class = "^com\\.krubics\\.ghostty-scratch$" },
@@ -240,6 +226,7 @@ hl.config({
     },
 })
 
+--[[
 -- Lid closed → disable internal display
 hl.bind("switch:on:Lid Switch", function()
   hl.monitor({ output = "eDP-1", disabled = true })
@@ -249,6 +236,7 @@ end, { locked = true })
 hl.bind("switch:off:Lid Switch", function()
   hl.monitor({ output = "eDP-1", disabled = false })
 end, { locked = true })
+]]
 
 ---------------
 ---- INPUT ----

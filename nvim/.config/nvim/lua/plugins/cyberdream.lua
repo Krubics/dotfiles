@@ -1,1 +1,20 @@
-/nix/store/v3v7v31fczl4g2w0hx2hyx7am7dfx5pr-home-manager-files/.config/nvim/lua/plugins/cyberdream.lua
+return {
+  {
+    "scottmckendry/cyberdream.nvim",
+    lazy = false,
+    priority = 1000,
+
+    opts = {
+      transparent = false,
+      italic_comments = false,
+      borderless_pickers = false,
+    },
+  },
+
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "cyberdream",
+    },
+  },
+}

@@ -90,7 +90,7 @@
         {
           "custom_name": "Hyprwhspr",
           "layout": {
-            "Pane": 5
+            "Pane": 2
           },
           "panes": {
             "5": {
@@ -98,8 +98,8 @@
             }
           },
           "zoomed": false,
-          "focused": 5,
-          "root_pane": 5
+          "focused": 2,
+          "root_pane": 2
         },
         {
           "custom_name": null,
@@ -167,6 +167,9 @@
                 "kind": "path",
                 "value": "/home/krubics/.omp/agent/sessions/-tmp/2026-08-01T06-24-52-290Z_019fbbff-3442-7000-be2b-e0490cb8e8a7.jsonl"
               }
+            },
+            "5": {
+              "cwd": "/home/krubics"
             }
           },
           "zoomed": false,
