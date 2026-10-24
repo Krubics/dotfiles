@@ -354,9 +354,6 @@ hl.window_rule({
     float = true,
 })
 
-hl.device({
-    name = "at-translated-set-2-keyboard",
-    enabled = false
-})
+
 
 require('hyprland-gui')
