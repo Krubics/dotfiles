@@ -1,0 +1,77 @@
+
+### Invoking Skills
+
+- **Explicit**: `/skills` menu or `$skill-name` mention in prompt
+- **Implicit**: Codex auto-detects matching skills from task description (if `allow_implicit_invocation: true`)
+- **Creator**: Use `$skill-creator` to interactively build a new skill
+- **Installer**: Use `$skill-installer install <name>` to install community skills
+
+### Enable/Disable
+
+    [[skills.config]]
+    path = "/path/to/skill/SKILL.md"
+    enabled = false
+
+### Skills vs Slash Commands
+
+|  | Skills | Slash Commands |
+| --- | --- | --- |
+| **Defined in** | `SKILL.md` files with optional metadata | Built into Codex CLI binary |
+| **Scope** | Project, user, or admin level | Global (always available) |
+| **Invocation** | `$skill-name` in prompt, `/skills` menu, or implicit detection | `/command` syntax |
+| **Customizable** | Fully — you write the instructions | Fixed behavior |
+| **Dependencies** | Can declare MCP server requirements | None |
+| **Sharing** | Copy skill folder to team repo or `~/.codex/skills/` | Not shareable |
+
+### Debugging Skills
+
+If a skill isn’t activating:
+
+1. Check discovery: `/skills` should list it in the TUI
+2. Verify path: Ensure the skill folder is in a recognized location (`~/.codex/skills/`, project root, or `/etc/codex/skills/`)
+3. Check `enabled`: Skills with `enabled = false` in config.toml won’t load
+4. Check implicit activation: If relying on auto-detection, ensure `allow_implicit_invocation: true` in `agents/openai.yaml`
+5. Use keywords: Include the skill’s `description` terms in your prompt to improve implicit matching
+
+### Production Example: Deploy Skill
+
+A complete multi-file skill showing references and scripts working together:
+
+    deploy-skill/
+      SKILL.md
+      references/
+        runbook.md
+        rollback-checklist.md
+      scripts/
+        pre-deploy-check.sh
+        smoke-test.sh
+      agents/openai.yaml
+
+**SKILL.md:**
+
+    ---
+    name: deploy
+    description: Deploy the application to staging or production. Runs pre-flight checks, executes deployment, and verifies with smoke tests.
+    ---
+
+    ## Deployment Procedure
+
+    ### Pre-flight
+    1. Run `scripts/pre-deploy-check.sh` to verify:
+       - All tests pass
+=== MULTI-AGENT ===
+97:- **Context management matters**: GPT-5.5 provides a 400K context window in Codex and 1M in the API; for lower-latency subagent work, v0.145.0 migrates the bundled GPT-5.4 selections to the **GPT-5.6 Terra and Luna** variants (272K context each); GPT-5.3-Codex provides 272K input. Use `/compact`, focused prompts, and `@file` references to manage token budgets proactively.[83](#fn:160)[112](#fn:194)
+118:**GPT-5.5 (launched April 23, 2026) is the recommended default** in Codex — 400K context window in Codex (1M in the API), $5/$30 per MTok, 82.7% Terminal-Bench 2.0 SOTA.[83](#fn:160) As of CLI v0.145.0 (stable, July 21, 2026), **`/import` migrates from Cursor as well as Claude Code** — settings, MCP servers, plugins, sessions, commands, and project-scoped memories — **voice returns as streaming realtime V3 conversations** with audio inputs and audio tool outputs in common local formats, the **opt-in multi-agent v2 experience is stabilized** with configurable sub-agent models, reasoning levels, and concurrency, an experimental **paginated thread history** brings efficient resume, search, persisted names, sub-agent support, and memories, **experimental Amazon Bedrock login** ships with custom endpoint and authentication support (GPT-5.6 Sol as the default Bedrock model), and bundled GPT-5.4 model selections migrate to the **GPT-5.6 Terra and Luna** variants; v0.144.6 (July 18) corrected the GPT-5.6 Sol/Terra/Luna context windows to 272,000 tokens.[111](#fn:193)[112](#fn:194) As of CLI v0.140.0 (stable, June 15, 2026), **`/usage` shows daily/weekly/cumulative account token activity**, sessions can be permanently deleted via `codex delete` / `/delete` (with confirmation safeguards), **`/import` selectively migrates setup, project config, and recent chats from Claude Code**, typing `@` opens a unified mentions menu for files, plugins, and skills by default, and managed **Amazon Bedrock API-key authentication** ships alongside encrypted local storage for CLI and MCP OAuth credentials; the experimental `/realtime` voice controls were removed from the TUI (voice later returned in v0.145.0 as streaming realtime V3).[102](#fn:184)[112](#fn:194) As of CLI v0.139.0 (stable, June 9, 2026), **code mode can call standalone web search directly** (including from nested JavaScript tool calls) and receive plaintext results, tool/connector input schemas now preserve `oneOf`/`allOf` constructs for better large-schema and MCP compatibility, `codex doctor` adds editor and pager environment details (redacting sensitive values in JSON), and the plugin marketplace exposes sources in `codex plugin marketplace list --json` with faster cached-catalog listing.[116](#fn:183) v0.138.0 (June 8) added **`/app`** to hand a CLI session off to the desktop app on macOS and Windows, exposed local image paths to the model, made reasoning-effort selection more flexible, and gave plugin automation structured JSON output; it also began **encrypting parent-to-sub-agent task text in multi-agent v2**, so delegation instructions no longer appear in plaintext in local session logs (see Multi-Agent).[117](#fn:182)[108](#fn:190) v0.137.0 (June 4) shipped **multi-agent v2** (runtime kept per thread, cleaner follow-up and metadata defaults, `hide_spawn_agent_metadata` default true), F13–F24 TUI keybindings, and a v1 skills extension with per-turn catalog resolution.[118](#fn:181) As of CLI v0.135.0 (May 28, 2026), `codex doctor` reports richer environment, Git, terminal, app-server, and thread inventory; `/status` shows remote connection details and server version when the TUI is connected over a remote; vim mode gained text-object editing, improved word/line-end behavior, and a configurable interrupt-turn; `/permissions` now understands **named permission profiles** and displays custom ones; packaged Codex builds discover and use the bundled patched zsh helper across supported macOS; and the Python SDK exposes friendly `Sandbox` presets for thread and turn APIs.[120](#fn:179) v0.134.0 (May 26, 2026) introduced **search across local conversation history** with case-insensitive content matches and result previews, made **`--profile` the primary profile selector** across CLI, TUI permissions, and sandbox flows (legacy profile configs rejected with migration guidance), improved MCP setup with per-server environment targeting and OAuth options for streamable HTTP servers, made connector tool schemas more reliable by preserving local `$ref`/`$defs` and compacting oversized schemas, let read-only MCP tools run **concurrently when they advertise `readOnlyHint`**, and added richer extension and hook context including conversation history for extension tools.[101](#fn:178) v0.133.0 (May 21, 2026) enabled goals by default with dedicated storage and progress tracking; `codex remote-control` got foreground readiness/status plus daemon-style start/stop; permission profiles gained list APIs, inheritance, managed `requirements.toml`, runtime refresh, and stronger Windows sandbox integration; plugin discovery shows installed versions, marketplace roots, and remote collections; and extensions can observe subagent start/stop, tool execution, turn metadata, and async approval/turn processing. The May 21 Codex app update added Appshots for frontmost Mac windows, Goal mode GA across app/IDE/CLI, in-app browser annotation improvements, and opt-in locked Computer Use for eligible Mac users.[99](#fn:176)[100](#fn:177) v0.132.0 (May 20, 2026) added Python SDK first-class auth, simpler text-only turn APIs, richer `TurnResult`, `codex exec resume --output-schema`, faster TUI startup, auth-backed remote executor registration, and image-fidelity preservation in app-server turns. Continue to prefer explicit sandbox/approval flags or permission profiles over legacy `--full-auto`; `js_repl` remains removed.[86](#fn:163)[87](#fn:164)[89](#fn:166)[91](#fn:168)[96](#fn:173)[97](#fn:174)[98](#fn:175)
+119:> **Stability note**: Features marked `[EXPERIMENTAL]` or `under development` are subject to change between releases. As of v0.133.0 (May 21, 2026), goals are on by default, permission profiles are a first-class managed surface, plugin discovery is more inspectable, and remote-control is easier to run as a foreground or daemonized app-server command. Codex Cloud and code mode remain experimental or under development, while core CLI, sandboxing, AGENTS.md, config.toml, Skills, hooks, multi-agent tools, plugins, Browser, Computer Use, and Appshots are stable or documented user-facing surfaces depending on platform and plan. v0.132.0 fills in Python SDK auth and structured resume automation; v0.131.0 added `codex doctor`, unified `@` mention search, marketplace CLI commands, version-aware plugin sharing, daemon-managed remote-control with runtime enable/disable, registry-backed environments, and additional Windows sandbox hardening.[96](#fn:173)[97](#fn:174)[98](#fn:175) Legacy `--full-auto` remains deprecated and `js_repl` remains removed.[86](#fn:163)[87](#fn:164)
+603:    multi_agent = true                      # Enable multi-agent collaboration tools (stable)
+627:    # ─── Multi-Agent Roles (v0.102.0+) ───────────────────
+753:> **GPT-5.4 mini (March 17, 2026)**: A smaller, faster variant of GPT-5.4 with 400K context at $0.75/$4.50 per MTok — uses only 30% of GPT-5.4 quota. Ideal for subagent delegation: let GPT-5.4 handle planning and coordination while GPT-5.4 mini subagents handle narrower subtasks (codebase search, file review, document processing) in parallel.[76](#fn:81)
+1051:- **Input size cap (v0.106.0):** Codex now enforces an approximately 1-million-character input cap to prevent hangs from excessively large payloads.[60](#fn:62) - **Secure devcontainer profile (v0.121.0):** A new hardened customer profile for Docker devcontainers uses **Bubblewrap** for sandboxing inside the container. WSL2 is supported; **WSL1 is explicitly rejected** (Bubblewrap is incompatible with WSL1’s kernel shim).[82](#fn:151) - **Guardian review + hooks (v0.121.0):** Hooks are **disabled** during Guardian review sessions so pre/post-tool hooks cannot interfere with the Guardian subagent’s decisions.[82](#fn:151) If you rely on hooks for logging or validation, be aware that a Guardian review skips them — fall back on app-server observability if you need a full audit trail.
+1144:Smart Approvals can route review requests through a **guardian subagent** instead of requiring human approval for every action. The guardian session persists across approvals to reuse prompt cache and avoid startup overhead. Each review gets a clean history (prior decisions don’t leak into later reviews).[73](#fn:75)
+1148:    approvals_reviewer = "guardian_subagent"   # "user" (default) or "guardian_subagent"
+1389:Codex can expose itself as an MCP server for multi-agent orchestration:[12](#fn:13)
+1722:**Other improvements:** - Long links now remain clickable even when wrapped across TUI lines (v0.105.0)[61](#fn:63) - Local file links render with improved formatting (v0.106.0)[60](#fn:62) - TUI markdown keeps web links clickable via OSC 8 metadata, and cramped tables fall back to readable key/value records without losing link targets (v0.136.0)[119](#fn:180) - `Ctrl+C` handling for sub-agents fixed to properly terminate child processes (v0.106.0)[60](#fn:62)
+1789:**Paginated thread history (v0.145.0) `[EXPERIMENTAL]`:** An experimental paginated thread history brings efficient resume, search across history, persisted thread names, sub-agent support, and memories to session management — history loads page by page instead of all at once, which matters for long-lived working directories with hundreds of sessions. Experimental: expect the surface to change between releases.[112](#fn:194)
+1800:**Thread forking into sub-agents (v0.107.0):** Threads can now be forked into independent sub-agents, allowing a conversation to spawn parallel work streams that execute autonomously. This extends the existing fork model — instead of just branching the conversation, the forked thread becomes a sub-agent with its own execution context.[62](#fn:64) As of v0.117.0, sub-agents use path-based addresses (e.g., `/root/agent_a`) with structured inter-agent messaging, making multi-agent coordination more explicit and debuggable.[75](#fn:80)
+1802:**Encrypted inter-agent messages (v0.138.0+):** Multi-agent v2 now **encrypts the task text a parent agent sends when it spawns or messages a sub-agent**. The message parameters of `spawn_agent`, `send_message`, and `followup_task` are marked encrypted: the Responses API encrypts the payload when the parent model emits the tool call, the locally running Codex carries only ciphertext (`InterAgentCommunication.encrypted_content`, with empty plaintext content), and the API decrypts it server-side when handing it to the receiving model.[108](#fn:190) Three practical consequences:
+1804:- **Your local session logs no longer contain delegation plaintext.** You can see that a parent spawned a sub-agent and what came back, but not the exact instruction it sent. If you audit or debug multi-agent runs from session history, that record is gone; the open regression issue tracking this has no linked fix as of mid-July 2026.[109](#fn:191) Extension lifecycle events (subagent start/stop, tool execution, turn metadata — v0.133.0+) and app-server observability are the remaining hooks for reconstructing what happened.[98](#fn:175)

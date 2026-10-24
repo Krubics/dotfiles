@@ -1,0 +1,28 @@
+# Session: 2026-07-25
+**Date:** 2026-07-25
+**Started:** 01:23
+**Last Updated:** 01:23
+**Project:** krubics
+**Branch:** unknown
+**Worktree:** /home/krubics
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation.  I need to decline this request. This final inpu
+- Human: <transcript> {"user":"Figure out why my Ghostty background is no longer transparent"} {"Bash":"find /home/krubics -name \"config\" -path \"*/ghostty/*\" 2>/dev/null; find /home/krubics/.config/
+- Human: <transcript> {"user":"Figure out why my Ghostty background is no longer transparent"} {"Bash":"find /home/krubics -name \"config\" -path \"*/ghostty/*\" 2>/dev/null; find /home/krubics/.config/
+
+### Stats
+- Total user messages: 3
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

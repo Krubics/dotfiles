@@ -1,0 +1,35 @@
+# Session: 2026-07-23
+**Date:** 2026-07-23
+**Started:** 12:18
+**Last Updated:** 12:59
+**Project:** scripts
+**Branch:** unknown
+**Worktree:** /home/krubics/.config/matugen/scripts
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Why is not my GTK4-widget-factory not changing when I change the wallpaper which changes the matugen template for gtk?
+- Simplify what you're saying
+- Nope, the GTK-3 color.css file changed but when I ran gtk3-widget-factory after the wallpaper change its the same
+- I'm on Ubuntu bro and I just installed adw-gtk3 but its still not working
+- Why is my GTK-4 theme transparent in the background?
+- It's the GTK-4-widget-factory
+- What does this command even do: post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
+
+### Tools Used
+Bash
+
+### Stats
+- Total user messages: 7
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

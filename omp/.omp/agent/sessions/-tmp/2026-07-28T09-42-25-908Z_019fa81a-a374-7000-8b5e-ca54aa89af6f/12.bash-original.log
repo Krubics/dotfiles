@@ -1,0 +1,51 @@
+--- ~/.omp/skills (native provider expected loc) ---
+ls: cannot access '/home/krubics/.omp/skills': No such file or directory
+--- home root skills manifest/lockfiles ---
+--- any skills.json / skills-lock anywhere in home (shallow) ---
+--- realpath of the omp/agent/skills chain ---
+/home/krubics/.pi/agent/skills
+--- confirm .agents truly absent (not just top level) ---
+stat: cannot stat '/home/krubics/.agents': No such file or directory (os error 2)
+--- check if skills content perhaps under .pi somewhere else (not just agent/skills) ---
+/home/krubics/.pi
+/home/krubics/.pi/agent
+/home/krubics/.pi/agent/skills
+/home/krubics/.pi/agent/skills/handoff
+/home/krubics/.pi/agent/skills/tdd
+/home/krubics/.pi/agent/skills/to-spec
+/home/krubics/.pi/agent/skills/improve-codebase-architecture
+/home/krubics/.pi/agent/skills/teach
+/home/krubics/.pi/agent/skills/herdr
+/home/krubics/.pi/agent/skills/code-review
+/home/krubics/.pi/agent/skills/ask-matt
+/home/krubics/.pi/agent/skills/writing-great-skills
+/home/krubics/.pi/agent/skills/implement
+/home/krubics/.pi/agent/skills/to-tickets
+/home/krubics/.pi/agent/skills/domain-modeling
+/home/krubics/.pi/agent/skills/diagnosing-bugs
+/home/krubics/.pi/agent/skills/grill-with-docs
+/home/krubics/.pi/agent/skills/resolving-merge-conflicts
+/home/krubics/.pi/agent/skills/grill-me
+/home/krubics/.pi/agent/skills/wayfinder
+/home/krubics/.pi/agent/skills/setup-matt-pocock-skills
+/home/krubics/.pi/agent/skills/codebase-design
+/home/krubics/.pi/agent/skills/research
+/home/krubics/.pi/agent/skills/prototype
+/home/krubics/.pi/agent/skills/grilling
+/home/krubics/.pi/agent/skills/triage
+--- sample one ecc SKILL.md frontmatter to confirm real content ---
+---
+name: code-tour
+description: Create CodeTour `.tour` files — persona-targeted, step-by-step walkthroughs with real file and line anchors. Use for onboarding tours, architecture walkthroughs, PR tours, RCA tours, and structured "explain how this works" requests.
+metadata:
+  origin: ECC
+---
+
+# Code Tour
+
+Create **CodeTour** `.tour` files for codebase walkthroughs that open directly to real files and line ranges. Tours live in `.tours/` and are meant for the CodeTour format, not ad hoc Markdown notes.
+
+A good tour is a narrative for a specific reader:
+- what they are looking at
+- why it matters
+- what path they should follow next

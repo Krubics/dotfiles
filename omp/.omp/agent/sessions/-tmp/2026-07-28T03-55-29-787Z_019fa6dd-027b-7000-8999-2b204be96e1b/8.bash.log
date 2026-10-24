@@ -1,0 +1,97 @@
+/home/krubics/.config/hypr:
+conf
+custom
+hyprland-gui.lua
+hyprland.lua
+hyprlock.conf
+hyprpaper.conf
+images
+matugen-colors
+screenshots
+scripts
+wallpapers
+
+/home/krubics/.config/hypr/conf:
+keybinds.lua
+vars.lua
+wallpapers.lua
+
+/home/krubics/.config/hypr/custom:
+variables.lua
+
+/home/krubics/.config/hypr/images:
+sddm-bg-frame.png
+sleeping-snorlax.png
+
+/home/krubics/.config/hypr/matugen-colors:
+gojo-eye.json
+gojo.json
+latios-latias.json
+
+/home/krubics/.config/hypr/screenshots:
+gojo-eye.png
+gojo.png
+
+/home/krubics/.config/hypr/scripts:
+__pycache__
+generate-color-pallete.sh
+rofi.sh
+set-wallpaper.lua
+wallpaper-autostart.lua
+wallpaper-hotplug.lua
+wallpaper-picker.lua
+yazi.sh
+zen-scratch-marker.html
+zen-scratch.sh
+
+/home/krubics/.config/hypr/scripts/__pycache__:
+hypr-session-restorecpython-312.pyc
+
+/home/krubics/.config/hypr/wallpapers:
+gojo-eye.mp4
+gojo.mp4
+latios-latias.png
+output.gif
+palette.png
+=== grep yin
+/home/krubics/.config/hypr/hyprland.lua:56:    -- Start the yin wallpaper daemon first. yin is a system binary at
+/home/krubics/.config/hypr/hyprland.lua:60:    hl.dispatch(hl.dsp.exec_cmd("yin"))
+/home/krubics/.config/hypr/hyprland.lua:64:    -- on Hyprland's own process PATH (unlike yin, a system binary).
+/home/krubics/.config/hypr/hyprland.lua:69:    -- Then apply the boot wallpaper once yin's IPC socket is ready. The
+/home/krubics/.config/hypr/hyprland.lua:70:    -- wrapper waits for /tmp/yin instead of a fixed delay, so yinctl never
+/home/krubics/.config/hypr/hyprland.lua:74:    -- for the rest of the session -- yin discovers them fine on its own,
+/home/krubics/.config/hypr/screenshots/gojo-eye.png:26082:��A)a�H�4H�Jw)���gvw��q^��o��q���y��g�k.�6FAná;�OoQ�}{я��{��Xco��FE|����$����!od
+�x�H��a�j�L�" �z��,I��#	1��,d!�\>同��yinp̔t[J8�<ډj������Vzj���BfW�xF��s	��'�Tum����D2��o$r'��ޘ�9�gM�)5���
+/home/krubics/.config/hypr/conf/wallpapers.lua:3:-- Edit `transitions` to set the yin transition used when a given wallpaper
+/home/krubics/.config/hypr/conf/wallpapers.lua:7:-- Valid transition names (see `yinctl --list-trans`):
+/home/krubics/.config/hypr/conf/wallpapers.lua:10:-- Unlike awww/swww, yin plays video wallpapers natively -- these
+/home/krubics/.config/hypr/wallpapers/output.gif:46470:J�t�6�yin�X*P��3OxCk²�<�[�줽Cᰀ�+�vOȸ_Jԉija� i��G"�o�C] ��1'�NH4!/���(*��^�+�� �!�z�8���X(����7�!�g8���:vԣ�qJHa�Qu��۸,��$^�B#�0&,�P�M�i#%��ɋdH��D/F��d�[���?�q�9�cR���>b4)��c�hR)xьs+<��X湿�B 3+B���ZQ'�&UE�i�:!(miNv.��f�X���E�a1���Jo��s/"=?�)�����]A=C,�mID
+/home/krubics/.config/hypr/wallpapers/output.gif:232770:N���pDW91?%�&�W�1�aLb%�K��S\8��m������Y�2�@�Z�"1/8!.���-D"�V���*8��� `#�C���)'�ʓ��0�%��s�R&��O�g�"r5�-�,a@|�����	9�Dŉq@�*h0/�����	,�'���E�DQHJK��8 �R�?h0Ё� �D0��P�p����j��"�KNE�Z�yinI\^'"�1D$�J�V���7�	�b��0����`�������+Ƞ��p�Q���c���5��K\����L49�Gʭ��c!�X���a(b�Jb�¼��d/���;�V3vhC1H�\�V�AD��&���"�e'/���F�
+/home/krubics/.config/hypr/wallpapers/output.gif:290664:f)���"#W��� �1�q��bh �!��q�%"��L�6`��J ��_G�#`	>`��y�Byin�����l���⳻��w ������E�|��"��@Y�''�4��Ret�r�B�BLA�	��zv�!+,A��1����+�4
+��Hy��+���2/#��2!<��TK(N�-�@�� ��a��¡����6�z�|�5�j�B���!t�������<(�-L;��(���A��>a��A�>�0��/8���l<��A�˥�!ں`A��ǂ~H�ZS$�=�!f/cV��&C�!Aa�
+�=�!������wy3m ��d��@� ���ب,A[�Bt *�%L����C�P{i���)�o�fJ�ӧp� �
+/home/krubics/.config/hypr/wallpapers/output.gif:340775: ���ւ��mNM���-���E/��6��:>.rJ�K��K|�PGf{q��"�e�1��tv/�pH^���5f���Lr�7YG����͋��%�<�,hY����/��vRJ�à�!`�֢	�~�	��&����FX���ܸ0�yin"(T��g�!Kۓ�����o�{qt�!��!A��X���p�3 ��tD_��Ul1�
+�(Ƞ�GL�?��8� "�⥰�E�3�e�����/�q�vKq�{����-��K�{bdU9/
+/home/krubics/.config/hypr/wallpapers/output.gif:745405:"�R�dp$qB�jp�:��gP1Ş�!t'd����P�+��;����EP�tk�B��`D�p(yincG�ڀ
+/home/krubics/.config/hypr/wallpapers/output.gif:1203729:J��	�ː��3L�48�CZl�,�r$GCr�0��	W)J��2di�p�yin�!J�aWѲ�򚱥�#p���)J�V�LԈ*�����<�	JH�B�ßdC"�QJ�C��?���c���&�	��C�����;��2m���1��cIot�L����
+�1ZhH���M�Z�Ƃ��Q4��ꨱ�B��5 ���! B/�Z��5��䆰���'����Y�Q+����A;�S<ƣ�T*�B
+�Б&)),B�eA�?�cڤ��&��F�jEU�A
+�^�@X�Cj��d�YdF¡�:JI}$�:`�U8�\;^A�<B�DlK��K�K��8�Nڳ��N������EU]U=����$�WiD�XKQ%h�U��F-�L�ǘd��DU�-��$$V]����vF�T�eY։��K��a~�Md��*�T���ކ�gll���MP���q�@o`�M0��,	�@	$���dI��B�K��h�W�j�uV'q�`w1uS�[+g�:.�sj��5�$x��l���d
+/home/krubics/.config/hypr/wallpapers/output.gif:1598277:���W������Ftd��9����6W��9si�$��7��˵i�7f&r{�W��b΂h�JR6bY�*Ȃ�=aA g�A�6r�a���)TAZQ;����"�Z�N�3c0+�2{�+Ѡ^@*!4���?)�J��D��3��N�g�Sa]��z�%43zi����^�U9Z����\R�7m7em�G�	���,yin%��"n�6SK�n4�,9qC<�2`���0*P�V�-���Dg�9M;�3T�xj���{�r!#��9a~h�I���#�!�� ��~�:P���X�j#)�d�1�.�rau��zV)�"4��鈎�����>��=|&�xrP�5l�kC�<��H��@Q����(r �?��<�h�T\f�$Uaf��i\���5�$�*R�!�OA�c���cgWqk�i�*�v���h�ƭLHn`���j&�z�"�Y�-�9�+�1p���1-���y������4rPWi�@�L�
+/home/krubics/.config/hypr/wallpapers/output.gif:1598863:g�h�o�yin���g
+Ѐ
+��c8�獠���ЍȨX"�آN	���`�f�P�Z�i���,��0�@}��,�W�;``�P���'z
+/home/krubics/.config/hypr/wallpapers/gojo.mp4:1: ftypisomisomiso2avc1mp41free�{�mdat�����E���H��,� �#��x264 - core 164 r3108 31e19f9 - H.264/MPEG-4 AVC codec - Copyleft 2003-2023 - http://www.videolan.org/x264.html - options: cabac=1 ref=3 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=7 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-2 threads=24 lookahead_threads=4 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=2 keyint=250 keyint_min=25 scenecut=40 intra_refresh=0 rc_lookahead=40 rc=crf mbtree=1 crf=20.0 qcomp=0.60 qpmin=0 qpmax=69 qpstep=4 ip_ratio=1.40 aq=1:1.00��Qe��O���YEɡ$����MĦA�LkL� ��p(�-�D�*^�<%�1��n0���z�T~�jy���"-H�M����U+�ʁ���\�-j�	��p����(Lb�~=�h������3jꦖ]t
+/home/krubics/.config/hypr/wallpapers/gojo-eye.mp4:1: ftypisomisomiso2avc1mp41free1�mdat�����E���H��,� �#��x264 - core 164 r3108 31e19f9 - H.264/MPEG-4 AVC codec - Copyleft 2003-2023 - http://www.videolan.org/x264.html - options: cabac=1 ref=3 deblock=1:0:0 analyse=0x3:0x113 me=hex subme=7 psy=1 psy_rd=1.00:0.00 mixed_ref=1 me_range=16 chroma_me=1 trellis=1 8x8dct=1 cqm=0 deadzone=21,11 fast_pskip=1 chroma_qp_offset=-2 threads=24 lookahead_threads=4 sliced_threads=0 nr=0 decimate=1 interlaced=0 bluray_compat=0 constrained_intra=0 bframes=3 b_pyramid=2 b_adapt=1 b_bias=0 direct=1 weightb=1 open_gop=0 weightp=2 keyint=250 keyint_min=25 scenecut=40 intra_refresh=0 rc_lookahead=40 rc=crf mbtree=1 crf=20.0 qcomp=0.60 qpmin=0 qpmax=81 qpstep=4 ip_ratio=1.40 aq=1:1.00�m3e��3���
+/home/krubics/.config/hypr/wallpapers/gojo-eye.mp4:75399:�u�Q�_ �yinF�0,�I.�,B���f�R��0�CP�mB���`�p�+
+�b�r����\���쀞��mtukD��*��K
+�7Gr�ϼl��-S��*�6�s�H�I��wx��kF�a�B�L8k��	%0�s8�R��*L�
+/home/krubics/.config/hypr/scripts/set-wallpaper.lua:3:-- Applies the wallpaper via yin/yinctl, which handles both images and
+/home/krubics/.config/hypr/scripts/set-wallpaper.lua:40:    os.execute(("yinctl --img %s --trans %s"):format(sh(wallpaper), sh(transition)))
+/home/krubics/.config/hypr/scripts/set-wallpaper.lua:44:        table.insert(parts, ("yinctl --img %s --trans %s --output %s &"):format(sh(wallpaper), sh(transition), sh(m)))
+/home/krubics/.config/hypr/scripts/wallpaper-autostart.lua:2:-- Applies the boot wallpaper once yin's IPC socket is ready.
+/home/krubics/.config/hypr/scripts/wallpaper-autostart.lua:4:-- yin is started by Hyprland's autostart (see hyprland.lua) immediately
+/home/krubics/.config/hypr/scripts/wallpaper-autostart.lua:5:-- before this script. It binds a Unix socket at /tmp/yin once it comes up,
+/home/krubics/.config/hypr/scripts/wallpaper-autostart.lua:7:-- exist before calling yinctl, so yinctl never races the daemon.
+/home/krubics/.config/hypr/scripts/wallpaper-autostart.lua:13:local SOCKET = "/tmp/yin"
+/home/krubics/.config/hypr/scripts/wallpaper-autostart.lua:41:log(string.format("starting; waiting for yin socket at %s (timeout %dms)", SOCKET, SOCKET_TIMEOUT_MS))

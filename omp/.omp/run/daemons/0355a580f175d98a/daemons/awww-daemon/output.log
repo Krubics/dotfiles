@@ -1,0 +1,151 @@
+[WARN]  failed to open cache dir at /home/krubics/.cache/awww: No such file or directory (os error 2)
+[WARN]  failed to read cache file: No such file or directory (os error 2)
+[WARN]  failed to read cache file: No such file or directory (os error 2)
+[INFO]  BumpPool with: 1 buffers. Size: 14400Kb
+[INFO]  BumpPool with: 1 buffers. Size: 14400Kb
+[WARN]  We failed to find wayland buffer with id: 11. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 17. This should be impossible.
+[INFO]  BumpPool with: 1 buffers. Size: 14400Kb
+[INFO]  BumpPool with: 1 buffers. Size: 14400Kb
+[WARN]  We failed to find wayland buffer with id: 11. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 17. This should be impossible.
+[INFO]  BumpPool with: 1 buffers. Size: 14400Kb
+[INFO]  BumpPool with: 1 buffers. Size: 14400Kb
+[WARN]  We failed to find wayland buffer with id: 11. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 17. This should be impossible.
+[INFO]  BumpPool with: 1 buffers. Size: 14400Kb
+[INFO]  BumpPool with: 1 buffers. Size: 14400Kb
+[WARN]  We failed to find wayland buffer with id: 11. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 17. This should be impossible.
+[INFO]  BumpPool with: 1 buffers. Size: 14400Kb
+[INFO]  BumpPool with: 1 buffers. Size: 14400Kb
+[WARN]  We failed to find wayland buffer with id: 11. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 17. This should be impossible.
+[INFO]  BumpPool with: 1 buffers. Size: 14400Kb
+[INFO]  BumpPool with: 1 buffers. Size: 14400Kb
+[WARN]  We failed to find wayland buffer with id: 11. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 17. This should be impossible.
+[INFO]  BumpPool with: 1 buffers. Size: 14400Kb
+[INFO]  BumpPool with: 1 buffers. Size: 14400Kb
+[INFO]  BumpPool with: 2 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 2 buffers. Size: 28800Kb
+[WARN]  We failed to find wayland buffer with id: 11. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 24. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 17. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 25. This should be impossible.
+[INFO]  BumpPool with: 1 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 1 buffers. Size: 28800Kb
+[WARN]  We failed to find wayland buffer with id: 11. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 17. This should be impossible.
+[INFO]  BumpPool with: 1 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 1 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 2 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 2 buffers. Size: 28800Kb
+[WARN]  We failed to find wayland buffer with id: 11. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 24. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 17. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 25. This should be impossible.
+[INFO]  BumpPool with: 1 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 1 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 2 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 2 buffers. Size: 28800Kb
+[WARN]  We failed to find wayland buffer with id: 11. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 24. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 17. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 25. This should be impossible.
+[INFO]  BumpPool with: 1 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 1 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 2 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 2 buffers. Size: 28800Kb
+[WARN]  We failed to find wayland buffer with id: 11. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 24. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 17. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 25. This should be impossible.
+[INFO]  BumpPool with: 1 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 1 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 2 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 2 buffers. Size: 28800Kb
+[WARN]  We failed to find wayland buffer with id: 11. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 24. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 17. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 25. This should be impossible.
+[INFO]  BumpPool with: 1 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 1 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 2 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 2 buffers. Size: 28800Kb
+[WARN]  We failed to find wayland buffer with id: 11. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 24. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 17. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 25. This should be impossible.
+[INFO]  BumpPool with: 1 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 1 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 2 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 2 buffers. Size: 28800Kb
+[WARN]  We failed to find wayland buffer with id: 11. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 24. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 17. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 25. This should be impossible.
+[INFO]  BumpPool with: 1 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 1 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 2 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 2 buffers. Size: 28800Kb
+[WARN]  We failed to find wayland buffer with id: 11. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 24. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 17. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 25. This should be impossible.
+[INFO]  BumpPool with: 1 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 1 buffers. Size: 28800Kb
+[WARN]  We failed to find wayland buffer with id: 11. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 17. This should be impossible.
+[INFO]  BumpPool with: 1 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 1 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 2 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 2 buffers. Size: 28800Kb
+[WARN]  We failed to find wayland buffer with id: 11. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 24. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 17. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 25. This should be impossible.
+[INFO]  BumpPool with: 1 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 1 buffers. Size: 28800Kb
+[WARN]  We failed to find wayland buffer with id: 11. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 17. This should be impossible.
+[INFO]  BumpPool with: 1 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 1 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 2 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 2 buffers. Size: 28800Kb
+[WARN]  We failed to find wayland buffer with id: 11. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 24. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 17. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 25. This should be impossible.
+[INFO]  BumpPool with: 1 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 1 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 2 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 2 buffers. Size: 28800Kb
+[WARN]  We failed to find wayland buffer with id: 11. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 24. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 17. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 25. This should be impossible.
+[INFO]  BumpPool with: 1 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 1 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 2 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 2 buffers. Size: 28800Kb
+[WARN]  We failed to find wayland buffer with id: 11. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 24. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 17. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 25. This should be impossible.
+[INFO]  BumpPool with: 1 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 1 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 2 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 2 buffers. Size: 28800Kb
+[WARN]  We failed to find wayland buffer with id: 11. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 24. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 17. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 25. This should be impossible.
+[INFO]  BumpPool with: 1 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 1 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 2 buffers. Size: 28800Kb
+[INFO]  BumpPool with: 2 buffers. Size: 28800Kb
+[WARN]  We failed to find wayland buffer with id: 11. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 24. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 17. This should be impossible.
+[WARN]  We failed to find wayland buffer with id: 25. This should be impossible.

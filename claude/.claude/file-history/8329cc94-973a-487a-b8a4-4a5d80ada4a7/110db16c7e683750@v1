@@ -1,0 +1,59 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 34,
+    "spacing": 4,
+
+    "modules-left": ["clock"],
+    "modules-center": ["hyprland/workspaces", "custom/workspace-tabs"],
+    "modules-right": ["network", "bluetooth", "battery"],
+
+    "hyprland/workspaces": {
+        "format": "{name}",
+	"all-outputs": true,
+	"ignore-hidden": false,
+        "on-click": "activate",
+	"workspace-taskbar": true
+    },
+
+    "custom/workspace-tabs": {
+	"exec": "/home/krubics/.config/waybar/scripts/workspace-tabs.sh",
+	"return-type": "json",
+	"interval": "once",
+	"signal": 8,
+	"restart-interval": 0
+    },
+
+    "clock": {
+        "format": "{:%H:%M}",
+        "tooltip-format": "{:%A, %B %d, %Y}"
+    },
+
+    "network": {
+	"interface": "wlo1",
+	"format": "{ifname}",
+	"format-wifi": "{essid} ({signalStrength}%)  ",
+	"format-ethernet": "{ifname} ",
+	"format-disconnected": "", //An empty format will hide the module.
+	"format-disconnected": "",
+	"tooltip-format": "{ifname}",
+	"tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+	"tooltip-format-ethernet": "{ifname} ",
+	"tooltip-format-disconnected": "Disconnected",
+	"max-length": 50
+    },
+
+    "battery": {
+        "format": "{capacity}% {icon}",
+        "format-icons": ["[    ]", "[█   ]", "[██  ]", "[███ ]", "[████]"]
+    },
+
+    "bluetooth": {
+	"format": " {status}",
+	"format-disabled": "", // an empty format will hide the module
+	"format-connected": " {num_connections}C",
+	"tooltip-format": "{controller_alias}\t{controller_address}",
+	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+    }
+}

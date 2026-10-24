@@ -1,0 +1,100 @@
+# NVIDIA Black-Screen Fix + Recovery — Handoff Notes
+
+**Machine:** KrubicsLaptop (Ubuntu 24.04, GRUB, kernel 6.17.0-35-generic)
+**GPU:** NVIDIA GeForce RTX 3060 Laptop + Intel UHD iGPU (Optimus/PRIME)
+**Compositor:** Hyprland (Wayland) · DM: SDDM · Also had KDE Plasma installed
+**Date:** 2026-07-11
+
+---
+
+## TL;DR of where things stand
+1. Original **black screen after login is FIXED** — cause was a missing `libnvidia-gl-595`
+   (OpenGL/EGL libs) after the driver moved to 595. Installing it restored Hyprland rendering.
+2. During cleanup, an over-aggressive `apt autoremove --purge` removed **205 packages**
+   (nvidia userspace + KDE Plasma + some CLI tools). **RECOVERY COMMAND is below.**
+
+---
+
+## Root cause of the black screen (confirmed)
+Driver upgraded to **595**, but matching userspace GL lib **`libnvidia-gl-595`** was missing.
+Hyprland launched but had no working GL/EGL → black. SDDM (on X) still showed fine.
+Fix that worked: `sudo apt install libnvidia-gl-595`. `modeset=1` was always correct.
+
+## What went wrong during cleanup (the 205-package cascade)
+- At **17:30**, `apt install libnvidia-egl-gbm1` had silently removed the **`nvidia-driver-595-open`
+  metapackage** (the anchor for all nvidia userspace libs).
+- With that anchor gone, all `nvidia-*` userspace libs + a pile of KDE packages were orphaned.
+- The cleanup command `sudo apt-get autoremove --purge -y` then swept all 205 orphans, including:
+  `nvidia-utils-595` (nvidia-smi), `xserver-xorg-video-nvidia-595`, `libnvidia-cfg1-595`,
+  `libnvidia-decode/encode/fbc1/extra-595`, `nvidia-compute-utils-595`, `nvidia-settings`,
+  `nvidia-prime`, the whole KDE Plasma stack, `ripgrep`, `fd-find`, `vulkan-tools`, `smartmontools`.
+- SURVIVED (critical): `libnvidia-gl-595`, `libnvidia-common-595`, `libnvidia-compute-595`,
+  the kernel module `linux-modules-nvidia-595-open-6.17.0-35-generic` (modinfo = 595.71.05).
+
+## RECOVERY — reinstall everything autoremove purged (re-anchors the driver)
+The exact list came from `/var/log/apt/history.log` (autoremove transaction 2026-07-11 18:14:38).
+```
+sudo apt-get install nvidia-driver-595-open <the 205 purged packages>
+```
+Rebuild the list any time with:
+```
+awk '/^Start-Date: 2026-07-11  18:14:38/{f=1} f&&/^Purge:/{sub(/^Purge: /,""); print; exit}' \
+  /var/log/apt/history.log | sed 's/([^)]*)//g; s/,//g' | tr ' ' '\n' | sed '/^$/d' | sort -u
+```
+Review the apt plan: expect ~205 installs, **0 removals**. If it wants to REMOVE
+`libnvidia-gl-595` or pull in `libnvidia-egl-gbm1`, stop — that's a conflict to resolve first.
+
+## Cleanup that WAS good and should stay
+- Purged half-configured `libnvidia-compute-550` (`ic` state) + old 550/580 kmod leftovers. Fine.
+- Consolidated modprobe files to two:
+  - `/etc/modprobe.d/nvidia-graphics-drivers-kms.conf` (driver-generated): `modeset=1` +
+    `NVreg_PreserveVideoMemoryAllocations=1` + `NVreg_TemporaryFilePath=/var`
+  - `/etc/modprobe.d/nvidia-hypr.conf`: `options nvidia_drm fbdev=1`
+  - (deleted the redundant manual `/etc/modprobe.d/nvidia.conf`)
+- `sudo update-initramfs -u` was run. Re-run it after any further modprobe change.
+
+---
+
+## IF BLACK SCREEN RETURNS AFTER REBOOT — diagnostics
+Get a console first: **Ctrl+Alt+F3**, log in.
+
+1. Driver loaded + matches kernel?
+   ```
+   nvidia-smi                                                  # needs nvidia-utils-595 reinstalled
+   uname -r; modinfo -F version nvidia                         # expect 595.71.05
+   dpkg -l | grep "linux-modules-nvidia-595-open-$(uname -r)"  # kmod for THIS kernel?
+   ```
+2. GL/EGL actually rendering? (the original culprit)
+   ```
+   eglinfo 2>/dev/null | grep -iE "EGL vendor|renderer" | head
+   dpkg -l | grep libnvidia-gl-595       # MUST be ii  → else: sudo apt install libnvidia-gl-595
+   ```
+3. Hyprland errors:
+   ```
+   pgrep -a Hyprland
+   journalctl -b 0 --no-pager | grep -iE "hyprland|EGL|GBM|drm|no monitors|render|fail" | tail -40
+   ```
+4. Modeset on?
+   ```
+   cat /sys/module/nvidia_drm/parameters/modeset   # want Y
+   cat /proc/cmdline                               # nvidia-drm.modeset=1 present
+   ```
+5. Launch Hyprland manually from TTY to see live errors:
+   ```
+   Hyprland 2>&1 | tee ~/hypr-debug.log
+   ```
+
+### Recovery levers
+- Boot previous kernel: GRUB > Advanced options for Ubuntu.
+- Reinstall driver stack: `sudo apt install --reinstall nvidia-driver-595-open libnvidia-gl-595`
+- Rebuild initramfs after modprobe changes: `sudo update-initramfs -u`
+- NVIDIA+Wayland env vars if needed (Hyprland env): `LIBVA_DRIVER_NAME=nvidia`,
+  `GBM_BACKEND=nvidia-drm`, `__GLX_VENDOR_LIBRARY_NAME=nvidia`, `NVD_BACKEND=direct`
+
+### Unrelated cosmetic issue
+swaync logged missing `~/.config/waybar/wallust/colors-waybar.css` (wallust-generated theme file).
+Harmless; only affects notification-center colors.
+
+## Lesson for next time
+Never chain `autoremove --purge -y` blindly after purging driver packages. Run
+`apt autoremove` WITHOUT `-y` first and read the plan, or scope it to named packages.

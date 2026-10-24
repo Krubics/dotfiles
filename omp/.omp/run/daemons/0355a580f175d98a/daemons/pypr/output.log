@@ -1,0 +1,28 @@
+[31;2mscratchpads::run_toggle(('term',)) failed:[0m
+Traceback (most recent call last):
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/manager.py", line 333, in _run_plugin_handler
+    result = await handler(*params)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/plugins/scratchpads/__init__.py", line 373, in run_toggle
+    await asyncio.gather(*(asyncio.create_task(t()) for t in tasks))
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/plugins/scratchpads/__init__.py", line 420, in run_show
+    await self._show_transition(scratch, monitor, was_alive)
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/plugins/scratchpads/transitions.py", line 223, in _show_transition
+    position_fixed = await self._fix_position(scratch, monitor)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/plugins/scratchpads/transitions.py", line 347, in _fix_position
+    x_pos, y_pos = convert_coords(position, monitor)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/adapters/units.py", line 53, in convert_coords
+    return [convert_monitor_dimension(name, monitor[ref], monitor) for (name, ref) in zip(coord_list, refs, strict=False)]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/adapters/units.py", line 28, in convert_monitor_dimension
+    p = int(size[:-1])
+        ^^^^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: '12.5'
+[31;2mFailed to show code, aborting.[0m
+[31;1mcancelled[0m
+
+[daemon exited with code 0; restarting in 1000ms]
+[33;2mUsing legacy config path: /home/krubics/.config/hypr/pyprland.toml[0m
+[33;2mPlease move your config to: /home/krubics/.config/pypr/config.toml[0m

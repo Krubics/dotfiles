@@ -1,0 +1,60 @@
+# Session: 2026-07-09
+**Date:** 2026-07-09
+**Started:** 00:04
+**Last Updated:** 00:56
+**Project:** Clarence
+**Branch:** main
+**Worktree:** /home/krubics/LocalProjects/Clarence
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Implement protection-order cancellation confirmation for manual exits on both IBKR and Moomoo brokers
+- Ensure manual exit orders wait for broker confirmation that protective legs are cancelled before placing the SELL
+- Add broker-neutral confirmation mechanism for order status checking
+- Update documentation and configuration
+
+### Decisions Made
+- **Broker-neutral confirmation primitive**: Added `working_qty(order_ref) -> int` to `BrokerProtocol` to query live unfilled quantity from broker, returning `0` if terminal/unknown
+- **IBKR implementation**: Use `_lookup_trade().remaining()` to get live remaining qty
+- **Moomoo implementation**: Query `order_list` and match on order reference, extract qty from response
+- **Timeout/polling config**: Added two optional numeric keys to `ORDER_POLICY`: `PROTECTIVE_CANCEL_TIMEOUT_SECS` (default 5.0) and `PROTECTIVE_CANCEL_POLL_SECS` (default 0.25)
+- **Cancellation flow**: Protective legs cancelled first, then poll broker until confirmed cancelled, then place manual exit SELL
+
+### Files Modified
+- **only_trades/brokers/protocol.py** — Added `working_qty(order_ref) -> int` abstract method to `BrokerProtocol`
+- **only_trades/brokers/ibkr.py** — Implemented `working_qty()` via `_lookup_trade().remaining()`
+- **only_trades/brokers/moomoo.py** — Implemented `working_qty()` via order list query with reference matching
+- **only_trades/executor.py** — Added protective cancellation confirmation logic:
+  - New private helpers: `_free_protective_confirmed()`, `_planned_standing_left()`, `_notify_alert()`
+  - Modified `_handle_exit()` to cancel/poll before placing SELL
+  - Changed `_exit_position()` signature to return `(sold, aborted)` tuple
+  - Updated `_exit_standing()` to use shared planning helper
+- **tests/test_executor.py** — Extended test infrastructure:
+  - Added `working_qty` to `FakeIB` mock
+  - Added `notify_alert` to `FakeNotifier`
+  - Updated `_config()` helper to accept policy override
+  - Added two new tests: `test_manual_exit_cancels_protective_then_sells()` and `test_manual_exit_aborts_if_protective_timeout()`
+- **config.json** — Added `PROTECTIVE_CANCEL_TIMEOUT_SECS: 5.0` and `PROTECTIVE_CANCEL_POLL_SECS: 0.25` to `ORDER_POLICY`
+- **order_processing.md** — Updated exit-precedence section to document protective cancellation confirmation flow
+
+### Unresolved Issues
+None — implementation complete and all 206 tests pass.
+
+### Next Session Context
+- The protective order cancellation confirmation feature is fully implemented and tested across both IBKR and Moomoo brokers
+- Config keys are optional (defaults: 5s timeout, 0.25s poll interval) — tune in `config.json` per deployment if needed
+- `working_qty()` is now the broker-neutral primitive for querying live order status across all adapters
+- No breaking changes to public APIs; all changes are internal to executor and broker adapters
+- There is **no automatic retry of manual SELLs** — exits are driven entirely by inbound Discord messages; if confirmation times out, the exit aborts and waits for a new manual exit message from Discord
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

@@ -1,0 +1,8 @@
+/home/krubics/.zen-scratch/prefs.js
+---
+user_pref("browser.startup.couldRestoreSession.count", 1);
+user_pref("browser.startup.homepage_override.buildID", "20260725024203");
+user_pref("browser.startup.homepage_override.mstone", "153.0");
+user_pref("browser.startup.lastColdStartupCheck", 1785088095);
+user_pref("toolkit.startup.last_success", 1785088093);
+---title in prefs---

@@ -1,0 +1,78 @@
+total 13004
+drwx------  8 krubics krubics    4096 Jul 29 22:50 .
+drwxrwxr-x  8 krubics krubics    4096 Jul 29 11:23 ..
+lrwxrwxrwx  1 krubics krubics      39 Jul 29 21:37 AGENTS.md -> /home/krubics/.agents/context/AGENTS.md
+lrwxrwxrwx  1 krubics krubics      34 Jul 29 21:58 RULES.md -> /home/krubics/.agents/omp/RULES.md
+-rw-------  1 krubics krubics  221184 Jul 29 11:37 agent.db
+-rw-------  1 krubics krubics   32768 Jul 29 22:58 agent.db-shm
+-rw-------  1 krubics krubics 4132392 Jul 29 22:58 agent.db-wal
+lrwxrwxrwx  1 krubics krubics      32 Jul 29 21:58 agents -> /home/krubics/.agents/omp/agents
+drwxrwxr-x  2 krubics krubics   12288 Jul 28 11:45 blobs
+lrwxrwxrwx  1 krubics krubics      34 Jul 29 21:58 commands -> /home/krubics/.agents/omp/commands
+lrwxrwxrwx  1 krubics krubics      36 Jul 29 22:01 config.yml -> /home/krubics/.agents/omp/config.yml
+drwxrwxr-x  2 krubics krubics    4096 Jul 29 10:45 extensions
+-rw-r--r--  1 krubics krubics  192512 Jul 29 22:51 history.db
+-rw-r--r--  1 krubics krubics   32768 Jul 29 23:00 history.db-shm
+-rw-r--r--  1 krubics krubics 4177712 Jul 29 23:00 history.db-wal
+lrwxrwxrwx  1 krubics krubics      31 Jul 29 21:58 hooks -> /home/krubics/.agents/omp/hooks
+-rw-rw-r--  1 krubics krubics       6 Jul 26 15:32 last-changelog-version
+-rw-r--r--  1 krubics krubics  286720 Jul 29 22:07 models.db
+-rw-r--r--  1 krubics krubics   32768 Jul 29 22:51 models.db-shm
+-rw-r--r--  1 krubics krubics 4136512 Jul 29 22:51 models.db-wal
+-rw-rw-r--  1 krubics krubics     117 Jul 28 13:18 models.yml
+drwxrwxr-x  2 krubics krubics   12288 Jul 29 22:15 nigga
+drwxrwxr-x 20 krubics krubics    4096 Jul 29 22:40 sessions
+drwxrwxr-x  2 krubics krubics    4096 Jul 29 22:14 terminal-sessions
+drwxrwxr-x  2 krubics krubics    4096 Jul 26 14:35 themes
+---
+---
+/home/krubics/.omp
+/home/krubics/.omp/natives
+/home/krubics/.omp/natives/17.1.3
+/home/krubics/.omp/puppeteer
+/home/krubics/.omp/run
+/home/krubics/.omp/run/daemons
+/home/krubics/.omp/run/daemons/2b2a49e7262dfc76
+/home/krubics/.omp/run/daemons/b457df4033a41f16
+/home/krubics/.omp/run/daemons/5a7ab6112a736539
+/home/krubics/.omp/run/daemons/165d314300e5aadc
+/home/krubics/.omp/run/daemons/217ff6a0952fb9f6
+/home/krubics/.omp/run/daemons/d5c615fc68a904d5
+/home/krubics/.omp/run/daemons/a0af019cc82fa7aa
+/home/krubics/.omp/run/daemons/c861d435fbb7635f
+/home/krubics/.omp/run/daemons/f0079333048bc88b
+/home/krubics/.omp/run/daemons/0605df3dabd5073e
+/home/krubics/.omp/run/daemons/0355a580f175d98a
+/home/krubics/.omp/run/daemons/eac0ab85034baf12
+/home/krubics/.omp/run/daemons/fe9eec44443c86a5
+/home/krubics/.omp/run/daemons/9a790c334fac672f
+/home/krubics/.omp/run/daemons/438ddd89fd3402b0
+/home/krubics/.omp/run/daemons/f1d8ba9530f5b407
+/home/krubics/.omp/run/daemons/ec98b614ec429e02
+/home/krubics/.omp/run/daemons/3b379e0ba20daa9b
+/home/krubics/.omp/run/daemons/1c5c32a41584815f
+/home/krubics/.omp/run/daemons/8be5463c918f3656
+/home/krubics/.omp/plugins
+/home/krubics/.omp/plugins/node_modules
+/home/krubics/.omp/plugins/node_modules/linkedom
+/home/krubics/.omp/plugins/node_modules/.bin
+/home/krubics/.omp/plugins/node_modules/@profoundlogic
+/home/krubics/.omp/plugins/node_modules/chalk
+/home/krubics/.omp/plugins/node_modules/gcp-metadata
+/home/krubics/.omp/plugins/node_modules/unpdf
+/home/krubics/.omp/plugins/node_modules/node-fetch
+/home/krubics/.omp/plugins/node_modules/abbrev
+/home/krubics/.omp/plugins/node_modules/ms
+/home/krubics/.omp/plugins/node_modules/@opentelemetry
+/home/krubics/.omp/plugins/node_modules/nopt
+/home/krubics/.omp/plugins/node_modules/ecdsa-sig-formatter
+/home/krubics/.omp/plugins/node_modules/gaxios
+/home/krubics/.omp/plugins/node_modules/minipass
+/home/krubics/.omp/plugins/node_modules/css-select
+/home/krubics/.omp/plugins/node_modules/bowser
+/home/krubics/.omp/plugins/node_modules/hosted-git-info
+/home/krubics/.omp/plugins/node_modules/nth-check
+/home/krubics/.omp/plugins/node_modules/path-scurry
+/home/krubics/.omp/plugins/node_modules/https-proxy-agent
+/home/krubics/.omp/plugins/node_modules/google-logging-utils
+/home/krubics/.omp/plugins/node_modules/@earendil-works

@@ -1,0 +1,7 @@
+/home/krubics/.config/hypr/conf/keybinds.lua:103:-- ---- Scratchpads (pyprland) -----------------------------------
+/home/krubics/.config/hypr/conf/keybinds.lua:104:-- `pypr toggle <name>` launches the app on first use (lazy) and shows/hides
+/home/krubics/.config/hypr/conf/keybinds.lua:106:-- Config: ~/.config/pypr/config.toml. Daemon autostarted in hyprland.lua.
+/home/krubics/.config/hypr/conf/keybinds.lua:107:hl.bind(modKey .. " + V", hl.dsp.exec_cmd("pypr toggle code"))
+/home/krubics/.config/hypr/conf/keybinds.lua:108:hl.bind(modKey .. " + T", hl.dsp.exec_cmd("pypr toggle term"))
+/home/krubics/.config/hypr/conf/keybinds.lua:109:hl.bind(modKey .. " + W", hl.dsp.exec_cmd("pypr toggle browser"))
+---

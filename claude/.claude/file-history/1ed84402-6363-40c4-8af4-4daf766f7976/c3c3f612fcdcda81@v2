@@ -1,0 +1,128 @@
+"""Order logic — the single place a developer tunes how orders behave.
+
+Everything here is **pure** (no broker, no IO) so it is exhaustively unit-testable,
+exactly like [sizing.py](sizing.py) and [risk.py](risk.py). The executor and the
+broker adapters read these values and helpers; they never hard-code order rules of
+their own.
+
+`OrderPolicy` is the canonical, tunable block (loaded from the ``ORDER_POLICY`` section
+of [config.json](../config.json) by [config.py](config.py)). It holds:
+
+* **Pricing / sizing knobs** (formerly the ``EXECUTION`` block): ``spread``,
+  ``trim_fraction``, ``scale_up``, ``scale_down``.
+* **Protective exits — stop loss & take profit** as a fraction of the entry premium:
+  ``stop_loss_pct`` / ``take_profit_pct``. A per-trader override (on
+  ``config.Trader``) takes precedence over these global defaults; ``None`` disables
+  that leg.
+
+## Additional rules
+
+New order-logic rules belong here, as fields on ``OrderPolicy`` plus a pure helper —
+so the whole surface a developer tunes stays in one module. Wire each new field through
+``config.load_config`` and document it in
+[order_processing.md](../order_processing.md).
+"""
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:  # avoid an import cycle (config imports OrderPolicy)
+    from .config import Trader
+
+
+@dataclass(frozen=True)
+class OrderPolicy:
+    spread: float = 0.05              # limit buffer: a priced order limits at premium ± spread
+    trim_fraction: float = 0.5        # fraction of a holding a TRIM closes
+    scale_up: float = 1.5             # qty multiplier for a SCALE_UP trade
+    scale_down: float = 0.5           # qty multiplier for a SCALE_DOWN trade
+    capital_fraction: float = 1.0     # global throttle: only deploy this fraction of the account (1.0 = all)
+    # Protective exits, as a fraction of the entry premium. None disables that leg.
+    stop_loss_pct: float | None = None      # e.g. 0.5 -> stop at premium * (1 - 0.5)
+    take_profit_pct: float | None = None     # e.g. 1.0 -> target at premium * (1 + 1.0)
+    # Entry-fill timeout: an unfilled resting BUY auto-cancels this many seconds after
+    # placement (realised broker-natively as a Good-Till-Date order). None disables it.
+    entry_timeout_secs: float | None = None
+    # Manual-exit protective clearing: before a SELL/TRIM is placed, the position's
+    # protective legs are cancelled/reduced and we poll the broker until that lands, so a
+    # resting stop/TP can't reserve the quantity we're trying to sell. Give up (abort the
+    # exit + alert) after `protective_cancel_timeout_secs`, polling every
+    # `protective_cancel_poll_secs`.
+    protective_cancel_timeout_secs: float = 5.0
+    protective_cancel_poll_secs: float = 0.25
+
+
+@dataclass(frozen=True)
+class ProtectiveExit:
+    """A stop loss and/or take profit to attach to an entry, in broker-neutral terms.
+    Either price may be None (that leg is disabled). The executor fills in the two
+    ``*_ref`` order references so the adapter can tag each protective leg and fills
+    reconcile back to our rows by ref alone."""
+    stop_price: float | None
+    take_profit_price: float | None
+    stop_ref: str = ""
+    take_profit_ref: str = ""
+
+    @property
+    def has_any(self) -> bool:
+        return self.stop_price is not None or self.take_profit_price is not None
+
+
+def stop_loss_price(entry_premium: float, pct: float | None) -> float | None:
+    """Stop price `pct` below the entry premium (e.g. pct=0.5 -> 50% below). None/invalid
+    inputs disable the leg. Floored at one cent so it stays a valid, positive price."""
+    if pct is None or entry_premium is None or entry_premium <= 0 or pct <= 0:
+        return None
+    return round(max(0.01, entry_premium * (1 - pct)), 2)
+
+
+def take_profit_price(entry_premium: float, pct: float | None) -> float | None:
+    """Target price `pct` above the entry premium (e.g. pct=1.0 -> double). None/invalid
+    inputs disable the leg."""
+    if pct is None or entry_premium is None or entry_premium <= 0 or pct <= 0:
+        return None
+    return round(entry_premium * (1 + pct), 2)
+
+
+def effective_sl_tp(
+    policy: OrderPolicy, trader: "Trader | None"
+) -> tuple[float | None, float | None]:
+    """Resolve the (stop_loss_pct, take_profit_pct) in effect for a trade: a per-trader
+    override wins over the global policy default; otherwise the global default applies."""
+    sl = policy.stop_loss_pct
+    tp = policy.take_profit_pct
+    if trader is not None:
+        if getattr(trader, "stop_loss_pct", None) is not None:
+            sl = trader.stop_loss_pct
+        if getattr(trader, "take_profit_pct", None) is not None:
+            tp = trader.take_profit_pct
+    return sl, tp
+
+
+def effective_entry_timeout(
+    policy: OrderPolicy, trader: "Trader | None"
+) -> float | None:
+    """Resolve the entry-fill timeout (seconds) in effect for a trade: a positive
+    per-trader override wins over the global policy default. Returns None (no timeout)
+    when neither is set or the value is non-positive."""
+    secs = policy.entry_timeout_secs
+    if trader is not None and getattr(trader, "entry_timeout_secs", None) is not None:
+        secs = trader.entry_timeout_secs
+    if secs is None or secs <= 0:
+        return None
+    return float(secs)
+
+
+def protective_exit(
+    entry_premium: float, policy: OrderPolicy, trader: "Trader | None"
+) -> ProtectiveExit | None:
+    """Build the protective exit for a BUY at `entry_premium`, applying the trader's
+    SL/TP overrides over the global policy. Returns None when both legs are disabled
+    (so the executor places a plain order, exactly as before)."""
+    sl_pct, tp_pct = effective_sl_tp(policy, trader)
+    stop = stop_loss_price(entry_premium, sl_pct)
+    target = take_profit_price(entry_premium, tp_pct)
+    if stop is None and target is None:
+        return None
+    return ProtectiveExit(stop_price=stop, take_profit_price=target)

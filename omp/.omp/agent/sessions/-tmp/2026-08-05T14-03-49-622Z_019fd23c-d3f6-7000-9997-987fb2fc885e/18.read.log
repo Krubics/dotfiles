@@ -1,0 +1,304 @@
+URL: https://quickshell.org/docs/v0.1.0/guide/install-setup/
+Content-Type: text/html
+Method: native
+
+---
+
+---
+canonical: https://quickshell.org/docs/v0.1.0/guide/install-setup/
+meta-description:
+meta-generator: Astro v5.17.2
+meta-og:description:
+meta-og:site_name: quickshell
+meta-og:title: Installation &amp; Setup
+meta-og:type: website
+meta-og:url: https://quickshell.org/docs/v0.1.0/guide/install-setup/
+meta-twitter:card: summary_large_image
+meta-twitter:description:
+meta-twitter:domain: quickshell.outfoxxed.me
+meta-twitter:title: Installation &amp; Setup
+meta-twitter:url: https://quickshell.org/docs/v0.1.0/guide/install-setup/
+meta-viewport: width=device-width, initial-scale=1
+title: Installation &amp; Setup
+---
+
+![Open Menu](data:image/svg+xml;base64,PHN2ZyBkYXRhLWhrPSJzMjAwMDEwIiBoZWlnaHQ9IjFlbSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiIGNsYXNzPSJuYXYtaWNvbiAiPjx0aXRsZT5PcGVuIE1lbnU8L3RpdGxlPjxnIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCI+PHBhdGggZD0iTTUgNUwxMiA1TDE5IDUiPjxhbmltYXRlIGF0dHJpYnV0ZU5hbWU9ImQiIGZpbGw9ImZyZWV6ZSIgdmFsdWVzPSJNNSA1TDEyIDVMMTkgNTtNNSA1TDEyIDEyTDE5IDUiIGR1cj0iMC4zcyIgLz48L3BhdGg+PHBhdGggZD0iTTUgMTJIMTkiPjxhbmltYXRlIGZpbGw9ImZyZWV6ZSIgZHVyPSIwLjNzIiB2YWx1ZXM9Ik01IDEySDE5O00xMiAxMkgxMiIgYXR0cmlidXRlTmFtZT0iZCIgLz48L3BhdGg+PHBhdGggZD0iTTUgMTlMMTIgMTlMMTkgMTkiPjxhbmltYXRlIHZhbHVlcz0iTTUgMTlMMTIgMTlMMTkgMTk7TTUgMTlMMTIgMTJMMTkgMTkiIGF0dHJpYnV0ZU5hbWU9ImQiIGR1cj0iMC4zcyIgZmlsbD0iZnJlZXplIiAvPjwvcGF0aD48L2c+PC9zdmc+)![Close Menu](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGRhdGEtaGs9InMyMDAwMjAiIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxZW0iIGNsYXNzPSJuYXYtaWNvbiBhY3RpdmUiPjx0aXRsZT5DbG9zZSBNZW51PC90aXRsZT48ZyBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiPjxwYXRoIGQ9Ik01IDVMMTIgMTJMMTkgNSI+PGFuaW1hdGUgZHVyPSIwLjNzIiB2YWx1ZXM9Ik01IDVMMTIgMTJMMTkgNTtNNSA1TDEyIDVMMTkgNSIgZmlsbD0iZnJlZXplIiBhdHRyaWJ1dGVOYW1lPSJkIiAvPjwvcGF0aD48cGF0aCBkPSJNMTIgMTJIMTIiPjxhbmltYXRlIGR1cj0iMC4zcyIgZmlsbD0iZnJlZXplIiBhdHRyaWJ1dGVOYW1lPSJkIiB2YWx1ZXM9Ik0xMiAxMkgxMjtNNSAxMkgxOSIgLz48L3BhdGg+PHBhdGggZD0iTTUgMTlMMTIgMTJMMTkgMTkiPjxhbmltYXRlIHZhbHVlcz0iTTUgMTlMMTIgMTJMMTkgMTk7TTUgMTlMMTIgMTlMMTkgMTkiIGZpbGw9ImZyZWV6ZSIgZHVyPSIwLjNzIiBhdHRyaWJ1dGVOYW1lPSJkIiAvPjwvcGF0aD48L2c+PC9zdmc+)
+
+### [Quickshell](/)
+
+   ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjU2IDI1NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBmaWxsPSJjdXJyZW50Q29sb3IiIGhlaWdodD0iMWVtIiB3aWR0aD0iMWVtIj48cGF0aCBkPSJNMjMyLjQ5IDIxNS41MUwxODUgMTY4YTkyLjEyIDkyLjEyIDAgMSAwLTE3IDE3bDQ3LjUzIDQ3LjU0YTEyIDEyIDAgMCAwIDE3LTE3Wk00NCAxMTJhNjggNjggMCAxIDEgNjggNjhhNjguMDcgNjguMDcgMCAwIDEtNjgtNjgiIC8+PC9zdmc+) Search  ``Ctrl``K``
+
+ Cancel
+
+     ![SVG Image](data:image/svg+xml;base64,PHN2ZyBzdHlsZT0id2lkdGg6IDI0cHg7IGhlaWdodDogMjRweDsiIHdpZHRoPSIxZW0iIGFyaWEtaGlkZGVuPSJ0cnVlIiBkYXRhLWFzdHJvLWNpZC14M3Bqc2tkMz0idHJ1ZSIgZGF0YS1pY29uPSJtb29uIiBoZWlnaHQ9IjFlbSIgY2xhc3M9ImxpZ2h0LWljb24iPiAgIDxzeW1ib2wgdmlld0JveD0iMCAwIDI1NiAyNTYiIGlkPSJhaTpsb2NhbDptb29uIj48cGF0aCBmaWxsPSJjdXJyZW50Q29sb3IiIGQ9Ik0yMzMuNTQgMTQyLjIzYTggOCAwIDAgMC04LTIgODguMDggODguMDggMCAwIDEtMTA5LjgtMTA5LjggOCA4IDAgMCAwLTEwLTEwIDEwNC44NCAxMDQuODQgMCAwIDAtNTIuOTEgMzdBMTA0IDEwNCAwIDAgMCAxMzYgMjI0YTEwMy4xIDEwMy4xIDAgMCAwIDYyLjUyLTIwLjg4IDEwNC44NCAxMDQuODQgMCAwIDAgMzctNTIuOTEgOCA4IDAgMCAwLTEuOTgtNy45OG0tNDQuNjQgNDguMTFBODggODggMCAwIDEgNjUuNjYgNjcuMTFhODkgODkgMCAwIDEgMzEuNC0yNkExMDYgMTA2IDAgMCAwIDk2IDU2YTEwNC4xMSAxMDQuMTEgMCAwIDAgMTA0IDEwNCAxMDYgMTA2IDAgMCAwIDE0LjkyLTEuMDYgODkgODkgMCAwIDEtMjYuMDIgMzEuNCIgLz48L3N5bWJvbD48dXNlIGhyZWY9IiNhaTpsb2NhbDptb29uIiAvPiAgPC9zdmc+) ![SVG Image](data:image/svg+xml;base64,PHN2ZyBzdHlsZT0id2lkdGg6IDI0cHg7IGhlaWdodDogMjRweDsiIGFyaWEtaGlkZGVuPSJ0cnVlIiB3aWR0aD0iMWVtIiBoZWlnaHQ9IjFlbSIgZGF0YS1hc3Ryby1jaWQteDNwanNrZDM9InRydWUiIGRhdGEtaWNvbj0ic3VuIiBjbGFzcz0iZGFyay1pY29uIj4gICA8c3ltYm9sIHZpZXdCb3g9IjAgMCAyNTYgMjU2IiBpZD0iYWk6bG9jYWw6c3VuIj48cGF0aCBmaWxsPSJjdXJyZW50Q29sb3IiIGQ9Ik0xMjAgNDBWMTZhOCA4IDAgMCAxIDE2IDB2MjRhOCA4IDAgMCAxLTE2IDBtNzIgODhhNjQgNjQgMCAxIDEtNjQtNjQgNjQuMDcgNjQuMDcgMCAwIDEgNjQgNjRtLTE2IDBhNDggNDggMCAxIDAtNDggNDggNDguMDUgNDguMDUgMCAwIDAgNDgtNDhNNTguMzQgNjkuNjZhOCA4IDAgMCAwIDExLjMyLTExLjMybC0xNi0xNmE4IDggMCAwIDAtMTEuMzIgMTEuMzJabTAgMTE2LjY4LTE2IDE2YTggOCAwIDAgMCAxMS4zMiAxMS4zMmwxNi0xNmE4IDggMCAwIDAtMTEuMzItMTEuMzJNMTkyIDcyYTggOCAwIDAgMCA1LjY2LTIuMzRsMTYtMTZhOCA4IDAgMCAwLTExLjMyLTExLjMybC0xNiAxNkE4IDggMCAwIDAgMTkyIDcybTUuNjYgMTE0LjM0YTggOCAwIDAgMC0xMS4zMiAxMS4zMmwxNiAxNmE4IDggMCAwIDAgMTEuMzItMTEuMzJaTTQ4IDEyOGE4IDggMCAwIDAtOC04SDE2YTggOCAwIDAgMCAwIDE2aDI0YTggOCAwIDAgMCA4LThtODAgODBhOCA4IDAgMCAwLTggOHYyNGE4IDggMCAwIDAgMTYgMHYtMjRhOCA4IDAgMCAwLTgtOG0xMTItODhoLTI0YTggOCAwIDAgMCAwIDE2aDI0YTggOCAwIDAgMCAwLTE2IiAvPjwvc3ltYm9sPjx1c2UgaHJlZj0iI2FpOmxvY2FsOnN1biIgLz4gIDwvc3ZnPg==)
+
+![Types](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjU2IDI1NiIgd2lkdGg9IjFlbSIgZGF0YS1oaz0iczAwMDAxMCIgY2xhc3M9InRvYy1pY29uIGFjdGl2ZSI+PHRpdGxlPlR5cGVzPC90aXRsZT48cGF0aCBmaWxsPSJjdXJyZW50Q29sb3IiIGQ9Ik0yMTYgNDBINDBhMTYgMTYgMCAwIDAtMTYgMTZ2MTQ0YTE2IDE2IDAgMCAwIDE2IDE2aDE3NmExNiAxNiAwIDAgMCAxNi0xNlY1NmExNiAxNiAwIDAgMC0xNi0xNm0wIDE2MEg0MFY1NmgxNzZ6TTE4NCA5NmE4IDggMCAwIDEtOCA4SDgwYTggOCAwIDAgMSAwLTE2aDk2YTggOCAwIDAgMSA4IDhtMCAzMmE4IDggMCAwIDEtOCA4SDgwYTggOCAwIDAgMSAwLTE2aDk2YTggOCAwIDAgMSA4IDhtMCAzMmE4IDggMCAwIDEtOCA4SDgwYTggOCAwIDAgMSAwLTE2aDk2YTggOCAwIDAgMSA4IDgiIC8+PC9zdmc+)![Open Menu](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIxZW0iIGRhdGEtaGs9InMwMDAwMjAiIGhlaWdodD0iMWVtIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGNsYXNzPSJ0b2MtaWNvbiAiPjx0aXRsZT5PcGVuIE1lbnU8L3RpdGxlPjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMiI+PHBhdGggZD0iTTUgNUwxMiA1TDE5IDUiPjxhbmltYXRlIGF0dHJpYnV0ZU5hbWU9ImQiIGZpbGw9ImZyZWV6ZSIgZHVyPSIwLjNzIiB2YWx1ZXM9Ik01IDVMMTIgNUwxOSA1O001IDVMMTIgMTJMMTkgNSIgLz48L3BhdGg+PHBhdGggZD0iTTUgMTJIMTkiPjxhbmltYXRlIGZpbGw9ImZyZWV6ZSIgdmFsdWVzPSJNNSAxMkgxOTtNMTIgMTJIMTIiIGF0dHJpYnV0ZU5hbWU9ImQiIGR1cj0iMC4zcyIgLz48L3BhdGg+PHBhdGggZD0iTTUgMTlMMTIgMTlMMTkgMTkiPjxhbmltYXRlIHZhbHVlcz0iTTUgMTlMMTIgMTlMMTkgMTk7TTUgMTlMMTIgMTJMMTkgMTkiIGF0dHJpYnV0ZU5hbWU9ImQiIGZpbGw9ImZyZWV6ZSIgZHVyPSIwLjNzIiAvPjwvcGF0aD48L2c+PC9zdmc+)
+
+Installation & Setup
+
+---
+- [Installation](#installation)
+
+  - [Nix](#nix)
+  - [Arch](#arch)
+  - [Fedora](#fedora)
+  - [Guix](#guix)
+  - [Manual build](#manual-build)
+- [Editor configuration](#editor-configuration)
+
+  - [Emacs](#emacs)
+  - [Neovim](#neovim)
+  - [Helix](#helix)
+  - [Vscode](#vscode)
+- [Language Server](#language-server)
+- [Next steps](#next-steps)
+
+---
+
+# Installation & Setup
+
+![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTYgMTYiIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgYXJpYS1oaWRkZW49InRydWUiIGNsYXNzPSJvY3RpY29uIj48cGF0aCBkPSJNMCA4YTggOCAwIDEgMSAxNiAwQTggOCAwIDAgMSAwIDhabTgtNi41YTYuNSA2LjUgMCAxIDAgMCAxMyA2LjUgNi41IDAgMCAwIDAtMTNaTTYuNSA3Ljc1QS43NS43NSAwIDAgMSA3LjI1IDdoMWEuNzUuNzUgMCAwIDEgLjc1Ljc1djIuNzVoLjI1YS43NS43NSAwIDAgMSAwIDEuNWgtMmEuNzUuNzUgMCAwIDEgMC0xLjVoLjI1di0yaC0uMjVhLjc1Ljc1IDAgMCAxLS43NS0uNzVaTTggNmExIDEgMCAxIDEgMC0yIDEgMSAwIDAgMSAwIDJaIiAvPjwvc3ZnPg==)NOTE
+
+Quickshell is still in a somewhat early stage of development.
+There will be breaking changes before 1.0, however a migration guide will be provided.
+
+## Installation
+
+Since Quickshell 0.1, you can now choose whether to install by tracking the master branch,
+or install by latest release.
+
+Note that you may want to install some additional packages (names vary by distro):
+
+- `qtsvg`: support for SVG image loading (bundled with most packages)
+- `qtimageformats`: support for WEBP images as well as some less common ones
+- `qtmultimedia`: support for playing videos, audio, etc
+- `qt5compat`: extra visual effects, notably gaussian blur. [MultiEffect](https://doc.qt.io/qt-6/qml-qtquick-effects-multieffect.html) is usually preferable
+
+### Nix
+
+Release versions of Quickshell are available from Nixpkgs under the `quickshell` package.
+
+The Quickshell repo also has an embedded flake which can be used from either mirror:
+
+- `git+https://git.outfoxxed.me/outfoxxed/quickshell`
+- `github:quickshell-mirror/quickshell`
+
+![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgd2lkdGg9IjE2IiB2aWV3Qm94PSIwIDAgMTYgMTYiIGhlaWdodD0iMTYiIGNsYXNzPSJvY3RpY29uIj48cGF0aCBkPSJNMCA4YTggOCAwIDEgMSAxNiAwQTggOCAwIDAgMSAwIDhabTgtNi41YTYuNSA2LjUgMCAxIDAgMCAxMyA2LjUgNi41IDAgMCAwIDAtMTNaTTYuNSA3Ljc1QS43NS43NSAwIDAgMSA3LjI1IDdoMWEuNzUuNzUgMCAwIDEgLjc1Ljc1djIuNzVoLjI1YS43NS43NSAwIDAgMSAwIDEuNWgtMmEuNzUuNzUgMCAwIDEgMC0xLjVoLjI1di0yaC0uMjVhLjc1Ljc1IDAgMCAxLS43NS0uNzVaTTggNmExIDEgMCAxIDEgMC0yIDEgMSAwIDAgMSAwIDJaIiAvPjwvc3ZnPg==)NOTE
+
+You can use `?ref=` to specify a tag if you want a tagged release.
+
+    ![SVG Image](data:image/svg+xml;base64,PHN2ZyByb2xlPSJpY29uIiB3aWR0aD0iMWVtIiBoZWlnaHQ9IjFlbSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjU2IDI1NiIgY2xhc3M9ImNvcHktaWNvbiI+PHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMjAwIDMyaC0zNi4yNmE0Ny45MiA0Ny45MiAwIDAgMC03MS40OCAwSDU2YTE2IDE2IDAgMCAwLTE2IDE2djE2OGExNiAxNiAwIDAgMCAxNiAxNmgxNDRhMTYgMTYgMCAwIDAgMTYtMTZWNDhhMTYgMTYgMCAwIDAtMTYtMTZtLTcyIDBhMzIgMzIgMCAwIDEgMzIgMzJIOTZhMzIgMzIgMCAwIDEgMzItMzJtNzIgMTg0SDU2VjQ4aDI2Ljc1QTQ3LjkgNDcuOSAwIDAgMCA4MCA2NHY4YTggOCAwIDAgMCA4IDhoODBhOCA4IDAgMCAwIDgtOHYtOGE0Ny45IDQ3LjkgMCAwIDAtMi43NS0xNkgyMDBaIiAvPjwvc3ZnPg==)![SVG Image](data:image/svg+xml;base64,PHN2ZyByb2xlPSJpY29uIiB3aWR0aD0iMWVtIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjU2IDI1NiIgY2xhc3M9ImNoZWNrLWljb24iPjxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTIyOS42NiA3Ny42NmwtMTI4IDEyOGE4IDggMCAwIDEtMTEuMzIgMGwtNTYtNTZhOCA4IDAgMCAxIDExLjMyLTExLjMyTDk2IDE4OC42OUwyMTguMzQgNjYuMzRhOCA4IDAgMCAxIDExLjMyIDExLjMyWiIgLz48L3N2Zz4=)
+
+    {
+      inputs = {
+        nixpkgs.url = "nixpkgs/nixos-unstable";
+
+        quickshell = {
+          # add ?ref=<tag> to track a tag
+          url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+
+          # THIS IS IMPORTANT
+          # Mismatched system dependencies will lead to crashes and other issues.
+          inputs.nixpkgs.follows = "nixpkgs";
+        };
+      };
+    }
+
+The package is available as `quickshell.packages.<system>.default`, which can be added to
+your `environment.systemPackages` or `home.packages` if you use home-manager.
+
+### Arch
+
+Quickshell is available from the aur under:
+
+- the [quickshell](https://aur.archlinux.org/packages/quickshell) package for the latest release
+- the [quickshell-git](https://aur.archlinux.org/packages/quickshell-git) package that tracks the master branch
+
+![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgd2lkdGg9IjE2IiB2aWV3Qm94PSIwIDAgMTYgMTYiIGhlaWdodD0iMTYiIGNsYXNzPSJvY3RpY29uIj48cGF0aCBkPSJNNi40NTcgMS4wNDdjLjY1OS0xLjIzNCAyLjQyNy0xLjIzNCAzLjA4NiAwbDYuMDgyIDExLjM3OEExLjc1IDEuNzUgMCAwIDEgMTQuMDgyIDE1SDEuOTE4YTEuNzUgMS43NSAwIDAgMS0xLjU0My0yLjU3NVptMS43NjMuNzA3YS4yNS4yNSAwIDAgMC0uNDQgMEwxLjY5OCAxMy4xMzJhLjI1LjI1IDAgMCAwIC4yMi4zNjhoMTIuMTY0YS4yNS4yNSAwIDAgMCAuMjItLjM2OFptLjUzIDMuOTk2djIuNWEuNzUuNzUgMCAwIDEtMS41IDB2LTIuNWEuNzUuNzUgMCAwIDEgMS41IDBaTTkgMTFhMSAxIDAgMSAxLTIgMCAxIDEgMCAwIDEgMiAwWiIgLz48L3N2Zz4=)WARNING
+
+When using an AUR package, Quickshell may break whenever Qt is updated.
+The AUR gives us no way to actually fix this, but Quickshell will attempt to
+warn you if it detects a breakage when updating. If warned of a breakage,
+please reinstall the package.
+
+Install using the command below:
+
+    ![SVG Image](data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjFlbSIgdmlld0JveD0iMCAwIDI1NiAyNTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgcm9sZT0iaWNvbiIgd2lkdGg9IjFlbSIgY2xhc3M9ImNvcHktaWNvbiI+PHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMjAwIDMyaC0zNi4yNmE0Ny45MiA0Ny45MiAwIDAgMC03MS40OCAwSDU2YTE2IDE2IDAgMCAwLTE2IDE2djE2OGExNiAxNiAwIDAgMCAxNiAxNmgxNDRhMTYgMTYgMCAwIDAgMTYtMTZWNDhhMTYgMTYgMCAwIDAtMTYtMTZtLTcyIDBhMzIgMzIgMCAwIDEgMzIgMzJIOTZhMzIgMzIgMCAwIDEgMzItMzJtNzIgMTg0SDU2VjQ4aDI2Ljc1QTQ3LjkgNDcuOSAwIDAgMCA4MCA2NHY4YTggOCAwIDAgMCA4IDhoODBhOCA4IDAgMCAwIDgtOHYtOGE0Ny45IDQ3LjkgMCAwIDAtMi43NS0xNkgyMDBaIiAvPjwvc3ZnPg==)![SVG Image](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjU2IDI1NiIgd2lkdGg9IjFlbSIgcm9sZT0iaWNvbiIgY2xhc3M9ImNoZWNrLWljb24iPjxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTIyOS42NiA3Ny42NmwtMTI4IDEyOGE4IDggMCAwIDEtMTEuMzIgMGwtNTYtNTZhOCA4IDAgMCAxIDExLjMyLTExLjMyTDk2IDE4OC42OUwyMTguMzQgNjYuMzRhOCA4IDAgMCAxIDExLjMyIDExLjMyWiIgLz48L3N2Zz4=)
+
+    yay -S quickshell
+    # or
+    yay -S quickshell-git
+
+(or your AUR helper of choice)
+
+### Fedora
+
+Quickshell is available from the [errornointernet/quickshell](https://copr.fedorainfracloud.org/coprs/errornointernet/quickshell) COPR, as either:
+
+- `quickshell` that tracks the latest release
+- `quickshell-git` that tracks the master branch
+
+Install using the command below:
+
+    ![SVG Image](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMWVtIiByb2xlPSJpY29uIiBoZWlnaHQ9IjFlbSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjU2IDI1NiIgY2xhc3M9ImNvcHktaWNvbiI+PHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMjAwIDMyaC0zNi4yNmE0Ny45MiA0Ny45MiAwIDAgMC03MS40OCAwSDU2YTE2IDE2IDAgMCAwLTE2IDE2djE2OGExNiAxNiAwIDAgMCAxNiAxNmgxNDRhMTYgMTYgMCAwIDAgMTYtMTZWNDhhMTYgMTYgMCAwIDAtMTYtMTZtLTcyIDBhMzIgMzIgMCAwIDEgMzIgMzJIOTZhMzIgMzIgMCAwIDEgMzItMzJtNzIgMTg0SDU2VjQ4aDI2Ljc1QTQ3LjkgNDcuOSAwIDAgMCA4MCA2NHY4YTggOCAwIDAgMCA4IDhoODBhOCA4IDAgMCAwIDgtOHYtOGE0Ny45IDQ3LjkgMCAwIDAtMi43NS0xNkgyMDBaIiAvPjwvc3ZnPg==)![SVG Image](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjU2IDI1NiIgd2lkdGg9IjFlbSIgcm9sZT0iaWNvbiIgY2xhc3M9ImNoZWNrLWljb24iPjxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTIyOS42NiA3Ny42NmwtMTI4IDEyOGE4IDggMCAwIDEtMTEuMzIgMGwtNTYtNTZhOCA4IDAgMCAxIDExLjMyLTExLjMyTDk2IDE4OC42OUwyMTguMzQgNjYuMzRhOCA4IDAgMCAxIDExLjMyIDExLjMyWiIgLz48L3N2Zz4=)
+
+    sudo dnf copr enable errornointernet/quickshell
+
+    sudo dnf install quickshell
+    # or
+    sudo dnf install quickshell-git
+
+### Guix
+
+Release versions of Quickshell are available from the standard Guix repository
+as `quickshell` from the `(gnu packages wm)` module.
+
+Install using the command below:
+
+    ![SVG Image](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMWVtIiB2aWV3Qm94PSIwIDAgMjU2IDI1NiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjFlbSIgcm9sZT0iaWNvbiIgY2xhc3M9ImNvcHktaWNvbiI+PHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMjAwIDMyaC0zNi4yNmE0Ny45MiA0Ny45MiAwIDAgMC03MS40OCAwSDU2YTE2IDE2IDAgMCAwLTE2IDE2djE2OGExNiAxNiAwIDAgMCAxNiAxNmgxNDRhMTYgMTYgMCAwIDAgMTYtMTZWNDhhMTYgMTYgMCAwIDAtMTYtMTZtLTcyIDBhMzIgMzIgMCAwIDEgMzIgMzJIOTZhMzIgMzIgMCAwIDEgMzItMzJtNzIgMTg0SDU2VjQ4aDI2Ljc1QTQ3LjkgNDcuOSAwIDAgMCA4MCA2NHY4YTggOCAwIDAgMCA4IDhoODBhOCA4IDAgMCAwIDgtOHYtOGE0Ny45IDQ3LjkgMCAwIDAtMi43NS0xNkgyMDBaIiAvPjwvc3ZnPg==)![SVG Image](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMWVtIiByb2xlPSJpY29uIiB3aWR0aD0iMWVtIiB2aWV3Qm94PSIwIDAgMjU2IDI1NiIgY2xhc3M9ImNoZWNrLWljb24iPjxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTIyOS42NiA3Ny42NmwtMTI4IDEyOGE4IDggMCAwIDEtMTEuMzIgMGwtNTYtNTZhOCA4IDAgMCAxIDExLjMyLTExLjMyTDk2IDE4OC42OUwyMTguMzQgNjYuMzRhOCA4IDAgMCAxIDExLjMyIDExLjMyWiIgLz48L3N2Zz4=)
+
+    guix install quickshell
+
+You can also add `quickshell` to your Guix system configuration or Guix Home configuration.
+
+For the git version, Quickshell’s source repository works as a channel.
+Add the following to your channel list:
+
+    ![SVG Image](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTYgMjU2IiB3aWR0aD0iMWVtIiByb2xlPSJpY29uIiBoZWlnaHQ9IjFlbSIgY2xhc3M9ImNvcHktaWNvbiI+PHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMjAwIDMyaC0zNi4yNmE0Ny45MiA0Ny45MiAwIDAgMC03MS40OCAwSDU2YTE2IDE2IDAgMCAwLTE2IDE2djE2OGExNiAxNiAwIDAgMCAxNiAxNmgxNDRhMTYgMTYgMCAwIDAgMTYtMTZWNDhhMTYgMTYgMCAwIDAtMTYtMTZtLTcyIDBhMzIgMzIgMCAwIDEgMzIgMzJIOTZhMzIgMzIgMCAwIDEgMzItMzJtNzIgMTg0SDU2VjQ4aDI2Ljc1QTQ3LjkgNDcuOSAwIDAgMCA4MCA2NHY4YTggOCAwIDAgMCA4IDhoODBhOCA4IDAgMCAwIDgtOHYtOGE0Ny45IDQ3LjkgMCAwIDAtMi43NS0xNkgyMDBaIiAvPjwvc3ZnPg==)![SVG Image](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMWVtIiByb2xlPSJpY29uIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjU2IDI1NiIgY2xhc3M9ImNoZWNrLWljb24iPjxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTIyOS42NiA3Ny42NmwtMTI4IDEyOGE4IDggMCAwIDEtMTEuMzIgMGwtNTYtNTZhOCA4IDAgMCAxIDExLjMyLTExLjMyTDk2IDE4OC42OUwyMTguMzQgNjYuMzRhOCA4IDAgMCAxIDExLjMyIDExLjMyWiIgLz48L3N2Zz4=)
+
+    (channel
+      (name quickshell)
+      (url "https://git.outfoxxed.me/outfoxxed/quickshell")
+      (branch "master"))
+
+However, since the package definition is located in the source repository, it cannot be used
+as a channel out of the box. You can clone the repository and use `guix shell -f quickshell.scm` to use the git version of the package.
+
+### Manual build
+
+See [BUILD.md](https://git.outfoxxed.me/quickshell/quickshell/src/branch/master/BUILD.md) for build instructions and configurations.
+
+## Editor configuration
+
+If you want to write your own configuration, installing a QML grammar and the LSP is recommended.
+
+Read the [Usage Guide](/docs/v0.1.0/guide) after configuring your editor.
+
+![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTYgMTYiIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgYXJpYS1oaWRkZW49InRydWUiIGNsYXNzPSJvY3RpY29uIj48cGF0aCBkPSJNMCA4YTggOCAwIDEgMSAxNiAwQTggOCAwIDAgMSAwIDhabTgtNi41YTYuNSA2LjUgMCAxIDAgMCAxMyA2LjUgNi41IDAgMCAwIDAtMTNaTTYuNSA3Ljc1QS43NS43NSAwIDAgMSA3LjI1IDdoMWEuNzUuNzUgMCAwIDEgLjc1Ljc1djIuNzVoLjI1YS43NS43NSAwIDAgMSAwIDEuNWgtMmEuNzUuNzUgMCAwIDEgMC0xLjVoLjI1di0yaC0uMjVhLjc1Ljc1IDAgMCAxLS43NS0uNzVaTTggNmExIDEgMCAxIDEgMC0yIDEgMSAwIDAgMSAwIDJaIiAvPjwvc3ZnPg==)NOTE
+
+Qmlls versions prior to 6.8.2 do not require `-E`
+
+### Emacs
+
+Install the [yuja/tree-sitter-qml](https://github.com/yuja/tree-sitter-qmljs) tree-sitter grammar,
+and the [xhcoding/qml-ts-mode](https://github.com/xhcoding/qml-ts-mode) mode.
+
+Both are packaged for nix via [outfoxxed/nix-qml-support](https://git.outfoxxed.me/outfoxxed/nix-qml-support).
+
+Either `lsp-mode` or `eglot` should be usable for LSP ([caveats below](#language-server)).
+
+The author’s personal emacs config uses `lsp-mode` and `qml-ts-mode` as follows:
+
+    ![SVG Image](data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjFlbSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMWVtIiByb2xlPSJpY29uIiB2aWV3Qm94PSIwIDAgMjU2IDI1NiIgY2xhc3M9ImNvcHktaWNvbiI+PHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMjAwIDMyaC0zNi4yNmE0Ny45MiA0Ny45MiAwIDAgMC03MS40OCAwSDU2YTE2IDE2IDAgMCAwLTE2IDE2djE2OGExNiAxNiAwIDAgMCAxNiAxNmgxNDRhMTYgMTYgMCAwIDAgMTYtMTZWNDhhMTYgMTYgMCAwIDAtMTYtMTZtLTcyIDBhMzIgMzIgMCAwIDEgMzIgMzJIOTZhMzIgMzIgMCAwIDEgMzItMzJtNzIgMTg0SDU2VjQ4aDI2Ljc1QTQ3LjkgNDcuOSAwIDAgMCA4MCA2NHY4YTggOCAwIDAgMCA4IDhoODBhOCA4IDAgMCAwIDgtOHYtOGE0Ny45IDQ3LjkgMCAwIDAtMi43NS0xNkgyMDBaIiAvPjwvc3ZnPg==)![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjU2IDI1NiIgaGVpZ2h0PSIxZW0iIHdpZHRoPSIxZW0iIHJvbGU9Imljb24iIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgY2xhc3M9ImNoZWNrLWljb24iPjxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTIyOS42NiA3Ny42NmwtMTI4IDEyOGE4IDggMCAwIDEtMTEuMzIgMGwtNTYtNTZhOCA4IDAgMCAxIDExLjMyLTExLjMyTDk2IDE4OC42OUwyMTguMzQgNjYuMzRhOCA4IDAgMCAxIDExLjMyIDExLjMyWiIgLz48L3N2Zz4=)
+
+    (use-package qml-ts-mode
+      :after lsp-mode
+      :config
+      (add-to-list 'lsp-language-id-configuration '(qml-ts-mode . "qml-ts"))
+      (lsp-register-client
+       (make-lsp-client :new-connection (lsp-stdio-connection '("qmlls", "-E"))
+                        :activation-fn (lsp-activate-on "qml-ts")
+                        :server-id 'qmlls))
+      (add-hook 'qml-ts-mode-hook (lambda ()
+                                    (setq-local electric-indent-chars '(?\n ?\( ?\) ?{ ?} ?\[ ?\] ?\; ?,))
+                                    (lsp-deferred))))
+
+### Neovim
+
+Neovim has built-in syntax highlighting for QML, however tree-sitter highlighting
+may work better than the built-in highlighting. You can install the grammar
+using `:TSInstall qmljs`.
+
+To use the language server ([caveats below](#language-server)),
+install [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) and the following snippet to your configuration:
+
+    ![SVG Image](data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjFlbSIgd2lkdGg9IjFlbSIgcm9sZT0iaWNvbiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjU2IDI1NiIgY2xhc3M9ImNvcHktaWNvbiI+PHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMjAwIDMyaC0zNi4yNmE0Ny45MiA0Ny45MiAwIDAgMC03MS40OCAwSDU2YTE2IDE2IDAgMCAwLTE2IDE2djE2OGExNiAxNiAwIDAgMCAxNiAxNmgxNDRhMTYgMTYgMCAwIDAgMTYtMTZWNDhhMTYgMTYgMCAwIDAtMTYtMTZtLTcyIDBhMzIgMzIgMCAwIDEgMzIgMzJIOTZhMzIgMzIgMCAwIDEgMzItMzJtNzIgMTg0SDU2VjQ4aDI2Ljc1QTQ3LjkgNDcuOSAwIDAgMCA4MCA2NHY4YTggOCAwIDAgMCA4IDhoODBhOCA4IDAgMCAwIDgtOHYtOGE0Ny45IDQ3LjkgMCAwIDAtMi43NS0xNkgyMDBaIiAvPjwvc3ZnPg==)![SVG Image](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjU2IDI1NiIgcm9sZT0iaWNvbiIgd2lkdGg9IjFlbSIgY2xhc3M9ImNoZWNrLWljb24iPjxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTIyOS42NiA3Ny42NmwtMTI4IDEyOGE4IDggMCAwIDEtMTEuMzIgMGwtNTYtNTZhOCA4IDAgMCAxIDExLjMyLTExLjMyTDk2IDE4OC42OUwyMTguMzQgNjYuMzRhOCA4IDAgMCAxIDExLjMyIDExLjMyWiIgLz48L3N2Zz4=)
+
+    require("lspconfig").qmlls.setup {
+      cmd = {"qmlls", "-E"}
+    }
+
+### Helix
+
+Helix has built-in syntax highlighting for QML.
+
+To use the language server, add the following snippet to your configuration:
+
+    ![SVG Image](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMWVtIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMWVtIiByb2xlPSJpY29uIiB2aWV3Qm94PSIwIDAgMjU2IDI1NiIgY2xhc3M9ImNvcHktaWNvbiI+PHBhdGggZmlsbD0iY3VycmVudENvbG9yIiBkPSJNMjAwIDMyaC0zNi4yNmE0Ny45MiA0Ny45MiAwIDAgMC03MS40OCAwSDU2YTE2IDE2IDAgMCAwLTE2IDE2djE2OGExNiAxNiAwIDAgMCAxNiAxNmgxNDRhMTYgMTYgMCAwIDAgMTYtMTZWNDhhMTYgMTYgMCAwIDAtMTYtMTZtLTcyIDBhMzIgMzIgMCAwIDEgMzIgMzJIOTZhMzIgMzIgMCAwIDEgMzItMzJtNzIgMTg0SDU2VjQ4aDI2Ljc1QTQ3LjkgNDcuOSAwIDAgMCA4MCA2NHY4YTggOCAwIDAgMCA4IDhoODBhOCA4IDAgMCAwIDgtOHYtOGE0Ny45IDQ3LjkgMCAwIDAtMi43NS0xNkgyMDBaIiAvPjwvc3ZnPg==)![SVG Image](data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjFlbSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiByb2xlPSJpY29uIiB2aWV3Qm94PSIwIDAgMjU2IDI1NiIgd2lkdGg9IjFlbSIgY2xhc3M9ImNoZWNrLWljb24iPjxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTIyOS42NiA3Ny42NmwtMTI4IDEyOGE4IDggMCAwIDEtMTEuMzIgMGwtNTYtNTZhOCA4IDAgMCAxIDExLjMyLTExLjMyTDk2IDE4OC42OUwyMTguMzQgNjYuMzRhOCA4IDAgMCAxIDExLjMyIDExLjMyWiIgLz48L3N2Zz4=)
+
+    [language-server.qmlls]
+    args = ["-E"]
+    command = "qmlls"
+
+### Vscode
+
+1. Install the [Official QML Support extension](https://marketplace.visualstudio.com/items?itemName=TheQtCompany.qt-qml)
+2. Enable the `qt-qml.qmlls.useQmlImportPathEnvVar` setting.
+![](/assets/images/vscode-qml-env.png)
+
+## Language Server
+
+The QML language has an associated language server, [qmlls](https://doc.qt.io/qt-6/qtqml-tooling-qmlls.html).
+We recommend using it, as it will catch a lot of bad practice that may
+make your configuration harder to maintain later.
+
+We are aware of the following issues:
+
+- Qmlls does not work well when a file is not correctly structured.
+This means that completions and lints won’t work unless braces are closed
+correctly and such.
+- Qmlls cannot handle Quickshell’s Singleton, which means you won’t see completions,
+and usages of Singleton members may show a warning. We’re still investigating
+this problem and how to fix it.
+- The LSP cannot provide any documentation for Quickshell types.
+- `root:` imports cannot be resolved by the LSP.
+- `PanelWindow` in particular cannot be resolved.
+
+Keeping in mind the above caveats, qmlls should be able to guide you towards a
+more correct code should you choose to use it.
+
+![SVG Image](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgYXJpYS1oaWRkZW49InRydWUiIGNsYXNzPSJvY3RpY29uIj48cGF0aCBkPSJNMCA4YTggOCAwIDEgMSAxNiAwQTggOCAwIDAgMSAwIDhabTgtNi41YTYuNSA2LjUgMCAxIDAgMCAxMyA2LjUgNi41IDAgMCAwIDAtMTNaTTYuNSA3Ljc1QS43NS43NSAwIDAgMSA3LjI1IDdoMWEuNzUuNzUgMCAwIDEgLjc1Ljc1djIuNzVoLjI1YS43NS43NSAwIDAgMSAwIDEuNWgtMmEuNzUuNzUgMCAwIDEgMC0xLjVoLjI1di0yaC0uMjVhLjc1Ljc1IDAgMCAxLS43NS0uNzVaTTggNmExIDEgMCAxIDEgMC0yIDEgMSAwIDAgMSAwIDJaIiAvPjwvc3ZnPg==)NOTE
+
+Nix users should note that qmlls will not be able to pick up qml modules
+that are not in `QML2_IMPORT_PATH`. The easiest way to ensure this is by setting `qt.enable` to `true` and installing the quickshell package globally.
+
+# Next steps
+
+Create your first configuration by reading the [Intro](/docs/v0.1.0/guide/introduction).
+
+Installation & Setup
+
+---
+- [Installation](#installation)
+
+  - [Nix](#nix)
+  - [Arch](#arch)
+  - [Fedora](#fedora)
+  - [Guix](#guix)
+  - [Manual build](#manual-build)
+- [Editor configuration](#editor-configuration)
+
+  - [Emacs](#emacs)
+  - [Neovim](#neovim)
+  - [Helix](#helix)
+  - [Vscode](#vscode)
+- [Language Server](#language-server)
+- [Next steps](#next-steps)
+
+Brought to you by:
+
+ [outfoxxed - Lead Developer](https://outfoxxed.me) [xanazf - Website Developer / Designer](https://xanazf.github.io) [and our contributors](https://github.com/quickshell-mirror/quickshell/graphs/contributors)
+
+ ![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLWFzdHJvLWNpZC14M3Bqc2tkMz0idHJ1ZSIgaGVpZ2h0PSIxZW0iIGRhdGEtaWNvbj0ibW9vbiIgdmlld0JveD0iMCAwIDI1NiAyNTYiIHN0eWxlPSJ3aWR0aDogMjRweDsgaGVpZ2h0OiAyNHB4OyIgYXJpYS1oaWRkZW49InRydWUiIHdpZHRoPSIxZW0iIGNsYXNzPSJsaWdodC1pY29uIj4gICA8dXNlIGhyZWY9IiNhaTpsb2NhbDptb29uIiAvPiAgPC9zdmc+) ![SVG Image](data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjFlbSIgYXJpYS1oaWRkZW49InRydWUiIGRhdGEtYXN0cm8tY2lkLXgzcGpza2QzPSJ0cnVlIiBkYXRhLWljb249InN1biIgd2lkdGg9IjFlbSIgdmlld0JveD0iMCAwIDI1NiAyNTYiIHN0eWxlPSJ3aWR0aDogMjRweDsgaGVpZ2h0OiAyNHB4OyIgY2xhc3M9ImRhcmstaWNvbiI+ICAgPHVzZSBocmVmPSIjYWk6bG9jYWw6c3VuIiAvPiAgPC9zdmc+)
+
+  [![SVG Image](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMWVtIiBoZWlnaHQ9IjFlbSIgdmlld0JveD0iMCAwIDI1NiAyNTYiIGZpbGw9ImN1cnJlbnRDb2xvciIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNNzIsMjE2YTgsOCwwLDAsMS04LDhINDBhOCw4LDAsMCwxLTgtOFY0MGE4LDgsMCwwLDEsOC04SDY0YTgsOCwwLDAsMSwwLDE2SDQ4VjIwOEg2NEE4LDgsMCwwLDEsNzIsMjE2Wk0yMTYsMzJIMTkyYTgsOCwwLDAsMCwwLDE2aDE2VjIwOEgxOTJhOCw4LDAsMCwwLDAsMTZoMjRhOCw4LDAsMCwwLDgtOFY0MEE4LDgsMCwwLDAsMjE2LDMyWm0tMzIsODhhMzIsMzIsMCwwLDAtNTYtMjEuMTMsMzEuOTMsMzEuOTMsMCwwLDAtNDAuNzEtNi4xNUE4LDgsMCwwLDAsNzIsOTZ2NjRhOCw4LDAsMCwwLDE2LDBWMTIwYTE2LDE2LDAsMCwxLDMyLDB2NDBhOCw4LDAsMCwwLDE2LDBWMTIwYTE2LDE2LDAsMCwxLDMyLDB2NDBhOCw4LDAsMCwwLDE2LDBaIiAvPjwvc3ZnPg==)](https://matrix.to/#/#quickshell:outfoxxed.me) [![SVG Image](data:image/svg+xml;base64,PHN2ZyBmaWxsPSJjdXJyZW50Q29sb3IiIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0yIDAgMjAgMTYiIGNsYXNzPSJiaSBiaS1kaXNjb3JkIj48cGF0aCBkPSJNMTMuNTQ1IDIuOTA3YTEzLjIgMTMuMiAwIDAgMC0zLjI1Ny0xLjAxMS4wNS4wNSAwIDAgMC0uMDUyLjAyNWMtLjE0MS4yNS0uMjk3LjU3Ny0uNDA2LjgzM2ExMi4yIDEyLjIgMCAwIDAtMy42NTggMCA4IDggMCAwIDAtLjQxMi0uODMzLjA1LjA1IDAgMCAwLS4wNTItLjAyNWMtMS4xMjUuMTk0LTIuMjIuNTM0LTMuMjU3IDEuMDExYS4wNC4wNCAwIDAgMC0uMDIxLjAxOEMuMzU2IDYuMDI0LS4yMTMgOS4wNDcuMDY2IDEyLjAzMnEuMDAzLjAyMi4wMjEuMDM3YTEzLjMgMTMuMyAwIDAgMCAzLjk5NSAyLjAyLjA1LjA1IDAgMCAwIC4wNTYtLjAxOXEuNDYzLS42My44MTgtMS4zMjlhLjA1LjA1IDAgMCAwLS4wMS0uMDU5bC0uMDE4LS4wMTFhOSA5IDAgMCAxLTEuMjQ4LS41OTUuMDUuMDUgMCAwIDEtLjAyLS4wNjZsLjAxNS0uMDE5cS4xMjctLjA5NS4yNDgtLjE5NWEuMDUuMDUgMCAwIDEgLjA1MS0uMDA3YzIuNjE5IDEuMTk2IDUuNDU0IDEuMTk2IDguMDQxIDBhLjA1LjA1IDAgMCAxIC4wNTMuMDA3cS4xMjEuMS4yNDguMTk1YS4wNS4wNSAwIDAgMS0uMDA0LjA4NSA4IDggMCAwIDEtMS4yNDkuNTk0LjA1LjA1IDAgMCAwLS4wMy4wMy4wNS4wNSAwIDAgMCAuMDAzLjA0MWMuMjQuNDY1LjUxNS45MDkuODE3IDEuMzI5YS4wNS4wNSAwIDAgMCAuMDU2LjAxOSAxMy4yIDEzLjIgMCAwIDAgNC4wMDEtMi4wMi4wNS4wNSAwIDAgMCAuMDIxLS4wMzdjLjMzNC0zLjQ1MS0uNTU5LTYuNDQ5LTIuMzY2LTkuMTA2YS4wMy4wMyAwIDAgMC0uMDItLjAxOW0tOC4xOTggNy4zMDdjLS43ODkgMC0xLjQzOC0uNzI0LTEuNDM4LTEuNjEycy42MzctMS42MTMgMS40MzgtMS42MTNjLjgwNyAwIDEuNDUuNzMgMS40MzggMS42MTMgMCAuODg4LS42MzcgMS42MTItMS40MzggMS42MTJtNS4zMTYgMGMtLjc4OCAwLTEuNDM4LS43MjQtMS40MzgtMS42MTJzLjYzNy0xLjYxMyAxLjQzOC0xLjYxM2MuODA3IDAgMS40NTEuNzMgMS40MzggMS42MTMgMCAuODg4LS42MzEgMS42MTItMS40MzggMS42MTIiIC8+PC9zdmc+)](https://discord.gg/UtZeT3xNyT) [![SVG Image](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMWVtIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMS41IDExNSAxMTUiIGhlaWdodD0iMWVtIj48ZGVmcz48Y2xpcHBhdGggaWQ9ImEiPjxwYXRoIGQ9Ik0wIC4xMTNoOTEuODg3VjkySDBabTAgMCIgLz48L2NsaXBwYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjYSkiPjxwYXRoIHN0eWxlPSJzdHJva2U6bm9uZTtmaWxsLXJ1bGU6bm9uemVybztmaWxsOmN1cnJlbnRDb2xvcjtmaWxsLW9wYWNpdHk6MSIgZD0iTTkwLjE1NiA0MS45NjUgNTAuMDM2IDEuODQ4YTUuOTE4IDUuOTE4IDAgMCAwLTguMzcyIDBsLTguMzI4IDguMzMyIDEwLjU2NiAxMC41NjZhNy4wMyA3LjAzIDAgMCAxIDcuMjMgMS42ODQgNy4wMzQgNy4wMzQgMCAwIDEgMS42NjkgNy4yNzdsMTAuMTg3IDEwLjE4NGE3LjAyOCA3LjAyOCAwIDAgMSA3LjI3OCAxLjY3MiA3LjA0IDcuMDQgMCAwIDEgMCA5Ljk1NyA3LjA1IDcuMDUgMCAwIDEtOS45NjUgMCA3LjA0NCA3LjA0NCAwIDAgMS0xLjUyOC03LjY2bC05LjUtOS40OTdWNTkuMzZhNy4wNCA3LjA0IDAgMCAxIDEuODYgMTEuMjkgNy4wNCA3LjA0IDAgMCAxLTkuOTU3IDAgNy4wNCA3LjA0IDAgMCAxIDAtOS45NTggNy4wNiA3LjA2IDAgMCAxIDIuMzA0LTEuNTM5VjMzLjkyNmE3LjA0OSA3LjA0OSAwIDAgMS0zLjgyLTkuMjM0TDI5LjI0MiAxNC4yNzIgMS43MyA0MS43NzdhNS45MjUgNS45MjUgMCAwIDAgMCA4LjM3MUw0MS44NTIgOTAuMjdhNS45MjUgNS45MjUgMCAwIDAgOC4zNyAwbDM5LjkzNC0zOS45MzRhNS45MjUgNS45MjUgMCAwIDAgMC04LjM3MSIgLz48L2c+PC9zdmc+)](https://git.outfoxxed.me/quickshell/quickshell)   [Changelog](/changelog)

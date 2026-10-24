@@ -1,0 +1,828 @@
+URL: https://alejandrominaya.github.io/hyprland-lua-docs/
+Content-Type: text/html
+Method: native
+
+---
+
+---
+meta-viewport: width=device-width, initial-scale=1.0
+title: Hyprland hl.* Lua API Reference
+---
+
+## 1 Configuration — `hl.config()`
+
+hl.config({ settings })
+
+Set Hyprland configuration values. The argument is a nested table mirroring the old `hyprland.conf` variable groups.
+
+All config keys from `general`, `decoration`, `input`, `gestures`, `group`, `binds`, `debug`, `misc`, `dwindle`, `master`, `scrolling`, `ecosystem`, etc. are available.
+
+    -- Example
+    hl.config({
+      general = {
+        gaps_in        = 5,
+        gaps_out       = 10,
+        border_size    = 2,
+        "col.active_border"   = "rgba(ffffffcc) rgba(111111cc) 45deg",
+        "col.inactive_border" = "rgba(595959aa)",
+        layout = "dwindle",
+      },
+      decoration = {
+        rounding = 10, active_opacity = 1.0, inactive_opacity = 1.0,
+        shadow = { enabled = true, range = 4, color = "rgba(1a1a1aee)" },
+        blur   = { enabled = true, size = 3, passes = 1 },
+      },
+      input = { kb_layout = "us", follow_mouse = 1, touchpad = { natural_scroll = false } },
+      misc  = { disable_autoreload = true, disable_hyprland_logo = true, vfr = true },
+    })
+
+hl.get_config(key) → value
+
+Read the current value of a config key. Returns `nil + error_msg` if the key is unknown.
+
+## 2 Monitor Setup — `hl.monitor()`
+
+hl.monitor({ fields })
+
+Define or override a monitor configuration. The `output` field is required. Multiple calls are cumulative.
+
+| Field | Type | Description |
+| --- | --- | --- |
+| output | string | Monitor name, e.g. `"DP-1"`, `"eDP-1"` |
+| mode | string | Resolution & refresh, e.g. `"1920x1080@144"`, `"preferred"`, `"highres"`, `"highrr"` |
+| position | string | Layout position, e.g. `"0x0"`, `"auto-right"`, `"auto-left"` |
+| scale | number/string | Scale factor, e.g. `1.0`, `"auto"` |
+| transform | int (0-7) | Display transform (0=normal, 1=90°, 2=180°, 3=270°, 4-7=flipped variants) |
+| mirror | string | Output name to mirror, or empty string |
+| bitdepth | int | 8 or 10 |
+| cm | string | Color management, e.g. `"srgb"` (default) or `"passthrough"` |
+| vrr | int (-1 to 3) | Variable refresh rate: -1=unset, 0=off, 1=on, 2=always, 3=fullscreen |
+| disabled | bool | `true` to disable this output |
+| reserved / reserved_area | table | `{ top, bottom, left, right }` in CSS gap format |
+| icc | string | Path to ICC color profile |
+| sdr_eotf | string | SDR electro-optical transfer function |
+| sdrbrightness | float | SDR brightness (default 1.0) |
+| sdrsaturation | float | SDR saturation (default 1.0) |
+| supports_wide_color | int (-1/0/1) | Override wide color support detection |
+| supports_hdr | int (-1/0/1) | Override HDR support detection |
+| sdr_min_luminance | float | Min SDR luminance (default 0.2) |
+| sdr_max_luminance | int | Max SDR luminance (default 80) |
+| min_luminance | float | Min luminance (default -1 = auto) |
+| max_luminance | int | Max luminance (default -1 = auto) |
+| max_avg_luminance | int | Max average luminance (default -1 = auto) |
+
+## 3 Window Rules — `hl.window_rule()`
+
+hl.window_rule({ name?, enabled?, match?, ...effects }) → rule_handle
+
+Define a window rule. Named rules can be updated by calling `hl.window_rule()` again with the same name. Returns a handle with `:set_enabled(bool)`.
+
+### Match criteria (inside `match = { ... }`)
+
+| Key | Type | Description |
+| --- | --- | --- |
+| class | string | Window class regex |
+| title | string | Window title regex |
+| initialClass | string | Class at creation time |
+| initialTitle | string | Title at creation time |
+| tag | string | Tag regex |
+| pid | number | Process ID |
+| address | string | Window address (hex) |
+| xwayland | bool | XWayland window |
+| float | bool | Floating state |
+| fullscreen | bool | Fullscreen state |
+| pin | bool | Pinned state |
+| workspace | string | Workspace selector |
+| monitor | string | Monitor selector |
+| grouped | bool | In a group |
+| swallowing | bool | Swallowing state |
+
+### Static effects (as top-level fields)
+
+| Field | Type | Description |
+| --- | --- | --- |
+| float | bool | Force floating |
+| tile | bool | Force tiling |
+| fullscreen | bool | Force fullscreen |
+| maximize | bool | Force maximize |
+| center | bool | Center on screen |
+| content | string | Content type override |
+| pseudo | bool | Pseudo-tile |
+| pin | bool | Pin window |
+| no_initial_focus | bool | Don't focus on open |
+| fullscreen_state | string | Override fullscreen state string |
+| move | string | Position expression e.g. `"100 200"` or `"100 monitor_w-100"` |
+| size | string | Size expression e.g. `"500x500"` or `"50% 50%"` |
+| monitor | string | Move to monitor |
+| workspace | string | Move to workspace |
+| group | string | `"set"`, `"unset"`, `"toggle"` |
+| suppress_event | string | Suppress events (e.g. `"maximize"`) |
+| rounding | int (0-20) | Set rounding |
+| border_size | int | Set border size |
+| rounding_power | float (1-10) | Rounding power |
+| scroll_mouse | float (0.01-10) | Mouse scroll speed multiplier |
+| scroll_touchpad | float (0.01-10) | Touchpad scroll speed multiplier |
+| scrolling_width | float | Scrolling layout window width |
+| animation | string | Animation style name |
+| idle_inhibit | string | `"none"`, `"always"`, `"focus"`, `"fullscreen"` |
+| opacity | string | Opacity override e.g. `"0.9"` or `"0.9 0.8"` |
+| tag | string | Assign a tag |
+| max_size | string | Max size expression `"WxH"` |
+| min_size | string | Min size expression `"WxH"` |
+| border_color | string/gradient | Border color/gradient override |
+| persistent_size | bool | Remember size across state changes |
+| allows_input | bool | Allow input to window |
+| dim_around | bool | Dim area around window |
+| decorate | bool (default true) | Show decorations |
+| focus_on_activate | bool | Focus when activated |
+| keep_aspect_ratio | bool | Maintain aspect ratio |
+| nearest_neighbor | bool | Nearest-neighbor scaling |
+| no_anim | bool | Disable animations |
+| no_blur | bool | Disable blur |
+| no_close_for | int | No close for N seconds |
+| no_dim | bool | Disable dim |
+| no_focus | bool | Don't focus automatically |
+| no_follow_mouse | bool | Don't follow mouse focus |
+| no_max_size | bool | Ignore max size hints |
+| no_shadow | bool | Disable shadows |
+| no_shortcuts_inhibit | bool | Don't allow shortcuts inhibit |
+| opaque | bool | Force opaque |
+| force_rgbx | bool | Force RGBX format |
+| sync_fullscreen | bool | Synchronize fullscreen states |
+| immediate | bool | Render immediately (tearing) |
+| xray | bool | X-ray mode (pass-through blur) |
+| render_unfocused | bool | Render even when unfocused |
+| no_screen_share | bool | Block screen sharing |
+| no_vrr | bool | Disable VRR for this window |
+| no_auto_hdr | bool | Disable auto HDR |
+| stay_focused | bool | Keep focus on this window |
+| confine_pointer | bool | Confine pointer to window |
+| tonemap | string | Tone mapping mode |
+
+    -- Named rules can be toggled at runtime:
+    local rule = hl.window_rule({ name = "float-kitty", match = { class = "kitty" }, float = true })
+    -- rule:set_enabled(false)
+
+## 4 Layer Rules — `hl.layer_rule()`
+
+hl.layer_rule({ name?, enabled?, match?, ...effects }) → rule_handle
+
+Define a layer surface rule. Match on `namespace` (regex) in the match table.
+
+| Effect | Type | Description |
+| --- | --- | --- |
+| no_anim | bool | Disable animation |
+| blur | bool | Enable blur |
+| blur_popups | bool | Blur popups |
+| ignore_alpha | float (0-1) | Alpha threshold to ignore |
+| dim_around | bool | Dim around layer |
+| xray | bool | X-ray pass-through |
+| animation | string | Animation style |
+| order | int | Render order override |
+| above_lock | int (0-2) | Render above lock screen |
+| no_screen_share | bool | Block screen sharing |
+
+## 5 Workspace Rules — `hl.workspace_rule()`
+
+hl.workspace_rule({ workspace, monitor?, ...fields })
+
+Assign workspace properties. The `workspace` field is a workspace selector string.
+
+| Field | Type | Description |
+| --- | --- | --- |
+| workspace | string | Workspace selector (e.g. `"1"`, `"name:code"`, `"special"`) |
+| monitor | string | Assign workspace to monitor |
+| default | bool | Mark as default on its monitor |
+| persistent | bool | Keep workspace alive when empty |
+| gaps_in | CSS gap | Inner gap override |
+| gaps_out | CSS gap | Outer gap override |
+| float_gaps | CSS gap | Floating window gap override |
+| border_size | int | Border size override |
+| no_border | bool | No borders |
+| no_rounding | bool | No rounding |
+| decorate | bool | Show decorations |
+| no_shadow | bool | No shadows |
+| on_created_empty | string | Command to run when empty workspace is created |
+| default_name | string | Default name for the workspace |
+| layout | string | Layout plugin name (`"dwindle"`, `"master"`, etc.) |
+| animation | string | Animation style override |
+| layout_opts | table | Layout-specific options (string-keyed table of string/bool/number) |
+| enabled | bool | Enable/disable the rule |
+
+## 6 Keybinds — `hl.bind()`, `hl.unbind()`
+
+hl.bind(keys, dispatcher, opts?) → keybind_handle
+
+Register a keybind. `keys` is a modifier-key string like `"SUPER+SHIFT+Q"`. `dispatcher` is a closure from `hl.dsp.*` or a Lua function. Returns a handle with `:set_enabled(bool)`.
+
+| Opt field | Type | Description |
+| --- | --- | --- |
+| repeating | bool | Fire repeatedly while held |
+| locked | bool | Work when locked/inhibited |
+| release | bool | Fire on key release |
+| click | bool | Fire on mouse click release |
+| drag | bool | Fire on mouse drag |
+| non_consuming | bool | Event passes through to window |
+| auto_consuming | bool | Auto-consume key event |
+| transparent | bool | Transparent to other binds |
+| ignore_mods | bool | Ignore modifiers for matching |
+| dont_inhibit | bool | Don't allow inhibition |
+| long_press | bool | Fire on long press |
+| submap_universal | bool | Work in all submaps |
+| description / desc | string | Human-readable description |
+| device | table | `{ inclusive = bool, list = { "dev1", "dev2" } }` |
+
+hl.unbind(keys)
+
+Remove a previously bound key. Pass `"all"` to clear all keybinds.
+
+hl.define_submap(name, reset?, fn)
+
+Define a submap. Inside `fn`, calls to `hl.bind()` are scoped to this submap. The optional `reset` string determines reset behavior.
+
+    -- Examples
+    hl.bind("SUPER+Q", hl.dsp.exec_cmd("kitty"))
+    hl.bind("SUPER+F", hl.dsp.window.float({ action = "toggle" }))
+    hl.bind("SUPER+SHIFT+left", hl.dsp.window.move({ direction = "left" }))
+    hl.bind("SUPER+left", hl.dsp.focus({ direction = "left" }))
+
+    -- With options
+    hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"),
+            { locked = true, repeating = true })
+
+    -- Submap example
+    hl.define_submap("resize", function()
+      hl.bind("left",  hl.dsp.window.resize({ x = -10, y = 0 }))
+      hl.bind("right", hl.dsp.window.resize({ x = 10, y = 0 }))
+      hl.bind("Escape", hl.dsp.submap("default"))
+    end)
+    hl.bind("SUPER+R", hl.dsp.submap("resize"))
+
+## 7 Dispatchers — `hl.dsp.*`
+
+All `hl.dsp.*` functions return **dispatcher closures** — they do *not* execute the action directly. Pass the result to `hl.bind()` or `hl.dispatch()`.
+
+### Top-level dispatchers
+
+| Function | Description |
+| --- | --- |
+| hl.dsp.exec_cmd(cmd) | Spawn a shell command (applies window rules if available) |
+| hl.dsp.exec_raw(cmd) | Spawn a command without shell quoting |
+| hl.dsp.exit() | Exit the compositor |
+| hl.dsp.submap(name) | Switch to a named submap (`"default"` to reset) |
+| hl.dsp.pass({ window }) | Pass keys through to a window |
+| hl.dsp.send_shortcut({ mods, key, window? }) | Inject a keyboard shortcut to a window |
+| hl.dsp.send_key_state({ mods, key, state, window? }) | Inject key state ("down"/"up"/"repeat") |
+| hl.dsp.layout(msg) | Send a layout message |
+| hl.dsp.dpms({ action?, monitor? }) | Control DPMS ("toggle"/"on"/"off") |
+| hl.dsp.event(msg) | Send an internal event |
+| hl.dsp.global(msg) | Send a global shortcut |
+| hl.dsp.force_renderer_reload() | Force renderer GL reload |
+| hl.dsp.force_idle(timeout) | Force idle timeout in seconds |
+| hl.dsp.focus({ ... }) | Multi-modal focus (see below) |
+| hl.dsp.no_op() | Do nothing (placeholder) |
+
+### `hl.dsp.focus()` modes
+
+| Mode | Example |
+| --- | --- |
+| Direction | `{ direction = "left"|"right"|"up"|"down" }` |
+| Monitor | `{ monitor = "DP-1"|"+"|"-"|"next"|"prev" }` |
+| Workspace | `{ workspace = "3"|"name:chat", on_current_monitor? }` |
+| Window | `{ window = "selector" }` — by address, class, title, or regex |
+| Urgent/last | `{ urgent_or_last = true }` |
+| Last | `{ last = true }` |
+
+### `hl.dsp.window.*`
+
+| Function | Description |
+| --- | --- |
+| hl.dsp.window.close({ window? }) | Close window |
+| hl.dsp.window.kill({ window? }) | Force-kill window |
+| hl.dsp.window.signal({ signal, window? }) | Send internal signal |
+| hl.dsp.window.float({ action?, window? }) | Toggle/enable/disable float |
+| hl.dsp.window.fullscreen({ mode?, action?, window? }) | Fullscreen (mode: "fullscreen"/"maximized", action: "toggle"/"set"/"unset") |
+| hl.dsp.window.fullscreen_state({ internal, client, action?, window? }) | Explicit fullscreen state |
+| hl.dsp.window.pseudo({ action?, window? }) | Pseudo-tile |
+| hl.dsp.window.move({ ... }) | Multi-modal move (see below) |
+| hl.dsp.window.swap({ ... }) | Swap windows (direction/target/next/prev) |
+| hl.dsp.window.center({ window? }) | Center window on screen |
+| hl.dsp.window.cycle_next({ next?, tiled?, floating?, window? }) | Cycle focus |
+| hl.dsp.window.tag({ tag, window? }) | Tag window |
+| hl.dsp.window.clear_tags({ window? }) | Clear all tags |
+| hl.dsp.window.toggle_swallow() | Toggle swallow |
+| hl.dsp.window.pin({ action?, window? }) | Pin window |
+| hl.dsp.window.bring_to_top() | Raise window |
+| hl.dsp.window.alter_zorder({ mode, window? }) | Change z-order ("top"/"bottom"/"up"/"down") |
+| hl.dsp.window.set_prop({ prop, value, window? }) | Set arbitrary window property |
+| hl.dsp.window.deny_from_group({ action? }) | Deny/allow from groups |
+| hl.dsp.window.drag() | Start mouse drag to move |
+| hl.dsp.window.resize({ ... }) | Resize (by x/y or keep_aspect_ratio) |
+
+#### `hl.dsp.window.move()` modes
+
+| Mode | Example |
+| --- | --- |
+| Direction | `{ direction = "left"|"right"|"up"|"down", group_aware? }` |
+| Position | `{ x = 100, y = 200, relative? = true }` |
+| Workspace | `{ workspace = "3"|"special:magic", follow? }` |
+| Monitor | `{ monitor = "DP-1"|"+"|"-", follow? }` |
+| Into group | `{ into_group = "left"|"right"|"up"|"down" }` |
+| Into/create group | `{ into_or_create_group = "left"|"right"|"up"|"down" }` |
+| Out of group | `{ out_of_group = true }` or `{ out_of_group = "direction" }` |
+
+### `hl.dsp.workspace.*`
+
+| Function | Description |
+| --- | --- |
+| hl.dsp.workspace.rename({ workspace, name? }) | Rename workspace |
+| hl.dsp.workspace.move({ workspace?, monitor }) | Move workspace (or current) to a monitor |
+| hl.dsp.workspace.swap_monitors({ monitor1, monitor2 }) | Swap active workspaces between monitors |
+| hl.dsp.workspace.change_id({ workspace, id }) | Change workspace ID |
+| hl.dsp.workspace.toggle_special(name?) | Toggle special (scratchpad) workspace |
+
+### `hl.dsp.group.*`
+
+| Function | Description |
+| --- | --- |
+| hl.dsp.group.toggle({ window? }) | Toggle window group |
+| hl.dsp.group.next({ window? }) | Next group member |
+| hl.dsp.group.prev({ window? }) | Previous group member |
+| hl.dsp.group.active({ index, window? }) | Set active tab by index |
+| hl.dsp.group.move_window({ forward? }) | Move window within group |
+| hl.dsp.group.lock({ action? }) | Lock/unlock all groups |
+| hl.dsp.group.lock_active({ action? }) | Lock/unlock active group |
+
+### `hl.dsp.cursor.*`
+
+| Function | Description |
+| --- | --- |
+| hl.dsp.cursor.move_to_corner({ corner=1-4, window? }) | Move cursor to window corner |
+| hl.dsp.cursor.move({ x, y }) | Move cursor by offset |
+
+## 8 Query Functions — `hl.get_*()`
+
+### Windows
+
+| Function | Returns | Description |
+| --- | --- | --- |
+| hl.get_windows({ filters? }) | { HL.Window, ... } | All windows matching filters: `monitor`, `workspace`, `floating`, `mapped`, `class`, `title`, `tag`. Defaults to mapped windows. |
+| hl.get_window(selector) | HL.Window \| nil | Single window by address, title, class, regex, or object |
+| hl.get_active_window() | HL.Window \| nil | Currently focused window |
+| hl.get_urgent_window() | HL.Window \| nil | Window with urgent hint |
+| hl.get_last_window() | HL.Window \| nil | Previously focused window |
+| hl.get_workspace_windows(ws) | { HL.Window, ... } | All mapped windows on a workspace |
+
+### Workspaces
+
+| Function | Returns | Description |
+| --- | --- | --- |
+| hl.get_workspaces() | { HL.Workspace, ... } | All non-inert workspaces |
+| hl.get_workspace(selector) | HL.Workspace \| nil | By id, name, or object |
+| hl.get_active_workspace(monitor?) | HL.Workspace \| nil | Active workspace (on given or focused monitor) |
+| hl.get_active_special_workspace(monitor?) | HL.Workspace \| nil | Active special (scratchpad) workspace |
+| hl.get_last_workspace(monitor?) | HL.Workspace \| nil | Previously active workspace |
+
+### Monitors
+
+| Function | Returns | Description |
+| --- | --- | --- |
+| hl.get_monitors() | { HL.Monitor, ... } | All monitors |
+| hl.get_monitor(selector) | HL.Monitor \| nil | By name, id, or object |
+| hl.get_active_monitor() | HL.Monitor | Focused monitor |
+| hl.get_monitor_at(x, y) or ({ x, y }) | HL.Monitor \| nil | Monitor at pixel coordinates |
+| hl.get_monitor_at_cursor() | HL.Monitor | Monitor under cursor |
+
+### Layers & misc
+
+| Function | Returns | Description |
+| --- | --- | --- |
+| hl.get_layers({ filters? }) | { HL.LayerSurface, ... } | Filter by `monitor`, `namespace` |
+| hl.get_cursor_pos() | { x, y } | Current cursor coordinates |
+| hl.get_current_submap() | string | Active submap name |
+| hl.version() | string | Hyprland version string |
+| hl.get_loaded_plugins() | { {name,author,version,description}, ... } | List of loaded plugins |
+
+## 9 Event System — `hl.on()`, `hl.off()`
+
+hl.on(event_name, callback) → subscription
+
+Subscribe to compositor events. Returns a subscription handle with methods `:remove()` and `:is_active()`. Pass to `hl.off()` to unsubscribe.
+
+hl.off(subscription)
+
+Unsubscribe from an event. Equivalent to `subscription:remove()`.
+
+### Window events
+
+| Event | Callback arguments |
+| --- | --- |
+| `"window.open"` | HL.Window |
+| `"window.open_early"` | HL.Window |
+| `"window.close"` | HL.Window |
+| `"window.destroy"` | HL.Window |
+| `"window.kill"` | HL.Window |
+| `"window.active"` | HL.Window, int focusReason |
+| `"window.urgent"` | HL.Window |
+| `"window.title"` | HL.Window |
+| `"window.class"` | HL.Window |
+| `"window.pin"` | HL.Window |
+| `"window.fullscreen"` | HL.Window |
+| `"window.update_rules"` | HL.Window |
+| `"window.move_to_workspace"` | HL.Window, HL.Workspace |
+
+### Layer events
+
+| Event | Callback arguments |
+| --- | --- |
+| `"layer.opened"` | HL.LayerSurface |
+| `"layer.closed"` | HL.LayerSurface |
+
+### Workspace events
+
+| Event | Callback arguments |
+| --- | --- |
+| `"workspace.active"` | HL.Workspace |
+| `"workspace.special_active"` | HL.Workspace, HL.Monitor |
+| `"workspace.created"` | HL.Workspace |
+| `"workspace.removed"` | HL.Workspace |
+| `"workspace.move_to_monitor"` | HL.Workspace, HL.Monitor |
+
+### Monitor events
+
+| Event | Callback arguments |
+| --- | --- |
+| `"monitor.added"` | HL.Monitor |
+| `"monitor.removed"` | HL.Monitor |
+| `"monitor.focused"` | HL.Monitor |
+| `"monitor.layout_changed"` | (none) |
+
+### Config events
+
+| Event | Callback arguments |
+| --- | --- |
+| `"config.reloaded"` | (none) |
+| `"config.props_refreshed"` | bool (was scheduled?) |
+
+### Input & misc events
+
+| Event | Callback arguments |
+| --- | --- |
+| `"keybinds.submap"` | string submapName |
+| `"screenshare.state"` | bool state, int type, string name |
+| `"hyprland.start"` | (none) |
+| `"hyprland.shutdown"` | (none) |
+| `"input.keyboard.key"` | int keycode, int timeMs, int state |
+
+    hl.on("window.open", function(win)
+      hl.print("Window opened:", win.class, win.title)
+    end)
+
+## 10 Utility Functions
+
+hl.print(...)
+
+Log one or more values to the Hyprland log.
+
+hl.exec_cmd(cmd, rule_table?)
+
+Execute a shell command immediately (not as a dispatcher). Accepts an optional rule table for window rule effects.
+
+hl.env(name, value, dbus?)
+
+Set an environment variable. If `dbus` is true, also update via D-Bus activation environment.
+
+hl.dispatch(dispatcher_closure)
+
+Execute a dispatcher closure immediately (same as calling a bound key's action).
+
+hl.load_plugin(path)
+
+Register a plugin to be loaded. Path is the absolute path to `.so` file.
+
+hl.clear_crashed_lockscreen()
+
+Clear a crashed lockscreen session.
+
+hl.exec_scheduled_prop_refresh_immediately()
+
+Execute any pending scheduled property refresh immediately.
+
+hl.is_key_down(keycode_or_keysym) → bool
+
+Check if a key is currently pressed. Accepts a keycode (int) or keysym (string).
+
+    hl.env("XCURSOR_SIZE", "24")
+    hl.exec_cmd("waybar")
+    hl.dispatch(hl.dsp.window.close())
+
+## 11 Notifications — `hl.notification.*`
+
+hl.notification.create({ text, duration, icon?, color?, font_size? }) → notification_handle
+
+| Field | Type | Description |
+| --- | --- | --- |
+| text | string | Notification message |
+| duration / timeout / time | number (ms) | Display duration (required) |
+| icon | string or int | Icon: `"warning"`, `"info"`, `"error"`, `"ok"`, `"hint"`, `"confused"`, `"question"`, `"none"`, or numeric |
+| color | string or int | Background color (hex string, rgba, or numeric) |
+| font_size | number | Font size (default 13) |
+
+hl.notification.get() → { HL.Notification, ... }
+
+Get list of current notifications.
+
+### HL.Notification methods
+
+The object returned by `hl.notification.create()` and `hl.notification.get()` has the following methods:
+
+| Method | Description |
+| --- | --- |
+| pause() | Pause the notification (keeps it visible indefinitely) |
+| resume() | Resume the notification timer |
+| set_paused(bool) | Set paused state |
+| is_paused() → bool | Check if paused |
+| set_text(text) | Set notification text |
+| set_timeout(ms) | Set display timeout in ms |
+| set_color(color) | Set background color (string or number) |
+| set_icon(icon) | Set icon (name or number) |
+| set_font_size(size) | Set font size |
+| dismiss() | Dismiss the notification immediately |
+| get_text() → string | Get notification text |
+| get_timeout() → number | Get timeout in ms |
+| get_color() → int | Get color as hex integer |
+| get_icon() → int | Get icon ID |
+| get_font_size() → number | Get font size |
+| get_elapsed() → number | Get elapsed time since last change (ms) |
+| get_elapsed_since_creation() → number | Get elapsed time since creation (ms) |
+| is_alive() → bool | Check if notification still exists |
+
+## 12 Timers — `hl.timer()`
+
+hl.timer(callback, { timeout, type }) → timer_handle
+
+| Field | Type | Description |
+| --- | --- | --- |
+| callback | function | Function to call when timer fires |
+| timeout | number (ms) | Interval/delay in milliseconds |
+| type | string | `"repeat"` or `"oneshot"` |
+
+    local t = hl.timer(function() hl.print("tick") end, { timeout = 1000, type = "repeat" })
+    -- t:cancel() to stop
+
+## 13 Animations & Curves — `hl.curve()`, `hl.animation()`
+
+hl.curve(name, definition)
+
+Define a named animation curve (bezier or spring).
+
+| Type | Definition table |
+| --- | --- |
+| bezier | `{ type = "bezier", points = { {x1,y1}, {x2,y2} } }` |
+| spring | `{ type = "spring", mass = number, stiffness = number, dampening = number }` |
+
+hl.animation({ leaf, enabled, speed, bezier? / spring?, style? })
+
+Configure an animation leaf. Known leaves: `"global"`, `"border"`, `"windows"`, `"windowsIn"`, `"windowsOut"`, `"fade"`, `"fadeIn"`, `"fadeOut"`, `"layers"`, `"layersIn"`, `"layersOut"`, `"workspaces"`, etc.
+
+    hl.curve("myBezier", { type = "bezier", points = { {0.23, 1}, {0.32, 1} } })
+    hl.animation({ leaf = "windows", enabled = true, speed = 4.79, spring = "easy" })
+
+## 14 Devices — `hl.device()`
+
+hl.device({ name, ...fields })
+
+Configure per-device input settings. The `name` field is the device name (from `hyprctl devices`).
+
+| Field | Type | Description |
+| --- | --- | --- |
+| name | string | Device name (required) |
+| enabled | bool | Enable/disable device |
+| sensitivity | float (-1 to 1) | Pointer sensitivity |
+| accel_profile | string | `"adaptive"` or `"flat"` |
+| natural_scroll | bool | Natural scrolling |
+| tap_to_click | bool | Tap to click |
+| tap_and_drag | bool | Tap and drag |
+| drag_lock | int (0-2) | Drag lock behavior |
+| left_handed | bool | Left-handed mode |
+| scroll_method | string | `"on_button_down"`, `"edge"`, `"two_finger"`, `"no_scroll"` |
+| scroll_button | int (0-300) | Scroll button |
+| scroll_button_lock | bool | Lock scroll button |
+| scroll_factor | float (0-100) | Scroll speed multiplier |
+| clickfinger_behavior | bool | Clickfinger behavior |
+| middle_button_emulation | bool | Middle button emulation |
+| tap_button_map | string | `"lrm"` or `"lmr"` |
+| disable_while_typing | bool | Disable touchpad while typing |
+| numlock_by_default | bool | NumLock on by default |
+| resolve_binds_by_sym | bool | Resolve binds by keysym |
+| kb_layout | string | Keyboard layout |
+| kb_variant | string | Keyboard variant |
+| kb_options | string | Keyboard options |
+| kb_rules | string | Keyboard rules |
+| kb_model | string | Keyboard model |
+| kb_file | string | Custom keymap file path |
+| repeat_rate | int (0-200) | Key repeat rate |
+| repeat_delay | int (0-2000) | Key repeat delay (ms) |
+| rotation | int (0-359) | Tablet rotation |
+| transform | int | Tablet transform |
+| output | string | Tablet output mapping |
+| region_position | vec2 | Tablet region position |
+| region_size | vec2 | Tablet region size |
+| relative_input | bool | Relative input mode |
+| flip_x / flip_y | bool | Flip tablet axis |
+| tags | string | Device tags |
+| keybinds | bool | Enable keybinds on this device |
+| share_states | int (0-2) | LED state sharing |
+| scroll_points | string | Scroll point configuration |
+| absolute_region_position | bool | Use absolute region position for tablet |
+| active_area_position | vec2 | Tablet active area position |
+| active_area_size | vec2 | Tablet active area size |
+| drag_3fg | int (0-2) | Three-finger drag behavior |
+| release_pressed_on_close | bool | Release pressed keys when virtual keyboard closes |
+
+## 15 Permissions — `hl.permission()`
+
+hl.permission(binary, type, mode)
+
+hl.permission({ binary, type, mode })
+
+Set a permission rule for a binary. Accepts positional args or a table with `binary`, `type`, `mode` fields. Requires `hl.config({ ecosystem = { enforce_permissions = true } })` to be active.
+
+| Field | Values |
+| --- | --- |
+| binary | Regex path to binary, e.g. `"/usr/bin/grim"`, `"/usr/(bin|libexec)/xdg-desktop-portal-hyprland"` |
+| type | `"screencopy"`, `"cursorpos"`, `"plugin"`, `"keyboard"` |
+| mode | `"allow"`, `"deny"`, `"ask"` |
+
+Permissions are only applied on first launch. Changes require a restart.
+
+## 16 Gestures — `hl.gesture()`
+
+hl.gesture({ fingers, direction, action, ... })
+
+| Field | Type | Description |
+| --- | --- | --- |
+| fingers | int (2-9) | Number of fingers |
+| direction | string | `"horizontal"`, `"vertical"`, `"left"`, `"right"`, `"up"`, `"down"`, `"any"` |
+| action | string or function | `"workspace"`, `"resize"`, `"move"`, `"special"`, `"close"`, `"float"`, `"fullscreen"`, `"cursor_zoom"` / `"cursorZoom"`, `"scroll_move"`, `"unset"`, or a Lua function |
+| mods | string | Modifier combination like `"SUPER"` |
+| scale | float (0.1-10) | Delta scale (default 1.0) |
+| disable_inhibit | bool | Disable inhibit for this gesture |
+| zoom_level | string | Zoom level for `cursor_zoom` action |
+| workspace_name | string | Workspace name for `special` action |
+| mode | string | Mode for `float` / `fullscreen` / `cursor_zoom` actions |
+
+## 17 Plugins — `hl.plugin.load()`
+
+hl.plugin.load(path)
+
+Register a plugin to load. The path is an absolute path to the `.so` file.
+
+## 18 Custom Layouts — `hl.layout.*`
+
+hl.layout.register(name, methods)
+
+Register a custom tiling layout. The methods table must implement layout lifecycle callbacks.
+
+| Required method | Signature |
+| --- | --- |
+| onWindowAdded | `function(window)` |
+| onWindowRemoved | `function(window)` |
+| onWindowSwapped | `function(w1, w2)` |
+| onWindowMoved | `function(window, fromWorkspace)` |
+| requestResize | `function(window, edge, delta)` |
+| requestMove | `function(window, x, y)` |
+| calculateWindowSize | `function(window)` |
+| recalculate | `function()` |
+| resizeActiveWindow | `function(delta, edge)` |
+
+hl.layout.list() → { string, ... }
+
+List registered layout names.
+
+hl.layout.get(name) → layout
+
+Get a registered layout by name.
+
+## 19 Object Types
+
+### HL.Window
+
+| Property | Type | Description |
+| --- | --- | --- |
+| address | string | Memory address (`"0x..."`) |
+| mapped | bool | Is mapped |
+| hidden | bool | Is hidden |
+| visible | bool | Is visible |
+| accepts_input | bool | Accepts keyboard input |
+| at | { x, y } | Position on screen |
+| size | { x, y } | Width and height |
+| workspace | HL.Workspace | Workspace containing the window |
+| floating | bool | Is floating |
+| monitor | HL.Monitor | Monitor the window is on |
+| class | string | Window class |
+| title | string | Window title |
+| initial_class | string | Class at creation |
+| initial_title | string | Title at creation |
+| pid | int | Process ID |
+| xwayland | bool | Is XWayland window |
+| pinned | bool | Is pinned to workspace |
+| fullscreen | int | Internal fullscreen mode (0/1/2) |
+| fullscreen_client | int | Client fullscreen mode (0/1/2) |
+| over_fullscreen | bool | Created over fullscreen |
+| group | HL.Group | Group object if in a group |
+| tags | { string, ... } | List of tags |
+| swallowing | HL.Window | Swallowed window |
+| focus_history_id | int | Position in focus history |
+| inhibiting_idle | bool | Is inhibiting idle |
+| xdg_tag | string | XDG tag |
+| xdg_description | string | XDG description |
+| content_type | string | Content type |
+| stable_id | int | Stable window ID |
+| active | bool | Is focused |
+| layout | { name, is_master?, perc_master?, perc_size?, ... } | Layout-specific data |
+
+### HL.Workspace
+
+| Property | Type | Description |
+| --- | --- | --- |
+| id | int | Workspace ID |
+| name | string | Workspace name |
+| monitor | HL.Monitor | Monitor the workspace is on |
+| windows | int | Number of windows |
+| visible | bool | Is visible |
+| special | bool | Is special (scratchpad) workspace |
+| active | bool | Is active on its monitor |
+| has_urgent | bool | Has urgent window |
+| fullscreen_mode | int | Fullscreen mode |
+| has_fullscreen | bool | Has fullscreen window |
+| is_persistent | bool | Is persistent workspace |
+| is_empty | bool | Has no windows |
+| config_name | string | Config-specified name |
+| tiled_layout | string | Active tiled layout name |
+| last_window | HL.Window | Last focused window |
+| fullscreen_window | HL.Window | Fullscreen window (if any) |
+| groups | int | Number of groups |
+| get_windows() | { HL.Window, ... } | Get all windows on this workspace |
+| get_groups() | { HL.Group, ... } | Get all groups on this workspace |
+
+### HL.Monitor
+
+| Property | Type | Description |
+| --- | --- | --- |
+| id | int | Monitor ID |
+| name | string | Monitor name (e.g. `"DP-1"`) |
+| description | string | Short description |
+| serial | string | Serial number |
+| width | int | Pixel width |
+| height | int | Pixel height |
+| physical_width | int | Physical width (mm) |
+| physical_height | int | Physical height (mm) |
+| refresh_rate | number | Refresh rate (Hz) |
+| x | int | Position X |
+| y | int | Position Y |
+| position | { x, y } | Position as table |
+| size | { width, height } | Size as table |
+| scale | number | Scale factor |
+| transform | int | Transform (0-7) |
+| active_workspace | HL.Workspace | Active workspace |
+| active_special_workspace | HL.Workspace | Active special workspace (or nil) |
+| dpms_status | bool | DPMS state |
+| vrr_active | bool | VRR active |
+| is_mirror | bool | Is mirroring another output |
+| mirrors | { HL.Monitor, ... } | Mirroring outputs |
+| available_modes | { {width,height,refresh_rate,preferred}, ... } | Available video modes |
+| focused | bool | Is focused |
+| cm | string | Color management mode |
+| reserved | { top, right, bottom, left } | Reserved area (for bars) |
+| set_workspace({ workspace }) | — | Switch to a workspace on this monitor |
+| set_special_workspace({ workspace? }) | — | Toggle special workspace |
+
+### HL.LayerSurface
+
+| Property | Type | Description |
+| --- | --- | --- |
+| address | string | Memory address |
+| x | int | Position X |
+| y | int | Position Y |
+| w | int | Width |
+| h | int | Height |
+| namespace | string | Layer namespace |
+| pid | int | Process ID |
+| monitor | HL.Monitor | Monitor |
+| mapped | bool | Is mapped |
+| layer | int | Layer index |
+| interactivity | int | Interactivity level |
+| above_fullscreen | bool | Renders above fullscreen windows |
+
+### HL.Group
+
+| Property | Type | Description |
+| --- | --- | --- |
+| locked | bool | Group is locked (can't add/remove members) |
+| denied | bool | Group is denied (members can't be focused) |
+| size | int | Number of members |
+| current_index | int | Index of the active member (1-based) |
+| current | HL.Window | Currently focused member window |
+| members | { HL.Window, ... } | All member windows |
+Generated from the Hyprland source tree. Hyprland is © its contributors.

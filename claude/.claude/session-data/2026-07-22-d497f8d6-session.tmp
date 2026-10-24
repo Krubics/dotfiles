@@ -1,0 +1,30 @@
+# Session: 2026-07-22
+**Date:** 2026-07-22
+**Started:** 20:08
+**Last Updated:** 20:08
+**Project:** krubics
+**Branch:** unknown
+**Worktree:** /home/krubics
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Human: <session> Figure out why whenever I hover on my scrollbar on the right the scroll bar background turns black. </session>  Write the title in the predominant language of the session — a stray wo
+- [structured-output-enforce] You MUST call the StructuredOutput tool to complete this request. Call this tool now.
+
+### Tools Used
+Bash, StructuredOutput
+
+### Stats
+- Total user messages: 2
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

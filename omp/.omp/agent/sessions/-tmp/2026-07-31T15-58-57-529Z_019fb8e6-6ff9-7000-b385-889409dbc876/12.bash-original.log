@@ -1,0 +1,10 @@
+fatal: path 'home-manager/.config/home-manager/packages/skills-manager.nix' does not exist in 'HEAD'
+---is it imported anywhere---
+/home/krubics/dotfiles/home-manager/.config/home-manager/modules/skills-manager.nix:1:# skills-manager.nix
+/home/krubics/dotfiles/home-manager/.config/home-manager/modules/skills-manager.nix:9:# on PATH as `skills-manager`.
+/home/krubics/dotfiles/home-manager/.config/home-manager/modules/skills-manager.nix:20:    url = "https://github.com/xingkongliang/skills-manager/releases/download/v${version}/skills-manager_${version}_amd64.AppImage";
+/home/krubics/dotfiles/home-manager/.config/home-manager/modules/skills-manager.nix:26:    (pkgs.runCommand "skills-manager-${version}"
+/home/krubics/dotfiles/home-manager/.config/home-manager/modules/skills-manager.nix:31:          homepage = "https://github.com/xingkongliang/skills-manager";
+/home/krubics/dotfiles/home-manager/.config/home-manager/modules/skills-manager.nix:33:          mainProgram = "skills-manager";
+/home/krubics/dotfiles/home-manager/.config/home-manager/modules/skills-manager.nix:39:        install -Dm755 ${appimage} $out/bin/skills-manager
+/home/krubics/dotfiles/home-manager/.config/home-manager/home.nix:9:  imports = [ ./modules/skills-manager.nix ];

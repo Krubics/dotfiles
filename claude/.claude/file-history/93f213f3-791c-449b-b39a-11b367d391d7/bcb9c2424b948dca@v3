@@ -1,0 +1,4 @@
+[Service]
+Environment=GI_TYPELIB_PATH=/usr/local/lib/x86_64-linux-gnu/girepository-1.0
+Environment=LD_LIBRARY_PATH=/usr/local/lib/x86_64-linux-gnu
+Environment=LD_PRELOAD=/usr/local/lib/x86_64-linux-gnu/libgtk4-layer-shell.so.1.3.0

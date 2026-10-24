@@ -1,0 +1,99 @@
+total 364
+drwxrwxr-x   8 krubics krubics   4096 Feb 19 04:32 .
+drwxr-x--- 104 krubics krubics   4096 Jul 28 16:58 ..
+drwxrwxr-x   3 krubics krubics   4096 Feb 19 04:32 .cache
+-rw-rw-r--   1 krubics krubics    155 Feb 19 04:32 .dockerignore
+-rw-rw-r--   1 krubics krubics    658 Feb 19 04:32 .editorconfig
+drwxrwxr-x   8 krubics krubics   4096 Feb 19 04:32 .git
+-rw-rw-r--   1 krubics krubics     19 Feb 19 04:32 .gitattributes
+drwxrwxr-x   4 krubics krubics   4096 Feb 19 04:32 .github
+-rw-rw-r--   1 krubics krubics    277 Feb 19 04:32 .gitignore
+-rw-rw-r--   1 krubics krubics    103 Feb 19 04:32 .gitmodules
+-rw-rw-r--   1 krubics krubics     51 Feb 19 04:32 .mailmap
+-rw-rw-r--   1 krubics krubics     19 Feb 19 04:32 .npmrc
+-rw-rw-r--   1 krubics krubics  16086 Feb 19 04:32 AGENTS.md
+lrwxrwxrwx   1 krubics krubics      9 Feb 19 04:32 CLAUDE.md -> AGENTS.md
+-rw-rw-r--   1 krubics krubics   7560 Feb 19 04:32 CODE_OF_CONDUCT.md
+-rw-rw-r--   1 krubics krubics   5817 Feb 19 04:32 CONTRIBUTING.md
+-rw-rw-r--   1 krubics krubics   3696 Feb 19 04:32 Dockerfile
+-rw-rw-r--   1 krubics krubics    467 Feb 19 04:32 GOVERNANCE.md
+-rw-rw-r--   1 krubics krubics   1113 Feb 19 04:32 LICENSE.md
+-rw-rw-r--   1 krubics krubics   5440 Feb 19 04:32 Makefile
+-rw-rw-r--   1 krubics krubics   2935 Feb 19 04:32 PROJECT_CHARTER.md
+-rw-rw-r--   1 krubics krubics  50903 Feb 19 04:32 README.md
+-rw-rw-r--   1 krubics krubics    882 Feb 19 04:32 ROADMAP.md
+drwxrwxr-x   3 krubics krubics   4096 Feb 19 04:33 alias
+-rw-rw-r--   1 krubics krubics   2299 Feb 19 04:32 bash_completion
+-rwxrwxr-x   1 krubics krubics  16774 Feb 19 04:32 install.sh
+-rwxrwxr-x   1 krubics krubics    465 Feb 19 04:32 nvm-exec
+-rwxrwxr-x   1 krubics krubics 152644 Feb 19 04:32 nvm.sh
+-rw-rw-r--   1 krubics krubics   2925 Feb 19 04:32 package.json
+-rwxrwxr-x   1 krubics krubics   1235 Feb 19 04:32 rename_test.sh
+drwxrwxr-x  11 krubics krubics   4096 Feb 19 04:32 test
+-rwxrwxr-x   1 krubics krubics   2478 Feb 19 04:32 update_test_mocks.sh
+drwxrwxr-x   3 krubics krubics   4096 Feb 19 04:32 versions
+---
+/home/krubics/.config/nvm/nvm.sh
+/home/krubics/.nvm/nvm.sh
+---
+/nix/store/0nbp03038s33ck712yx9219gcj3a2sqm-nodejs-slim-24.18.0/bin/node
+/proc/irq/0/node
+/proc/irq/1/node
+/proc/irq/2/node
+/proc/irq/3/node
+/proc/irq/4/node
+/proc/irq/5/node
+/proc/irq/6/node
+/proc/irq/7/node
+/proc/irq/8/node
+/proc/irq/9/node
+/proc/irq/10/node
+/proc/irq/11/node
+/proc/irq/12/node
+/proc/irq/13/node
+/proc/irq/14/node
+/proc/irq/15/node
+/proc/irq/16/node
+/proc/irq/17/node
+/proc/irq/20/node
+/proc/irq/120/node
+/proc/irq/121/node
+/proc/irq/122/node
+/proc/irq/123/node
+/proc/irq/124/node
+/proc/irq/125/node
+/proc/irq/133/node
+/proc/irq/134/node
+/proc/irq/135/node
+/proc/irq/136/node
+/proc/irq/137/node
+/proc/irq/138/node
+/proc/irq/139/node
+/proc/irq/140/node
+/proc/irq/141/node
+/proc/irq/142/node
+/proc/irq/143/node
+/proc/irq/144/node
+/proc/irq/145/node
+/proc/irq/146/node
+/proc/irq/147/node
+/proc/irq/148/node
+/proc/irq/149/node
+/proc/irq/150/node
+/proc/irq/151/node
+/proc/irq/152/node
+/proc/irq/153/node
+/proc/irq/154/node
+/proc/irq/155/node
+/proc/irq/156/node
+/proc/irq/157/node
+/proc/irq/158/node
+/proc/irq/159/node
+/proc/irq/160/node
+/proc/irq/161/node
+/proc/irq/162/node
+/proc/irq/163/node
+/proc/irq/164/node
+---
+---profile---
+---which---

@@ -1,0 +1,1922 @@
+Listening on /run/user/1000/broadway11.socket
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.496: Theme parser error: libadwaita.css:1:1-6: Unknown name of pseudo-class
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:54:38-39: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:57:28-34: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:58:33-39: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:59:29-35: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:60:29-35: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:61:27-33: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:63:37-38: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:65:35-36: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:67:40-41: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:68:44-45: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:70:43-44: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:71:50-51: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:73:38-39: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:75:41-42: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:76:42-43: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:78:48-49: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:80:51-52: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:81:52-53: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:83:35-36: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:84:38-39: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:86:37-38: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:88:38-39: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:89:41-42: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:91:40-41: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:92:33-34: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:94:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:96:1-6: Unknown name of pseudo-class
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:98:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:100:1-6: Unknown name of pseudo-class
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:112:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:114:1-6: Unknown name of pseudo-class
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:116:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:118:1-6: Unknown name of pseudo-class
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:120:22-26: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:120:64-68: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:122:14-18: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:128:382-399: No property named "--accent-bg-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:128:425-442: No property named "--accent-fg-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:128:462-487: No property named "--scrollbar-outline-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:128:507-531: No property named "--standalone-color-oklab"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:128:551-565: No property named "--accent-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:128:633-652: No property named "--destructive-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:128:725-740: No property named "--success-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:128:809-824: No property named "--warning-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:128:893-906: No property named "--error-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:128:988-991: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:128:1040-1041: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:131:31-41: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:133:44-54: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:135:76-80: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:135:128-132: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.497: Theme parser error: libadwaita.css:135:165-169: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:140:47-48: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:140:68-69: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:140:90-91: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:140:113-114: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:143:55-56: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:143:77-78: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:143:98-99: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:143:120-121: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:143:143-144: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:145:86-90: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:146:57-61: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:148:231-235: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:186:48-52: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:188:55-56: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:188:82-83: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:188:108-109: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:190:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:192:73-83: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:194:66-69: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:194:100-103: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:194:133-136: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:196:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:202:76-86: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:204:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:206:59-69: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:206:59-69: Junk at end of value for background
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:208:119-129: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:208:119-129: Junk at end of value for background
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:214:78-81: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:214:111-114: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:216:78-81: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:216:111-114: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:218:89-92: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:220:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:222:57-67: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:224:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:232:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:242:821-831: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.498: Theme parser error: libadwaita.css:244:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.499: Theme parser error: libadwaita.css:246:6291-6301: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.499: Theme parser error: libadwaita.css:248:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.499: Theme parser error: libadwaita.css:250:6574-6584: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.499: Theme parser error: libadwaita.css:252:13863-13873: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.500: Theme parser error: libadwaita.css:254:6672-6682: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.500: Theme parser error: libadwaita.css:256:6624-6634: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.500: Theme parser error: libadwaita.css:258:13933-13943: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.500: Theme parser error: libadwaita.css:260:1077-1081: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.501: Theme parser error: libadwaita.css:280:5464-5468: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.501: Theme parser error: libadwaita.css:280:5516-5520: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.501: Theme parser error: libadwaita.css:282:89-92: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.501: Theme parser error: libadwaita.css:282:127-128: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.501: Theme parser error: libadwaita.css:286:94-104: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.501: Theme parser error: libadwaita.css:288:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.501: Theme parser error: libadwaita.css:290:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.501: Theme parser error: libadwaita.css:292:83-93: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.501: Theme parser error: libadwaita.css:294:162-172: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.501: Theme parser error: libadwaita.css:296:73-83: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.501: Theme parser error: libadwaita.css:298:85-95: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.501: Theme parser error: libadwaita.css:300:180-190: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.501: Theme parser error: libadwaita.css:306:1607-1617: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.501: Theme parser error: libadwaita.css:308:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.501: Theme parser error: libadwaita.css:310:1392-1402: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.502: Theme parser error: libadwaita.css:312:3004-3005: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.502: Theme parser error: libadwaita.css:314:1430-1431: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.502: Theme parser error: libadwaita.css:316:1526-1527: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.502: Theme parser error: libadwaita.css:318:3260-3261: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.502: Theme parser error: libadwaita.css:320:693-710: No property named "--accent-bg-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.502: Theme parser error: libadwaita.css:320:741-758: No property named "--accent-fg-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.502: Theme parser error: libadwaita.css:320:789-803: No property named "--accent-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.502: Theme parser error: libadwaita.css:320:838-842: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.502: Theme parser error: libadwaita.css:320:877-887: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.502: Theme parser error: libadwaita.css:322:759-769: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.502: Theme parser error: libadwaita.css:324:1618-1628: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.502: Theme parser error: libadwaita.css:326:775-785: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.502: Theme parser error: libadwaita.css:328:823-833: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.502: Theme parser error: libadwaita.css:330:1746-1756: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.502: Theme parser error: libadwaita.css:332:35-45: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.502: Theme parser error: libadwaita.css:332:114-118: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.502: Theme parser error: libadwaita.css:334:34-38: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.502: Theme parser error: libadwaita.css:336:78-82: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.503: Theme parser error: libadwaita.css:342:4576-4586: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.503: Theme parser error: libadwaita.css:344:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.503: Theme parser error: libadwaita.css:346:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.503: Theme parser error: libadwaita.css:348:3999-4009: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.503: Theme parser error: libadwaita.css:348:3999-4009: Junk at end of value for background
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.503: Theme parser error: libadwaita.css:350:8599-8609: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.503: Theme parser error: libadwaita.css:350:8599-8609: Junk at end of value for background
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.504: Theme parser error: libadwaita.css:352:4081-4091: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.504: Theme parser error: libadwaita.css:352:4081-4091: Junk at end of value for background
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.504: Theme parser error: libadwaita.css:354:4327-4337: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.504: Theme parser error: libadwaita.css:354:4327-4337: Junk at end of value for background
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.504: Theme parser error: libadwaita.css:356:9255-9265: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.504: Theme parser error: libadwaita.css:356:9255-9265: Junk at end of value for background
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.504: Theme parser error: libadwaita.css:378:33-37: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.504: Theme parser error: libadwaita.css:382:50-60: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.504: Theme parser error: libadwaita.css:384:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.504: Theme parser error: libadwaita.css:386:45-55: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.504: Theme parser error: libadwaita.css:388:79-89: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.504: Theme parser error: libadwaita.css:390:41-45: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.504: Theme parser error: libadwaita.css:390:87-97: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.504: Theme parser error: libadwaita.css:392:53-63: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.504: Theme parser error: libadwaita.css:394:95-105: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.504: Theme parser error: libadwaita.css:396:62-72: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.504: Theme parser error: libadwaita.css:398:46-56: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.505: Theme parser error: libadwaita.css:400:35-39: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.505: Theme parser error: libadwaita.css:400:87-91: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.505: Theme parser error: libadwaita.css:410:71-81: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.505: Theme parser error: libadwaita.css:414:39-43: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.505: Theme parser error: libadwaita.css:420:49-53: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.505: Theme parser error: libadwaita.css:420:80-84: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.505: Theme parser error: libadwaita.css:422:39-49: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.505: Theme parser error: libadwaita.css:422:118-122: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.505: Theme parser error: libadwaita.css:460:40-44: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.505: Theme parser error: libadwaita.css:468:513-523: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.505: Theme parser error: libadwaita.css:468:513-523: Junk at end of value for background
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.505: Theme parser error: libadwaita.css:470:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.505: Theme parser error: libadwaita.css:472:1436-1446: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.505: Theme parser error: libadwaita.css:472:1436-1446: Junk at end of value for background
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.505: Theme parser error: libadwaita.css:476:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.505: Theme parser error: libadwaita.css:486:50-54: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.505: Theme parser error: libadwaita.css:486:81-85: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.505: Theme parser error: libadwaita.css:488:34-51: No property named "--accent-bg-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.505: Theme parser error: libadwaita.css:488:82-99: No property named "--accent-fg-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.505: Theme parser error: libadwaita.css:488:130-144: No property named "--accent-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.505: Theme parser error: libadwaita.css:488:179-183: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.505: Theme parser error: libadwaita.css:490:40-50: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.505: Theme parser error: libadwaita.css:490:119-123: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.505: Theme parser error: libadwaita.css:494:138-148: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.505: Theme parser error: libadwaita.css:496:139-149: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.505: Theme parser error: libadwaita.css:498:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.505: Theme parser error: libadwaita.css:522:19-23: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.505: Theme parser error: libadwaita.css:522:89-99: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.505: Theme parser error: libadwaita.css:524:99-103: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.505: Theme parser error: libadwaita.css:526:46-56: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.505: Theme parser error: libadwaita.css:532:60-70: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.505: Theme parser error: libadwaita.css:540:48-58: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.505: Theme parser error: libadwaita.css:542:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:546:84-94: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:548:85-89: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:548:116-120: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:550:57-67: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:556:50-60: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:558:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:564:237-247: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:566:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:568:124-134: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:570:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:572:116-126: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:574:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:576:92-96: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:576:123-127: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:578:122-132: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:580:132-133: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:582:50-54: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:604:50-60: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:606:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:624:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:628:44-45: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:630:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:632:72-76: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:634:71-75: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:640:40-44: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:648:44-54: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:650:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:656:161-171: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:658:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:660:193-197: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:668:165-175: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:670:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:672:183-193: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:674:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:684:467-471: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:684:509-513: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:694:423-433: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:696:291-301: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.506: Theme parser error: libadwaita.css:700:161-171: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:700:257-267: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:702:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:704:300-310: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:706:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:708:282-286: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:715:47-51: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:717:84-85: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:717:142-152: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:725:50-54: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:727:78-79: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:727:105-106: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:727:131-132: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:727:167-170: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:729:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:733:230-233: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:733:264-267: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:733:297-300: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:735:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:739:59-63: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:739:90-94: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:757:61-65: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:757:93-97: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:759:98-102: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:761:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:763:96-100: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:765:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:767:56-60: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:771:65-75: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:773:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:779:45-55: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:781:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:785:47-57: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:787:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:791:91-95: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:794:109-113: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:796:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:800:65-75: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:802:66-76: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:804:51-61: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:804:130-134: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.507: Theme parser error: libadwaita.css:806:55-65: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:806:134-138: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:808:54-64: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:808:134-138: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:810:52-62: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:810:130-134: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:818:93-103: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:818:171-181: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:820:99-109: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:822:122-132: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:824:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:828:118-128: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:830:188-198: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:838:117-127: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:840:183-187: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:846:174-184: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:850:152-156: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:850:183-187: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:852:106-116: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:856:132-142: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:860:102-112: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:862:96-100: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:864:99-103: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:866:79-83: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:877:47-57: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:879:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:881:87-97: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:881:87-97: Junk at end of value for background
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:881:163-167: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:883:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:899:49-53: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:899:49-53: Junk at end of value for background
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:901:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:905:89-99: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:907:90-100: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:909:86-96: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:911:87-97: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:913:129-139: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:915:90-100: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:924:139-140: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.508: Theme parser error: libadwaita.css:942:222-232: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:942:318-328: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:944:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:956:82-92: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:956:82-92: Junk at end of value for background
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:958:49-59: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:958:49-59: Junk at end of value for background
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:960:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:964:350-360: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:964:446-456: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:966:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:968:369-379: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:968:462-472: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:970:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:982:76-86: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:982:134-138: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:984:49-59: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:986:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:988:137-147: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:990:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:994:62-72: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:996:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:998:72-76: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:998:112-116: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:1002:55-59: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:1004:46-49: Percentages are not allowed here
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:1006:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:1008:58-62: Percentages are not allowed here
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:1010:60-63: Percentages are not allowed here
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:1012:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:1018:100-103: Percentages are not allowed here
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:1020:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:1022:94-98: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:1022:146-150: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:1028:193-197: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:1034:37-41: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:1040:68-78: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:1042:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:1066:124-128: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:1068:75-79: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:1070:78-82: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:1070:130-134: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:1084:33-43: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.509: Theme parser error: libadwaita.css:1098:65-75: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1098:161-171: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1100:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1106:90-91: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1110:257-274: No property named "--accent-bg-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1110:285-299: No property named "--accent-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1112:52-62: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1114:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1118:77-87: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1118:154-158: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1120:86-96: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1122:96-106: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1122:189-199: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1124:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1126:56-73: No property named "--accent-bg-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1126:84-98: No property named "--accent-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1128:67-71: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1128:67-71: Junk at end of value for background
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1128:96-100: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1130:76-80: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1130:76-80: Junk at end of value for background
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1132:47-51: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1132:79-83: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1134:56-60: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1136:77-81: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1138:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1140:86-90: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1142:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1144:78-82: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1146:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1148:87-91: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1150:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1157:49-53: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1157:83-87: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1157:135-139: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1159:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1169:40-44: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1183:67-77: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1185:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1187:83-93: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1219:56-66: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.510: Theme parser error: libadwaita.css:1228:53-63: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1230:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1232:59-69: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1234:60-70: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1251:45-49: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1253:98-101: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1253:134-138: Expected a length
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1253:205-209: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1253:340-355: No property named "--window-radius"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1253:438-455: Percentages are not allowed here
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1255:112-113: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1255:139-140: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1255:165-166: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1257:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1259:55-61: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1259:55-61: Junk at end of value for background
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1263:81-82: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1263:108-109: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1263:128-134: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1265:61-65: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1267:82-86: Unexpected data at end of drop-shadow() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1273:34-38: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1275:434-438: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1277:18-22: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1279:17-21: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1279:38-55: No property named "--accent-bg-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1279:80-97: No property named "--accent-fg-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1279:122-136: No property named "--accent-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1281:19-23: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1281:40-57: No property named "--accent-bg-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1281:84-101: No property named "--accent-fg-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1281:128-142: No property named "--accent-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1283:19-23: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1283:40-57: No property named "--accent-bg-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1283:84-101: No property named "--accent-fg-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1283:128-142: No property named "--accent-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1302:26-30: Expected a string
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1302:66-70: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1304:27-31: Expected a string
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1304:68-72: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1309:39-43: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1309:79-83: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1311:37-41: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1335:51-55: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1337:91-95: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1339:52-56: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1341:53-63: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.511: Theme parser error: libadwaita.css:1343:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.512: Theme parser error: libadwaita.css:1425:28-32: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.512: Theme parser error: libadwaita.css:1427:44-54: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.512: Theme parser error: libadwaita.css:1429:44-48: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.512: Theme parser error: libadwaita.css:1431:42-46: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.512: Theme parser error: libadwaita.css:1433:46-56: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.512: Theme parser error: libadwaita.css:1435:38-48: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.512: Theme parser error: libadwaita.css:1437:54-64: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.512: Theme parser error: libadwaita.css:1439:52-62: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.512: Theme parser error: libadwaita.css:1443:43-53: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.512: Theme parser error: libadwaita.css:1445:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.512: Theme parser error: libadwaita.css:1451:25-29: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.512: Theme parser error: libadwaita.css:1451:65-69: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.512: Theme parser error: libadwaita.css:1451:131-141: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.512: Theme parser error: libadwaita.css:1453:181-185: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.512: Theme parser error: libadwaita.css:1461:195-205: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.512: Theme parser error: libadwaita.css:1463:221-231: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.512: Theme parser error: libadwaita.css:1473:42-52: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.512: Theme parser error: libadwaita.css:1475:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.512: Theme parser error: libadwaita.css:1477:48-58: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.512: Theme parser error: libadwaita.css:1479:49-59: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.512: Theme parser error: libadwaita.css:1481:57-67: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.512: Theme parser error: libadwaita.css:1483:57-67: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.512: Theme parser error: libadwaita.css:1485:58-68: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.512: Theme parser error: libadwaita.css:1487:66-76: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.512: Theme parser error: libadwaita.css:1489:39-49: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.512: Theme parser error: libadwaita.css:1491:43-53: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.512: Theme parser error: libadwaita.css:1493:44-54: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.512: Theme parser error: libadwaita.css:1495:52-62: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.512: Theme parser error: libadwaita.css:1497:52-62: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.512: Theme parser error: libadwaita.css:1499:53-63: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.512: Theme parser error: libadwaita.css:1501:61-71: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.512: Theme parser error: libadwaita.css:1503:34-44: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.512: Theme parser error: libadwaita.css:1519:53-57: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.512: Theme parser error: libadwaita.css:1534:36-40: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.513: Theme parser error: libadwaita.css:1548:74-77: Percentages are not allowed here
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.513: Theme parser error: libadwaita.css:1550:65-68: Percentages are not allowed here
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.513: Theme parser error: libadwaita.css:1552:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.513: Theme parser error: libadwaita.css:1564:41-45: Expected a string
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.513: Theme parser error: libadwaita.css:1564:82-86: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.513: Theme parser error: libadwaita.css:1576:54-64: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.513: Theme parser error: libadwaita.css:1578:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.513: Theme parser error: libadwaita.css:1582:42-46: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.513: Theme parser error: libadwaita.css:1586:46-50: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.513: Theme parser error: libadwaita.css:1590:46-50: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.513: Theme parser error: libadwaita.css:1595:59-63: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.513: Theme parser error: libadwaita.css:1605:107-117: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.513: Theme parser error: libadwaita.css:1605:203-213: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.513: Theme parser error: libadwaita.css:1607:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.513: Theme parser error: libadwaita.css:1610:237-241: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.513: Theme parser error: libadwaita.css:1614:347-357: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.513: Theme parser error: libadwaita.css:1616:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.513: Theme parser error: libadwaita.css:1618:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.514: Theme parser error: libadwaita.css:1620:428-438: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.514: Theme parser error: libadwaita.css:1622:434-444: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.514: Theme parser error: libadwaita.css:1624:482-492: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.514: Theme parser error: libadwaita.css:1630:46-56: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.514: Theme parser error: libadwaita.css:1642:66-70: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.514: Theme parser error: libadwaita.css:1646:71-75: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.514: Theme parser error: libadwaita.css:1657:172-176: Expected a string
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.514: Theme parser error: libadwaita.css:1657:213-217: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.514: Theme parser error: libadwaita.css:1662:53-57: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.514: Theme parser error: libadwaita.css:1664:49-53: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.514: Theme parser error: libadwaita.css:1664:80-84: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.514: Theme parser error: libadwaita.css:1668:66-76: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.514: Theme parser error: libadwaita.css:1670:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.514: Theme parser error: libadwaita.css:1672:97-101: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.514: Theme parser error: libadwaita.css:1672:145-155: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.514: Theme parser error: libadwaita.css:1674:98-102: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.514: Theme parser error: libadwaita.css:1674:152-153: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.514: Theme parser error: libadwaita.css:1676:106-110: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.514: Theme parser error: libadwaita.css:1676:154-164: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.514: Theme parser error: libadwaita.css:1678:49-53: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.514: Theme parser error: libadwaita.css:1682:40-44: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.514: Theme parser error: libadwaita.css:1682:61-78: No property named "--accent-bg-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.514: Theme parser error: libadwaita.css:1682:109-126: No property named "--accent-fg-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.514: Theme parser error: libadwaita.css:1682:157-171: No property named "--accent-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.514: Theme parser error: libadwaita.css:1691:53-57: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.514: Theme parser error: libadwaita.css:1695:126-127: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.514: Theme parser error: libadwaita.css:1695:155-156: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.514: Theme parser error: libadwaita.css:1695:184-185: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.514: Theme parser error: libadwaita.css:1695:209-213: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.514: Theme parser error: libadwaita.css:1697:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.514: Theme parser error: libadwaita.css:1699:61-71: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.514: Theme parser error: libadwaita.css:1705:69-79: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.514: Theme parser error: libadwaita.css:1707:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.514: Theme parser error: libadwaita.css:1709:100-104: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.514: Theme parser error: libadwaita.css:1709:146-156: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.514: Theme parser error: libadwaita.css:1711:101-105: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.515: Theme parser error: libadwaita.css:1711:147-157: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.515: Theme parser error: libadwaita.css:1713:109-113: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.515: Theme parser error: libadwaita.css:1713:155-165: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.515: Theme parser error: libadwaita.css:1715:336-340: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.515: Theme parser error: libadwaita.css:1729:88-98: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.515: Theme parser error: libadwaita.css:1731:95-105: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.515: Theme parser error: libadwaita.css:1735:130-140: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.515: Theme parser error: libadwaita.css:1737:99-109: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.515: Theme parser error: libadwaita.css:1739:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.515: Theme parser error: libadwaita.css:1741:106-116: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.515: Theme parser error: libadwaita.css:1751:35-45: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.515: Theme parser error: libadwaita.css:1763:54-64: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.515: Theme parser error: libadwaita.css:1765:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.515: Theme parser error: libadwaita.css:1773:87-97: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.515: Theme parser error: libadwaita.css:1775:53-63: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.515: Theme parser error: libadwaita.css:1777:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.515: Theme parser error: libadwaita.css:1779:96-99: Percentages are not allowed here
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.515: Theme parser error: libadwaita.css:1781:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.515: Theme parser error: libadwaita.css:1785:59-63: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.515: Theme parser error: libadwaita.css:1799:194-204: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.515: Theme parser error: libadwaita.css:1801:198-208: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.515: Theme parser error: libadwaita.css:1803:230-240: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.515: Theme parser error: libadwaita.css:1805:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.515: Theme parser error: libadwaita.css:1813:36-46: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.515: Theme parser error: libadwaita.css:1817:45-55: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.515: Theme parser error: libadwaita.css:1819:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.515: Theme parser error: libadwaita.css:1828:43-47: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.515: Theme parser error: libadwaita.css:1828:74-78: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.515: Theme parser error: libadwaita.css:1830:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.515: Theme parser error: libadwaita.css:1841:104-108: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.515: Theme parser error: libadwaita.css:1841:135-139: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.515: Theme parser error: libadwaita.css:1845:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.515: Theme parser error: libadwaita.css:1849:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1878:35-45: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1885:25-35: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1885:25-35: Junk at end of value for background
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1894:76-77: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1894:105-106: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1894:114-138: No property named "--standalone-color-oklab"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1894:158-172: No property named "--accent-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1894:240-259: No property named "--destructive-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1894:332-347: No property named "--success-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1894:416-431: No property named "--warning-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1894:500-513: No property named "--error-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1902:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1912:104-108: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1923:77-87: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1925:88-92: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1942:90-94: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1942:119-123: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1942:190-191: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1942:219-220: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1942:248-249: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1944:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1946:196-206: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1946:262-265: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1948:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1952:44-54: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1954:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1958:51-61: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1960:52-62: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1963:71-75: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1963:71-75: Junk at end of value for background
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1965:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1969:111-121: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1971:112-122: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1973:108-118: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1975:109-119: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1979:77-87: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1981:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1983:49-59: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1991:69-79: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1993:71-75: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.516: Theme parser error: libadwaita.css:1999:71-81: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.517: Theme parser error: libadwaita.css:2001:73-77: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.517: Theme parser error: libadwaita.css:2007:70-80: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.517: Theme parser error: libadwaita.css:2009:72-76: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.517: Theme parser error: libadwaita.css:2015:70-80: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.517: Theme parser error: libadwaita.css:2017:72-76: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.517: Theme parser error: libadwaita.css:2045:97-107: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.517: Theme parser error: libadwaita.css:2049:59-63: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.517: Theme parser error: libadwaita.css:2053:53-63: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.517: Theme parser error: libadwaita.css:2085:55-59: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.517: Theme parser error: libadwaita.css:2091:65-75: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.517: Theme parser error: libadwaita.css:2093:66-76: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.517: Theme parser error: libadwaita.css:2095:61-71: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.517: Theme parser error: libadwaita.css:2097:54-64: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.517: Theme parser error: libadwaita.css:2099:59-69: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.517: Theme parser error: libadwaita.css:2103:11-24: No property named "--shade-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.517: Theme parser error: libadwaita.css:2107:57-61: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.517: Theme parser error: libadwaita.css:2107:89-93: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.517: Theme parser error: libadwaita.css:2107:168-169: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.517: Theme parser error: libadwaita.css:2107:210-211: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.517: Theme parser error: libadwaita.css:2107:240-241: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.517: Theme parser error: libadwaita.css:2109:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.517: Theme parser error: libadwaita.css:2115:34-38: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.517: Theme parser error: libadwaita.css:2115:34-38: Junk at end of value for background
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.517: Theme parser error: libadwaita.css:2115:66-70: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.517: Theme parser error: libadwaita.css:2115:109-113: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.517: Theme parser error: libadwaita.css:2119:106-109: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.517: Theme parser error: libadwaita.css:2121:197-200: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.517: Theme parser error: libadwaita.css:2141:40-44: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.517: Theme parser error: libadwaita.css:2165:224-234: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.517: Theme parser error: libadwaita.css:2167:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.517: Theme parser error: libadwaita.css:2169:224-228: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.517: Theme parser error: libadwaita.css:2169:255-259: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.517: Theme parser error: libadwaita.css:2171:59-81: No property named "---slider-border-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.517: Theme parser error: libadwaita.css:2175:62-72: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.517: Theme parser error: libadwaita.css:2177:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.517: Theme parser error: libadwaita.css:2179:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2181:45-55: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2181:120-124: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2183:65-75: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2185:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2187:95-105: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2191:34-38: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2193:58-62: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2193:131-132: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2195:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2197:162-166: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2199:154-158: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2201:35-45: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2237:33-43: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2275:70-73: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2283:216-226: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2285:63-73: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2287:64-74: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2289:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2301:76-86: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2303:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2305:120-130: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2307:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2309:75-85: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2311:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2329:174-184: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2331:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2333:90-100: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2335:96-106: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2337:92-102: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2339:94-104: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2341:74-84: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2341:170-180: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2343:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2345:81-91: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2345:174-184: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2347:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2349:86-96: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2349:181-191: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2351:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.518: Theme parser error: libadwaita.css:2353:88-98: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.519: Theme parser error: libadwaita.css:2353:182-192: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.519: Theme parser error: libadwaita.css:2355:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.519: Theme parser error: libadwaita.css:2357:86-96: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.519: Theme parser error: libadwaita.css:2357:180-190: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.519: Theme parser error: libadwaita.css:2359:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.519: Theme parser error: libadwaita.css:2361:84-94: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.519: Theme parser error: libadwaita.css:2361:179-189: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.519: Theme parser error: libadwaita.css:2363:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.519: Theme parser error: libadwaita.css:2381:53-63: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.519: Theme parser error: libadwaita.css:2383:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.519: Theme parser error: libadwaita.css:2387:38-48: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.519: Theme parser error: libadwaita.css:2387:38-48: Junk at end of value for background
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.519: Theme parser error: libadwaita.css:2387:114-118: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.519: Theme parser error: libadwaita.css:2389:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.519: Theme parser error: libadwaita.css:2393:35-39: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.519: Theme parser error: libadwaita.css:2393:67-71: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.519: Theme parser error: libadwaita.css:2393:92-105: No property named "--shade-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.519: Theme parser error: libadwaita.css:2395:44-48: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.519: Theme parser error: libadwaita.css:2397:62-72: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.519: Theme parser error: libadwaita.css:2397:139-143: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.519: Theme parser error: libadwaita.css:2399:71-81: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.519: Theme parser error: libadwaita.css:2401:185-189: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.519: Theme parser error: libadwaita.css:2403:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.519: Theme parser error: libadwaita.css:2405:184-188: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.519: Theme parser error: libadwaita.css:2407:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.519: Theme parser error: libadwaita.css:2410:150-154: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.519: Theme parser error: libadwaita.css:2410:192-196: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.519: Theme parser error: libadwaita.css:2410:227-240: No property named "--shade-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.519: Theme parser error: libadwaita.css:2412:168-172: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.519: Theme parser error: libadwaita.css:2414:204-214: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.519: Theme parser error: libadwaita.css:2414:291-295: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.519: Theme parser error: libadwaita.css:2416:222-232: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.519: Theme parser error: libadwaita.css:2418:743-747: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.519: Theme parser error: libadwaita.css:2420:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2422:742-746: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2424:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2439:93-97: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2439:124-128: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2441:148-158: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2443:151-161: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2445:175-185: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2447:175-185: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2449:178-188: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2451:202-212: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2453:133-143: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2461:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2474:69-73: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2476:159-163: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2479:48-58: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2479:48-58: Junk at end of value for background
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2485:64-68: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2485:64-68: Junk at end of value for background
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2487:67-71: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2495:37-41: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2498:35-39: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2502:330-340: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2504:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2526:63-73: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2528:34-44: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2530:35-45: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2532:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2536:45-55: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2538:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2540:35-39: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2542:92-102: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2542:173-174: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2548:25-29: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2548:67-71: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2550:48-58: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2552:55-56: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2556:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2558:49-52: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.520: Theme parser error: libadwaita.css:2560:33-37: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2560:67-71: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2560:119-123: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2562:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2564:42-46: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2574:73-83: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2576:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2582:105-115: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2582:105-115: Junk at end of value for background
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2584:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2588:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2590:41-51: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2592:47-57: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2594:48-58: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2596:38-48: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2598:39-49: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2602:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2618:29-33: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2618:80-90: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2618:139-143: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2618:194-195: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2618:223-224: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2618:252-253: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2620:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2626:92-102: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2626:92-102: Junk at end of value for background
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2628:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2632:67-77: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2634:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2640:57-67: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2640:136-146: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2646:54-58: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2646:54-58: Junk at end of value for background
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2646:165-175: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2650:57-60: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2652:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2654:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2656:47-51: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2656:81-85: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.521: Theme parser error: libadwaita.css:2658:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2670:62-72: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2672:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2674:55-65: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2676:56-66: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2678:34-38: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2678:78-82: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2686:101-105: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2694:31-35: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2697:16-32: No property named "---group-padding"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2697:51-61: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2697:51-61: Junk at end of value for background
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2697:131-135: Expected a length
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2699:43-53: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2701:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2703:51-55: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2703:135-139: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2707:60-64: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2707:114-118: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2707:165-169: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2711:66-70: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2711:120-124: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2711:171-175: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2719:60-70: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2721:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2723:49-59: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2725:93-103: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2727:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2729:51-55: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2729:89-93: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2729:152-153: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2729:181-182: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2731:60-70: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2733:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2735:39-63: No property named "--active-toggle-bg-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2735:72-96: No property named "--active-toggle-fg-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2737:95-112: No property named "--accent-bg-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2737:132-149: No property named "--accent-fg-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2737:158-182: No property named "--standalone-color-oklab"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2737:201-215: No property named "--accent-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2737:283-302: No property named "--destructive-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2737:375-390: No property named "--success-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2737:459-474: No property named "--warning-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2737:543-556: No property named "--error-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2737:655-656: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.522: Theme parser error: libadwaita.css:2737:684-685: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.523: Theme parser error: libadwaita.css:2741:150-160: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.523: Theme parser error: libadwaita.css:2743:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.523: Theme parser error: libadwaita.css:2745:150-160: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.523: Theme parser error: libadwaita.css:2747:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.523: Theme parser error: libadwaita.css:2751:99-103: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.523: Theme parser error: libadwaita.css:2755:58-62: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.523: Theme parser error: libadwaita.css:2757:60-64: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.523: Theme parser error: libadwaita.css:2761:53-57: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.523: Theme parser error: libadwaita.css:2765:56-60: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.523: Theme parser error: libadwaita.css:2767:112-116: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.523: Theme parser error: libadwaita.css:2767:163-167: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.523: Theme parser error: libadwaita.css:2769:62-66: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.523: Theme parser error: libadwaita.css:2771:64-68: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.523: Theme parser error: libadwaita.css:2773:21-37: No property named "---group-padding"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.523: Theme parser error: libadwaita.css:2777:65-75: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.523: Theme parser error: libadwaita.css:2779:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.523: Theme parser error: libadwaita.css:2781:56-66: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.523: Theme parser error: libadwaita.css:2783:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.523: Theme parser error: libadwaita.css:2785:62-72: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.523: Theme parser error: libadwaita.css:2787:119-129: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.523: Theme parser error: libadwaita.css:2789:65-75: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.523: Theme parser error: libadwaita.css:2796:78-82: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.523: Theme parser error: libadwaita.css:2798:105-109: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.523: Theme parser error: libadwaita.css:2798:156-160: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.523: Theme parser error: libadwaita.css:2804:76-80: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.523: Theme parser error: libadwaita.css:2806:94-98: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.523: Theme parser error: libadwaita.css:2806:145-149: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.523: Theme parser error: libadwaita.css:2827:74-78: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.523: Theme parser error: libadwaita.css:2827:108-112: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.523: Theme parser error: libadwaita.css:2827:160-164: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.523: Theme parser error: libadwaita.css:2829:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.523: Theme parser error: libadwaita.css:2831:57-61: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.523: Theme parser error: libadwaita.css:2850:48-52: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.523: Theme parser error: libadwaita.css:2850:82-86: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.523: Theme parser error: libadwaita.css:2850:133-137: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.523: Theme parser error: libadwaita.css:2852:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.523: Theme parser error: libadwaita.css:2856:57-61: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2869:10-24: No property named "--banner-color"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2871:122-132: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2871:198-202: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2873:57-67: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2880:85-89: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2880:119-123: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2882:103-107: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2886:51-61: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2888:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2890:58-62: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2892:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2894:55-65: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2896:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2898:62-66: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2900:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2902:86-96: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2902:182-192: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2904:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2906:93-103: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2906:186-196: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2908:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2916:46-47: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2916:112-115: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2920:200-204: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2920:240-244: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2922:254-264: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2922:351-361: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2924:287-297: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2932:39-49: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2934:38-42: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2936:32-36: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2936:71-81: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2942:99-109: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2944:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2946:80-90: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2948:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2950:86-96: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2952:88-98: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2954:104-114: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2956:106-116: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2958:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2960:187-191: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.524: Theme parser error: libadwaita.css:2993:53-63: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita.css:2993:53-63: Junk at end of value for background
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita.css:2997:56-60: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita.css:2997:56-60: Junk at end of value for background
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita.css:3003:62-66: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita.css:3003:62-66: Junk at end of value for background
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita.css:3005:65-69: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita.css:3007:45-46: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita.css:3007:73-74: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita.css:3007:99-100: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita.css:3007:136-140: Expected a number
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita.css:3007:185-188: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita.css:3009:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita.css:3011:80-81: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita.css:3011:105-106: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita.css:3013:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita.css:3015:86-87: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita.css:3015:113-114: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita.css:3015:139-140: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita.css:3017:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita.css:3019:114-129: No property named "--window-radius"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita.css:3019:173-183: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita.css:3021:181-191: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita.css:3023:47-62: No property named "--window-radius"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita.css:3027:45-60: No property named "--window-radius"
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita.css:3027:95-105: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita.css:3029:57-67: Junk at end of value for box-shadow
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita.css:3031:42-43: Unexpected data at end of RGB() argument
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita.css:3033:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita.css:3042:36-46: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita.css:3043:36-46: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita.css:3045:23-33: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita.css:3046:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita-tweaks.css:3:1-6: Unknown name of pseudo-class
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita-tweaks.css:20:21-25: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita-tweaks.css:44:21-25: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita-tweaks.css:46:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita-tweaks.css:52:21-31: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita-tweaks.css:54:1-7: Unknown @ rule
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita-tweaks.css:60:10-14: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita-tweaks.css:63:21-31: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita-tweaks.css:64:10-14: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita-tweaks.css:73:21-31: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.525: Theme parser error: libadwaita-tweaks.css:76:21-31: Expected a valid color.
+
+(gtk4-widget-factory:883903): Gtk-WARNING **: 05:46:45.526: Theme parser error: libadwaita-tweaks.css:80:27-28: Unexpected data at end of RGB() argument
+--- DONE ---

@@ -1,0 +1,195 @@
+import json
+import types
+from datetime import date
+
+import litellm
+
+from only_trades import llm_parser
+from only_trades.llm_parser import interpret, resolve_expiry
+
+TODAY = date(2026, 6, 1)
+
+
+def _payload(action, *, confidence=0.9, ticker=None, expiry=None, strike=None,
+             option_type=None, premium=None, scale="neutral", reasoning="x"):
+    return {
+        "action": action, "confidence": confidence, "ticker": ticker, "expiry": expiry,
+        "strike": strike, "option_type": option_type, "premium": premium,
+        "scale": scale, "reasoning": reasoning,
+    }
+
+
+def _fake_response(payload: dict):
+    message = types.SimpleNamespace(content=json.dumps(payload))
+    return types.SimpleNamespace(choices=[types.SimpleNamespace(message=message)])
+
+
+def _patch(monkeypatch, payload=None, *, exc=None):
+    async def _acompletion(**kwargs):
+        if exc is not None:
+            raise exc
+        return _fake_response(payload)
+    monkeypatch.setattr(llm_parser.litellm, "acompletion", _acompletion)
+
+
+def _patch_sequence(monkeypatch, behaviors):
+    """Consume `behaviors` in call order: an Exception instance is raised, a payload dict
+    is returned as a fake response. Returns a dict tracking the call count."""
+    calls = {"count": 0}
+
+    async def _acompletion(**kwargs):
+        behavior = behaviors[calls["count"]]
+        calls["count"] += 1
+        if isinstance(behavior, BaseException):
+            raise behavior
+        return _fake_response(behavior)
+
+    monkeypatch.setattr(llm_parser.litellm, "acompletion", _acompletion)
+    return calls
+
+
+def _network_error(msg="connection reset"):
+    return litellm.APIConnectionError(message=msg, llm_provider="deepseek", model="test/model")
+
+
+async def _run(monkeypatch, payload, *, content="msg", exc=None):
+    _patch(monkeypatch, payload, exc=exc)
+    return await interpret(content=content, today=TODAY, model="test/model")
+
+
+# ---- interpretation (no validity judgement, no positions) -----------------
+async def test_chatter_has_no_trade(monkeypatch):
+    interp = await _run(monkeypatch, _payload("none", confidence=1.0, reasoning="chatter"))
+    assert interp.trade is None and interp.error is None
+
+
+async def test_buy_extracts_full_trade(monkeypatch):
+    interp = await _run(monkeypatch, _payload(
+        "buy", confidence=0.95, ticker="aapl", expiry="2026-06-20",
+        strike=420, option_type="call", premium=1.5))
+    t = interp.trade
+    assert t is not None and interp.confidence == 0.95
+    assert t.action == "buy" and t.ticker == "AAPL" and t.expiry == date(2026, 6, 20)
+    assert t.strike == 420.0 and t.option_type == "call" and t.premium == 1.5
+    assert t.scale == "neutral"
+
+
+async def test_bare_sell_keeps_optional_fields_none(monkeypatch):
+    # "out of NVDA" — only ticker; the LLM must not invent a contract.
+    interp = await _run(monkeypatch, _payload("sell", ticker="NVDA"), content="out of nvda")
+    t = interp.trade
+    assert t is not None and t.action == "sell" and t.ticker == "NVDA"
+    assert t.expiry is None and t.strike is None and t.option_type is None and t.premium is None
+
+
+async def test_scale_is_parsed(monkeypatch):
+    up = await _run(monkeypatch, _payload("buy", ticker="AAPL", expiry="2026-06-20",
+                                          strike=420, option_type="call", premium=1.5, scale="up"))
+    down = await _run(monkeypatch, _payload("buy", ticker="AAPL", scale="down"))
+    assert up.trade.scale == "up" and down.trade.scale == "down"
+
+
+async def test_incomplete_buy_is_still_returned_unjudged(monkeypatch):
+    # The LLM no longer decides validity: a buy missing premium still yields a trade
+    # (with premium=None); the executor is what rejects it.
+    interp = await _run(monkeypatch, _payload(
+        "buy", ticker="AAPL", expiry="2026-06-20", strike=420, option_type="call", premium=None))
+    assert interp.trade is not None and interp.trade.premium is None
+
+
+async def test_api_error_has_no_trade_and_sets_error(monkeypatch):
+    interp = await _run(monkeypatch, None, exc=RuntimeError("boom"))
+    assert interp.error is not None and interp.trade is None
+
+
+# ---- retry: network errors only --------------------------------------------
+async def test_network_error_retries_then_succeeds(monkeypatch):
+    calls = _patch_sequence(monkeypatch, [
+        _network_error(),
+        _payload("buy", ticker="AAPL", expiry="2026-06-20", strike=420,
+                  option_type="call", premium=1.5),
+    ])
+    interp = await interpret(content="msg", today=TODAY, model="test/model",
+                              retry_base_delay=0)
+    assert interp.error is None
+    assert interp.trade is not None and interp.trade.ticker == "AAPL"
+    assert calls["count"] == 2
+
+
+async def test_network_error_exhausts_retries_without_raising(monkeypatch):
+    calls = _patch_sequence(monkeypatch, [_network_error(), _network_error(), _network_error()])
+    interp = await interpret(content="msg", today=TODAY, model="test/model",
+                              retry_attempts=2, retry_base_delay=0)
+    assert interp.error is not None and interp.trade is None
+    assert calls["count"] == 3  # first attempt + 2 retries, then give up
+
+
+async def test_non_network_error_is_not_retried(monkeypatch):
+    calls = _patch_sequence(monkeypatch, [RuntimeError("boom")])
+    interp = await interpret(content="msg", today=TODAY, model="test/model",
+                              retry_attempts=2, retry_base_delay=0)
+    assert interp.error is not None and interp.trade is None
+    assert calls["count"] == 1  # no retry wasted on a non-transient error
+
+
+async def test_empty_message_short_circuits():
+    interp = await interpret(content="   ", today=TODAY, model="test/model")
+    assert interp.trade is None and interp.error is None
+
+
+# ---- tolerant JSON extraction (DeepSeek json_object mode + stray wrapping) ----
+def _fake_raw(text):
+    message = types.SimpleNamespace(content=text)
+    return types.SimpleNamespace(choices=[types.SimpleNamespace(message=message)])
+
+
+async def _run_raw(monkeypatch, text, *, content="msg"):
+    async def _acompletion(**kwargs):
+        return _fake_raw(text)
+    monkeypatch.setattr(llm_parser.litellm, "acompletion", _acompletion)
+    return await interpret(content=content, today=TODAY, model="test/model")
+
+
+async def test_fenced_json_is_parsed(monkeypatch):
+    body = json.dumps(_payload("buy", ticker="AAPL", expiry="2026-06-20",
+                               strike=420, option_type="call", premium=1.5))
+    interp = await _run_raw(monkeypatch, f"```json\n{body}\n```")
+    assert interp.error is None and interp.trade is not None and interp.trade.ticker == "AAPL"
+
+
+async def test_prose_wrapped_json_is_parsed(monkeypatch):
+    body = json.dumps(_payload("sell", ticker="NVDA"))
+    interp = await _run_raw(monkeypatch, f"Sure! Here it is:\n{body}\nLet me know.")
+    assert interp.error is None and interp.trade is not None and interp.trade.action == "sell"
+
+
+async def test_empty_content_sets_error_not_crash(monkeypatch):
+    interp = await _run_raw(monkeypatch, "")
+    assert interp.trade is None and interp.error is not None
+
+
+async def test_interpret_requests_json_object_mode(monkeypatch):
+    captured = {}
+
+    async def _acompletion(**kwargs):
+        captured.update(kwargs)
+        return _fake_raw(json.dumps(_payload("none")))
+    monkeypatch.setattr(llm_parser.litellm, "acompletion", _acompletion)
+    await interpret(content="gm", today=TODAY, model="test/model")
+    assert captured["response_format"] == {"type": "json_object"}
+
+
+def test_extract_json_handles_fences_prose_and_empty():
+    from only_trades.llm_parser import _extract_json
+    assert _extract_json('```json\n{"a": 1}\n```') == '{"a": 1}'
+    assert _extract_json('preamble {"a": 1} trailer') == '{"a": 1}'
+    assert _extract_json("") == "" and _extract_json(None) == ""
+    assert _extract_json("no braces") == "no braces"
+
+
+# ---- expiry helper --------------------------------------------------------
+def test_resolve_expiry_rollover_and_validation():
+    assert resolve_expiry(6, 20, TODAY) == date(2026, 6, 20)
+    assert resolve_expiry(1, 9, TODAY) == date(2027, 1, 9)   # past month -> next year
+    assert resolve_expiry(2, 30, TODAY) is None
+    assert resolve_expiry(0, 5, TODAY) is None

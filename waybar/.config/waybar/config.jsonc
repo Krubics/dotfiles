@@ -27,10 +27,13 @@
 
   "hyprland/workspaces": {
     "format": "{name}",
-    "all-outputs": true,
-    "ignore-hidden": false,
-    "on-click": "activate",
-    "tooltip": false
+    "all-outputs": false,
+    "persistent-workspaces": {
+      "eDP-1": [5],
+      "HDMI-A-1": [1, 2, 3, 4],
+    },
+    "ignore-hidden": true,
+    "tooltip": false,
   },
 
   "custom/taskbar-divider": {
@@ -40,16 +43,10 @@
     "tooltip": false,
   },
 
-  "custom/divider": {
-    "format": "│",
-    "tooltip": false,
-  },
-
   "hyprland/workspaces#taskbar": {
     "format": "{windows}",
     "all-outputs": false,
     "active-only": true,
-    "on-click": "activate",
     "tooltip": false,
     "workspace-taskbar": {
       "enable": true,
@@ -58,6 +55,11 @@
       "icon-theme": ["Papirus"],
       "orientation": "horizontal",
     },
+  },
+
+  "custom/divider": {
+    "format": "│",
+    "tooltip": false,
   },
 
   "clock": {

@@ -9,6 +9,7 @@ let
   };
 in
 {
+  imports = [ ./modules/skills-manager.nix ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "krubics";
@@ -24,6 +25,11 @@ in
   home.stateVersion = "26.05"; # Please read the comment before changing.
 
   nixpkgs.config.allowUnfree = true;
+
+  targets.genericLinux.nixGL = {
+    packages = nixgl.packages;
+    defaultWrapper = "mesa";
+  };
 
   # The home.packages option allows you to install Nix packages into your
   # environment.

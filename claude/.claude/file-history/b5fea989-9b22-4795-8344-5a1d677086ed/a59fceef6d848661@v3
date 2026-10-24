@@ -1,0 +1,22 @@
+[Unit]
+Description=Meridian (Claude Max proxy)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# cli.js runs under `#!/usr/bin/env node` and the SDK spawns the claude
+# executable, but neither node (nvm-managed) nor claude is on the systemd
+# manager PATH. ~/.local/lib/meridian/bin holds a node symlink; retarget that
+# symlink after an nvm upgrade rather than editing this file. It is kept out of
+# ~/.local/bin on purpose: that dir precedes nvm in the login PATH, so a node
+# symlink there would shadow nvm's node in interactive shells.
+Environment="PATH=/home/krubics/.local/lib/meridian/bin:/home/krubics/.local/bin:/usr/local/bin:/usr/bin:/bin"
+ExecStart=/usr/local/bin/meridian
+Restart=on-failure
+RestartSec=5s
+Environment="MERIDIAN_PORT=3456"
+Environment="MERIDIAN_HOST=127.0.0.1"
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,4 @@
+# Memory Index
+
+- [GitHub token path](reference_gh_token.md) — PAT at `~/.local/share/gh-token`; use `GH_TOKEN="$(cat ~/.local/share/gh-token)"` since kwallet is unavailable
+- [No redundant reads](feedback_no_redundant_reads.md) — Don't re-read a file already current in context; refer to the prior tool_result instead

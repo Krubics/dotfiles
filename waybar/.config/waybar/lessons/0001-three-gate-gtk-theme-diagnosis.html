@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Learn to diagnose GTK 3 versus GTK 4 theming failures using three gates: loaded, matched, applied.">
+  <title>Lesson 0001 — Diagnose a GTK theme failure</title>
+  <link rel="stylesheet" href="../assets/course.css">
+  <script defer src="../assets/quiz.js"></script>
+</head>
+<body>
+  <header class="course-header">
+    <div class="course-header__inner">
+      <a class="course-name" href="../MISSION.md">GTK theming fieldwork</a>
+      <span class="course-progress">Lesson 0001 · about 8 minutes</span>
+    </div>
+  </header>
+
+  <main class="lesson">
+    <header class="lesson-hero">
+      <p class="kicker">One skill · evidence before edits</p>
+      <h1>Diagnose a GTK theme failure with three gates.</h1>
+      <p class="lede">When a rule “does nothing,” do not rewrite it yet. First find the earliest gate it failed: the stylesheet loaded, the selector matched, or the declaration applied.</p>
+      <p class="lesson-win">Tangible win: classify a GTK theming failure in under one minute.</p>
+    </header>
+
+    <section class="lesson-section" aria-labelledby="model-title">
+      <div class="section-grid">
+        <div class="section-label">01 / Model</div>
+        <div>
+          <h2 id="model-title">CSS travels through three gates.</h2>
+          <div class="prose">
+            <p>GTK does not style a web DOM. Each widget exposes a tree of <strong>CSS nodes</strong> with node names, IDs, classes, and states. A rule affects a node only after all three gates pass. The <a href="https://docs.gtk.org/gtk4/css-overview.html">GTK 4 CSS overview</a> defines this model; each widget’s API page documents its own node tree.</p>
+          </div>
+
+          <div class="gates" aria-label="Three gates in GTK CSS processing">
+            <article class="gate" data-gate="load">
+              <h3>Loaded</h3>
+              <p>Did this application receive this stylesheet from a provider or known config path?</p>
+              <span class="test">Test: provider list</span>
+              <span class="gate-outcome">Pass → continue · Fail → stop</span>
+            </article>
+            <article class="gate" data-gate="match">
+              <h3>Matched</h3>
+              <p>Does the selector describe a CSS node that actually exists in this widget tree?</p>
+              <span class="test">Test: node tree</span>
+              <span class="gate-outcome">Pass → continue · Fail → stop</span>
+            </article>
+            <article class="gate" data-gate="apply">
+              <h3>Applied</h3>
+              <p>Does this GTK version support the declaration, and did cascade or specificity win?</p>
+              <span class="test">Test: computed style</span>
+              <span class="gate-outcome">Pass → done · Fail → inspect value</span>
+            </article>
+          </div>
+
+          <aside class="margin-note"><strong>Diagnostic rule:</strong> stop at the earliest failed gate. A perfect selector cannot repair an unloaded file; a supported property cannot repair a selector that matched nothing.</aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="lesson-section" aria-labelledby="loaded-title">
+      <div class="section-grid">
+        <div class="section-label">02 / Loaded</div>
+        <div>
+          <h2 id="loaded-title">GTK 3 and GTK 4 load different files.</h2>
+          <div class="prose">
+            <p>The major versions are parallel installations, not one shared theming target. Their per-user CSS paths are deliberately separate:</p>
+          </div>
+
+          <div class="path-map">
+            <article>
+              <span class="version gtk3">GTK 3</span>
+              <code>$XDG_CONFIG_HOME/gtk-3.0/gtk.css</code>
+              <p>Usually <code>~/.config/gtk-3.0/gtk.css</code>.</p>
+            </article>
+            <article>
+              <span class="version gtk4">GTK 4</span>
+              <code>$XDG_CONFIG_HOME/gtk-4.0/gtk.css</code>
+              <p>Usually <code>~/.config/gtk-4.0/gtk.css</code>.</p>
+            </article>
+          </div>
+
+          <div class="prose">
+            <p><strong>Waybar is a third case:</strong> it explicitly loads <code>$XDG_CONFIG_HOME/waybar/style.css</code>. Those application selectors—such as <code>window#waybar</code> and <code>#workspaces</code>—belong to Waybar’s own widget tree, not to every GTK application. See the project’s <a href="https://github.com/Alexays/Waybar/wiki/Styling">official styling guide</a>.</p>
+            <p>On this workstation, Waybar 0.14.0 links to <code>libgtk-3.so.0</code> and <code>libgtkmm-3.0.so.1</code>. Therefore, editing <code>gtk-4.0/gtk.css</code> is not a test of the installed Waybar. Re-check after upgrades:</p>
+          </div>
+
+          <pre><code>ldd "$(command -v waybar)" | grep -E 'gtk|gtkmm'
+<span class="code-comment"># libgtk-3.so.0  → GTK 3 process
+# libgtk-4.so.1  → GTK 4 process</span></code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="lesson-section" aria-labelledby="matched-title">
+      <div class="section-grid">
+        <div class="section-label">03 / Matched</div>
+        <div>
+          <h2 id="matched-title">Selectors describe GTK’s node tree.</h2>
+          <div class="prose">
+            <p>Read a selector from right to left. Your current Waybar rule <code>#workspaces:not(.taskbar) button.active</code> asks for an active <code>button</code> beneath a node whose ID is <code>workspaces</code> and whose classes do not include <code>taskbar</code>.</p>
+            <p>A GTK 4 widget may expose different node names or nesting than its GTK 3 counterpart. Copying a valid GTK 3 selector can therefore pass syntax parsing but match zero GTK 4 nodes. Use <a href="https://docs.gtk.org/gtk4/running.html#interactive-debugging">GTK Inspector</a> instead of guessing.</p>
+          </div>
+
+          <div class="inspector" aria-label="Illustration of GTK Inspector node and computed style panes">
+            <div class="inspector__bar"><span>GTK Inspector</span><span>Objects · CSS nodes</span></div>
+            <div class="inspector__body">
+              <div class="inspector__pane">
+                <span class="inspector__label">Observed node tree</span>
+                <ul class="node-tree">
+                  <li><span class="code-node">window</span>#waybar</li>
+                  <li><span class="code-node">box</span>.<span class="code-class">modules-left</span></li>
+                  <li><span class="code-node">box</span>#workspaces</li>
+                  <li class="selected"><span class="code-node">button</span>.<span class="code-class">active</span></li>
+                </ul>
+              </div>
+              <div class="inspector__pane">
+                <span class="inspector__label">Computed on selected node</span>
+                <dl class="computed">
+                  <dt>background-color</dt><dd>@primary</dd>
+                  <dt>border-radius</dt><dd>10px</dd>
+                  <dt>min-width</dt><dd>20px</dd>
+                  <dt>class</dt><dd>active</dd>
+                </dl>
+              </div>
+            </div>
+          </div>
+
+          <div class="prose">
+            <p>Launch a test application with Inspector, or use <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd> where Inspector is enabled:</p>
+          </div>
+          <pre><code>GTK_DEBUG=interactive gtk4-demo
+GTK_DEBUG=interactive waybar</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="lesson-section" aria-labelledby="applied-title">
+      <div class="section-grid">
+        <div class="section-label">04 / Applied</div>
+        <div>
+          <h2 id="applied-title">GTK CSS is not browser CSS.</h2>
+          <div class="prose">
+            <p>Even after a selector matches, GTK must support the declaration and the rule must win the cascade. GTK 4 removed widget style properties and GTK-specific forms including <code>-gtk-gradient</code>, <code>-gtk-icon-effect</code>, and <code>-gtk-icon-theme</code>. The <a href="https://docs.gtk.org/gtk4/migrating-3to4.html">official migration guide</a> is the source of truth for removed features.</p>
+            <p>Use Inspector’s CSS and computed-style panes: an unknown declaration, a crossed-out rule, or a different winning origin tells you this is the third gate—not a path or selector problem.</p>
+          </div>
+          <aside class="margin-note"><strong>One extra layer:</strong> libadwaita is a styling library used by some GTK 4 apps. It is not another name for GTK 4. An app can be GTK 4 without libadwaita, and libadwaita can intentionally constrain application-level styling.</aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="lesson-section" aria-labelledby="practice-title">
+      <div class="section-grid">
+        <div class="section-label">05 / Retrieve</div>
+        <div>
+          <h2 id="practice-title">Name the failed gate.</h2>
+          <div class="prose">
+            <p>Do not look back at the diagram. For each case, choose the <em>earliest</em> failure supported by the evidence. Every answer has five words, so formatting gives no clue.</p>
+          </div>
+
+          <div class="quiz" data-quiz>
+            <div class="quiz-header">
+              <h3>Three-case diagnosis</h3>
+              <span class="quiz-progress" data-quiz-progress>0 / 3 diagnosed</span>
+            </div>
+
+            <article class="question" data-question>
+              <p class="question__case">Case A · wrong version path</p>
+              <p class="question__prompt">You edit <code>~/.config/gtk-3.0/gtk.css</code>, launch <code>gtk4-demo</code>, and Inspector does not list your rule’s provider. What failed first?</p>
+              <div class="choices" data-choices>
+                <button class="choice" type="button" data-choice data-correct="true" data-feedback="Correct. GTK 4 does not auto-load the GTK 3 per-user CSS path.">The stylesheet was never loaded.</button>
+                <button class="choice" type="button" data-choice data-correct="false" data-feedback="Not yet. Selector matching cannot happen until the stylesheet enters the process.">The selector matched no node.</button>
+                <button class="choice" type="button" data-choice data-correct="false" data-feedback="Not yet. GTK cannot evaluate a declaration from a provider it never loaded.">The declaration was not supported.</button>
+              </div>
+              <p class="feedback" data-feedback aria-live="polite">Choose the earliest gate contradicted by the evidence.</p>
+            </article>
+
+            <article class="question" data-question>
+              <p class="question__case">Case B · observed identity</p>
+              <p class="question__prompt">Inspector lists your provider. The selected node is <code>button#apply.suggested-action</code>, but your rule targets <code>button#save</code>. What failed first?</p>
+              <div class="choices" data-choices>
+                <button class="choice" type="button" data-choice data-correct="false" data-feedback="The provider is visible in Inspector, so the stylesheet passed the first gate.">The stylesheet was never loaded.</button>
+                <button class="choice" type="button" data-choice data-correct="true" data-feedback="Correct. The observed ID is apply, so a selector requiring save matches nothing.">The selector matched no node.</button>
+                <button class="choice" type="button" data-choice data-correct="false" data-feedback="A declaration cannot be tested on this node until the selector matches it.">The declaration was not supported.</button>
+              </div>
+              <p class="feedback" data-feedback aria-live="polite">Choose the earliest gate contradicted by the evidence.</p>
+            </article>
+
+            <article class="question" data-question>
+              <p class="question__case">Case C · removed GTK syntax</p>
+              <p class="question__prompt">Inspector lists the provider and highlights the selector as matched, but reports <code>-gtk-icon-effect</code> as unknown in GTK 4. What failed first?</p>
+              <div class="choices" data-choices>
+                <button class="choice" type="button" data-choice data-correct="false" data-feedback="The provider is listed, so loading is already established by observation.">The stylesheet was never loaded.</button>
+                <button class="choice" type="button" data-choice data-correct="false" data-feedback="Inspector highlights the match, so the selector has already passed its gate.">The selector matched no node.</button>
+                <button class="choice" type="button" data-choice data-correct="true" data-feedback="Correct. GTK 4 removed this declaration, so matching succeeds but application fails.">The declaration was not supported.</button>
+              </div>
+              <p class="feedback" data-feedback aria-live="polite">Choose the earliest gate contradicted by the evidence.</p>
+            </article>
+
+            <div class="quiz-complete" data-quiz-complete role="status">
+              <strong>Retrieval complete.</strong> You now have the core diagnostic: loaded → matched → applied. The next useful test is to classify one real failed rule from your GTK 4 theming attempt.
+            </div>
+            <button class="quiz-reset" type="button" data-quiz-reset>Reset and reshuffle</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="lesson-section" aria-labelledby="field-title">
+      <div class="section-grid">
+        <div class="section-label">06 / Fieldwork</div>
+        <div>
+          <h2 id="field-title">Use the model on one real rule.</h2>
+          <div class="next-actions">
+            <article class="next-action">
+              <strong>Keep beside Inspector</strong>
+              <p>Open the printable <a href="../reference/gtk-theme-diagnosis.html">GTK theme diagnosis sheet</a> and work down its three gates.</p>
+            </article>
+            <article class="next-action">
+              <strong>Ask your teacher</strong>
+              <p>Send the agent one failed selector, the application name, and what Inspector shows. Ask follow-up questions about any unclear gate.</p>
+            </article>
+          </div>
+          <div class="prose primary-reading">
+            <p><strong>Primary reading:</strong> read the short <a href="https://docs.gtk.org/gtk4/css-overview.html">GTK 4 CSS Overview</a>, then locate the “CSS nodes” section on the API page for one widget you care about. Stop there; the purpose is to verify the mental model, not memorize the property catalog.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="course-footer">
+    <div class="course-footer__inner">
+      <span>Mission: diagnose GTK 3 vs GTK 4 theming</span>
+      <nav aria-label="Lesson resources">
+        <a href="../reference/gtk-theme-diagnosis.html">Diagnosis sheet</a>
+        <a href="../RESOURCES.md">Sources</a>
+        <a href="../MISSION.md">Mission</a>
+      </nav>
+    </div>
+  </footer>
+</body>
+</html>

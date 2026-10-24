@@ -1,0 +1,25 @@
+[2026-08-01 16:01:43.010] [info] Using configuration file /home/krubics/.config/waybar/config.jsonc
+[2026-08-01 16:01:43.013] [info] Discovered appearance 'dark'
+[2026-08-01 16:01:43.013] [info] Using CSS file /home/krubics/.config/waybar/style.css
+[2026-08-01 16:01:43.021] [info] Hyprland IPC starting
+[2026-08-01 16:01:43.022] [info] Loading persistent workspaces from Hyprland workspace rules
+[2026-08-01T16:01:43+08:00] pickachu-battery: capacity=21 class=p40
+[2026-08-01 16:01:43.067] [info] Loading persistent workspaces from Hyprland workspace rules
+[2026-08-01T16:01:43+08:00] pickachu-battery: capacity=21 class=p40
+[2026-08-01 16:01:43.130] [warning] Requested height: 56 is less than the minimum height: 60 required by the modules
+[2026-08-01 16:01:43.130] [info] Bar configured (width: 2560, height: 60) for output: eDP-1
+[2026-08-01 16:01:43.131] [warning] Requested height: 56 is less than the minimum height: 60 required by the modules
+[2026-08-01 16:01:43.131] [info] Bar configured (width: 2560, height: 60) for output: HDMI-A-1
+[2026-08-01T16:02:13+08:00] pickachu-battery: capacity=21 class=p40
+[2026-08-01T16:02:13+08:00] pickachu-battery: capacity=21 class=p40
+mv: cannot stat '/home/krubics/.config/waybar/workspace-apps-edp-1.css.tmp': No such file or directory
+2026/08/01 16:02:17 socat[180409] E write(1, 0x5884f29e8000, 48): Broken pipe
+[2026-08-01 16:02:17.120] [error] workspace-apps stopped unexpectedly, is it endless?
+jq: error: writing output failed: Broken pipe
+jq: error: writing output failed: Broken pipe
+jq: error: writing output failed: Broken pipe
+jq: error: writing output failed: Broken pipe
+2026/08/01 16:03:39 socat[181355] E write(1, 0x56d63d14c000, 73): Broken pipe
+2026/08/01 16:03:39 socat[180403] E write(1, 0x5be7acb95000, 86): Broken pipe
+2026/08/01 16:03:39 socat[180445] E write(1, 0x61c4fe587000, 86): Broken pipe
+2026/08/01 16:03:39 socat[180453] E write(1, 0x57aeffc58000, 73): Broken pipe

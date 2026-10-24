@@ -1,0 +1,1584 @@
+URL: https://github.com/ghostty-org/ghostty/discussions/7356
+Content-Type: text/html
+Method: native
+
+---
+
+---
+canonical: https://github.com/ghostty-org/ghostty/discussions/7356
+meta-analytics-location: /&lt;user-name&gt;/&lt;repo-name&gt;/voltron/discussions_fragments/discussion_layout
+meta-apple-itunes-app: app-id=1477376905, app-argument=https://github.com/_view_fragments/Voltron::DiscussionsFragmentsController/show/ghostty-org/ghostty/7356/discussion_layout
+meta-browser-errors-url: https://api.github.com/_private/browser/errors
+meta-browser-stats-url: https://api.github.com/_private/browser/stats
+meta-color-scheme: light dark
+meta-current-catalog-service-hash: 9f0abe34da433c9b6db74bffa2466494a717b579a96b30a5d252e5090baea7be
+meta-description: Ghostty does not respect XKB key remapping rules since W3C rework
+meta-disable-turbo: false
+meta-expected-hostname: github.com
+meta-fb:app_id: 1401488693436528
+meta-fetch-nonce: v2:9d8a536b-9b18-de28-0677-4c78a695d984
+meta-github-keyboard-shortcuts: repository,copilot
+meta-go-import: github.com/ghostty-org/ghostty git https://github.com/ghostty-org/ghostty.git
+meta-google-site-verification: Apib7-x98H0j5cPqHWwSMm6dNU4GmODRoqxLiDzdx9I
+meta-hostname: github.com
+meta-hovercard-subject-tag: discussion:8325896
+meta-html-safe-nonce: 66aa9674a8b28fabc97e387978905fcb411f1deadf256426259bb6f64d823ae2
+meta-octolytics-dimension-repository_id: 475553026
+meta-octolytics-dimension-repository_is_fork: false
+meta-octolytics-dimension-repository_network_root_id: 475553026
+meta-octolytics-dimension-repository_network_root_nwo: ghostty-org/ghostty
+meta-octolytics-dimension-repository_nwo: ghostty-org/ghostty
+meta-octolytics-dimension-repository_public: true
+meta-octolytics-dimension-user_id: 169223740
+meta-octolytics-dimension-user_login: ghostty-org
+meta-octolytics-url: https://collector.github.com/github/collect
+meta-og:description: Issue Description when using keyboard rule esc:swapescape, the esc key stops working. Already bisected by Kat in the discord There are only 'skip'ped commits left to test. The first bad commit coul...
+meta-og:image: https://opengraph.githubassets.com/b13980bdd0f7b447dc7efd28cf103d6dc4eacc63f825ff5ea70e8f16ed8aedd8/ghostty-org/ghostty/discussions/7356
+meta-og:image:alt: Issue Description when using keyboard rule esc:swapescape, the esc key stops working. Already bisected by Kat in the discord There are only 'skip'ped commits left to test. The first bad commit coul...
+meta-og:image:height: 600
+meta-og:image:width: 1200
+meta-og:site_name: GitHub
+meta-og:title: Ghostty does not respect XKB key remapping rules since W3C rework · ghostty-org/ghostty · Discussion #7356
+meta-og:type: object
+meta-og:url: https://github.com/ghostty-org/ghostty/discussions/7356
+meta-release: 309153364422b3c499922d1a2a6404910a58ed8e
+meta-request-id: A414:931AD:39C35B:3F01E4:6A663BBF
+meta-route-action: discussion_layout
+meta-route-controller: voltron_discussions_fragments
+meta-route-pattern: /_view_fragments/Voltron::DiscussionsFragmentsController/show/:user_id/:repository/:discussion_number/discussion_layout(.:format)
+meta-theme-color: #1e2327
+meta-turbo-body-classes: logged-out env-production page-responsive
+meta-turbo-cache-control: no-preview
+meta-twitter:card: summary_large_image
+meta-twitter:description: Issue Description when using keyboard rule esc:swapescape, the esc key stops working. Already bisected by Kat in the discord There are only &amp;#39;skip&amp;#39;ped commits left to test. The first bad com...
+meta-twitter:image: https://opengraph.githubassets.com/b13980bdd0f7b447dc7efd28cf103d6dc4eacc63f825ff5ea70e8f16ed8aedd8/ghostty-org/ghostty/discussions/7356
+meta-twitter:site: @github
+meta-twitter:title: Ghostty does not respect XKB key remapping rules since W3C rework · ghostty-org/ghostty · Discussion #7356
+meta-ui-target: full
+meta-user-login:
+meta-viewport: width=device-width
+meta-visitor-hmac: f788e7b512daa800a88e06d9e7d1d9f6474769c074216a33fda67cf6bfab0d2e
+meta-visitor-payload: eyJyZWZlcnJlciI6IiIsInJlcXVlc3RfaWQiOiJBNDE0OjkzMUFEOjM5QzM1QjozRjAxRTQ6NkE2NjNCQkYiLCJ2aXNpdG9yX2lkIjoiNzYyMDc5NDY5NjgyNDQwNDkyNyIsInJlZ2lvbl9lZGdlIjoic291dGhlYXN0YXNpYSIsInJlZ2lvbl9yZW5kZXIiOiJzb3V0aGVhc3Rhc2lhIn0=
+title: Ghostty does not respect XKB key remapping rules since W3C rework · ghostty-org/ghostty · Discussion #7356 · GitHub
+---
+
+[Skip to content](#start-of-content)
+
+![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgZGF0YS1jb21wb25lbnQ9Ik9jdGljb24iIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgdmVyc2lvbj0iMS4xIiB3aWR0aD0iMTYiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGNsYXNzPSJvY3RpY29uIG9jdGljb24tYWxlcnQiPgogICAgPHBhdGggZD0iTTYuNDU3IDEuMDQ3Yy42NTktMS4yMzQgMi40MjctMS4yMzQgMy4wODYgMGw2LjA4MiAxMS4zNzhBMS43NSAxLjc1IDAgMCAxIDE0LjA4MiAxNUgxLjkxOGExLjc1IDEuNzUgMCAwIDEtMS41NDMtMi41NzVabTEuNzYzLjcwN2EuMjUuMjUgMCAwIDAtLjQ0IDBMMS42OTggMTMuMTMyYS4yNS4yNSAwIDAgMCAuMjIuMzY4aDEyLjE2NGEuMjUuMjUgMCAwIDAgLjIyLS4zNjhabS41MyAzLjk5NnYyLjVhLjc1Ljc1IDAgMCAxLTEuNSAwdi0yLjVhLjc1Ljc1IDAgMCAxIDEuNSAwWk05IDExYTEgMSAwIDEgMS0yIDAgMSAxIDAgMCAxIDIgMFoiIC8+Cjwvc3ZnPg==) You signed in with another tab or window. [Reload](<>) to refresh your session. You signed out in another tab or window. [Reload](<>) to refresh your session. You switched accounts on another tab or window. [Reload](<>) to refresh your session.   ![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBkYXRhLWNvbXBvbmVudD0iT2N0aWNvbiIgaGVpZ2h0PSIxNiIgYXJpYS1oaWRkZW49InRydWUiIHZpZXdCb3g9IjAgMCAxNiAxNiIgdmVyc2lvbj0iMS4xIiB3aWR0aD0iMTYiIGNsYXNzPSJvY3RpY29uIG9jdGljb24teCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik0zLjcyIDMuNzJhLjc1Ljc1IDAgMCAxIDEuMDYgMEw4IDYuOTRsMy4yMi0zLjIyYS43NDkuNzQ5IDAgMCAxIDEuMjc1LjMyNi43NDkuNzQ5IDAgMCAxLS4yMTUuNzM0TDkuMDYgOGwzLjIyIDMuMjJhLjc0OS43NDkgMCAwIDEtLjMyNiAxLjI3NS43NDkuNzQ5IDAgMCAxLS43MzQtLjIxNUw4IDkuMDZsLTMuMjIgMy4yMmEuNzUxLjc1MSAwIDAgMS0xLjA0Mi0uMDE4Ljc1MS43NTEgMCAwIDEtLjAxOC0xLjA0Mkw2Ljk0IDggMy43MiA0Ljc4YS43NS43NSAwIDAgMSAwLTEuMDZaIiAvPgo8L3N2Zz4=)
+
+Dismiss alert
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+![SVG Image](data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjE2IiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgYXJpYS1oaWRkZW49InRydWUiIHdpZHRoPSIxNiIgZGF0YS1jb21wb25lbnQ9Ik9jdGljb24iIGNsYXNzPSJvY3RpY29uIG9jdGljb24tcmVwbyBjb2xvci1mZy1tdXRlZCBtci0yIHRtcC1tci0yIj4KICAgIDxwYXRoIGQ9Ik0yIDIuNUEyLjUgMi41IDAgMCAxIDQuNSAwaDguNzVhLjc1Ljc1IDAgMCAxIC43NS43NXYxMi41YS43NS43NSAwIDAgMS0uNzUuNzVoLTIuNWEuNzUuNzUgMCAwIDEgMC0xLjVoMS43NXYtMmgtOGExIDEgMCAwIDAtLjcxNCAxLjcuNzUuNzUgMCAxIDEtMS4wNzIgMS4wNUEyLjQ5NSAyLjQ5NSAwIDAgMSAyIDExLjVabTEwLjUtMWgtOGExIDEgMCAwIDAtMSAxdjYuNzA4QTIuNDg2IDIuNDg2IDAgMCAxIDQuNSA5aDhaTTUgMTIuMjVhLjI1LjI1IDAgMCAxIC4yNS0uMjVoMy41YS4yNS4yNSAwIDAgMSAuMjUuMjV2My4yNWEuMjUuMjUgMCAwIDEtLjQuMmwtMS40NS0xLjA4N2EuMjQ5LjI0OSAwIDAgMC0uMyAwTDUuNCAxNS43YS4yNS4yNSAwIDAgMS0uNC0uMloiIC8+Cjwvc3ZnPg==) [ghostty-org](/ghostty-org)    / **[ghostty](/ghostty-org/ghostty)** Public
+
+- [![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgZGF0YS1jb21wb25lbnQ9Ik9jdGljb24iIHdpZHRoPSIxNiIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgMTYgMTYiIGhlaWdodD0iMTYiIGNsYXNzPSJvY3RpY29uIG9jdGljb24tYmVsbCBtci0yIHRtcC1tci0yIj4KICAgIDxwYXRoIGQ9Ik04IDE2YTIgMiAwIDAgMCAxLjk4NS0xLjc1Yy4wMTctLjEzNy0uMDk3LS4yNS0uMjM1LS4yNWgtMy41Yy0uMTM4IDAtLjI1Mi4xMTMtLjIzNS4yNUEyIDIgMCAwIDAgOCAxNlpNMyA1YTUgNSAwIDAgMSAxMCAwdjIuOTQ3YzAgLjA1LjAxNS4wOTguMDQyLjEzOWwxLjcwMyAyLjU1NUExLjUxOSAxLjUxOSAwIDAgMSAxMy40ODIgMTNIMi41MThhMS41MTYgMS41MTYgMCAwIDEtMS4yNjMtMi4zNmwxLjcwMy0yLjU1NEEuMjU1LjI1NSAwIDAgMCAzIDcuOTQ3Wm01LTMuNUEzLjUgMy41IDAgMCAwIDQuNSA1djIuOTQ3YzAgLjM0Ni0uMTAyLjY4My0uMjk0Ljk3bC0xLjcwMyAyLjU1NmEuMDE3LjAxNyAwIDAgMC0uMDAzLjAxbC4wMDEuMDA2YzAgLjAwMi4wMDIuMDA0LjAwNC4wMDZsLjAwNi4wMDQuMDA3LjAwMWgxMC45NjRsLjAwNy0uMDAxLjAwNi0uMDA0LjAwNC0uMDA2LjAwMS0uMDA3YS4wMTcuMDE3IDAgMCAwLS4wMDMtLjAxbC0xLjcwMy0yLjU1NGExLjc0NSAxLjc0NSAwIDAgMS0uMjk0LS45N1Y1QTMuNSAzLjUgMCAwIDAgOCAxLjVaIiAvPgo8L3N2Zz4=)Notifications](/login?return_to=%2Fghostty-org%2Fghostty)    You must be signed in to change notification settings
+- [![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgaGVpZ2h0PSIxNiIgd2lkdGg9IjE2IiBkYXRhLWNvbXBvbmVudD0iT2N0aWNvbiIgdmVyc2lvbj0iMS4xIiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiB2aWV3Qm94PSIwIDAgMTYgMTYiIGNsYXNzPSJvY3RpY29uIG9jdGljb24tcmVwby1mb3JrZWQgbXItMiB0bXAtbXItMiI+CiAgICA8cGF0aCBkPSJNNSA1LjM3MnYuODc4YzAgLjQxNC4zMzYuNzUuNzUuNzVoNC41YS43NS43NSAwIDAgMCAuNzUtLjc1di0uODc4YTIuMjUgMi4yNSAwIDEgMSAxLjUgMHYuODc4YTIuMjUgMi4yNSAwIDAgMS0yLjI1IDIuMjVoLTEuNXYyLjEyOGEyLjI1MSAyLjI1MSAwIDEgMS0xLjUgMFY4LjVoLTEuNUEyLjI1IDIuMjUgMCAwIDEgMy41IDYuMjV2LS44NzhhMi4yNSAyLjI1IDAgMSAxIDEuNSAwWk01IDMuMjVhLjc1Ljc1IDAgMSAwLTEuNSAwIC43NS43NSAwIDAgMCAxLjUgMFptNi43NS43NWEuNzUuNzUgMCAxIDAgMC0xLjUuNzUuNzUgMCAwIDAgMCAxLjVabS0zIDguNzVhLjc1Ljc1IDAgMSAwLTEuNSAwIC43NS43NSAwIDAgMCAxLjUgMFoiIC8+Cjwvc3ZnPg==)Fork 3.1k](/login?return_to=%2Fghostty-org%2Fghostty)
+- [![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiB3aWR0aD0iMTYiIGRhdGEtY29tcG9uZW50PSJPY3RpY29uIiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgMTYgMTYiIGFyaWEtaGlkZGVuPSJ0cnVlIiB2ZXJzaW9uPSIxLjEiIGNsYXNzPSJvY3RpY29uIG9jdGljb24tc3RhciB2LWFsaWduLXRleHQtYm90dG9tIGQtaW5saW5lLWJsb2NrIG1yLTIgdG1wLW1yLTIiPgogICAgPHBhdGggZD0iTTggLjI1YS43NS43NSAwIDAgMSAuNjczLjQxOGwxLjg4MiAzLjgxNSA0LjIxLjYxMmEuNzUuNzUgMCAwIDEgLjQxNiAxLjI3OWwtMy4wNDYgMi45Ny43MTkgNC4xOTJhLjc1MS43NTEgMCAwIDEtMS4wODguNzkxTDggMTIuMzQ3bC0zLjc2NiAxLjk4YS43NS43NSAwIDAgMS0xLjA4OC0uNzlsLjcyLTQuMTk0TC44MTggNi4zNzRhLjc1Ljc1IDAgMCAxIC40MTYtMS4yOGw0LjIxLS42MTFMNy4zMjcuNjY4QS43NS43NSAwIDAgMSA4IC4yNVptMCAyLjQ0NUw2LjYxNSA1LjVhLjc1Ljc1IDAgMCAxLS41NjQuNDFsLTMuMDk3LjQ1IDIuMjQgMi4xODRhLjc1Ljc1IDAgMCAxIC4yMTYuNjY0bC0uNTI4IDMuMDg0IDIuNzY5LTEuNDU2YS43NS43NSAwIDAgMSAuNjk4IDBsMi43NyAxLjQ1Ni0uNTMtMy4wODRhLjc1Ljc1IDAgMCAxIC4yMTYtLjY2NGwyLjI0LTIuMTgzLTMuMDk2LS40NWEuNzUuNzUgMCAwIDEtLjU2NC0uNDFMOCAyLjY5NFoiIC8+Cjwvc3ZnPg==) Star 58.7k](/login?return_to=%2Fghostty-org%2Fghostty)
+
+# Ghostty does not respect XKB key remapping rules since W3C rework #7356
+
+![SVG Image](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIGRhdGEtY29tcG9uZW50PSJPY3RpY29uIiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBhcmlhLWhpZGRlbj0idHJ1ZSIgdmlld0JveD0iMCAwIDE2IDE2IiB2ZXJzaW9uPSIxLjEiIGNsYXNzPSJvY3RpY29uIG9jdGljb24tZGlzY3Vzc2lvbi1jbG9zZWQgZmxleC1pdGVtcy1jZW50ZXIgbXItMSB0bXAtbXItMSI+CiAgICA8cGF0aCBkPSJNMCAyLjc1QzAgMS43ODMuNzg0IDEgMS43NSAxaDguNWMuOTY3IDAgMS43NS43ODMgMS43NSAxLjc1djUuNUExLjc1IDEuNzUgMCAwIDEgMTAuMjUgMTBINy4wNjFsLTIuNTc0IDIuNTczQTEuNDU3IDEuNDU3IDAgMCAxIDIgMTEuNTQzVjEwaC0uMjVBMS43NSAxLjc1IDAgMCAxIDAgOC4yNVptMS43NS0uMjVhLjI1LjI1IDAgMCAwLS4yNS4yNXY1LjVjMCAuMTM4LjExMi4yNS4yNS4yNWgxYS43NS43NSAwIDAgMSAuNzUuNzV2Mi4xODlMNi4yMiA4LjcyYS43NDcuNzQ3IDAgMCAxIC41My0uMjJoMy41YS4yNS4yNSAwIDAgMCAuMjUtLjI1di01LjVhLjI1LjI1IDAgMCAwLS4yNS0uMjVabTEyLjUgMmgtLjVhLjc1Ljc1IDAgMCAxIDAtMS41aC41Yy45NjcgMCAxLjc1Ljc4MyAxLjc1IDEuNzV2NS41QTEuNzUgMS43NSAwIDAgMSAxNC4yNSAxMkgxNHYxLjU0M2ExLjQ1NyAxLjQ1NyAwIDAgMS0yLjQ4NyAxLjAzTDkuMjIgMTIuMjhhLjc0OS43NDkgMCAxIDEgMS4wNi0xLjA2bDIuMjIgMi4yMTlWMTEuMjVhLjc1Ljc1IDAgMCAxIC43NS0uNzVoMWEuMjUuMjUgMCAwIDAgLjI1LS4yNXYtNS41YS4yNS4yNSAwIDAgMC0uMjUtLjI1Wm0tNS40Ny4yOC0zIDNhLjc0Ny43NDcgMCAwIDEtMS4wNiAwbC0xLjUtMS41YS43NDkuNzQ5IDAgMSAxIDEuMDYtMS4wNmwuOTcuOTY5TDcuNzIgMy43MmEuNzQ5Ljc0OSAwIDEgMSAxLjA2IDEuMDZaIiAvPgo8L3N2Zz4=) Closed![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgd2lkdGg9IjE2IiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBhcmlhLWhpZGRlbj0idHJ1ZSIgZGF0YS1jb21wb25lbnQ9Ik9jdGljb24iIGhlaWdodD0iMTYiIGNsYXNzPSJvY3RpY29uIG9jdGljb24tbG9jayBjb2xvci1mZy1vbi1lbXBoYXNpcyBmbGV4LWl0ZW1zLWNlbnRlciI+CiAgICA8cGF0aCBkPSJNNCA0YTQgNCAwIDAgMSA4IDB2MmguMjVjLjk2NiAwIDEuNzUuNzg0IDEuNzUgMS43NXY1LjVBMS43NSAxLjc1IDAgMCAxIDEyLjI1IDE1aC04LjVBMS43NSAxLjc1IDAgMCAxIDIgMTMuMjV2LTUuNUMyIDYuNzg0IDIuNzg0IDYgMy43NSA2SDRabTguMjUgMy41aC04LjVhLjI1LjI1IDAgMCAwLS4yNS4yNXY1LjVjMCAuMTM4LjExMi4yNS4yNS4yNWg4LjVhLjI1LjI1IDAgMCAwIC4yNS0uMjV2LTUuNWEuMjUuMjUgMCAwIDAtLjI1LS4yNVpNMTAuNSA2VjRhMi41IDIuNSAwIDEgMC01IDB2MloiIC8+Cjwvc3ZnPg==) Locked![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgdmlld0JveD0iMCAwIDE2IDE2IiB2ZXJzaW9uPSIxLjEiIGRhdGEtY29tcG9uZW50PSJPY3RpY29uIiBoZWlnaHQ9IjE2IiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiB3aWR0aD0iMTYiIGNsYXNzPSJvY3RpY29uIG9jdGljb24tY2hlY2stY2lyY2xlLWZpbGwgY29sb3ItZmctc3VjY2VzcyI+CiAgICA8cGF0aCBkPSJNOCAxNkE4IDggMCAxIDEgOCAwYTggOCAwIDAgMSAwIDE2Wm0zLjc4LTkuNzJhLjc1MS43NTEgMCAwIDAtLjAxOC0xLjA0Mi43NTEuNzUxIDAgMCAwLTEuMDQyLS4wMThMNi43NSA5LjE5IDUuMjggNy43MmEuNzUxLjc1MSAwIDAgMC0xLjA0Mi4wMTguNzUxLjc1MSAwIDAgMC0uMDE4IDEuMDQybDIgMmEuNzUuNzUgMCAwIDAgMS4wNiAwWiIgLz4KPC9zdmc+) [Answered](#discussioncomment-14181765) by [pluiedev](/pluiedev "pluiedev")
+
+[Soliprem](/Soliprem) asked this question in [Issue Triage](/ghostty-org/ghostty/discussions/categories/issue-triage)
+
+[Ghostty does not respect XKB key remapping rules since W3C rework](#top) #7356
+
+[![@Soliprem](https://avatars.githubusercontent.com/u/73885403?s=40&amp;v=4) Soliprem](/Soliprem)
+
+May 14, 2025 · 21 comments · 45 replies
+
+![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgZGF0YS1jb21wb25lbnQ9Ik9jdGljb24iIGhlaWdodD0iMTYiIHdpZHRoPSIxNiIgdmlld0JveD0iMCAwIDE2IDE2IiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiB2ZXJzaW9uPSIxLjEiIGNsYXNzPSJvY3RpY29uIG9jdGljb24tY2hlY2stY2lyY2xlLWZpbGwgY29sb3ItZmctc3VjY2VzcyI+CiAgICA8cGF0aCBkPSJNOCAxNkE4IDggMCAxIDEgOCAwYTggOCAwIDAgMSAwIDE2Wm0zLjc4LTkuNzJhLjc1MS43NTEgMCAwIDAtLjAxOC0xLjA0Mi43NTEuNzUxIDAgMCAwLTEuMDQyLS4wMThMNi43NSA5LjE5IDUuMjggNy43MmEuNzUxLjc1MSAwIDAgMC0xLjA0Mi4wMTguNzUxLjc1MSAwIDAgMC0uMDE4IDEuMDQybDIgMmEuNzUuNzUgMCAwIDAgMS4wNiAwWiIgLz4KPC9zdmc+) [Answered](#discussioncomment-14181765) by [pluiedev](/pluiedev "pluiedev") [Return to top](#top)
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBkYXRhLWNvbXBvbmVudD0iT2N0aWNvbiIgdmlld0JveD0iMCAwIDE2IDE2IiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIGFyaWEtaGlkZGVuPSJ0cnVlIiB2ZXJzaW9uPSIxLjEiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Discussion options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTYgMTYiIGFyaWEtbGFiZWw9IkxvYWRpbmcgY29udGVudC4uLiIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgd2lkdGg9IjMyIiBmaWxsPSJub25lIiByb2xlPSJpbWciIGhlaWdodD0iMzIiIHN0eWxlPSJib3gtc2l6aW5nOiBjb250ZW50LWJveDsgY29sb3I6IHZhcigtLWNvbG9yLWljb24tcHJpbWFyeSk7IiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBjeT0iOCIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBmaWxsPSJub25lIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1vcGFjaXR5PSIwLjI1IiBjeD0iOCIgcj0iNyIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIC8+CiAgICA8cGF0aCB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIGQ9Ik0xNSA4YTcuMDAyIDcuMDAyIDAgMDAtNy03IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+## [Soliprem](/Soliprem) [May 14, 2025](#discussion-8325896)
+
+| Issue Description<br>when using keyboard rule esc:swapescape, the esc key stops working.    Already bisected by Kat in the discord        There are only 'skip'ped commits left to test.     The first bad commit could be any of:     24d433333b5a28f5e484dfdc724262992eb67e91     a3462dd2bd541af6372855917c6ccb5643aeda93     91d15c89bc2f8533d1f852b388c96988368b09e2     b991d36343e19ebff9026c331351b0dbe5b88fc8     ffdf86374a964dba28ca2998e914c0eece13a394     We cannot bisect more!  <br>All of these commits are from [#7320](https://github.com/ghostty-org/ghostty/pull/7320)Expected Behavior<br>esc key (physically the capslock key) should workActual Behavior<br>the key does nothing and shows up in the ghostty inspector as capslockReproduction Steps<br>Set the keyboard rule esc:swapescape (eg in hyprland with the hyprland config, in x11 with xkb, in plasma / gnome with the settingsopen ghosttyopen ghostty inspector (or a terminal application that uses esc, such as vim, or tools with a vim mode)press escGhostty Logs        ghostty      info: ghostty version=1.1.4-6984b1e-nix     info: ghostty build optimize=ReleaseFast     info: runtime=apprt.Runtime.gtk     info: font_backend=font.main.Backend.fontconfig_freetype     info: dependency harfbuzz=10.2.0     info: dependency fontconfig=21600     info: renderer=renderer.OpenGL     info: libxev default backend=io_uring     info(os_locale): setlocale from env result=LC_CTYPE=en_US.UTF-8;LC_NUMERIC=it_IT.UTF-8;LC_TIME=it_IT.UTF-8;LC_COLLATE=en_US.UTF-8;LC_MONETARY=it_IT.UTF-8;LC_MESSAGES=en_US.UTF-8;LC_PAPER=it_IT.UTF-8;LC_NAME=it_IT.UTF-8;LC_ADDRESS=it_IT.UTF-8;LC_TELEPHONE=it_IT.UTF-8;LC_MEASUREMENT=it_IT.UTF-8;LC_IDENTIFICATION=it_IT.UTF-8     info(gtk): GTK version build=4.16.12 runtime=4.16.12     info(gtk): libadwaita version build=1.6.4 runtime=1.6.4     info: reading configuration file path=/home/soliprem/.config/ghostty/config     info(config): default shell source=env value=/run/current-system/sw/bin/nu     warning(gtk): setting GDK_DEBUG=     warning(gtk): setting GDK_DISABLE=gles-api,color-mgmt,vulkan     Unrecognized value "color-mgmt". Try GDK_DISABLE=help      (process:45433): Adwaita-WARNING **: 19:47:26.844: Using GtkSettings:gtk-application-prefer-dark-theme with libadwaita is unsupported. Please use AdwStyleManager:color-scheme instead.     info(gtk_systemd_cgroup): transient scope created cgroup=/user.slice/user-1000.slice/user@1000.service/app.slice/app-ghostty-transient-45433.scope     info(gtk): cgroup isolation enabled base=/user.slice/user-1000.slice/user@1000.service/app.slice/app-ghostty-transient-45433.scope     info(grid): loaded OpenGL 4.6     info(io_exec): found Ghostty resources dir: /nix/store/5xzzyc1y0cpjyv90zfmza3xagvf4jf58-ghostty-1.1.4/share/ghostty     warning(io_exec): shell could not be detected, no automatic shell integration will be injected     warning(gtk): unimplemented action=apprt.action.Action.Key.cell_size     info(io_exec): started subcommand path=/bin/sh pid=45488     info(io_exec): subcommand cgroup=/user.slice/user-1000.slice/user@1000.service/app.slice/app-ghostty-transient-45433.scope/surfaces/560E9C2D7F30.scope     info(grid): reallocating GPU buffer old=0 new=310     info(grid): reallocating GPU buffer old=310 new=468     info(grid): reallocating GPU buffer old=468 new=705     info(page_list): adjusting page capacity=terminal.page.Capacity{ .cols = 114, .rows = 406, .styles = 128, .hyperlink_bytes = 512, .grapheme_bytes = 8192, .string_bytes = 2048 }     info(grid): reallocating GPU buffer old=705 new=1060     info(font_codepoint_resolver): found codepoint 0x1F788 in fallback face=Sarasa Mono CL     info(io_exec): pty fd closed, read thread exiting     info(surface): surface closed addr=560e9c2d7f30          ### Ghostty Version      ```text     🞈 : ghostty --version     Ghostty 1.1.4-6984b1e-nix      Version       - version: 1.1.4-6984b1e-nix       - channel: tip     Build Config       - Zig version: 0.14.0       - build mode : builtin.OptimizeMode.ReleaseFast       - app runtime: apprt.Runtime.gtk       - font engine: font.main.Backend.fontconfig_freetype       - renderer   : renderer.OpenGL       - libxev     : io_uring       - desktop env: other       - GTK version:         build      : 4.16.12         runtime    : 4.16.12       - libadwaita : enabled         build      : 1.6.4         runtime    : 1.6.4       - libX11     : enabled       - libwayland : enabled          ### OS Version Information      NixOS 25.05 (Warbler) x86_64      ### (Linux only) Display Server      Wayland      ### (Linux only) Desktop Environment/Window Manager      Hyprland      ### Minimal Ghostty Configuration      ```ini     window-decoration = false     background-opacity = 0.95     gtk-single-instance = true     gtk-titlebar = false     quit-after-last-window-closed = false     theme = matugen          ### Additional Relevant Configuration      _No response_      ### I acknowledge that:      - [X] I have reviewed the FAQ and confirm that my issue is NOT among them.     - [X] I have searched the Ghostty repository (both open and closed Discussions and Issues) and confirm this is not a duplicate of an existing issue or discussion.     - [X] I have checked the "Preview" tab on all text fields to ensure that everything looks right, and have wrapped all configuration and code in code blocks with a group of three backticks (` ``` `) on separate lines. |
+| --- |
+
+    ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgaGVpZ2h0PSIxNiIgdmVyc2lvbj0iMS4xIiB3aWR0aD0iMTYiIGRhdGEtY29tcG9uZW50PSJPY3RpY29uIiB2aWV3Qm94PSIwIDAgMTYgMTYiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGNsYXNzPSJvY3RpY29uIG9jdGljb24tYXJyb3ctdXAgbS0wIHRtcC1tLTAiPgogICAgPHBhdGggZD0iTTMuNDcgNy43OGEuNzUuNzUgMCAwIDEgMC0xLjA2bDQuMjUtNC4yNWEuNzUuNzUgMCAwIDEgMS4wNiAwbDQuMjUgNC4yNWEuNzUxLjc1MSAwIDAgMS0uMDE4IDEuMDQyLjc1MS43NTEgMCAwIDEtMS4wNDIuMDE4TDkgNC44MXY3LjQ0YS43NS43NSAwIDAgMS0xLjUgMFY0LjgxTDQuNTMgNy43OGEuNzUuNzUgMCAwIDEtMS4wNiAwWiIgLz4KPC9zdmc+) 23
+
+        You must be logged in to vote
+
+**All reactions**
+
+![SVG Image](data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjI0IiB2ZXJzaW9uPSIxLjEiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIHZpZXdCb3g9IjAgMCAyNCAyNCIgYXJpYS1oaWRkZW49InRydWUiIHdpZHRoPSIyNCIgZGF0YS1jb21wb25lbnQ9Ik9jdGljb24iIGNsYXNzPSJvY3RpY29uIG9jdGljb24tY2hlY2stY2lyY2xlLWZpbGwgY29sb3ItZmctc3VjY2VzcyBtci0yIHRtcC1tci0yIj4KICAgIDxwYXRoIGQ9Ik0xIDEyQzEgNS45MjUgNS45MjUgMSAxMiAxczExIDQuOTI1IDExIDExLTQuOTI1IDExLTExIDExUzEgMTguMDc1IDEgMTJabTE2LjI4LTIuNzJhLjc1MS43NTEgMCAwIDAtLjAxOC0xLjA0Mi43NTEuNzUxIDAgMCAwLTEuMDQyLS4wMThsLTUuOTcgNS45Ny0yLjQ3LTIuNDdhLjc1MS43NTEgMCAwIDAtMS4wNDIuMDE4Ljc1MS43NTEgMCAwIDAtLjAxOCAxLjA0MmwzIDNhLjc1Ljc1IDAgMCAwIDEuMDYgMFoiIC8+Cjwvc3ZnPg==) Answered by [pluiedev](/pluiedev) [Aug 21, 2025](https://github.com/ghostty-org/ghostty/discussions/7356#discussioncomment-14181765)
+
+Opened [#8330](https://github.com/ghostty-org/ghostty/pull/8330). Everyone subscribed to this thread — please give it a try!
+
+[View full answer ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgdmVyc2lvbj0iMS4xIiBkYXRhLWNvbXBvbmVudD0iT2N0aWNvbiIgd2lkdGg9IjE2IiB2aWV3Qm94PSIwIDAgMTYgMTYiIGhlaWdodD0iMTYiIGNsYXNzPSJvY3RpY29uIG9jdGljb24tYXJyb3ctZG93biI+CiAgICA8cGF0aCBkPSJNMTMuMDMgOC4yMmEuNzUuNzUgMCAwIDEgMCAxLjA2bC00LjI1IDQuMjVhLjc1Ljc1IDAgMCAxLTEuMDYgMEwzLjQ3IDkuMjhhLjc1MS43NTEgMCAwIDEgLjAxOC0xLjA0Mi43NTEuNzUxIDAgMCAxIDEuMDQyLS4wMThsMi45NyAyLjk3VjMuNzVhLjc1Ljc1IDAgMCAxIDEuNSAwdjcuNDRsMi45Ny0yLjk3YS43NS43NSAwIDAgMSAxLjA2IDBaIiAvPgo8L3N2Zz4=)](#discussioncomment-14181765)
+
+## Replies: 21 comments · 45 replies
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTYgMTYiIHdpZHRoPSIxNiIgZGF0YS1jb21wb25lbnQ9Ik9jdGljb24iIGhlaWdodD0iMTYiIHZlcnNpb249IjEuMSIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgYXJpYS1oaWRkZW49InRydWUiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIHZpZXdCb3g9IjAgMCAxNiAxNiIgaGVpZ2h0PSIzMiIgc3R5bGU9ImJveC1zaXppbmc6IGNvbnRlbnQtYm94OyBjb2xvcjogdmFyKC0tY29sb3ItaWNvbi1wcmltYXJ5KTsiIGZpbGw9Im5vbmUiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIHJvbGU9ImltZyIgYXJpYS1sYWJlbD0iTG9hZGluZyBjb250ZW50Li4uIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBzdHJva2Utb3BhY2l0eT0iMC4yNSIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS13aWR0aD0iMiIgY3k9IjgiIGN4PSI4IiBmaWxsPSJub25lIiByPSI3IiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIC8+CiAgICA8cGF0aCBkPSJNMTUgOGE3LjAwMiA3LjAwMiAwIDAwLTctNyIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+### [dtgagnon](/dtgagnon) [May 15, 2025](#discussioncomment-13152248)
+
+| Experiencing the same.<br>Configured caps:swapescape in both xkb and hyprland input related settings. Incorrect behavior only present in ghostty.        Ghostty 1.1.4-a090e8e-nix      Version       - version: 1.1.4-a090e8e-nix       - channel: tip     Build Config       - Zig version: 0.14.0       - build mode : builtin.OptimizeMode.ReleaseFast       - app runtime: apprt.Runtime.gtk       - font engine: font.main.Backend.fontconfig_freetype       - renderer   : renderer.OpenGL       - libxev     : io_uring       - desktop env: other       - GTK version:         build      : 4.16.12         runtime    : 4.16.12       - libadwaita : enabled         build      : 1.6.4         runtime    : 1.6.4       - libX11     : enabled       - libwayland : enabled |
+| --- |
+
+    ![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiB2aWV3Qm94PSIwIDAgMTYgMTYiIHdpZHRoPSIxNiIgZGF0YS1jb21wb25lbnQ9Ik9jdGljb24iIGhlaWdodD0iMTYiIHZlcnNpb249IjEuMSIgYXJpYS1oaWRkZW49InRydWUiIGNsYXNzPSJvY3RpY29uIG9jdGljb24tYXJyb3ctdXAgbS0wIHRtcC1tLTAiPgogICAgPHBhdGggZD0iTTMuNDcgNy43OGEuNzUuNzUgMCAwIDEgMC0xLjA2bDQuMjUtNC4yNWEuNzUuNzUgMCAwIDEgMS4wNiAwbDQuMjUgNC4yNWEuNzUxLjc1MSAwIDAgMS0uMDE4IDEuMDQyLjc1MS43NTEgMCAwIDEtMS4wNDIuMDE4TDkgNC44MXY3LjQ0YS43NS43NSAwIDAgMS0xLjUgMFY0LjgxTDQuNTMgNy43OGEuNzUuNzUgMCAwIDEtMS4wNiAwWiIgLz4KPC9zdmc+) 7
+
+        You must be logged in to vote
+
+**All reactions**
+
+0 replies
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgYXJpYS1oaWRkZW49InRydWUiIHdpZHRoPSIxNiIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgaGVpZ2h0PSIxNiIgZGF0YS1jb21wb25lbnQ9Ik9jdGljb24iIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyBzdHlsZT0iYm94LXNpemluZzogY29udGVudC1ib3g7IGNvbG9yOiB2YXIoLS1jb2xvci1pY29uLXByaW1hcnkpOyIgdmlld0JveD0iMCAwIDE2IDE2IiBmaWxsPSJub25lIiBhcmlhLWxhYmVsPSJMb2FkaW5nIGNvbnRlbnQuLi4iIHdpZHRoPSIzMiIgcm9sZT0iaW1nIiBoZWlnaHQ9IjMyIiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBmaWxsPSJub25lIiBjeD0iOCIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgY3k9IjgiIHI9IjciIHN0cm9rZS1vcGFjaXR5PSIwLjI1IiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIC8+CiAgICA8cGF0aCBkPSJNMTUgOGE3LjAwMiA3LjAwMiAwIDAwLTctNyIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+  edited ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGhlaWdodD0iMTYiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGRhdGEtY29tcG9uZW50PSJPY3RpY29uIiB2aWV3Qm94PSIwIDAgMTYgMTYiIHdpZHRoPSIxNiIgYXJpYS1oaWRkZW49InRydWUiIGNsYXNzPSJvY3RpY29uIG9jdGljb24tdHJpYW5nbGUtZG93biI+CiAgICA8cGF0aCBkPSJtNC40MjcgNy40MjcgMy4zOTYgMy4zOTZhLjI1LjI1IDAgMCAwIC4zNTQgMGwzLjM5Ni0zLjM5NkEuMjUuMjUgMCAwIDAgMTEuMzk2IDdINC42MDRhLjI1LjI1IDAgMCAwLS4xNzcuNDI3WiIgLz4KPC9zdmc+)
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTYgMTYiIHdpZHRoPSIzMiIgYXJpYS1sYWJlbD0iTG9hZGluZyBjb250ZW50Li4uIiByb2xlPSJpbWciIGZpbGw9Im5vbmUiIHN0eWxlPSJib3gtc2l6aW5nOiBjb250ZW50LWJveDsgY29sb3I6IHZhcigtLWNvbG9yLWljb24tcHJpbWFyeSk7IiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBoZWlnaHQ9IjMyIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIGZpbGw9Im5vbmUiIGN5PSI4IiBjeD0iOCIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHI9IjciIHN0cm9rZS1vcGFjaXR5PSIwLjI1IiBzdHJva2Utd2lkdGg9IjIiIC8+CiAgICA8cGF0aCBzdHJva2U9ImN1cnJlbnRDb2xvciIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIgZD0iTTE1IDhhNy4wMDIgNy4wMDIgMCAwMC03LTciIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+### [00-kat](/00-kat) [May 15, 2025](#discussioncomment-13152818) Collaborator
+
+| > the esc key stops working <br>To be more specific, with `caps:swapescape`, the *physical* `esc` key (which is bound to caps lock) performs **both** (at least for me) caps lock and escape (and the terminal inspector logs only escape), and the *physical* `capslock` key (which is bound to escape) does nothing (and the terminal inspector doesn't log anything either for me, contrary to what OP found 👀). In all ==other== applications, the *physical* `esc` sends **only** caps lock, and the *physical* `capslock` key sends **only** escape.<br>(Edit: removed note about typo.) |
+| --- |
+
+    ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGRhdGEtY29tcG9uZW50PSJPY3RpY29uIiB3aWR0aD0iMTYiIGFyaWEtaGlkZGVuPSJ0cnVlIiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgMTYgMTYiIGNsYXNzPSJvY3RpY29uIG9jdGljb24tYXJyb3ctdXAgbS0wIHRtcC1tLTAiPgogICAgPHBhdGggZD0iTTMuNDcgNy43OGEuNzUuNzUgMCAwIDEgMC0xLjA2bDQuMjUtNC4yNWEuNzUuNzUgMCAwIDEgMS4wNiAwbDQuMjUgNC4yNWEuNzUxLjc1MSAwIDAgMS0uMDE4IDEuMDQyLjc1MS43NTEgMCAwIDEtMS4wNDIuMDE4TDkgNC44MXY3LjQ0YS43NS43NSAwIDAgMS0xLjUgMFY0LjgxTDQuNTMgNy43OGEuNzUuNzUgMCAwIDEtMS4wNiAwWiIgLz4KPC9zdmc+) 2
+
+        You must be logged in to vote
+
+**All reactions**
+
+2 replies
+
+[![@Soliprem](https://avatars.githubusercontent.com/u/73885403?s=60&amp;v=4)](/Soliprem)
+
+**### This comment has been hidden.
+
+[Sign in to view](/login?return_to=https%3A%2F%2Fgithub.com%2Fghostty-org%2Fghostty%2Fdiscussions%2F7356)**
+
+[![@Soliprem](https://avatars.githubusercontent.com/u/73885403?s=60&amp;v=4)](/Soliprem)
+
+**### This comment has been hidden.
+
+[Sign in to view](/login?return_to=https%3A%2F%2Fgithub.com%2Fghostty-org%2Fghostty%2Fdiscussions%2F7356)**
+
+**### This comment was marked as spam.
+
+[Sign in to view](/login?return_to=https%3A%2F%2Fgithub.com%2Fghostty-org%2Fghostty%2Fdiscussions%2F7356)**
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGFyaWEtaGlkZGVuPSJ0cnVlIiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZGF0YS1jb21wb25lbnQ9Ik9jdGljb24iIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTYgMTYiIHdpZHRoPSIzMiIgZmlsbD0ibm9uZSIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgc3R5bGU9ImJveC1zaXppbmc6IGNvbnRlbnQtYm94OyBjb2xvcjogdmFyKC0tY29sb3ItaWNvbi1wcmltYXJ5KTsiIGFyaWEtbGFiZWw9IkxvYWRpbmcgY29udGVudC4uLiIgcm9sZT0iaW1nIiBoZWlnaHQ9IjMyIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSByPSI3IiBzdHJva2U9ImN1cnJlbnRDb2xvciIgZmlsbD0ibm9uZSIgY3g9IjgiIHZlY3Rvci1lZmZlY3Q9Im5vbi1zY2FsaW5nLXN0cm9rZSIgY3k9IjgiIHN0cm9rZS1vcGFjaXR5PSIwLjI1IiBzdHJva2Utd2lkdGg9IjIiIC8+CiAgICA8cGF0aCB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2Utd2lkdGg9IjIiIGQ9Ik0xNSA4YTcuMDAyIDcuMDAyIDAgMDAtNy03IiBzdHJva2UtbGluZWNhcD0icm91bmQiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+  edited ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgZGF0YS1jb21wb25lbnQ9Ik9jdGljb24iIHZpZXdCb3g9IjAgMCAxNiAxNiIgdmVyc2lvbj0iMS4xIiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGNsYXNzPSJvY3RpY29uIG9jdGljb24tdHJpYW5nbGUtZG93biI+CiAgICA8cGF0aCBkPSJtNC40MjcgNy40MjcgMy4zOTYgMy4zOTZhLjI1LjI1IDAgMCAwIC4zNTQgMGwzLjM5Ni0zLjM5NkEuMjUuMjUgMCAwIDAgMTEuMzk2IDdINC42MDRhLjI1LjI1IDAgMCAwLS4xNzcuNDI3WiIgLz4KPC9zdmc+)
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBoZWlnaHQ9IjMyIiB2aWV3Qm94PSIwIDAgMTYgMTYiIGFyaWEtbGFiZWw9IkxvYWRpbmcgY29udGVudC4uLiIgd2lkdGg9IjMyIiBmaWxsPSJub25lIiBzdHlsZT0iYm94LXNpemluZzogY29udGVudC1ib3g7IGNvbG9yOiB2YXIoLS1jb2xvci1pY29uLXByaW1hcnkpOyIgcm9sZT0iaW1nIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBmaWxsPSJub25lIiBjeD0iOCIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLW9wYWNpdHk9IjAuMjUiIHI9IjciIHZlY3Rvci1lZmZlY3Q9Im5vbi1zY2FsaW5nLXN0cm9rZSIgY3k9IjgiIC8+CiAgICA8cGF0aCBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNMTUgOGE3LjAwMiA3LjAwMiAwIDAwLTctNyIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBzdHJva2UtbGluZWNhcD0icm91bmQiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+### [coveres](/coveres) [May 19, 2025](#discussioncomment-13196354)
+
+| I've tracked down the cause, it's the modifications in `src/apprt/gtk/Surface.zig` commit [ffdf86374a964dba28ca2998e914c0eece13a394](https://github.com/ghostty-org/ghostty/commit/ffdf86374a964dba28ca2998e914c0eece13a394). Adding the code back (replacing `.invalid` with `.unidentified`) fixes the issue. |
+| --- |
+
+    ![SVG Image](data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgMTYgMTYiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIHZlcnNpb249IjEuMSIgd2lkdGg9IjE2IiBhcmlhLWhpZGRlbj0idHJ1ZSIgZGF0YS1jb21wb25lbnQ9Ik9jdGljb24iIGNsYXNzPSJvY3RpY29uIG9jdGljb24tYXJyb3ctdXAgbS0wIHRtcC1tLTAiPgogICAgPHBhdGggZD0iTTMuNDcgNy43OGEuNzUuNzUgMCAwIDEgMC0xLjA2bDQuMjUtNC4yNWEuNzUuNzUgMCAwIDEgMS4wNiAwbDQuMjUgNC4yNWEuNzUxLjc1MSAwIDAgMS0uMDE4IDEuMDQyLjc1MS43NTEgMCAwIDEtMS4wNDIuMDE4TDkgNC44MXY3LjQ0YS43NS43NSAwIDAgMS0xLjUgMFY0LjgxTDQuNTMgNy43OGEuNzUuNzUgMCAwIDEtMS4wNiAwWiIgLz4KPC9zdmc+) 9
+
+        You must be logged in to vote
+
+    🚀 7
+
+**All reactions**
+
+- 🚀 7
+
+5 replies
+
+[![@Opposite34](https://avatars.githubusercontent.com/u/54463205?s=60&amp;v=4)](/Opposite34)
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBhcmlhLWhpZGRlbj0idHJ1ZSIgdmlld0JveD0iMCAwIDE2IDE2IiBoZWlnaHQ9IjE2IiB3aWR0aD0iMTYiIGRhdGEtY29tcG9uZW50PSJPY3RpY29uIiB2ZXJzaW9uPSIxLjEiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIHJvbGU9ImltZyIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDE2IDE2IiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBhcmlhLWxhYmVsPSJMb2FkaW5nIGNvbnRlbnQuLi4iIHN0eWxlPSJib3gtc2l6aW5nOiBjb250ZW50LWJveDsgY29sb3I6IHZhcigtLWNvbG9yLWljb24tcHJpbWFyeSk7IiBmaWxsPSJub25lIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSByPSI3IiBmaWxsPSJub25lIiBjeD0iOCIgc3Ryb2tlLXdpZHRoPSIyIiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIHN0cm9rZT0iY3VycmVudENvbG9yIiBjeT0iOCIgc3Ryb2tlLW9wYWNpdHk9IjAuMjUiIC8+CiAgICA8cGF0aCBzdHJva2U9ImN1cnJlbnRDb2xvciIgZD0iTTE1IDhhNy4wMDIgNy4wMDIgMCAwMC03LTciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBzdHJva2Utd2lkdGg9IjIiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+  edited ![SVG Image](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIHZlcnNpb249IjEuMSIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2IiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBhcmlhLWhpZGRlbj0idHJ1ZSIgZGF0YS1jb21wb25lbnQ9Ik9jdGljb24iIGNsYXNzPSJvY3RpY29uIG9jdGljb24tdHJpYW5nbGUtZG93biI+CiAgICA8cGF0aCBkPSJtNC40MjcgNy40MjcgMy4zOTYgMy4zOTZhLjI1LjI1IDAgMCAwIC4zNTQgMGwzLjM5Ni0zLjM5NkEuMjUuMjUgMCAwIDAgMTEuMzk2IDdINC42MDRhLjI1LjI1IDAgMCAwLS4xNzcuNDI3WiIgLz4KPC9zdmc+)
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IkxvYWRpbmcgY29udGVudC4uLiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiB2aWV3Qm94PSIwIDAgMTYgMTYiIHN0eWxlPSJib3gtc2l6aW5nOiBjb250ZW50LWJveDsgY29sb3I6IHZhcigtLWNvbG9yLWljb24tcHJpbWFyeSk7IiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSByPSI3IiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLW9wYWNpdHk9IjAuMjUiIGZpbGw9Im5vbmUiIGN5PSI4IiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIHN0cm9rZS13aWR0aD0iMiIgY3g9IjgiIC8+CiAgICA8cGF0aCB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIGQ9Ik0xNSA4YTcuMDAyIDcuMDAyIDAgMDAtNy03IiBzdHJva2Utd2lkdGg9IjIiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+#### [Opposite34](/Opposite34) [May 21, 2025](#discussioncomment-13214931)
+
+| I was confused on what you meant at first, but then I tried to look into that commit and revert said file (but with name changes as you mentioned) and yeah that's all you have to do to fix said issue. Here's the changes reverting that on my branch: [Opposite34@5b871c5](https://github.com/Opposite34/ghostty/commit/5b871c595254eece6bf44ab48f71409b7ed36088)<br>Now I'm concerned on how much this breaks the conventions of the W3C keycode commit that was made (as it was removed to use that in the first place), but for now it's a regression fix I guess. |
+| --- |
+
+    👍 2
+
+**All reactions**
+
+- 👍 2
+
+[![@coveres](https://avatars.githubusercontent.com/u/97767766?s=60&amp;v=4)](/coveres)
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTYgMTYiIGhlaWdodD0iMTYiIHdpZHRoPSIxNiIgZGF0YS1jb21wb25lbnQ9Ik9jdGljb24iIHZlcnNpb249IjEuMSIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgYXJpYS1oaWRkZW49InRydWUiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTYgMTYiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIHJvbGU9ImltZyIgaGVpZ2h0PSIzMiIgc3R5bGU9ImJveC1zaXppbmc6IGNvbnRlbnQtYm94OyBjb2xvcjogdmFyKC0tY29sb3ItaWNvbi1wcmltYXJ5KTsiIGZpbGw9Im5vbmUiIHdpZHRoPSIzMiIgYXJpYS1sYWJlbD0iTG9hZGluZyBjb250ZW50Li4uIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSByPSI3IiBmaWxsPSJub25lIiBjeT0iOCIgY3g9IjgiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1vcGFjaXR5PSIwLjI1IiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIC8+CiAgICA8cGF0aCBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZT0iY3VycmVudENvbG9yIiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZD0iTTE1IDhhNy4wMDIgNy4wMDIgMCAwMC03LTciIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+#### [coveres](/coveres) [May 21, 2025](#discussioncomment-13219548)
+
+| To be clear i have no knowledge about the codebase whatsoever, i simply tacked down the code that broke it. A maintainer would have to look at it and decide how to go about it. I'm currently just using ghostty pinned to last commit that works for me [7f9bb3c](https://github.com/ghostty-org/ghostty/commit/7f9bb3c0e54f585e11259bc0c9064813d061929c). |
+| --- |
+
+    👍 2
+
+**All reactions**
+
+- 👍 2
+
+[![@Opposite34](https://avatars.githubusercontent.com/u/54463205?s=60&amp;v=4)](/Opposite34)
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgdmlld0JveD0iMCAwIDE2IDE2IiB3aWR0aD0iMTYiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIHZlcnNpb249IjEuMSIgZGF0YS1jb21wb25lbnQ9Ik9jdGljb24iIGhlaWdodD0iMTYiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGFyaWEtbGFiZWw9IkxvYWRpbmcgY29udGVudC4uLiIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgcm9sZT0iaW1nIiB2aWV3Qm94PSIwIDAgMTYgMTYiIHN0eWxlPSJib3gtc2l6aW5nOiBjb250ZW50LWJveDsgY29sb3I6IHZhcigtLWNvbG9yLWljb24tcHJpbWFyeSk7IiBoZWlnaHQ9IjMyIiBmaWxsPSJub25lIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIHN0cm9rZS1vcGFjaXR5PSIwLjI1IiBmaWxsPSJub25lIiBzdHJva2Utd2lkdGg9IjIiIHI9IjciIHN0cm9rZT0iY3VycmVudENvbG9yIiBjeT0iOCIgY3g9IjgiIC8+CiAgICA8cGF0aCBzdHJva2U9ImN1cnJlbnRDb2xvciIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIgZD0iTTE1IDhhNy4wMDIgNy4wMDIgMCAwMC03LTciIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+  edited ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgZGF0YS1jb21wb25lbnQ9Ik9jdGljb24iIHZpZXdCb3g9IjAgMCAxNiAxNiIgaGVpZ2h0PSIxNiIgdmVyc2lvbj0iMS4xIiB3aWR0aD0iMTYiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGNsYXNzPSJvY3RpY29uIG9jdGljb24tdHJpYW5nbGUtZG93biI+CiAgICA8cGF0aCBkPSJtNC40MjcgNy40MjcgMy4zOTYgMy4zOTZhLjI1LjI1IDAgMCAwIC4zNTQgMGwzLjM5Ni0zLjM5NkEuMjUuMjUgMCAwIDAgMTEuMzk2IDdINC42MDRhLjI1LjI1IDAgMCAwLS4xNzcuNDI3WiIgLz4KPC9zdmc+)
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjMyIiBzdHlsZT0iYm94LXNpemluZzogY29udGVudC1ib3g7IGNvbG9yOiB2YXIoLS1jb2xvci1pY29uLXByaW1hcnkpOyIgYXJpYS1sYWJlbD0iTG9hZGluZyBjb250ZW50Li4uIiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiB2aWV3Qm94PSIwIDAgMTYgMTYiIGZpbGw9Im5vbmUiIHdpZHRoPSIzMiIgcm9sZT0iaW1nIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBjeT0iOCIgcj0iNyIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBzdHJva2Utb3BhY2l0eT0iMC4yNSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgZmlsbD0ibm9uZSIgY3g9IjgiIC8+CiAgICA8cGF0aCBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2Utd2lkdGg9IjIiIGQ9Ik0xNSA4YTcuMDAyIDcuMDAyIDAgMDAtNy03IiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+#### [Opposite34](/Opposite34) [May 21, 2025](#discussioncomment-13223059)
+
+| I have isolated even more that, at least for this case, this particular section from the removed code is needed:        const key = if (!self.im_composing) key: {         if (gtk_key.keyFromKeyval(keyval)) |key| {             break :key key;         }         ...      } else .unidentified; |
+| --- |
+
+    👍 6
+
+**All reactions**
+
+- 👍 6
+
+[![@ndom91](https://avatars.githubusercontent.com/u/7415984?s=60&amp;v=4)](/ndom91)
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgYXJpYS1oaWRkZW49InRydWUiIHdpZHRoPSIxNiIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgZGF0YS1jb21wb25lbnQ9Ik9jdGljb24iIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWxhYmVsPSJMb2FkaW5nIGNvbnRlbnQuLi4iIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgcm9sZT0iaW1nIiBzdHlsZT0iYm94LXNpemluZzogY29udGVudC1ib3g7IGNvbG9yOiB2YXIoLS1jb2xvci1pY29uLXByaW1hcnkpOyIgaGVpZ2h0PSIzMiIgd2lkdGg9IjMyIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2Utb3BhY2l0eT0iMC4yNSIgZmlsbD0ibm9uZSIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBjeT0iOCIgY3g9IjgiIHI9IjciIC8+CiAgICA8cGF0aCBkPSJNMTUgOGE3LjAwMiA3LjAwMiAwIDAwLTctNyIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+  edited ![SVG Image](data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjE2IiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBhcmlhLWhpZGRlbj0idHJ1ZSIgdmVyc2lvbj0iMS4xIiB3aWR0aD0iMTYiIGRhdGEtY29tcG9uZW50PSJPY3RpY29uIiB2aWV3Qm94PSIwIDAgMTYgMTYiIGNsYXNzPSJvY3RpY29uIG9jdGljb24tdHJpYW5nbGUtZG93biI+CiAgICA8cGF0aCBkPSJtNC40MjcgNy40MjcgMy4zOTYgMy4zOTZhLjI1LjI1IDAgMCAwIC4zNTQgMGwzLjM5Ni0zLjM5NkEuMjUuMjUgMCAwIDAgMTEuMzk2IDdINC42MDRhLjI1LjI1IDAgMCAwLS4xNzcuNDI3WiIgLz4KPC9zdmc+)
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyBzdHlsZT0iYm94LXNpemluZzogY29udGVudC1ib3g7IGNvbG9yOiB2YXIoLS1jb2xvci1pY29uLXByaW1hcnkpOyIgd2lkdGg9IjMyIiByb2xlPSJpbWciIGhlaWdodD0iMzIiIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgYXJpYS1sYWJlbD0iTG9hZGluZyBjb250ZW50Li4uIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBzdHJva2Utb3BhY2l0eT0iMC4yNSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgcj0iNyIgY3g9IjgiIGZpbGw9Im5vbmUiIGN5PSI4IiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIC8+CiAgICA8cGF0aCBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIgZD0iTTE1IDhhNy4wMDIgNy4wMDIgMCAwMC03LTciIHZlY3Rvci1lZmZlY3Q9Im5vbi1zY2FsaW5nLXN0cm9rZSIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+#### [ndom91](/ndom91) [May 28, 2025](#discussioncomment-13302446)
+
+| Omg I thought I was going nuts haha. Thanks for tracking this down 🙏<br>I can confirm I'm seeing this issue on Nix with Hyprland (wayland) as well        Ghostty 1.1.4-60d8c42-nix      Version       - version: 1.1.4-60d8c42-nix       - channel: tip     Build Config       - Zig version: 0.14.0       - build mode : builtin.OptimizeMode.ReleaseFast       - app runtime: apprt.Runtime.gtk       - font engine: font.main.Backend.fontconfig_freetype       - renderer   : renderer.OpenGL       - libxev     : io_uring       - desktop env: other       - GTK version:         build      : 4.16.12         runtime    : 4.16.12       - libadwaita : enabled         build      : 1.6.4         runtime    : 1.6.4       - libX11     : enabled       - libwayland : enabled  <br>No movement on an official fix yet though, right? Anyone find any good workarounds without recompiling and using the code above? |
+| --- |
+
+    ❤️ 2
+
+**All reactions**
+
+- ❤️ 2
+
+[![@vicgeentor](https://avatars.githubusercontent.com/u/95343562?s=60&amp;v=4)](/vicgeentor)
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHdpZHRoPSIxNiIgZGF0YS1jb21wb25lbnQ9Ik9jdGljb24iIGFyaWEtaGlkZGVuPSJ0cnVlIiB2ZXJzaW9uPSIxLjEiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWxhYmVsPSJMb2FkaW5nIGNvbnRlbnQuLi4iIGZpbGw9Im5vbmUiIHJvbGU9ImltZyIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBzdHlsZT0iYm94LXNpemluZzogY29udGVudC1ib3g7IGNvbG9yOiB2YXIoLS1jb2xvci1pY29uLXByaW1hcnkpOyIgdmlld0JveD0iMCAwIDE2IDE2IiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBzdHJva2Utb3BhY2l0eT0iMC4yNSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgY3k9IjgiIHZlY3Rvci1lZmZlY3Q9Im5vbi1zY2FsaW5nLXN0cm9rZSIgY3g9IjgiIGZpbGw9Im5vbmUiIHI9IjciIC8+CiAgICA8cGF0aCBkPSJNMTUgOGE3LjAwMiA3LjAwMiAwIDAwLTctNyIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBzdHJva2Utd2lkdGg9IjIiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+  edited ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTYgMTYiIGhlaWdodD0iMTYiIHZlcnNpb249IjEuMSIgZGF0YS1jb21wb25lbnQ9Ik9jdGljb24iIHdpZHRoPSIxNiIgYXJpYS1oaWRkZW49InRydWUiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGNsYXNzPSJvY3RpY29uIG9jdGljb24tdHJpYW5nbGUtZG93biI+CiAgICA8cGF0aCBkPSJtNC40MjcgNy40MjcgMy4zOTYgMy4zOTZhLjI1LjI1IDAgMCAwIC4zNTQgMGwzLjM5Ni0zLjM5NkEuMjUuMjUgMCAwIDAgMTEuMzk2IDdINC42MDRhLjI1LjI1IDAgMCAwLS4xNzcuNDI3WiIgLz4KPC9zdmc+)
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTYgMTYiIGFyaWEtbGFiZWw9IkxvYWRpbmcgY29udGVudC4uLiIgcm9sZT0iaW1nIiBoZWlnaHQ9IjMyIiBzdHlsZT0iYm94LXNpemluZzogY29udGVudC1ib3g7IGNvbG9yOiB2YXIoLS1jb2xvci1pY29uLXByaW1hcnkpOyIgd2lkdGg9IjMyIiBmaWxsPSJub25lIiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2Utb3BhY2l0eT0iMC4yNSIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiByPSI3IiBjeT0iOCIgY3g9IjgiIGZpbGw9Im5vbmUiIC8+CiAgICA8cGF0aCBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNMTUgOGE3LjAwMiA3LjAwMiAwIDAwLTctNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+#### [vicgeentor](/vicgeentor) [May 28, 2025](#discussioncomment-13302533)
+
+| [@ndom91](https://github.com/ndom91) I just pin the flake of the repo in my home-manager flake inputs to the commit mentioned above ([7f9bb3c](https://github.com/ghostty-org/ghostty/commit/7f9bb3c0e54f585e11259bc0c9064813d061929c)) until an official fix is rolled out. |
+| --- |
+
+**All reactions**
+
+**### This comment was marked as off-topic.
+
+[Sign in to view](/login?return_to=https%3A%2F%2Fgithub.com%2Fghostty-org%2Fghostty%2Fdiscussions%2F7356)**
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBkYXRhLWNvbXBvbmVudD0iT2N0aWNvbiIgd2lkdGg9IjE2IiB2aWV3Qm94PSIwIDAgMTYgMTYiIGhlaWdodD0iMTYiIGFyaWEtaGlkZGVuPSJ0cnVlIiB2ZXJzaW9uPSIxLjEiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjMyIiBmaWxsPSJub25lIiB2aWV3Qm94PSIwIDAgMTYgMTYiIHdpZHRoPSIzMiIgYXJpYS1sYWJlbD0iTG9hZGluZyBjb250ZW50Li4uIiBzdHlsZT0iYm94LXNpemluZzogY29udGVudC1ib3g7IGNvbG9yOiB2YXIoLS1jb2xvci1pY29uLXByaW1hcnkpOyIgcm9sZT0iaW1nIiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIGZpbGw9Im5vbmUiIGN5PSI4IiByPSI3IiBzdHJva2Utb3BhY2l0eT0iMC4yNSIgY3g9IjgiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIC8+CiAgICA8cGF0aCBzdHJva2Utd2lkdGg9IjIiIHZlY3Rvci1lZmZlY3Q9Im5vbi1zY2FsaW5nLXN0cm9rZSIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZD0iTTE1IDhhNy4wMDIgNy4wMDIgMCAwMC03LTciIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+  edited ![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBkYXRhLWNvbXBvbmVudD0iT2N0aWNvbiIgdmVyc2lvbj0iMS4xIiBhcmlhLWhpZGRlbj0idHJ1ZSIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2IiB3aWR0aD0iMTYiIGNsYXNzPSJvY3RpY29uIG9jdGljb24tdHJpYW5nbGUtZG93biI+CiAgICA8cGF0aCBkPSJtNC40MjcgNy40MjcgMy4zOTYgMy4zOTZhLjI1LjI1IDAgMCAwIC4zNTQgMGwzLjM5Ni0zLjM5NkEuMjUuMjUgMCAwIDAgMTEuMzk2IDdINC42MDRhLjI1LjI1IDAgMCAwLS4xNzcuNDI3WiIgLz4KPC9zdmc+)
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyBzdHlsZT0iYm94LXNpemluZzogY29udGVudC1ib3g7IGNvbG9yOiB2YXIoLS1jb2xvci1pY29uLXByaW1hcnkpOyIgYXJpYS1sYWJlbD0iTG9hZGluZyBjb250ZW50Li4uIiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBmaWxsPSJub25lIiByb2xlPSJpbWciIHdpZHRoPSIzMiIgdmlld0JveD0iMCAwIDE2IDE2IiBoZWlnaHQ9IjMyIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBzdHJva2Utb3BhY2l0eT0iMC4yNSIgY3k9IjgiIHN0cm9rZS13aWR0aD0iMiIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBjeD0iOCIgcj0iNyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIC8+CiAgICA8cGF0aCBzdHJva2Utd2lkdGg9IjIiIGQ9Ik0xNSA4YTcuMDAyIDcuMDAyIDAgMDAtNy03IiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+### [ndom91](/ndom91) [May 29, 2025](#discussioncomment-13310124)
+
+| Just wanted to share this for other NixOS folks. Downgrading to `v1.1.3` like this in your main `flake.nix` avoids the responsible commit for now by simply using the previous version:        {       description = "ndom91 flake";       inputs = {         ghostty.url = "github:ghostty-org/ghostty?ref=v1.1.3"; # <-- ref can be any tag on the repo       }     } |
+| --- |
+
+    ![SVG Image](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZGF0YS1jb21wb25lbnQ9Ik9jdGljb24iIGFyaWEtaGlkZGVuPSJ0cnVlIiBoZWlnaHQ9IjE2IiB2ZXJzaW9uPSIxLjEiIGNsYXNzPSJvY3RpY29uIG9jdGljb24tYXJyb3ctdXAgbS0wIHRtcC1tLTAiPgogICAgPHBhdGggZD0iTTMuNDcgNy43OGEuNzUuNzUgMCAwIDEgMC0xLjA2bDQuMjUtNC4yNWEuNzUuNzUgMCAwIDEgMS4wNiAwbDQuMjUgNC4yNWEuNzUxLjc1MSAwIDAgMS0uMDE4IDEuMDQyLjc1MS43NTEgMCAwIDEtMS4wNDIuMDE4TDkgNC44MXY3LjQ0YS43NS43NSAwIDAgMS0xLjUgMFY0LjgxTDQuNTMgNy43OGEuNzUuNzUgMCAwIDEtMS4wNiAwWiIgLz4KPC9zdmc+) 3
+
+        You must be logged in to vote
+
+    ❤️ 2
+
+**All reactions**
+
+- ❤️ 2
+
+1 reply
+
+[![@vicgeentor](https://avatars.githubusercontent.com/u/95343562?s=60&amp;v=4)](/vicgeentor)
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTYgMTYiIGFyaWEtaGlkZGVuPSJ0cnVlIiBkYXRhLWNvbXBvbmVudD0iT2N0aWNvbiIgaGVpZ2h0PSIxNiIgdmVyc2lvbj0iMS4xIiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiB3aWR0aD0iMTYiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjMyIiB2aWV3Qm94PSIwIDAgMTYgMTYiIHJvbGU9ImltZyIgc3R5bGU9ImJveC1zaXppbmc6IGNvbnRlbnQtYm94OyBjb2xvcjogdmFyKC0tY29sb3ItaWNvbi1wcmltYXJ5KTsiIGFyaWEtbGFiZWw9IkxvYWRpbmcgY29udGVudC4uLiIgd2lkdGg9IjMyIiBmaWxsPSJub25lIiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBjeD0iOCIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgY3k9IjgiIHI9IjciIHN0cm9rZS1vcGFjaXR5PSIwLjI1IiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiIC8+CiAgICA8cGF0aCBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBkPSJNMTUgOGE3LjAwMiA3LjAwMiAwIDAwLTctNyIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBzdHJva2Utd2lkdGg9IjIiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+  edited ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgaGVpZ2h0PSIxNiIgdmVyc2lvbj0iMS4xIiB3aWR0aD0iMTYiIGRhdGEtY29tcG9uZW50PSJPY3RpY29uIiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiB2aWV3Qm94PSIwIDAgMTYgMTYiIGNsYXNzPSJvY3RpY29uIG9jdGljb24tdHJpYW5nbGUtZG93biI+CiAgICA8cGF0aCBkPSJtNC40MjcgNy40MjcgMy4zOTYgMy4zOTZhLjI1LjI1IDAgMCAwIC4zNTQgMGwzLjM5Ni0zLjM5NkEuMjUuMjUgMCAwIDAgMTEuMzk2IDdINC42MDRhLjI1LjI1IDAgMCAwLS4xNzcuNDI3WiIgLz4KPC9zdmc+)
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGZpbGw9Im5vbmUiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAxNiAxNiIgcm9sZT0iaW1nIiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBzdHlsZT0iYm94LXNpemluZzogY29udGVudC1ib3g7IGNvbG9yOiB2YXIoLS1jb2xvci1pY29uLXByaW1hcnkpOyIgYXJpYS1sYWJlbD0iTG9hZGluZyBjb250ZW50Li4uIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBzdHJva2Utd2lkdGg9IjIiIHI9IjciIGN5PSI4IiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIHN0cm9rZS1vcGFjaXR5PSIwLjI1IiBzdHJva2U9ImN1cnJlbnRDb2xvciIgY3g9IjgiIGZpbGw9Im5vbmUiIC8+CiAgICA8cGF0aCBkPSJNMTUgOGE3LjAwMiA3LjAwMiAwIDAwLTctNyIgc3Ryb2tlLXdpZHRoPSIyIiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+#### [vicgeentor](/vicgeentor) [May 29, 2025](#discussioncomment-13310217)
+
+| I personally did this:        ghostty.url = "github:ghostty-org/ghostty?rev=7f9bb3c0e54f585e11259bc0c9064813d061929c";  <br>which pins it to the latest commit before the bug got introduced. Might be a little bit more up-to-date than using the v1.1.3 tag. |
+| --- |
+
+    👍 3
+
+**All reactions**
+
+- 👍 3
+
+**### This comment has been hidden.
+
+[Sign in to view](/login?return_to=https%3A%2F%2Fgithub.com%2Fghostty-org%2Fghostty%2Fdiscussions%2F7356)**
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZGF0YS1jb21wb25lbnQ9Ik9jdGljb24iIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgYXJpYS1oaWRkZW49InRydWUiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyBzdHlsZT0iYm94LXNpemluZzogY29udGVudC1ib3g7IGNvbG9yOiB2YXIoLS1jb2xvci1pY29uLXByaW1hcnkpOyIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDE2IDE2IiBmaWxsPSJub25lIiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiB3aWR0aD0iMzIiIGFyaWEtbGFiZWw9IkxvYWRpbmcgY29udGVudC4uLiIgcm9sZT0iaW1nIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiIHZlY3Rvci1lZmZlY3Q9Im5vbi1zY2FsaW5nLXN0cm9rZSIgcj0iNyIgY3g9IjgiIHN0cm9rZS1vcGFjaXR5PSIwLjI1IiBjeT0iOCIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIC8+CiAgICA8cGF0aCB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZD0iTTE1IDhhNy4wMDIgNy4wMDIgMCAwMC03LTciIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+### [ncfavier](/ncfavier) [May 31, 2025](#discussioncomment-13329546)
+
+| In the meantime, is there a way to work around this? Adding the keybind entry `caps_lock=text:\x1B` does not work, for some reason. |
+| --- |
+
+    ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgdmlld0JveD0iMCAwIDE2IDE2IiB3aWR0aD0iMTYiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGRhdGEtY29tcG9uZW50PSJPY3RpY29uIiB2ZXJzaW9uPSIxLjEiIGhlaWdodD0iMTYiIGNsYXNzPSJvY3RpY29uIG9jdGljb24tYXJyb3ctdXAgbS0wIHRtcC1tLTAiPgogICAgPHBhdGggZD0iTTMuNDcgNy43OGEuNzUuNzUgMCAwIDEgMC0xLjA2bDQuMjUtNC4yNWEuNzUuNzUgMCAwIDEgMS4wNiAwbDQuMjUgNC4yNWEuNzUxLjc1MSAwIDAgMS0uMDE4IDEuMDQyLjc1MS43NTEgMCAwIDEtMS4wNDIuMDE4TDkgNC44MXY3LjQ0YS43NS43NSAwIDAgMS0xLjUgMFY0LjgxTDQuNTMgNy43OGEuNzUuNzUgMCAwIDEtMS4wNiAwWiIgLz4KPC9zdmc+) 1
+
+        You must be logged in to vote
+
+**All reactions**
+
+1 reply
+
+[![@Opposite34](https://avatars.githubusercontent.com/u/54463205?s=60&amp;v=4)](/Opposite34)
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjE2IiB3aWR0aD0iMTYiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGFyaWEtaGlkZGVuPSJ0cnVlIiBkYXRhLWNvbXBvbmVudD0iT2N0aWNvbiIgdmlld0JveD0iMCAwIDE2IDE2IiB2ZXJzaW9uPSIxLjEiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiB2aWV3Qm94PSIwIDAgMTYgMTYiIGZpbGw9Im5vbmUiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgYXJpYS1sYWJlbD0iTG9hZGluZyBjb250ZW50Li4uIiBzdHlsZT0iYm94LXNpemluZzogY29udGVudC1ib3g7IGNvbG9yOiB2YXIoLS1jb2xvci1pY29uLXByaW1hcnkpOyIgcm9sZT0iaW1nIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBzdHJva2Utb3BhY2l0eT0iMC4yNSIgcj0iNyIgY3k9IjgiIHN0cm9rZT0iY3VycmVudENvbG9yIiBmaWxsPSJub25lIiBzdHJva2Utd2lkdGg9IjIiIHZlY3Rvci1lZmZlY3Q9Im5vbi1zY2FsaW5nLXN0cm9rZSIgY3g9IjgiIC8+CiAgICA8cGF0aCB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIGQ9Ik0xNSA4YTcuMDAyIDcuMDAyIDAgMDAtNy03IiBzdHJva2Utd2lkdGg9IjIiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+  edited ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgZGF0YS1jb21wb25lbnQ9Ik9jdGljb24iIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDE2IDE2IiB3aWR0aD0iMTYiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGhlaWdodD0iMTYiIGNsYXNzPSJvY3RpY29uIG9jdGljb24tdHJpYW5nbGUtZG93biI+CiAgICA8cGF0aCBkPSJtNC40MjcgNy40MjcgMy4zOTYgMy4zOTZhLjI1LjI1IDAgMCAwIC4zNTQgMGwzLjM5Ni0zLjM5NkEuMjUuMjUgMCAwIDAgMTEuMzk2IDdINC42MDRhLjI1LjI1IDAgMCAwLS4xNzcuNDI3WiIgLz4KPC9zdmc+)
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiB3aWR0aD0iMzIiIGFyaWEtbGFiZWw9IkxvYWRpbmcgY29udGVudC4uLiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDE2IDE2IiBzdHlsZT0iYm94LXNpemluZzogY29udGVudC1ib3g7IGNvbG9yOiB2YXIoLS1jb2xvci1pY29uLXByaW1hcnkpOyIgcm9sZT0iaW1nIiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBzdHJva2Utd2lkdGg9IjIiIHZlY3Rvci1lZmZlY3Q9Im5vbi1zY2FsaW5nLXN0cm9rZSIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIGN4PSI4IiBjeT0iOCIgZmlsbD0ibm9uZSIgcj0iNyIgc3Ryb2tlLW9wYWNpdHk9IjAuMjUiIC8+CiAgICA8cGF0aCBkPSJNMTUgOGE3LjAwMiA3LjAwMiAwIDAwLTctNyIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+#### [Opposite34](/Opposite34) [Jun 2, 2025](#discussioncomment-13338154)
+
+| use an older version, or patch the code (check [#7356 (reply in thread)](https://github.com/ghostty-org/ghostty/discussions/7356#discussioncomment-13223059) add that into `src/apprt/gtk/Surface.zig` but remove the truncated `...`) and rebuild. |
+| --- |
+
+    👍 1
+
+**All reactions**
+
+- 👍 1
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgZGF0YS1jb21wb25lbnQ9Ik9jdGljb24iIGFyaWEtaGlkZGVuPSJ0cnVlIiBoZWlnaHQ9IjE2IiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiB3aWR0aD0iMTYiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyBzdHlsZT0iYm94LXNpemluZzogY29udGVudC1ib3g7IGNvbG9yOiB2YXIoLS1jb2xvci1pY29uLXByaW1hcnkpOyIgd2lkdGg9IjMyIiByb2xlPSJpbWciIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIHZpZXdCb3g9IjAgMCAxNiAxNiIgYXJpYS1sYWJlbD0iTG9hZGluZyBjb250ZW50Li4uIiBmaWxsPSJub25lIiBoZWlnaHQ9IjMyIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBzdHJva2Utb3BhY2l0eT0iMC4yNSIgY3g9IjgiIGN5PSI4IiBzdHJva2Utd2lkdGg9IjIiIHI9IjciIHN0cm9rZT0iY3VycmVudENvbG9yIiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIGZpbGw9Im5vbmUiIC8+CiAgICA8cGF0aCBkPSJNMTUgOGE3LjAwMiA3LjAwMiAwIDAwLTctNyIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+### [subhoghoshX](/subhoghoshX) [Jun 24, 2025](#discussioncomment-13562136)
+
+| I forked ghostty and applied the patch found by [@Opposite34](https://github.com/Opposite34): <https://github.com/subhoghoshX/ghostty>. In case it helps someone. |
+| --- |
+
+    ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgaGVpZ2h0PSIxNiIgdmVyc2lvbj0iMS4xIiBkYXRhLWNvbXBvbmVudD0iT2N0aWNvbiIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgdmlld0JveD0iMCAwIDE2IDE2IiB3aWR0aD0iMTYiIGNsYXNzPSJvY3RpY29uIG9jdGljb24tYXJyb3ctdXAgbS0wIHRtcC1tLTAiPgogICAgPHBhdGggZD0iTTMuNDcgNy43OGEuNzUuNzUgMCAwIDEgMC0xLjA2bDQuMjUtNC4yNWEuNzUuNzUgMCAwIDEgMS4wNiAwbDQuMjUgNC4yNWEuNzUxLjc1MSAwIDAgMS0uMDE4IDEuMDQyLjc1MS43NTEgMCAwIDEtMS4wNDIuMDE4TDkgNC44MXY3LjQ0YS43NS43NSAwIDAgMS0xLjUgMFY0LjgxTDQuNTMgNy43OGEuNzUuNzUgMCAwIDEtMS4wNiAwWiIgLz4KPC9zdmc+) 8
+
+        You must be logged in to vote
+
+**All reactions**
+
+5 replies
+
+[![@Soliprem](https://avatars.githubusercontent.com/u/73885403?s=60&amp;v=4)](/Soliprem)
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTYgMTYiIGFyaWEtaGlkZGVuPSJ0cnVlIiBkYXRhLWNvbXBvbmVudD0iT2N0aWNvbiIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgdmVyc2lvbj0iMS4xIiBoZWlnaHQ9IjE2IiB3aWR0aD0iMTYiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWxhYmVsPSJMb2FkaW5nIGNvbnRlbnQuLi4iIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgc3R5bGU9ImJveC1zaXppbmc6IGNvbnRlbnQtYm94OyBjb2xvcjogdmFyKC0tY29sb3ItaWNvbi1wcmltYXJ5KTsiIHJvbGU9ImltZyIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDE2IDE2IiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBjeT0iOCIgcj0iNyIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS13aWR0aD0iMiIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBjeD0iOCIgZmlsbD0ibm9uZSIgc3Ryb2tlLW9wYWNpdHk9IjAuMjUiIC8+CiAgICA8cGF0aCBkPSJNMTUgOGE3LjAwMiA3LjAwMiAwIDAwLTctNyIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+#### [Soliprem](/Soliprem) [Jun 25, 2025](#discussioncomment-13579151) Author
+
+| You should consider opening a PR (if you've not done so already) |
+| --- |
+
+**All reactions**
+
+[![@00-kat](https://avatars.githubusercontent.com/u/65649991?s=60&amp;v=4)](/00-kat)
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgdmVyc2lvbj0iMS4xIiBkYXRhLWNvbXBvbmVudD0iT2N0aWNvbiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2IiB3aWR0aD0iMTYiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWxhYmVsPSJMb2FkaW5nIGNvbnRlbnQuLi4iIHdpZHRoPSIzMiIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgaGVpZ2h0PSIzMiIgcm9sZT0iaW1nIiB2aWV3Qm94PSIwIDAgMTYgMTYiIHN0eWxlPSJib3gtc2l6aW5nOiBjb250ZW50LWJveDsgY29sb3I6IHZhcigtLWNvbG9yLWljb24tcHJpbWFyeSk7IiBmaWxsPSJub25lIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBzdHJva2Utb3BhY2l0eT0iMC4yNSIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZT0iY3VycmVudENvbG9yIiBmaWxsPSJub25lIiBjeT0iOCIgY3g9IjgiIHI9IjciIC8+CiAgICA8cGF0aCBzdHJva2Utd2lkdGg9IjIiIGQ9Ik0xNSA4YTcuMDAyIDcuMDAyIDAgMDAtNy03IiBzdHJva2U9ImN1cnJlbnRDb2xvciIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBzdHJva2UtbGluZWNhcD0icm91bmQiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+#### [00-kat](/00-kat) [Jun 25, 2025](#discussioncomment-13579316) Collaborator
+
+| Do note: <https://github.com/ghostty-org/ghostty/blob/main/CONTRIBUTING.md#pull-requests-implement-an-issue>.<br>This is not an Issue yet, unfortunately. |
+| --- |
+
+    👍 1
+
+**All reactions**
+
+- 👍 1
+
+[![@Soliprem](https://avatars.githubusercontent.com/u/73885403?s=60&amp;v=4)](/Soliprem)
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBoZWlnaHQ9IjE2IiBkYXRhLWNvbXBvbmVudD0iT2N0aWNvbiIgYXJpYS1oaWRkZW49InRydWUiIHZpZXdCb3g9IjAgMCAxNiAxNiIgdmVyc2lvbj0iMS4xIiB3aWR0aD0iMTYiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTYgMTYiIGFyaWEtbGFiZWw9IkxvYWRpbmcgY29udGVudC4uLiIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgcm9sZT0iaW1nIiBoZWlnaHQ9IjMyIiBzdHlsZT0iYm94LXNpemluZzogY29udGVudC1ib3g7IGNvbG9yOiB2YXIoLS1jb2xvci1pY29uLXByaW1hcnkpOyIgd2lkdGg9IjMyIiBmaWxsPSJub25lIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBmaWxsPSJub25lIiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIHN0cm9rZS1vcGFjaXR5PSIwLjI1IiBjeT0iOCIgY3g9IjgiIHI9IjciIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2Utd2lkdGg9IjIiIC8+CiAgICA8cGF0aCB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZD0iTTE1IDhhNy4wMDIgNy4wMDIgMCAwMC03LTciIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2Utd2lkdGg9IjIiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+#### [Soliprem](/Soliprem) [Jun 26, 2025](#discussioncomment-13581059) Author
+
+| Could it be made into one? The problem is reproducible, the cause has been found precisely, and there's already possible solutions  > Once a discussion reaches a point where a well-understood, actionable item is identified, it is moved to the issue tracker. |
+| --- |
+
+    👍 1
+
+**All reactions**
+
+- 👍 1
+
+[![@00-kat](https://avatars.githubusercontent.com/u/65649991?s=60&amp;v=4)](/00-kat)
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZGF0YS1jb21wb25lbnQ9Ik9jdGljb24iIGhlaWdodD0iMTYiIGFyaWEtaGlkZGVuPSJ0cnVlIiB2ZXJzaW9uPSIxLjEiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGZpbGw9Im5vbmUiIHN0eWxlPSJib3gtc2l6aW5nOiBjb250ZW50LWJveDsgY29sb3I6IHZhcigtLWNvbG9yLWljb24tcHJpbWFyeSk7IiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAxNiAxNiIgaGVpZ2h0PSIzMiIgYXJpYS1sYWJlbD0iTG9hZGluZyBjb250ZW50Li4uIiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIHI9IjciIHN0cm9rZT0iY3VycmVudENvbG9yIiBjeT0iOCIgc3Ryb2tlLW9wYWNpdHk9IjAuMjUiIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0ibm9uZSIgY3g9IjgiIC8+CiAgICA8cGF0aCBkPSJNMTUgOGE3LjAwMiA3LjAwMiAwIDAwLTctNyIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+  edited ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgdmlld0JveD0iMCAwIDE2IDE2IiBkYXRhLWNvbXBvbmVudD0iT2N0aWNvbiIgaGVpZ2h0PSIxNiIgdmVyc2lvbj0iMS4xIiB3aWR0aD0iMTYiIGNsYXNzPSJvY3RpY29uIG9jdGljb24tdHJpYW5nbGUtZG93biI+CiAgICA8cGF0aCBkPSJtNC40MjcgNy40MjcgMy4zOTYgMy4zOTZhLjI1LjI1IDAgMCAwIC4zNTQgMGwzLjM5Ni0zLjM5NkEuMjUuMjUgMCAwIDAgMTEuMzk2IDdINC42MDRhLjI1LjI1IDAgMCAwLS4xNzcuNDI3WiIgLz4KPC9zdmc+)
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjMyIiBhcmlhLWxhYmVsPSJMb2FkaW5nIGNvbnRlbnQuLi4iIHdpZHRoPSIzMiIgc3R5bGU9ImJveC1zaXppbmc6IGNvbnRlbnQtYm94OyBjb2xvcjogdmFyKC0tY29sb3ItaWNvbi1wcmltYXJ5KTsiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgZmlsbD0ibm9uZSIgcm9sZT0iaW1nIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBmaWxsPSJub25lIiByPSI3IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1vcGFjaXR5PSIwLjI1IiBjeD0iOCIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHZlY3Rvci1lZmZlY3Q9Im5vbi1zY2FsaW5nLXN0cm9rZSIgY3k9IjgiIC8+CiAgICA8cGF0aCBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIGQ9Ik0xNSA4YTcuMDAyIDcuMDAyIDAgMDAtNy03IiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+#### [00-kat](/00-kat) [Jun 26, 2025](#discussioncomment-13581067) Collaborator
+
+| Only a maintainer of the relevant subsystem can do that, which in this case means only Mitchell. (I don't think he's seen this yet, unfortunately.) |
+| --- |
+
+**All reactions**
+
+[![@weskoerber](https://avatars.githubusercontent.com/u/28966224?s=60&amp;v=4)](/weskoerber)
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2IiBkYXRhLWNvbXBvbmVudD0iT2N0aWNvbiIgd2lkdGg9IjE2IiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiB2ZXJzaW9uPSIxLjEiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTYgMTYiIGZpbGw9Im5vbmUiIGFyaWEtbGFiZWw9IkxvYWRpbmcgY29udGVudC4uLiIgd2lkdGg9IjMyIiByb2xlPSJpbWciIHN0eWxlPSJib3gtc2l6aW5nOiBjb250ZW50LWJveDsgY29sb3I6IHZhcigtLWNvbG9yLWljb24tcHJpbWFyeSk7IiBoZWlnaHQ9IjMyIiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBzdHJva2Utd2lkdGg9IjIiIGN4PSI4IiBzdHJva2Utb3BhY2l0eT0iMC4yNSIgcj0iNyIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgY3k9IjgiIC8+CiAgICA8cGF0aCBzdHJva2UtbGluZWNhcD0icm91bmQiIGQ9Ik0xNSA4YTcuMDAyIDcuMDAyIDAgMDAtNy03IiBzdHJva2U9ImN1cnJlbnRDb2xvciIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBzdHJva2Utd2lkdGg9IjIiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+  edited ![SVG Image](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGFyaWEtaGlkZGVuPSJ0cnVlIiB2aWV3Qm94PSIwIDAgMTYgMTYiIGRhdGEtY29tcG9uZW50PSJPY3RpY29uIiBoZWlnaHQ9IjE2IiB2ZXJzaW9uPSIxLjEiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGNsYXNzPSJvY3RpY29uIG9jdGljb24tdHJpYW5nbGUtZG93biI+CiAgICA8cGF0aCBkPSJtNC40MjcgNy40MjcgMy4zOTYgMy4zOTZhLjI1LjI1IDAgMCAwIC4zNTQgMGwzLjM5Ni0zLjM5NkEuMjUuMjUgMCAwIDAgMTEuMzk2IDdINC42MDRhLjI1LjI1IDAgMCAwLS4xNzcuNDI3WiIgLz4KPC9zdmc+)
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHN0eWxlPSJib3gtc2l6aW5nOiBjb250ZW50LWJveDsgY29sb3I6IHZhcigtLWNvbG9yLWljb24tcHJpbWFyeSk7IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHdpZHRoPSIzMiIgZmlsbD0ibm9uZSIgYXJpYS1sYWJlbD0iTG9hZGluZyBjb250ZW50Li4uIiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBoZWlnaHQ9IjMyIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBjeD0iOCIgc3Ryb2tlLW9wYWNpdHk9IjAuMjUiIGN5PSI4IiByPSI3IiBzdHJva2Utd2lkdGg9IjIiIGZpbGw9Im5vbmUiIHZlY3Rvci1lZmZlY3Q9Im5vbi1zY2FsaW5nLXN0cm9rZSIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIC8+CiAgICA8cGF0aCBkPSJNMTUgOGE3LjAwMiA3LjAwMiAwIDAwLTctNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2Utd2lkdGg9IjIiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+#### [weskoerber](/weskoerber) [Jul 1, 2025](#discussioncomment-13623922)
+
+| ~~This patch did not work for me, unfortunately :(~~<br>Yes it does. Not sure why I was having trouble, but it's definitely working now that I've pulled my head out 😄 |
+| --- |
+
+**All reactions**
+
+**### This comment was marked as spam.
+
+[Sign in to view](/login?return_to=https%3A%2F%2Fgithub.com%2Fghostty-org%2Fghostty%2Fdiscussions%2F7356)**
+
+**### This comment was marked as spam.
+
+[Sign in to view](/login?return_to=https%3A%2F%2Fgithub.com%2Fghostty-org%2Fghostty%2Fdiscussions%2F7356)**
+
+**### This comment was marked as spam.
+
+[Sign in to view](/login?return_to=https%3A%2F%2Fgithub.com%2Fghostty-org%2Fghostty%2Fdiscussions%2F7356)**
+
+**### This comment was marked as spam.
+
+[Sign in to view](/login?return_to=https%3A%2F%2Fgithub.com%2Fghostty-org%2Fghostty%2Fdiscussions%2F7356)**
+
+[![@weskoerber](https://avatars.githubusercontent.com/u/28966224?s=60&amp;v=4)](/weskoerber)
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTYgMTYiIHdpZHRoPSIxNiIgYXJpYS1oaWRkZW49InRydWUiIHZlcnNpb249IjEuMSIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgZGF0YS1jb21wb25lbnQ9Ik9jdGljb24iIGhlaWdodD0iMTYiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyBzdHlsZT0iYm94LXNpemluZzogY29udGVudC1ib3g7IGNvbG9yOiB2YXIoLS1jb2xvci1pY29uLXByaW1hcnkpOyIgcm9sZT0iaW1nIiBoZWlnaHQ9IjMyIiB2aWV3Qm94PSIwIDAgMTYgMTYiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGZpbGw9Im5vbmUiIGFyaWEtbGFiZWw9IkxvYWRpbmcgY29udGVudC4uLiIgd2lkdGg9IjMyIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBjeD0iOCIgcj0iNyIgY3k9IjgiIHZlY3Rvci1lZmZlY3Q9Im5vbi1zY2FsaW5nLXN0cm9rZSIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIiBzdHJva2Utb3BhY2l0eT0iMC4yNSIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIC8+CiAgICA8cGF0aCBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2Utd2lkdGg9IjIiIHZlY3Rvci1lZmZlY3Q9Im5vbi1zY2FsaW5nLXN0cm9rZSIgZD0iTTE1IDhhNy4wMDIgNy4wMDIgMCAwMC03LTciIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+#### [weskoerber](/weskoerber) [Jul 9, 2025](#discussioncomment-13712342)
+
+| You can fork ghostty and stay up-to-date with that patch. I've applied [@Opposite34](https://github.com/Opposite34)'s patch and rebase my fork every day. It's not a lot of extra work, just one rebase. If you don't want to do the work yourself, you can use my fork.<br>If you're using a package (like an AUR package) that tracks the main branch, you might want to reach out to the package maintainer and ask them to apply that patch. |
+| --- |
+
+    👎 3
+
+**All reactions**
+
+- 👎 3
+
+**### This comment has been hidden.
+
+[Sign in to view](/login?return_to=https%3A%2F%2Fgithub.com%2Fghostty-org%2Fghostty%2Fdiscussions%2F7356)**
+
+![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2IiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBkYXRhLWNvbXBvbmVudD0iT2N0aWNvbiIgdmVyc2lvbj0iMS4xIiB3aWR0aD0iMTYiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCI+CiAgICA8cGF0aCBkPSJNOCA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWk0xLjUgOWExLjUgMS41IDAgMSAwIDAtMyAxLjUgMS41IDAgMCAwIDAgM1ptMTMgMGExLjUgMS41IDAgMSAwIDAtMyAxLjUgMS41IDAgMCAwIDAgM1oiIC8+Cjwvc3ZnPg==)
+
+  
+
+Show 2 previous replies
+
+[![@00-kat](https://avatars.githubusercontent.com/u/65649991?s=60&amp;v=4)](/00-kat)
+
+**### This comment has been hidden.
+
+[Sign in to view](/login?return_to=https%3A%2F%2Fgithub.com%2Fghostty-org%2Fghostty%2Fdiscussions%2F7356)**
+
+[![@Soliprem](https://avatars.githubusercontent.com/u/73885403?s=60&amp;v=4)](/Soliprem)
+
+**### This comment has been hidden.
+
+[Sign in to view](/login?return_to=https%3A%2F%2Fgithub.com%2Fghostty-org%2Fghostty%2Fdiscussions%2F7356)**
+
+[![@00-kat](https://avatars.githubusercontent.com/u/65649991?s=60&amp;v=4)](/00-kat)
+
+**### This comment has been hidden.
+
+[Sign in to view](/login?return_to=https%3A%2F%2Fgithub.com%2Fghostty-org%2Fghostty%2Fdiscussions%2F7356)**
+
+[![@Soliprem](https://avatars.githubusercontent.com/u/73885403?s=60&amp;v=4)](/Soliprem)
+
+**### This comment has been hidden.
+
+[Sign in to view](/login?return_to=https%3A%2F%2Fgithub.com%2Fghostty-org%2Fghostty%2Fdiscussions%2F7356)**
+
+[![@dtgagnon](https://avatars.githubusercontent.com/u/82989011?s=60&amp;v=4)](/dtgagnon)
+
+**### This comment was marked as off-topic.
+
+[Sign in to view](/login?return_to=https%3A%2F%2Fgithub.com%2Fghostty-org%2Fghostty%2Fdiscussions%2F7356)**
+
+**### This comment was marked as off-topic.
+
+[Sign in to view](/login?return_to=https%3A%2F%2Fgithub.com%2Fghostty-org%2Fghostty%2Fdiscussions%2F7356)**
+
+[![@ncfavier](https://avatars.githubusercontent.com/u/4323933?s=60&amp;v=4)](/ncfavier)
+
+**### This comment has been hidden.
+
+[Sign in to view](/login?return_to=https%3A%2F%2Fgithub.com%2Fghostty-org%2Fghostty%2Fdiscussions%2F7356)**
+
+[![@ndom91](https://avatars.githubusercontent.com/u/7415984?s=60&amp;v=4)](/ndom91)
+
+**### This comment has been hidden.
+
+[Sign in to view](/login?return_to=https%3A%2F%2Fgithub.com%2Fghostty-org%2Fghostty%2Fdiscussions%2F7356)**
+
+**### This comment was marked as spam.
+
+[Sign in to view](/login?return_to=https%3A%2F%2Fgithub.com%2Fghostty-org%2Fghostty%2Fdiscussions%2F7356)**
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGRhdGEtY29tcG9uZW50PSJPY3RpY29uIiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgYXJpYS1oaWRkZW49InRydWUiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBzdHlsZT0iYm94LXNpemluZzogY29udGVudC1ib3g7IGNvbG9yOiB2YXIoLS1jb2xvci1pY29uLXByaW1hcnkpOyIgd2lkdGg9IjMyIiB2aWV3Qm94PSIwIDAgMTYgMTYiIGFyaWEtbGFiZWw9IkxvYWRpbmcgY29udGVudC4uLiIgaGVpZ2h0PSIzMiIgZmlsbD0ibm9uZSIgcm9sZT0iaW1nIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSByPSI3IiBzdHJva2Utb3BhY2l0eT0iMC4yNSIgY3g9IjgiIGZpbGw9Im5vbmUiIHZlY3Rvci1lZmZlY3Q9Im5vbi1zY2FsaW5nLXN0cm9rZSIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS13aWR0aD0iMiIgY3k9IjgiIC8+CiAgICA8cGF0aCBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZT0iY3VycmVudENvbG9yIiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIGQ9Ik0xNSA4YTcuMDAyIDcuMDAyIDAgMDAtNy03IiBzdHJva2Utd2lkdGg9IjIiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+  edited ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTYgMTYiIHdpZHRoPSIxNiIgZGF0YS1jb21wb25lbnQ9Ik9jdGljb24iIGFyaWEtaGlkZGVuPSJ0cnVlIiBoZWlnaHQ9IjE2IiB2ZXJzaW9uPSIxLjEiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGNsYXNzPSJvY3RpY29uIG9jdGljb24tdHJpYW5nbGUtZG93biI+CiAgICA8cGF0aCBkPSJtNC40MjcgNy40MjcgMy4zOTYgMy4zOTZhLjI1LjI1IDAgMCAwIC4zNTQgMGwzLjM5Ni0zLjM5NkEuMjUuMjUgMCAwIDAgMTEuMzk2IDdINC42MDRhLjI1LjI1IDAgMCAwLS4xNzcuNDI3WiIgLz4KPC9zdmc+)
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjMyIiB3aWR0aD0iMzIiIHZpZXdCb3g9IjAgMCAxNiAxNiIgcm9sZT0iaW1nIiBmaWxsPSJub25lIiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBzdHlsZT0iYm94LXNpemluZzogY29udGVudC1ib3g7IGNvbG9yOiB2YXIoLS1jb2xvci1pY29uLXByaW1hcnkpOyIgYXJpYS1sYWJlbD0iTG9hZGluZyBjb250ZW50Li4uIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBjeD0iOCIgcj0iNyIgY3k9IjgiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHZlY3Rvci1lZmZlY3Q9Im5vbi1zY2FsaW5nLXN0cm9rZSIgZmlsbD0ibm9uZSIgc3Ryb2tlLW9wYWNpdHk9IjAuMjUiIC8+CiAgICA8cGF0aCBzdHJva2UtbGluZWNhcD0icm91bmQiIGQ9Ik0xNSA4YTcuMDAyIDcuMDAyIDAgMDAtNy03IiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+### [pluiedev](/pluiedev) [Aug 3, 2025](#discussioncomment-13975948) Collaborator
+
+| Just to avoid appearing as if we're ignoring this thread — the whole rationale behind the W3C input rework is that keybinds would be based on the correct keys on the actual keyboard, since we have had a lot of bugs in the past where certain keybinds were not possible on other keyboard layouts due to how their keys were mapped.<br>The reason this hasn't been turned into an issue is because it's not clear how XKB remaps should factor into this: `caps:swapescape` isn't unique; all XKB remap rules are currently ignored under the rework. The problem is that if we do apply those remap rules we directly go against *why* the rework was necessary in the first place — to avoid any potential bugs with different key remapping logic in different layouts. It could be argued that in this case the user specifically *wants* the Caps Lock key to be indistinguishable from the Escape key in all pieces of software, but then we would be at the mercy of XKB to correctly interpret those rules.<br>There's no straightforward answer to this that's general enough to cover all use cases. As far as I know this problem doesn't really exist on macOS or Windows or the web (for which the W3C spec was originally written), since you can't easily remap keys there without some external tool that explicitly emulates keypresses. For `caps:swapescape` specifically I can see us conceding and adding a config option just for it, but I'm not so sure about whether this would be ideal for all settings, since testing different layouts and configurations is *already* nightmarish as is. I'm personally open to different opinions though. |
+| --- |
+
+    ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTYgMTYiIGFyaWEtaGlkZGVuPSJ0cnVlIiBkYXRhLWNvbXBvbmVudD0iT2N0aWNvbiIgdmVyc2lvbj0iMS4xIiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGNsYXNzPSJvY3RpY29uIG9jdGljb24tYXJyb3ctdXAgbS0wIHRtcC1tLTAiPgogICAgPHBhdGggZD0iTTMuNDcgNy43OGEuNzUuNzUgMCAwIDEgMC0xLjA2bDQuMjUtNC4yNWEuNzUuNzUgMCAwIDEgMS4wNiAwbDQuMjUgNC4yNWEuNzUxLjc1MSAwIDAgMS0uMDE4IDEuMDQyLjc1MS43NTEgMCAwIDEtMS4wNDIuMDE4TDkgNC44MXY3LjQ0YS43NS43NSAwIDAgMS0xLjUgMFY0LjgxTDQuNTMgNy43OGEuNzUuNzUgMCAwIDEtMS4wNiAwWiIgLz4KPC9zdmc+) 2
+
+        You must be logged in to vote
+
+    👍 4
+
+**All reactions**
+
+- 👍 4
+
+6 replies
+
+![SVG Image](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGFyaWEtaGlkZGVuPSJ0cnVlIiB2aWV3Qm94PSIwIDAgMTYgMTYiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGRhdGEtY29tcG9uZW50PSJPY3RpY29uIiBoZWlnaHQ9IjE2IiB2ZXJzaW9uPSIxLjEiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCI+CiAgICA8cGF0aCBkPSJNOCA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWk0xLjUgOWExLjUgMS41IDAgMSAwIDAtMyAxLjUgMS41IDAgMCAwIDAgM1ptMTMgMGExLjUgMS41IDAgMSAwIDAtMyAxLjUgMS41IDAgMCAwIDAgM1oiIC8+Cjwvc3ZnPg==)
+
+  
+
+Show 1 previous reply
+
+[![@pluiedev](https://avatars.githubusercontent.com/u/22406910?s=60&amp;v=4)](/pluiedev)
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgd2lkdGg9IjE2IiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBkYXRhLWNvbXBvbmVudD0iT2N0aWNvbiIgdmlld0JveD0iMCAwIDE2IDE2IiBoZWlnaHQ9IjE2IiB2ZXJzaW9uPSIxLjEiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIGFyaWEtbGFiZWw9IkxvYWRpbmcgY29udGVudC4uLiIgaGVpZ2h0PSIzMiIgZmlsbD0ibm9uZSIgd2lkdGg9IjMyIiBzdHlsZT0iYm94LXNpemluZzogY29udGVudC1ib3g7IGNvbG9yOiB2YXIoLS1jb2xvci1pY29uLXByaW1hcnkpOyIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgdmlld0JveD0iMCAwIDE2IDE2IiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSByPSI3IiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLW9wYWNpdHk9IjAuMjUiIHN0cm9rZS13aWR0aD0iMiIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBjeD0iOCIgZmlsbD0ibm9uZSIgY3k9IjgiIC8+CiAgICA8cGF0aCB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS13aWR0aD0iMiIgZD0iTTE1IDhhNy4wMDIgNy4wMDIgMCAwMC03LTciIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+  edited ![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiB2aWV3Qm94PSIwIDAgMTYgMTYiIGFyaWEtaGlkZGVuPSJ0cnVlIiB2ZXJzaW9uPSIxLjEiIGhlaWdodD0iMTYiIGRhdGEtY29tcG9uZW50PSJPY3RpY29uIiB3aWR0aD0iMTYiIGNsYXNzPSJvY3RpY29uIG9jdGljb24tdHJpYW5nbGUtZG93biI+CiAgICA8cGF0aCBkPSJtNC40MjcgNy40MjcgMy4zOTYgMy4zOTZhLjI1LjI1IDAgMCAwIC4zNTQgMGwzLjM5Ni0zLjM5NkEuMjUuMjUgMCAwIDAgMTEuMzk2IDdINC42MDRhLjI1LjI1IDAgMCAwLS4xNzcuNDI3WiIgLz4KPC9zdmc+)
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyBzdHlsZT0iYm94LXNpemluZzogY29udGVudC1ib3g7IGNvbG9yOiB2YXIoLS1jb2xvci1pY29uLXByaW1hcnkpOyIgd2lkdGg9IjMyIiBhcmlhLWxhYmVsPSJMb2FkaW5nIGNvbnRlbnQuLi4iIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAxNiAxNiIgcm9sZT0iaW1nIiBmaWxsPSJub25lIiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBjeD0iOCIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBzdHJva2Utb3BhY2l0eT0iMC4yNSIgY3k9IjgiIGZpbGw9Im5vbmUiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHI9IjciIC8+CiAgICA8cGF0aCBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBkPSJNMTUgOGE3LjAwMiA3LjAwMiAwIDAwLTctNyIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+#### [pluiedev](/pluiedev) [Aug 3, 2025](#discussioncomment-13976104) Collaborator
+
+| Addendum: I guess the core philosophical issue is: *what* we should accept as the "real" source of physical keys — the key events themselves or a virtualized interpretation processed by XKB? I'm not an expert on this topic so again I consider this an open question. You can do a *lot* of weird things with XKB and I personally think it's a bit too advanced for just a keyboard layout manager, though. It's more akin to Karabiner Elements in terms of functionality, but prebuilt into the system.<br>Addendum of addendum: Unicode character input like `a` aren't affected at all by this — it's just the special function keys, explicitly physical keys (e.g. `key_a`), modifiers that are up for debate. |
+| --- |
+
+**All reactions**
+
+[![@ncfavier](https://avatars.githubusercontent.com/u/4323933?s=60&amp;v=4)](/ncfavier)
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTYgMTYiIGFyaWEtaGlkZGVuPSJ0cnVlIiBkYXRhLWNvbXBvbmVudD0iT2N0aWNvbiIgdmVyc2lvbj0iMS4xIiBoZWlnaHQ9IjE2IiB3aWR0aD0iMTYiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBzdHlsZT0iYm94LXNpemluZzogY29udGVudC1ib3g7IGNvbG9yOiB2YXIoLS1jb2xvci1pY29uLXByaW1hcnkpOyIgYXJpYS1sYWJlbD0iTG9hZGluZyBjb250ZW50Li4uIiB3aWR0aD0iMzIiIHJvbGU9ImltZyIgdmlld0JveD0iMCAwIDE2IDE2IiBoZWlnaHQ9IjMyIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIGN4PSI4IiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1vcGFjaXR5PSIwLjI1IiBzdHJva2U9ImN1cnJlbnRDb2xvciIgY3k9IjgiIGZpbGw9Im5vbmUiIHI9IjciIC8+CiAgICA8cGF0aCB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIGQ9Ik0xNSA4YTcuMDAyIDcuMDAyIDAgMDAtNy03IiBzdHJva2Utd2lkdGg9IjIiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+#### [ncfavier](/ncfavier) [Aug 3, 2025](#discussioncomment-13976555)
+
+| I think there is enough evidence of the regression in this thread to turn this into an issue. The best way to fix it can be discussed separately, but it's not like there's no known way: if all else fails, the changes that led to this issue (which were identified in the discussion) can be reverted.<br>(I hope that the point under discussion here isn't *whether* there's a regression: Ghostty should "support" (as in, not go out of its way to ignore) XKB remaps out of the box, like every other application.) |
+| --- |
+
+    👍 8
+
+**All reactions**
+
+- 👍 8
+
+[![@pluiedev](https://avatars.githubusercontent.com/u/22406910?s=60&amp;v=4)](/pluiedev)
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgYXJpYS1oaWRkZW49InRydWUiIHdpZHRoPSIxNiIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgZGF0YS1jb21wb25lbnQ9Ik9jdGljb24iIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBoZWlnaHQ9IjMyIiBmaWxsPSJub25lIiBhcmlhLWxhYmVsPSJMb2FkaW5nIGNvbnRlbnQuLi4iIHN0eWxlPSJib3gtc2l6aW5nOiBjb250ZW50LWJveDsgY29sb3I6IHZhcigtLWNvbG9yLWljb24tcHJpbWFyeSk7IiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAxNiAxNiIgd2lkdGg9IjMyIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBjeD0iOCIgY3k9IjgiIHZlY3Rvci1lZmZlY3Q9Im5vbi1zY2FsaW5nLXN0cm9rZSIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIGZpbGw9Im5vbmUiIHN0cm9rZS1vcGFjaXR5PSIwLjI1IiByPSI3IiBzdHJva2Utd2lkdGg9IjIiIC8+CiAgICA8cGF0aCB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIGQ9Ik0xNSA4YTcuMDAyIDcuMDAyIDAgMDAtNy03IiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+  edited ![SVG Image](data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjE2IiB3aWR0aD0iMTYiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZGF0YS1jb21wb25lbnQ9Ik9jdGljb24iIGFyaWEtaGlkZGVuPSJ0cnVlIiB2ZXJzaW9uPSIxLjEiIGNsYXNzPSJvY3RpY29uIG9jdGljb24tdHJpYW5nbGUtZG93biI+CiAgICA8cGF0aCBkPSJtNC40MjcgNy40MjcgMy4zOTYgMy4zOTZhLjI1LjI1IDAgMCAwIC4zNTQgMGwzLjM5Ni0zLjM5NkEuMjUuMjUgMCAwIDAgMTEuMzk2IDdINC42MDRhLjI1LjI1IDAgMCAwLS4xNzcuNDI3WiIgLz4KPC9zdmc+)
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWxhYmVsPSJMb2FkaW5nIGNvbnRlbnQuLi4iIHJvbGU9ImltZyIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDE2IDE2IiB3aWR0aD0iMzIiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIHN0eWxlPSJib3gtc2l6aW5nOiBjb250ZW50LWJveDsgY29sb3I6IHZhcigtLWNvbG9yLWljb24tcHJpbWFyeSk7IiBoZWlnaHQ9IjMyIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBzdHJva2U9ImN1cnJlbnRDb2xvciIgZmlsbD0ibm9uZSIgcj0iNyIgY3g9IjgiIGN5PSI4IiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLW9wYWNpdHk9IjAuMjUiIC8+CiAgICA8cGF0aCBkPSJNMTUgOGE3LjAwMiA3LjAwMiAwIDAwLTctNyIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+#### [pluiedev](/pluiedev) [Aug 3, 2025](#discussioncomment-13976857) Collaborator
+
+| Well part of the reason why it took so long to break the silence is precisely because I don't know if this is intended or not. I'm not responsible for this area in Ghostty and I'm not the one to have made the change to begin with. Per protocol the only person who could really definitely categorize this as an issue is Mitchell. While I don't personally know why he hasn't responded yet (and pinging him doesn't seem to work either), I suspect that it's because this is not a question with such a simple answer as you suggest.<br>It might be easy for you to say that something doesn't work on your system, but it takes exponentially more effort to actually test the whole input subsystem and see what should happen and what shouldn't. Again — we get enough input bugs as-is. Reverting the change might work for you but it might also reintroduce the same bugs we fixed before, and as far as I know nobody really knows *why* that patch works anyways. To me then this is all pending investigation. |
+| --- |
+
+**All reactions**
+
+[![@aspiers](https://avatars.githubusercontent.com/u/100738?s=60&amp;v=4)](/aspiers)
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLWNvbXBvbmVudD0iT2N0aWNvbiIgaGVpZ2h0PSIxNiIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgdmlld0JveD0iMCAwIDE2IDE2IiBhcmlhLWhpZGRlbj0idHJ1ZSIgd2lkdGg9IjE2IiB2ZXJzaW9uPSIxLjEiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTYgMTYiIGFyaWEtbGFiZWw9IkxvYWRpbmcgY29udGVudC4uLiIgc3R5bGU9ImJveC1zaXppbmc6IGNvbnRlbnQtYm94OyBjb2xvcjogdmFyKC0tY29sb3ItaWNvbi1wcmltYXJ5KTsiIHdpZHRoPSIzMiIgcm9sZT0iaW1nIiBoZWlnaHQ9IjMyIiBmaWxsPSJub25lIiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBzdHJva2Utb3BhY2l0eT0iMC4yNSIgcj0iNyIgY3g9IjgiIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0ibm9uZSIgY3k9IjgiIHN0cm9rZT0iY3VycmVudENvbG9yIiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIC8+CiAgICA8cGF0aCBzdHJva2UtbGluZWNhcD0icm91bmQiIHZlY3Rvci1lZmZlY3Q9Im5vbi1zY2FsaW5nLXN0cm9rZSIgZD0iTTE1IDhhNy4wMDIgNy4wMDIgMCAwMC03LTciIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2Utd2lkdGg9IjIiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+#### [aspiers](/aspiers) [Aug 3, 2025](#discussioncomment-13978136)
+
+- I agree with [@ncfavier](https://github.com/ncfavier) here.Addendum: I guess the core philosophical issue is: *what* we should accept as the "real" source of physical keys — the key events themselves or a virtualized interpretation processed by XKB? I'm not an expert on this topic so again I consider this an open question.I could be missing something, but speaking from the experience of [delving quite deep into XKB](https://github.com/aspiers/desktop-config/tree/master/.xkb), I don't see any way ghostty can currently function correctly on Linux without honoring XKB mappings.I presume the W3C input rework you refer to is [#7320](https://github.com/ghostty-org/ghostty/pull/7320). I have to admit I'm confused why it makes sense to base a terminal app's approach to key handling on a standard designed for the web, and it's not entirely clear to me from that PR, but maybe it would become more obvious if I read the entire spec.I also noticed that 3 of the 4 bugs fixed by [#7320](https://github.com/ghostty-org/ghostty/pull/7320) are MacOS bugs, and the [4th is reported to have been fixed on MacOS but still broken on Linux](https://github.com/ghostty-org/ghostty/discussions/6724#discussioncomment-12771772). To add to my confusion, I don't think MacOS uses XKB by default (although it appears there are non-Apple hacks for that), so whatever benefit [#7320](https://github.com/ghostty-org/ghostty/pull/7320) accomplished for MacOS seems to be negatively impacting Linux.You can do a *lot* of weird things with XKB and I personally think it's a bit too advanced for just a keyboard layout manager, though. It's more akin to Karabiner Elements in terms of functionality, but prebuilt into the system.I definitely agree XKB is complex and hard to understand. However I don't think these personal opinions can justify stopping respecting XKB remappings. Like it or not, it's the de facto standard on Linux distros which almost all other apps respect (with a few exceptions in the Javascript / Electron world which in my experience are typically accidental and/or due to a lack of awareness of the difference between physical and logical key events). So from a practical perspective, not respecting XKB mappings on Linux seem doomed to create endless problems.Unfortunately it makes ghostty totally unusable in my particular case (see [#8130](https://github.com/ghostty-org/ghostty/discussions/8130)), which also shows that ghostty is only *partially* ignoring XKB mappings:
+
+1. It *does* respect that I've bound the Delete key to a modifier (Alt/Meta)
+2. It *doesn't* respect that I've removed the `Delete` keysym binding from the key.
+The end result is that pressing the key is treated as `Alt+Delete`, which is the worst of both worlds. At very least ghostty should be consistent with itself. But as noted above, I'm struggling to understand how it can ever work reliably for Linux users without respecting XKB. Perhaps this was an unintentional side-effect of [#7320](https://github.com/ghostty-org/ghostty/pull/7320), but IMHO it definitely needs to be promoted to an issue if a goal of ghostty is to continue supporting Linux users.
+
+    👍 7
+
+**All reactions**
+
+- 👍 7
+
+[![@mitchellh](https://avatars.githubusercontent.com/u/1299?s=60&amp;v=4)](/mitchellh)
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIHZlcnNpb249IjEuMSIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgdmlld0JveD0iMCAwIDE2IDE2IiBhcmlhLWhpZGRlbj0idHJ1ZSIgaGVpZ2h0PSIxNiIgZGF0YS1jb21wb25lbnQ9Ik9jdGljb24iIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIGFyaWEtbGFiZWw9IkxvYWRpbmcgY29udGVudC4uLiIgc3R5bGU9ImJveC1zaXppbmc6IGNvbnRlbnQtYm94OyBjb2xvcjogdmFyKC0tY29sb3ItaWNvbi1wcmltYXJ5KTsiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBzdHJva2U9ImN1cnJlbnRDb2xvciIgZmlsbD0ibm9uZSIgY3k9IjgiIHN0cm9rZS13aWR0aD0iMiIgcj0iNyIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBjeD0iOCIgc3Ryb2tlLW9wYWNpdHk9IjAuMjUiIC8+CiAgICA8cGF0aCBkPSJNMTUgOGE3LjAwMiA3LjAwMiAwIDAwLTctNyIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBzdHJva2Utd2lkdGg9IjIiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+#### [mitchellh](/mitchellh) [Aug 3, 2025](#discussioncomment-13978177) Maintainer
+
+| Just as a note I’ll read this issue one day. I haven’t read it yet. I probably won’t read it for another few weeks. I’ll try to address this one way or the other before 1.2. |
+| --- |
+
+    ❤️ 12
+
+**All reactions**
+
+- ❤️ 12
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgdmVyc2lvbj0iMS4xIiB3aWR0aD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgaGVpZ2h0PSIxNiIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgZGF0YS1jb21wb25lbnQ9Ik9jdGljb24iIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWxhYmVsPSJMb2FkaW5nIGNvbnRlbnQuLi4iIGZpbGw9Im5vbmUiIHN0eWxlPSJib3gtc2l6aW5nOiBjb250ZW50LWJveDsgY29sb3I6IHZhcigtLWNvbG9yLWljb24tcHJpbWFyeSk7IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgcm9sZT0iaW1nIiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBzdHJva2Utb3BhY2l0eT0iMC4yNSIgY3k9IjgiIHZlY3Rvci1lZmZlY3Q9Im5vbi1zY2FsaW5nLXN0cm9rZSIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHI9IjciIGZpbGw9Im5vbmUiIHN0cm9rZS13aWR0aD0iMiIgY3g9IjgiIC8+CiAgICA8cGF0aCBzdHJva2U9ImN1cnJlbnRDb2xvciIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIgZD0iTTE1IDhhNy4wMDIgNy4wMDIgMCAwMC03LTciIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+### [weskoerber](/weskoerber) [Aug 15, 2025](#discussioncomment-14122213)
+
+| Here's a patch for for both GTK runtimes (`gtk` & `gtk-ng`): [0001-fix-caps-escape-regression.txt](https://github.com/user-attachments/files/21804135/0001-fix-caps-escape-regression.txt). Note that if you already have the patch for the `gtk` runtime this will fail. Switch back to the upstream's `main` branch, ensure you don't have any local changes in the affected files, and apply it from there.<br>To apply the patch, download the file and do `git am -k /path/to/0001-fix-caps-escape-regression.txt`. Here is a diff in case you want to apply the changes manually:  **Click to show diff**          diff --git a/src/apprt/gtk-ng/class/surface.zig b/src/apprt/gtk-ng/class/surface.zig     index 580436bd3..641fd4fb9 100644     --- a/src/apprt/gtk-ng/class/surface.zig     +++ b/src/apprt/gtk-ng/class/surface.zig     @@ -874,6 +874,13 @@ pub const Surface = extern struct {                  if (entry.native == keycode) break :keycode entry.key;              } else .unidentified;           +        const key = if (!priv.im_composing) key: {     +            if (gtk_key.keyFromKeyval(keyval)) |key|     +                break :key key     +            else     +                break :key physical_key;     +        } else .unidentified;     +              // Get our modifier for the event              const mods: input.Mods = gtk_key.eventMods(                  event,     @@ -923,7 +930,7 @@ pub const Surface = extern struct {              const surface = priv.core_surface orelse return false;              const effect = surface.keyCallback(.{                  .action = action,     -            .key = physical_key,     +            .key = key,                  .mods = mods,                  .consumed_mods = consumed_mods,                  .composing = priv.im_composing,     diff --git a/src/apprt/gtk/Surface.zig b/src/apprt/gtk/Surface.zig     index 231ab0c09..52e054537 100644     --- a/src/apprt/gtk/Surface.zig     +++ b/src/apprt/gtk/Surface.zig     @@ -1886,6 +1886,18 @@ pub fn keyEvent(              break :consumed gtk_key.translateMods(@bitCast(masked));          };           +    // If we're not in a dead key state, we want to translate our text     +    // to some input.Key.     +    const key = if (!self.im_composing) key: {     +        // First, try to convert the keyval directly to a key. This allows the     +        // use of key remapping and identification of keypad numerics (as     +        // opposed to their ASCII counterparts)     +        if (gtk_key.keyFromKeyval(keyval)) |key| {     +            break :key key;     +        }     +        break :key physical_key;     +    } else .unidentified;     +          // log.debug("key pressed key={} keyval={x} physical_key={} composing={} text_len={} mods={}", .{          //     key,          //     keyval,     @@ -1915,7 +1927,7 @@ pub fn keyEvent(          // Invoke the core Ghostty logic to handle this input.          const effect = self.core_surface.keyCallback(.{              .action = action,     -        .key = physical_key,     +        .key = key,              .mods = mods,              .consumed_mods = consumed_mods,              .composing = self.im_composing,  <br>I didn't validate this to ensure it doesn't break anything else related to input methods or keybinds, so use at your own discretion. |
+| --- |
+
+    ![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLWNvbXBvbmVudD0iT2N0aWNvbiIgd2lkdGg9IjE2IiB2aWV3Qm94PSIwIDAgMTYgMTYiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIHZlcnNpb249IjEuMSIgaGVpZ2h0PSIxNiIgYXJpYS1oaWRkZW49InRydWUiIGNsYXNzPSJvY3RpY29uIG9jdGljb24tYXJyb3ctdXAgbS0wIHRtcC1tLTAiPgogICAgPHBhdGggZD0iTTMuNDcgNy43OGEuNzUuNzUgMCAwIDEgMC0xLjA2bDQuMjUtNC4yNWEuNzUuNzUgMCAwIDEgMS4wNiAwbDQuMjUgNC4yNWEuNzUxLjc1MSAwIDAgMS0uMDE4IDEuMDQyLjc1MS43NTEgMCAwIDEtMS4wNDIuMDE4TDkgNC44MXY3LjQ0YS43NS43NSAwIDAgMS0xLjUgMFY0LjgxTDQuNTMgNy43OGEuNzUuNzUgMCAwIDEtMS4wNiAwWiIgLz4KPC9zdmc+) 3
+
+        You must be logged in to vote
+
+    ❤️ 2
+
+**All reactions**
+
+- ❤️ 2
+
+0 replies
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgaGVpZ2h0PSIxNiIgYXJpYS1oaWRkZW49InRydWUiIGRhdGEtY29tcG9uZW50PSJPY3RpY29uIiB3aWR0aD0iMTYiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgc3R5bGU9ImJveC1zaXppbmc6IGNvbnRlbnQtYm94OyBjb2xvcjogdmFyKC0tY29sb3ItaWNvbi1wcmltYXJ5KTsiIGhlaWdodD0iMzIiIGZpbGw9Im5vbmUiIGFyaWEtbGFiZWw9IkxvYWRpbmcgY29udGVudC4uLiIgcm9sZT0iaW1nIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBmaWxsPSJub25lIiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIGN4PSI4IiByPSI3IiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLW9wYWNpdHk9IjAuMjUiIHN0cm9rZS13aWR0aD0iMiIgY3k9IjgiIC8+CiAgICA8cGF0aCBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIGQ9Ik0xNSA4YTcuMDAyIDcuMDAyIDAgMDAtNy03IiBzdHJva2UtbGluZWNhcD0icm91bmQiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+### [vicgeentor](/vicgeentor) [Aug 16, 2025](#discussioncomment-14124891)
+
+| If you're on linux, I highly recommend to switch to [keyd](https://github.com/rvaiya/keyd) instead of relying on XKB remaps. This ensures that the remaps will work in any application, even if it uses input events from evdev or uinput. |
+| --- |
+
+    ![SVG Image](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZlcnNpb249IjEuMSIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgZGF0YS1jb21wb25lbnQ9Ik9jdGljb24iIGFyaWEtaGlkZGVuPSJ0cnVlIiB2aWV3Qm94PSIwIDAgMTYgMTYiIGNsYXNzPSJvY3RpY29uIG9jdGljb24tYXJyb3ctdXAgbS0wIHRtcC1tLTAiPgogICAgPHBhdGggZD0iTTMuNDcgNy43OGEuNzUuNzUgMCAwIDEgMC0xLjA2bDQuMjUtNC4yNWEuNzUuNzUgMCAwIDEgMS4wNiAwbDQuMjUgNC4yNWEuNzUxLjc1MSAwIDAgMS0uMDE4IDEuMDQyLjc1MS43NTEgMCAwIDEtMS4wNDIuMDE4TDkgNC44MXY3LjQ0YS43NS43NSAwIDAgMS0xLjUgMFY0LjgxTDQuNTMgNy43OGEuNzUuNzUgMCAwIDEtMS4wNiAwWiIgLz4KPC9zdmc+) 6
+
+        You must be logged in to vote
+
+    👍 2
+
+     👀 1
+
+**All reactions**
+
+- 👍 2
+- 👀 1
+
+5 replies
+
+[![@aspiers](https://avatars.githubusercontent.com/u/100738?s=60&amp;v=4)](/aspiers)
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgaGVpZ2h0PSIxNiIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgd2lkdGg9IjE2IiBkYXRhLWNvbXBvbmVudD0iT2N0aWNvbiIgdmlld0JveD0iMCAwIDE2IDE2IiB2ZXJzaW9uPSIxLjEiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTYgMTYiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGZpbGw9Im5vbmUiIGhlaWdodD0iMzIiIGFyaWEtbGFiZWw9IkxvYWRpbmcgY29udGVudC4uLiIgcm9sZT0iaW1nIiBzdHlsZT0iYm94LXNpemluZzogY29udGVudC1ib3g7IGNvbG9yOiB2YXIoLS1jb2xvci1pY29uLXByaW1hcnkpOyIgd2lkdGg9IjMyIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBzdHJva2Utd2lkdGg9IjIiIHI9IjciIHN0cm9rZS1vcGFjaXR5PSIwLjI1IiBjeT0iOCIgY3g9IjgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iY3VycmVudENvbG9yIiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIC8+CiAgICA8cGF0aCBkPSJNMTUgOGE3LjAwMiA3LjAwMiAwIDAwLTctNyIgc3Ryb2tlLXdpZHRoPSIyIiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+#### [aspiers](/aspiers) [Aug 16, 2025](#discussioncomment-14125291)
+
+| Thanks for the tip, I hadn't discovered keyd before! It looks great. |
+| --- |
+
+    ❤️ 2
+
+**All reactions**
+
+- ❤️ 2
+
+[![@Soliprem](https://avatars.githubusercontent.com/u/73885403?s=60&amp;v=4)](/Soliprem)
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZGF0YS1jb21wb25lbnQ9Ik9jdGljb24iIGFyaWEtaGlkZGVuPSJ0cnVlIiB2ZXJzaW9uPSIxLjEiIGhlaWdodD0iMTYiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDE2IDE2IiBhcmlhLWxhYmVsPSJMb2FkaW5nIGNvbnRlbnQuLi4iIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGZpbGw9Im5vbmUiIHN0eWxlPSJib3gtc2l6aW5nOiBjb250ZW50LWJveDsgY29sb3I6IHZhcigtLWNvbG9yLWljb24tcHJpbWFyeSk7IiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBjeD0iOCIgZmlsbD0ibm9uZSIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBzdHJva2Utb3BhY2l0eT0iMC4yNSIgc3Ryb2tlLXdpZHRoPSIyIiBjeT0iOCIgcj0iNyIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIC8+CiAgICA8cGF0aCBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIGQ9Ik0xNSA4YTcuMDAyIDcuMDAyIDAgMDAtNy03IiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+  edited ![SVG Image](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGFyaWEtaGlkZGVuPSJ0cnVlIiBkYXRhLWNvbXBvbmVudD0iT2N0aWNvbiIgdmlld0JveD0iMCAwIDE2IDE2IiB2ZXJzaW9uPSIxLjEiIGNsYXNzPSJvY3RpY29uIG9jdGljb24tdHJpYW5nbGUtZG93biI+CiAgICA8cGF0aCBkPSJtNC40MjcgNy40MjcgMy4zOTYgMy4zOTZhLjI1LjI1IDAgMCAwIC4zNTQgMGwzLjM5Ni0zLjM5NkEuMjUuMjUgMCAwIDAgMTEuMzk2IDdINC42MDRhLjI1LjI1IDAgMCAwLS4xNzcuNDI3WiIgLz4KPC9zdmc+)
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIHJvbGU9ImltZyIgaGVpZ2h0PSIzMiIgZmlsbD0ibm9uZSIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgc3R5bGU9ImJveC1zaXppbmc6IGNvbnRlbnQtYm94OyBjb2xvcjogdmFyKC0tY29sb3ItaWNvbi1wcmltYXJ5KTsiIGFyaWEtbGFiZWw9IkxvYWRpbmcgY29udGVudC4uLiIgdmlld0JveD0iMCAwIDE2IDE2IiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSByPSI3IiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIGN5PSI4IiBzdHJva2Utb3BhY2l0eT0iMC4yNSIgZmlsbD0ibm9uZSIgY3g9IjgiIC8+CiAgICA8cGF0aCB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNMTUgOGE3LjAwMiA3LjAwMiAwIDAwLTctNyIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+#### [Soliprem](/Soliprem) [Aug 16, 2025](#discussioncomment-14125432) Author
+
+| while keyd is great and I'd personally recommend using it (it's simply better for anything more complicated than remapping), I still don't think it's good to assume users are going to use it. I'm fairly sure that both KDE and Gnome rely on xkb (behind their GUI settings interfaces), and I'm 100% sure that Hyprland's default recommendation is to use its built-in interface, that being —once again— xkb. Most users will use xkb without even knowing it, so any apparent breakage from ghostty will look like a breakage in ghostty and nothing else.<br>edit: I've switched to keyd myself about a month ago because I wanted capslock to behave as the control modifier *and* esc, and that's not possible with xkb as far as I'm aware. I think keyd is great, but I don't think it's sensible to assume casual users will use it |
+| --- |
+
+    👍 3
+
+**All reactions**
+
+- 👍 3
+
+[![@vicgeentor](https://avatars.githubusercontent.com/u/95343562?s=60&amp;v=4)](/vicgeentor)
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTYgMTYiIGFyaWEtaGlkZGVuPSJ0cnVlIiBkYXRhLWNvbXBvbmVudD0iT2N0aWNvbiIgdmVyc2lvbj0iMS4xIiB3aWR0aD0iMTYiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGhlaWdodD0iMTYiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBhcmlhLWxhYmVsPSJMb2FkaW5nIGNvbnRlbnQuLi4iIGZpbGw9Im5vbmUiIGhlaWdodD0iMzIiIHdpZHRoPSIzMiIgc3R5bGU9ImJveC1zaXppbmc6IGNvbnRlbnQtYm94OyBjb2xvcjogdmFyKC0tY29sb3ItaWNvbi1wcmltYXJ5KTsiIHZpZXdCb3g9IjAgMCAxNiAxNiIgcm9sZT0iaW1nIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSByPSI3IiBjeT0iOCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS13aWR0aD0iMiIgY3g9IjgiIHN0cm9rZS1vcGFjaXR5PSIwLjI1IiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIC8+CiAgICA8cGF0aCBzdHJva2U9ImN1cnJlbnRDb2xvciIgZD0iTTE1IDhhNy4wMDIgNy4wMDIgMCAwMC03LTciIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+#### [vicgeentor](/vicgeentor) [Aug 16, 2025](#discussioncomment-14125689)
+
+| I agree. Even though keyd is a great workaround/solution, XKB should be supported nonetheless |
+| --- |
+
+    👍 3
+
+**All reactions**
+
+- 👍 3
+
+[![@nitin-dixit](https://avatars.githubusercontent.com/u/55051669?s=60&amp;v=4)](/nitin-dixit)
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGRhdGEtY29tcG9uZW50PSJPY3RpY29uIiB2ZXJzaW9uPSIxLjEiIGFyaWEtaGlkZGVuPSJ0cnVlIiB2aWV3Qm94PSIwIDAgMTYgMTYiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjMyIiByb2xlPSJpbWciIHdpZHRoPSIzMiIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgZmlsbD0ibm9uZSIgc3R5bGU9ImJveC1zaXppbmc6IGNvbnRlbnQtYm94OyBjb2xvcjogdmFyKC0tY29sb3ItaWNvbi1wcmltYXJ5KTsiIHZpZXdCb3g9IjAgMCAxNiAxNiIgYXJpYS1sYWJlbD0iTG9hZGluZyBjb250ZW50Li4uIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBmaWxsPSJub25lIiByPSI3IiBjeT0iOCIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBzdHJva2Utb3BhY2l0eT0iMC4yNSIgY3g9IjgiIC8+CiAgICA8cGF0aCBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2Utd2lkdGg9IjIiIGQ9Ik0xNSA4YTcuMDAyIDcuMDAyIDAgMDAtNy03IiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+#### [nitin-dixit](/nitin-dixit) [Aug 17, 2025](#discussioncomment-14130894)
+
+| Thanks; this was the quick solution that worked. |
+| --- |
+
+    ❤️ 2
+
+**All reactions**
+
+- ❤️ 2
+
+[![@thomasdevasia](https://avatars.githubusercontent.com/u/80457504?s=60&amp;v=4)](/thomasdevasia)
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiB2aWV3Qm94PSIwIDAgMTYgMTYiIGhlaWdodD0iMTYiIHdpZHRoPSIxNiIgdmVyc2lvbj0iMS4xIiBkYXRhLWNvbXBvbmVudD0iT2N0aWNvbiIgYXJpYS1oaWRkZW49InRydWUiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjMyIiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBmaWxsPSJub25lIiBzdHlsZT0iYm94LXNpemluZzogY29udGVudC1ib3g7IGNvbG9yOiB2YXIoLS1jb2xvci1pY29uLXByaW1hcnkpOyIgYXJpYS1sYWJlbD0iTG9hZGluZyBjb250ZW50Li4uIiB3aWR0aD0iMzIiIHZpZXdCb3g9IjAgMCAxNiAxNiIgcm9sZT0iaW1nIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBjeD0iOCIgZmlsbD0ibm9uZSIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBjeT0iOCIgcj0iNyIgc3Ryb2tlLW9wYWNpdHk9IjAuMjUiIC8+CiAgICA8cGF0aCBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiIHZlY3Rvci1lZmZlY3Q9Im5vbi1zY2FsaW5nLXN0cm9rZSIgZD0iTTE1IDhhNy4wMDIgNy4wMDIgMCAwMC03LTciIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+#### [thomasdevasia](/thomasdevasia) [Aug 18, 2025](#discussioncomment-14144974)
+
+| You are a lifesaver. After using keyd for a while i like it better. |
+| --- |
+
+    ❤️ 2
+
+**All reactions**
+
+- ❤️ 2
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgdmVyc2lvbj0iMS4xIiBkYXRhLWNvbXBvbmVudD0iT2N0aWNvbiIgaGVpZ2h0PSIxNiIgd2lkdGg9IjE2IiB2aWV3Qm94PSIwIDAgMTYgMTYiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTYgMTYiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGZpbGw9Im5vbmUiIHN0eWxlPSJib3gtc2l6aW5nOiBjb250ZW50LWJveDsgY29sb3I6IHZhcigtLWNvbG9yLWljb24tcHJpbWFyeSk7IiB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIGFyaWEtbGFiZWw9IkxvYWRpbmcgY29udGVudC4uLiIgcm9sZT0iaW1nIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBjeT0iOCIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS1vcGFjaXR5PSIwLjI1IiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIHI9IjciIGZpbGw9Im5vbmUiIHN0cm9rZS13aWR0aD0iMiIgY3g9IjgiIC8+CiAgICA8cGF0aCBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZT0iY3VycmVudENvbG9yIiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZD0iTTE1IDhhNy4wMDIgNy4wMDIgMCAwMC03LTciIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+### [rumpelsepp](/rumpelsepp) [Aug 20, 2025](#discussioncomment-14161262)
+
+| I have problems with neo2 and layer 4 since the W3C rework. I was adviced to connect with you guys here, since the neo2 issue is appearently a duplicate of this one here. To be honest, I don't understand why it is a duplicate and what's a proper fix. Maybe someone can shed some light on this.<br>I posted a description and a PoC here: [#8296](https://github.com/ghostty-org/ghostty/issues/8296) |
+| --- |
+
+    ![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLWNvbXBvbmVudD0iT2N0aWNvbiIgYXJpYS1oaWRkZW49InRydWUiIHZlcnNpb249IjEuMSIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2IiB3aWR0aD0iMTYiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGNsYXNzPSJvY3RpY29uIG9jdGljb24tYXJyb3ctdXAgbS0wIHRtcC1tLTAiPgogICAgPHBhdGggZD0iTTMuNDcgNy43OGEuNzUuNzUgMCAwIDEgMC0xLjA2bDQuMjUtNC4yNWEuNzUuNzUgMCAwIDEgMS4wNiAwbDQuMjUgNC4yNWEuNzUxLjc1MSAwIDAgMS0uMDE4IDEuMDQyLjc1MS43NTEgMCAwIDEtMS4wNDIuMDE4TDkgNC44MXY3LjQ0YS43NS43NSAwIDAgMS0xLjUgMFY0LjgxTDQuNTMgNy43OGEuNzUuNzUgMCAwIDEtMS4wNiAwWiIgLz4KPC9zdmc+) 3
+
+        You must be logged in to vote
+
+    👍 3
+
+**All reactions**
+
+- 👍 3
+
+1 reply
+
+[![@aspiers](https://avatars.githubusercontent.com/u/100738?s=60&amp;v=4)](/aspiers)
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGFyaWEtaGlkZGVuPSJ0cnVlIiB2aWV3Qm94PSIwIDAgMTYgMTYiIGRhdGEtY29tcG9uZW50PSJPY3RpY29uIiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiB3aWR0aD0iMzIiIHJvbGU9ImltZyIgc3R5bGU9ImJveC1zaXppbmc6IGNvbnRlbnQtYm94OyBjb2xvcjogdmFyKC0tY29sb3ItaWNvbi1wcmltYXJ5KTsiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgYXJpYS1sYWJlbD0iTG9hZGluZyBjb250ZW50Li4uIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBjeD0iOCIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIGZpbGw9Im5vbmUiIGN5PSI4IiByPSI3IiBzdHJva2Utb3BhY2l0eT0iMC4yNSIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBzdHJva2Utd2lkdGg9IjIiIC8+CiAgICA8cGF0aCBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIGQ9Ik0xNSA4YTcuMDAyIDcuMDAyIDAgMDAtNy03IiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+#### [aspiers](/aspiers) [Aug 21, 2025](#discussioncomment-14176016)
+
+| My guess would be that the Neo layout relies on XKB for remapping on Linux, and as per the title of this discussion, Ghostty does not work with XKB currently. |
+| --- |
+
+**All reactions**
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLWNvbXBvbmVudD0iT2N0aWNvbiIgdmlld0JveD0iMCAwIDE2IDE2IiB2ZXJzaW9uPSIxLjEiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgYXJpYS1oaWRkZW49InRydWUiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTYgMTYiIGFyaWEtbGFiZWw9IkxvYWRpbmcgY29udGVudC4uLiIgZmlsbD0ibm9uZSIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgd2lkdGg9IjMyIiByb2xlPSJpbWciIGhlaWdodD0iMzIiIHN0eWxlPSJib3gtc2l6aW5nOiBjb250ZW50LWJveDsgY29sb3I6IHZhcigtLWNvbG9yLWljb24tcHJpbWFyeSk7IiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBjeD0iOCIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIGZpbGw9Im5vbmUiIHI9IjciIHZlY3Rvci1lZmZlY3Q9Im5vbi1zY2FsaW5nLXN0cm9rZSIgY3k9IjgiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLW9wYWNpdHk9IjAuMjUiIC8+CiAgICA8cGF0aCBzdHJva2UtbGluZWNhcD0icm91bmQiIHZlY3Rvci1lZmZlY3Q9Im5vbi1zY2FsaW5nLXN0cm9rZSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgZD0iTTE1IDhhNy4wMDIgNy4wMDIgMCAwMC03LTciIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+  edited ![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgd2lkdGg9IjE2IiBhcmlhLWhpZGRlbj0idHJ1ZSIgZGF0YS1jb21wb25lbnQ9Ik9jdGljb24iIGNsYXNzPSJvY3RpY29uIG9jdGljb24tdHJpYW5nbGUtZG93biI+CiAgICA8cGF0aCBkPSJtNC40MjcgNy40MjcgMy4zOTYgMy4zOTZhLjI1LjI1IDAgMCAwIC4zNTQgMGwzLjM5Ni0zLjM5NkEuMjUuMjUgMCAwIDAgMTEuMzk2IDdINC42MDRhLjI1LjI1IDAgMCAwLS4xNzcuNDI3WiIgLz4KPC9zdmc+)
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBhcmlhLWxhYmVsPSJMb2FkaW5nIGNvbnRlbnQuLi4iIHdpZHRoPSIzMiIgcm9sZT0iaW1nIiBmaWxsPSJub25lIiBzdHlsZT0iYm94LXNpemluZzogY29udGVudC1ib3g7IGNvbG9yOiB2YXIoLS1jb2xvci1pY29uLXByaW1hcnkpOyIgdmlld0JveD0iMCAwIDE2IDE2IiBoZWlnaHQ9IjMyIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIHI9IjciIGN4PSI4IiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLW9wYWNpdHk9IjAuMjUiIGZpbGw9Im5vbmUiIGN5PSI4IiBzdHJva2Utd2lkdGg9IjIiIC8+CiAgICA8cGF0aCBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNMTUgOGE3LjAwMiA3LjAwMiAwIDAwLTctNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+### [pluiedev](/pluiedev) [Aug 21, 2025](#discussioncomment-14179938) Collaborator
+
+| After looking at this a *bit* more I think there might be a compromise to be had here.<br>The vast majority of our input bugs in 1.1.3 were caused by keys that emit printable Unicode codepoints, i.e. `Binding.Trigger.Key.unicode` keys, and we defaulted to using the *translated* keys instead of physical keys, which caused a lot of *impossible* binds where certain translated keys require modifiers that cannot be input on a normal keyboard (e.g. `Shift``+` requiring `Shift``Shift``=` to trigger).<br>After the W3C input rewrite, this worked *great* for those printable keys, but we were left with a conundrum for *special keys* like `Esc` and `Caps Lock`, which are only ever physical keys and never Unicode keys since, well, they don't produce a Unicode codepoint. And as evident in this thread, it's desirable for Ghostty to run those special keys through the remapper so that XKB remaps still work as intended.<br>I'm going to try to PR this as a potential solution. I think this is the best of both worlds as we won't get impossible binds like `Shift``+` anymore, while keeping `caps:swapescape` and the like functional. There might be some edge cases here and there, but the community response I think has been overwhelmingly supportive of us moving in this direction. |
+| --- |
+
+    ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIHZpZXdCb3g9IjAgMCAxNiAxNiIgYXJpYS1oaWRkZW49InRydWUiIGRhdGEtY29tcG9uZW50PSJPY3RpY29uIiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIGNsYXNzPSJvY3RpY29uIG9jdGljb24tYXJyb3ctdXAgbS0wIHRtcC1tLTAiPgogICAgPHBhdGggZD0iTTMuNDcgNy43OGEuNzUuNzUgMCAwIDEgMC0xLjA2bDQuMjUtNC4yNWEuNzUuNzUgMCAwIDEgMS4wNiAwbDQuMjUgNC4yNWEuNzUxLjc1MSAwIDAgMS0uMDE4IDEuMDQyLjc1MS43NTEgMCAwIDEtMS4wNDIuMDE4TDkgNC44MXY3LjQ0YS43NS43NSAwIDAgMS0xLjUgMFY0LjgxTDQuNTMgNy43OGEuNzUuNzUgMCAwIDEtMS4wNiAwWiIgLz4KPC9zdmc+) 3
+
+        You must be logged in to vote
+
+    ❤️ 6
+
+**All reactions**
+
+- ❤️ 6
+
+9 replies
+
+[![@mitchellh](https://avatars.githubusercontent.com/u/1299?s=60&amp;v=4)](/mitchellh)
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTYgMTYiIHZlcnNpb249IjEuMSIgaGVpZ2h0PSIxNiIgYXJpYS1oaWRkZW49InRydWUiIGRhdGEtY29tcG9uZW50PSJPY3RpY29uIiB3aWR0aD0iMTYiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyBzdHlsZT0iYm94LXNpemluZzogY29udGVudC1ib3g7IGNvbG9yOiB2YXIoLS1jb2xvci1pY29uLXByaW1hcnkpOyIgZmlsbD0ibm9uZSIgcm9sZT0iaW1nIiB2aWV3Qm94PSIwIDAgMTYgMTYiIHdpZHRoPSIzMiIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgaGVpZ2h0PSIzMiIgYXJpYS1sYWJlbD0iTG9hZGluZyBjb250ZW50Li4uIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSByPSI3IiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLW9wYWNpdHk9IjAuMjUiIHN0cm9rZS13aWR0aD0iMiIgY3k9IjgiIHZlY3Rvci1lZmZlY3Q9Im5vbi1zY2FsaW5nLXN0cm9rZSIgY3g9IjgiIGZpbGw9Im5vbmUiIC8+CiAgICA8cGF0aCB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIgZD0iTTE1IDhhNy4wMDIgNy4wMDIgMCAwMC03LTciIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+#### [mitchellh](/mitchellh) [Aug 21, 2025](#discussioncomment-14180012) Maintainer
+
+| I haven't tried to reproduce this or done any deeper research so this may come off as basic, but my main surprise is that GTK isn't doing this for us. Part of the W3C rewrite was that W3C key codes map to the keycode given by the event, but I'd expect the GUI framework to do any remaps before it hits the app layer. And that isn't happening? Every GUI application is expected to just... manually link to things like xkb and run them through a remap? |
+| --- |
+
+**All reactions**
+
+[![@pluiedev](https://avatars.githubusercontent.com/u/22406910?s=60&amp;v=4)](/pluiedev)
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIGFyaWEtaGlkZGVuPSJ0cnVlIiBkYXRhLWNvbXBvbmVudD0iT2N0aWNvbiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2IiB2ZXJzaW9uPSIxLjEiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWxhYmVsPSJMb2FkaW5nIGNvbnRlbnQuLi4iIHZpZXdCb3g9IjAgMCAxNiAxNiIgaGVpZ2h0PSIzMiIgd2lkdGg9IjMyIiBmaWxsPSJub25lIiByb2xlPSJpbWciIHN0eWxlPSJib3gtc2l6aW5nOiBjb250ZW50LWJveDsgY29sb3I6IHZhcigtLWNvbG9yLWljb24tcHJpbWFyeSk7IiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBjeT0iOCIgY3g9IjgiIHI9IjciIHN0cm9rZS1vcGFjaXR5PSIwLjI1IiBzdHJva2Utd2lkdGg9IjIiIC8+CiAgICA8cGF0aCBzdHJva2Utd2lkdGg9IjIiIHZlY3Rvci1lZmZlY3Q9Im5vbi1zY2FsaW5nLXN0cm9rZSIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZD0iTTE1IDhhNy4wMDIgNy4wMDIgMCAwMC03LTciIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+#### [pluiedev](/pluiedev) [Aug 21, 2025](#discussioncomment-14180022) Collaborator
+
+| Nope, you need to manually call the GDK remap function I'm fairly sure |
+| --- |
+
+**All reactions**
+
+[![@mitchellh](https://avatars.githubusercontent.com/u/1299?s=60&amp;v=4)](/mitchellh)
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjE2IiBhcmlhLWhpZGRlbj0idHJ1ZSIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgdmlld0JveD0iMCAwIDE2IDE2IiB2ZXJzaW9uPSIxLjEiIHdpZHRoPSIxNiIgZGF0YS1jb21wb25lbnQ9Ik9jdGljb24iIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBhcmlhLWxhYmVsPSJMb2FkaW5nIGNvbnRlbnQuLi4iIHdpZHRoPSIzMiIgc3R5bGU9ImJveC1zaXppbmc6IGNvbnRlbnQtYm94OyBjb2xvcjogdmFyKC0tY29sb3ItaWNvbi1wcmltYXJ5KTsiIHJvbGU9ImltZyIgdmlld0JveD0iMCAwIDE2IDE2IiBoZWlnaHQ9IjMyIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBjeD0iOCIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBmaWxsPSJub25lIiBjeT0iOCIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIHI9IjciIHN0cm9rZS1vcGFjaXR5PSIwLjI1IiBzdHJva2Utd2lkdGg9IjIiIC8+CiAgICA8cGF0aCB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2Utd2lkdGg9IjIiIGQ9Ik0xNSA4YTcuMDAyIDcuMDAyIDAgMDAtNy03IiBzdHJva2UtbGluZWNhcD0icm91bmQiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+#### [mitchellh](/mitchellh) [Aug 21, 2025](#discussioncomment-14180042) Maintainer
+
+| Linux GUI development is braindead lol.<br>Anyways, your approach at a high level sounds right then. It honestly sounds right to map everything through this (not just special keys) since we do want the mapped keys. Even if you assign to say `Key_A` (the physical A key), if the user remaps that to `Z` then we want to respect it.<br>What we DON'T want to do is do translation to Unicode characters. That was -- as you pointed out -- the major issue pre-rewrite. But physical remapping we should always respect. |
+| --- |
+
+    👍 4
+
+**All reactions**
+
+- 👍 4
+
+[![@pluiedev](https://avatars.githubusercontent.com/u/22406910?s=60&amp;v=4)](/pluiedev)
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiB2aWV3Qm94PSIwIDAgMTYgMTYiIGFyaWEtaGlkZGVuPSJ0cnVlIiBkYXRhLWNvbXBvbmVudD0iT2N0aWNvbiIgdmVyc2lvbj0iMS4xIiBoZWlnaHQ9IjE2IiB3aWR0aD0iMTYiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgYXJpYS1sYWJlbD0iTG9hZGluZyBjb250ZW50Li4uIiBzdHlsZT0iYm94LXNpemluZzogY29udGVudC1ib3g7IGNvbG9yOiB2YXIoLS1jb2xvci1pY29uLXByaW1hcnkpOyIgZmlsbD0ibm9uZSIgdmlld0JveD0iMCAwIDE2IDE2IiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBjeT0iOCIgc3Ryb2tlLW9wYWNpdHk9IjAuMjUiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2Utd2lkdGg9IjIiIHZlY3Rvci1lZmZlY3Q9Im5vbi1zY2FsaW5nLXN0cm9rZSIgZmlsbD0ibm9uZSIgY3g9IjgiIHI9IjciIC8+CiAgICA8cGF0aCBzdHJva2Utd2lkdGg9IjIiIHZlY3Rvci1lZmZlY3Q9Im5vbi1zY2FsaW5nLXN0cm9rZSIgZD0iTTE1IDhhNy4wMDIgNy4wMDIgMCAwMC03LTciIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+#### [pluiedev](/pluiedev) [Aug 21, 2025](#discussioncomment-14181765) Collaborator
+
+| Opened [#8330](https://github.com/ghostty-org/ghostty/pull/8330). Everyone subscribed to this thread — please give it a try! |
+| --- |
+
+    ![SVG Image](data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjE2IiB3aWR0aD0iMTYiIGFyaWEtaGlkZGVuPSJ0cnVlIiBkYXRhLWNvbXBvbmVudD0iT2N0aWNvbiIgdmVyc2lvbj0iMS4xIiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiB2aWV3Qm94PSIwIDAgMTYgMTYiIGNsYXNzPSJvY3RpY29uIG9jdGljb24tY2hlY2stY2lyY2xlLWZpbGwgbXItMiB0bXAtbXItMiBjb2xvci1mZy1zdWNjZXNzIj4KICAgIDxwYXRoIGQ9Ik04IDE2QTggOCAwIDEgMSA4IDBhOCA4IDAgMCAxIDAgMTZabTMuNzgtOS43MmEuNzUxLjc1MSAwIDAgMC0uMDE4LTEuMDQyLjc1MS43NTEgMCAwIDAtMS4wNDItLjAxOEw2Ljc1IDkuMTkgNS4yOCA3LjcyYS43NTEuNzUxIDAgMCAwLTEuMDQyLjAxOC43NTEuNzUxIDAgMCAwLS4wMTggMS4wNDJsMiAyYS43NS43NSAwIDAgMCAxLjA2IDBaIiAvPgo8L3N2Zz4=)Marked as answer
+
+    ❤️ 7
+
+**All reactions**
+
+- ❤️ 7
+
+Answer selected by [pluiedev](/pluiedev)
+
+[![@ncfavier](https://avatars.githubusercontent.com/u/4323933?s=60&amp;v=4)](/ncfavier)
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWhpZGRlbj0idHJ1ZSIgZGF0YS1jb21wb25lbnQ9Ik9jdGljb24iIHdpZHRoPSIxNiIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2IiB2ZXJzaW9uPSIxLjEiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyBzdHlsZT0iYm94LXNpemluZzogY29udGVudC1ib3g7IGNvbG9yOiB2YXIoLS1jb2xvci1pY29uLXByaW1hcnkpOyIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBhcmlhLWxhYmVsPSJMb2FkaW5nIGNvbnRlbnQuLi4iIHZpZXdCb3g9IjAgMCAxNiAxNiIgcm9sZT0iaW1nIiBmaWxsPSJub25lIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBzdHJva2Utb3BhY2l0eT0iMC4yNSIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIGN5PSI4IiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIGN4PSI4IiBmaWxsPSJub25lIiByPSI3IiBzdHJva2Utd2lkdGg9IjIiIC8+CiAgICA8cGF0aCBzdHJva2UtbGluZWNhcD0icm91bmQiIGQ9Ik0xNSA4YTcuMDAyIDcuMDAyIDAgMDAtNy03IiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+#### [ncfavier](/ncfavier) [Aug 21, 2025](#discussioncomment-14181995)
+
+| The fix works for me, thank you. |
+| --- |
+
+    👍 2
+
+**All reactions**
+
+- 👍 2
+
+[![@rumpelsepp](https://avatars.githubusercontent.com/u/1961699?s=60&amp;v=4)](/rumpelsepp)
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiB3aWR0aD0iMTYiIHZlcnNpb249IjEuMSIgZGF0YS1jb21wb25lbnQ9Ik9jdGljb24iIGFyaWEtaGlkZGVuPSJ0cnVlIiBoZWlnaHQ9IjE2IiB2aWV3Qm94PSIwIDAgMTYgMTYiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyBhcmlhLWxhYmVsPSJMb2FkaW5nIGNvbnRlbnQuLi4iIGhlaWdodD0iMzIiIGZpbGw9Im5vbmUiIGRhdGEtdmlldy1jb21wb25lbnQ9InRydWUiIHZpZXdCb3g9IjAgMCAxNiAxNiIgcm9sZT0iaW1nIiBzdHlsZT0iYm94LXNpemluZzogY29udGVudC1ib3g7IGNvbG9yOiB2YXIoLS1jb2xvci1pY29uLXByaW1hcnkpOyIgd2lkdGg9IjMyIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBjeT0iOCIgY3g9IjgiIHI9IjciIHN0cm9rZS13aWR0aD0iMiIgZmlsbD0ibm9uZSIgc3Ryb2tlLW9wYWNpdHk9IjAuMjUiIHZlY3Rvci1lZmZlY3Q9Im5vbi1zY2FsaW5nLXN0cm9rZSIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIC8+CiAgICA8cGF0aCBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZT0iY3VycmVudENvbG9yIiBkPSJNMTUgOGE3LjAwMiA3LjAwMiAwIDAwLTctNyIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBzdHJva2Utd2lkdGg9IjIiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+#### [rumpelsepp](/rumpelsepp) [Aug 22, 2025](#discussioncomment-14187679)
+
+| works for neo2 as well. |
+| --- |
+
+    🚀 1
+
+**All reactions**
+
+- 🚀 1
+
+[![@rumpelsepp](https://avatars.githubusercontent.com/u/1961699?s=60&amp;v=4)](/rumpelsepp)
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjE2IiBhcmlhLWhpZGRlbj0idHJ1ZSIgZGF0YS1jb21wb25lbnQ9Ik9jdGljb24iIHZpZXdCb3g9IjAgMCAxNiAxNiIgd2lkdGg9IjE2IiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiB2ZXJzaW9uPSIxLjEiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyBzdHlsZT0iYm94LXNpemluZzogY29udGVudC1ib3g7IGNvbG9yOiB2YXIoLS1jb2xvci1pY29uLXByaW1hcnkpOyIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgcm9sZT0iaW1nIiB2aWV3Qm94PSIwIDAgMTYgMTYiIGhlaWdodD0iMzIiIGFyaWEtbGFiZWw9IkxvYWRpbmcgY29udGVudC4uLiIgd2lkdGg9IjMyIiBmaWxsPSJub25lIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBjeD0iOCIgY3k9IjgiIHI9IjciIGZpbGw9Im5vbmUiIHN0cm9rZS13aWR0aD0iMiIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBzdHJva2Utb3BhY2l0eT0iMC4yNSIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIC8+CiAgICA8cGF0aCBzdHJva2UtbGluZWNhcD0icm91bmQiIGQ9Ik0xNSA4YTcuMDAyIDcuMDAyIDAgMDAtNy03IiBzdHJva2U9ImN1cnJlbnRDb2xvciIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBzdHJva2Utd2lkdGg9IjIiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+#### [rumpelsepp](/rumpelsepp) [Sep 1, 2025](#discussioncomment-14272916)
+
+- [@pluiedev](https://github.com/pluiedev) I have to revert my comment. I somehow used a cached version or similar when confirming that your fix works. Sorry for that, that was my bad.For the arrow keys on layer 4 on the neo2 layout, your change in [#8330](https://github.com/ghostty-org/ghostty/pull/8330) doesn't address the problem. My workaround (posted in [#8296](https://github.com/ghostty-org/ghostty/issues/8296)) is still required to make the arrow keys work.
+
+    👍 4
+
+     👀 1
+
+**All reactions**
+
+- 👍 4
+- 👀 1
+
+[![@w9nz](https://avatars.githubusercontent.com/u/66125937?s=60&amp;v=4)](/w9nz)
+
+  ![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLWNvbXBvbmVudD0iT2N0aWNvbiIgdmlld0JveD0iMCAwIDE2IDE2IiB2ZXJzaW9uPSIxLjEiIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgYXJpYS1oaWRkZW49InRydWUiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCBCdXR0b24tdmlzdWFsIj4KICAgIDxwYXRoIGQ9Ik04IDlhMS41IDEuNSAwIDEgMCAwLTMgMS41IDEuNSAwIDAgMCAwIDNaTTEuNSA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWm0xMyAwYTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWiIgLz4KPC9zdmc+)
+
+Comment options
+
+- ![SVG Image](data:image/svg+xml;base64,PHN2ZyBzdHlsZT0iYm94LXNpemluZzogY29udGVudC1ib3g7IGNvbG9yOiB2YXIoLS1jb2xvci1pY29uLXByaW1hcnkpOyIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiB2aWV3Qm94PSIwIDAgMTYgMTYiIHJvbGU9ImltZyIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgZmlsbD0ibm9uZSIgYXJpYS1sYWJlbD0iTG9hZGluZyBjb250ZW50Li4uIiBjbGFzcz0ibS0yIHRtcC1tLTIgYW5pbS1yb3RhdGUiPgogICAgPGNpcmNsZSBjeD0iOCIgc3Ryb2tlLW9wYWNpdHk9IjAuMjUiIHZlY3Rvci1lZmZlY3Q9Im5vbi1zY2FsaW5nLXN0cm9rZSIgZmlsbD0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIyIiByPSI3IiBjeT0iOCIgc3Ryb2tlPSJjdXJyZW50Q29sb3IiIC8+CiAgICA8cGF0aCBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIGQ9Ik0xNSA4YTcuMDAyIDcuMDAyIDAgMDAtNy03IiBzdHJva2UtbGluZWNhcD0icm91bmQiIC8+Cjwvc3ZnPg==)
+
+### Uh oh!
+
+  
+
+There was an error while loading. [Please reload this page](<>).
+
+  Quote reply
+
+#### [w9nz](/w9nz) [Sep 20, 2025](#discussioncomment-14465397)
+
+| > Opened [#8330](https://github.com/ghostty-org/ghostty/pull/8330). Everyone subscribed to this thread — please give it a try! <br>Hello [@pluiedev](https://github.com/pluiedev),<br>When I update Ghostty from 1.1.3 to 1.2.x, I get my XKB layout not to work anymore, I think it is related to the change made here.<br>My keyboard layout configuration has:        key <AC11> { [           Return,           Return,     asciicircum,           asciicircum      ] };  <br>which replaces one of the key of the keyboard to `Return`. This key is now doing nothing in Ghostty (but the 3rd layer is working and the key is working as expected in other applications).<br>Is there something I can do to keep the behavior ?<br>Thank you, |
+| --- |
+
+**All reactions**
+
+![SVG Image](data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTYgMTYiIGFyaWEtaGlkZGVuPSJ0cnVlIiB2ZXJzaW9uPSIxLjEiIGhlaWdodD0iMTYiIGRhdGEtY29tcG9uZW50PSJPY3RpY29uIiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiB3aWR0aD0iMTYiIGNsYXNzPSJvY3RpY29uIG9jdGljb24ta2ViYWItaG9yaXpvbnRhbCI+CiAgICA8cGF0aCBkPSJNOCA5YTEuNSAxLjUgMCAxIDAgMC0zIDEuNSAxLjUgMCAwIDAgMCAzWk0xLjUgOWExLjUgMS41IDAgMSAwIDAtMyAxLjUgMS41IDAgMCAwIDAgM1ptMTMgMGExLjUgMS41IDAgMSAwIDAtMyAxLjUgMS41IDAgMCAwIDAgM1oiIC8+Cjwvc3ZnPg==)
+
+  
+
+Show 1 more reply
+
+[Sign up for free](/join?source=comment-repo) **to join this conversation on GitHub**.
+ Already have an account? [Sign in to comment](/login?return_to=https%3A%2F%2Fgithub.com%2Fghostty-org%2Fghostty%2Fdiscussions%2F7356)
+
+Category
+
+[#️⃣ Issue Triage](/ghostty-org/ghostty/discussions/categories/issue-triage)
+
+Labels
+
+[os/linux](/ghostty-org/ghostty/discussions?discussions_q=label%3Aos%2Flinux) [input](/ghostty-org/ghostty/discussions?discussions_q=label%3Ainput)Keyboard or mouse input [tip](/ghostty-org/ghostty/discussions?discussions_q=label%3Atip)Issues that appear on tip versions of Ghostty. Need to be revisited often
+
+21 participants
+
+[![@Soliprem](https://avatars.githubusercontent.com/u/73885403?s=48&amp;v=4)](/Soliprem) [![@mitchellh](https://avatars.githubusercontent.com/u/1299?s=48&amp;v=4)](/mitchellh) [![@aspiers](https://avatars.githubusercontent.com/u/100738?s=48&amp;v=4)](/aspiers) [![@rumpelsepp](https://avatars.githubusercontent.com/u/1961699?s=48&amp;v=4)](/rumpelsepp) [![@ncfavier](https://avatars.githubusercontent.com/u/4323933?s=48&amp;v=4)](/ncfavier) [![@ndom91](https://avatars.githubusercontent.com/u/7415984?s=48&amp;v=4)](/ndom91) [![@t56k](https://avatars.githubusercontent.com/u/12165422?s=48&amp;v=4)](/t56k) [![@pluiedev](https://avatars.githubusercontent.com/u/22406910?s=48&amp;v=4)](/pluiedev) [![@weskoerber](https://avatars.githubusercontent.com/u/28966224?s=48&amp;v=4)](/weskoerber) [![@darkelectron](https://avatars.githubusercontent.com/u/51426724?s=48&amp;v=4)](/darkelectron) [![@Opposite34](https://avatars.githubusercontent.com/u/54463205?s=48&amp;v=4)](/Opposite34) [![@nitin-dixit](https://avatars.githubusercontent.com/u/55051669?s=48&amp;v=4)](/nitin-dixit) [![@00-kat](https://avatars.githubusercontent.com/u/65649991?s=48&amp;v=4)](/00-kat) [![@w9nz](https://avatars.githubusercontent.com/u/66125937?s=48&amp;v=4)](/w9nz) [![@thomasdevasia](https://avatars.githubusercontent.com/u/80457504?s=48&amp;v=4)](/thomasdevasia) [![@dtgagnon](https://avatars.githubusercontent.com/u/82989011?s=48&amp;v=4)](/dtgagnon) [![@vicgeentor](https://avatars.githubusercontent.com/u/95343562?s=48&amp;v=4)](/vicgeentor) [![@coveres](https://avatars.githubusercontent.com/u/97767766?s=48&amp;v=4)](/coveres) [![@subhoghoshX](https://avatars.githubusercontent.com/u/108616679?s=48&amp;v=4)](/subhoghoshX) [![@D4ario0](https://avatars.githubusercontent.com/u/144295305?s=48&amp;v=4)](/D4ario0) [![@fvrings](https://avatars.githubusercontent.com/u/188876037?s=48&amp;v=4)](/fvrings)
+
+## Footer
+
+[![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiBhcmlhLWhpZGRlbj0idHJ1ZSIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBkYXRhLWNvbXBvbmVudD0iT2N0aWNvbiIgdmVyc2lvbj0iMS4xIiB3aWR0aD0iMjQiIGNsYXNzPSJvY3RpY29uIG9jdGljb24tbWFyay1naXRodWIiPgogICAgPHBhdGggZD0iTTEwLjIyNiAxNy4yODRjLTIuOTY1LS4zNi01LjA1NC0yLjQ5My01LjA1NC01LjI1NiAwLTEuMTIzLjQwNC0yLjMzNiAxLjA3OC0zLjE0NC0uMjkyLS43NDEtLjI0Ny0yLjMxNC4wOS0yLjk2NS44OTgtLjExMiAyLjExMS4zNiAyLjgzIDEuMDEuODUzLS4yNjkgMS43NTItLjQwNCAyLjg1My0uNDA0IDEuMSAwIDEuOTk5LjEzNSAyLjgwNy4zODIuNjk2LS42MjkgMS45MzItMS4xIDIuODMtLjk4OC4zMTUuNjA2LjM2IDIuMTc5LjA2NyAyLjk0Mi43Mi44NTQgMS4xMDEgMiAxLjEwMSAzLjE2NyAwIDIuNzYzLTIuMDg5IDQuODUyLTUuMDk4IDUuMjM0Ljc2My40OTQgMS4yOCAxLjU3MiAxLjI4IDIuODA3djIuMzM2YzAgLjY3NC41NjEgMS4wNTYgMS4yMzUuNzg2IDQuMDY2LTEuNTUgNy4yNTUtNS42MTUgNy4yNTUtMTAuNjQ2QzIzLjUgNi4xODggMTguMzM0IDEgMTEuOTc4IDEgNS42MiAxIC41IDYuMTg4LjUgMTIuNTQ1YzAgNC45ODYgMy4xNjcgOS4xMiA3LjQzNSAxMC42NjkuNjA2LjIyNSAxLjE5LS4xOCAxLjE5LS43ODZWMjAuNjNhMi45IDIuOSAwIDAgMS0xLjA3OC4yMjRjLTEuNDgzIDAtMi4zNTktLjgwOC0yLjk4Ny0yLjMxMy0uMjQ3LS42MDctLjUxNy0uOTY2LTEuMDM0LTEuMDMzLS4yNy0uMDIzLS4zNTktLjEzNS0uMzU5LS4yNyAwLS4yNy40NS0uNDcxLjg5OC0uNDcxLjY1MiAwIDEuMjEzLjQwNCAxLjc5NyAxLjIzNS40NS42NTEuOTIxLjk0MyAxLjQ4My45NDMuNTYxIDAgLjkyLS4yMDIgMS40MzctLjcxOS4zODItLjM4MS42NzQtLjcxOC45NDQtLjk0MyIgLz4KPC9zdmc+)](https://github.com) © 2026 GitHub, Inc.
+
+![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLWNvbXBvbmVudD0iT2N0aWNvbiIgZGF0YS12aWV3LWNvbXBvbmVudD0idHJ1ZSIgdmlld0JveD0iMCAwIDE2IDE2IiB3aWR0aD0iMTYiIHZlcnNpb249IjEuMSIgYXJpYS1oaWRkZW49InRydWUiIGhlaWdodD0iMTYiIGNsYXNzPSJvY3RpY29uIG9jdGljb24tYWxlcnQiPgogICAgPHBhdGggZD0iTTYuNDU3IDEuMDQ3Yy42NTktMS4yMzQgMi40MjctMS4yMzQgMy4wODYgMGw2LjA4MiAxMS4zNzhBMS43NSAxLjc1IDAgMCAxIDE0LjA4MiAxNUgxLjkxOGExLjc1IDEuNzUgMCAwIDEtMS41NDMtMi41NzVabTEuNzYzLjcwN2EuMjUuMjUgMCAwIDAtLjQ0IDBMMS42OTggMTMuMTMyYS4yNS4yNSAwIDAgMCAuMjIuMzY4aDEyLjE2NGEuMjUuMjUgMCAwIDAgLjIyLS4zNjhabS41MyAzLjk5NnYyLjVhLjc1Ljc1IDAgMCAxLTEuNSAwdi0yLjVhLjc1Ljc1IDAgMCAxIDEuNSAwWk05IDExYTEgMSAwIDEgMS0yIDAgMSAxIDAgMCAxIDIgMFoiIC8+Cjwvc3ZnPg==) ![SVG Image](data:image/svg+xml;base64,PHN2ZyBkYXRhLWNvbXBvbmVudD0iT2N0aWNvbiIgdmlld0JveD0iMCAwIDE2IDE2IiBoZWlnaHQ9IjE2IiB3aWR0aD0iMTYiIGFyaWEtaGlkZGVuPSJ0cnVlIiBkYXRhLXZpZXctY29tcG9uZW50PSJ0cnVlIiB2ZXJzaW9uPSIxLjEiIGNsYXNzPSJvY3RpY29uIG9jdGljb24teCI+CiAgICA8cGF0aCBkPSJNMy43MiAzLjcyYS43NS43NSAwIDAgMSAxLjA2IDBMOCA2Ljk0bDMuMjItMy4yMmEuNzQ5Ljc0OSAwIDAgMSAxLjI3NS4zMjYuNzQ5Ljc0OSAwIDAgMS0uMjE1LjczNEw5LjA2IDhsMy4yMiAzLjIyYS43NDkuNzQ5IDAgMCAxLS4zMjYgMS4yNzUuNzQ5Ljc0OSAwIDAgMS0uNzM0LS4yMTVMOCA5LjA2bC0zLjIyIDMuMjJhLjc1MS43NTEgMCAwIDEtMS4wNDItLjAxOC43NTEuNzUxIDAgMCAxLS4wMTgtMS4wNDJMNi45NCA4IDMuNzIgNC43OGEuNzUuNzUgMCAwIDEgMC0xLjA2WiIgLz4KPC9zdmc+)
+
+You can’t perform that action at this time.

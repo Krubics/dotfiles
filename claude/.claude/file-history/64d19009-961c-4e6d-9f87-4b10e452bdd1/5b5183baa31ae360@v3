@@ -1,0 +1,136 @@
+@define-color primary #7fd0ff;
+@define-color primary-container #004c6a;
+@define-color outline #919191;
+
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 16px;
+    background: none;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+
+.modules-left,
+.modules-center,
+.modules-right{
+    background: @primary-container;
+    border: 2px solid @outline;
+    border-radius: 10px;
+    /* 4px, not 6px: the 26px sprites need the vertical room, and this keeps the
+       bar at 56px — the height it already rendered at before the sprites moved
+       into CSS. Raising it to 6px forces the bar to 60px. */
+    margin: 4px 4px;
+    padding: 4px 12px;
+}
+
+/* Every workspace button reserves the exact box the active one uses — same
+   padding, margin, min size, and a same-width *transparent* border. Without
+   this, only the active button carries a 1px border, so it is taller than the
+   inactive buttons; the bar height tracks its tallest child, so the whole bar
+   jumps up and down as the pokeball (active button) appears/moves. Reserving
+   the border space up front keeps every button one fixed height.
+   :not(.taskbar) keeps this off the taskbar module's buttons. */
+/* No min-width here: a narrow inactive digit (e.g. "1") must hug its own box
+   rather than float in a reserved 20px cell. The reserved slack made the
+   left/right gaps inside the center pill unequal whenever the active pokeball
+   (which fills its cell edge-to-edge) sat at an end. min-height stays so the
+   bar height is unaffected; only .active reserves min-width for the sprite. */
+#workspaces:not(.taskbar) button {
+    padding: 4px 4px;
+    margin: 4px 0px;
+    min-height: 20px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+}
+
+/* Center the numbers within the pill. The center pill is centered on screen but
+   holds three modules — the numbers, then the (empty-when-no-apps) taskbar
+   divider and taskbar. GTK adds `spacing: 4` *between* children only, never
+   before the first one, so the trailing empty taskbar leaves a 4px slot on the
+   right of the numbers with no matching slot on the left. That made the numbers
+   sit 4px left-of-center in the pill (obvious with no apps open). A +4px left
+   margin on the numbers mirrors that trailing slot so the gaps are equal.
+   :not(.taskbar) keeps this off the taskbar module itself. */
+#workspaces:not(.taskbar) {
+    margin-left: 4px;
+}
+
+/* :not(.taskbar) keeps this off the taskbar module's active button */
+#workspaces:not(.taskbar) button.active {
+    background-image: url('/home/krubics/.config/waybar/assets/pokeball.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-origin: content-box; /* inset the ball from the accent pill's edges */
+    background-color: @primary;
+    color: transparent; /* hides the workspace number behind the pokeball */
+    padding: 4px 4px;
+    margin: 4px 0px;
+    min-width: 20px;
+    min-height: 20px;
+    border: 1px solid @outline;
+    border-radius: 10px;
+}
+
+/* Shared geometry for every sprite. The PNGs are alpha-trimmed (originals in
+   assets/original/), so the sprite's ink fills its canvas and the box size is
+   the pokemon size. background-size: contain fits the sprite inside the box,
+   so height lands on 26px only where min-width >= 26 * aspect ratio; wooper is
+   the widest of the square-ish icons at 1.167:1, needing 30.33px, so 32px
+   clears all three. */
+#custom-clock-icon,
+#network.icon,
+#bluetooth.icon,
+#custom-battery-icon {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-origin: content-box;
+    color: transparent; /* hides the placeholder space glyph */
+    min-width: 22px;
+    min-height: 20px;
+    padding: 2px;
+    margin: 4px 0;
+}
+
+#custom-clock-icon { background-image: url('/home/krubics/.config/waybar/assets/dialga.png'); }
+#network.icon      { background-image: url('/home/krubics/.config/waybar/assets/wooper.png'); }
+#bluetooth.icon    { background-image: url('/home/krubics/.config/waybar/assets/magneton.png'); }
+
+/* A 5-cell gauge, not one pikachu: 629x126, so 26 * 4.992 = 130px of width */
+#custom-battery-icon { min-width: 110px; }
+
+#custom-battery-icon.p100 { background-image: url('/home/krubics/.config/waybar/assets/pikachu-100.png'); }
+#custom-battery-icon.p80  { background-image: url('/home/krubics/.config/waybar/assets/pikachu-80.png'); }
+#custom-battery-icon.p60  { background-image: url('/home/krubics/.config/waybar/assets/pikachu-60.png'); }
+#custom-battery-icon.p40  { background-image: url('/home/krubics/.config/waybar/assets/pikachu-40.png'); }
+#custom-battery-icon.p20  { background-image: url('/home/krubics/.config/waybar/assets/pikachu-20.png'); }
+#custom-battery-icon.p10  { background-image: url('/home/krubics/.config/waybar/assets/pikachu-10.png'); }
+
+#custom-taskbar-divider,
+#custom-divider {
+    color: @outline;
+    margin: 0 6px;
+}
+
+#workspaces.taskbar button {
+    min-width: 0;
+    min-height: 0;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+}
+
+#workspaces.taskbar .taskbar-window {
+    padding: 2px 4px;
+    margin: 0 2px;
+    border-radius: 5px;
+}
+
+#workspaces.taskbar .taskbar-window:hover {
+    background: @primary-container
+}

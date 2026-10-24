@@ -1,0 +1,19 @@
+#!/bin/bash
+
+base_folder="/home/krubics/.config/waybar/images/"
+battery=$(cat /sys/class/power_supply/BAT0/capacity)
+if [ $battery -gt 80 ]; then
+  echo "${base_folder}100-percent-pikachu.png"
+elif [ $battery -gt 60 ]; then
+  echo "${base_folder}80-percent-pikachu.png"
+elif [ $battery -gt 40 ]; then
+  echo "${base_folder}60-percent-pikachu.png"
+elif [ $battery -gt 20 ]; then
+  echo "${base_folder}40-percent-pikachu.png"
+elif [ $battery -gt 10 ]; then
+  echo "${base_folder}20-percent-pikachu.png"
+else
+  echo "${base_folder}10-percent-pikachu.png"
+fi
+
+

@@ -1,0 +1,11 @@
+/* Override native GTK scrollbar colors for all web content.
+ * Fixes the dark GTK trough painting near-black on hover under
+ * Flat-Remix-GTK-Blue-Dark + prefer-dark. Explicit scrollbar-color
+ * takes the GTK trough out of the equation, so hover can never
+ * render black: track stays transparent, thumb is a neutral gray. */
+@-moz-document url-prefix("http") {
+  * {
+    scrollbar-color: rgba(140, 140, 140, 0.6) transparent !important;
+    scrollbar-width: thin !important;
+  }
+}

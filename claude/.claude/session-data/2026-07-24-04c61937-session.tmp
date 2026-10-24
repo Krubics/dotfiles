@@ -1,0 +1,30 @@
+# Session: 2026-07-24
+**Date:** 2026-07-24
+**Started:** 13:07
+**Last Updated:** 13:07
+**Project:** krubics
+**Branch:** unknown
+**Worktree:** /home/krubics
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Human: <session> I installed this https://github.com/goodroot/hyprwhspr but for some reason I can't seem to get the OSD waveform to work. I think it need GTK4-Layer-Shell I'm not sure what that is. Ca
+- [structured-output-enforce] You MUST call the StructuredOutput tool to complete this request. Call this tool now.
+
+### Tools Used
+Bash, StructuredOutput
+
+### Stats
+- Total user messages: 2
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

@@ -1,0 +1,5 @@
+{"type":"queue-operation","operation":"enqueue","timestamp":"2026-07-11T18:45:38.811Z","sessionId":"8c1f4547-8a41-4246-a3bb-182702eb794c"}
+{"type":"queue-operation","operation":"dequeue","timestamp":"2026-07-11T18:45:38.811Z","sessionId":"8c1f4547-8a41-4246-a3bb-182702eb794c"}
+{"parentUuid":null,"isSidechain":false,"promptId":"5de32d1a-a523-49c1-8f28-533991cc86b8","type":"user","message":{"role":"user","content":[{"type":"text","text":"Human: Generate a title for this conversation:\nHi"}]},"uuid":"17db146f-dc09-45fa-9776-4576a1c8b62f","timestamp":"2026-07-11T18:45:38.829Z","permissionMode":"bypassPermissions","promptSource":"sdk","userType":"external","entrypoint":"sdk-ts","cwd":"/home/krubics","sessionId":"8c1f4547-8a41-4246-a3bb-182702eb794c","version":"2.1.207","gitBranch":"HEAD"}
+{"type":"ai-title","aiTitle":"New conversation","sessionId":"8c1f4547-8a41-4246-a3bb-182702eb794c"}
+{"type":"last-prompt","lastPrompt":"Human: Generate a title for this conversation: Hi","leafUuid":"17db146f-dc09-45fa-9776-4576a1c8b62f","sessionId":"8c1f4547-8a41-4246-a3bb-182702eb794c"}

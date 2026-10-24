@@ -1,0 +1,35 @@
+# Session: 2026-07-25
+**Date:** 2026-07-25
+**Started:** 00:25
+**Last Updated:** 00:26
+**Project:** krubics
+**Branch:** unknown
+**Worktree:** /home/krubics
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Human: <system-reminder> As you answer the user's questions, you can use the following context: # claudeMd Codebase and user instructions are shown below. Be sure to adhere to these instructions. IMPO
+- Assistant: Let me check the current state of the files since many edits were interrupted. \`utils.hpp\` has the \`yin_log\` helper duplicated. Let me also check the current Monitor.cpp log calls before fi
+- Assistant: Everything is already in order — \`utils.hpp\` has a single \`yin_log\`, the build is clean. Just install and restart:  \`\`\`bash sudo cp /home/krubics/yin/release/yin /usr/bin/yin && pkill yin \`
+- Assistant: You asked why monitors change 1-by-1, which led to:  1. **The actual fix** — a single block move in \`Monitor::resumeTransition()\` that stopped transitions from spinning in a recursive loop,
+
+### Files Modified
+- /home/krubics/yin/shared/utils.hpp
+
+### Tools Used
+Read, Bash, Edit
+
+### Stats
+- Total user messages: 4
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

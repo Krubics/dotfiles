@@ -1,0 +1,35 @@
+@import "colors.css";
+
+window {
+  background-color: transparent;
+  color: @window_fg_color;
+}
+
+.background {
+  background-color: @window_bg_color;
+  color: @window_fg_color;
+}
+
+headerbar {
+  background-color: @headerbar_bg_color;
+  color: @headerbar_fg_color;
+}
+
+.view,
+scrolledwindow > viewport,
+textview,
+textview > text {
+  background-color: @view_bg_color;
+  color: @view_fg_color;
+}
+
+list.nested,
+list.nested > row {
+  background-color: @card_bg_color;
+  color: @card_fg_color;
+}
+
+.dim-label {
+  opacity: 1;
+  color: @dim_label_color;
+}

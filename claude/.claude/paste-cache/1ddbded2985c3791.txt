@@ -1,0 +1,40 @@
+➜  ~ sudo apt-get install nvidia-driver-595-open $(cat …reinstall-list.txt)
+cat: …reinstall-list.txt: No such file or directory
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  libnvidia-cfg1-595 libnvidia-decode-595 libnvidia-decode-595:i386 libnvidia-egl-wayland1:i386 libnvidia-encode-595
+  libnvidia-encode-595:i386 libnvidia-extra-595 libnvidia-fbc1-595 libnvidia-fbc1-595:i386 libnvidia-gl-595:i386
+  libwayland-server0:i386 libxnvctrl0 nvidia-compute-utils-595 nvidia-kernel-source-595-open nvidia-prime nvidia-settings
+  nvidia-utils-595 screen-resolution-extra xserver-xorg-video-nvidia-595
+Suggested packages:
+  nvidia-driver-595
+The following NEW packages will be installed:
+  libnvidia-cfg1-595 libnvidia-decode-595 libnvidia-decode-595:i386 libnvidia-egl-wayland1:i386 libnvidia-encode-595
+  libnvidia-encode-595:i386 libnvidia-extra-595 libnvidia-fbc1-595 libnvidia-fbc1-595:i386 libnvidia-gl-595:i386
+  libwayland-server0:i386 libxnvctrl0 nvidia-compute-utils-595 nvidia-driver-595-open nvidia-kernel-source-595-open
+  nvidia-prime nvidia-settings nvidia-utils-595 screen-resolution-extra xserver-xorg-video-nvidia-595
+0 upgraded, 20 newly installed, 0 to remove and 43 not upgraded.
+Need to get 997 kB/68.9 MB of archives.
+After this operation, 301 MB of additional disk space will be used.
+Do you want to continue? [Y/n] ^C%                                                                                          ➜  ~ sudo apt-get install nvidia-driver-595-open $(cat …reinstall-list.txt)
+cat: …reinstall-list.txt: No such file or directory
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  libnvidia-cfg1-595 libnvidia-decode-595 libnvidia-decode-595:i386 libnvidia-egl-wayland1:i386 libnvidia-encode-595
+  libnvidia-encode-595:i386 libnvidia-extra-595 libnvidia-fbc1-595 libnvidia-fbc1-595:i386 libnvidia-gl-595:i386
+  libwayland-server0:i386 libxnvctrl0 nvidia-compute-utils-595 nvidia-kernel-source-595-open nvidia-prime nvidia-settings
+  nvidia-utils-595 screen-resolution-extra xserver-xorg-video-nvidia-595
+Suggested packages:
+  nvidia-driver-595
+The following NEW packages will be installed:
+  libnvidia-cfg1-595 libnvidia-decode-595 libnvidia-decode-595:i386 libnvidia-egl-wayland1:i386 libnvidia-encode-595
+  libnvidia-encode-595:i386 libnvidia-extra-595 libnvidia-fbc1-595 libnvidia-fbc1-595:i386 libnvidia-gl-595:i386
+  libwayland-server0:i386 libxnvctrl0 nvidia-compute-utils-595 nvidia-driver-595-open nvidia-kernel-source-595-open
+  nvidia-prime nvidia-settings nvidia-utils-595 screen-resolution-extra xserver-xorg-video-nvidia-595
+0 upgraded, 20 newly installed, 0 to remove and 43 not upgraded.
+Need to get 997 kB/68.9 MB of archives.
+After this operation, 301 MB of additional disk space will be used.

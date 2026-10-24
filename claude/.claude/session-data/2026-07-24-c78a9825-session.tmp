@@ -1,0 +1,30 @@
+# Session: 2026-07-24
+**Date:** 2026-07-24
+**Started:** 23:50
+**Last Updated:** 23:50
+**Project:** krubics
+**Branch:** unknown
+**Worktree:** /home/krubics
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Human: quota
+- # Cost Report  Summarize local Claude Code spend by day, model, and session from the metrics log that ECC's \`stop:cost-tracker\` hook writes.  ## Where the data lives  The tracker appends one JSON obje
+
+### Tools Used
+Skill, Bash
+
+### Stats
+- Total user messages: 2
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

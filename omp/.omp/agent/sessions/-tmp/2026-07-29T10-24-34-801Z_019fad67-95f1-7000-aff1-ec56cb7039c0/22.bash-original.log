@@ -1,0 +1,41 @@
+---dirs---
+---data---
+total 152
+drwxrwxr-x 18 krubics krubics 4096 Jul 29 18:37 .
+drwx------ 77 krubics krubics 4096 Jul 29 15:07 ..
+drwxrwxr-x  7 krubics krubics 4096 Jul 23 19:00 .git
+drwxrwxr-x  3 krubics krubics 4096 Jul 23 19:00 .github
+-rw-rw-r--  1 krubics krubics  483 Jul 23 19:00 .gitignore
+-rw-rw-r--  1 krubics krubics 3727 Jul 23 19:00 AGENTS.md
+-rw-rw-r--  1 krubics krubics 1065 Jul 23 19:00 LICENSE
+-rw-rw-r--  1 krubics krubics 7218 Jul 23 19:00 README.md
+drwxrwxr-x  2 krubics krubics 4096 Jul 23 19:00 bin
+-rwxrwxr-x  1 krubics krubics 5243 Jul 23 19:00 bump-version.sh
+drwxrwxr-x  6 krubics krubics 4096 Jul 23 19:00 config
+drwxrwxr-x  3 krubics krubics 4096 Jul 23 19:00 contrib
+-rw-------  1 krubics krubics   60 Jul 29 17:47 credentials
+drwxrwxr-x  3 krubics krubics 4096 Jul 23 19:00 docs
+drwxrwxr-x  4 krubics krubics 4096 Jul 23 19:00 lib
+-rw-rw-r--  1 krubics krubics  123 Jul 23 19:00 requirements-cohere-transcribe.txt
+-rw-rw-r--  1 krubics krubics   72 Jul 23 19:00 requirements-faster-whisper-cuda.txt
+-rw-rw-r--  1 krubics krubics   35 Jul 23 19:00 requirements-faster-whisper.txt
+-rw-rw-r--  1 krubics krubics   39 Jul 23 19:00 requirements-onnx-asr-gpu.txt
+-rw-rw-r--  1 krubics krubics   38 Jul 23 19:00 requirements-onnx-asr.txt
+-rw-rw-r--  1 krubics krubics  116 Jul 23 19:00 requirements-optional.txt
+-rw-rw-r--  1 krubics krubics   40 Jul 23 19:00 requirements-pywhispercpp.txt
+-rw-rw-r--  1 krubics krubics   39 Jul 23 19:00 requirements-realtime-elevenlabs.txt
+-rw-rw-r--  1 krubics krubics   44 Jul 23 19:00 requirements-realtime.txt
+-rw-rw-r--  1 krubics krubics   37 Jul 23 19:00 requirements-rest.txt
+-rw-rw-r--  1 krubics krubics  633 Jul 23 19:00 requirements-visualizer.txt
+-rw-rw-r--  1 krubics krubics  482 Jul 23 19:00 requirements.txt
+drwxrwxr-x  2 krubics krubics 4096 Jul 23 19:00 scripts
+drwxrwxr-x  3 krubics krubics 4096 Jul 23 19:00 share
+drwxrwxr-x 14 krubics krubics 4096 Jul 24 16:01 src
+drwxrwxr-x  2 krubics krubics 4096 Jul 24 16:04 temp
+drwxrwxr-x  2 krubics krubics 4096 Jul 23 19:00 tests
+drwxrwxr-x  2 krubics krubics 4096 Jul 23 19:00 utils
+drwxrwxr-x  5 krubics krubics 4096 Jul 29 18:36 venv
+drwxrwxr-x  4 krubics krubics 4096 Jul 23 19:00 website
+drwxrwxr-x  3 krubics krubics 4096 Jul 23 21:43 wheel-cache
+---hf cache for cohere model---
+drwxrwxr-x 6 krubics krubics 4096 Jul 29 18:11 models--CohereLabs--cohere-transcribe-03-2026

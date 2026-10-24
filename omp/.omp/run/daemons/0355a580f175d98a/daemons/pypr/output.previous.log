@@ -1,0 +1,734 @@
+                      ipc - Logger "ipc" initialized // logging_setup.py:89
+                  startup - Logger "startup" initialized // logging_setup.py:89
+                     pypr - Logger "pypr" initialized // logging_setup.py:89
+                     pypr - Loading /home/krubics/.config/pypr/config.toml // config_loader.py:236
+                 pyprland - Logger "pyprland" initialized // logging_setup.py:89
+                 pyprland - Lua config detected at /home/krubics/.config/hypr/hyprland.lua // hyprland_core.py:42
+                 pyprland - configured // manager.py:228
+              scratchpads - Logger "scratchpads" initialized // logging_setup.py:89
+              scratchpads - eval hl.window_rule({no_anim=true, match={tag="pypr_noanim"}}) // hyprland.py:86
+              scratchpads - eval ['hl.workspace_rule({workspace="special:S-code", persistent=true})', 'hl.workspace_rule({workspace="special:S-term", persistent=true})', 'hl.workspace_rule({workspace="special:S-browser", persistent=true})'] // hyprland.py:86
+              scratchpads - configured // manager.py:228
+                     pypr - ================================[ initialized ]================================= // pypr_daemon.py:61
+              scratchpads - [33;1mrun_toggle('term',)[0m // manager.py:314
+              scratchpads - visibility_check: ('', '') == ('4', 'HDMI-A-1') // __init__.py:342
+              scratchpads - term visibility: False and False // __init__.py:368
+              scratchpads - Showing term // __init__.py:393
+              scratchpads - scratch term (kitty --class kitty-scratch-term) has pid 1178192 // lifecycle.py:166
+              scratchpads - ==> Wait for term spawning // lifecycle.py:55
+                 pyprland - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7a3be10 // hyprland_core.py:81
+              scratchpads - => term client (proc:1178192, addr:0x5f88f79bd590) detected on time // lifecycle.py:66
+              scratchpads - eval hl.dispatch(hl.dsp.window.move({workspace="special:S-term", follow=false, window="address:0x5f88f79bd590"})) // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.window.resize({x=1920, y=864, window="address:0x5f88f79bd590"})) // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.tag({tag="+pypr_noanim", window="address:0x5f88f79bd590"}))', 'hl.dispatch(hl.dsp.window.move({x=2900, y=-2094, window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.window.tag({tag="-pypr_noanim", window="address:0x5f88f79bd590"})) // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.workspace.move({workspace="special:S-term", monitor="HDMI-A-1"}))', 'hl.dispatch(hl.dsp.window.move({workspace="4", follow=false, window="address:0x5f88f79bd590"}))', 'hl.dispatch(hl.dsp.window.alter_zorder({mode="top", window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.move({x=2900, y=260, window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.focus({window="address:0x5f88f79bd590"})) // hyprland.py:86
+                 pyprland - [30;1mevent_activewindowv2('5f88f79bd590',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f79bd590 // hyprland_core.py:81
+              scratchpads - eval hl.dispatch(hl.dsp.window.pin({window="address:0x5f88f79bd590"})) // hyprland.py:86
+              scratchpads - [30;1mevent_openwindow('5f88f79bd590,special:S-term,kitty-scratch-term,zsh',)[0m // manager.py:314
+              scratchpads - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+              scratchpads - [30;1mevent_activewindowv2('5f88f79bd590',)[0m // manager.py:314
+                 pyprland - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7a3be10 // hyprland_core.py:81
+              scratchpads - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+                 pyprland - [30;1mevent_activewindowv2('5f88f79bd590',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f79bd590 // hyprland_core.py:81
+              scratchpads - [30;1mevent_activewindowv2('5f88f79bd590',)[0m // manager.py:314
+              scratchpads - [30;1mevent_closewindow('5f88f79bd590',)[0m // manager.py:314
+                 pyprland - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7a3be10 // hyprland_core.py:81
+              scratchpads - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+              scratchpads - [30;1mevent_openwindow('5f88f79bd590,4,kitty-manual-test,zsh',)[0m // manager.py:314
+                 pyprland - [30;1mevent_activewindowv2('5f88f79bd590',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f79bd590 // hyprland_core.py:81
+              scratchpads - [30;1mevent_activewindowv2('5f88f79bd590',)[0m // manager.py:314
+                 pyprland - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7a3be10 // hyprland_core.py:81
+              scratchpads - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+              scratchpads - [30;1mevent_closewindow('5f88f79bd590',)[0m // manager.py:314
+              scratchpads - [33;1mrun_toggle('term',)[0m // manager.py:314
+              scratchpads - visibility_check: ('4', 'HDMI-A-1') == ('4', 'HDMI-A-1') // __init__.py:342
+              scratchpads - term visibility: False and False // __init__.py:368
+              scratchpads - Showing term // __init__.py:393
+              scratchpads - scratch term (kitty --class kitty-scratch-term) has pid 1179995 // lifecycle.py:166
+              scratchpads - ==> Wait for term spawning // lifecycle.py:55
+              scratchpads - => term client (proc:1179995, addr:0x5f88f79bd590) detected on time // lifecycle.py:66
+              scratchpads - eval hl.dispatch(hl.dsp.window.move({workspace="special:S-term", follow=false, window="address:0x5f88f79bd590"})) // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.window.resize({x=1920, y=864, window="address:0x5f88f79bd590"})) // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.tag({tag="+pypr_noanim", window="address:0x5f88f79bd590"}))', 'hl.dispatch(hl.dsp.window.move({x=2900, y=-2094, window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.window.tag({tag="-pypr_noanim", window="address:0x5f88f79bd590"})) // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.workspace.move({workspace="special:S-term", monitor="HDMI-A-1"}))', 'hl.dispatch(hl.dsp.window.move({workspace="4", follow=false, window="address:0x5f88f79bd590"}))', 'hl.dispatch(hl.dsp.window.alter_zorder({mode="top", window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.move({x=2900, y=260, window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.focus({window="address:0x5f88f79bd590"})) // hyprland.py:86
+                 pyprland - [30;1mevent_activewindowv2('5f88f79bd590',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f79bd590 // hyprland_core.py:81
+              scratchpads - eval hl.dispatch(hl.dsp.window.pin({window="address:0x5f88f79bd590"})) // hyprland.py:86
+              scratchpads - [30;1mevent_openwindow('5f88f79bd590,special:S-term,kitty-scratch-term,zsh',)[0m // manager.py:314
+              scratchpads - [30;1mevent_activewindowv2('5f88f79bd590',)[0m // manager.py:314
+                 pyprland - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7a3be10 // hyprland_core.py:81
+              scratchpads - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+                 pyprland - [30;1mevent_activewindowv2('5f88f79bd590',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f79bd590 // hyprland_core.py:81
+              scratchpads - [30;1mevent_activewindowv2('5f88f79bd590',)[0m // manager.py:314
+                 pyprland - [30;1mevent_workspace('2',)[0m // manager.py:314
+                 pyprland - active_workspace = 2 // hyprland_core.py:90
+              scratchpads - [30;1mevent_workspace('2',)[0m // manager.py:314
+                 pyprland - [30;1mevent_workspace('3',)[0m // manager.py:314
+                 pyprland - active_workspace = 3 // hyprland_core.py:90
+              scratchpads - [30;1mevent_workspace('3',)[0m // manager.py:314
+                 pyprland - [30;1mevent_workspace('4',)[0m // manager.py:314
+                 pyprland - active_workspace = 4 // hyprland_core.py:90
+              scratchpads - [30;1mevent_workspace('4',)[0m // manager.py:314
+                 pyprland - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7a3be10 // hyprland_core.py:81
+              scratchpads - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+                 pyprland - [30;1mevent_activewindowv2('5f88f79bd590',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f79bd590 // hyprland_core.py:81
+              scratchpads - [30;1mevent_activewindowv2('5f88f79bd590',)[0m // manager.py:314
+                 pyprland - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7a3be10 // hyprland_core.py:81
+              scratchpads - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+                 pyprland - [30;1mevent_activewindowv2('5f88f79bd590',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f79bd590 // hyprland_core.py:81
+              scratchpads - [30;1mevent_activewindowv2('5f88f79bd590',)[0m // manager.py:314
+                 pyprland - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7a3be10 // hyprland_core.py:81
+              scratchpads - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+                 pyprland - [30;1mevent_activewindowv2('5f88f79bd590',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f79bd590 // hyprland_core.py:81
+              scratchpads - [30;1mevent_activewindowv2('5f88f79bd590',)[0m // manager.py:314
+                 pyprland - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7a3be10 // hyprland_core.py:81
+              scratchpads - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+              scratchpads - [33;1mrun_toggle('term',)[0m // manager.py:314
+              scratchpads - visibility_check: ('4', 'HDMI-A-1') == ('4', 'HDMI-A-1') // __init__.py:342
+              scratchpads - term visibility: True and True // __init__.py:368
+              scratchpads - Hiding term // __init__.py:535
+              scratchpads - eval hl.dispatch(hl.dsp.window.pin({window="address:0x5f88f79bd590"})) // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.move({x=2900, y=-654, window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.tag({tag="+pypr_noanim", window="address:0x5f88f79bd590"}))', 'hl.dispatch(hl.dsp.window.move({x=2900, y=-2094, window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.window.move({workspace="special:S-term", follow=false, window="address:0x5f88f79bd590"})) // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.tag({tag="-pypr_noanim", window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - [33;1mrun_toggle('term',)[0m // manager.py:314
+              scratchpads - visibility_check: ('4', 'HDMI-A-1') == ('4', 'HDMI-A-1') // __init__.py:342
+              scratchpads - term visibility: False and False // __init__.py:368
+              scratchpads - Showing term // __init__.py:393
+              scratchpads - eval hl.dispatch(hl.dsp.window.resize({x=1920, y=864, window="address:0x5f88f79bd590"})) // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.tag({tag="+pypr_noanim", window="address:0x5f88f79bd590"}))', 'hl.dispatch(hl.dsp.window.move({x=2900, y=-2094, window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.window.tag({tag="-pypr_noanim", window="address:0x5f88f79bd590"})) // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.workspace.move({workspace="special:S-term", monitor="HDMI-A-1"}))', 'hl.dispatch(hl.dsp.window.move({workspace="4", follow=false, window="address:0x5f88f79bd590"}))', 'hl.dispatch(hl.dsp.window.alter_zorder({mode="top", window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.move({x=2900, y=260, window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.focus({window="address:0x5f88f79bd590"})) // hyprland.py:86
+                 pyprland - [30;1mevent_activewindowv2('5f88f79bd590',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f79bd590 // hyprland_core.py:81
+              scratchpads - eval hl.dispatch(hl.dsp.window.pin({window="address:0x5f88f79bd590"})) // hyprland.py:86
+              scratchpads - [30;1mevent_activewindowv2('5f88f79bd590',)[0m // manager.py:314
+                 pyprland - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7a3be10 // hyprland_core.py:81
+              scratchpads - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+                 pyprland - [30;1mevent_activewindowv2('5f88f79bd590',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f79bd590 // hyprland_core.py:81
+              scratchpads - [30;1mevent_activewindowv2('5f88f79bd590',)[0m // manager.py:314
+                 pyprland - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7a3be10 // hyprland_core.py:81
+              scratchpads - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+              scratchpads - [33;1mrun_toggle('term',)[0m // manager.py:314
+              scratchpads - visibility_check: ('4', 'HDMI-A-1') == ('4', 'HDMI-A-1') // __init__.py:342
+              scratchpads - term visibility: True and True // __init__.py:368
+              scratchpads - Hiding term // __init__.py:535
+              scratchpads - eval hl.dispatch(hl.dsp.window.pin({window="address:0x5f88f79bd590"})) // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.move({x=2900, y=-654, window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.tag({tag="+pypr_noanim", window="address:0x5f88f79bd590"}))', 'hl.dispatch(hl.dsp.window.move({x=2900, y=-2094, window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.window.move({workspace="special:S-term", follow=false, window="address:0x5f88f79bd590"})) // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.tag({tag="-pypr_noanim", window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - [33;1mrun_toggle('browser',)[0m // manager.py:314
+              scratchpads - visibility_check: ('4', '') == ('4', 'HDMI-A-1') // __init__.py:342
+              scratchpads - browser visibility: False and False // __init__.py:368
+              scratchpads - Showing browser // __init__.py:393
+              scratchpads - eval ['hl.window_rule({name="browser", enabled=true})', 'hl.window_rule({name="browser", match={class="zen"}})', 'hl.window_rule({name="browser", float=true})', 'hl.window_rule({name="browser", workspace="special:S-browser silent"})', 'hl.window_rule({name="browser", move="192 -200%"})', 'hl.window_rule({name="browser", size="2176 1224"})', 'hl.window_rule({name="browser", group="deny"})'] // hyprland.py:86
+              scratchpads - browser is not running, starting... // lifecycle.py:141
+              scratchpads - scratch browser (/home/krubics/.config/hypr/scripts/zen-scratch.sh) has pid 1181328 // lifecycle.py:166
+              scratchpads - starting browser // lifecycle.py:110
+              scratchpads - ==> Wait for browser spawning // lifecycle.py:55
+[1181332] Sandbox: CanCreateUserNamespace() unshare(CLONE_NEWPID): EPERM
+[31;2m              scratchpads - ⚠ Failed spawning browser as proc 1181328 // lifecycle.py:112[0m
+[31;2m              scratchpads - "/home/krubics/.config/hypr/scripts/zen-scratch.sh": The command didn't open a window // lifecycle.py:119[0m
+              scratchpads - notify 0 5000 rgb(ff1010)  The command didn't open a window // hyprland.py:86
+              scratchpads - notify 0 5000 rgb(ff1010)  Failed to show scratch "browser" // hyprland.py:86
+[31;2m              scratchpads - Failed to show browser, aborting. // __init__.py:396[0m
+              scratchpads - [30;1mevent_openwindow('5f88f7abf700,special:S-browser,zen,Zen Browser',)[0m // manager.py:314
+              scratchpads - Updating Scratch info // events.py:266
+                 pyprland - [30;1mevent_focusedmon('eDP-1,1',)[0m // manager.py:314
+                 pyprland - active_monitor = eDP-1 // hyprland_core.py:99
+                 pyprland - [30;1mevent_focusedmon('HDMI-A-1,4',)[0m // manager.py:314
+                 pyprland - active_monitor = HDMI-A-1 // hyprland_core.py:99
+                 pyprland - [30;1mevent_focusedmon('eDP-1,1',)[0m // manager.py:314
+                 pyprland - active_monitor = eDP-1 // hyprland_core.py:99
+                 pyprland - [30;1mevent_focusedmon('HDMI-A-1,4',)[0m // manager.py:314
+                 pyprland - active_monitor = HDMI-A-1 // hyprland_core.py:99
+              scratchpads - [33;1mrun_toggle('term',)[0m // manager.py:314
+              scratchpads - visibility_check: ('4', 'HDMI-A-1') == ('4', 'HDMI-A-1') // __init__.py:342
+              scratchpads - term visibility: False and False // __init__.py:368
+              scratchpads - Showing term // __init__.py:393
+              scratchpads - eval hl.dispatch(hl.dsp.window.resize({x=1920, y=864, window="address:0x5f88f79bd590"})) // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.tag({tag="+pypr_noanim", window="address:0x5f88f79bd590"}))', 'hl.dispatch(hl.dsp.window.move({x=2900, y=-2094, window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.window.tag({tag="-pypr_noanim", window="address:0x5f88f79bd590"})) // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.workspace.move({workspace="special:S-term", monitor="HDMI-A-1"}))', 'hl.dispatch(hl.dsp.window.move({workspace="4", follow=false, window="address:0x5f88f79bd590"}))', 'hl.dispatch(hl.dsp.window.alter_zorder({mode="top", window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.move({x=2900, y=260, window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.focus({window="address:0x5f88f79bd590"})) // hyprland.py:86
+                 pyprland - [30;1mevent_activewindowv2('5f88f79bd590',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f79bd590 // hyprland_core.py:81
+              scratchpads - eval hl.dispatch(hl.dsp.window.pin({window="address:0x5f88f79bd590"})) // hyprland.py:86
+              scratchpads - [30;1mevent_activewindowv2('5f88f79bd590',)[0m // manager.py:314
+              scratchpads - [33;1mrun_toggle('term',)[0m // manager.py:314
+              scratchpads - visibility_check: ('4', 'HDMI-A-1') == ('4', 'HDMI-A-1') // __init__.py:342
+              scratchpads - term visibility: True and True // __init__.py:368
+              scratchpads - Hiding term // __init__.py:535
+              scratchpads - eval hl.dispatch(hl.dsp.window.pin({window="address:0x5f88f79bd590"})) // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.move({x=2900, y=-654, window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.tag({tag="+pypr_noanim", window="address:0x5f88f79bd590"}))', 'hl.dispatch(hl.dsp.window.move({x=2900, y=-2094, window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.window.move({workspace="special:S-term", follow=false, window="address:0x5f88f79bd590"})) // hyprland.py:86
+                 pyprland - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7a3be10 // hyprland_core.py:81
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.tag({tag="-pypr_noanim", window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+              scratchpads - [33;1mrun_toggle('term',)[0m // manager.py:314
+              scratchpads - visibility_check: ('4', 'HDMI-A-1') == ('4', 'HDMI-A-1') // __init__.py:342
+              scratchpads - term visibility: False and False // __init__.py:368
+              scratchpads - Showing term // __init__.py:393
+              scratchpads - eval hl.dispatch(hl.dsp.window.resize({x=1920, y=864, window="address:0x5f88f79bd590"})) // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.tag({tag="+pypr_noanim", window="address:0x5f88f79bd590"}))', 'hl.dispatch(hl.dsp.window.move({x=2900, y=-2094, window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.window.tag({tag="-pypr_noanim", window="address:0x5f88f79bd590"})) // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.workspace.move({workspace="special:S-term", monitor="HDMI-A-1"}))', 'hl.dispatch(hl.dsp.window.move({workspace="4", follow=false, window="address:0x5f88f79bd590"}))', 'hl.dispatch(hl.dsp.window.alter_zorder({mode="top", window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.move({x=2900, y=260, window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.focus({window="address:0x5f88f79bd590"})) // hyprland.py:86
+                 pyprland - [30;1mevent_activewindowv2('5f88f79bd590',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f79bd590 // hyprland_core.py:81
+              scratchpads - eval hl.dispatch(hl.dsp.window.pin({window="address:0x5f88f79bd590"})) // hyprland.py:86
+              scratchpads - [30;1mevent_activewindowv2('5f88f79bd590',)[0m // manager.py:314
+              scratchpads - [33;1mrun_toggle('term',)[0m // manager.py:314
+              scratchpads - visibility_check: ('4', 'HDMI-A-1') == ('4', 'HDMI-A-1') // __init__.py:342
+              scratchpads - term visibility: True and True // __init__.py:368
+              scratchpads - Hiding term // __init__.py:535
+              scratchpads - eval hl.dispatch(hl.dsp.window.pin({window="address:0x5f88f79bd590"})) // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.move({x=2900, y=-654, window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.tag({tag="+pypr_noanim", window="address:0x5f88f79bd590"}))', 'hl.dispatch(hl.dsp.window.move({x=2900, y=-2094, window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.window.move({workspace="special:S-term", follow=false, window="address:0x5f88f79bd590"})) // hyprland.py:86
+                 pyprland - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7a3be10 // hyprland_core.py:81
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.tag({tag="-pypr_noanim", window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+              scratchpads - [33;1mrun_toggle('term',)[0m // manager.py:314
+              scratchpads - visibility_check: ('4', 'HDMI-A-1') == ('4', 'HDMI-A-1') // __init__.py:342
+              scratchpads - term visibility: False and False // __init__.py:368
+              scratchpads - Showing term // __init__.py:393
+              scratchpads - eval hl.dispatch(hl.dsp.window.resize({x=1920, y=864, window="address:0x5f88f79bd590"})) // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.tag({tag="+pypr_noanim", window="address:0x5f88f79bd590"}))', 'hl.dispatch(hl.dsp.window.move({x=2900, y=-2094, window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.window.tag({tag="-pypr_noanim", window="address:0x5f88f79bd590"})) // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.workspace.move({workspace="special:S-term", monitor="HDMI-A-1"}))', 'hl.dispatch(hl.dsp.window.move({workspace="4", follow=false, window="address:0x5f88f79bd590"}))', 'hl.dispatch(hl.dsp.window.alter_zorder({mode="top", window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.move({x=2900, y=260, window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.focus({window="address:0x5f88f79bd590"})) // hyprland.py:86
+                 pyprland - [30;1mevent_activewindowv2('5f88f79bd590',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f79bd590 // hyprland_core.py:81
+              scratchpads - eval hl.dispatch(hl.dsp.window.pin({window="address:0x5f88f79bd590"})) // hyprland.py:86
+              scratchpads - [30;1mevent_activewindowv2('5f88f79bd590',)[0m // manager.py:314
+              scratchpads - [33;1mrun_toggle('term',)[0m // manager.py:314
+              scratchpads - visibility_check: ('4', 'HDMI-A-1') == ('4', 'HDMI-A-1') // __init__.py:342
+              scratchpads - term visibility: True and True // __init__.py:368
+              scratchpads - Hiding term // __init__.py:535
+              scratchpads - eval hl.dispatch(hl.dsp.window.pin({window="address:0x5f88f79bd590"})) // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.move({x=2900, y=-654, window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.tag({tag="+pypr_noanim", window="address:0x5f88f79bd590"}))', 'hl.dispatch(hl.dsp.window.move({x=2900, y=-2094, window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.window.move({workspace="special:S-term", follow=false, window="address:0x5f88f79bd590"})) // hyprland.py:86
+                 pyprland - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7a3be10 // hyprland_core.py:81
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.tag({tag="-pypr_noanim", window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+              scratchpads - [33;1mrun_toggle('browser',)[0m // manager.py:314
+              scratchpads - visibility_check: ('4', '') == ('4', 'HDMI-A-1') // __init__.py:342
+              scratchpads - browser visibility: False and False // __init__.py:368
+              scratchpads - Showing browser // __init__.py:393
+              scratchpads - eval hl.window_rule({name="browser", enabled=false}) // hyprland.py:86
+[31;2m              scratchpads - The client window  vanished // objects.py:269[0m
+[31;2m                     pypr - scratchpads::run_toggle(('browser',)) failed: // manager.py:342[0m
+Traceback (most recent call last):
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/manager.py", line 333, in _run_plugin_handler
+    result = await handler(*params)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/plugins/scratchpads/__init__.py", line 373, in run_toggle
+    await asyncio.gather(*(asyncio.create_task(t()) for t in tasks))
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/plugins/scratchpads/__init__.py", line 411, in run_show
+    await scratch.initialize(self)
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/plugins/scratchpads/objects.py", line 160, in initialize
+    await self.update_client_info()
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/plugins/scratchpads/objects.py", line 271, in update_client_info
+    raise KeyError(msg)
+KeyError: 'Client window  not found'
+                     pypr - notify 0 5000 rgb(ff1010)  Pypr error scratchpads::run_toggle: 'Client window  not found' // hyprland.py:86
+              scratchpads - [33;1mrun_toggle('browser',)[0m // manager.py:314
+              scratchpads - visibility_check: ('4', '') == ('4', 'HDMI-A-1') // __init__.py:342
+              scratchpads - browser visibility: False and False // __init__.py:368
+              scratchpads - Showing browser // __init__.py:393
+              scratchpads - eval hl.window_rule({name="browser", enabled=false}) // hyprland.py:86
+[31;2m              scratchpads - The client window  vanished // objects.py:269[0m
+[31;2m                     pypr - scratchpads::run_toggle(('browser',)) failed: // manager.py:342[0m
+Traceback (most recent call last):
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/manager.py", line 333, in _run_plugin_handler
+    result = await handler(*params)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/plugins/scratchpads/__init__.py", line 373, in run_toggle
+    await asyncio.gather(*(asyncio.create_task(t()) for t in tasks))
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/plugins/scratchpads/__init__.py", line 411, in run_show
+    await scratch.initialize(self)
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/plugins/scratchpads/objects.py", line 160, in initialize
+    await self.update_client_info()
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/plugins/scratchpads/objects.py", line 271, in update_client_info
+    raise KeyError(msg)
+KeyError: 'Client window  not found'
+                     pypr - notify 0 5000 rgb(ff1010)  Pypr error scratchpads::run_toggle: 'Client window  not found' // hyprland.py:86
+              scratchpads - [33;1mrun_toggle('browser',)[0m // manager.py:314
+              scratchpads - visibility_check: ('4', '') == ('4', 'HDMI-A-1') // __init__.py:342
+              scratchpads - browser visibility: False and False // __init__.py:368
+              scratchpads - Showing browser // __init__.py:393
+              scratchpads - eval hl.window_rule({name="browser", enabled=false}) // hyprland.py:86
+[31;2m              scratchpads - The client window  vanished // objects.py:269[0m
+[31;2m                     pypr - scratchpads::run_toggle(('browser',)) failed: // manager.py:342[0m
+Traceback (most recent call last):
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/manager.py", line 333, in _run_plugin_handler
+    result = await handler(*params)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/plugins/scratchpads/__init__.py", line 373, in run_toggle
+    await asyncio.gather(*(asyncio.create_task(t()) for t in tasks))
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/plugins/scratchpads/__init__.py", line 411, in run_show
+    await scratch.initialize(self)
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/plugins/scratchpads/objects.py", line 160, in initialize
+    await self.update_client_info()
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/plugins/scratchpads/objects.py", line 271, in update_client_info
+    raise KeyError(msg)
+KeyError: 'Client window  not found'
+                     pypr - notify 0 5000 rgb(ff1010)  Pypr error scratchpads::run_toggle: 'Client window  not found' // hyprland.py:86
+              scratchpads - [33;1mrun_toggle('browser',)[0m // manager.py:314
+              scratchpads - visibility_check: ('4', '') == ('4', 'HDMI-A-1') // __init__.py:342
+              scratchpads - browser visibility: False and False // __init__.py:368
+              scratchpads - Showing browser // __init__.py:393
+              scratchpads - eval hl.window_rule({name="browser", enabled=false}) // hyprland.py:86
+[31;2m              scratchpads - The client window  vanished // objects.py:269[0m
+[31;2m                     pypr - scratchpads::run_toggle(('browser',)) failed: // manager.py:342[0m
+Traceback (most recent call last):
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/manager.py", line 333, in _run_plugin_handler
+    result = await handler(*params)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/plugins/scratchpads/__init__.py", line 373, in run_toggle
+    await asyncio.gather(*(asyncio.create_task(t()) for t in tasks))
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/plugins/scratchpads/__init__.py", line 411, in run_show
+    await scratch.initialize(self)
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/plugins/scratchpads/objects.py", line 160, in initialize
+    await self.update_client_info()
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/plugins/scratchpads/objects.py", line 271, in update_client_info
+    raise KeyError(msg)
+KeyError: 'Client window  not found'
+                     pypr - notify 0 5000 rgb(ff1010)  Pypr error scratchpads::run_toggle: 'Client window  not found' // hyprland.py:86
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+              scratchpads - [30;1mevent_closewindow('5f88f7abf700',)[0m // manager.py:314
+              scratchpads - [30;1mevent_openwindow('5f88f7abf700,4,zen,Zen Browser',)[0m // manager.py:314
+              scratchpads - Updating Scratch info // events.py:266
+                 pyprland - [30;1mevent_activewindowv2('5f88f7abf700',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7abf700 // hyprland_core.py:81
+              scratchpads - [30;1mevent_activewindowv2('5f88f7abf700',)[0m // manager.py:314
+                 pyprland - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7a3be10 // hyprland_core.py:81
+              scratchpads - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+                 pyprland - [30;1mevent_activewindowv2('5f88f7abf700',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7abf700 // hyprland_core.py:81
+              scratchpads - [30;1mevent_activewindowv2('5f88f7abf700',)[0m // manager.py:314
+              scratchpads - [30;1mevent_closewindow('5f88f7abf700',)[0m // manager.py:314
+                 pyprland - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7a3be10 // hyprland_core.py:81
+              scratchpads - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+                 pyprland - [30;1mevent_activewindowv2('5f88f690c730',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f690c730 // hyprland_core.py:81
+                 pyprland - [30;1mevent_workspace('5',)[0m // manager.py:314
+                 pyprland - active_workspace = 5 // hyprland_core.py:90
+              scratchpads - [30;1mevent_activewindowv2('5f88f690c730',)[0m // manager.py:314
+              scratchpads - [30;1mevent_workspace('5',)[0m // manager.py:314
+              scratchpads - [30;1mevent_openwindow('5f88f7abf700,5,zen,Zen Browser',)[0m // manager.py:314
+              scratchpads - Updating Scratch info // events.py:266
+                 pyprland - [30;1mevent_activewindowv2('5f88f7abf700',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7abf700 // hyprland_core.py:81
+              scratchpads - [30;1mevent_activewindowv2('5f88f7abf700',)[0m // manager.py:314
+                 pyprland - [30;1mevent_activewindowv2('5f88f690c730',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f690c730 // hyprland_core.py:81
+              scratchpads - [30;1mevent_activewindowv2('5f88f690c730',)[0m // manager.py:314
+                 pyprland - [30;1mevent_activewindowv2('5f88f7abf700',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7abf700 // hyprland_core.py:81
+              scratchpads - [30;1mevent_activewindowv2('5f88f7abf700',)[0m // manager.py:314
+              scratchpads - [30;1mevent_closewindow('5f88f7abf700',)[0m // manager.py:314
+                 pyprland - [30;1mevent_activewindowv2('5f88f690c730',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f690c730 // hyprland_core.py:81
+              scratchpads - [30;1mevent_activewindowv2('5f88f690c730',)[0m // manager.py:314
+              scratchpads - [30;1mevent_openwindow('5f88f7abf700,5,zen,Zen Browser',)[0m // manager.py:314
+              scratchpads - Updating Scratch info // events.py:266
+                 pyprland - [30;1mevent_activewindowv2('5f88f7abf700',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7abf700 // hyprland_core.py:81
+              scratchpads - [30;1mevent_activewindowv2('5f88f7abf700',)[0m // manager.py:314
+              scratchpads - [30;1mevent_closewindow('5f88f7abf700',)[0m // manager.py:314
+                 pyprland - [30;1mevent_activewindowv2('5f88f690c730',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f690c730 // hyprland_core.py:81
+              scratchpads - [30;1mevent_activewindowv2('5f88f690c730',)[0m // manager.py:314
+                 pyprland - [30;1mevent_activewindowv2('5f88f7acef20',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7acef20 // hyprland_core.py:81
+                 pyprland - [30;1mevent_workspace('2',)[0m // manager.py:314
+                 pyprland - active_workspace = 2 // hyprland_core.py:90
+              scratchpads - [30;1mevent_activewindowv2('5f88f7acef20',)[0m // manager.py:314
+              scratchpads - [30;1mevent_workspace('2',)[0m // manager.py:314
+                 pyprland - [30;1mevent_activewindowv2('',)[0m // manager.py:314
+                 pyprland - no active window // hyprland_core.py:77
+                 pyprland - [30;1mevent_workspace('3',)[0m // manager.py:314
+                 pyprland - active_workspace = 3 // hyprland_core.py:90
+              scratchpads - [30;1mevent_activewindowv2('',)[0m // manager.py:314
+              scratchpads - [30;1mevent_workspace('3',)[0m // manager.py:314
+                 pyprland - [30;1mevent_activewindowv2('5f88f7acef20',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7acef20 // hyprland_core.py:81
+                 pyprland - [30;1mevent_workspace('2',)[0m // manager.py:314
+                 pyprland - active_workspace = 2 // hyprland_core.py:90
+              scratchpads - [30;1mevent_activewindowv2('5f88f7acef20',)[0m // manager.py:314
+              scratchpads - [30;1mevent_workspace('2',)[0m // manager.py:314
+                 pyprland - [30;1mevent_focusedmon('eDP-1,1',)[0m // manager.py:314
+                 pyprland - active_monitor = eDP-1 // hyprland_core.py:99
+                 pyprland - [30;1mevent_focusedmon('HDMI-A-1,2',)[0m // manager.py:314
+                 pyprland - active_monitor = HDMI-A-1 // hyprland_core.py:99
+                 pyprland - [30;1mevent_activewindowv2('',)[0m // manager.py:314
+                 pyprland - no active window // hyprland_core.py:77
+                 pyprland - [30;1mevent_workspace('3',)[0m // manager.py:314
+                 pyprland - active_workspace = 3 // hyprland_core.py:90
+              scratchpads - [30;1mevent_activewindowv2('',)[0m // manager.py:314
+              scratchpads - [30;1mevent_workspace('3',)[0m // manager.py:314
+                 pyprland - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7a3be10 // hyprland_core.py:81
+                 pyprland - [30;1mevent_workspace('4',)[0m // manager.py:314
+                 pyprland - active_workspace = 4 // hyprland_core.py:90
+              scratchpads - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+              scratchpads - [30;1mevent_workspace('4',)[0m // manager.py:314
+              scratchpads - [33;1mrun_toggle('term',)[0m // manager.py:314
+              scratchpads - visibility_check: ('4', 'HDMI-A-1') == ('4', 'HDMI-A-1') // __init__.py:342
+              scratchpads - term visibility: False and False // __init__.py:368
+              scratchpads - Showing term // __init__.py:393
+              scratchpads - eval hl.dispatch(hl.dsp.window.resize({x=1920, y=864, window="address:0x5f88f79bd590"})) // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.tag({tag="+pypr_noanim", window="address:0x5f88f79bd590"}))', 'hl.dispatch(hl.dsp.window.move({x=2900, y=-2094, window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.window.tag({tag="-pypr_noanim", window="address:0x5f88f79bd590"})) // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.workspace.move({workspace="special:S-term", monitor="HDMI-A-1"}))', 'hl.dispatch(hl.dsp.window.move({workspace="4", follow=false, window="address:0x5f88f79bd590"}))', 'hl.dispatch(hl.dsp.window.alter_zorder({mode="top", window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.move({x=2900, y=260, window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.focus({window="address:0x5f88f79bd590"})) // hyprland.py:86
+                 pyprland - [30;1mevent_activewindowv2('5f88f79bd590',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f79bd590 // hyprland_core.py:81
+              scratchpads - eval hl.dispatch(hl.dsp.window.pin({window="address:0x5f88f79bd590"})) // hyprland.py:86
+              scratchpads - [30;1mevent_activewindowv2('5f88f79bd590',)[0m // manager.py:314
+              scratchpads - [33;1mrun_toggle('term',)[0m // manager.py:314
+              scratchpads - visibility_check: ('4', 'HDMI-A-1') == ('4', 'HDMI-A-1') // __init__.py:342
+              scratchpads - term visibility: True and True // __init__.py:368
+              scratchpads - Hiding term // __init__.py:535
+              scratchpads - eval hl.dispatch(hl.dsp.window.pin({window="address:0x5f88f79bd590"})) // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.move({x=2900, y=-654, window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.tag({tag="+pypr_noanim", window="address:0x5f88f79bd590"}))', 'hl.dispatch(hl.dsp.window.move({x=2900, y=-2094, window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.window.move({workspace="special:S-term", follow=false, window="address:0x5f88f79bd590"})) // hyprland.py:86
+                 pyprland - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7a3be10 // hyprland_core.py:81
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.tag({tag="-pypr_noanim", window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+              scratchpads - [33;1mrun_toggle('term',)[0m // manager.py:314
+              scratchpads - visibility_check: ('4', 'HDMI-A-1') == ('4', 'HDMI-A-1') // __init__.py:342
+              scratchpads - term visibility: False and False // __init__.py:368
+              scratchpads - Showing term // __init__.py:393
+              scratchpads - eval hl.dispatch(hl.dsp.window.resize({x=1920, y=864, window="address:0x5f88f79bd590"})) // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.tag({tag="+pypr_noanim", window="address:0x5f88f79bd590"}))', 'hl.dispatch(hl.dsp.window.move({x=2900, y=-2094, window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.window.tag({tag="-pypr_noanim", window="address:0x5f88f79bd590"})) // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.workspace.move({workspace="special:S-term", monitor="HDMI-A-1"}))', 'hl.dispatch(hl.dsp.window.move({workspace="4", follow=false, window="address:0x5f88f79bd590"}))', 'hl.dispatch(hl.dsp.window.alter_zorder({mode="top", window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.move({x=2900, y=260, window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.focus({window="address:0x5f88f79bd590"})) // hyprland.py:86
+                 pyprland - [30;1mevent_activewindowv2('5f88f79bd590',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f79bd590 // hyprland_core.py:81
+              scratchpads - eval hl.dispatch(hl.dsp.window.pin({window="address:0x5f88f79bd590"})) // hyprland.py:86
+              scratchpads - [30;1mevent_activewindowv2('5f88f79bd590',)[0m // manager.py:314
+              scratchpads - [33;1mrun_toggle('term',)[0m // manager.py:314
+              scratchpads - visibility_check: ('4', 'HDMI-A-1') == ('4', 'HDMI-A-1') // __init__.py:342
+              scratchpads - term visibility: True and True // __init__.py:368
+              scratchpads - Hiding term // __init__.py:535
+              scratchpads - eval hl.dispatch(hl.dsp.window.pin({window="address:0x5f88f79bd590"})) // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.move({x=2900, y=-654, window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.tag({tag="+pypr_noanim", window="address:0x5f88f79bd590"}))', 'hl.dispatch(hl.dsp.window.move({x=2900, y=-2094, window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.window.move({workspace="special:S-term", follow=false, window="address:0x5f88f79bd590"})) // hyprland.py:86
+                 pyprland - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7a3be10 // hyprland_core.py:81
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.tag({tag="-pypr_noanim", window="address:0x5f88f79bd590"}))'] // hyprland.py:86
+              scratchpads - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+              scratchpads - [33;1mrun_toggle('browser',)[0m // manager.py:314
+              scratchpads - visibility_check: ('4', '') == ('4', 'HDMI-A-1') // __init__.py:342
+              scratchpads - browser visibility: False and False // __init__.py:368
+              scratchpads - Showing browser // __init__.py:393
+              scratchpads - eval ['hl.window_rule({name="browser", enabled=true})', 'hl.window_rule({name="browser", match={class="zen"}})', 'hl.window_rule({name="browser", float=true})', 'hl.window_rule({name="browser", workspace="special:S-browser silent"})', 'hl.window_rule({name="browser", move="192 -200%"})', 'hl.window_rule({name="browser", size="2176 1224"})', 'hl.window_rule({name="browser", group="deny"})'] // hyprland.py:86
+              scratchpads - browser is not running, starting... // lifecycle.py:141
+              scratchpads - scratch browser (/home/krubics/.config/hypr/scripts/zen-scratch.sh) has pid 1187221 // lifecycle.py:166
+              scratchpads - starting browser // lifecycle.py:110
+              scratchpads - ==> Wait for browser spawning // lifecycle.py:55
+[1187225] Sandbox: CanCreateUserNamespace() unshare(CLONE_NEWPID): EPERM
+                 pyprland - [30;1mevent_activewindowv2('5f88f6731fe0',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f6731fe0 // hyprland_core.py:81
+                 pyprland - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7a3be10 // hyprland_core.py:81
+[31;2m              scratchpads - ⚠ Failed spawning browser as proc 1187221 // lifecycle.py:112[0m
+[31;2m              scratchpads - "/home/krubics/.config/hypr/scripts/zen-scratch.sh": The command didn't open a window // lifecycle.py:119[0m
+              scratchpads - notify 0 5000 rgb(ff1010)  The command didn't open a window // hyprland.py:86
+              scratchpads - notify 0 5000 rgb(ff1010)  Failed to show scratch "browser" // hyprland.py:86
+[31;2m              scratchpads - Failed to show browser, aborting. // __init__.py:396[0m
+              scratchpads - [33;1mrun_toggle('browser',)[0m // manager.py:314
+              scratchpads - visibility_check: ('4', '') == ('4', 'HDMI-A-1') // __init__.py:342
+              scratchpads - browser visibility: False and False // __init__.py:368
+              scratchpads - Showing browser // __init__.py:393
+              scratchpads - eval hl.window_rule({name="browser", enabled=false}) // hyprland.py:86
+[31;2m              scratchpads - The client window  vanished // objects.py:269[0m
+[31;2m                     pypr - scratchpads::run_toggle(('browser',)) failed: // manager.py:342[0m
+Traceback (most recent call last):
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/manager.py", line 333, in _run_plugin_handler
+    result = await handler(*params)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/plugins/scratchpads/__init__.py", line 373, in run_toggle
+    await asyncio.gather(*(asyncio.create_task(t()) for t in tasks))
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/plugins/scratchpads/__init__.py", line 411, in run_show
+    await scratch.initialize(self)
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/plugins/scratchpads/objects.py", line 160, in initialize
+    await self.update_client_info()
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/plugins/scratchpads/objects.py", line 271, in update_client_info
+    raise KeyError(msg)
+KeyError: 'Client window  not found'
+                     pypr - notify 0 5000 rgb(ff1010)  Pypr error scratchpads::run_toggle: 'Client window  not found' // hyprland.py:86
+              scratchpads - [33;1mrun_toggle('browser',)[0m // manager.py:314
+              scratchpads - visibility_check: ('4', '') == ('4', 'HDMI-A-1') // __init__.py:342
+              scratchpads - browser visibility: False and False // __init__.py:368
+              scratchpads - Showing browser // __init__.py:393
+              scratchpads - eval hl.window_rule({name="browser", enabled=false}) // hyprland.py:86
+[31;2m              scratchpads - The client window  vanished // objects.py:269[0m
+[31;2m                     pypr - scratchpads::run_toggle(('browser',)) failed: // manager.py:342[0m
+Traceback (most recent call last):
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/manager.py", line 333, in _run_plugin_handler
+    result = await handler(*params)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/plugins/scratchpads/__init__.py", line 373, in run_toggle
+    await asyncio.gather(*(asyncio.create_task(t()) for t in tasks))
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/plugins/scratchpads/__init__.py", line 411, in run_show
+    await scratch.initialize(self)
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/plugins/scratchpads/objects.py", line 160, in initialize
+    await self.update_client_info()
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/plugins/scratchpads/objects.py", line 271, in update_client_info
+    raise KeyError(msg)
+KeyError: 'Client window  not found'
+                     pypr - notify 0 5000 rgb(ff1010)  Pypr error scratchpads::run_toggle: 'Client window  not found' // hyprland.py:86
+              scratchpads - [33;1mrun_toggle('browser',)[0m // manager.py:314
+              scratchpads - visibility_check: ('4', '') == ('4', 'HDMI-A-1') // __init__.py:342
+              scratchpads - browser visibility: False and False // __init__.py:368
+              scratchpads - Showing browser // __init__.py:393
+              scratchpads - eval hl.window_rule({name="browser", enabled=false}) // hyprland.py:86
+[31;2m              scratchpads - The client window  vanished // objects.py:269[0m
+[31;2m                     pypr - scratchpads::run_toggle(('browser',)) failed: // manager.py:342[0m
+Traceback (most recent call last):
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/manager.py", line 333, in _run_plugin_handler
+    result = await handler(*params)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/plugins/scratchpads/__init__.py", line 373, in run_toggle
+    await asyncio.gather(*(asyncio.create_task(t()) for t in tasks))
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/plugins/scratchpads/__init__.py", line 411, in run_show
+    await scratch.initialize(self)
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/plugins/scratchpads/objects.py", line 160, in initialize
+    await self.update_client_info()
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/plugins/scratchpads/objects.py", line 271, in update_client_info
+    raise KeyError(msg)
+KeyError: 'Client window  not found'
+                     pypr - notify 0 5000 rgb(ff1010)  Pypr error scratchpads::run_toggle: 'Client window  not found' // hyprland.py:86
+              scratchpads - [30;1mevent_openwindow('5f88f7abf700,special:S-browser,zen,Zen Browser',)[0m // manager.py:314
+              scratchpads - Updating Scratch info // events.py:266
+              scratchpads - [30;1mevent_openwindow('5f88f6731fe0,4,code,Visual Studio Code',)[0m // manager.py:314
+              scratchpads - Updating Scratch info // events.py:266
+              scratchpads - [30;1mevent_activewindowv2('5f88f6731fe0',)[0m // manager.py:314
+              scratchpads - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+              scratchpads - [33;1mrun_toggle('code',)[0m // manager.py:314
+              scratchpads - visibility_check: ('4', '') == ('4', 'HDMI-A-1') // __init__.py:342
+              scratchpads - code visibility: False and False // __init__.py:368
+              scratchpads - Showing code // __init__.py:393
+              scratchpads - scratch code (code) has pid 1188894 // lifecycle.py:166
+              scratchpads - ==> Wait for code spawning // lifecycle.py:55
+              scratchpads - => code client (proc:1188894, addr:0x5f88f6731fe0) detected on time // lifecycle.py:66
+              scratchpads - eval hl.dispatch(hl.dsp.window.move({workspace="special:S-code", follow=false, window="address:0x5f88f6731fe0"})) // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.window.resize({x=2048, y=1224, window="address:0x5f88f6731fe0"})) // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.tag({tag="+pypr_noanim", window="address:0x5f88f6731fe0"}))', 'hl.dispatch(hl.dsp.window.move({x=3228, y=-2586, window="address:0x5f88f6731fe0"}))'] // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.window.tag({tag="-pypr_noanim", window="address:0x5f88f6731fe0"})) // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.workspace.move({workspace="special:S-code", monitor="HDMI-A-1"}))', 'hl.dispatch(hl.dsp.window.move({workspace="4", follow=false, window="address:0x5f88f6731fe0"}))', 'hl.dispatch(hl.dsp.window.alter_zorder({mode="top", window="address:0x5f88f6731fe0"}))'] // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.move({x=2592, y=270, window="address:0x5f88f6731fe0"}))'] // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.focus({window="address:0x5f88f6731fe0"})) // hyprland.py:86
+                 pyprland - [30;1mevent_activewindowv2('5f88f6731fe0',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f6731fe0 // hyprland_core.py:81
+              scratchpads - eval hl.dispatch(hl.dsp.window.pin({window="address:0x5f88f6731fe0"})) // hyprland.py:86
+              scratchpads - [30;1mevent_activewindowv2('5f88f6731fe0',)[0m // manager.py:314
+              scratchpads - [30;1mevent_openwindow('5f88f7cf3fc0,4,code,Visual Studio Code',)[0m // manager.py:314
+              scratchpads - Updating Scratch info // events.py:266
+                 pyprland - [30;1mevent_activewindowv2('5f88f7cf3fc0',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7cf3fc0 // hyprland_core.py:81
+              scratchpads - [30;1mevent_activewindowv2('5f88f7cf3fc0',)[0m // manager.py:314
+              scratchpads - [33;1mrun_toggle('code',)[0m // manager.py:314
+              scratchpads - visibility_check: ('4', 'HDMI-A-1') == ('4', 'HDMI-A-1') // __init__.py:342
+              scratchpads - code visibility: True and True // __init__.py:368
+              scratchpads - eval hl.dispatch(hl.dsp.window.pin({window="address:0x5f88f7cf3fc0"})) // hyprland.py:86
+              scratchpads - Hiding code // __init__.py:535
+              scratchpads - eval hl.dispatch(hl.dsp.window.pin({window="address:0x5f88f6731fe0"})) // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.window.pin({window="address:0x5f88f7cf3fc0"})) // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.move({x=2592, y=-452, window="address:0x5f88f7cf3fc0"}))', 'hl.dispatch(hl.dsp.window.move({x=2592, y=-452, window="address:0x5f88f6731fe0"}))'] // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.tag({tag="+pypr_noanim", window="address:0x5f88f6731fe0"}))', 'hl.dispatch(hl.dsp.window.tag({tag="+pypr_noanim", window="address:0x5f88f7cf3fc0"}))', 'hl.dispatch(hl.dsp.window.move({x=3228, y=-1904, window="address:0x5f88f6731fe0"}))', 'hl.dispatch(hl.dsp.window.move({x=3228, y=-1904, window="address:0x5f88f7cf3fc0"}))'] // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.window.move({workspace="special:S-code", follow=false, window="address:0x5f88f6731fe0"})) // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.window.move({workspace="special:S-code", follow=false, window="address:0x5f88f7cf3fc0"})) // hyprland.py:86
+                 pyprland - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7a3be10 // hyprland_core.py:81
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.tag({tag="-pypr_noanim", window="address:0x5f88f6731fe0"}))', 'hl.dispatch(hl.dsp.window.tag({tag="-pypr_noanim", window="address:0x5f88f7cf3fc0"}))'] // hyprland.py:86
+              scratchpads - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+              scratchpads - [33;1mrun_toggle('code',)[0m // manager.py:314
+              scratchpads - visibility_check: ('4', 'HDMI-A-1') == ('4', 'HDMI-A-1') // __init__.py:342
+              scratchpads - code visibility: False and False // __init__.py:368
+              scratchpads - Showing code // __init__.py:393
+              scratchpads - eval hl.dispatch(hl.dsp.window.resize({x=2048, y=1224, window="address:0x5f88f6731fe0"})) // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.tag({tag="+pypr_noanim", window="address:0x5f88f6731fe0"}))', 'hl.dispatch(hl.dsp.window.move({x=3228, y=-1904, window="address:0x5f88f6731fe0"}))'] // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.window.tag({tag="-pypr_noanim", window="address:0x5f88f6731fe0"})) // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.workspace.move({workspace="special:S-code", monitor="HDMI-A-1"}))', 'hl.dispatch(hl.dsp.window.move({workspace="4", follow=false, window="address:0x5f88f6731fe0"}))', 'hl.dispatch(hl.dsp.window.alter_zorder({mode="top", window="address:0x5f88f6731fe0"}))', 'hl.dispatch(hl.dsp.window.move({workspace="4", follow=false, window="address:0x5f88f7cf3fc0"}))', 'hl.dispatch(hl.dsp.window.alter_zorder({mode="top", window="address:0x5f88f7cf3fc0"}))'] // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.move({x=3620, y=270, window="address:0x5f88f6731fe0"}))', 'hl.dispatch(hl.dsp.window.move({x=3620, y=952, window="address:0x5f88f7cf3fc0"}))'] // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.focus({window="address:0x5f88f6731fe0"})) // hyprland.py:86
+                 pyprland - [30;1mevent_activewindowv2('5f88f6731fe0',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f6731fe0 // hyprland_core.py:81
+              scratchpads - eval hl.dispatch(hl.dsp.window.pin({window="address:0x5f88f6731fe0"})) // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.window.pin({window="address:0x5f88f7cf3fc0"})) // hyprland.py:86
+              scratchpads - [30;1mevent_activewindowv2('5f88f6731fe0',)[0m // manager.py:314
+              scratchpads - [33;1mrun_toggle('code',)[0m // manager.py:314
+              scratchpads - visibility_check: ('4', 'HDMI-A-1') == ('4', 'HDMI-A-1') // __init__.py:342
+              scratchpads - code visibility: True and True // __init__.py:368
+              scratchpads - Hiding code // __init__.py:535
+              scratchpads - eval hl.dispatch(hl.dsp.window.pin({window="address:0x5f88f6731fe0"})) // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.window.pin({window="address:0x5f88f7cf3fc0"})) // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.move({x=2592, y=-1134, window="address:0x5f88f7cf3fc0"}))', 'hl.dispatch(hl.dsp.window.move({x=2592, y=-1134, window="address:0x5f88f6731fe0"}))'] // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.tag({tag="+pypr_noanim", window="address:0x5f88f6731fe0"}))', 'hl.dispatch(hl.dsp.window.tag({tag="+pypr_noanim", window="address:0x5f88f7cf3fc0"}))', 'hl.dispatch(hl.dsp.window.move({x=3228, y=-2586, window="address:0x5f88f6731fe0"}))', 'hl.dispatch(hl.dsp.window.move({x=3228, y=-2586, window="address:0x5f88f7cf3fc0"}))'] // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.window.move({workspace="special:S-code", follow=false, window="address:0x5f88f6731fe0"})) // hyprland.py:86
+                 pyprland - [30;1mevent_activewindowv2('5f88f7cf3fc0',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7cf3fc0 // hyprland_core.py:81
+              scratchpads - eval hl.dispatch(hl.dsp.window.move({workspace="special:S-code", follow=false, window="address:0x5f88f7cf3fc0"})) // hyprland.py:86
+                 pyprland - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7a3be10 // hyprland_core.py:81
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.tag({tag="-pypr_noanim", window="address:0x5f88f6731fe0"}))', 'hl.dispatch(hl.dsp.window.tag({tag="-pypr_noanim", window="address:0x5f88f7cf3fc0"}))'] // hyprland.py:86
+              scratchpads - [30;1mevent_activewindowv2('5f88f7cf3fc0',)[0m // manager.py:314
+              scratchpads - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+              scratchpads - [33;1mrun_toggle('code',)[0m // manager.py:314
+              scratchpads - visibility_check: ('4', 'HDMI-A-1') == ('4', 'HDMI-A-1') // __init__.py:342
+              scratchpads - code visibility: False and False // __init__.py:368
+              scratchpads - Showing code // __init__.py:393
+              scratchpads - eval hl.dispatch(hl.dsp.window.resize({x=2048, y=1224, window="address:0x5f88f6731fe0"})) // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.tag({tag="+pypr_noanim", window="address:0x5f88f6731fe0"}))', 'hl.dispatch(hl.dsp.window.move({x=3228, y=-2586, window="address:0x5f88f6731fe0"}))'] // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.window.tag({tag="-pypr_noanim", window="address:0x5f88f6731fe0"})) // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.workspace.move({workspace="special:S-code", monitor="HDMI-A-1"}))', 'hl.dispatch(hl.dsp.window.move({workspace="4", follow=false, window="address:0x5f88f6731fe0"}))', 'hl.dispatch(hl.dsp.window.alter_zorder({mode="top", window="address:0x5f88f6731fe0"}))', 'hl.dispatch(hl.dsp.window.move({workspace="4", follow=false, window="address:0x5f88f7cf3fc0"}))', 'hl.dispatch(hl.dsp.window.alter_zorder({mode="top", window="address:0x5f88f7cf3fc0"}))'] // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.move({x=3620, y=270, window="address:0x5f88f6731fe0"}))', 'hl.dispatch(hl.dsp.window.move({x=4892, y=952, window="address:0x5f88f7cf3fc0"}))'] // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.focus({window="address:0x5f88f6731fe0"})) // hyprland.py:86
+                 pyprland - [30;1mevent_activewindowv2('5f88f6731fe0',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f6731fe0 // hyprland_core.py:81
+              scratchpads - eval hl.dispatch(hl.dsp.window.pin({window="address:0x5f88f6731fe0"})) // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.window.pin({window="address:0x5f88f7cf3fc0"})) // hyprland.py:86
+              scratchpads - [30;1mevent_activewindowv2('5f88f6731fe0',)[0m // manager.py:314
+              scratchpads - [33;1mrun_toggle('code',)[0m // manager.py:314
+              scratchpads - visibility_check: ('4', 'HDMI-A-1') == ('4', 'HDMI-A-1') // __init__.py:342
+              scratchpads - code visibility: True and True // __init__.py:368
+              scratchpads - Hiding code // __init__.py:535
+              scratchpads - eval hl.dispatch(hl.dsp.window.pin({window="address:0x5f88f6731fe0"})) // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.window.pin({window="address:0x5f88f7cf3fc0"})) // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.move({x=2592, y=-1134, window="address:0x5f88f7cf3fc0"}))', 'hl.dispatch(hl.dsp.window.move({x=2592, y=-1134, window="address:0x5f88f6731fe0"}))'] // hyprland.py:86
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.tag({tag="+pypr_noanim", window="address:0x5f88f6731fe0"}))', 'hl.dispatch(hl.dsp.window.tag({tag="+pypr_noanim", window="address:0x5f88f7cf3fc0"}))', 'hl.dispatch(hl.dsp.window.move({x=3228, y=-2586, window="address:0x5f88f6731fe0"}))', 'hl.dispatch(hl.dsp.window.move({x=3228, y=-2586, window="address:0x5f88f7cf3fc0"}))'] // hyprland.py:86
+              scratchpads - eval hl.dispatch(hl.dsp.window.move({workspace="special:S-code", follow=false, window="address:0x5f88f6731fe0"})) // hyprland.py:86
+                 pyprland - [30;1mevent_activewindowv2('5f88f7cf3fc0',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7cf3fc0 // hyprland_core.py:81
+              scratchpads - eval hl.dispatch(hl.dsp.window.move({workspace="special:S-code", follow=false, window="address:0x5f88f7cf3fc0"})) // hyprland.py:86
+                 pyprland - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7a3be10 // hyprland_core.py:81
+              scratchpads - eval ['hl.dispatch(hl.dsp.window.tag({tag="-pypr_noanim", window="address:0x5f88f6731fe0"}))', 'hl.dispatch(hl.dsp.window.tag({tag="-pypr_noanim", window="address:0x5f88f7cf3fc0"}))'] // hyprland.py:86
+              scratchpads - [30;1mevent_activewindowv2('5f88f7cf3fc0',)[0m // manager.py:314
+              scratchpads - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+              scratchpads - [30;1mevent_openwindow('5f88f7cbd690,4,code,Visual Studio Code',)[0m // manager.py:314
+              scratchpads - Updating Scratch info // events.py:266
+                 pyprland - [30;1mevent_activewindowv2('5f88f7cbd690',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7cbd690 // hyprland_core.py:81
+              scratchpads - [30;1mevent_activewindowv2('5f88f7cbd690',)[0m // manager.py:314
+                 pyprland - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7a3be10 // hyprland_core.py:81
+              scratchpads - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+                 pyprland - [30;1mevent_activewindowv2('5f88f7cbd690',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7cbd690 // hyprland_core.py:81
+              scratchpads - [30;1mevent_activewindowv2('5f88f7cbd690',)[0m // manager.py:314
+                 pyprland - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7a3be10 // hyprland_core.py:81
+              scratchpads - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+                 pyprland - [30;1mevent_activewindowv2('5f88f7cbd690',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7cbd690 // hyprland_core.py:81
+              scratchpads - [30;1mevent_activewindowv2('5f88f7cbd690',)[0m // manager.py:314
+              scratchpads - [30;1mevent_closewindow('5f88f7cbd690',)[0m // manager.py:314
+                 pyprland - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7a3be10 // hyprland_core.py:81
+              scratchpads - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+                 pyprland - [30;1mevent_activewindowv2('5f88f690c730',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f690c730 // hyprland_core.py:81
+              scratchpads - [30;1mevent_activewindowv2('5f88f690c730',)[0m // manager.py:314
+                 pyprland - [30;1mevent_workspace('5',)[0m // manager.py:314
+                 pyprland - active_workspace = 5 // hyprland_core.py:90
+              scratchpads - [30;1mevent_workspace('5',)[0m // manager.py:314
+                 pyprland - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f7a3be10 // hyprland_core.py:81
+                 pyprland - [30;1mevent_workspace('4',)[0m // manager.py:314
+                 pyprland - active_workspace = 4 // hyprland_core.py:90
+              scratchpads - [30;1mevent_activewindowv2('5f88f7a3be10',)[0m // manager.py:314
+              scratchpads - [30;1mevent_workspace('4',)[0m // manager.py:314
+                 pyprland - [30;1mevent_activewindowv2('5f88f690c730',)[0m // manager.py:314
+                 pyprland - active_window = 0x5f88f690c730 // hyprland_core.py:81
+                 pyprland - [30;1mevent_workspace('5',)[0m // manager.py:314
+                 pyprland - active_workspace = 5 // hyprland_core.py:90
+              scratchpads - [30;1mevent_activewindowv2('5f88f690c730',)[0m // manager.py:314
+              scratchpads - [30;1mevent_workspace('5',)[0m // manager.py:314
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task cancelling name='Task-2' coro=<Pyprland.serve() done, defined at /home/krubics/.local/lib/python3.12/site-packages/pyprland/manager.py:618> wait_for=<Future cancelled> cb=[gather.<locals>._done_callback() at /usr/lib/python3.12/asyncio/tasks.py:767]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-3' coro=<Pyprland.plugins_runner() done, defined at /home/krubics/.local/lib/python3.12/site-packages/pyprland/manager.py:666> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[gather.<locals>._done_callback() at /usr/lib/python3.12/asyncio/tasks.py:767]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-4' coro=<Pyprland.read_events_loop() done, defined at /home/krubics/.local/lib/python3.12/site-packages/pyprland/manager.py:458> wait_for=<Future pending cb=[Task.task_wakeup()]> cb=[gather.<locals>._done_callback() at /usr/lib/python3.12/asyncio/tasks.py:767]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task cancelling name='Task-5' coro=<Pyprland._plugin_runner_loop() done, defined at /home/krubics/.local/lib/python3.12/site-packages/pyprland/manager.py:641> wait_for=<Future cancelled> cb=[TaskGroup._on_task_done()]>
+[31;2m                     pypr - Aborting [scratchpads] loop // manager.py:660[0m
+Traceback (most recent call last):
+  File "/usr/lib/python3.12/asyncio/queues.py", line 158, in get
+    await getter
+GeneratorExit
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/krubics/.local/lib/python3.12/site-packages/pyprland/manager.py", line 654, in _plugin_runner_loop
+    task = await q.get()
+           ^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/queues.py", line 160, in get
+    getter.cancel()  # Just in case getter is not done yet.
+    ^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 795, in call_soon
+    self._check_closed()
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 541, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task pending name='Task-6' coro=<Pyprland._plugin_runner_loop() done, defined at /home/krubics/.local/lib/python3.12/site-packages/pyprland/manager.py:641> wait_for=<Future cancelled> cb=[TaskGroup._on_task_done()]>
+ERROR:asyncio:Task was destroyed but it is pending!
+task: <Task cancelling name='Task-1' coro=<run_daemon() done, defined at /home/krubics/.local/lib/python3.12/site-packages/pyprland/pypr_daemon.py:36> wait_for=<_GatheringFuture pending cb=[Task.task_wakeup()]>>

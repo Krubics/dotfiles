@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+# Run fastfetch with a pokeget sprite as the logo, vertically and
+# horizontally centered against the system info column.
+set -euo pipefail
+
+# --- Mode switch ----------------------------------------------------------
+# true  -> always draw a random entry from FAVORITES below (args to this
+#          script are ignored)
+# false -> forward "$@" straight through to pokeget as-is
+USE_FAVORITES=false
+# ----------------------------------------------------------------------------
+
+# --- Favourites -------------------------------------------------------
+# Each entry is anything pokeget itself accepts: a name, "random", a
+# region, plus any flags (-s, -m, --shiny, --gmax, etc). Only used when
+# USE_FAVORITES=true above; one entry is picked at random per run.
+FAVORITES=(
+)
+# ------------------------------------------------------------------------
+
+# --- Sizing -----------------------------------------------------------
+# Assumed max sprite width (terminal columns), used to horizontally
+# center narrower sprites within a consistent column. Bump this up if
+# you use a pokemon/form wider than this (e.g. mega/gmax forms).
+TARGET_WIDTH=44
+# ------------------------------------------------------------------------
+
+FASTFETCH_CONFIG="${POKEFETCH_CONFIG:-$HOME/.config/fastfetch/normal.jsonc}"
+
+sprite="$(mktemp)"
+trap 'rm -f "$sprite"' EXIT
+
+if $USE_FAVORITES && [[ ${#FAVORITES[@]} -gt 0 ]]; then
+    chosen="${FAVORITES[RANDOM % ${#FAVORITES[@]}]}"
+    read -r -a args <<< "$chosen"
+else
+    args=("$@")
+fi
+
+pokeget --hide-name "${args[@]}" > "$sprite"
+
+sprite_lines=$(wc -l < "$sprite")
+sprite_width=$(sed 's/\x1b\[[0-9;]*m//g' "$sprite" | awk '{ print length }' | sort -n | tail -1)
+info_lines=$(fastfetch -c "$FASTFETCH_CONFIG" --logo none | wc -l)
+
+pad_top=$(( (info_lines - sprite_lines) / 2 ))
+if (( pad_top < 0 )); then
+    pad_top=0
+fi
+
+pad_left=$(( (TARGET_WIDTH - sprite_width) / 2 ))
+if (( pad_left < 0 )); then
+    pad_left=0
+fi
+
+fastfetch -c "$FASTFETCH_CONFIG" \
+    --logo-type file-raw \
+    --logo "$sprite" \
+    --logo-padding-top "$pad_top" \
+    --logo-padding-left "$pad_left"

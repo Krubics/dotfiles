@@ -1,0 +1,15 @@
+/home/krubics/.config/hypr/hyprland.lua:269:        kb_layout  = "us",
+/home/krubics/.config/hypr/hyprland.lua:272:        kb_options = "",
+---
+System Locale: LANG=en_US.UTF-8
+    VC Keymap: (unset)
+   X11 Layout: us
+    X11 Model: pc105
+---setxkbmap---
+WARNING: Running setxkbmap against an Xwayland server
+rules:      evdev
+model:      pc105
+layout:     us
+---gsettings (if gnome)---
+['<Super>space', 'XF86Keyboard']
+@as []

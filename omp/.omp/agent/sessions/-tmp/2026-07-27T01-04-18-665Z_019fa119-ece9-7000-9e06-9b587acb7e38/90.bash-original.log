@@ -1,0 +1,19 @@
+=== Hyprland process start time ===
+    PID                  STARTED     ELAPSED
+   3566 Mon Jul 27 03:59:55 2026    12:59:33
+=== file mtimes ===
+2026-07-27 09:34:29.182979096 +0800 /home/krubics/.config/hypr/conf/keybinds.lua
+2026-07-27 16:52:02.960525996 +0800 /home/krubics/.config/hypr/hyprland.lua
+2026-07-27 16:52:21.945281217 +0800 /home/krubics/.config/hypr/scripts/set-wallpaper.lua
+2026-07-27 16:52:46.563964065 +0800 /home/krubics/.config/hypr/scripts/wallpaper-autostart.lua
+2026-07-27 09:34:15.350361690 +0800 /home/krubics/.config/hypr/scripts/wallpaper-picker.lua
+=== hyprctl instances/version, check for reload signal support ===
+Hyprland 0.55.4 built from branch  at commit a0136d8c04687bb36eb8a28eb9d1ff92aea99704 clean ([gha] Nix: update inputs).
+Date: Thu Jun 11 19:10:04 2026
+Tag: v0.55.4, commits: 7378
+=== check hyprland log for reload events ===
+/run/user/1000/hypr
+/run/user/1000/hypr/a0136d8c04687bb36eb8a28eb9d1ff92aea99704_1785095996_911328770
+/run/user/1000/hypr/a0136d8c04687bb36eb8a28eb9d1ff92aea99704_1785095996_911328770/hyprland.lock
+/run/user/1000/hypr/a0136d8c04687bb36eb8a28eb9d1ff92aea99704_1785095996_911328770/hyprland.log
+ls: cannot access '/home/krubics/.cache/hyprland/': No such file or directory

@@ -1,0 +1,10 @@
+[2026-08-01 15:25:39.667] [info] Using configuration file /home/krubics/.config/waybar/config.jsonc
+[2026-08-01 15:25:39.670] [info] Discovered appearance 'dark'
+[2026-08-01 15:25:39.670] [info] Using CSS file /home/krubics/.config/waybar/style.css
+[2026-08-01 15:25:39.677] [info] Hyprland IPC starting
+[2026-08-01 15:25:39.678] [info] Loading persistent workspaces from Hyprland workspace rules
+[2026-08-01T15:25:39+08:00] pickachu-battery: capacity=21 class=p40
+[2026-08-01 15:25:39.718] [info] Loading persistent workspaces from Hyprland workspace rules
+[2026-08-01T15:25:39+08:00] pickachu-battery: capacity=21 class=p40
+[2026-08-01 15:25:39.814] [info] Bar configured (width: 2560, height: 62) for output: eDP-1
+[2026-08-01 15:25:39.814] [info] Bar configured (width: 2560, height: 62) for output: HDMI-A-1

@@ -1,0 +1,298 @@
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/setup.py:113:    'onnx-asr': '1', 'faster-whisper': '2', 'pywhispercpp': '3', 'cpu': '3',
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/setup.py:191:                'pywhispercpp': 'pywhispercpp'
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/setup.py:871:                print("On NVIDIA: large-v3-turbo runs in ~3.1 GB VRAM. On CPU: INT8 is faster than pywhispercpp.")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/setup.py:882:                print(f"\nThis will install the {backend_normalized.upper()} backend for pywhispercpp.")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/setup.py:1388:            # Just download the model - we don't need to check if pywhispercpp is importable
+/home/krubics/.local/share/hyprwhspr/src/share/config.schema.json:151:      "description": "'transcribe' outputs the source language; 'translate' translates speech into English. Supported by pywhispercpp and faster-whisper."
+/home/krubics/.local/share/hyprwhspr/src/share/config.schema.json:157:      "description": "Whisper decoding strategy (pywhispercpp, faster-whisper). 'beam_search' tracks multiple candidates for better accuracy; 'greedy' is faster but lower quality. Locked at model load for pywhispercpp (restart to change)."
+/home/krubics/.local/share/hyprwhspr/src/share/config.schema.json:238:      "enum": ["pywhispercpp", "cpu", "nvidia", "vulkan", "amd", "rest-api", "realtime-ws", "onnx-asr", "faster-whisper", "cohere-transcribe"],
+/home/krubics/.local/share/hyprwhspr/src/share/config.schema.json:239:      "default": "pywhispercpp",
+/home/krubics/.local/share/hyprwhspr/src/share/config.schema.json:320:    "pywhispercpp_use_vad": {
+/home/krubics/.local/share/hyprwhspr/src/share/config.schema.json:323:      "description": "Enable native Silero VAD for the pywhispercpp backend (strips silence, reduces hallucination loops). Auto-downloads the ~1MB ggml-silero VAD model on first use."
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/install.py:57:    from backend_installer import download_pywhispercpp_model
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/install.py:60:    if download_pywhispercpp_model(model):
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/install.py:345:        config.set_setting('transcription_backend', 'pywhispercpp')
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/install.py:349:        log_info(f"Configured pywhispercpp with model: {whisper_model}")
+/home/krubics/.local/share/hyprwhspr/src/.github/workflows/build-wheels.yml:14:      pywhispercpp_commit:
+/home/krubics/.local/share/hyprwhspr/src/.github/workflows/build-wheels.yml:85:          commit='${{ github.event.inputs.pywhispercpp_commit }}'
+/home/krubics/.local/share/hyprwhspr/src/.github/workflows/build-wheels.yml:117:      - name: Clone pywhispercpp
+/home/krubics/.local/share/hyprwhspr/src/.github/workflows/build-wheels.yml:119:          git clone --recurse-submodules https://github.com/Absadiki/pywhispercpp.git pywhispercpp-src
+/home/krubics/.local/share/hyprwhspr/src/.github/workflows/build-wheels.yml:120:          cd pywhispercpp-src
+/home/krubics/.local/share/hyprwhspr/src/.github/workflows/build-wheels.yml:130:          cd pywhispercpp-src
+/home/krubics/.local/share/hyprwhspr/src/.github/workflows/build-wheels.yml:136:          built="$(ls pywhispercpp-*.whl | head -n1)"
+/home/krubics/.local/share/hyprwhspr/src/.github/workflows/build-wheels.yml:137:          version="$(echo "$built" | sed -E 's/^pywhispercpp-([^-]+)-.*/\1/')"
+/home/krubics/.local/share/hyprwhspr/src/.github/workflows/build-wheels.yml:208:          sos=$(find "$site" -maxdepth 2 \( -name '*.so' -o -name '*.so.*' \) | grep -iE 'pywhispercpp|whisper|ggml' || true)
+/home/krubics/.local/share/hyprwhspr/src/.github/workflows/build-wheels.yml:209:          [ -n "$sos" ] || { echo "::error::no pywhispercpp native libs found in $site"; exit 1; }
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/status.py:77:    # Check models (backend-aware: pywhispercpp vs faster-whisper vs Parakeet/onnx-asr)
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/status.py:81:        backend = normalize_backend(config.get_setting('transcription_backend', 'pywhispercpp'))
+/home/krubics/.local/share/hyprwhspr/src/tests/test_wheel_pipeline_and_defaults.py:17:from backends import pywhispercpp_backend  # noqa: E402
+/home/krubics/.local/share/hyprwhspr/src/tests/test_wheel_pipeline_and_defaults.py:41:            base = f"pywhispercpp-{ver}-{tag}-{tag}-linux_x86_64"
+/home/krubics/.local/share/hyprwhspr/src/tests/test_wheel_pipeline_and_defaults.py:81:    def test_pywhispercpp_vad_default_off(self):
+/home/krubics/.local/share/hyprwhspr/src/tests/test_wheel_pipeline_and_defaults.py:84:            self.assertIs(cm.get_setting("pywhispercpp_use_vad"), False)
+/home/krubics/.local/share/hyprwhspr/src/tests/test_wheel_pipeline_and_defaults.py:125:        fake_mod = types.ModuleType("pywhispercpp.model")
+/home/krubics/.local/share/hyprwhspr/src/tests/test_wheel_pipeline_and_defaults.py:127:        fake_pkg = types.ModuleType("pywhispercpp")
+/home/krubics/.local/share/hyprwhspr/src/tests/test_wheel_pipeline_and_defaults.py:130:            sys.modules, {"pywhispercpp": fake_pkg, "pywhispercpp.model": fake_mod}
+/home/krubics/.local/share/hyprwhspr/src/tests/test_wheel_pipeline_and_defaults.py:139:            "pywhispercpp_use_vad": use_vad,
+/home/krubics/.local/share/hyprwhspr/src/tests/test_wheel_pipeline_and_defaults.py:155:                pywhispercpp_backend, "PYWHISPERCPP_MODELS_DIR", Path(tmp)
+/home/krubics/.local/share/hyprwhspr/src/tests/test_wheel_pipeline_and_defaults.py:165:                pywhispercpp_backend, "PYWHISPERCPP_MODELS_DIR", Path(tmp)
+/home/krubics/.local/share/hyprwhspr/src/tests/test_wheel_pipeline_and_defaults.py:167:                pywhispercpp_backend, "download_vad_model", return_value=False
+/home/krubics/.local/share/hyprwhspr/src/tests/test_wheel_pipeline_and_defaults.py:173:    def test_stale_pywhispercpp_typeerror_falls_back(self):
+/home/krubics/.local/share/hyprwhspr/src/tests/test_wheel_pipeline_and_defaults.py:179:                pywhispercpp_backend, "PYWHISPERCPP_MODELS_DIR", Path(tmp)
+/home/krubics/.local/share/hyprwhspr/src/lib/src/dependency_plan.py:14:    'pywhispercpp': ('requirements-pywhispercpp.txt', ('sounddevice', 'numpy', 'soxr', 'pywhispercpp'), 'pywhispercpp'),
+/home/krubics/.local/share/hyprwhspr/src/lib/src/dependency_plan.py:37:    if backend in ('cpu', 'nvidia', 'amd', 'vulkan', 'pywhispercpp'):
+/home/krubics/.local/share/hyprwhspr/src/lib/src/dependency_plan.py:38:        return 'pywhispercpp'
+/home/krubics/.local/share/hyprwhspr/src/lib/src/config_manager.py:119:            'transcription_backend': 'pywhispercpp',  # "pywhispercpp" (or "cpu"/"nvidia"/"vulkan"/"amd") or "rest-api"
+/home/krubics/.local/share/hyprwhspr/src/lib/src/config_manager.py:135:            # whisper.cpp (pywhispercpp) backend settings
+/home/krubics/.local/share/hyprwhspr/src/lib/src/config_manager.py:136:            'pywhispercpp_use_vad': False,               # Native Silero VAD (strips silence, reduces hallucinations); auto-downloads ~1MB ggml-silero model when enabled
+/home/krubics/.local/share/hyprwhspr/src/tests/test_notifications_and_backend.py:75:        self.assertEqual(cpu[-1].name, "requirements-pywhispercpp.txt")
+/home/krubics/.local/share/hyprwhspr/src/tests/test_notifications_and_backend.py:110:                mock.patch.object(backend_installer, "download_pywhispercpp_model", return_value=True),
+/home/krubics/.local/share/hyprwhspr/src/tests/test_notifications_and_backend.py:111:                mock.patch.object(backend_installer, "install_pywhispercpp_cpu", return_value=False) as install_cpu,
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backends/realtime_ws_backend.py:377:        backend = self.config.get_setting('transcription_backend', 'pywhispercpp')
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backends/pywhispercpp_backend.py:2:pywhispercpp transcription backend (whisper.cpp in-process).
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backends/pywhispercpp_backend.py:37:    name = 'pywhispercpp'
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backends/pywhispercpp_backend.py:43:        # Backend-specific attributes (pywhispercpp only)
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backends/pywhispercpp_backend.py:47:        """Initialize local pywhispercpp backend"""
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backends/pywhispercpp_backend.py:73:            print(f"[BACKEND] pywhispercpp ({gpu_backend}) - model: {self.current_model}")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backends/pywhispercpp_backend.py:81:            print("ERROR: pywhispercpp is not installed or incompatible.")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backends/pywhispercpp_backend.py:88:            print(f"[ERROR] pywhispercpp initialization failed: {e}")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backends/pywhispercpp_backend.py:94:        """Construct a pywhispercpp Model with configured sampling and optional native VAD"""
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backends/pywhispercpp_backend.py:97:            from pywhispercpp.model import Model
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backends/pywhispercpp_backend.py:100:            from pywhispercpp import Model
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backends/pywhispercpp_backend.py:110:        if self.config.get_setting('pywhispercpp_use_vad', False):
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backends/pywhispercpp_backend.py:121:            # Installed pywhispercpp predates VAD support (< 1.5.0)
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backends/pywhispercpp_backend.py:122:            print("[BACKEND] WARNING: installed pywhispercpp has no VAD support - re-run 'hyprwhspr setup' to upgrade; continuing without VAD", flush=True)
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backends/pywhispercpp_backend.py:139:        First checks which pywhispercpp package is installed via pacman,
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backends/pywhispercpp_backend.py:145:        # First, check which pywhispercpp package is actually installed
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backends/pywhispercpp_backend.py:151:                'python-pywhispercpp-cuda',
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backends/pywhispercpp_backend.py:152:                'python-pywhispercpp-rocm',
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backends/pywhispercpp_backend.py:153:                'python-pywhispercpp-cpu'
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backends/pywhispercpp_backend.py:174:            if installed_package == 'python-pywhispercpp-cuda':
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backends/pywhispercpp_backend.py:192:            elif installed_package == 'python-pywhispercpp-rocm':
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backends/pywhispercpp_backend.py:210:            elif installed_package == 'python-pywhispercpp-cpu':
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backends/pywhispercpp_backend.py:219:        backend_config = self.config.get_setting('transcription_backend', 'pywhispercpp')
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backends/pywhispercpp_backend.py:287:        """Context manager to intercept and enhance progress messages from pywhispercpp"""
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backends/pywhispercpp_backend.py:289:        context_str = f"[pywhispercpp/{model_name}]"
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backends/pywhispercpp_backend.py:364:        """Transcribe using the local pywhispercpp model."""
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backends/pywhispercpp_backend.py:371:            # pywhispercpp doesn't auto-detect language when no language kwarg is passed —
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backends/pywhispercpp_backend.py:410:            print(f"[ERROR] pywhispercpp transcription failed: {e}")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backends/pywhispercpp_backend.py:446:        Reinitialize the pywhispercpp model.
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backends/pywhispercpp_backend.py:456:        backend = self.config.get_setting('transcription_backend', 'pywhispercpp')
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backends/pywhispercpp_backend.py:459:        # Only reinitialize for pywhispercpp and its variants (cpu, nvidia, vulkan/amd)
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backends/pywhispercpp_backend.py:460:        pywhispercpp_variants = ['pywhispercpp', 'cpu', 'nvidia', 'amd', 'vulkan']
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backends/pywhispercpp_backend.py:461:        if backend not in pywhispercpp_variants:
+/home/krubics/.local/share/hyprwhspr/src/utils/meeting-recorder.py:7:have configured in hyprwhspr (pywhispercpp, onnx-asr, rest-api), and serves the
+/home/krubics/.local/share/hyprwhspr/src/tests/test_realtime_cancel_recovery.py:142:        local.name = 'pywhispercpp'
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_utils.py:31:    - 'local' -> 'pywhispercpp'
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_utils.py:42:        return 'pywhispercpp'
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_utils.py:58:    'pywhispercpp': 'pywhispercpp',
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_utils.py:59:    'cpu': 'pywhispercpp',
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_utils.py:60:    'nvidia': 'pywhispercpp',
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_utils.py:61:    'amd': 'pywhispercpp',
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_utils.py:62:    'vulkan': 'pywhispercpp',
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_utils.py:71:    'pywhispercpp': 'Local (pywhispercpp)',
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_utils.py:76:    'cpu': 'Whisper CPU (pywhispercpp)',
+/home/krubics/.local/share/hyprwhspr/src/lib/main.py:1082:            backend = normalize_backend(self.config.get_setting('transcription_backend', 'pywhispercpp'))
+/home/krubics/.local/share/hyprwhspr/src/lib/main.py:1342:            backend = self.config.get_setting('transcription_backend', 'pywhispercpp')
+/home/krubics/.local/share/hyprwhspr/src/lib/main.py:2135:                    if backend in pywhispercpp_variants or backend == 'faster-whisper':
+/home/krubics/.local/share/hyprwhspr/src/lib/main.py:2269:        backend = self.config.get_setting('transcription_backend', 'pywhispercpp')
+/home/krubics/.local/share/hyprwhspr/src/requirements-pywhispercpp.txt:2:pywhispercpp==1.5.0
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/models.py:2:Model management commands for hyprwhspr — pywhispercpp (whisper.cpp),
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/models.py:108:    backend = normalize_backend(config.get_setting('transcription_backend', 'pywhispercpp'))
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/models.py:114:            log_info("Only local backends (pywhispercpp, faster-whisper, onnx-asr, cohere-transcribe) hold GPU memory.")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/models.py:178:    """Download pywhispercpp model with progress feedback"""
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/models.py:179:    from backend_installer import download_pywhispercpp_model
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/models.py:181:    return download_pywhispercpp_model(model_name)
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/models.py:201:    """Check installed pywhispercpp (Whisper.cpp) models in ~/.local/share/pywhispercpp/models"""
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backends/__init__.py:5:(including the pywhispercpp hardware variants 'cpu'/'nvidia'/'vulkan') fall
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backends/__init__.py:6:back to the default pywhispercpp backend in WhisperManager. Adding a new
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backends/__init__.py:14:from .pywhispercpp_backend import PywhispercppBackend
+/home/krubics/.local/share/hyprwhspr/src/lib/src/whisper_manager.py:112:            # pywhispercpp hardware variants (cpu/nvidia/vulkan) and unknown
+/home/krubics/.local/share/hyprwhspr/src/lib/src/whisper_manager.py:113:            # names fall back to the default pywhispercpp backend
+/home/krubics/.local/share/hyprwhspr/src/lib/src/whisper_manager.py:174:            self.config.get_setting('transcription_backend', 'pywhispercpp'))
+/home/krubics/.local/share/hyprwhspr/src/lib/src/whisper_manager.py:373:        backend = normalize_backend(self.config.get_setting('transcription_backend', 'pywhispercpp'))
+/home/krubics/.local/share/hyprwhspr/src/lib/src/whisper_manager.py:445:            print("ERROR: Cannot change model when using REST API backend - switch to pywhispercpp")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/whisper_manager.py:493:            # pywhispercpp hardware variants (cpu/nvidia/vulkan)
+/home/krubics/.local/share/hyprwhspr/src/lib/src/whisper_manager.py:494:            backend = 'pywhispercpp'
+/home/krubics/.local/share/hyprwhspr/src/lib/src/whisper_manager.py:495:        if backend == 'pywhispercpp':
+/home/krubics/.local/share/hyprwhspr/src/lib/src/whisper_manager.py:496:            return f"pywhispercpp (in-process, model: {self.current_model})"
+/home/krubics/.local/share/hyprwhspr/src/tests/test_maintenance_repair.py:29:    def test_default_pywhispercpp_repair_uses_recorded_local_variant(self):
+/home/krubics/.local/share/hyprwhspr/src/tests/test_maintenance_repair.py:36:                config, 'pywhispercpp'))
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/test_cmd.py:106:    backend = config.get_setting('transcription_backend', 'pywhispercpp')
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/test_cmd.py:201:    elif backend in ('pywhispercpp', 'nvidia', 'cpu', 'vulkan'):
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/test_cmd.py:202:        # Test pywhispercpp model availability (covers all local whisper variants)
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/test_cmd.py:205:                from pywhispercpp.model import Model
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/test_cmd.py:207:                from pywhispercpp import Model
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/test_cmd.py:217:                log_success(f"pywhispercpp available, model: {model_name}")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/test_cmd.py:224:            log_error("pywhispercpp not installed")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/maintenance.py:79:                        [str(venv_python), '-c', 'import pywhispercpp; print("ok")'],
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/maintenance.py:142:        if backend in ['cpu', 'nvidia', 'amd', 'vulkan', 'pywhispercpp']:
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/maintenance.py:148:                        [str(venv_python), '-c', 'import pywhispercpp; print("ok")'],
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/maintenance.py:161:    # Fallback: check if venv exists and has pywhispercpp
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/maintenance.py:166:                [str(venv_python), '-c', 'import pywhispercpp; print("ok")'],
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/maintenance.py:172:                # Venv has pywhispercpp but no config - assume CPU (safest)
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/maintenance.py:255:            # Uninstall pywhispercpp
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/maintenance.py:257:                [str(pip_bin), 'uninstall', '-y', 'pywhispercpp'],
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/maintenance.py:308:        configured_backend = config_manager.get_setting('transcription_backend', 'pywhispercpp')
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/maintenance.py:387:    if configured_backend == 'pywhispercpp':
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/maintenance.py:459:                [str(venv_python), '-c', 'import pywhispercpp'],
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/maintenance.py:466:                log_success("pywhispercpp is installed")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/maintenance.py:468:                log_warning("pywhispercpp is NOT installed")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/maintenance.py:470:            log_warning("Could not check pywhispercpp installation")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/maintenance.py:503:                    [str(venv_python), '-c', 'import pywhispercpp'],
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/maintenance.py:510:                    issues.append("State says 'completed' but pywhispercpp is not installed")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/maintenance.py:531:        log_warning("  • Remove pywhispercpp source directory")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/maintenance.py:543:        # Remove pywhispercpp source
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/maintenance.py:547:            log_info("Removing pywhispercpp source...")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/maintenance.py:579:    is_pywhispercpp = current_backend in ['cpu', 'nvidia', 'amd', 'vulkan', 'pywhispercpp']
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/maintenance.py:667:    elif is_pywhispercpp:
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/maintenance.py:668:        # Check pywhispercpp (only for pywhispercpp backends)
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/maintenance.py:669:        pywhispercpp_available = False
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/maintenance.py:676:                    [str(venv_python), '-c', 'from pywhispercpp.model import Model'],
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/maintenance.py:683:                    pywhispercpp_available = True
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/maintenance.py:687:                        [str(venv_python), '-c', 'from pywhispercpp import Model'],
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/maintenance.py:694:                        pywhispercpp_available = True
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/maintenance.py:699:        if not pywhispercpp_available:
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/maintenance.py:703:                    from pywhispercpp.model import Model  # noqa: F401
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/maintenance.py:704:                    pywhispercpp_available = True
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/maintenance.py:708:                        from pywhispercpp import Model  # noqa: F401
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/maintenance.py:709:                        pywhispercpp_available = True
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/maintenance.py:711:                        pywhispercpp_available = False
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/maintenance.py:713:                pywhispercpp_available = False
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/maintenance.py:715:        if pywhispercpp_available:
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/maintenance.py:716:            log_success("✓ pywhispercpp available")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/maintenance.py:718:            log_warning("⚠ pywhispercpp not available")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/maintenance.py:725:        # Check base model (only for pywhispercpp backends)
+/home/krubics/.local/share/hyprwhspr/src/lib/src/cli/uninstall.py:80:        fs_targets.append((f"pywhispercpp source: {PYWHISPERCPP_SRC_DIR}", PYWHISPERCPP_SRC_DIR))
+/home/krubics/.local/share/hyprwhspr/src/tests/test_backend_proxies.py:41:                "pywhispercpp",
+/home/krubics/.local/share/hyprwhspr/src/tests/test_keyboard_configure.py:156:        self.assertEqual(setup._BACKEND_CHOICE['pywhispercpp'], '3')
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:3:Handles installation of pywhispercpp backends (CPU/NVIDIA/AMD)
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:74:PYWHISPERCPP_MODELS_DIR = Path(os.environ.get('XDG_DATA_HOME', Path.home() / '.local' / 'share')) / 'pywhispercpp' / 'models'
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:77:PYWHISPERCPP_SRC_DIR = USER_BASE / 'pywhispercpp-src'
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:491:    base = f"pywhispercpp-{PYWHISPERCPP_VERSION}-{py_tag}-{py_tag}-linux_x86_64"
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:493:        # GitHub release filename: pywhispercpp-<version>-cp311-cp311-linux_x86_64+cuda12.whl
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:496:        # Standard pip-compatible filename: pywhispercpp-<version>-cp311-cp311-linux_x86_64.whl
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:500:def download_pywhispercpp_wheel(variant: Optional[str] = None) -> Optional[Path]:
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:502:    Download pre-built pywhispercpp wheel if available.
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:588:def install_pywhispercpp_from_wheel(pip_bin: Path, wheel_path: Path) -> bool:
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:589:    """Install pywhispercpp from a pre-built wheel file."""
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:607:        log_success("pywhispercpp installed from pre-built wheel")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:661:    if plan.family == 'pywhispercpp' and plan.accelerated_variant:
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1336:# ==================== pywhispercpp Installation ====================
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1413:def install_pywhispercpp_cpu(pip_bin: Path, requirements_file: Path) -> bool:
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1414:    """Install CPU-only pywhispercpp from PyPI (PyPI ships CPU wheels for all
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1416:    log_info("Installing pywhispercpp (CPU-only)...")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1430:        # --only-binary for pywhispercpp: fail loudly if PyPI lacks a wheel for
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1432:        run_command([str(pip_bin), 'install', '--only-binary=pywhispercpp', '-r', str(install_file)], check=True)
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1434:        # pip can exit 0 without pywhispercpp present (e.g. filtered out of
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1437:        verify = run_command([str(venv_python), '-c', 'import pywhispercpp'], check=False, capture_output=True)
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1439:            log_error("pip succeeded but 'import pywhispercpp' failed — backend not installed")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1442:        log_success("pywhispercpp installed (CPU-only mode)")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1445:        log_error(f"Failed to install pywhispercpp (CPU-only): {e}")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1452:def install_pywhispercpp_cuda(pip_bin: Path) -> bool:
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1453:    """Install pywhispercpp with CUDA support"""
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1454:    log_info("Installing pywhispercpp with CUDA support...")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1457:    wheel_path = download_pywhispercpp_wheel()  # Auto-detects CUDA version
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1459:        if install_pywhispercpp_from_wheel(pip_bin, wheel_path):
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1498:    # Clone or update pywhispercpp sources
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1500:        log_info(f"Cloning pywhispercpp sources (v{PYWHISPERCPP_VERSION}) → {PYWHISPERCPP_SRC_DIR}")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1506:            'https://github.com/Absadiki/pywhispercpp.git',
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1518:        log_info(f"Updating pywhispercpp sources to v{PYWHISPERCPP_VERSION} in {PYWHISPERCPP_SRC_DIR}")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1529:            log_warning(f"Could not update pywhispercpp repository to v{PYWHISPERCPP_VERSION}: {e}")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1532:    log_info("Building pywhispercpp with CUDA (ggml CUDA) via pip - may take several minutes")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1562:        log_success("pywhispercpp installed with CUDA acceleration via pip")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1565:        log_error(f"pip install of pywhispercpp with CUDA failed: {e}")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1569:def install_pywhispercpp_rocm(pip_bin: Path) -> Tuple[bool, bool]:
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1570:    """Install pywhispercpp with ROCm support. Returns (success, should_fallback)."""
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1571:    log_info("Installing pywhispercpp with ROCm support...")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1606:    # Clone or update pywhispercpp sources
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1608:        log_info(f"Cloning pywhispercpp sources (v{PYWHISPERCPP_VERSION}) → {PYWHISPERCPP_SRC_DIR}")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1614:            'https://github.com/Absadiki/pywhispercpp.git',
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1626:        log_info(f"Updating pywhispercpp sources to v{PYWHISPERCPP_VERSION} in {PYWHISPERCPP_SRC_DIR}")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1637:            log_warning(f"Could not update pywhispercpp repository to v{PYWHISPERCPP_VERSION}: {e}")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1663:    log_info("Building pywhispercpp with ROCm (ggml HIPBLAS) via pip")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1677:        log_success("pywhispercpp installed with ROCm acceleration via pip")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1684:def install_pywhispercpp_vulkan(pip_bin: Path) -> bool:
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1685:    """Install pywhispercpp with Vulkan support.
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1694:    log_info("Installing pywhispercpp with Vulkan support...")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1729:    # Clone or update pywhispercpp sources
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1731:        log_info(f"Cloning pywhispercpp sources (v{PYWHISPERCPP_VERSION}) → {PYWHISPERCPP_SRC_DIR}")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1737:            'https://github.com/Absadiki/pywhispercpp.git',
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1749:        log_info(f"Updating pywhispercpp sources to v{PYWHISPERCPP_VERSION} in {PYWHISPERCPP_SRC_DIR}")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1760:            log_warning(f"Could not update pywhispercpp repository to v{PYWHISPERCPP_VERSION}: {e}")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1780:    log_info("Building pywhispercpp with Vulkan via pip")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1794:        log_success("pywhispercpp installed with Vulkan acceleration via pip")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1797:        log_error(f"Failed to install pywhispercpp with Vulkan: {e}")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1835:def download_pywhispercpp_model(model_name: str = 'base') -> bool:
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1836:    """Download pywhispercpp model with progress feedback"""
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1837:    log_info(f"Downloading pywhispercpp model: {model_name}…")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1844:        log_success(f"pywhispercpp model present: {model_name}")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1876:        log_success(f"pywhispercpp model downloaded: {model_name}")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1879:        log_error(f"Failed to download pywhispercpp model {model_name}: {e}")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:1883:def _complete_pywhispercpp_cpu_fallback(created_items: dict) -> str:
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:2077:            # Unlike pywhispercpp which needs nvcc to build, onnx-asr uses pre-built ONNX Runtime
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:2135:        # Plan the specialized pywhispercpp transaction after GPU selection.
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:2147:                    'import sounddevice, pywhispercpp'
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:2153:        # Which pywhispercpp build variant is being requested *right now*?
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:2184:        # Install pywhispercpp if needed
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:2199:                # GPU build path: install everything except pywhispercpp first
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:2200:                log_info("Installing base Python dependencies (excluding pywhispercpp)...")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:2210:                skip_packages = ['pywhispercpp'] + (['PyGObject'] if skip_pygobject else [])
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:2240:                # Remove any pre-existing pywhispercpp
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:2241:                run_command([str(pip_bin), 'uninstall', '-y', 'pywhispercpp'], check=False, capture_output=True)
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:2243:                # Build pywhispercpp with GPU support
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:2245:                    if not install_pywhispercpp_cuda(pip_bin):
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:2246:                        error_msg = "Failed to install pywhispercpp with CUDA support"
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:2251:                                run_command([str(pip_bin), 'uninstall', '-y', 'pywhispercpp'], 
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:2259:                    success, should_fallback = install_pywhispercpp_rocm(pip_bin)
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:2265:                            log_warning(f"ROCm 7.x has known compatibility issues with pywhispercpp v{PYWHISPERCPP_VERSION}")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:2272:                            log_info("Installing pywhispercpp with CPU-only support...")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:2273:                            if not install_pywhispercpp_cpu(pip_bin, requirements_file):
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:2274:                                error_msg = "Failed to install pywhispercpp (CPU-only fallback)"
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:2279:                            log_success("pywhispercpp installed (CPU-only mode)")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:2280:                            requested_variant = _complete_pywhispercpp_cpu_fallback(created_items)
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:2282:                            error_msg = "Failed to install pywhispercpp with ROCm support"
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:2287:                                    run_command([str(pip_bin), 'uninstall', '-y', 'pywhispercpp'],
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:2295:                    if not install_pywhispercpp_vulkan(pip_bin):
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:2298:                        log_info("Installing pywhispercpp with CPU-only support...")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:2299:                        if not install_pywhispercpp_cpu(pip_bin, requirements_file):
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:2300:                            error_msg = "Failed to install pywhispercpp (CPU-only fallback)"
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:2305:                        log_success("pywhispercpp installed (CPU-only mode)")
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:2306:                        requested_variant = _complete_pywhispercpp_cpu_fallback(created_items)
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:2309:                if not install_pywhispercpp_cpu(pip_bin, requirements_file):
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:2310:                    error_msg = "Failed to install pywhispercpp (CPU-only)"
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:2322:            error_msg = "pywhispercpp installation did not provide required imports"
+/home/krubics/.local/share/hyprwhspr/src/lib/src/backend_installer.py:2341:        if not download_pywhispercpp_model('base'):
+/home/krubics/.local/share/hyprwhspr/src/tests/test_manager_init_lifecycle.py:24:def make_fake_backend_cls(events, name='pywhispercpp', init_result=True,
+/home/krubics/.local/share/hyprwhspr/src/tests/test_manager_init_lifecycle.py:56:        patcher = mock.patch.dict(wm.BACKENDS, {'pywhispercpp': backend_cls})
+/home/krubics/.local/share/hyprwhspr/src/tests/test_dependency_plans.py:24:            ('cpu', None, None): 'requirements-pywhispercpp.txt',
+/home/krubics/.local/share/hyprwhspr/src/tests/test_dependency_plans.py:126:        file's own directory, so a manifest like requirements-pywhispercpp.txt
+/home/krubics/.local/share/hyprwhspr/src/tests/test_dependency_plans.py:138:            (root / 'requirements-pywhispercpp.txt').write_text(
+/home/krubics/.local/share/hyprwhspr/src/tests/test_dependency_plans.py:139:                '-r requirements.txt\npywhispercpp==1.5.0\n', encoding='utf-8'
+/home/krubics/.local/share/hyprwhspr/src/tests/test_dependency_plans.py:142:                root / 'requirements-pywhispercpp.txt', ['PyGObject']
+/home/krubics/.local/share/hyprwhspr/src/tests/test_dependency_plans.py:152:        self.assertIn('pywhispercpp==1.5.0', content)
+/home/krubics/.local/share/hyprwhspr/src/tests/test_dependency_plans.py:276:            source = root / 'pywhispercpp-src'
+/home/krubics/.local/share/hyprwhspr/src/tests/test_dependency_plans.py:295:    def test_pywhispercpp_helpers_defer_backend_state_commit(self):
+/home/krubics/.local/share/hyprwhspr/src/tests/test_dependency_plans.py:299:            requirements.write_text('pywhispercpp\n', encoding='utf-8')
+/home/krubics/.local/share/hyprwhspr/src/tests/test_dependency_plans.py:306:                self.assertTrue(backend_installer.install_pywhispercpp_cpu(pip_bin, requirements))
+/home/krubics/.local/share/hyprwhspr/src/tests/test_dependency_plans.py:311:                mock.patch.object(backend_installer, 'download_pywhispercpp_wheel', return_value=wheel),
+/home/krubics/.local/share/hyprwhspr/src/tests/test_dependency_plans.py:312:                mock.patch.object(backend_installer, 'install_pywhispercpp_from_wheel', return_value=True),
+/home/krubics/.local/share/hyprwhspr/src/tests/test_dependency_plans.py:315:                self.assertTrue(backend_installer.install_pywhispercpp_cuda(pip_bin))
+/home/krubics/.local/share/hyprwhspr/src/tests/test_dependency_plans.py:334:                    effective = backend_installer._complete_pywhispercpp_cpu_fallback(items)
+/home/krubics/.local/share/hyprwhspr/src/tests/test_dependency_plans.py:345:            effective = backend_installer._complete_pywhispercpp_cpu_fallback(existing_items)
+/home/krubics/.local/share/hyprwhspr/src/config/hyprland/hyprwhspr-tray.sh:131:    backend = data.get("transcription_backend", "pywhispercpp")
+/home/krubics/.local/share/hyprwhspr/src/config/hyprland/hyprwhspr-tray.sh:134:        backend = "pywhispercpp"
+/home/krubics/.local/share/hyprwhspr/src/config/hyprland/hyprwhspr-tray.sh:139:    print("pywhispercpp\t")
+/home/krubics/.local/share/hyprwhspr/src/config/hyprland/hyprwhspr-tray.sh:143:    backend="${backend:-pywhispercpp}"
+/home/krubics/.local/share/hyprwhspr/src/config/hyprland/hyprwhspr-tray.sh:165:    # faster-whisper uses the HuggingFace cache, not the pywhispercpp models dir
+/home/krubics/.local/share/hyprwhspr/src/config/hyprland/hyprwhspr-tray.sh:177:    # If it's a short name like "base.en", resolve to pywhispercpp full path
+/home/krubics/.local/share/hyprwhspr/src/config/hyprland/hyprwhspr-tray.sh:179:        # Check for both multilingual and English-only versions (like pywhispercpp does)
+/home/krubics/.local/share/hyprwhspr/src/config/hyprland/hyprwhspr-tray.sh:180:        local models_dir="${XDG_DATA_HOME:-$HOME/.local/share}/pywhispercpp/models"
+/home/krubics/.local/share/hyprwhspr/src/docs/CONFIGURATION.md:196:> - **Local whisper models**: Fully supported (all pywhispercpp models)
+/home/krubics/.local/share/hyprwhspr/src/docs/CONFIGURATION.md:420:Local Whisper via [pywhispercpp](https://github.com/abdeladim-s/pywhispercpp).
+/home/krubics/.local/share/hyprwhspr/src/docs/CONFIGURATION.md:428:Models stored in: `~/.local/share/pywhispercpp/models/`
+/home/krubics/.local/share/hyprwhspr/src/docs/CONFIGURATION.md:448:Set model in config (pywhispercpp only — faster-whisper uses `faster_whisper_model`):
+/home/krubics/.local/share/hyprwhspr/src/docs/CONFIGURATION.md:463:    "pywhispercpp_use_vad": true   // default: false
+/home/krubics/.local/share/hyprwhspr/src/docs/CONFIGURATION.md:524:> **Note**: Supported by `faster-whisper` and `pywhispercpp` backends. `language` and `task` are independent — setting a non-English language does not imply translation.
+/home/krubics/.local/share/hyprwhspr/src/docs/CONFIGURATION.md:542:Controls how Whisper searches for the best transcription. Applies to `pywhispercpp` and `faster-whisper` backends.
+/home/krubics/.local/share/hyprwhspr/src/docs/CONFIGURATION.md:555:> **Note**: `sampling_strategy` is locked in at model load time for `pywhispercpp`. Changing it requires a service restart.
+/home/krubics/.local/share/hyprwhspr/src/docs/CONFIGURATION.md:1205:Only applies to local-model backends (Cohere Transcribe, `pywhispercpp`, `faster-whisper`, `onnx-asr`) — no-op for `rest-api` and `realtime-ws`, which hold no local GPU memory. The Waybar tray shows a `󰒲` sleep icon while the model is unloaded.

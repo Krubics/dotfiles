@@ -1,0 +1,87 @@
++ echo '--- herdr config locations ---'
+--- herdr config locations ---
+total 700
+drwxrwxr-x   2 krubics krubics   4096 Jul 29 12:07 .
+drwx------ 127 krubics krubics  12288 Jul 29 11:14 ..
+-rw-rw-r--   1 krubics krubics   1164 Jul 29 11:50 config.toml
+-rw-rw-r--   1 krubics krubics   6786 Jul 29 08:58 herdr-client.log
+srw-------   1 krubics krubics      0 Jul 29 08:58 herdr-client.sock
+-rw-rw-r--   1 krubics krubics 670525 Jul 29 12:07 herdr-server.log
+srw-------   1 krubics krubics      0 Jul 29 08:58 herdr.sock
+-rw-rw-r--   1 krubics krubics   5606 Jul 29 08:58 release-notes.json
+-rw-rw-r--   1 krubics krubics   2940 Jul 29 12:07 session.json
+/home/krubics/.config/herdr
+/home/krubics/.config/herdr/herdr-client.log
+/home/krubics/.config/herdr/herdr-server.log
+/home/krubics/.config/opencode/plugins/herdr-agent-state.js
+/home/krubics/.config/zen/DefaultProfile/storage/default/https+++herdr.dev
+/etc/brltty/Input/eu/iris.ktb
+/usr/lib/i386-linux-gnu/dri/iris_dri.so
+/usr/lib/x86_64-linux-gnu/dri/iris_dri.so
+/home/krubics/.cache/iris
+/home/krubics/.cache/iris/iris.log
+/home/krubics/.config/iris
+/home/krubics/.local/share/iris
+/home/krubics/.local/bin/iris
++ echo '--- IRIS related dirs in home ---'
+--- IRIS related dirs in home ---
+/home/krubics/.cache/iris
+/home/krubics/.cache/iris/iris.log
+/home/krubics/.config/iris
+/home/krubics/.local/share/iris
+/home/krubics/.local/bin/iris
++ echo '--- herdr binary info ---'
+--- herdr binary info ---
+/home/krubics/.nix-profile/bin/herdr: symbolic link to /nix/store/f3q40c5na4gwf8gfljaxgiigq7vppalv-home-manager-path/bin/herdr
+herdr 0.7.4
+++ head -50
+herdr — terminal workspace manager for AI coding agents
+
+Usage: herdr [options]
+       herdr --session <name> [options]
+       herdr --remote <ssh-target> [--session <name>]
+       herdr session attach <name>
+       herdr completion zsh
+       herdr update [--handoff]
+       herdr channel set <stable|preview>
+       herdr server stop
+       herdr server reload-config
+       herdr api <subcommand> ...
+       herdr completion <shell>
+       herdr config <subcommand> ...
+       herdr channel <subcommand> ...
+       herdr workspace <subcommand> ...
+       herdr worktree <subcommand> ...
+       herdr tab <subcommand> ...
+       herdr notification <subcommand> ...
+       herdr agent <subcommand> ...
+       herdr pane <subcommand> ...
+       herdr wait <subcommand> ...
+       herdr session <subcommand> ...
+       herdr integration <subcommand> ...
+
+Common commands:
+  herdr                            Launch or attach to the persistent session
+  herdr status [server|client]     Show local client and running server status
+  herdr update                     Download and install the latest version
+  herdr completion zsh             Generate shell completions for zsh
+  herdr server stop                Stop the running server via the API socket
+  herdr channel set <stable|preview> Choose the stable or preview update channel
+  herdr server reload-config       Reload config.toml in the running server
+  herdr config reset-keys          Back up config.toml and remove custom keybindings
+  herdr channel <subcommand>       Manage the stable or preview update channel
+  herdr api <subcommand>           Inspect socket API metadata and live runtime state
+  herdr workspace <subcommand>     Workspace helpers over the socket API
+  herdr worktree <subcommand>      Git worktree helpers over the socket API
+  herdr tab <subcommand>           Tab helpers over the socket API
+  herdr notification <subcommand>  Notification helpers over the socket API
+  herdr agent <subcommand>         Agent/terminal helpers over the socket API
+  herdr pane <subcommand>          Pane control helpers over the socket API
+  herdr wait <subcommand>          Blocking wait helpers over the socket API
+  herdr session <subcommand>       Manage named persistent sessions
+  herdr integration <subcommand>   Manage built-in agent integrations
+
+Advanced commands:
+  herdr server                     Run as headless server
+
+Options:

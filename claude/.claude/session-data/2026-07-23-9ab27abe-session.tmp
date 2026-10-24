@@ -1,0 +1,36 @@
+# Session: 2026-07-23
+**Date:** 2026-07-23
+**Started:** 13:01
+**Last Updated:** 13:16
+**Project:** krubics
+**Branch:** unknown
+**Worktree:** /home/krubics
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Human: <system-reminder> As you answer the user's questions, you can use the following context: # claudeMd Codebase and user instructions are shown below. Be sure to adhere to these instructions. IMPO
+- Assistant: "Live refreshing" almost always comes down to one of a few things in GTK3. Without seeing your code, here are the usual culprits ranked by how often they're the cause:  ## 1. You're updatin
+- Assistant: Let me find your matugen templates and config. Facts before running the command:  1. **Current user request:** Diagnose why the user's GTK3 theme isn't live-refreshing, referring to the mat
+- Assistant: That confirms the diagnosis precisely. \`gtk3-widget-factory\` is *the* GTK3 reference app — if it doesn't pick up the colors, nothing in GTK3 will, because GTK3 never re-reads \`~/.config/gtk
+- Assistant: You're right to be annoyed, and I went down the wrong path building that restart script. Let me give you the honest answer instead of another workaround.  **GTK3 cannot hot-reload CSS in a 
+
+### Files Modified
+- /home/krubics/.config/matugen/scripts/gtk3-reload.sh
+
+### Tools Used
+Bash, Write, mcp__opencode__glob
+
+### Stats
+- Total user messages: 5
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

@@ -1,0 +1,47 @@
+total 1308
+drwx------  28 krubics krubics   4096 Jul 28 14:04 .
+drwxr-x--- 104 krubics krubics   4096 Jul 28 17:31 ..
+drwxrwxr-x   4 krubics krubics   4096 Jul 25 23:08 .agents
+-rw-------   1 krubics krubics    562 Jul 28 16:43 .credentials.json
+-rw-rw-r--   1 krubics krubics     24 Jul 28 14:24 .last-cleanup
+-rw-rw-r--   1 krubics krubics    161 Jul 25 14:47 .last-update-result.json
+-rw-rw-r--   1 krubics krubics   8626 Jul 25 23:08 AGENTS.md
+-rw-rw-r--   1 krubics krubics    127 Jul  3 19:00 CLAUDE.md
+-rw-rw-r--   1 krubics krubics   6814 Jul 25 23:08 PLUGIN_SCHEMA_NOTES.md
+-rw-rw-r--   1 krubics krubics   1872 Jul 25 23:08 README.md
+drwxrwxr-x   2 krubics krubics   4096 Jul 25 23:08 agents
+drwxrwxr-x   2 krubics krubics   4096 Jul 28 17:31 backups
+-rw-rw-r--   1 krubics krubics 483149 Jul 25 14:47 bash-commands.log
+drwxrwxr-x   2 krubics krubics   4096 Jun  7 14:17 cache
+drwxrwxr-x   2 krubics krubics   4096 Jul 25 23:08 commands
+-rw-rw-r--   1 krubics krubics 511985 Jul 25 14:47 cost-tracker.log
+drwx------   3 krubics krubics   4096 Jul  9 23:04 daemon
+-rw-rw-r--   1 krubics krubics    931 Jul  9 22:38 daemon.log
+drwxrwxr-x   2 krubics krubics   4096 Jun  7 14:18 downloads
+drwxrwxr-x   3 krubics krubics   4096 Jul 25 23:43 ecc
+drwxrwxr-x  54 krubics krubics   4096 Jul 28 12:28 file-history
+-rw-------   1 krubics krubics  62901 Jul 28 14:04 history.jsonl
+drwxrwxr-x   3 krubics krubics   4096 Jul 25 23:08 hooks
+drwx------   2 krubics krubics   4096 Jul 28 17:11 ide
+drwxrwxr-x   2 krubics krubics   4096 Jul  9 22:38 jobs
+-rw-rw-r--   1 krubics krubics   1225 Jul 25 23:08 marketplace.json
+drwxrwxr-x   2 krubics krubics   4096 Jul 25 23:08 mcp-configs
+-rw-rw-r--   1 krubics krubics     93 Jul 28 11:31 mcp-needs-auth-cache.json
+drwxrwxr-x   2 krubics krubics   4096 Jul  6 23:01 metrics
+drwxrwxr-x   2 krubics krubics   4096 Jul 25 05:47 paste-cache
+drwxrwxr-x   2 krubics krubics   4096 Jul 11 03:03 plans
+-rw-rw-r--   1 krubics krubics    754 Jul 25 23:08 plugin.json
+drwxrwxr-x   5 krubics krubics   4096 Jul 28 14:09 plugins
+drwxrwxr-x  26 krubics krubics   4096 Jul 28 14:02 projects
+drwxrwxr-x   3 krubics krubics   4096 Jul 25 23:08 rules
+drwxrwxr-x   4 krubics krubics   4096 Jul 25 23:08 scripts
+drwxrwxr-x   2 krubics krubics  20480 Jul 25 14:48 session-data
+drwxrwxr-x 608 krubics krubics  36864 Jul 28 14:04 session-env
+drwx------   2 krubics krubics   4096 Jul 28 17:31 sessions
+-rw-rw-r--   1 krubics krubics    189 Jul 25 15:02 settings.json
+drwxrwxr-x   2 krubics krubics   4096 Jul 28 14:04 shell-snapshots
+drwxrwxr-x   4 krubics krubics   4096 Jul 25 23:08 skills
+drwxrwxr-x   2 krubics krubics   4096 Jul 18 14:38 telemetry
+-rw-rw-r--   1 krubics krubics  28837 Jul 25 23:08 the-security-guide.md
+---
+/usr/share/dbus-1/services/org.gnome.keyring.SystemPrompter.service

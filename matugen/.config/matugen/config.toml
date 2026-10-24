@@ -1,4 +1,5 @@
 [config]
+caching = true
 
 [templates.rofi]
 input_path = '~/.config/matugen/templates/rofi-colors.rasi'
@@ -27,7 +28,10 @@ post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings s
 input_path = '~/.config/matugen/templates/qt/qt5ct.conf'
 output_path = '~/.config/qt5ct/colors/matugen.conf'
 
-
 [templates.qt6ct]
 input_path = '~/.config/matugen/templates/qt/qt6ct.conf'
 output_path = '~/.config/qt6ct/colors/matugen.conf'
+
+[templates.lyrics-tool]
+input_path = '~/.config/matugen/templates/lyrics-tool.json'
+output_path = '~/.config/lyrics-tool/colors.json'

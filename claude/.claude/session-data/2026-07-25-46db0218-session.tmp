@@ -1,0 +1,45 @@
+# Session: 2026-07-25
+**Date:** 2026-07-25
+**Started:** 00:27
+**Last Updated:** 00:47
+**Project:** krubics
+**Branch:** unknown
+**Worktree:** /home/krubics
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Human: <system-reminder> As you answer the user's questions, you can use the following context: # claudeMd Codebase and user instructions are shown below. Be sure to adhere to these instructions. IMPO
+- Human: I'm asking you whether it was a bug in the yin github repo or could it have been solved otherwise
+- Assistant: It's a genuine bug in the yin repo. The comment makes the intent clear — it's a one-time post-transition texture update — but the \`render()\` call was placed outside the \`if (progress >= 1.0
+- Assistant: Let me read all the modified files to see their current state before reverting. Now let me see the transition log calls in Monitor.cpp: Now I have a complete picture. Here's what needs to b
+- Assistant: The build is clean. Let me find the yin repo URL: Good. Now let me quickly verify the key files are actually clean before opening the issue: All clean. Now opening the issue: You're not aut
+- Assistant: The token file is at \`~/.local/share/gh-token\` (with a dash). Just run this one command in your terminal — no script needed:  \`\`\`bash GH_TOKEN="$(cat ~/.local/share/gh-token)" gh pr create 
+- Assistant: Both memory files are already correct. Just run the \`gh pr create\` command I gave you in the previous message in your terminal.  Human: The user stepped away and is coming back. Recap in un
+
+### Files Modified
+- /home/krubics/yin/daemon/IPC_Server.cpp
+- /home/krubics/.config/hypr/scripts/set-wallpaper.sh
+- /home/krubics/yin/daemon/Monitor.hpp
+- /home/krubics/yin/daemon/Monitor.cpp
+- /home/krubics/yin/shared/utils.hpp
+- /home/krubics/yin/daemon/main.cpp
+- /home/krubics/.claude/projects/-home-krubics/memory/reference_gh_token.md
+- /home/krubics/.claude/projects/-home-krubics/memory/MEMORY.md
+
+### Tools Used
+Read, Edit, Write, Bash
+
+### Stats
+- Total user messages: 7
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

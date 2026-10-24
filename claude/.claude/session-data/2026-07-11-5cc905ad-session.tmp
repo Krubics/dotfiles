@@ -1,0 +1,37 @@
+# Session: 2026-07-11
+**Date:** 2026-07-11
+**Started:** 18:13
+**Last Updated:** 18:29
+**Project:** krubics
+**Branch:** unknown
+**Worktree:** /home/krubics
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- HELP ME CLAUDE my monitor showed my SDDM screen but when I logged in it turned black. This all because I went to update my nvidia drivers and did something like nvidia_modeset=1 fbdev=1.
+- Ok I have ran both commands. Can you save this conversation to a file so we may continue if this persists after reboot?
+- Do I proceed? ➜  ~ sudo apt-get install nvidia-driver-595-open $(cat …reinstall-list.txt) cat: …reinstall-list.txt: No such file or directory Reading package lists... Done Building dependency tree... 
+- WHat tools were deleted?
+- I'm only gonna use Hyprland
+- Yea I ran both commands already and I attached the output: ➜  ~ sudo apt-get install nvidia-driver-595-open $(cat …reinstall-list.txt) cat: …reinstall-list.txt: No such file or directory Reading packa
+
+### Files Modified
+- /home/krubics/nvidia-blackscreen-fix.md
+
+### Tools Used
+Bash, AskUserQuestion, Write, Edit
+
+### Stats
+- Total user messages: 6
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

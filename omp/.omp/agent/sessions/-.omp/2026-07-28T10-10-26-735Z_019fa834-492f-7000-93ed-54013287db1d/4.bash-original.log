@@ -1,0 +1,55 @@
+=== ecc subdir sample ===
+SKILL.md
+
+=== SKILL.md head (accessibility) ===
+---
+name: accessibility
+description: Design, implement, and audit inclusive digital products using WCAG 2.2 Level AA
+  standards. Use this skill to generate semantic ARIA for Web and accessibility traits for Web and Native platforms (iOS/Android).
+metadata:
+  origin: ECC
+---
+
+# Accessibility (WCAG 2.2)
+
+This skill ensures that digital interfaces are Perceivable, Operable, Understandable, and Robust (POUR) for all users, including those using screen readers, switch controls, or keyboard navigation. It focuses on the technical implementation of WCAG 2.2 success criteria.
+
+## When to Use
+
+- Defining UI component specifications for Web, iOS, or Android.
+- Auditing existing code for accessibility barriers or compliance gaps.
+- Implementing new WCAG 2.2 standards like Target Size (Minimum) and Focus Appearance.
+- Mapping high-level design requirements to technical attributes (ARIA roles, traits, hints).
+
+## Core Concepts
+
+=== count SKILL.md under ecc ===
+138
+=== count with description frontmatter ===
+138
+=== .omp/agent/skills contents ===
+total 8
+drwxrwxr-x 2 krubics krubics 4096 Jul 28 21:17 .
+drwxrwxr-x 3 krubics krubics 4096 Jul 25 23:19 ..
+lrwxrwxrwx 1 krubics krubics   32 Jul 25 23:19 ask-matt -> ../../../.agents/skills/ask-matt
+lrwxrwxrwx 1 krubics krubics   35 Jul 25 23:19 code-review -> ../../../.agents/skills/code-review
+lrwxrwxrwx 1 krubics krubics   39 Jul 25 23:19 codebase-design -> ../../../.agents/skills/codebase-design
+lrwxrwxrwx 1 krubics krubics   39 Jul 25 23:19 diagnosing-bugs -> ../../../.agents/skills/diagnosing-bugs
+lrwxrwxrwx 1 krubics krubics   39 Jul 25 23:19 domain-modeling -> ../../../.agents/skills/domain-modeling
+lrwxrwxrwx 1 krubics krubics   32 Jul 25 23:19 grill-me -> ../../../.agents/skills/grill-me
+lrwxrwxrwx 1 krubics krubics   39 Jul 25 23:19 grill-with-docs -> ../../../.agents/skills/grill-with-docs
+lrwxrwxrwx 1 krubics krubics   32 Jul 25 23:19 grilling -> ../../../.agents/skills/grilling
+lrwxrwxrwx 1 krubics krubics   31 Jul 25 23:19 handoff -> ../../../.agents/skills/handoff
+lrwxrwxrwx 1 krubics krubics   33 Jul 25 23:19 implement -> ../../../.agents/skills/implement
+lrwxrwxrwx 1 krubics krubics   53 Jul 25 23:19 improve-codebase-architecture -> ../../../.agents/skills/improve-codebase-architecture
+lrwxrwxrwx 1 krubics krubics   33 Jul 25 23:19 prototype -> ../../../.agents/skills/prototype
+lrwxrwxrwx 1 krubics krubics   32 Jul 25 23:19 research -> ../../../.agents/skills/research
+lrwxrwxrwx 1 krubics krubics   49 Jul 25 23:19 resolving-merge-conflicts -> ../../../.agents/skills/resolving-merge-conflicts
+lrwxrwxrwx 1 krubics krubics   48 Jul 25 23:19 setup-matt-pocock-skills -> ../../../.agents/skills/setup-matt-pocock-skills
+lrwxrwxrwx 1 krubics krubics   27 Jul 25 23:19 tdd -> ../../../.agents/skills/tdd
+lrwxrwxrwx 1 krubics krubics   29 Jul 25 23:19 teach -> ../../../.agents/skills/teach
+lrwxrwxrwx 1 krubics krubics   31 Jul 25 23:19 to-spec -> ../../../.agents/skills/to-spec
+lrwxrwxrwx 1 krubics krubics   34 Jul 25 23:19 to-tickets -> ../../../.agents/skills/to-tickets
+lrwxrwxrwx 1 krubics krubics   30 Jul 25 23:19 triage -> ../../../.agents/skills/triage
+lrwxrwxrwx 1 krubics krubics   33 Jul 25 23:19 wayfinder -> ../../../.agents/skills/wayfinder
+lrwxrwxrwx 1 krubics krubics   44 Jul 25 23:19 writing-great-skills -> ../../../.agents/skills/writing-great-skills

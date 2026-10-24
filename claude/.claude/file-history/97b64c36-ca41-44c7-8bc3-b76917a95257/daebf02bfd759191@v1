@@ -1,0 +1,7 @@
+/* Allow terminal windows (Ghostty) to use their own background-opacity.
+   GTK4/libadwaita paints an opaque window background by default, which
+   blocks per-pixel alpha from the GL renderer. Setting it to transparent
+   here lets the compositor see the actual pixel alpha from the GL surface. */
+window.background.csd {
+  background-color: transparent;
+}

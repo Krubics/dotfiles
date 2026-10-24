@@ -1,0 +1,34 @@
+# Session: 2026-07-09
+**Date:** 2026-07-09
+**Started:** 11:10
+**Last Updated:** 11:10
+**Project:** hypr
+**Branch:** unknown
+**Worktree:** /home/krubics/.config/hypr
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- I want to be disable laptop screen when I have an external monitor connected
+- [Request interrupted by user for tool use]
+- Revert all your changes I want my config back
+
+### Files Modified
+- /home/krubics/.config/hypr/mp-probe.lua
+
+### Tools Used
+Bash, Read, Write
+
+### Stats
+- Total user messages: 3
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

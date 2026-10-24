@@ -1,0 +1,497 @@
+"""Moomoo / Futu adapter implementing `BrokerProtocol`.
+
+Talks to a locally-running FutuOpenD / MoomooOpenD gateway over two contexts:
+a US trading context (account / positions / orders) and a quote context (live
+option marks for exposure valuation). The `futu` SDK is synchronous, so every
+gateway call is run on a worker thread via `asyncio.to_thread` to avoid blocking
+the event loop. All Moomoo<->Only_Trades translation lives in `moomoo_codec`.
+
+Defaults to the SIMULATE trading environment so live orders are never placed by
+accident; REAL additionally requires `unlock_trade` (out of scope here).
+"""
+from __future__ import annotations
+
+import asyncio
+import logging
+import socket
+from datetime import datetime
+
+import futu as ft
+
+from ..order_policy import ProtectiveExit
+from .protocol import (
+    AccountSnapshot, BrokerPosition, OrderUpdate, OrderUpdateCallback, PlaceResult,
+)
+from . import moomoo_codec as codec
+
+log = logging.getLogger("only_trades.brokers.moomoo")
+
+# futu's console logger is extremely chatty at INFO (per-reconnect spam); keep warnings+.
+logging.getLogger("FTConsoleLog").setLevel(logging.WARNING)
+
+_TERMINAL = {"FILLED", "REJECTED", "CANCELLED"}  # Only_Trades status constants (terminal subset)
+_OPENED = {"FILLED", "PARTIALLY FILLED"}         # the entry has a position worth protecting
+
+
+class MoomooAdapter:
+    def __init__(
+        self,
+        host: str,
+        port: int,
+        trd_env: str = "simulate",
+        security_firm: str = "FUTUINC",
+        *,
+        connect_timeout: float = 10.0,
+        fill_timeout: float = 60.0,
+        poll_interval: float = 1.0,
+    ):
+        # Constructor stays connection-free; contexts are created in connect().
+        self.host = host
+        self.port = port
+        self.trd_env_str = trd_env
+        self.security_firm = security_firm
+        self.connect_timeout = connect_timeout
+        self.fill_timeout = fill_timeout
+        self.poll_interval = poll_interval
+        self._trd = None
+        self._quote = None
+        self._trd_env = ft.TrdEnv.SIMULATE if trd_env == "simulate" else ft.TrdEnv.REAL
+        self._snap = AccountSnapshot(0.0, 0.0, 0.0)
+        self._code_cache: dict[tuple, str] = {}  # contract key -> Moomoo's canonical code
+        self._on_update: OrderUpdateCallback | None = None
+        # order_id -> {ref, oca, last_status} for the lifetime watch + OCA emulation.
+        self._watched: dict[str, dict] = {}
+        self._watch_task: asyncio.Task | None = None
+
+    # ---- lifecycle -----------------------------------------------------
+    async def connect(self) -> None:
+        # Fail fast if the gateway port isn't open. Otherwise futu's context
+        # constructor retries the connection forever and connect() never returns.
+        await asyncio.to_thread(self._probe_gateway)
+
+        firm = getattr(ft.SecurityFirm, self.security_firm, ft.SecurityFirm.FUTUINC)
+
+        def _open_trade():
+            if hasattr(ft, "OpenSecTradeContext"):
+                return ft.OpenSecTradeContext(
+                    filter_trdmarket=ft.TrdMarket.US,
+                    host=self.host, port=self.port, security_firm=firm,
+                )
+            return ft.OpenUSTradeContext(host=self.host, port=self.port)  # legacy alias
+
+        # Backstop: even with the port open, bound context creation so a stalled
+        # handshake can't hang the whole bot.
+        self._trd = await asyncio.wait_for(
+            asyncio.to_thread(_open_trade), timeout=self.connect_timeout)
+        self._quote = await asyncio.wait_for(
+            asyncio.to_thread(ft.OpenQuoteContext, host=self.host, port=self.port),
+            timeout=self.connect_timeout)
+        await self._refresh_account()
+        log.info("Moomoo connected (%s) trd_env=%s", self.security_firm, self.trd_env_str)
+
+    def _probe_gateway(self) -> None:
+        """Raise immediately (ConnectionRefusedError) if OpenD isn't listening."""
+        with socket.create_connection((self.host, self.port), timeout=self.connect_timeout):
+            pass
+
+    def is_connected(self) -> bool:
+        return self._trd is not None and self._quote is not None
+
+    def register_order_update(self, callback: OrderUpdateCallback) -> None:
+        self._on_update = callback
+
+    def disconnect(self) -> None:
+        if self._watch_task is not None:
+            self._watch_task.cancel()
+            self._watch_task = None
+        for ctx in (self._trd, self._quote):
+            try:
+                if ctx is not None:
+                    ctx.close()
+            except Exception:  # noqa: BLE001 - best-effort teardown
+                pass
+        self._trd = self._quote = None
+
+    # ---- account -------------------------------------------------------
+    def account_snapshot(self) -> AccountSnapshot:
+        """Cached snapshot (refreshed on connect and after each placement) so this
+        stays non-blocking on the event loop."""
+        return self._snap
+
+    async def _refresh_account(self) -> None:
+        if self._trd is None:
+            return
+        ret, data = await asyncio.to_thread(self._trd.accinfo_query, trd_env=self._trd_env)
+        if ret == ft.RET_OK and not data.empty:
+            self._snap = codec.extract_account(data.iloc[0].to_dict())
+        else:
+            log.warning("accinfo_query failed: %s", data)
+
+    # ---- option-code resolution ---------------------------------------
+    @staticmethod
+    def _key(contract) -> tuple:
+        return (contract.symbol.upper(), contract.lastTradeDateOrContractMonth,
+                contract.right.upper()[:1], float(contract.strike))
+
+    @staticmethod
+    def _underlying_code(symbol: str) -> str:
+        return f"US.{symbol.upper()}"
+
+    @staticmethod
+    def _expiry_iso(yyyymmdd: str) -> str:
+        return f"{yyyymmdd[:4]}-{yyyymmdd[4:6]}-{yyyymmdd[6:8]}"
+
+    def _code_for(self, contract) -> str:
+        """Resolved canonical code if qualify() cached one, else the hand-built code."""
+        return self._code_cache.get(self._key(contract)) or codec.to_moomoo_code(
+            contract.symbol, contract.lastTradeDateOrContractMonth,
+            contract.right, float(contract.strike))
+
+    async def _resolve_code(self, contract) -> str | None:
+        """Authoritative: find the contract in Moomoo's option chain and return its
+        exact code, or None if that strike/expiry isn't a listed contract."""
+        opt_type = ft.OptionType.CALL if contract.right.upper().startswith("C") else ft.OptionType.PUT
+        expiry = self._expiry_iso(contract.lastTradeDateOrContractMonth)
+        ret, data = await asyncio.to_thread(
+            self._quote.get_option_chain, self._underlying_code(contract.symbol),
+            start=expiry, end=expiry, option_type=opt_type)
+        # Distinguish the three failure modes that all otherwise look like "not listed":
+        # API/permission error, empty chain, or chain returned but strike absent.
+        if ret != ft.RET_OK:
+            log.warning("get_option_chain(%s %s %s) error: ret=%s %s",
+                        self._underlying_code(contract.symbol), expiry, opt_type, ret, data)
+            return None
+        if data.empty:
+            log.warning("get_option_chain(%s %s %s) returned an empty chain",
+                        self._underlying_code(contract.symbol), expiry, opt_type)
+            return None
+        strike = float(contract.strike)
+        for row in data.to_dict("records"):
+            if abs(float(row["strike_price"]) - strike) < 1e-6:
+                return row["code"]
+        log.warning("strike %s not in %s %s chain (listed: %s)", strike,
+                    self._underlying_code(contract.symbol), expiry,
+                    sorted(float(r["strike_price"]) for r in data.to_dict("records")))
+        return None
+
+    # ---- market data ---------------------------------------------------
+    async def qualify(self, option):
+        """Resolve the contract against Moomoo's option chain (authoritative) and
+        cache its canonical code for mark()/place(). Returns None if not listed."""
+        key = self._key(option)
+        code = self._code_cache.get(key) or await self._resolve_code(option)
+        if code is None:
+            log.warning("qualify: %s %s %s %s not listed on Moomoo", option.symbol,
+                        option.lastTradeDateOrContractMonth, option.right, option.strike)
+            return None
+        self._code_cache[key] = code
+        option.conId = abs(hash(code)) % 1_000_000_000
+        return option
+
+    async def mark(self, contract) -> float | None:
+        code = self._code_for(contract)
+        ret, data = await asyncio.to_thread(self._quote.get_market_snapshot, [code])
+        if ret != ft.RET_OK or data.empty:
+            return None
+        return codec.extract_mark(data.iloc[0].to_dict())
+
+    # ---- chain discovery (used by check_moomoo; not part of BrokerProtocol) ----
+    async def option_expirations(self, symbol: str) -> list[str]:
+        """Listed option expiration dates (YYYY-MM-DD) for an underlying."""
+        ret, data = await asyncio.to_thread(
+            self._quote.get_option_expiration_date, self._underlying_code(symbol))
+        if ret != ft.RET_OK:
+            log.warning("get_option_expiration_date(%s) error: ret=%s %s",
+                        self._underlying_code(symbol), ret, data)
+            return []
+        if data.empty:
+            log.warning("get_option_expiration_date(%s) returned no expirations",
+                        self._underlying_code(symbol))
+            return []
+        return list(data["strike_time"])
+
+    async def list_chain(self, symbol: str, expiry_iso: str, right: str = "call") -> list[tuple]:
+        """Listed (strike, canonical_code) pairs for symbol+expiry+right, sorted by strike."""
+        opt_type = ft.OptionType.CALL if right.lower().startswith("c") else ft.OptionType.PUT
+        ret, data = await asyncio.to_thread(
+            self._quote.get_option_chain, self._underlying_code(symbol),
+            start=expiry_iso, end=expiry_iso, option_type=opt_type)
+        if ret != ft.RET_OK or data.empty:
+            return []
+        return sorted((float(r["strike_price"]), r["code"]) for r in data.to_dict("records"))
+
+    # ---- orders --------------------------------------------------------
+    async def place(
+        self,
+        contract,
+        *,
+        side: str,
+        qty: int,
+        order_ref: str,
+        order_type: str = "limit",
+        limit_price: float | None = None,
+        protective_exit: ProtectiveExit | None = None,
+        good_till: datetime | None = None,
+    ) -> PlaceResult:
+        code = self._code_for(contract)
+        mm_type = ft.OrderType.NORMAL if order_type == "limit" else ft.OrderType.MARKET
+        price = float(limit_price) if (order_type == "limit" and limit_price) else 0.0
+
+        order_id, err = await self._submit(code, side, qty, mm_type, price, order_ref)
+        if order_id is None:
+            return PlaceResult(
+                status="REJECTED", filled_qty=0.0, avg_fill_price=None,
+                broker_order_id=None, broker_perm_id=None, error=err,
+            )
+
+        # Track the entry so a later cancel/modify can reverse-look-up its broker id, and
+        # so the watch loop reconciles its lifetime (late fills/cancels) too. Empty oca:
+        # the entry is not part of the protective legs' one-cancels-other group, so its
+        # own fill must not cancel them.
+        self._track(order_id, order_ref, oca="")
+
+        # `good_till` is accepted for protocol conformance but not used here: futu has no
+        # native order expiry, so the entry-fill timeout is enforced by SafetySweeper off the
+        # persisted created_at (which also makes it survive a restart), not in this adapter.
+
+        # Defer the protective exits: futu has no native bracket, so rather than placing the
+        # stop/TP as live SELLs immediately (which would rest against a position we don't hold
+        # yet, and orphan if the entry never fills), stash the spec on the entry and arm it
+        # only once the entry actually opens — the watch loop does this on the fill transition
+        # (see _reconcile), mirroring a real bracket.
+        if protective_exit is not None and protective_exit.has_any:
+            self._watched[order_id]["protective"] = (code, side, qty, order_ref, protective_exit)
+        self._ensure_watch()                  # watch reconciles entry + legs for their lifetime
+        await self._refresh_account()         # balances moved; keep the cached snapshot fresh
+
+        # Non-blocking: the watch loop emits the fill (and protective-leg) transitions via
+        # the order-update callback, so return the immediate SUBMITTED state and let the
+        # serial executor move on.
+        return PlaceResult(
+            status="SUBMITTED", filled_qty=0.0, avg_fill_price=None,
+            broker_order_id=int(order_id) if order_id.isdigit() else None,
+            broker_perm_id=None,
+        )
+
+    async def _submit(
+        self, code: str, side: str, qty: int, mm_type, price: float,
+        order_ref: str, aux_price: float | None = None,
+        time_in_force: str = ft.TimeInForce.DAY,
+    ) -> tuple[str | None, str | None]:
+        """Place one order; return (order_id, None) or (None, error). `time_in_force`
+        defaults to DAY (futu's own default); protective legs pass GTC so they outlive
+        the session that opened the position, mirroring the IBKR bracket."""
+        trd_side = ft.TrdSide.BUY if side == "BUY" else ft.TrdSide.SELL
+        kwargs = dict(
+            price=price, qty=qty, code=code, trd_side=trd_side,
+            order_type=mm_type, trd_env=self._trd_env, remark=order_ref[:64],
+            time_in_force=time_in_force,
+        )
+        if aux_price is not None:
+            kwargs["aux_price"] = float(aux_price)
+        ret, data = await asyncio.to_thread(self._trd.place_order, **kwargs)
+        if ret != ft.RET_OK:
+            return None, str(data)
+        return str(data["order_id"][0]), None
+
+    async def _arm_protective(
+        self, code: str, entry_side: str, qty: int, order_ref: str, pe: ProtectiveExit,
+    ) -> None:
+        exit_side = "SELL" if entry_side == "BUY" else "BUY"
+        oca = f"oca_{order_ref}"
+        if pe.take_profit_price is not None:
+            oid, _ = await self._submit(
+                code, exit_side, qty, ft.OrderType.NORMAL, float(pe.take_profit_price),
+                pe.take_profit_ref, time_in_force=ft.TimeInForce.GTC)
+            self._track(oid, pe.take_profit_ref, oca)
+        if pe.stop_price is not None:
+            oid, _ = await self._submit(
+                code, exit_side, qty, ft.OrderType.STOP, 0.0, pe.stop_ref,
+                aux_price=pe.stop_price, time_in_force=ft.TimeInForce.GTC)
+            self._track(oid, pe.stop_ref, oca)
+        self._ensure_watch()
+
+    def _track(self, order_id: str | None, ref: str, oca: str) -> None:
+        if order_id is not None:
+            self._watched[order_id] = {
+                "ref": ref, "oca": oca, "last_status": None, "protective": None,
+            }
+
+    def _oid_for_ref(self, order_ref: str) -> str | None:
+        """Reverse a placement order_ref back to its Moomoo order id (for cancel/modify)."""
+        for oid, info in self._watched.items():
+            if info["ref"] == order_ref:
+                return oid
+        return None
+
+    async def cancel(self, order_ref: str) -> None:
+        oid = self._oid_for_ref(order_ref)
+        if oid is None:
+            return  # unknown -> no-op
+        await asyncio.to_thread(
+            self._trd.modify_order, ft.ModifyOrderOp.CANCEL, oid, 0, 0,
+            trd_env=self._trd_env)
+
+    async def modify(self, order_ref: str, *, qty: int) -> None:
+        oid = self._oid_for_ref(order_ref)
+        if oid is None:
+            return
+        if qty <= 0:
+            await self.cancel(order_ref)
+            return
+        # NORMAL modify changes qty; price=0 keeps the existing price on the order.
+        await asyncio.to_thread(
+            self._trd.modify_order, ft.ModifyOrderOp.NORMAL, oid, qty, 0,
+            trd_env=self._trd_env)
+
+    async def working_qty(self, order_ref: str) -> int:
+        """Live read of the ref's unfilled quantity straight from the gateway (not the
+        in-memory watch state), so the executor can confirm a cancel/reduce actually
+        landed. 0 for an unknown or terminal order."""
+        if self._trd is None:
+            return 0
+        ret, data = await asyncio.to_thread(
+            self._trd.order_list_query, trd_env=self._trd_env)
+        if ret != ft.RET_OK or data.empty:
+            return 0
+        for row in data.to_dict("records"):
+            if (row.get("remark") or "") != order_ref:
+                continue
+            if codec.map_order_status(row.get("order_status")) in _TERMINAL:
+                return 0
+            return max(0, int(round(float(row.get("qty") or 0)
+                                    - float(row.get("dealt_qty") or 0))))
+        return 0  # not found at the broker -> nothing working
+
+    def _ensure_watch(self) -> None:
+        if self._watch_task is None or self._watch_task.done():
+            self._watch_task = asyncio.ensure_future(self._watch())
+
+    async def _watch(self) -> None:
+        """Lifetime reconciliation for protective legs: poll order state, emit a neutral
+        OrderUpdate on each status transition, and emulate one-cancels-other — when a leg
+        fills, cancel the other legs in its OCA group. Runs until all legs are terminal."""
+        while self._watched and self._trd is not None:
+            ret, data = await asyncio.to_thread(
+                self._trd.order_list_query, trd_env=self._trd_env)
+            if ret == ft.RET_OK and not data.empty:
+                rows = {str(r["order_id"]): r for r in data.to_dict("records")}
+                for oid in list(self._watched):
+                    row = rows.get(oid)
+                    if row is not None:
+                        await self._reconcile(oid, row)
+            if not self._watched:
+                break
+            await asyncio.sleep(self.poll_interval)
+        self._watch_task = None
+
+    async def _reconcile(self, order_id: str, row: dict) -> None:
+        info = self._watched[order_id]
+        status = codec.map_order_status(row.get("order_status"))
+        if status != info["last_status"]:
+            info["last_status"] = status
+            await self._emit(OrderUpdate(
+                order_ref=info["ref"], status=status,
+                filled_qty=float(row.get("dealt_qty") or 0),
+                avg_fill_price=float(row["dealt_avg_price"]) if row.get("dealt_avg_price") else None,
+                broker_order_id=int(order_id) if order_id.isdigit() else None,
+            ))
+        # The entry just opened a position: arm its deferred protective legs once (mirrors a
+        # bracket's children activating on the parent's fill). An entry that instead goes
+        # terminal without opening is simply popped below — its legs are never armed.
+        if info.get("protective") is not None and status in _OPENED:
+            pending, info["protective"] = info["protective"], None
+            await self._arm_protective(*pending)
+        if status == "FILLED":
+            await self._cancel_oca_siblings(order_id, info["oca"])
+        if status in _TERMINAL:
+            self._watched.pop(order_id, None)
+
+    async def _cancel_oca_siblings(self, filled_id: str, oca: str) -> None:
+        for oid, info in list(self._watched.items()):
+            if oid != filled_id and info["oca"] == oca:
+                await asyncio.to_thread(
+                    self._trd.modify_order, ft.ModifyOrderOp.CANCEL, oid, 0, 0,
+                    trd_env=self._trd_env)
+
+    async def _emit(self, update: OrderUpdate) -> None:
+        if self._on_update is None:
+            return
+        try:
+            await self._on_update(update)
+        except Exception:  # noqa: BLE001 - a bad callback must not kill the watch loop
+            log.exception("order-update callback failed for %s", update.order_ref)
+
+    async def _poll_until_done(self, order_id: str) -> PlaceResult:
+        loop = asyncio.get_running_loop()
+        deadline = loop.time() + self.fill_timeout
+        mapped, filled, avg = "SUBMITTED", 0.0, None
+
+        while True:
+            ret, data = await asyncio.to_thread(
+                self._trd.order_list_query, order_id=order_id, trd_env=self._trd_env,
+            )
+            if ret == ft.RET_OK and not data.empty:
+                row = data.iloc[0].to_dict()
+                mapped = codec.map_order_status(row.get("order_status"))
+                filled = float(row.get("dealt_qty") or 0)
+                avg = float(row["dealt_avg_price"]) if row.get("dealt_avg_price") else None
+                if mapped in _TERMINAL:
+                    break
+            if loop.time() >= deadline:
+                break
+            await asyncio.sleep(self.poll_interval)
+
+        try:
+            broker_order_id = int(order_id)
+        except (TypeError, ValueError):
+            broker_order_id = None
+        return PlaceResult(
+            status=mapped, filled_qty=filled,
+            avg_fill_price=avg if filled > 0 else None,
+            broker_order_id=broker_order_id, broker_perm_id=None,
+        )
+
+    async def resync(self) -> None:
+        """Replay current order states through the callback on (re)connect. Re-tracks any
+        non-terminal order so the watch loop resumes reconciling it, and emits an update
+        for each so late fills/cancels that happened while we were down land in the books."""
+        if self._on_update is None or self._trd is None:
+            return
+        ret, data = await asyncio.to_thread(self._trd.order_list_query, trd_env=self._trd_env)
+        if ret != ft.RET_OK or data.empty:
+            return
+        for row in data.to_dict("records"):
+            ref = row.get("remark") or ""
+            if ":" not in ref:
+                continue  # not one of ours
+            oid = str(row.get("order_id"))
+            status = codec.map_order_status(row.get("order_status"))
+            if status not in _TERMINAL:
+                self._track(oid, ref, oca="")
+            await self._emit(OrderUpdate(
+                order_ref=ref, status=status,
+                filled_qty=float(row.get("dealt_qty") or 0),
+                avg_fill_price=float(row["dealt_avg_price"]) if row.get("dealt_avg_price") else None,
+                broker_order_id=int(oid) if oid.isdigit() else None,
+            ))
+        self._ensure_watch()
+
+    async def positions(self) -> list[BrokerPosition]:
+        # Moomoo positions key off its own `code`; we have no reverse code→OCC mapping, so
+        # occ_symbol is left None (drift detection skips unmatchable contracts for Moomoo).
+        ret, data = await asyncio.to_thread(self._trd.position_list_query, trd_env=self._trd_env)
+        if ret != ft.RET_OK or data.empty:
+            return []
+        return [
+            BrokerPosition(occ_symbol=None, qty=float(r.get("qty") or 0), con_id=None)
+            for r in data.to_dict("records")
+        ]
+
+    async def executions(self) -> list:
+        ret, data = await asyncio.to_thread(
+            self._trd.order_list_query,
+            status_filter_list=[ft.OrderStatus.FILLED_ALL, ft.OrderStatus.FILLED_PART],
+            trd_env=self._trd_env,
+        )
+        return data.to_dict("records") if ret == ft.RET_OK and not data.empty else []

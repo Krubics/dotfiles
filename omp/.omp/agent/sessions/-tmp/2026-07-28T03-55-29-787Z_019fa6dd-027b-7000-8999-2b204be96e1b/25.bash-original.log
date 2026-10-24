@@ -1,0 +1,29 @@
+  fix/static-image-transition-recursion b32002e Fix transitions on static images spinning to completion in one frame
+* gnhf/build-me-simple-pyth-891796      b32002e Fix transitions on static images spinning to completion in one frame
+  list                                  b32002e Fix transitions on static images spinning to completion in one frame
+  main                                  ef3d2f7 [origin/main] fix absolute path issues for static images
+  remotes/origin/HEAD                   -> origin/main
+  remotes/origin/asyncIpc               30259a8 fix some stuff
+  remotes/origin/cuda                   7c5be49 fix include guard for cuda funcs
+  remotes/origin/gl-trans               34c54d5 add transition ipc
+  remotes/origin/main                   ef3d2f7 fix absolute path issues for static images
+  remotes/origin/play-with-cuda         663639c test out cuda copy
+  remotes/origin/rewrite                9321399 small ffmpeg improvment
+--- log all
+b32002e Fix transitions on static images spinning to completion in one frame
+a7c5da5 WIP on fix/static-image-transition-recursion: ef3d2f7 fix absolute path issues for static images
+38b4ba1 index on fix/static-image-transition-recursion: ef3d2f7 fix absolute path issues for static images
+ef3d2f7 fix absolute path issues for static images
+2084ead remove ease in
+0f6f241 fix null deref
+6abab4a add simple ease function for transition
+77c1575 fix typo
+--- stash
+stash@{0}: WIP on fix/static-image-transition-recursion: ef3d2f7 fix absolute path issues for static images
+--- installed vs release build id
+  GNU                  0x00000014	NT_GNU_BUILD_ID (unique build ID bitstring)
+    Build ID: 1fa5868a6c3e0bc8d0790eb54c7c2855d975894c
+
+  GNU                  0x00000014	NT_GNU_BUILD_ID (unique build ID bitstring)
+    Build ID: d1e4853ef54cfe65c96c2a187df99150629bc4db
+

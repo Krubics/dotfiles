@@ -1,0 +1,12 @@
+[Settings]
+gtk-theme-name=adw-gtk3-dark
+gtk-application-prefer-dark-theme=1
+gtk-cursor-theme-name=Pokemon
+gtk-cursor-theme-size=32
+gtk-decoration-layout=icon:minimize,maximize,close
+gtk-enable-animations=true
+gtk-font-name=JetBrainsMono Nerd Font,  10
+gtk-icon-theme-name=Papirus
+gtk-modules=colorreload-gtk-module:window-decorations-gtk-module
+gtk-primary-button-warps-slider=false
+gtk-xft-dpi=98304

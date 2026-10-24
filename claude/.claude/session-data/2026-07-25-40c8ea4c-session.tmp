@@ -1,0 +1,28 @@
+# Session: 2026-07-25
+**Date:** 2026-07-25
+**Started:** 00:20
+**Last Updated:** 00:20
+**Project:** krubics
+**Branch:** unknown
+**Worktree:** /home/krubics
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation.  I need to decline this request. This prompt is 
+- Human: <transcript> {"user":"Where are my GTK4.0 theme files?"} {"Bash":"find /home/krubics/.config/gtk-4.0 /home/krubics/.local/share/themes /usr/share/themes -maxdepth 3 -name \"gtk.css\" -o -name \
+- Human: <transcript> {"user":"Where are my GTK4.0 theme files?"} {"Bash":"find /home/krubics/.config/gtk-4.0 /home/krubics/.local/share/themes /usr/share/themes -maxdepth 3 -name \"gtk.css\" -o -name \
+
+### Stats
+- Total user messages: 3
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

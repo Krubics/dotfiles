@@ -22,6 +22,7 @@ window-theme = dark
 window-width = 110
 
 theme=matugen
+custom-shader = shaders/cursor_tail.glsl
 
 # new_split/close_surface/goto_split/toggle_maximize intentionally dropped -
 # all superseded by herdr's own pane split/close/focus/zoom.

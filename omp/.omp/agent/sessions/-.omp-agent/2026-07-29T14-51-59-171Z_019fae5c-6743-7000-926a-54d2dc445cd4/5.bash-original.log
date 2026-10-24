@@ -1,0 +1,52 @@
+=== omp agents ===
+total 8
+drwxrwxr-x 2 krubics krubics 4096 Jul 29 21:57 .
+drwxrwxr-x 5 krubics krubics 4096 Jul 29 21:58 ..
+=== omp hooks ===
+total 8
+drwxrwxr-x 2 krubics krubics 4096 Jul 29 21:58 .
+drwxrwxr-x 5 krubics krubics 4096 Jul 29 21:58 ..
+=== omp commands ===
+total 8
+drwxrwxr-x 2 krubics krubics 4096 Jul 29 21:57 .
+drwxrwxr-x 5 krubics krubics 4096 Jul 29 21:58 ..
+=== ~/.omp/agent ===
+total 13004
+drwx------  8 krubics krubics    4096 Jul 29 22:50 .
+drwxrwxr-x  8 krubics krubics    4096 Jul 29 11:23 ..
+lrwxrwxrwx  1 krubics krubics      39 Jul 29 21:37 AGENTS.md -> /home/krubics/.agents/context/AGENTS.md
+lrwxrwxrwx  1 krubics krubics      34 Jul 29 21:58 RULES.md -> /home/krubics/.agents/omp/RULES.md
+-rw-------  1 krubics krubics  221184 Jul 29 11:37 agent.db
+-rw-------  1 krubics krubics   32768 Jul 29 23:01 agent.db-shm
+-rw-------  1 krubics krubics 4132392 Jul 29 23:01 agent.db-wal
+lrwxrwxrwx  1 krubics krubics      32 Jul 29 21:58 agents -> /home/krubics/.agents/omp/agents
+drwxrwxr-x  2 krubics krubics   12288 Jul 28 11:45 blobs
+lrwxrwxrwx  1 krubics krubics      34 Jul 29 21:58 commands -> /home/krubics/.agents/omp/commands
+lrwxrwxrwx  1 krubics krubics      36 Jul 29 22:01 config.yml -> /home/krubics/.agents/omp/config.yml
+drwxrwxr-x  2 krubics krubics    4096 Jul 29 10:45 extensions
+-rw-r--r--  1 krubics krubics  192512 Jul 29 22:51 history.db
+-rw-r--r--  1 krubics krubics   32768 Jul 29 23:01 history.db-shm
+-rw-r--r--  1 krubics krubics 4177712 Jul 29 23:01 history.db-wal
+lrwxrwxrwx  1 krubics krubics      31 Jul 29 21:58 hooks -> /home/krubics/.agents/omp/hooks
+-rw-rw-r--  1 krubics krubics       6 Jul 26 15:32 last-changelog-version
+-rw-r--r--  1 krubics krubics  286720 Jul 29 22:07 models.db
+-rw-r--r--  1 krubics krubics   32768 Jul 29 23:01 models.db-shm
+-rw-r--r--  1 krubics krubics 4136512 Jul 29 23:01 models.db-wal
+-rw-rw-r--  1 krubics krubics     117 Jul 28 13:18 models.yml
+drwxrwxr-x  2 krubics krubics   12288 Jul 29 22:15 nigga
+drwxrwxr-x 20 krubics krubics    4096 Jul 29 22:40 sessions
+drwxrwxr-x  2 krubics krubics    4096 Jul 29 23:01 terminal-sessions
+drwxrwxr-x  2 krubics krubics    4096 Jul 26 14:35 themes
+=== ~/.omp/extensions ===
+=== ~/.omp top ===
+total 40
+drwxrwxr-x   8 krubics krubics 4096 Jul 29 11:23 .
+drwxr-x--- 103 krubics krubics 4096 Jul 29 23:01 ..
+drwx------   8 krubics krubics 4096 Jul 29 22:50 agent
+-rw-rw-r--   1 krubics krubics  114 Jul 19 23:39 gpu_cache.json
+-rw-------   1 krubics krubics   37 Jul 19 23:43 install-id
+drwxrwxr-x   2 krubics krubics 4096 Jul 29 23:01 logs
+drwxrwxr-x   3 krubics krubics 4096 Jul 26 15:32 natives
+drwxrwxr-x   3 krubics krubics 4096 Jul 26 15:32 plugins
+drwxrwxr-x   2 krubics krubics 4096 Jul 29 11:23 puppeteer
+drwx------   3 krubics krubics 4096 Jul 19 23:39 run

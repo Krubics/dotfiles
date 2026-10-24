@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+# Run fastfetch with a pokeget sprite as the logo, vertically centered
+# alongside the system info column.
+set -euo pipefail
+
+# --- Favourites -------------------------------------------------------
+# Each entry is anything pokeget itself accepts: a name, "random", a
+# region, plus any flags (-s, -m, --shiny, --gmax, etc). When pokefetch
+# is called with no arguments, one entry is picked at random. Passing
+# your own arguments (e.g. `pokefetch bulbasaur -s`) always overrides
+# this list.
+FAVORITES=(
+)
+# ------------------------------------------------------------------------
+
+FASTFETCH_CONFIG="${POKEFETCH_CONFIG:-$HOME/.config/fastfetch/normal.jsonc}"
+
+sprite="$(mktemp)"
+trap 'rm -f "$sprite"' EXIT
+
+if [[ $# -eq 0 && ${#FAVORITES[@]} -gt 0 ]]; then
+    chosen="${FAVORITES[RANDOM % ${#FAVORITES[@]}]}"
+    read -r -a args <<< "$chosen"
+else
+    args=("$@")
+fi
+
+pokeget --hide-name "${args[@]}" > "$sprite"
+
+sprite_lines=$(wc -l < "$sprite")
+info_lines=$(fastfetch -c "$FASTFETCH_CONFIG" --logo none | wc -l)
+
+pad=$(( (info_lines - sprite_lines) / 2 ))
+if (( pad < 0 )); then
+    pad=0
+fi
+
+fastfetch -c "$FASTFETCH_CONFIG" \
+    --logo-type file-raw \
+    --logo "$sprite" \
+    --logo-padding-top "$pad"

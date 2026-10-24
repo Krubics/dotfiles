@@ -1,0 +1,2 @@
+Environment=GI_TYPELIB_PATH=/usr/local/lib/x86_64-linux-gnu/girepository-1.0
+Environment=LD_LIBRARY_PATH=/usr/local/lib/x86_64-linux-gnu

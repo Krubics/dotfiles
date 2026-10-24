@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 5
+    },
+    "auditLog": "/home/krubics/.omp/logs/.omp.10938-audit.json",
+    "files": [
+        {
+            "date": 1792494117735,
+            "name": "/home/krubics/.omp/logs/omp.2026-10-20.10938.log",
+            "hash": "b5edd07fec91558686bae1c40e8cbb7f65b5bb6a0b721d72ebcb3fac163dc8d6"
+        }
+    ],
+    "hashType": "sha256"
+}

@@ -1,0 +1,43 @@
+# Session: 2026-07-24
+**Date:** 2026-07-24
+**Started:** 13:48
+**Last Updated:** 14:20
+**Project:** krubics
+**Branch:** unknown
+**Worktree:** /home/krubics
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Assistant: \`mic_osd_enabled\` controls both OSD and notifications — they're the same setting, it just picks which to show based on whether layer-shell is available. Since you have the OSD working, you 
+- Assistant: That sounds like two separate issues — the error on start is zero-volume detection on the wrong mic device, and "recording" on stop is the \`notify_capture\` showing the OSD/notification text
+- Assistant: The config looks correct. The \`[RECOVERY]\` on every recording and "No transcription generated" together point to the internal mic audio level being too quiet for faster-whisper's VAD filter
+- Human: What did you do? Now my transcriptions are all fucked
+- Assistant: Two changes could cause bad transcriptions — disabling VAD lets faster-whisper hallucinate on silence/noise, and the Digital capture boost to +30dB may be clipping the audio. Let me check t
+- Assistant: Still waiting on what "fucked" looks like — what is it actually outputting vs what you said?  Human: Bruh I still get the same issue the notification keep on saying there's an error when I 
+- Assistant: Is it every recording, or just the first one after you start up? From the logs, the first recording always fails (model is still loading at that point), but after that they work. If it's ev
+- Assistant: Is it every recording, or just the first one after you start up? From the logs, the first recording always fails (model is still loading at that point), but after that they work. If it's ev
+- Assistant: It's a false-positive from hyprwhspr's hotplug monitor — when recording starts on the internal mic, PipeWire briefly fires a source-change event that the monitor misreads as a disconnect. T
+- Assistant: Does the text actually get typed out after the error, or does the recording fail completely?  Human: [SUGGESTION MODE: Suggest what the user might naturally type next into Claude Code.]  FI
+
+### Files Modified
+- /home/krubics/.config/hypr/hyprland.lua
+- /home/krubics/.config/hyprwhspr/config.json
+- /home/krubics/.config/systemd/user/hyprwhspr.service.d/override.conf
+
+### Tools Used
+Bash, Read, Edit
+
+### Stats
+- Total user messages: 19
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

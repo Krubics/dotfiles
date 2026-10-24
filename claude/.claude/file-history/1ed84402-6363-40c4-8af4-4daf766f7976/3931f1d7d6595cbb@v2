@@ -1,0 +1,801 @@
+"""Orchestration: consume signals one at a time and turn each into a risk-checked,
+sized, attributed IBKR order — recording it and emitting notifications.
+
+The executor depends only on duck-typed `ib` (account_snapshot/qualify/mark/place)
+and `notifier` surfaces, so it is unit-tested against fakes without a broker.
+"""
+from __future__ import annotations
+
+import asyncio
+import logging
+import math
+import time
+import types
+from dataclasses import dataclass, replace
+from datetime import date, datetime, timedelta, timezone
+
+import aiosqlite
+
+from . import order_policy
+from . import orders as ostore
+from . import risk
+from .cash_basis import CashBasisTracker
+from .config import Config, Trader
+from .options import build_option, occ_symbol, option_for_trade
+from .order_policy import ProtectiveExit
+from .signals import SCALE_DOWN, SCALE_UP, InboundMessage, ParsedTrade, Signal
+from .sizing import MULTIPLIER, size_order
+
+log = logging.getLogger("only_trades.executor")
+
+
+@dataclass
+class Hold:
+    """A low-confidence trade parked awaiting the owner's ✅/❌ in Discord. Keyed in
+    the executor by the posted prompt's message id."""
+    signal: Signal
+    confidence: float
+    place_answer_id: int | None = None   # poll answer id for "Place" (None if reactions)
+
+
+def _invalid_reason(trade: ParsedTrade) -> str | None:
+    """Hard-coded validity (the LLM does not judge this). A BUY needs a full, sane
+    contract; a SELL/TRIM needs only a ticker — the executor resolves the rest from
+    the trader's open positions. Returns a reason string if invalid, else None."""
+    if not trade.ticker:
+        return "missing ticker"
+    if trade.action == "buy":
+        if (trade.expiry is None or not trade.strike or trade.strike <= 0
+                or trade.option_type not in ("call", "put")
+                or not trade.premium or trade.premium <= 0):
+            return "incomplete contract (need expiry, strike, call/put, premium)"
+    return None
+
+
+def _blank_contract(row: dict) -> dict:
+    """A merged-exit contract seeded from a position or standing-order row (which share
+    the ticker/option_type/strike/expiry/occ_symbol fields). Holds the filled `position`
+    (or None) and the list of `standing` working entry orders for that contract."""
+    return {
+        "occ_symbol": row["occ_symbol"], "ticker": row["ticker"],
+        "option_type": row["option_type"], "strike": row["strike"],
+        "expiry": row["expiry"], "position": None, "standing": [],
+    }
+
+
+def _select_exit_contracts(contracts: list[dict], trade: ParsedTrade) -> list[dict]:
+    """Which contracts a SELL/TRIM acts on, contract-precisely. Each contract carries a
+    filled `position` (or None) and a list of `standing` working orders. Ambiguous
+    (ticker only) → every matching contract in that ticker; specified → the single
+    nearest match (same option_type, then nearest strike, then nearest expiry)."""
+    ticker = (trade.ticker or "").upper()
+    same = [c for c in contracts if str(c["ticker"]).upper() == ticker]
+    if not same:
+        return []
+    specified = (trade.strike is not None or trade.expiry is not None
+                 or trade.option_type is not None)
+    if not specified:
+        return same  # ambiguous → all contracts in this ticker
+
+    def distance(c: dict) -> float:
+        d = 0.0
+        if trade.option_type is not None:
+            d += 0.0 if str(c["option_type"]).lower() == trade.option_type else 1e6
+        if trade.strike is not None:
+            d += abs(float(c["strike"]) - float(trade.strike))
+        if trade.expiry is not None:
+            try:
+                d += abs((date.fromisoformat(c["expiry"]) - trade.expiry).days) / 365.0
+            except ValueError:
+                pass
+        return d
+
+    return [min(same, key=distance)]
+
+
+class Executor:
+    def __init__(
+        self,
+        conn: aiosqlite.Connection,
+        config: Config,
+        ib,
+        notifier=None,
+        cash: CashBasisTracker | None = None,
+        interpret=None,
+    ):
+        self.conn = conn
+        self.config = config
+        self.ib = ib
+        self.notifier = notifier
+        self.cash = cash or CashBasisTracker()
+        # LLM message interpreter (injectable for tests). Resolved lazily on first
+        # use so paths that never interpret (and tests that inject a fake) don't
+        # import litellm.
+        self._interpret = interpret
+        # Pending approvals: posted prompt message id -> Hold.
+        self._holds: dict[int, Hold] = {}
+
+    # ---- consumer loop -------------------------------------------------
+    async def run(self, queue: "asyncio.Queue[InboundMessage]") -> None:
+        while True:
+            msg = await queue.get()
+            try:
+                await self.process_message(msg)
+            except Exception:  # noqa: BLE001 - never let one bad message kill the loop
+                log.exception("Failed to process message from %s", getattr(msg, "trader_id", "?"))
+            finally:
+                queue.task_done()
+
+    # ---- LLM interpretation + gating -----------------------------------
+    async def process_message(self, msg: InboundMessage) -> None:
+        """Interpret a raw message with the LLM, then the *hard-coded* system decides:
+        chatter → skip; invalid option or LLM error → notify only; valid + confident →
+        AUTONOMOUS trade; valid + low-confidence → HELD for the owner's approval."""
+        trader = self.config.traders.get(msg.trader_id)
+        if trader is None:
+            log.warning("No trader config for %s; dropping message", msg.trader_id)
+            return
+
+        # Dedupe before paying for the LLM (and before double-acting).
+        if await ostore.message_seen(self.conn, msg.message_id):
+            log.info("Duplicate message %s; skipping", msg.message_id)
+            return
+
+        if self._interpret is None:
+            from .llm_parser import interpret as interpret
+            self._interpret = interpret
+
+        interp = await self._interpret(
+            content=msg.content,
+            trader_notes=trader.notes,
+            today=date.today(),
+            model=self.config.llm.model,
+            timeout=self.config.llm.timeout,
+            retry_attempts=self.config.llm.retry_attempts,
+        )
+
+        # Log the LLM's reading of EVERY message (at INFO) so one that interprets but
+        # produces no notification — chatter, or an error — is still visible in the logs.
+        log.info(
+            "LLM read message %s: action=%s ticker=%s conf=%.2f%s reason=%r",
+            msg.message_id,
+            interp.trade.action if interp.trade else "none",
+            interp.trade.ticker if interp.trade else None,
+            interp.confidence,
+            f" error={interp.error}" if interp.error else "",
+            interp.reasoning,
+        )
+
+        if interp.error:
+            log.warning("LLM error on message %s: %s", msg.message_id, interp.error)
+            await self._notify_error(msg, f"LLM error: {interp.error}")
+            return
+        if interp.trade is None:
+            log.debug("No actionable trade in message %s: %s", msg.message_id, interp.reasoning)
+            return  # chatter — skip silently
+
+        # Hard-coded validity check (the LLM does not judge this).
+        reason = _invalid_reason(interp.trade)
+        if reason:
+            await self._notify_error(msg, f"invalid {interp.trade.action}: {reason}")
+            return
+
+        signal = self._signal_from(msg, interp.trade)
+        log.info("Signal: %s %s conf=%.2f scale=%s (message %s)",
+                 signal.trader_id, signal.trade.action, interp.confidence,
+                 signal.trade.scale, msg.message_id)
+        if interp.confidence < self.config.llm.min_confidence:
+            await self._hold(signal, interp.confidence, interp.reasoning)   # HELD
+            return
+        await self.process_signal(signal)                                   # AUTONOMOUS
+
+    def _signal_from(self, msg: InboundMessage, trade) -> Signal:
+        return Signal(
+            trader_id=msg.trader_id, parser="llm", trade=trade,
+            message_id=msg.message_id, channel_id=msg.channel_id, guild_id=msg.guild_id,
+            author=msg.author, raw_content=msg.content, ts=msg.ts,
+        )
+
+    # ---- hold / approve / reject ---------------------------------------
+    async def _hold(self, signal: Signal, confidence: float, reasoning: str) -> None:
+        mid, place_id = await self._notify_hold(signal, confidence, reasoning)
+        if mid is None:
+            log.warning("Could not post hold prompt for message %s; not trading", signal.message_id)
+            return
+        self._holds[mid] = Hold(signal=signal, confidence=confidence, place_answer_id=place_id)
+        log.info("Held for approval (prompt %s): %s %s",
+                 mid, signal.trader_id, signal.trade.action)
+
+    def held_message(self, message_id: int) -> Hold | None:
+        """Lookup used by the listener to recognise approval votes/reactions."""
+        return self._holds.get(message_id)
+
+    async def approve(self, message_id: int) -> None:
+        hold = self._holds.pop(message_id, None)
+        if hold is None:
+            return
+        log.info("Approved held order (prompt %s): %s %s",
+                 message_id, hold.signal.trader_id, hold.signal.trade.action)
+        await self.process_signal(hold.signal)
+
+    async def reject(self, message_id: int) -> None:
+        hold = self._holds.pop(message_id, None)
+        if hold is None:
+            return
+        log.info("Discarded held order (prompt %s): %s %s",
+                 message_id, hold.signal.trader_id, hold.signal.trade.action)
+
+    # ---- single signal -------------------------------------------------
+    async def process_signal(self, signal: Signal) -> None:
+        trader = self.config.traders.get(signal.trader_id)
+        if trader is None:
+            log.warning("No trader config for %s; dropping signal", signal.trader_id)
+            return
+
+        if await ostore.message_seen(self.conn, signal.message_id):
+            log.info("Duplicate message %s; skipping", signal.message_id)
+            return
+
+        if signal.trade.is_entry:
+            await self._handle_buy(signal, trader)
+        else:
+            await self._handle_exit(signal, trader)
+
+    def _scale_factor(self, scale: str) -> float:
+        p = self.config.policy
+        if scale == SCALE_UP:
+            return p.scale_up
+        if scale == SCALE_DOWN:
+            return p.scale_down
+        return 1.0
+
+    # ---- buy -----------------------------------------------------------
+    async def _handle_buy(self, signal: Signal, trader: Trader) -> None:
+        occ = occ_symbol(
+            signal.trade.ticker, signal.trade.expiry,
+            signal.trade.option_type, signal.trade.strike,
+        )
+        acct = self.ib.account_snapshot()
+        self.cash.update(acct.total_cash)
+        reference_cash = self.cash.reference_cash or acct.total_cash
+
+        current_exposure = await self._trader_exposure(trader.id)
+        # Count *committed* contracts (filled positions AND resting unfilled entry BUYs),
+        # so buys that pile up before they fill consume a max-open-trades slot and reserve
+        # exposure headroom — otherwise repeated buys each size against an empty book.
+        committed = await ostore.committed_contract_occs(self.conn, trader.id)
+        already_open = occ in committed
+        open_count = len(committed)
+
+        option = option_for_trade(signal.trade)
+        qualified = await self.ib.qualify(option)
+        if qualified is None:
+            await self._notify_skip(signal, "qualify_failed")
+            return
+
+        # A priced buy sizes (and limits) off the stated premium; a price-less buy
+        # places at market, so size it off the live mark instead.
+        sizing_premium = signal.trade.premium
+        if sizing_premium is None:
+            sizing_premium = await self.ib.mark(qualified)
+            if not sizing_premium:
+                await self._notify_skip(signal, "no_mark")
+                return
+
+        sizing = size_order(
+            allocation=trader.allocation,
+            max_open_trades=trader.max_open_trades,
+            reference_cash=reference_cash,
+            net_liquidation=acct.net_liquidation,
+            current_exposure=current_exposure,
+            available_funds=acct.available_funds,
+            premium=sizing_premium,
+            capital_fraction=self.config.policy.capital_fraction,
+        )
+        decision = risk.decide_buy(
+            dedupe_hit=False,
+            already_open_contract=already_open,
+            open_count=open_count,
+            max_open_trades=trader.max_open_trades,
+            sizing=sizing,
+            scale_factor=self._scale_factor(signal.trade.scale),
+        )
+        if not decision.place:
+            await self._notify_skip(signal, decision.reason)
+            return
+
+        limit_price = (
+            self._entry_limit(signal.trade.premium)
+            if signal.trade.premium is not None else None
+        )
+        # Stop loss / take profit are sized off the entry premium (`sizing_premium` is the
+        # stated premium, or the live mark for a market entry) — the realized fill isn't
+        # known until later, and protective legs must be submitted with the parent.
+        protective = order_policy.protective_exit(sizing_premium, self.config.policy, trader)
+        # A resting entry BUY auto-cancels after this many seconds if unfilled (realised
+        # broker-natively as a GTD order); the cancel — and settling its protective legs —
+        # then flows back through on_order_update, just like any other cancel.
+        timeout = order_policy.effective_entry_timeout(self.config.policy, trader)
+        good_till = (
+            datetime.now(timezone.utc) + timedelta(seconds=timeout)
+            if timeout is not None else None
+        )
+        await self._place_and_record(
+            signal, occ, "BUY", decision.qty, qualified, limit_price,
+            protective=protective, good_till=good_till,
+        )
+
+    # ---- sell / trim ---------------------------------------------------
+    async def _handle_exit(self, signal: Signal, trader: Trader) -> None:
+        """Resolve a SELL/TRIM against the trader's OWN holdings and act on each. A target
+        contract may be a *filled position*, a still-*standing* entry BUY (PENDING/SUBMITTED,
+        or a partial fill's working remainder), or both. The filled part is sold/trimmed as
+        an order; the standing part is cancelled (SELL) or reduced in place (TRIM). A
+        *specified* exit hits the nearest matching contract; an *ambiguous* exit (ticker
+        only) hits every matching contract in that ticker."""
+        positions = await ostore.open_positions(self.conn, trader.id)
+        standing = await ostore.standing_buy_orders(self.conn, trader.id)
+
+        # Merge both sources into one entry per contract (keyed by occ_symbol). A partial
+        # fill appears in both — its filled part as a position, its remainder as standing.
+        by_occ: dict[str, dict] = {}
+        for p in positions:
+            if p["net_qty"] > 0:
+                by_occ.setdefault(p["occ_symbol"], _blank_contract(p))["position"] = p
+        for s in standing:
+            by_occ.setdefault(s["occ_symbol"], _blank_contract(s))["standing"].append(s)
+
+        targets = _select_exit_contracts(list(by_occ.values()), signal.trade)
+        if not targets:
+            await self._notify_skip(signal, "no_position")
+            return
+
+        scale_factor = self._scale_factor(signal.trade.scale)
+        exit_price = signal.trade.premium  # what the trader stated, if anything
+        acted = 0
+        for c in targets:
+            pos = c["position"]
+            # The net this contract will still hold once the exit is done — protective legs
+            # get resized to exactly this. Standing (unfilled) entries have no live broker
+            # leg, so their part is pure bookkeeping; the position part is what a resting
+            # stop/TP reserves and must be freed before the SELL.
+            intended_standing_left = sum(
+                self._planned_standing_left(signal, s) for s in c["standing"])
+            sold = 0
+            if pos is not None:
+                # Frees & broker-confirms the protective legs (to the post-exit net) BEFORE
+                # placing the SELL; returns (sold, aborted). Aborted => the broker never
+                # confirmed the cancel in time, so we skip this whole contract.
+                sold, aborted = await self._exit_position(
+                    signal, pos, scale_factor, exit_price, intended_standing_left)
+                if aborted:
+                    continue
+            standing_left = 0
+            touched_standing = False
+            for s in c["standing"]:
+                standing_left += await self._exit_standing(signal, trader, s)
+                touched_standing = True
+            acted += (1 if sold > 0 else 0) + (1 if touched_standing else 0)
+            # A sold position already resized its protective legs (to the post-exit net,
+            # standing included) inside _exit_position, before the SELL. Here we only handle
+            # the leftover cases: a standing-only exit, or a position sell that was skipped
+            # (decision/exit-in-flight/qualify) while a standing entry still changed — resize
+            # the still-PENDING protective rows to the net that will remain.
+            if sold == 0 and touched_standing:
+                pos_net = math.floor(pos["net_qty"]) if pos else 0
+                await self._reconcile_protective_on_exit(
+                    signal.trader_id, c["occ_symbol"], pos_net + standing_left)
+
+        if acted == 0:
+            await self._notify_skip(signal, "no_position")
+
+    async def _exit_position(
+        self, signal: Signal, pos: dict, scale_factor: float, exit_price: float | None,
+        standing_left: int = 0,
+    ) -> tuple[int, bool]:
+        """Sell/trim a filled position. Returns ``(sold, aborted)``: ``sold`` is the quantity
+        placed (0 if nothing placed); ``aborted`` is True only when the position's protective
+        legs could not be broker-confirmed cancelled in time, so the caller must skip the rest
+        of this contract's exit too."""
+        decision = risk.decide_exit(
+            dedupe_hit=False,
+            action=signal.trade.action,
+            held_qty=pos["net_qty"],
+            trim_fraction=self.config.policy.trim_fraction,
+            scale_factor=scale_factor,
+        )
+        if not decision.place:
+            return 0, False
+        # Oversell guard: if a non-protective SELL for this contract is already working
+        # (e.g. a resting limit exit), don't place another that would double-sell — the
+        # working order's fill reduces the position via reconciliation. Protective legs
+        # (stop/TP) are excluded; they must not block a real exit.
+        if await ostore.has_working_exit(self.conn, signal.trader_id, pos["occ_symbol"]):
+            await self._notify_skip(signal, "exit_in_flight")
+            return 0, False
+        # Record/notify with the position's *actual* contract, not the (possibly bare)
+        # message — so the books and Discord show what was really sold.
+        resolved = replace(
+            signal,
+            trade=ParsedTrade(
+                action=signal.trade.action, ticker=pos["ticker"],
+                expiry=date.fromisoformat(pos["expiry"]), strike=pos["strike"],
+                option_type=pos["option_type"], premium=pos["entry_premium"],
+                scale=signal.trade.scale,
+            ),
+        )
+        option = build_option(
+            pos["ticker"], date.fromisoformat(pos["expiry"]),
+            pos["option_type"], pos["strike"],
+        )
+        qualified = await self.ib.qualify(option)
+        if qualified is None:
+            await self._notify_skip(resolved, "qualify_failed")
+            return 0, False
+        # Free the position before selling: a resting stop/TP reserves the quantity at the
+        # broker (Moomoo rejects the SELL "Not enough positions" otherwise), so cancel/reduce
+        # the protective legs to the net that will remain and wait for the broker to confirm.
+        # If it never confirms, abort rather than send a SELL that will bounce.
+        remaining = max(0, math.floor(pos["net_qty"]) - decision.qty) + standing_left
+        if not await self._free_protective_confirmed(
+                signal.trader_id, pos["occ_symbol"], remaining):
+            await self._notify_alert(
+                "exit_aborted",
+                f"{pos['occ_symbol']}: protective legs not confirmed cancelled by broker; "
+                f"manual {signal.trade.action} not placed",
+            )
+            return 0, True
+        limit_price = self._exit_limit(exit_price) if exit_price is not None else None
+        await self._place_and_record(
+            resolved, pos["occ_symbol"], "SELL", decision.qty, qualified, limit_price,
+        )
+        return decision.qty, False
+
+    async def _free_protective_confirmed(
+        self, trader_id: str, occ_symbol: str, remaining: int,
+    ) -> bool:
+        """Reconcile the contract's protective legs down to `remaining` coverage and poll the
+        broker until that actually lands (each leg's live working qty summing to `remaining`
+        or less). Returns False if the broker doesn't confirm within the configured timeout.
+        Standing-entry protective rows are PENDING (not live at the broker) so they report 0
+        and never hold up confirmation."""
+        legs = await ostore.working_protective_for_contract(self.conn, trader_id, occ_symbol)
+        refs = [ostore.order_ref(trader_id, leg["order_id"]) for leg in legs]
+        await self._reconcile_protective_on_exit(trader_id, occ_symbol, remaining)
+        if not refs:
+            return True
+        timeout = self.config.policy.protective_cancel_timeout_secs
+        poll = self.config.policy.protective_cancel_poll_secs
+        deadline = time.monotonic() + timeout
+        while True:
+            live = 0
+            for ref in refs:
+                live += await self.ib.working_qty(ref)
+            if live <= remaining:
+                log.info("Protective legs freed for %s: live=%d <= remaining=%d",
+                         occ_symbol, live, remaining)
+                return True
+            if time.monotonic() >= deadline:
+                log.error(
+                    "Protective legs NOT confirmed cancelled for %s within %.1fs "
+                    "(live=%d > remaining=%d)", occ_symbol, timeout, live, remaining)
+                return False
+            await asyncio.sleep(poll)
+
+    def _planned_standing_left(self, signal: Signal, s: dict) -> int:
+        """Pure: how much of a standing entry BUY will still be working after the exit acts
+        on it — SELL cancels it (0), TRIM keeps `floor(remaining * (1 - trim_fraction))` if
+        that's >= 1 else cancels (0). Used to pre-compute the contract's post-exit net before
+        placing anything; `_exit_standing` performs the same decision."""
+        if signal.trade.action != "trim":
+            return 0
+        new_remaining = math.floor(
+            float(s["remaining"]) * (1 - self.config.policy.trim_fraction))
+        return new_remaining if new_remaining >= 1 else 0
+
+    async def _exit_standing(self, signal: Signal, trader: Trader, s: dict) -> int:
+        """Act on a still-standing entry BUY: SELL cancels it; TRIM reduces its remaining
+        quantity in place by trim_fraction (cancelling if that floors below one). The broker
+        action is keyed by the order's ref; we also write the new state to our books directly
+        (a modify's reduced qty isn't carried by the order-update callback). Returns the
+        standing quantity still working after the action (0 if cancelled). Protective legs
+        are reconciled once per contract by the caller, not here."""
+        ref = ostore.order_ref(trader.id, s["order_id"])
+        remaining = float(s["remaining"])
+        if signal.trade.action == "trim":
+            new_remaining = self._planned_standing_left(signal, s)
+            if new_remaining >= 1:
+                new_total = int(s["filled_qty"] or 0) + new_remaining
+                await self.ib.modify(ref, qty=new_total)
+                await ostore.update_order(self.conn, s["order_id"], requested_qty=new_total)
+                log.info("Trimmed standing %s %s: remaining %g -> %d",
+                         s["order_id"], s["occ_symbol"], remaining, new_remaining)
+                return new_remaining
+            # A sub-1 trim closes the working remainder (symmetric with risk.decide_exit).
+        await self.ib.cancel(ref)
+        await ostore.update_order(self.conn, s["order_id"], status=ostore.CANCELLED)
+        log.info("Cancelled standing %s %s (%s before fill)",
+                 s["order_id"], s["occ_symbol"], signal.trade.action)
+        # Surface the clear as a CANCELLED status notification, described by the standing
+        # order's actual contract (not the possibly-ambiguous exit message).
+        resolved = replace(
+            signal,
+            trade=ParsedTrade(
+                action=signal.trade.action, ticker=s["ticker"],
+                expiry=date.fromisoformat(s["expiry"]), strike=s["strike"],
+                option_type=s["option_type"], premium=None, scale=signal.trade.scale,
+            ),
+        )
+        result = types.SimpleNamespace(
+            status=ostore.CANCELLED, filled_qty=float(s["filled_qty"] or 0),
+            avg_fill_price=None, error="cancelled before fill",
+        )
+        await self._notify_status(resolved, result, s["order_id"])
+        return 0  # nothing left working on this standing order
+
+    async def _reconcile_protective_on_exit(
+        self, trader_id: str, occ_symbol: str, remaining: int
+    ) -> None:
+        """The trader's manual SELL/TRIM takes precedence over the automated stop/target:
+        make the contract's working protective legs cover exactly `remaining` contracts
+        (0 on a full exit). Stop and take-profit are reconciled independently — each should
+        cover `remaining`; within a type, distribute oldest-first, cancelling the excess and
+        shrinking the one leg that straddles the boundary, so total coverage never exceeds
+        what's held (no resurrected oversell)."""
+        legs = await ostore.working_protective_for_contract(self.conn, trader_id, occ_symbol)
+        by_type: dict[str, list[dict]] = {}
+        for leg in legs:
+            by_type.setdefault(leg["signal_type"], []).append(leg)
+        for group in by_type.values():
+            left = remaining
+            for leg in group:  # already oldest-first from the query
+                ref = ostore.order_ref(trader_id, leg["order_id"])
+                covered = int(leg["requested_qty"]) - int(leg["filled_qty"] or 0)
+                keep = max(0, min(covered, left))
+                if keep <= 0:
+                    await self.ib.cancel(ref)
+                    await ostore.update_order(
+                        self.conn, leg["order_id"], status=ostore.CANCELLED)
+                elif keep < covered:
+                    new_total = int(leg["filled_qty"] or 0) + keep
+                    await self.ib.modify(ref, qty=new_total)
+                    await ostore.update_order(
+                        self.conn, leg["order_id"], requested_qty=new_total)
+                left -= keep
+
+    # ---- placement + persistence + notifications -----------------------
+    async def _place_and_record(
+        self, signal, occ, side, qty, contract, limit_price,
+        protective: ProtectiveExit | None = None,
+        good_till: datetime | None = None,
+    ) -> None:
+        # Order type follows the signal: a stated price → limit at that price (± spread,
+        # already baked into limit_price); no price → market.
+        order_type = "limit" if limit_price is not None else "market"
+        sent_limit = limit_price
+        con_id = getattr(contract, "conId", None)
+        log.info(
+            "Placing %s %s %dx %s @ %s", order_type, side, qty, occ,
+            f"{sent_limit:g}" if sent_limit is not None else "market",
+        )
+
+        order_id = await ostore.create_order(
+            self.conn, signal=signal, occ_symbol=occ, requested_qty=qty,
+            limit_price=sent_limit, con_id=con_id, status=ostore.PENDING,
+        )
+        await self._notify_placed(signal, side, qty, sent_limit, order_id)
+
+        # Record the protective-exit legs as their own PENDING SELL rows so their later
+        # fills/cancellations reconcile back via the order-update callback (keyed by ref).
+        protective = await self._record_protective(signal, occ, qty, con_id, protective)
+
+        result = await self.ib.place(
+            contract, side=side, qty=qty,
+            order_ref=ostore.order_ref(signal.trader_id, order_id),
+            order_type=order_type, limit_price=sent_limit,
+            protective_exit=protective, good_till=good_till,
+        )
+        # Monotonic write: a fast push callback may already have advanced this row to
+        # FILLED between place() returning and here — advance_order won't let the
+        # immediate SUBMITTED clobber it.
+        await ostore.advance_order(
+            self.conn, order_id,
+            status=result.status, filled_qty=result.filled_qty,
+            avg_fill_price=result.avg_fill_price, broker_order_id=result.broker_order_id,
+            broker_perm_id=result.broker_perm_id, error=result.error,
+        )
+        # An entry that's rejected/cancelled outright (no fill) never opens a position, so
+        # its just-recorded protective legs have nothing to protect — settle them now.
+        if result.status in (ostore.REJECTED, ostore.CANCELLED) and result.filled_qty == 0:
+            await self._settle_orphaned_protective(signal.trader_id, signal.message_id)
+        await self._notify_status(signal, result, order_id)
+
+    async def _settle_orphaned_protective(self, trader_id: str, message_id: int | None) -> None:
+        """Cancel the working protective legs spawned by an entry that died without opening
+        a position — at the broker (by ref; a no-op if a leg was never armed or is already
+        gone) and in our books. Keyed by the entry's message, which its legs share."""
+        for leg in await ostore.working_protective_for_message(self.conn, message_id):
+            await self.ib.cancel(ostore.order_ref(trader_id, leg["order_id"]))
+        await ostore.cancel_protective_for_message(self.conn, message_id)
+
+    async def _resize_protective_to_fill(
+        self, trader_id: str, message_id: int | None, filled_qty: int,
+    ) -> None:
+        """Trim an entry's working protective legs down to `filled_qty` — at the broker
+        (modify in place) and in our books — so a partially-filled-then-cancelled BUY keeps
+        a stop/target matched to its real position size. Keyed by the entry's message, which
+        its legs share."""
+        if filled_qty <= 0:
+            return
+        for leg in await ostore.working_protective_for_message(self.conn, message_id):
+            await self.ib.modify(ostore.order_ref(trader_id, leg["order_id"]), qty=filled_qty)
+            await ostore.set_requested_qty(self.conn, leg["order_id"], filled_qty)
+
+    async def _record_protective(
+        self, signal, occ, qty, con_id, protective: ProtectiveExit | None,
+    ) -> ProtectiveExit | None:
+        """Create a PENDING SELL row for each protective leg and return a ProtectiveExit
+        carrying those rows' order_refs (so the broker tags each leg). Returns None when
+        there is nothing to protect — then the entry is placed plainly, as before."""
+        if protective is None or not protective.has_any:
+            return None
+        stop_ref = take_profit_ref = ""
+        if protective.take_profit_price is not None:
+            tp_id = await ostore.create_order(
+                self.conn, signal=signal, occ_symbol=occ, requested_qty=qty,
+                limit_price=protective.take_profit_price, con_id=con_id,
+                status=ostore.PENDING, signal_type="take_profit", side="SELL",
+            )
+            take_profit_ref = ostore.order_ref(signal.trader_id, tp_id)
+        if protective.stop_price is not None:
+            sl_id = await ostore.create_order(
+                self.conn, signal=signal, occ_symbol=occ, requested_qty=qty,
+                limit_price=protective.stop_price, con_id=con_id,
+                status=ostore.PENDING, signal_type="stop_loss", side="SELL",
+            )
+            stop_ref = ostore.order_ref(signal.trader_id, sl_id)
+        return ProtectiveExit(
+            stop_price=protective.stop_price,
+            take_profit_price=protective.take_profit_price,
+            stop_ref=stop_ref, take_profit_ref=take_profit_ref,
+        )
+
+    # ---- broker order-update reconciliation ----------------------------
+    async def on_order_update(self, update) -> None:
+        """Reconcile a broker-neutral OrderUpdate (entry late-fill, or a protective exit
+        triggering/cancelling) back into the orders table and notify. Registered with the
+        broker in main; keyed by the order_ref we assigned at placement. Idempotent and
+        monotonic via advance_order, so duplicate/out-of-order callbacks are safe."""
+        order_id = ostore.order_id_from_ref(update.order_ref)
+        if not order_id:
+            return
+        row = await ostore.get_order(self.conn, order_id)
+        if row is None:
+            log.warning("order update for unknown ref %s", update.order_ref)
+            return
+        changed = await ostore.advance_order(
+            self.conn, order_id,
+            status=update.status, filled_qty=update.filled_qty,
+            avg_fill_price=update.avg_fill_price, broker_order_id=update.broker_order_id,
+            error=update.error,
+        )
+        if not changed:
+            return  # stale or already-settled update; nothing new to surface
+        # A protective leg that just filled closes the position — settle its OCA siblings
+        # (mirror the broker's one-cancels-other so no stale PENDING leg lingers).
+        if update.status == ostore.FILLED and row["signal_type"] in ostore.PROTECTIVE_TYPES:
+            for sib in await ostore.protective_siblings(self.conn, row):
+                await ostore.advance_order(self.conn, sib["order_id"], status=ostore.CANCELLED)
+        # An entry BUY that went terminal (cancelled in TWS, expired via GTD timeout, or a
+        # late reject) needs its protective legs reconciled to what actually filled.
+        entry_filled = max(float(row["filled_qty"] or 0), float(update.filled_qty or 0))
+        requested = float(row["requested_qty"] or 0)
+        if (update.status in (ostore.CANCELLED, ostore.REJECTED)
+                and row["signal_type"] == "buy"):
+            if entry_filled == 0:
+                # Never filled -> opened no position; settle its protective legs so they
+                # don't orphan.
+                await self._settle_orphaned_protective(row["trader_id"], row["message_id"])
+            elif entry_filled < requested:
+                # Partial fill then cancelled (e.g. a timeout hitting a half-filled BUY):
+                # a real, smaller position stands. Trim its protective legs — armed at the
+                # original size — down to the qty actually filled so the stop/target match.
+                await self._resize_protective_to_fill(
+                    row["trader_id"], row["message_id"], int(entry_filled),
+                )
+        await self._notify_order_update(row, update)
+
+    # ---- helpers -------------------------------------------------------
+    async def _trader_exposure(self, trader_id: str) -> float:
+        """Live mark-to-market exposure for a trader's *committed* contracts (× 100/contract):
+        filled positions PLUS resting unfilled entry BUYs. Including the standing remainder
+        means buys that haven't filled yet still consume exposure headroom, so a burst of
+        buys can't collectively overshoot the per-trader cap. A filled position is valued at
+        its live mark (falling back to entry premium); a standing order is valued worst-case
+        at its limit price (the most it could cost), falling back to the live mark."""
+        total = 0.0
+        for p in await ostore.open_positions(self.conn, trader_id):
+            px = await self._mark_or(
+                p["ticker"], p["expiry"], p["option_type"], p["strike"],
+                fallback=p["entry_premium"],
+            )
+            total += p["net_qty"] * px * MULTIPLIER
+        for s in await ostore.standing_buy_orders(self.conn, trader_id):
+            px = s["limit_price"]
+            if px is None:  # market order (no limit): estimate from the live mark
+                px = await self._mark_or(
+                    s["ticker"], s["expiry"], s["option_type"], s["strike"], fallback=0.0,
+                )
+            total += s["remaining"] * px * MULTIPLIER
+        return total
+
+    async def _mark_or(
+        self, ticker: str, expiry: str, option_type: str, strike: float, *, fallback: float,
+    ) -> float:
+        """Best-available live mark for a contract, or `fallback` if it can't be priced.
+        Valuation must never break sizing, so any error falls back too."""
+        try:
+            contract = build_option(
+                ticker, date.fromisoformat(expiry), option_type, strike)
+            if await self.ib.qualify(contract) is not None:
+                px = await self.ib.mark(contract)
+                if px:
+                    return px
+        except Exception:  # noqa: BLE001 - valuation must not break sizing
+            pass
+        return fallback
+
+    def _entry_limit(self, premium: float) -> float:
+        return round(premium * (1 + self.config.policy.spread), 2)
+
+    def _exit_limit(self, premium: float) -> float:
+        return round(premium * (1 - self.config.policy.spread), 2)
+
+    # ---- notification fan-out (no-op if notifier is None) --------------
+    async def _notify_placed(self, signal, side, qty, limit_price, order_id) -> None:
+        if self.notifier:
+            await self.notifier.notify_placed(signal, side, qty, limit_price, order_id)
+
+    async def _notify_status(self, signal, result, order_id) -> None:
+        if self.notifier:
+            await self.notifier.notify_status(signal, result, order_id)
+
+    async def _notify_order_update(self, row: dict, update) -> None:
+        """Surface a reconciled broker order update. The DB row's `signal_type` tells the
+        kind (buy / take_profit / stop_loss / ...). Logs always; uses an optional notifier
+        hook if one exists so the Notifier protocol stays minimal."""
+        log.info(
+            "Order update %s (%s %s): %s filled=%g",
+            row["order_id"], row["signal_type"], row["occ_symbol"],
+            update.status, update.filled_qty,
+        )
+        if self.notifier and hasattr(self.notifier, "notify_order_update"):
+            # Tag a protective leg to the entry order it protects so the user can see
+            # which trade just hit its stop / take-profit.
+            if row["signal_type"] in ostore.PROTECTIVE_TYPES:
+                parent = await ostore.entry_order_id_for(self.conn, row["message_id"])
+                if parent:
+                    row = {**row, "parent_order_id": parent}
+            await self.notifier.notify_order_update(row, update)
+
+    async def _notify_skip(self, signal, reason) -> None:
+        log.info("Skipped %s %s: %s", signal.trader_id, signal.trade.action, reason)
+        if self.notifier:
+            await self.notifier.notify_skip(signal, reason)
+
+    async def _notify_hold(self, signal, confidence, reasoning) -> tuple[int | None, int | None]:
+        if self.notifier and hasattr(self.notifier, "notify_hold"):
+            return await self.notifier.notify_hold(signal, confidence, reasoning)
+        return (None, None)
+
+    async def _notify_error(self, msg, reason) -> None:
+        log.info("Notify-only for %s: %s", msg.trader_id, reason)
+        if self.notifier and hasattr(self.notifier, "notify_error"):
+            await self.notifier.notify_error(msg, reason)
+
+    async def _notify_alert(self, kind: str, detail: str) -> None:
+        """Operator alert for a condition that needs eyes but has no signal to attach to
+        (e.g. a manual exit aborted because protective legs wouldn't confirm cancelled)."""
+        log.warning("Exit alert %s: %s", kind, detail)
+        if self.notifier and hasattr(self.notifier, "notify_alert"):
+            await self.notifier.notify_alert(kind, detail)

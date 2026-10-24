@@ -1,0 +1,88 @@
+#!/usr/bin/env bash
+# Run fastfetch with a pokeget sprite as the logo, vertically and
+# horizontally centered against the system info column.
+set -euo pipefail
+
+# --- Mode switch ----------------------------------------------------------
+# true  -> always draw a random entry from FAVORITES below (args to this
+#          script are ignored)
+# false -> forward "$@" straight through to pokeget as-is
+USE_FAVORITES=false
+# ----------------------------------------------------------------------------
+
+# --- Favourites -------------------------------------------------------
+# Each entry is anything pokeget itself accepts: a name, "random", a
+# region, plus any flags (-s, -m, --shiny, --gmax, etc). Only used when
+# USE_FAVORITES=true above; one entry is picked at random per run.
+FAVORITES=(
+)
+# ------------------------------------------------------------------------
+
+# --- Sizing -----------------------------------------------------------
+# Width (terminal columns) of the pokemon column. Every sprite is
+# centered and padded out to exactly this width, so the info column
+# always starts at the same spot no matter which pokemon is drawn.
+# Leave empty to default to the height of the whole fastfetch output
+# (in rows) each run, scaled by CHAR_ASPECT_RATIO below; set a fixed
+# number here instead if you want a constant width no matter which
+# pokemon is drawn - if a sprite is wider than this, it's left as-is
+# (uncentered).
+POKEMON_WIDTH=
+
+# Terminal character cells are taller than they are wide (commonly
+# ~2x), so N rows need roughly N * CHAR_ASPECT_RATIO columns to look
+# square. Only used to compute the default width above; tweak this to
+# match your terminal font if the result looks too narrow/wide.
+CHAR_ASPECT_RATIO=2.5
+# ------------------------------------------------------------------------
+
+FASTFETCH_CONFIG="${POKEFETCH_CONFIG:-$HOME/.config/fastfetch/normal.jsonc}"
+
+sprite="$(mktemp)"
+padded="$(mktemp)"
+trap 'rm -f "$sprite" "$padded"' EXIT
+
+if $USE_FAVORITES && [[ ${#FAVORITES[@]} -gt 0 ]]; then
+    chosen="${FAVORITES[RANDOM % ${#FAVORITES[@]}]}"
+    read -r -a args <<< "$chosen"
+else
+    args=("random")
+fi
+
+pokeget --hide-name "${args[@]}" > "$sprite"
+
+sprite_lines=$(wc -l < "$sprite")
+sprite_width=$(sed 's/\x1b\[[0-9;]*m//g' "$sprite" | awk '{ print length }' | sort -n | tail -1)
+info_lines=$(fastfetch -c "$FASTFETCH_CONFIG" --logo none | wc -l)
+
+default_width=$(awk -v h="$info_lines" -v r="$CHAR_ASPECT_RATIO" 'BEGIN { printf "%d", h * r + 0.5 }')
+width="${POKEMON_WIDTH:-$default_width}"
+
+pad_top=$(( (info_lines - sprite_lines) / 2 ))
+if (( pad_top < 0 )); then
+    pad_top=0
+fi
+
+pad_left=$(( (width - sprite_width) / 2 ))
+if (( pad_left < 0 )); then
+    pad_left=0
+fi
+
+# Left-pad every line by the same amount (keeps the sprite's shape
+# intact) and right-pad each line individually so every line ends up
+# exactly $width visible columns wide, regardless of the shape of that
+# particular row.
+awk -v padleft="$pad_left" -v width="$width" '
+{
+    stripped = $0
+    gsub(/\033\[[0-9;]*m/, "", stripped)
+    rightpad = width - padleft - length(stripped)
+    if (rightpad < 0) rightpad = 0
+    printf "%s%s%s\n", sprintf("%*s", padleft, ""), $0, sprintf("%*s", rightpad, "")
+}
+' "$sprite" > "$padded"
+
+fastfetch -c "$FASTFETCH_CONFIG" \
+    --logo-type file-raw \
+    --logo "$padded" \
+    --logo-padding-top "$pad_top"

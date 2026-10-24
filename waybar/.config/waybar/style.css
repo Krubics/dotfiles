@@ -1,7 +1,6 @@
 @define-color primary #7fd0ff;
 @define-color primary-container #004c6a;
 @define-color outline #919191;
-
 * {
     font-family: "JetBrainsMono Nerd Font";
     font-size: 16px;

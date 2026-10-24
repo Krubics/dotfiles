@@ -1,0 +1,14 @@
+/home/krubics/.config/herdr
+/home/krubics/.config/herdr/herdr-client.log
+/home/krubics/.config/herdr/herdr-server.log
+/home/krubics/.local/state/herdr
+/home/krubics/.pi/agent/skills/herdr
+/home/krubics/.agents/skills/herdr
+---
+/nix/store/4x6m0zb6fjmlfvyfazyn89ar87z08rm5-herdr-0.7.4
+/home/krubics/.config/herdr
+/home/krubics/.local/state/herdr
+/home/krubics/.agents/skills/herdr
+/tmp/herdr_test_cfg
+/tmp/herdr_test3
+/tmp/herdr_test_cfg2

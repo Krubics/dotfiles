@@ -5,10 +5,18 @@ hl.config({
     decoration = {
         blur = {
             brightness = 0.6,
+            contrast = 0.88,
+            enabled = true,
             passes = 2,
             size = 2,
+            vibrancy = 0.09,
         },
         dim_special = 0.0,
+        shadow = {
+            enabled = false,
+            range = 0,
+            scale = 0.9,
+        },
     },
     general = {
         allow_tearing = false,
@@ -42,4 +50,13 @@ hl.monitor({
     position = "20x210",
     scale = 1,
     cm = "srgb",
+})
+
+
+hl.layer_rule({
+    match = {
+        namespace = "wallpaper-picker",
+    },
+    blur = true,
+    ignore_alpha = 0.01,
 })

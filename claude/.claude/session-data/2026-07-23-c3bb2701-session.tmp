@@ -1,0 +1,30 @@
+# Session: 2026-07-23
+**Date:** 2026-07-23
+**Started:** 17:08
+**Last Updated:** 17:08
+**Project:** krubics
+**Branch:** unknown
+**Worktree:** /home/krubics
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Human: <session> My GTK3 matugen template is wokring perfectly but why does my QTK4 show a transparent background when I use GTK4-widget-factory? </session>  Write the title in the predominant languag
+- [structured-output-enforce] You MUST call the StructuredOutput tool to complete this request. Call this tool now.
+
+### Tools Used
+StructuredOutput
+
+### Stats
+- Total user messages: 2
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

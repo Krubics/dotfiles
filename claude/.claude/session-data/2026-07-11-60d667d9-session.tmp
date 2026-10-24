@@ -1,0 +1,39 @@
+# Session: 2026-07-11
+**Date:** 2026-07-11
+**Started:** 22:44
+**Last Updated:** 23:24
+**Project:** krubics
+**Branch:** unknown
+**Worktree:** /home/krubics
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- I want to install hyprland plugins but I'm some trouble:  adding a new plugin repository from https://github.com/sandwichfarm/hyprexpo   MAKE SURE that you trust the authors. DO NOT install random plu
+- Can we add an option in my rofi config (which is a bash script, you can check out hyprland.lua to find it.) to allow all files so we can parse any files to it through terminal and it'll show.
+- Well my wallpaper changer keybind in hyprland is definitely doing something wrong.
+- [Request interrupted by user]
+- Hey you didn't change the waybar template properly the waybar still moves up and down but I change workspace because of the pokeball.
+
+### Files Modified
+- /home/krubics/.config/hypr/scripts/rofi.sh
+- /home/krubics/.config/hypr/conf/keybinds.lua
+- /home/krubics/.config/hypr/scripts/set-wallpaper.sh
+- /home/krubics/.config/waybar/style.css
+
+### Tools Used
+Bash, Read, Write, Edit
+
+### Stats
+- Total user messages: 5
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

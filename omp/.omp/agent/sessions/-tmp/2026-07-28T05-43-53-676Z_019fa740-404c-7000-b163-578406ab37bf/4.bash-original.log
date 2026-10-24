@@ -1,0 +1,25 @@
+=== does ~/.claude/rules/logging.md exist? ===
+ls: cannot access '/home/krubics/.claude/rules/logging.md': No such file or directory
+
+=== full rules tree with sizes ===
+/home/krubics/.claude/rules
+/home/krubics/.claude/rules/ecc
+/home/krubics/.claude/rules/python-logging.md
+
+=== all filenames under rules, grouped to find dup basenames ===
+     22 testing.md
+     22 security.md
+     22 patterns.md
+     22 hooks.md
+     22 coding-style.md
+      3 performance.md
+      1 python-logging.md
+      1 production-readiness.md
+      1 git-workflow.md
+      1 fastapi.md
+      1 development-workflow.md
+      1 design-quality.md
+      1 code-review.md
+      1 agents.md
+      1 accessibility.md
+      1 README.md

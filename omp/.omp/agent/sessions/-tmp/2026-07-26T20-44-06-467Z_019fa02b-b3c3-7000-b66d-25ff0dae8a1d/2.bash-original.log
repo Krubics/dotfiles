@@ -1,0 +1,64 @@
+--- home-manager config search ---
+/home/krubics/.config/home-manager
+/home/krubics/.config/home-manager/modules
+/home/krubics/.config/home-manager/modules/lyrics-tool.nix
+/home/krubics/.config/home-manager/modules/nvim.nix
+/home/krubics/.config/home-manager/modules/no-mistakes.nix
+/home/krubics/.config/home-manager/modules/github-package copy.nix
+/home/krubics/.config/home-manager/home.nix
+/home/krubics/.config/home-manager/result
+/home/krubics/.config/home-manager/flake.nix
+/home/krubics/.config/home-manager/packages
+/home/krubics/.config/home-manager/flake.lock
+/home/krubics/.config/nixpkgs
+/home/krubics/.config/nixpkgs/config.nix
+--- flake files ---
+/home/krubics/nix-test/flake.nix
+/home/krubics/qylock/flake.nix
+/home/krubics/hyprtasking/flake.nix
+/home/krubics/voxtype/flake.nix
+--- hypr config ---
+/home/krubics/.config/hypr
+/home/krubics/.config/hypr/custom
+/home/krubics/.config/hypr/custom/variables.lua
+/home/krubics/.config/hypr/hyprland.lua
+/home/krubics/.config/hypr/hyprpaper.conf
+/home/krubics/.config/hypr/screenshots
+/home/krubics/.config/hypr/screenshots/gojo.png
+/home/krubics/.config/hypr/screenshots/gojo-eye.png
+/home/krubics/.config/hypr/conf
+/home/krubics/.config/hypr/conf/keybinds.lua
+/home/krubics/.config/hypr/conf/vars.lua
+/home/krubics/.config/hypr/matugen-colors
+/home/krubics/.config/hypr/matugen-colors/latios-latias.json
+/home/krubics/.config/hypr/matugen-colors/gojo.json
+/home/krubics/.config/hypr/matugen-colors/gojo-eye.json
+/home/krubics/.config/hypr/images
+/home/krubics/.config/hypr/images/sddm-bg-frame.png
+/home/krubics/.config/hypr/images/sleeping-snorlax.png
+/home/krubics/.config/hypr/wallpapers
+/home/krubics/.config/hypr/wallpapers/latios-latias.png
+/home/krubics/.config/hypr/wallpapers/gojo.mp4
+/home/krubics/.config/hypr/wallpapers/gojo-eye.mp4
+/home/krubics/.config/hypr/hyprlock.conf
+/home/krubics/.config/hypr/hyprland-gui.lua
+/home/krubics/.config/hypr/scripts
+/home/krubics/.config/hypr/scripts/yazi.sh
+/home/krubics/.config/hypr/scripts/set-wallpaper.sh
+/home/krubics/.config/hypr/scripts/zen-scratch.sh
+/home/krubics/.config/hypr/scripts/wallpaper-autostart.sh
+/home/krubics/.config/hypr/scripts/generate-color-pallete.sh
+/home/krubics/.config/hypr/scripts/rofi.sh
+/home/krubics/.config/hypr/scripts/__pycache__
+/home/krubics/.config/hypr/scripts/zen-scratch-marker.html
+--- hyprland running? ---
+/usr/bin/Hyprland
+/usr/bin/hyprctl
+/usr/bin/hyprland
+--- home-manager generations ---
+2026-07-26 19:50 : id 28 -> /nix/store/wssh723qsfbn2mjbhf302mqq706zsm4l-home-manager-generation (current)
+2026-07-26 19:24 : id 27 -> /nix/store/rbp7ml4p51ls221cn3bhls7ad6wpq90n-home-manager-generation
+2026-07-26 18:33 : id 26 -> /nix/store/pgavzcg4fq51k4wqh5aclvyvlh4q6mq7-home-manager-generation
+2026-07-26 15:29 : id 25 -> /nix/store/zjj0jflr4frikr376gd76dx521fsmfd1-home-manager-generation
+2026-07-25 07:44 : id 24 -> /nix/store/3kzm7ygm8gdra38cx8rb80rj0ysd665r-home-manager-generation
+--- channels ---

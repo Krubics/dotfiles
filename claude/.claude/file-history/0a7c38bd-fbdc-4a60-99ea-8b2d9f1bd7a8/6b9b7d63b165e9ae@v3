@@ -1,0 +1,40 @@
+#!/bin/bash
+# Usage: set-wallpaper.sh /path/to/image-or-video [transition]
+# Applies the wallpaper to every monitor Yin knows about.
+
+WALLPAPER="$1"
+TRANSITION="$2"   # optional, e.g. zoom / bookflip (see `yinctl --list-trans`)
+[ -z "$WALLPAPER" ] && { echo "Usage: $0 <path> [transition]"; exit 1; }
+
+# Build the optional --trans flag only when a transition was given.
+trans_args=()
+[ -n "$TRANSITION" ] && trans_args=(--trans "$TRANSITION")
+
+# Discover monitors from yin's per-monitor state files in ~/.cache/yin.
+# Cached media is named "<W>x<H>_<file>"; anything else is a monitor name.
+monitors=$(ls ~/.cache/yin 2>/dev/null | grep -vE '^[0-9]+x[0-9]+_')
+
+# Set the wallpaper via yin's IPC on every monitor (fall back to yin's
+# default target if none are discovered yet, e.g. on a fresh cache).
+if [ -z "$monitors" ]; then
+  yinctl --img "$WALLPAPER" "${trans_args[@]}"
+else
+  while IFS= read -r m; do
+    yinctl --img "$WALLPAPER" "${trans_args[@]}" --output "$m"
+  done <<< "$monitors"
+fi
+
+# Retheme in the background so this script returns instantly
+if [[ "$WALLPAPER" == *.mp4 ]]; then
+  # Extract a frame from the video to use as the wallpaper for theming.
+  # This is done in the background so it doesn't block the script.
+  ffmpeg -ss 00:00:10 -i "$WALLPAPER" -vframes 1 ~/.cache/yin/frame.png
+  nohup matugen image ~/.cache/yin/frame.png > /dev/null 2>&1 &
+  disown $!
+else
+  nohup matugen image "$WALLPAPER" > /dev/null 2>&1 &
+  disown $!
+fi
+
+# Track current wallpaper for restarts
+ln -sf "$WALLPAPER" ~/.cache/current-wallpaper

@@ -1,0 +1,381 @@
+URL: https://raw.githubusercontent.com/pfassina/lazyvim-nix/main/nix/options.nix
+Content-Type: text/plain
+Method: text
+
+---
+
+# Options definition for LazyVim Nix module
+{ lib, dataLib }:
+
+with lib;
+
+{
+  enable = mkEnableOption "LazyVim - A Neovim configuration framework";
+
+  appName = mkOption {
+    type = types.str;
+    default = "nvim";
+    example = "lazyvim";
+    description = ''
+      The app name for Neovim's NVIM_APPNAME environment variable.
+      This determines the config directory under ~/.config/ (e.g., "lazyvim" → ~/.config/lazyvim/).
+    '';
+  };
+
+  pluginSource = mkOption {
+    type = types.enum [ "latest" "nixpkgs" ];
+    default = "latest";
+    description = ''
+      Plugin source strategy:
+      - "latest": Use nixpkgs if it has the required version, otherwise build from source
+      - "nixpkgs": Prefer nixpkgs versions, fallback to source if unavailable
+    '';
+  };
+
+  extraPackages = mkOption {
+    type = types.listOf types.package;
+    default = [];
+    example = literalExpression ''
+      with pkgs; [
+        rust-analyzer
+        gopls
+        typescript-language-server
+      ]
+    '';
+    description = ''
+      Additional packages to be made available to LazyVim.
+      This should include LSP servers, formatters, linters, and other tools.
+    '';
+  };
+
+  treesitterParsers = mkOption {
+    type = types.listOf types.package;
+    default = [];
+    example = literalExpression ''
+      with pkgs.vimPlugins.nvim-treesitter-parsers; [
+        # Additional parsers beyond what LazyVim extras provide
+        wgsl    # WebGPU Shading Language
+        templ   # Go templ files
+        zig
+      ]
+    '';
+    description = ''
+      Additional Treesitter parser packages to install.
+
+      Most parsers are automatically installed when you enable LazyVim extras
+      (e.g., lang.rust enables rust parser, lang.go enables go parser).
+      Only add parsers here for languages not covered by your enabled extras.
+
+      Supported package sources:
+        - pkgs.vimPlugins.nvim-treesitter-parsers.* (recommended)
+        - pkgs.vimPlugins.nvim-treesitter.grammarPlugins.*
+        - pkgs.vimPlugins.nvim-treesitter.allGrammars (for all 324 parsers)
+
+      The package values are used to identify parser languages. When
+      programs.lazyvim.pluginSource = "latest", lazyvim-nix builds the actual
+      parser artifacts from data/parser-manifest.json so they stay aligned with
+      LazyVim's pinned nvim-treesitter queries. In that mode, manual parser
+      selections must resolve to languages that exist in the generated manifest.
+
+      DEPRECATED: pkgs.tree-sitter-grammars is no longer supported.
+      It has fewer grammars (131 vs 324) and may have compatibility issues.
+    '';
+  };
+
+  installCoreDependencies = mkOption {
+    type = types.bool;
+    default = true;
+    description = ''
+      Whether to automatically install core LazyVim dependencies.
+
+      Core dependencies include: git, ripgrep, fd, lazygit, fzf, curl.
+
+      When false, you must manually provide these tools via extraPackages
+      or ensure they're available in your system PATH.
+    '';
+  };
+
+  configFiles = mkOption {
+    type = types.nullOr types.path;
+    default = null;
+    example = literalExpression ''
+      ./lazyvim-config
+    '';
+    description = ''
+      Path to a directory containing LazyVim configuration files.
+      The directory structure should follow this convention:
+
+      - config/keymaps.lua - Custom keymaps
+      - config/options.lua - Vim options
+      - config/autocmds.lua - Auto commands
+      - plugins/*.lua - Plugin configurations
+
+      Files from this directory will be copied to the appropriate locations
+      in ~/.config/nvim/lua/. If you also specify individual config options
+      (config.keymaps, config.options, etc.) or plugins, conflicts will
+      cause the build to fail with a descriptive error message.
+    '';
+  };
+
+  config = mkOption {
+    type = types.submodule {
+      options = {
+        autocmds = mkOption {
+          type = types.str;
+          default = "";
+          example = ''
+            -- Auto-save on focus loss
+            vim.api.nvim_create_autocmd("FocusLost", {
+              command = "silent! wa",
+            })
+          '';
+          description = ''
+            Lua code for autocmds that will be written to lua/config/autocmds.lua.
+            This file is loaded by LazyVim for user autocmd configurations.
+          '';
+        };
+
+        keymaps = mkOption {
+          type = types.str;
+          default = "";
+          example = ''
+            -- Custom keymaps
+            vim.keymap.set("n", "<leader>w", "<cmd>w<cr>", { desc = "Save file" })
+            vim.keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>", { desc = "Go to left window" })
+          '';
+          description = ''
+            Lua code for keymaps that will be written to lua/config/keymaps.lua.
+            This file is loaded by LazyVim for user keymap configurations.
+          '';
+        };
+
+        options = mkOption {
+          type = types.str;
+          default = "";
+          example = ''
+            -- Custom vim options
+            vim.opt.relativenumber = false
+            vim.opt.wrap = true
+            vim.opt.conceallevel = 0
+          '';
+          description = ''
+            Lua code for vim options that will be written to lua/config/options.lua.
+            This file is loaded by LazyVim for user option configurations.
+          '';
+        };
+      };
+    };
+    default = {};
+    description = ''
+      LazyVim configuration files. These map to the lua/config/ directory structure
+      and are loaded by LazyVim automatically.
+    '';
+  };
+
+  extras = 
+    let
+      extraBaseOptions = {
+        enable = mkEnableOption "this LazyVim extra";
+        installDependencies = mkOption {
+          type = types.bool;
+          default = false;
+          description = ''
+            Whether to install the main tools for this extra.
+
+            For example, for lang.python this would install tools like 'ruff'.
+            When false (default), tools must be provided via extraPackages.
+          '';
+        };
+        installRuntimeDependencies = mkOption {
+          type = types.bool;
+          default = false;
+          description = ''
+            Whether to install runtime dependencies for this extra's tools.
+
+            For example, for lang.python this would install python3 and pip.
+            When false (default), runtime dependencies must be available in PATH
+            or provided via extraPackages.
+          '';
+        };
+        config = mkOption {
+          type = types.str;
+          default = "";
+          description = ''
+            Complete Lua plugin specification to override or extend this extra.
+            Should contain a complete lazy.nvim plugin spec with return statement.
+          '';
+        };
+      };
+
+      mkCategoryOptions = categoryExtras:
+        let
+          nixifyName = replaceStrings ["_"] ["-"];
+
+          parents = filterAttrs (_: v: !(v.is_nested or false)) categoryExtras;
+          nested  = filterAttrs (_: v:   v.is_nested or false)  categoryExtras;
+
+          childrenOf = parentName:
+            filterAttrs (n: _: hasPrefix "${parentName}." n) nested;
+
+          mkExtraSubmodule = name: _meta:
+            let
+              children = childrenOf name;
+              childOpts = mapAttrs' (qualifiedName: _:
+                let
+                  shortName = removePrefix "${name}." qualifiedName;
+                in nameValuePair (nixifyName shortName) (mkOption {
+                  type    = types.submodule { options = extraBaseOptions; };
+                  default = {};
+                  description = "Nested extra: ${qualifiedName}";
+                })
+              ) children;
+            in mkOption {
+              type    = types.submodule { options = extraBaseOptions // childOpts; };
+              default = {};
+              description = "LazyVim extra: ${name}";
+            };
+        in
+          mapAttrs' (jsonKey: meta:
+            nameValuePair (nixifyName jsonKey) (mkExtraSubmodule jsonKey meta)
+          ) parents;
+
+      # Top-level: one submodule per category
+      generatedExtrasType = types.submodule {
+        options = mapAttrs (categoryName: categoryExtras:
+          mkOption {
+            type    = types.submodule { options = mkCategoryOptions categoryExtras; };
+            default = {};
+            description = "LazyVim ${categoryName} extras.";
+          }
+        ) dataLib.extrasMetadata;
+      };
+    in
+      mkOption {
+        type = generatedExtrasType;
+        default = {};
+        example = literalExpression ''
+          {
+            coding.yanky = {
+              enable = true;
+              config = '''
+                return {
+                  "gbprod/yanky.nvim",
+                  opts = {
+                    highlight = { timer = 300 },
+                  },
+                }
+              ''';
+            };
+
+            lang.python = {
+              enable = true;
+              installDependencies = true;        # Install ruff
+              installRuntimeDependencies = true; # Install python3, pip
+            };
+
+            lang.go = {
+              enable = true;
+              installDependencies = true;        # Install gopls, gofumpt, etc.
+              installRuntimeDependencies = true; # Install go compiler
+            };
+
+            lang.nix = {
+              enable = true;
+              config = '''
+                return {
+                  "neovim/nvim-lspconfig",
+                  opts = {
+                    servers = {
+                      nixd = {},
+                    },
+                  },
+                }
+              ''';
+            };
+
+            editor.dial.enable = true;
+          }
+        '';
+        description = ''
+          LazyVim extras to enable. Extras provide additional plugins and configurations
+          for specific languages, features, or tools.
+
+          Each extra can be enabled with `enable = true` and optionally configured with
+          complete lazy.nvim plugin specifications in the `config` field.
+        '';
+    };
+
+  ignoreBuildNotifications = mkOption {
+    type = types.bool;
+    default = false;
+    description = ''
+      Whether to suppress build notifications and trace messages.
+
+      When enabled, this will hide:
+      - Tool installation warnings (e.g., "This tool will be skipped during installation")
+      - Plugin source trace messages (e.g., "LazyVim/LazyVim: Using source (v15.10.1)")
+      - Package resolution warnings
+      - Other build-time informational messages
+
+      This is useful for users who want cleaner build output and are aware
+      of any missing dependencies in their configuration.
+    '';
+  };
+
+  plugins = mkOption {
+    type = types.attrsOf types.str;
+    default = {};
+    example = literalExpression ''
+      {
+        custom-theme = '''
+          return {
+            "folke/tokyonight.nvim",
+            opts = {
+              style = "night",
+              transparent = true,
+            },
+          }
+        ''';
+
+        lsp-config = '''
+          return {
+            "neovim/nvim-lspconfig",
+            opts = function(_, opts)
+              opts.servers.rust_analyzer = {
+                settings = {
+                  ["rust-analyzer"] = {
+                    checkOnSave = {
+                      command = "clippy",
+                    },
+                  },
+                },
+              }
+            end,
+          }
+        ''';
+
+        # Generated from Nix attrsets via the flake's lib helpers
+        tokyonight-from-nix = inputs.lazyvim-nix.lib.lazyConfig {
+          plugin = "folke/tokyonight.nvim";
+          opts = { style = "night"; transparent = true; };
+        };
+
+        # Embed Lua code (e.g. functions) with lib.generators.mkLuaInline
+        noice-from-nix = inputs.lazyvim-nix.lib.lazyConfig {
+          plugin = "folke/noice.nvim";
+          opts.routes = lib.generators.mkLuaInline "function() return my_routes end";
+        };
+      }
+    '';
+    description = ''
+      Plugin configuration files. Each key becomes a file lua/plugins/{key}.lua
+      with the corresponding Lua code. These files are automatically loaded by LazyVim.
+
+      Values are raw Lua. To generate them from Nix attrsets instead, use the
+      flake's helpers: `inputs.lazyvim-nix.lib.lazyConfig` (single spec or list
+      of specs) and `inputs.lazyvim-nix.lib.lazyPlugin` (single spec table).
+      Use `lib.generators.mkLuaInline` from nixpkgs to embed Lua code, such as
+      functions, inside a spec attrset.
+    '';
+  };
+}

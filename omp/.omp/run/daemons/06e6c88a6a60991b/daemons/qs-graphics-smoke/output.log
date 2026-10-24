@@ -1,0 +1,9 @@
+  INFO: Launching config: "/home/krubics/.config/quickshell/shell.qml"
+  INFO: Shell ID: "d051c435653b3f3e3cbaa4f8ebb8d895" Path ID "d051c435653b3f3e3cbaa4f8ebb8d895"
+  INFO quickshell.crashhandler: Crash handler initialized.
+  INFO: Saving logs to "/run/user/1000/quickshell/by-id/kxy5lvq8jt/log.qslog"
+  INFO quickshell.logging: Saving detailed logs to "/run/user/1000/quickshell/by-id/kxy5lvq8jt/log.log"
+  INFO quickshell.wayland.safederef: Installed wl_proxy_get_listener hook.
+  INFO quickshell.ipc: Started IPC server on path "/run/user/1000/quickshell/by-id/kxy5lvq8jt/ipc.sock"
+  INFO quickshell.tooling: Tooling support locked by another instance
+  INFO: Configuration Loaded

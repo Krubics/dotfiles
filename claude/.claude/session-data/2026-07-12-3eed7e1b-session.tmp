@@ -1,0 +1,34 @@
+# Session: 2026-07-12
+**Date:** 2026-07-12
+**Started:** 01:07
+**Last Updated:** 01:10
+**Project:** krubics
+**Branch:** unknown
+**Worktree:** /home/krubics
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Edit ~/.config/matugen/templates/waybar.css so that whenever the pokeball moves the waybar doesn't move up and down.
+- If I restart my computer and the hyprland lua config runs, will go wrong with it again?
+
+### Files Modified
+- /home/krubics/.config/matugen/templates/waybar.css
+- /home/krubics/.config/waybar/style.css
+
+### Tools Used
+Read, Edit, Bash
+
+### Stats
+- Total user messages: 2
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

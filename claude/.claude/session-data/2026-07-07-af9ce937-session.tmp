@@ -1,0 +1,31 @@
+# Session: 2026-07-07
+**Date:** 2026-07-07
+**Started:** 20:43
+**Last Updated:** 20:43
+**Project:** Ubuntu-Hyprland-24.04
+**Branch:** 24.04
+**Worktree:** /home/krubics/Ubuntu-Hyprland-24.04/Install-Logs
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- Can you check why after using this script ./install.sh from this Github repo: https://github.com/JaKooLit/Ubuntu-Hyprland/tree/24.04 I still can't install Hyprland? There are logs after my run in the 
+- [Request interrupted by user for tool use]
+- Please try again, you were just inetrrupted
+
+### Tools Used
+Bash, Read
+
+### Stats
+- Total user messages: 3
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

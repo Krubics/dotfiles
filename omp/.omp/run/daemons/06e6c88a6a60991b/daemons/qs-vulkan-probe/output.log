@@ -1,0 +1,23 @@
+  INFO: Launching config: "/tmp/qs-qt-window.qml"
+  INFO: Shell ID: "01ba1f58bd86bf8941de39b116e1d5a5" Path ID "01ba1f58bd86bf8941de39b116e1d5a5"
+  INFO quickshell.crashhandler: Crash handler initialized.
+  INFO: Saving logs to "/run/user/1000/quickshell/by-id/2sq5phq8jt/log.qslog"
+  INFO quickshell.logging: Saving detailed logs to "/run/user/1000/quickshell/by-id/2sq5phq8jt/log.log"
+  INFO quickshell.wayland.safederef: Installed wl_proxy_get_listener hook.
+  INFO quickshell.ipc: Started IPC server on path "/run/user/1000/quickshell/by-id/2sq5phq8jt/ipc.sock"
+  INFO quickshell.tooling: Tooling support locked by another instance
+  INFO: Configuration Loaded
+  WARN: Failed to create Vulkan instance: -9
+  WARN: Failed to create platform Vulkan instance
+  WARN: QVulkanDefaultInstance: Failed to create Vulkan instance
+  WARN: No QVulkanInstance set for QQuickWindow, this is wrong.
+  WARN: QRhi for Vulkan attempted to be initialized without a QVulkanInstance; using QVulkanDefaultInstance.
+  WARN: Failed to create Vulkan instance: -9
+  WARN: Failed to create platform Vulkan instance
+  WARN: QVulkanDefaultInstance: Failed to create Vulkan instance
+  WARN: QEventLoop: Cannot be used without QCoreApplication
+ ERROR: Quickshell has crashed under pid 267995 (Coredumps will be available under that pid.)
+ ERROR: Further crash information is stored under "/home/krubics/.cache/quickshell/crashes/2sq5phq8jt"
+ ERROR: Quickshell crashed within 10 seconds of launching. Not restarting to avoid a crash loop.
+  INFO quickshell.crashreporter: Starting crash reporter...
+  INFO quickshell.wayland.safederef: Installed wl_proxy_get_listener hook.

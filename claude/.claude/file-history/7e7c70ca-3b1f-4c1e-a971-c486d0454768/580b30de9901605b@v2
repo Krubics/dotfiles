@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# Restart running GTK3 apps so they re-read ~/.config/gtk-3.0/gtk.css (colors.css).
+# GTK3 loads user CSS once at startup and never reloads it, so a relaunch is the
+# only reliable way to apply new matugen colors. Called from matugen's gtk3 post_hook.
+set -u
+
+log() { printf '[gtk3-reload] %s\n' "$*" >&2; }
+
+# GTK3 apps to relaunch if they are currently running. Add your own here.
+apps=(
+  gtk3-widget-factory
+)
+
+for app in "${apps[@]}"; do
+  if pgrep -x "$app" >/dev/null 2>&1; then
+    log "restarting $app"
+    pkill -x "$app" 2>/dev/null
+    # wait for it to die, then relaunch detached
+    for _ in 1 2 3 4 5 6 7 8 9 10; do
+      pgrep -x "$app" >/dev/null 2>&1 || break
+      sleep 0.1
+    done
+    setsid -f "$app" >/dev/null 2>&1 || nohup "$app" >/dev/null 2>&1 &
+  else
+    log "$app not running, skipping"
+  fi
+done

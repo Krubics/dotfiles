@@ -1,0 +1,31 @@
+/home/krubics/.config/systemd/user/xremap.service
+/home/krubics/.config/xremap
+/home/krubics/.cargo/bin/xremap
+/home/krubics/xremap
+/home/krubics/xremap/.github/xremap.png
+/home/krubics/xremap/tests/common/xremap_controller.rs
+/home/krubics/xremap/example/xremap.desktop
+/home/krubics/xremap/example/xremap.service
+---systemd user service---
+● xremap.service - Xremap
+     Loaded: loaded (/home/krubics/.config/systemd/user/xremap.service; enabled; preset: enabled)
+     Active: active (running) since Sun 2026-07-26 23:47:25 +08; 1h 12min ago
+   Main PID: 1046623 (xremap)
+      Tasks: 1 (limit: 16254)
+     Memory: 1.1M (high: 8.0M max: 16.0M available: 6.8M peak: 1.8M)
+        CPU: 6.415s
+     CGroup: /user.slice/user-1000.slice/user@1000.service/app.slice/xremap.service
+             └─1046623 /home/krubics/.cargo/bin/xremap --watch=device /home/krubics/.config/xremap/config.yml
+
+Jul 26 23:47:26 KrubicsLaptop xremap[1046623]: /dev/input/event8 : Logitech G304
+Jul 26 23:47:26 KrubicsLaptop xremap[1046623]: /dev/input/event9 : Video Bus
+Jul 26 23:47:26 KrubicsLaptop xremap[1046623]: ------------------------------------------------------------------------------
+Jul 26 23:47:26 KrubicsLaptop xremap[1046623]: Selected keyboards automatically since --device options weren't specified:
+Jul 26 23:47:26 KrubicsLaptop xremap[1046623]: ------------------------------------------------------------------------------
+Jul 26 23:47:27 KrubicsLaptop xremap[1046623]: /dev/input/event19: MX Keys Mini B Keyboard
+Jul 26 23:47:27 KrubicsLaptop xremap[1046623]: /dev/input/event20: ydotoold virtual device
+Jul 26 23:47:32 KrubicsLaptop xremap[1046623]: Timed out waiting for keys to be released on: 'AT Translated Set 2 keyboard'
+Jul 26 23:47:32 KrubicsLaptop xremap[1046623]: /dev/input/event8 : Logitech G304
+Jul 26 23:47:32 KrubicsLaptop xremap[1046623]: ------------------------------------------------------------------------------
+---process---
+krubics  1046623  0.1  0.0   6556  2488 ?        Ss   Jul26   0:06 /home/krubics/.cargo/bin/xremap --watch=device /home/krubics/.config/xremap/config.yml

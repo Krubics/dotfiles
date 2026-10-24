@@ -1,0 +1,21 @@
+#!/bin/bash
+GH_TOKEN="$(cat ~/.local/share/gh_token)" gh pr create \
+  --repo SaverinOnRails/yin \
+  --head Krubico:fix/static-image-transition-recursion \
+  --base main \
+  --title "Fix transitions on static images spinning to completion in one frame" \
+  --body "## Problem
+
+Transitions on static images (JPEG/PNG) play instantly with no animation. On multi-monitor setups each monitor's full transition completes before the next one starts, causing a visible one-by-one update effect.
+
+## Root cause
+
+In \`Monitor::resumeTransition()\`, the \`render()\` call that refreshes the from-texture is placed outside the \`if (progress >= 1.0f)\` block. Since \`m_transitionState\` is still set mid-transition, the recursive \`render()\` re-enters \`resumeTransition()\` on every frame, spinning the entire transition to completion in a single \`onFrame()\` callback. Videos are unaffected because \`m_isSingleFrame\` is false for them.
+
+## Fix
+
+Move \`render()\` inside \`if (progress >= 1.0f)\` so it only fires once after the transition completes.
+
+## Testing
+
+Verified on a two-monitor setup: animated transitions on JPEG wallpapers now animate smoothly and simultaneously on both monitors."

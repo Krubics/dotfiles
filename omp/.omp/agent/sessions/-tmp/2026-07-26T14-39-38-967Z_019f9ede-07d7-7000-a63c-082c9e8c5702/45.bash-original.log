@@ -1,0 +1,141 @@
+--- /tmp/upstream-hsr
++++ /home/krubics/.config/hypr/scripts/hypr-session-restore
+@@ -54,15 +54,12 @@
+ SWEEP_TIMEOUT = 20
+ SPAWN_STAGGER = 0.3
+ 
+-
+ def hyprctl_json(cmd):
+     out = subprocess.run(["hyprctl", "-j", cmd], capture_output=True, text=True, timeout=10)
+     return json.loads(out.stdout)
+-
+ 
+ def dispatch(lua):
+     subprocess.run(["hyprctl", "dispatch", lua], capture_output=True, text=True, timeout=10)
+-
+ 
+ # ---------------------------------------------------------------- /proc utils
+ 
+@@ -74,14 +71,12 @@
+     except OSError:
+         return None
+ 
+-
+ def proc_cwd(pid):
+     try:
+         return os.readlink(f"/proc/{pid}/cwd")
+     except OSError:
+         return None
+ 
+-
+ def proc_comm(pid):
+     try:
+         with open(f"/proc/{pid}/comm") as f:
+@@ -89,7 +84,6 @@
+     except OSError:
+         return None
+ 
+-
+ def proc_children(pid):
+     pids = []
+     try:
+@@ -102,7 +96,6 @@
+     except OSError:
+         pass
+     return pids
+-
+ 
+ def find_descendant(pid, names, max_depth=5):
+     """BFS the process tree under pid for a comm in `names`."""
+@@ -114,7 +107,6 @@
+         if depth < max_depth:
+             queue += [(c, depth + 1) for c in proc_children(cur)]
+     return None
+-
+ 
+ # ----------------------------------------------------------------------- save
+ 
+@@ -144,7 +136,6 @@
+         return None
+     return shlex.join(argv)
+ 
+-
+ def save():
+     clients = hyprctl_json("clients")
+     windows = []
+@@ -182,7 +173,6 @@
+         json.dump({"saved_at": time.time(), "windows": windows}, f, indent=2)
+     os.replace(tmp, SESSION_FILE)
+     return len(windows)
+-
+ 
+ # -------------------------------------------------------------------- restore
+ 
+@@ -196,10 +186,8 @@
+         return str(wid)
+     return f"name:{name}"
+ 
+-
+ def lua_str(s):
+     return "'" + s.replace("\\", "\\\\").replace("'", "\\'") + "'"
+-
+ 
+ def lua_long_str(s):
+     # long-bracket literal; bump the level if the payload contains the closer
+@@ -207,7 +195,6 @@
+     while f"]{eq}]" in s:
+         eq += "="
+     return f"[{eq}[{s}]{eq}]"
+-
+ 
+ def exec_rules(win):
+     rules = [f"workspace = {lua_str(ws_selector(win['workspace']) + ' silent')}"]
+@@ -219,7 +206,6 @@
+         rules.append("pin = true")
+     return "{ " + ", ".join(rules) + " }"
+ 
+-
+ def fix_window(win, address):
+     """Silently move/shape an existing window to match its saved state."""
+     target = lua_str(f"address:{address}")
+@@ -235,7 +221,6 @@
+     if fs:
+         mode = "fullscreen" if fs & 2 else "maximized"
+         dispatch(f"hl.dsp.window.fullscreen({{ mode = '{mode}', action = 'set', window = {target} }})")
+-
+ 
+ def current_clients():
+     return {
+@@ -244,7 +229,6 @@
+         if c.get("mapped") and c.get("class") and c["class"] not in EXCLUDE_CLASSES
+     }
+ 
+-
+ def restore():
+     if os.path.exists(DISABLE_FLAG):
+         return
+@@ -310,7 +294,6 @@
+             if misplaced or geometry_off or match.get("fullscreen", 0) or match["pinned"]:
+                 fix_window(match, addr)
+ 
+-
+ def daemon():
+     time.sleep(DAEMON_INITIAL_DELAY)
+     while True:
+@@ -320,7 +303,6 @@
+             print(f"hypr-session-restore: save failed: {e}", file=sys.stderr)
+         time.sleep(SAVE_INTERVAL)
+ 
+-
+ def main():
+     action = sys.argv[1] if len(sys.argv) > 1 else ""
+     if action == "save":
+@@ -333,7 +315,6 @@
+     else:
+         print(__doc__.strip(), file=sys.stderr)
+         sys.exit(1)
+-
+ 
+ if __name__ == "__main__":
+     main()
+SYNTAX OK

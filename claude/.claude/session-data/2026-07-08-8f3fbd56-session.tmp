@@ -1,0 +1,34 @@
+# Session: 2026-07-08
+**Date:** 2026-07-08
+**Started:** 00:03
+**Last Updated:** 00:06
+**Project:** omarchy-pokemon-theme
+**Branch:** master
+**Worktree:** /home/krubics/omarchy-pokemon-theme
+
+---
+<!-- ECC:SUMMARY:START -->
+## Session Summary
+
+### Tasks
+- So my hyprlock is kinda ugly because of ~/.config/hypr/hyprlock.conf and I want to make it so it isn't, can you make the black and make my image fit nicely into a circle without cropping?
+- You deleted my background why?
+- I need you to make the text and input field's border black.
+
+### Files Modified
+- /home/krubics/.config/hypr/hyprlock.conf
+
+### Tools Used
+Read, Bash, Edit, AskUserQuestion
+
+### Stats
+- Total user messages: 3
+<!-- ECC:SUMMARY:END -->
+
+### Notes for Next Session
+-
+
+### Context to Load
+```
+[relevant files]
+```

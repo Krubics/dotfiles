@@ -1,0 +1,39 @@
+#!/bin/bash
+# Usage: set-wallpaper.sh /path/to/image-or-video [transition]
+# Applies the wallpaper to every monitor Yin knows about.
+
+WALLPAPER="$1"
+TRANSITION="$2"   # optional, e.g. zoom / bookflip (see `yinctl --list-trans`)
+[ -z "$WALLPAPER" ] && { echo "Usage: $0 <path> [transition]"; exit 1; }
+
+# Build the optional --trans flag only when a transition was given.
+trans_args=()
+[ -n "$TRANSITION" ] && trans_args=(--trans "$TRANSITION")
+
+# Discover monitors from yin's per-monitor state files in ~/.cache/yin.
+# Cached media is named "<W>x<H>_<file>"; anything else is a monitor name.
+monitors=$(ls ~/.cache/yin 2>/dev/null | grep -vE '^[0-9]+x[0-9]+_')
+
+args=()
+# Set the wallpaper via yin's IPC on every monitor (fall back to yin's
+# default target if none are discovered yet, e.g. on a fresh cache).
+if [ -z "$monitors" ]; then
+  yinctl --img "$WALLPAPER" "${trans_args[@]}"
+else
+  while IFS= read -r m; do
+    args+=("$m")
+  done <<< "$monitors"
+fi
+
+for a in "${args[@]}"; do
+  yinctl --img "$WALLPAPER" "${trans_args[@]}" --output "$a" &
+done
+wait
+
+wp_file="${WALLPAPER##*/}"
+wp_stem="${wp_file%%.*}"
+matugen json ../matugen-colors/$wp_stem.json
+
+
+# Track current wallpaper for restarts
+ln -sf "$WALLPAPER" ~/.cache/current-wallpaper

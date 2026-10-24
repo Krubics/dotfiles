@@ -23,6 +23,28 @@ python3Packages.buildPythonApplication {
     hash = "sha256-MAGlCtVqBU4M32Xv5EuPtMyQBH7mIXO2gr0ho31pp1E=";
   };
 
+  postPatch = ''
+    substituteInPlace src/lyrics_tool/visualizer_main.py \
+      --replace-fail \
+      $'    return idx\n\n\n# Tracks' \
+      $'    return idx\n\n\ndef _stabilize_line_index(candidate: int, previous: Optional[int], allow_backward: bool) -> int:\n    """Keep normal clock corrections from replaying a prior lyric line.\n\n    Position samples can arrive slightly behind the free-running clock. While\n    playing normally, that must not move the display back across a phrase\n    boundary. Explicit re-anchors remain free to select an earlier line.\n    """\n    if not allow_backward and previous is not None and candidate < previous:\n        return previous\n    return candidate\n\n\n# Tracks'
+
+    substituteInPlace src/lyrics_tool/visualizer_main.py \
+      --replace-fail \
+      $'                # Big events (track change / pause / seek) flagged by the monitor\n                # → jump the clock straight onto a fresh sample.\n                if sync_data.should_resync:\n                    sync_data.should_resync = False' \
+      $'                # Big events (track change / pause / seek) flagged by the monitor\n                # → jump the clock straight onto a fresh sample.\n                allow_backward = False\n                if sync_data.should_resync:\n                    sync_data.should_resync = False\n                    allow_backward = True'
+
+    substituteInPlace src/lyrics_tool/visualizer_main.py \
+      --replace-fail \
+      '                        clock.correct(snap.position, snap.sampled_at)' \
+      $'                        allow_backward = (\n                            clock.correct(snap.position, snap.sampled_at))'
+
+    substituteInPlace src/lyrics_tool/visualizer_main.py \
+      --replace-fail \
+      $'                # Pick the line for now — recomputed each frame so a gentle\n                # correction that nudges us back across a boundary is honoured,\n                # not just forward motion.\n                idx = _index_for(lines, line_pos)' \
+      $'                # Pick the line for now. Normal clock corrections can advance\n                # a phrase immediately, but cannot replay a previous phrase.\n                idx = _stabilize_line_index(\n                    _index_for(lines, line_pos), last_idx, allow_backward)'
+  '';
+
   # PEP 517 build backend — the sandbox can't fetch build-system.requires,
   # so provide setuptools explicitly.
   nativeBuildInputs = [ python3Packages.setuptools ];

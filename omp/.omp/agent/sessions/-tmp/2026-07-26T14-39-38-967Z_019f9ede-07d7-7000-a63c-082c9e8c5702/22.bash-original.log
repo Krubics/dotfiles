@@ -1,0 +1,33 @@
+● xremap.service - Xremap
+     Loaded: loaded (/home/krubics/.config/systemd/user/xremap.service; enabled; preset: enabled)
+     Active: active (running) since Sun 2026-07-26 23:47:25 +08; 1s ago
+   Main PID: 1046623 (xremap)
+      Tasks: 1 (limit: 16254)
+     Memory: 1.1M (high: 8.0M max: 16.0M available: 6.8M peak: 1.1M)
+        CPU: 4ms
+     CGroup: /user.slice/user-1000.slice/user@1000.service/app.slice/xremap.service
+             └─1046623 /home/krubics/.cargo/bin/xremap --watch=device /home/krubics/.config/xremap/config.yml
+
+Jul 26 23:47:26 KrubicsLaptop xremap[1046623]: /dev/input/event3 : Power Button
+Jul 26 23:47:26 KrubicsLaptop xremap[1046623]: /dev/input/event4 : AT Translated Set 2 keyboard
+=== recent logs for parse errors ===
+Jul 26 23:47:26 KrubicsLaptop xremap[1046623]: /dev/input/event10: Video Bus
+Jul 26 23:47:26 KrubicsLaptop xremap[1046623]: /dev/input/event11: HDA NVidia HDMI/DP,pcm=3
+Jul 26 23:47:26 KrubicsLaptop xremap[1046623]: /dev/input/event12: HDA NVidia HDMI/DP,pcm=7
+Jul 26 23:47:26 KrubicsLaptop xremap[1046623]: /dev/input/event13: HDA NVidia HDMI/DP,pcm=8
+Jul 26 23:47:26 KrubicsLaptop xremap[1046623]: /dev/input/event14: HDA NVidia HDMI/DP,pcm=9
+Jul 26 23:47:26 KrubicsLaptop xremap[1046623]: /dev/input/event16: HDA Intel PCH Mic
+Jul 26 23:47:26 KrubicsLaptop xremap[1046623]: /dev/input/event17: HDA Intel PCH Front Headphone
+Jul 26 23:47:26 KrubicsLaptop xremap[1046623]: /dev/input/event19: MX Keys Mini B Keyboard
+Jul 26 23:47:26 KrubicsLaptop xremap[1046623]: /dev/input/event2 : Lid Switch
+Jul 26 23:47:26 KrubicsLaptop xremap[1046623]: /dev/input/event20: ydotoold virtual device
+Jul 26 23:47:26 KrubicsLaptop xremap[1046623]: /dev/input/event3 : Power Button
+Jul 26 23:47:26 KrubicsLaptop xremap[1046623]: /dev/input/event4 : AT Translated Set 2 keyboard
+Jul 26 23:47:26 KrubicsLaptop xremap[1046623]: /dev/input/event5 : UNIW0001:00 093A:0255 Mouse
+Jul 26 23:47:26 KrubicsLaptop xremap[1046623]: /dev/input/event6 : UNIW0001:00 093A:0255 Touchpad
+Jul 26 23:47:26 KrubicsLaptop xremap[1046623]: /dev/input/event7 : Logitech MX Anywhere 3
+Jul 26 23:47:26 KrubicsLaptop xremap[1046623]: /dev/input/event8 : Logitech G304
+Jul 26 23:47:26 KrubicsLaptop xremap[1046623]: /dev/input/event9 : Video Bus
+Jul 26 23:47:26 KrubicsLaptop xremap[1046623]: ------------------------------------------------------------------------------
+Jul 26 23:47:26 KrubicsLaptop xremap[1046623]: Selected keyboards automatically since --device options weren't specified:
+Jul 26 23:47:26 KrubicsLaptop xremap[1046623]: ------------------------------------------------------------------------------

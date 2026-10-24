@@ -1,0 +1,21 @@
+=== cumulative CPU time (all-time, since process start) ===
+ghostty (pid 1001549): lifetime_cpu=374.2s over 3741s uptime -> avg 10.00% of one core
+herdr (pid 8114): lifetime_cpu=964.4s over 21464s uptime -> avg 4.00% of one core
+herdr (pid 1001929): lifetime_cpu=113.4s over 3738s uptime -> avg 3.00% of one core
+
+=== how many panes/clients does the one herdr server currently juggle? ===
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/usr/lib/python3.12/json/__init__.py", line 293, in load
+    return loads(fp.read(),
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+{"id":"cli:pane:list","result":{"panes":[{"agent":"omp","agent_status":"idle","cwd":"/home/krubics","focused":false,"foreground_cwd":"/tmp","pane_id":"w5:p1","revision":12134,"scroll":{"max_offset_from_bottom":1093,"offset_from_bottom":0,"viewport_rows":57},"tab_id":"w5:t1","terminal_id":"term_65780e3f3ad2a1","terminal_title":"π ⠇ Change Oh My Pi TUI UI","terminal_title_stripped":"π ⠇ Change Oh My Pi TUI UI","workspace_id":"w5"},{"agent":"omp","agent_status":"idle","cwd":"/","focused":true,"foreground_cwd":"/","pane_id":"w5:pA","revision":58853,"scroll":{"max_offset_from_bottom":3301,"offset_from_bottom":16,"viewport_rows":57},"tab_id":"w5:t8","terminal_id":"term_6578363c304dfa","terminal_title":"π ⠏ Create yazi shortcuts matching hyprland framework","terminal_title_stripped":"π ⠏ Create yazi shortcuts matching hyprland framework","workspace_id":"w5"},{"agent_status":"unknown","cwd":"/home/krubics","focused":false,"foreground_cwd":"/home/krubics","pane_id":"w6:p1","revision":6,"scroll":{"max_offset_from_bottom":0,"offset_from_bottom":0,"viewport_rows":55},"tab_id":"w6:t1","terminal_id":"term_65784fe8f3b5fe","terminal_title":"~","terminal_title_stripped":"~","workspace_id":"w6"},{"agent":"omp","agent_status":"idle","cwd":"/tmp","focused":false,"foreground_cwd":"/tmp","label":"yazi-fix","pane_id":"w6:p2","revision":4549,"scroll":{"max_offset_from_bottom":849,"offset_from_bottom":0,"viewport_rows":55},"tab_id":"w6:t1","terminal_id":"term_657851210f1bc10","terminal_title":"π > Execute yazi fix task from file","terminal_title_stripped":"π > Execute yazi fix task from file","workspace_id":"w6"}],"type":"pane_list"}}

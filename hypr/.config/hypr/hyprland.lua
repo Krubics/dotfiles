@@ -171,9 +171,9 @@ hl.animation({ leaf = "layersIn",      enabled = true,  speed = 4,    bezier = "
 hl.animation({ leaf = "layersOut",     enabled = true,  speed = 1.5,  bezier = "linear",       style = "fade" })
 hl.animation({ leaf = "fadeLayersIn",  enabled = true,  speed = 1.79, bezier = "almostLinear" })
 hl.animation({ leaf = "fadeLayersOut", enabled = true,  speed = 1.39, bezier = "almostLinear" })
-hl.animation({ leaf = "workspaces",    enabled = true,  speed = 1.94, bezier = "almostLinear", style = "fade" })
-hl.animation({ leaf = "workspacesIn",  enabled = true,  speed = 1.21, bezier = "almostLinear", style = "fade" })
-hl.animation({ leaf = "workspacesOut", enabled = true,  speed = 1.94, bezier = "almostLinear", style = "fade" })
+hl.animation({ leaf = "workspaces", enabled = true, speed = 6, bezier = "easeOutQuint", style = "slidevert" })
+hl.animation({ leaf = "workspacesIn", enabled = true, speed = 6, bezier = "easeOutQuint", style = "slidevert" })
+hl.animation({ leaf = "workspacesOut", enabled = true, speed = 6, bezier = "easeOutQuint", style = "slidevert" })
 hl.animation({ leaf = "zoomFactor",    enabled = true,  speed = 7,    bezier = "quick" })
 
 -- Ref https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
@@ -289,6 +289,22 @@ require("conf.keybinds")
 
 -- Example window rules that are useful
 
+local monitors = {
+    ["eDP-1"] = { 5 },
+    ["HDMI-A-1"]  = { 1, 2, 3, 4 },
+}
+
+
+for monitor, workspaces in pairs(monitors) do
+    for index, workspace in ipairs(workspaces) do
+        hl.workspace_rule({
+            workspace = tostring(workspace),
+            monitor = monitor,
+            default = index == 1,
+        })
+    end
+end
+
 local suppressMaximizeRule = hl.window_rule({
     -- Ignore maximize requests from all apps. You'll probably like this.
     name  = "suppress-maximize-events",
@@ -338,18 +354,9 @@ hl.window_rule({
     float = true,
 })
 
--- require('hyprland-gui')
-
-hl.monitor({
-  output = "eDP-1",
-  mode = "1920x1080@144",
-  position = "0x0",
-  scale = 2,
+hl.device({
+    name = "at-translated-set-2-keyboard",
+    enabled = false
 })
 
-hl.monitor({
-  output = "HDMI-A-1",
-  mode = "1920x1080@60",
-  position = "1920x0",
-  scale = 1,
-})
+require('hyprland-gui')

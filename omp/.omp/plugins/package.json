@@ -1,0 +1,8 @@
+{
+  "name": "omp-plugins",
+  "private": true,
+  "dependencies": {
+    "pi-interactive-shell": "npm:pi-interactive-shell",
+    "pi-list-skills": "npm:pi-list-skills"
+  }
+}
