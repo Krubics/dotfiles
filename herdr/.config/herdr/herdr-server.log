@@ -4636,3 +4636,78 @@
 2026-07-29T05:59:19.117000Z  INFO herdr::server::headless: client resize client_id=2 cols=125 rows=58 cell_width_px=0 cell_height_px=0
 2026-07-29T07:30:51.560146Z  INFO herdr::server::headless: client resize client_id=2 cols=125 rows=56 cell_width_px=0 cell_height_px=0
 2026-07-29T07:30:57.779123Z  INFO herdr::server::headless: client resize client_id=2 cols=125 rows=58 cell_width_px=0 cell_height_px=0
+2026-10-06T08:42:15.333862Z  INFO herdr::api::server: api server listening path=/home/krubics/.config/herdr/herdr.sock
+2026-10-06T08:42:15.336740Z  INFO herdr::logging: spawning pane terminal event="pane.spawn.start" subsystem="pane" outcome="started" pane_id=1 rows=24 cols=80 scrollback_limit_bytes=10000000
+2026-10-06T08:42:15.338743Z  INFO herdr::logging: pane child spawned event="pane.spawned" subsystem="pane" outcome="ok" pane_id=1 pid=27990
+2026-10-06T08:42:15.339118Z  INFO herdr::logging: spawning pane terminal event="pane.spawn.start" subsystem="pane" outcome="started" pane_id=2 rows=24 cols=80 scrollback_limit_bytes=10000000
+2026-10-06T08:42:15.340444Z  INFO herdr::logging: pane child spawned event="pane.spawned" subsystem="pane" outcome="ok" pane_id=2 pid=27993
+2026-10-06T08:42:15.340768Z  INFO herdr::logging: spawning pane terminal event="pane.spawn.start" subsystem="pane" outcome="started" pane_id=5 rows=24 cols=80 scrollback_limit_bytes=10000000
+2026-10-06T08:42:15.342183Z  INFO herdr::logging: pane child spawned event="pane.spawned" subsystem="pane" outcome="ok" pane_id=5 pid=27996
+2026-10-06T08:42:15.342914Z  INFO herdr::logging: session restore evaluated event="persist.restore" subsystem="persist" outcome="ok" workspaces=1
+2026-10-06T08:42:15.342936Z  INFO herdr::app: using pane scrollback configuration pane_scrollback_limit_bytes=10000000
+2026-10-06T08:42:15.388707Z  INFO herdr::logging: checking for updates event="update.check.start" subsystem="update" outcome="started"
+2026-10-06T08:42:15.391704Z  INFO herdr::server::headless: restored session already has workspaces; ignoring startup cwd cwd=/home/krubics/dotfiles/nvim/.config/nvim/lua/plugins
+2026-10-06T08:42:15.391948Z  INFO herdr::server::headless: client protocol socket listening path=/home/krubics/.config/herdr/herdr-client.sock
+2026-10-06T08:42:15.392002Z  INFO herdr::server::headless: herdr server started api_socket=/home/krubics/.config/herdr/herdr.sock client_socket=/home/krubics/.config/herdr/herdr-client.sock
+2026-10-06T08:42:15.392024Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="server" outcome="started" pid=27972
+2026-10-06T08:42:15.474228Z  WARN herdr::detect::manifest_update: skipping unknown remote manifest agent agent="letta"
+2026-10-06T08:42:15.474272Z  WARN herdr::detect::manifest_update: skipping unknown remote manifest agent agent="muse"
+2026-10-06T08:42:15.474284Z  WARN herdr::detect::manifest_update: skipping unknown remote manifest agent agent="qwen"
+2026-10-06T08:42:15.512309Z  INFO herdr::logging: update available event="update.available" subsystem="update" outcome="ok" version="0.9.3"
+2026-10-06T08:42:15.512355Z  INFO herdr::update: new stable build available at https://github.com/herdrdev/herdr/releases/download/v0.9.3/herdr-linux-x86_64
+2026-10-06T08:42:15.512666Z  INFO herdr::update: auto-update check: 0.9.3 available, waiting for explicit install
+2026-10-06T08:42:15.514186Z  INFO herdr::server::headless: client connected client_id=2 cols=72 rows=20 cell_width_px=0 cell_height_px=0 render_encoding=SemanticFrame
+2026-10-06T08:42:15.531072Z  INFO herdr::logging: spawning pane terminal event="pane.spawn.start" subsystem="pane" outcome="started" pane_id=3 rows=19 cols=53 scrollback_limit_bytes=10000000
+2026-10-06T08:42:15.532964Z  INFO herdr::logging: pane child spawned event="pane.spawned" subsystem="pane" outcome="ok" pane_id=3 pid=28043
+2026-10-06T08:42:15.533390Z  INFO herdr::logging: spawning pane terminal event="pane.spawn.start" subsystem="pane" outcome="started" pane_id=4 rows=17 cols=24 scrollback_limit_bytes=10000000
+2026-10-06T08:42:15.535120Z  INFO herdr::logging: pane child spawned event="pane.spawned" subsystem="pane" outcome="ok" pane_id=4 pid=28046
+2026-10-06T08:42:15.535462Z  INFO herdr::logging: spawning pane terminal event="pane.spawn.start" subsystem="pane" outcome="started" pane_id=6 rows=19 cols=53 scrollback_limit_bytes=10000000
+2026-10-06T08:42:15.537243Z  INFO herdr::logging: pane child spawned event="pane.spawned" subsystem="pane" outcome="ok" pane_id=6 pid=28049
+2026-10-06T08:42:15.537661Z  INFO herdr::logging: spawning pane terminal event="pane.spawn.start" subsystem="pane" outcome="started" pane_id=7 rows=19 cols=54 scrollback_limit_bytes=10000000
+2026-10-06T08:42:15.539651Z  INFO herdr::logging: pane child spawned event="pane.spawned" subsystem="pane" outcome="ok" pane_id=7 pid=28052
+2026-10-06T08:42:16.083155Z  WARN herdr::detect::manifest_update: agent detection manifest update failed for agent agent="codex" error=rule trust_directory uses invalid region: top_non_empty_lines(20)
+2026-10-06T08:42:16.721160Z  WARN herdr::detect::manifest_update: agent detection manifest update failed for agent agent="grok" error=manifest requires engine 3, current engine is 2
+2026-10-06T08:42:20.542132Z  INFO herdr::logging: session saved event="persist.save" subsystem="persist" outcome="ok" path=/home/krubics/.config/herdr/session.json workspaces=1
+2026-10-06T08:42:39.818514Z  INFO herdr::logging: tab focused event="tab.focus" subsystem="tab" outcome="ok" workspace_id="w5" tab_id="w5:t11"
+2026-10-06T08:42:40.453965Z  INFO herdr::logging: tab focused event="tab.focus" subsystem="tab" outcome="ok" workspace_id="w5" tab_id="w5:t13"
+2026-10-06T08:42:42.278286Z  INFO herdr::logging: tab focused event="tab.focus" subsystem="tab" outcome="ok" workspace_id="w5" tab_id="w5:t0"
+2026-10-06T08:42:43.362069Z  INFO herdr::logging: tab focused event="tab.focus" subsystem="tab" outcome="ok" workspace_id="w5" tab_id="w5:tY"
+2026-10-06T08:42:46.125895Z  INFO herdr::logging: tab focused event="tab.focus" subsystem="tab" outcome="ok" workspace_id="w5" tab_id="w5:t11"
+2026-10-06T08:42:47.859379Z  INFO herdr::logging: tab focused event="tab.focus" subsystem="tab" outcome="ok" workspace_id="w5" tab_id="w5:t13"
+2026-10-06T08:42:52.862061Z  INFO herdr::logging: session saved event="persist.save" subsystem="persist" outcome="ok" path=/home/krubics/.config/herdr/session.json workspaces=1
+2026-10-06T08:42:56.431411Z  INFO herdr::server::headless: client disconnected client_id=2
+2026-10-06T09:12:15.592204Z  WARN herdr::detect::manifest_update: skipping unknown remote manifest agent agent="letta"
+2026-10-06T09:12:15.592275Z  WARN herdr::detect::manifest_update: skipping unknown remote manifest agent agent="muse"
+2026-10-06T09:12:15.592287Z  WARN herdr::detect::manifest_update: skipping unknown remote manifest agent agent="qwen"
+2026-10-06T09:12:16.228792Z  WARN herdr::detect::manifest_update: agent detection manifest update failed for agent agent="codex" error=rule trust_directory uses invalid region: top_non_empty_lines(20)
+2026-10-06T09:12:16.807104Z  WARN herdr::detect::manifest_update: agent detection manifest update failed for agent agent="grok" error=manifest requires engine 3, current engine is 2
+2026-10-06T09:42:15.488887Z  WARN herdr::detect::manifest_update: skipping unknown remote manifest agent agent="letta"
+2026-10-06T09:42:15.488966Z  WARN herdr::detect::manifest_update: skipping unknown remote manifest agent agent="muse"
+2026-10-06T09:42:15.488983Z  WARN herdr::detect::manifest_update: skipping unknown remote manifest agent agent="qwen"
+2026-10-06T09:42:16.034005Z  WARN herdr::detect::manifest_update: agent detection manifest update failed for agent agent="codex" error=rule trust_directory uses invalid region: top_non_empty_lines(20)
+2026-10-06T09:42:16.441140Z  WARN herdr::detect::manifest_update: agent detection manifest update failed for agent agent="grok" error=manifest requires engine 3, current engine is 2
+2026-10-06T10:50:39.692564Z  WARN herdr::detect::manifest_update: skipping unknown remote manifest agent agent="letta"
+2026-10-06T10:50:39.692627Z  WARN herdr::detect::manifest_update: skipping unknown remote manifest agent agent="muse"
+2026-10-06T10:50:39.692637Z  WARN herdr::detect::manifest_update: skipping unknown remote manifest agent agent="qwen"
+2026-10-06T10:50:40.159041Z  WARN herdr::detect::manifest_update: agent detection manifest update failed for agent agent="codex" error=rule trust_directory uses invalid region: top_non_empty_lines(20)
+2026-10-06T10:50:40.545671Z  WARN herdr::detect::manifest_update: agent detection manifest update failed for agent agent="grok" error=manifest requires engine 3, current engine is 2
+2026-10-06T11:20:40.506136Z  WARN herdr::detect::manifest_update: skipping unknown remote manifest agent agent="letta"
+2026-10-06T11:20:40.506187Z  WARN herdr::detect::manifest_update: skipping unknown remote manifest agent agent="muse"
+2026-10-06T11:20:40.506195Z  WARN herdr::detect::manifest_update: skipping unknown remote manifest agent agent="qwen"
+2026-10-06T11:20:41.044454Z  WARN herdr::detect::manifest_update: agent detection manifest update failed for agent agent="codex" error=rule trust_directory uses invalid region: top_non_empty_lines(20)
+2026-10-06T11:20:41.536537Z  WARN herdr::detect::manifest_update: agent detection manifest update failed for agent agent="grok" error=manifest requires engine 3, current engine is 2
+2026-10-06T11:50:40.639454Z  WARN herdr::detect::manifest_update: skipping unknown remote manifest agent agent="letta"
+2026-10-06T11:50:40.639522Z  WARN herdr::detect::manifest_update: skipping unknown remote manifest agent agent="muse"
+2026-10-06T11:50:40.639531Z  WARN herdr::detect::manifest_update: skipping unknown remote manifest agent agent="qwen"
+2026-10-06T11:50:40.992104Z  WARN herdr::detect::manifest_update: agent detection manifest update failed for agent agent="codex" error=rule trust_directory uses invalid region: top_non_empty_lines(20)
+2026-10-06T11:50:41.527015Z  WARN herdr::detect::manifest_update: agent detection manifest update failed for agent agent="grok" error=manifest requires engine 3, current engine is 2
+2026-10-06T12:20:40.554099Z  WARN herdr::detect::manifest_update: skipping unknown remote manifest agent agent="letta"
+2026-10-06T12:20:40.554179Z  WARN herdr::detect::manifest_update: skipping unknown remote manifest agent agent="muse"
+2026-10-06T12:20:40.554188Z  WARN herdr::detect::manifest_update: skipping unknown remote manifest agent agent="qwen"
+2026-10-06T12:20:41.151227Z  WARN herdr::detect::manifest_update: agent detection manifest update failed for agent agent="codex" error=rule trust_directory uses invalid region: top_non_empty_lines(20)
+2026-10-06T12:20:41.511906Z  WARN herdr::detect::manifest_update: agent detection manifest update failed for agent agent="grok" error=manifest requires engine 3, current engine is 2
+2026-10-06T12:50:40.517689Z  WARN herdr::detect::manifest_update: skipping unknown remote manifest agent agent="letta"
+2026-10-06T12:50:40.517762Z  WARN herdr::detect::manifest_update: skipping unknown remote manifest agent agent="muse"
+2026-10-06T12:50:40.517771Z  WARN herdr::detect::manifest_update: skipping unknown remote manifest agent agent="qwen"
+2026-10-06T12:50:40.932750Z  WARN herdr::detect::manifest_update: agent detection manifest update failed for agent agent="codex" error=rule trust_directory uses invalid region: top_non_empty_lines(20)
+2026-10-06T12:50:41.430228Z  WARN herdr::detect::manifest_update: agent detection manifest update failed for agent agent="grok" error=manifest requires engine 3, current engine is 2

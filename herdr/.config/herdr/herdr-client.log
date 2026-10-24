@@ -55,3 +55,6 @@
 2026-07-29T00:58:00.188316Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=9941
 2026-07-29T00:58:00.188467Z  INFO herdr::client: connecting to server path=/home/krubics/.config/herdr/herdr-client.sock
 2026-07-29T00:58:00.204244Z  INFO herdr::client: handshake succeeded version=16 encoding=SemanticFrame
+2026-10-06T08:42:15.432113Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="client" outcome="started" pid=27971
+2026-10-06T08:42:15.432181Z  INFO herdr::client: connecting to server path=/home/krubics/.config/herdr/herdr-client.sock
+2026-10-06T08:42:15.513137Z  INFO herdr::client: handshake succeeded version=16 encoding=SemanticFrame

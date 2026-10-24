@@ -1,6 +1,6 @@
 local vars = {
     terminal = "ghostty",
-    browser  = "vivaldi",
+    browser  = "zen-beta",
     files    = "nautilus",
     yazi     = "yazi-fm",
     obsidian = "obsidian",

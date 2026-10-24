@@ -1,7 +1,5 @@
 -- ============================================================
---  keybinds.lua  —  Omarchy's keymap, ported to Hyprland 0.55+ Lua
---
---  Grammar (Omarchy's, kept faithfully):
+--  Grammar:
 --    SUPER            = window & workspace management
 --    SUPER + SHIFT    = launch apps  (and "relocate" on numbers/arrows)
 --    SUPER + CTRL     = system / settings
